@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--#======================================================================= -->
+<!--# Copyright (c) 2011 - 2014, Lunifera GmbH (Gross Enzersdorf), -->
+<!--# Loetz KG (Heidelberg) -->
+<!--# All rights reserved. This program and the accompanying materials -->
+<!--# are made available under the terms of the Eclipse Public License v1.0 -->
+<!--# which accompanies this distribution, and is available at -->
+<!--# http://www.eclipse.org/legal/epl-v10.html -->
+<!--# -->
+<!--# Contributors: -->
+<!--# Florian Pirchner - Initial implementation -->
+<!--#======================================================================= -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.lunifera.releng.maven</groupId>
+		<artifactId>org.lunifera.releng.maven.parent.tycho</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath />
+	</parent>
+
+	<groupId>org.lunifera.xtext.builder</groupId>
+	<artifactId>org.lunifera.xtext.builder.parent</artifactId>
+	<packaging>pom</packaging>
+
+	<url>${distribution.site.url}</url>
+	<distributionManagement>
+		<site>
+			<id>gh-pages</id>
+			<name>Lunifera GitHub Pages</name>
+			<url>${distribution.site.url}</url>
+		</site>
+	</distributionManagement>
+
+	<properties>
+		<lunifera.deployment.p2.name>xtext.builder</lunifera.deployment.p2.name>
+		<lunifera.build.p2.project.name>org.lunifera.xtext.builder.p2</lunifera.build.p2.project.name>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<xtext.version>2.5.4</xtext.version>
+
+		<lunifera.jacoco.include>org.lunifera.xtext.builder.*</lunifera.jacoco.include>
+		<sonar.skippedModules>
+			org.lunifera.xtext.builder.participant.jvmtypes.tests,
+			org.lunifera.xtext.builder.participant.jvmtypes.extender.tests,
+			org.lunifera.xtext.builder.participant.xbase.extender.tests,
+			org.lunifera.xtext.builder.participant.xbase.tests,
+			org.eclipse.xtext.example.domainmodel
+		</sonar.skippedModules>
+	</properties>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>add-source</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>add-source</goal>
+							</goals>
+							<configuration>
+								<sources>
+									<source>src-gen</source>
+									<source>xtend-gen</source>
+								</sources>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.xtend</groupId>
+					<artifactId>xtend-maven-plugin</artifactId>
+					<version>${xtext.version}</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>compile</goal>
+								<goal>xtend-install-debug-info</goal>
+								<goal>testCompile</goal>
+								<goal>xtend-test-install-debug-info</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<outputDirectory>xtend-gen</outputDirectory>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.xtend</groupId>
+				<artifactId>xtend-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.eclipse.xtext</groupId>
+				<artifactId>org.eclipse.xtext.xtext</artifactId>
+				<version>${xtext.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.xtext</groupId>
+				<artifactId>org.eclipse.xtext.xbase</artifactId>
+				<version>${xtext.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.xtext</groupId>
+				<artifactId>org.eclipse.xtext.common.types</artifactId>
+				<version>${xtext.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.xtext</groupId>
+				<artifactId>org.eclipse.xtext.ecore</artifactId>
+				<version>2.5.1</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+<version>0.8.0</version>
+</project>

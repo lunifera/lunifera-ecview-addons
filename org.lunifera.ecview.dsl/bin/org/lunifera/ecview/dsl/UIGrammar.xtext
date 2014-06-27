@@ -1,0 +1,123 @@
+grammar org.lunifera.ecview.dsl.UIGrammar with org.eclipse.xtext.xbase.Xbase
+
+import "http://eclipse.org/emf/ecp/ecview/common/view" as core
+import "http://eclipse.org/emf/ecp/ecview/common/datatypes" as coreDt
+import "http://eclipse.org/emf/ecp/ecview/common/visibility" as coreVis
+import "http://eclipse.org/emf/ecp/ecview/common/binding" as coreBind
+import "http://eclipse.org/emf/ecp/ecview/common/validation" as coreVal
+import "http://eclipse.org/emf/ecp/ecview/extension/view" as ext
+import "http://eclipse.org/emf/ecp/ecview/extension/datatypes" as extDt
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate uIGrammar "http://www.lunifera.org/ecview/dsl/UIGrammar"
+
+UiModel:
+	viewSet+=ViewSet*;
+
+ViewSet returns core::YViewSet:
+	{core::YViewSet}
+	'viewset' id=ID ('{'
+	(beanSlots+=BeanSlot)*
+	(views+=View)*
+	'}')?;
+
+BeanSlot returns core::YBeanSlot:
+	GBeanSlot;
+
+GBeanSlot:
+	'slot' name=ID jvmType=JvmTypeReference;
+
+View returns core::YView:
+	IDEView;
+
+IDEView:
+	'ideview' name=ID ('{'
+	(actions+=Action)*
+	(layouts+=Layout)*
+	'}')?;
+
+Action:
+	'action' name=ID ('{' body=XExpression '}');
+
+Layout returns core::YLayout:
+	HorizontalLayout | VerticalLayout | GridLayout;
+
+HorizontalLayout returns ext::YHorizontalLayout:
+	'horizontal layout' id=ID ('{'
+	(cellStyles+=HorizontalLayoutCellStyle)*
+	|
+	(fillHorizontal?='fillhorizontal')
+	'}');
+
+HorizontalLayoutCellStyle returns ext::YHorizontalLayoutCellStyle:
+	('target' target=[core::YEmbeddable]) |
+	('alignment' alignment=Alignment);
+
+VerticalLayout returns ext::YVerticalLayout:
+	'vertical layout' id=ID ('{'
+	(cellStyles+=VerticalLayoutCellStyle)*
+	|
+	(fillVertical?='fillvertical')
+	'}');
+
+VerticalLayoutCellStyle returns ext::YVerticalLayoutCellStyle:
+	('target' target=[core::YEmbeddable]) |
+	('alignment' alignment=Alignment);
+
+GridLayout returns ext::YGridLayout:
+	'gridlayout' id=ID ('{'
+	(cellStyles+=GridLayoutCellStyle)*
+	|
+	('columns' columns=INT)
+	|
+	(fillHorizontal?='fillhorizontal')
+	|
+	(fillVertical?='fillvertical')
+	'}');
+
+GridLayoutCellStyle returns ext::YGridLayoutCellStyle:
+	('target' target=[core::YEmbeddable]) |
+	('alignment' alignment=Alignment) |
+	('spaninfo' spanInfo=SpanInfo);
+
+enum Alignment returns ext::YAlignment:
+	BOTTOM_LEFT="BOTTOM_LEFT" | BOTTOM_CENTER="BOTTOM_CENTER" | BOTTOM_RIGHT="BOTTOM_RIGHT" | BOTTOM_FILL="BOTTOM_FILL" |
+	MIDDLE_LEFT="MIDDLE_LEFT" | MIDDLE_CENTER="MIDDLE_CENTER" | MIDDLE_RIGHT="MIDDLE_RIGHT" | BOTTOM_FILL="MIDDLE_FILL" |
+	TOP_LEFT="TOP_LEFT" | TOP_CENTER="TOP_CENTER" | TOP_RIGHT="TOP_RIGHT" | TOP_FILL="TOP_FILL" |
+	FILL_LEFT="FILL_LEFT" | FILL_CENTER="FILL_CENTER" | FILL_RIGHT="FILL_RIGHT" | FILL_FILL="FILL_FILL" |
+	UNDEFINED="UNDEFINED";
+
+SpanInfo returns ext::YSpanInfo:
+	(('columnFrom' columnFrom=INT)
+	('columnTo' columnTo=INT))
+	|
+	(('rowFrom' rowFrom=INT)
+	('rowTo' rowTo=INT));
+
+Text returns ext::YTextField:
+	('datatype' datatype=[extDt::YTextDatatype])? 
+	('datadescription' datadescription=[coreDt::YDatadescription])? 
+	('value' value=ID)?;
+
+Input returns ext::YInput:
+	Text
+;
+
+Embeddable returns core::YEmbeddable:
+	Layout | Field;
+
+Field returns core::YField:
+	Text
+;		
+
+Validator returns coreVal::YValidator:
+	MaxLengthValidator | MinLengthValidator
+;
+
+MaxLengthValidator returns coreVal::YValidator:
+	'max' 
+;
+
+MinLengthValidator returns coreVal::YValidator:
+	'min'
+;
