@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="uIGrammar" nsURI="http://www.lunifera.org/ecview/dsl/UIGrammar"
+    nsPrefix="uIGrammar">
+  <eClassifiers xsi:type="ecore:EClass" name="UiModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewSet" upperBound="-1"
+        eType="ecore:EClass platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YViewSet"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GBeanSlot" eSuperTypes="platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBeanSlot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IDEView" eSuperTypes="platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YView">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="layouts" upperBound="-1"
+        eType="ecore:EClass platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YLayout"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="ecore:EClass platform:/resource/org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -4,34 +4,49 @@ import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
-var grammarURI = "classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext"
-var fileExtensions = "uis"
+var fileExtensions = "uimodel"
 var projectName = "org.lunifera.ecview.dsl"
+var grammarURI = "platform:/resource/${projectName}/src/org/lunifera/ecview/dsl/UIGrammar.xtext"
 var runtimeProject = "../${projectName}"
 var generateXtendStub = true
 var encoding = "UTF-8"
 
 Workflow {
 	bean = StandaloneSetup {
+	//		uriMap = {
+	//			from = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel"
+	//			to = "file://home/klemens/git/org.eclipse.emf.ecp.other/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel"
+	//		}
+		uriMap = {
+			from = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/"
+			to =
+			"file://home/klemens/git/org.eclipse.emf.ecp.other/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.common.model/"
+		}
+		uriMap = {
+			from = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/"
+			to =
+			"file://home/klemens/git/org.eclipse.emf.ecp.other/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.extension.model/"
+		}
 		scanClassPath = true
-		platformUri = "${runtimeProject}/.."// The following two lines can be removed, if Xbase is not used.
+		platformUri = "${runtimeProject}/.."
 		registerGeneratedEPackage = "org.eclipse.xtext.xbase.XbasePackage"
 		registerGenModelFile = "platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel"
 		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage"
-//		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/binding.ecore"
+		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/binding.ecore"
 		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage"
-//		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore"
+		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore"
 		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage"
-		//registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore"
-		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage"
-		//registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore"
-		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage"
-		//registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/visibility.ecore"
+		registerEcoreFile ="platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore"
+		registerGeneratedEPackage="org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage"
+		registerEcoreFile="platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore"
+		registerGeneratedEPackage="org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage"
+		registerEcoreFile= "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/visibility.ecore"
 		registerGenModelFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel"
+		
 		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage"
-		//registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extdatatypes.ecore"
+		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extdatatypes.ecore"
 		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage"
-		//registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore"
+		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore"
 		registerGenModelFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.genmodel"
 	}
 

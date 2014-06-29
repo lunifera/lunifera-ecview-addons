@@ -40,21 +40,25 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cYViewSetAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cViewsetKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cIdIDTerminalRuleCall_2_0 = (RuleCall)cIdAssignment_2.eContents().get(0);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cLeftCurlyBracketKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cBeanSlotsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cBeanSlotsBeanSlotParserRuleCall_3_1_0 = (RuleCall)cBeanSlotsAssignment_3_1.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
+		private final Keyword cBeanslotsKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_1_1 = (Keyword)cGroup_3_1.eContents().get(1);
+		private final Assignment cBeanSlotsAssignment_3_1_2 = (Assignment)cGroup_3_1.eContents().get(2);
+		private final RuleCall cBeanSlotsBeanSlotParserRuleCall_3_1_2_0 = (RuleCall)cBeanSlotsAssignment_3_1_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_1_3 = (Keyword)cGroup_3_1.eContents().get(3);
 		private final Assignment cViewsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
 		private final RuleCall cViewsViewParserRuleCall_3_2_0 = (RuleCall)cViewsAssignment_3_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
 		
 		//ViewSet returns core::YViewSet:
-		//	{core::YViewSet} "viewset" id=ID ("{" beanSlots+=BeanSlot* views+=View* "}")?;
+		//	{core::YViewSet} "viewset" name=ID ("{" ("beanslots" "{" beanSlots+=BeanSlot* "}")? views+=View* "}")?;
 		public ParserRule getRule() { return rule; }
 
-		//{core::YViewSet} "viewset" id=ID ("{" beanSlots+=BeanSlot* views+=View* "}")?
+		//{core::YViewSet} "viewset" name=ID ("{" ("beanslots" "{" beanSlots+=BeanSlot* "}")? views+=View* "}")?
 		public Group getGroup() { return cGroup; }
 
 		//{core::YViewSet}
@@ -63,23 +67,35 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"viewset"
 		public Keyword getViewsetKeyword_1() { return cViewsetKeyword_1; }
 
-		//id=ID
-		public Assignment getIdAssignment_2() { return cIdAssignment_2; }
+		//name=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_2_0() { return cIdIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
-		//("{" beanSlots+=BeanSlot* views+=View* "}")?
+		//("{" ("beanslots" "{" beanSlots+=BeanSlot* "}")? views+=View* "}")?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3_0() { return cLeftCurlyBracketKeyword_3_0; }
 
+		//("beanslots" "{" beanSlots+=BeanSlot* "}")?
+		public Group getGroup_3_1() { return cGroup_3_1; }
+
+		//"beanslots"
+		public Keyword getBeanslotsKeyword_3_1_0() { return cBeanslotsKeyword_3_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3_1_1() { return cLeftCurlyBracketKeyword_3_1_1; }
+
 		//beanSlots+=BeanSlot*
-		public Assignment getBeanSlotsAssignment_3_1() { return cBeanSlotsAssignment_3_1; }
+		public Assignment getBeanSlotsAssignment_3_1_2() { return cBeanSlotsAssignment_3_1_2; }
 
 		//BeanSlot
-		public RuleCall getBeanSlotsBeanSlotParserRuleCall_3_1_0() { return cBeanSlotsBeanSlotParserRuleCall_3_1_0; }
+		public RuleCall getBeanSlotsBeanSlotParserRuleCall_3_1_2_0() { return cBeanSlotsBeanSlotParserRuleCall_3_1_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3_1_3() { return cRightCurlyBracketKeyword_3_1_3; }
 
 		//views+=View*
 		public Assignment getViewsAssignment_3_2() { return cViewsAssignment_3_2; }
@@ -109,14 +125,15 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSlotKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cJvmTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_2_0 = (RuleCall)cJvmTypeAssignment_2.eContents().get(0);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cJvmTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_3_0 = (RuleCall)cJvmTypeAssignment_3.eContents().get(0);
 		
 		//GBeanSlot:
-		//	"slot" name=ID jvmType=JvmTypeReference;
+		//	"slot" name=ID ":" jvmType=JvmTypeReference;
 		public ParserRule getRule() { return rule; }
 
-		//"slot" name=ID jvmType=JvmTypeReference
+		//"slot" name=ID ":" jvmType=JvmTypeReference
 		public Group getGroup() { return cGroup; }
 
 		//"slot"
@@ -128,11 +145,14 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
+		//":"
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+
 		//jvmType=JvmTypeReference
-		public Assignment getJvmTypeAssignment_2() { return cJvmTypeAssignment_2; }
+		public Assignment getJvmTypeAssignment_3() { return cJvmTypeAssignment_3; }
 
 		//JvmTypeReference
-		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_2_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_2_0; }
+		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_3_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_3_0; }
 	}
 
 	public class ViewElements extends AbstractParserRuleElementFinder {
@@ -503,15 +523,17 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_2_3 = (Group)cAlternatives_2.eContents().get(3);
 		private final Assignment cFillVerticalAssignment_2_3_0 = (Assignment)cGroup_2_3.eContents().get(0);
 		private final Keyword cFillVerticalFillverticalKeyword_2_3_0_0 = (Keyword)cFillVerticalAssignment_2_3_0.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_2_3_1 = (Keyword)cGroup_2_3.eContents().get(1);
+		private final Assignment cElementsAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
+		private final RuleCall cElementsEmbeddableParserRuleCall_2_3_1_0 = (RuleCall)cElementsAssignment_2_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_3_2 = (Keyword)cGroup_2_3.eContents().get(2);
 		
 		//GridLayout returns ext::YGridLayout:
 		//	"gridlayout" id=ID ("{" cellStyles+=GridLayoutCellStyle* | "columns" columns=INT | fillHorizontal?="fillhorizontal" |
-		//	fillVertical?="fillvertical" "}");
+		//	fillVertical?="fillvertical" elements+=Embeddable* "}");
 		public ParserRule getRule() { return rule; }
 
 		//"gridlayout" id=ID ("{" cellStyles+=GridLayoutCellStyle* | "columns" columns=INT | fillHorizontal?="fillhorizontal" |
-		//fillVertical?="fillvertical" "}")
+		//fillVertical?="fillvertical" elements+=Embeddable* "}")
 		public Group getGroup() { return cGroup; }
 
 		//"gridlayout"
@@ -524,7 +546,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
 
 		//"{" cellStyles+=GridLayoutCellStyle* | "columns" columns=INT | fillHorizontal?="fillhorizontal" |
-		//fillVertical?="fillvertical" "}"
+		//fillVertical?="fillvertical" elements+=Embeddable* "}"
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 
 		//"{" cellStyles+=GridLayoutCellStyle*
@@ -557,7 +579,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"fillhorizontal"
 		public Keyword getFillHorizontalFillhorizontalKeyword_2_2_0() { return cFillHorizontalFillhorizontalKeyword_2_2_0; }
 
-		//fillVertical?="fillvertical" "}"
+		//fillVertical?="fillvertical" elements+=Embeddable* "}"
 		public Group getGroup_2_3() { return cGroup_2_3; }
 
 		//fillVertical?="fillvertical"
@@ -566,8 +588,14 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"fillvertical"
 		public Keyword getFillVerticalFillverticalKeyword_2_3_0_0() { return cFillVerticalFillverticalKeyword_2_3_0_0; }
 
+		//elements+=Embeddable*
+		public Assignment getElementsAssignment_2_3_1() { return cElementsAssignment_2_3_1; }
+
+		//Embeddable
+		public RuleCall getElementsEmbeddableParserRuleCall_2_3_1_0() { return cElementsEmbeddableParserRuleCall_2_3_1_0; }
+
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_2_3_1() { return cRightCurlyBracketKeyword_2_3_1; }
+		public Keyword getRightCurlyBracketKeyword_2_3_2() { return cRightCurlyBracketKeyword_2_3_2; }
 	}
 
 	public class GridLayoutCellStyleElements extends AbstractParserRuleElementFinder {
@@ -721,71 +749,91 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	public class TextElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Text");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Keyword cDatatypeKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Assignment cDatatypeAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final CrossReference cDatatypeYTextDatatypeCrossReference_0_1_0 = (CrossReference)cDatatypeAssignment_0_1.eContents().get(0);
-		private final RuleCall cDatatypeYTextDatatypeIDTerminalRuleCall_0_1_0_1 = (RuleCall)cDatatypeYTextDatatypeCrossReference_0_1_0.eContents().get(1);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cDatadescriptionKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cDatadescriptionAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final CrossReference cDatadescriptionYDatadescriptionCrossReference_1_1_0 = (CrossReference)cDatadescriptionAssignment_1_1.eContents().get(0);
-		private final RuleCall cDatadescriptionYDatadescriptionIDTerminalRuleCall_1_1_0_1 = (RuleCall)cDatadescriptionYDatadescriptionCrossReference_1_1_0.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cValueKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cValueIDTerminalRuleCall_2_1_0 = (RuleCall)cValueAssignment_2_1.eContents().get(0);
+		private final Keyword cTextfieldKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cDatatypeKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cDatatypeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cDatatypeYTextDatatypeCrossReference_3_1_0 = (CrossReference)cDatatypeAssignment_3_1.eContents().get(0);
+		private final RuleCall cDatatypeYTextDatatypeIDTerminalRuleCall_3_1_0_1 = (RuleCall)cDatatypeYTextDatatypeCrossReference_3_1_0.eContents().get(1);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cDatadescriptionKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cDatadescriptionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cDatadescriptionYDatadescriptionCrossReference_4_1_0 = (CrossReference)cDatadescriptionAssignment_4_1.eContents().get(0);
+		private final RuleCall cDatadescriptionYDatadescriptionIDTerminalRuleCall_4_1_0_1 = (RuleCall)cDatadescriptionYDatadescriptionCrossReference_4_1_0.eContents().get(1);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cValueKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cValueAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cValueIDTerminalRuleCall_5_1_0 = (RuleCall)cValueAssignment_5_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Text returns ext::YTextField:
-		//	("datatype" datatype=[extDt::YTextDatatype])? ("datadescription" datadescription=[coreDt::YDatadescription])? ("value"
-		//	value=ID)?;
+		//	"textfield" name=ID "{" ("datatype" datatype=[extDt::YTextDatatype])? ("datadescription"
+		//	datadescription=[coreDt::YDatadescription])? ("value" value=ID)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//("datatype" datatype=[extDt::YTextDatatype])? ("datadescription" datadescription=[coreDt::YDatadescription])? ("value"
-		//value=ID)?
+		//"textfield" name=ID "{" ("datatype" datatype=[extDt::YTextDatatype])? ("datadescription"
+		//datadescription=[coreDt::YDatadescription])? ("value" value=ID)? "}"
 		public Group getGroup() { return cGroup; }
 
+		//"textfield"
+		public Keyword getTextfieldKeyword_0() { return cTextfieldKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
 		//("datatype" datatype=[extDt::YTextDatatype])?
-		public Group getGroup_0() { return cGroup_0; }
+		public Group getGroup_3() { return cGroup_3; }
 
 		//"datatype"
-		public Keyword getDatatypeKeyword_0_0() { return cDatatypeKeyword_0_0; }
+		public Keyword getDatatypeKeyword_3_0() { return cDatatypeKeyword_3_0; }
 
 		//datatype=[extDt::YTextDatatype]
-		public Assignment getDatatypeAssignment_0_1() { return cDatatypeAssignment_0_1; }
+		public Assignment getDatatypeAssignment_3_1() { return cDatatypeAssignment_3_1; }
 
 		//[extDt::YTextDatatype]
-		public CrossReference getDatatypeYTextDatatypeCrossReference_0_1_0() { return cDatatypeYTextDatatypeCrossReference_0_1_0; }
+		public CrossReference getDatatypeYTextDatatypeCrossReference_3_1_0() { return cDatatypeYTextDatatypeCrossReference_3_1_0; }
 
 		//ID
-		public RuleCall getDatatypeYTextDatatypeIDTerminalRuleCall_0_1_0_1() { return cDatatypeYTextDatatypeIDTerminalRuleCall_0_1_0_1; }
+		public RuleCall getDatatypeYTextDatatypeIDTerminalRuleCall_3_1_0_1() { return cDatatypeYTextDatatypeIDTerminalRuleCall_3_1_0_1; }
 
 		//("datadescription" datadescription=[coreDt::YDatadescription])?
-		public Group getGroup_1() { return cGroup_1; }
+		public Group getGroup_4() { return cGroup_4; }
 
 		//"datadescription"
-		public Keyword getDatadescriptionKeyword_1_0() { return cDatadescriptionKeyword_1_0; }
+		public Keyword getDatadescriptionKeyword_4_0() { return cDatadescriptionKeyword_4_0; }
 
 		//datadescription=[coreDt::YDatadescription]
-		public Assignment getDatadescriptionAssignment_1_1() { return cDatadescriptionAssignment_1_1; }
+		public Assignment getDatadescriptionAssignment_4_1() { return cDatadescriptionAssignment_4_1; }
 
 		//[coreDt::YDatadescription]
-		public CrossReference getDatadescriptionYDatadescriptionCrossReference_1_1_0() { return cDatadescriptionYDatadescriptionCrossReference_1_1_0; }
+		public CrossReference getDatadescriptionYDatadescriptionCrossReference_4_1_0() { return cDatadescriptionYDatadescriptionCrossReference_4_1_0; }
 
 		//ID
-		public RuleCall getDatadescriptionYDatadescriptionIDTerminalRuleCall_1_1_0_1() { return cDatadescriptionYDatadescriptionIDTerminalRuleCall_1_1_0_1; }
+		public RuleCall getDatadescriptionYDatadescriptionIDTerminalRuleCall_4_1_0_1() { return cDatadescriptionYDatadescriptionIDTerminalRuleCall_4_1_0_1; }
 
 		//("value" value=ID)?
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_5() { return cGroup_5; }
 
 		//"value"
-		public Keyword getValueKeyword_2_0() { return cValueKeyword_2_0; }
+		public Keyword getValueKeyword_5_0() { return cValueKeyword_5_0; }
 
 		//value=ID
-		public Assignment getValueAssignment_2_1() { return cValueAssignment_2_1; }
+		public Assignment getValueAssignment_5_1() { return cValueAssignment_5_1; }
 
 		//ID
-		public RuleCall getValueIDTerminalRuleCall_2_1_0() { return cValueIDTerminalRuleCall_2_1_0; }
+		public RuleCall getValueIDTerminalRuleCall_5_1_0() { return cValueIDTerminalRuleCall_5_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class InputElements extends AbstractParserRuleElementFinder {
@@ -1102,7 +1150,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ViewSet returns core::YViewSet:
-	//	{core::YViewSet} "viewset" id=ID ("{" beanSlots+=BeanSlot* views+=View* "}")?;
+	//	{core::YViewSet} "viewset" name=ID ("{" ("beanslots" "{" beanSlots+=BeanSlot* "}")? views+=View* "}")?;
 	public ViewSetElements getViewSetAccess() {
 		return (pViewSet != null) ? pViewSet : (pViewSet = new ViewSetElements());
 	}
@@ -1122,7 +1170,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//GBeanSlot:
-	//	"slot" name=ID jvmType=JvmTypeReference;
+	//	"slot" name=ID ":" jvmType=JvmTypeReference;
 	public GBeanSlotElements getGBeanSlotAccess() {
 		return (pGBeanSlot != null) ? pGBeanSlot : (pGBeanSlot = new GBeanSlotElements());
 	}
@@ -1213,7 +1261,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 	//GridLayout returns ext::YGridLayout:
 	//	"gridlayout" id=ID ("{" cellStyles+=GridLayoutCellStyle* | "columns" columns=INT | fillHorizontal?="fillhorizontal" |
-	//	fillVertical?="fillvertical" "}");
+	//	fillVertical?="fillvertical" elements+=Embeddable* "}");
 	public GridLayoutElements getGridLayoutAccess() {
 		return (pGridLayout != null) ? pGridLayout : (pGridLayout = new GridLayoutElements());
 	}
@@ -1255,8 +1303,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Text returns ext::YTextField:
-	//	("datatype" datatype=[extDt::YTextDatatype])? ("datadescription" datadescription=[coreDt::YDatadescription])? ("value"
-	//	value=ID)?;
+	//	"textfield" name=ID "{" ("datatype" datatype=[extDt::YTextDatatype])? ("datadescription"
+	//	datadescription=[coreDt::YDatadescription])? ("value" value=ID)? "}";
 	public TextElements getTextAccess() {
 		return (pText != null) ? pText : (pText = new TextElements());
 	}

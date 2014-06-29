@@ -5,6 +5,8 @@ package org.lunifera.ecview.dsl.ui.labeling;
 
 import com.google.inject.Inject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider;
 
 /**
  * Provides labels for a EObjects.
@@ -12,10 +14,13 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
  * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
 @SuppressWarnings("all")
-public class UIGrammarLabelProvider /* implements org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider  */{
+public class UIGrammarLabelProvider extends XbaseLabelProvider {
   @Inject
   public UIGrammarLabelProvider(final AdapterFactoryLabelProvider delegate) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method super is undefined for the type UIGrammarLabelProvider");
+    super(delegate);
+  }
+  
+  public Image getImage(final Object object) {
+    return null;
   }
 }

@@ -8,6 +8,23 @@ Bundle-ActivationPolicy: lazy
 Require-Bundle: org.lunifera.ecview.dsl;visibility:=reexport,
  org.eclipse.xtext.ui,
  org.eclipse.ui.editors;bundle-version="3.5.0",
- org.eclipse.ui.ide;bundle-version="3.5.0"
-Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.xbase.ui,
+ org.eclipse.ui,
+ org.eclipse.xtext.builder,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types.ui,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.compare,
+ org.eclipse.emf.ecp.ecview.common.model;bundle-version="0.0.1",
+ org.eclipse.emf.ecp.ecview.extension.model;bundle-version="0.0.1",
+ org.eclipse.swt
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.lunifera.ecview.dsl.ui.quickfix,
+ org.lunifera.ecview.dsl.ui.contentassist,
+ org.lunifera.ecview.dsl.ui.contentassist.antlr,
+ org.lunifera.ecview.dsl.ui.internal
+Bundle-Activator: org.lunifera.ecview.dsl.ui.internal.UIGrammarActivator

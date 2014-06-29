@@ -89,6 +89,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAlignmentAccess().getAlternatives(), "rule__Alignment__Alternatives");
 					put(grammarAccess.getViewSetAccess().getGroup(), "rule__ViewSet__Group__0");
 					put(grammarAccess.getViewSetAccess().getGroup_3(), "rule__ViewSet__Group_3__0");
+					put(grammarAccess.getViewSetAccess().getGroup_3_1(), "rule__ViewSet__Group_3_1__0");
 					put(grammarAccess.getGBeanSlotAccess().getGroup(), "rule__GBeanSlot__Group__0");
 					put(grammarAccess.getIDEViewAccess().getGroup(), "rule__IDEView__Group__0");
 					put(grammarAccess.getIDEViewAccess().getGroup_2(), "rule__IDEView__Group_2__0");
@@ -118,9 +119,9 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSpanInfoAccess().getGroup_1_0(), "rule__SpanInfo__Group_1_0__0");
 					put(grammarAccess.getSpanInfoAccess().getGroup_1_1(), "rule__SpanInfo__Group_1_1__0");
 					put(grammarAccess.getTextAccess().getGroup(), "rule__Text__Group__0");
-					put(grammarAccess.getTextAccess().getGroup_0(), "rule__Text__Group_0__0");
-					put(grammarAccess.getTextAccess().getGroup_1(), "rule__Text__Group_1__0");
-					put(grammarAccess.getTextAccess().getGroup_2(), "rule__Text__Group_2__0");
+					put(grammarAccess.getTextAccess().getGroup_3(), "rule__Text__Group_3__0");
+					put(grammarAccess.getTextAccess().getGroup_4(), "rule__Text__Group_4__0");
+					put(grammarAccess.getTextAccess().getGroup_5(), "rule__Text__Group_5__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_0(), "rule__XAssignment__Group_0__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_1(), "rule__XAssignment__Group_1__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_1_1(), "rule__XAssignment__Group_1_1__0");
@@ -293,11 +294,11 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getXImportDeclarationAccess().getGroup_1_0(), "rule__XImportDeclaration__Group_1_0__0");
 					put(grammarAccess.getQualifiedNameInStaticImportAccess().getGroup(), "rule__QualifiedNameInStaticImport__Group__0");
 					put(grammarAccess.getUiModelAccess().getViewSetAssignment(), "rule__UiModel__ViewSetAssignment");
-					put(grammarAccess.getViewSetAccess().getIdAssignment_2(), "rule__ViewSet__IdAssignment_2");
-					put(grammarAccess.getViewSetAccess().getBeanSlotsAssignment_3_1(), "rule__ViewSet__BeanSlotsAssignment_3_1");
+					put(grammarAccess.getViewSetAccess().getNameAssignment_2(), "rule__ViewSet__NameAssignment_2");
+					put(grammarAccess.getViewSetAccess().getBeanSlotsAssignment_3_1_2(), "rule__ViewSet__BeanSlotsAssignment_3_1_2");
 					put(grammarAccess.getViewSetAccess().getViewsAssignment_3_2(), "rule__ViewSet__ViewsAssignment_3_2");
 					put(grammarAccess.getGBeanSlotAccess().getNameAssignment_1(), "rule__GBeanSlot__NameAssignment_1");
-					put(grammarAccess.getGBeanSlotAccess().getJvmTypeAssignment_2(), "rule__GBeanSlot__JvmTypeAssignment_2");
+					put(grammarAccess.getGBeanSlotAccess().getJvmTypeAssignment_3(), "rule__GBeanSlot__JvmTypeAssignment_3");
 					put(grammarAccess.getIDEViewAccess().getNameAssignment_1(), "rule__IDEView__NameAssignment_1");
 					put(grammarAccess.getIDEViewAccess().getActionsAssignment_2_1(), "rule__IDEView__ActionsAssignment_2_1");
 					put(grammarAccess.getIDEViewAccess().getLayoutsAssignment_2_2(), "rule__IDEView__LayoutsAssignment_2_2");
@@ -318,6 +319,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGridLayoutAccess().getColumnsAssignment_2_1_1(), "rule__GridLayout__ColumnsAssignment_2_1_1");
 					put(grammarAccess.getGridLayoutAccess().getFillHorizontalAssignment_2_2(), "rule__GridLayout__FillHorizontalAssignment_2_2");
 					put(grammarAccess.getGridLayoutAccess().getFillVerticalAssignment_2_3_0(), "rule__GridLayout__FillVerticalAssignment_2_3_0");
+					put(grammarAccess.getGridLayoutAccess().getElementsAssignment_2_3_1(), "rule__GridLayout__ElementsAssignment_2_3_1");
 					put(grammarAccess.getGridLayoutCellStyleAccess().getTargetAssignment_0_1(), "rule__GridLayoutCellStyle__TargetAssignment_0_1");
 					put(grammarAccess.getGridLayoutCellStyleAccess().getAlignmentAssignment_1_1(), "rule__GridLayoutCellStyle__AlignmentAssignment_1_1");
 					put(grammarAccess.getGridLayoutCellStyleAccess().getSpanInfoAssignment_2_1(), "rule__GridLayoutCellStyle__SpanInfoAssignment_2_1");
@@ -325,9 +327,10 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSpanInfoAccess().getColumnToAssignment_0_1_1(), "rule__SpanInfo__ColumnToAssignment_0_1_1");
 					put(grammarAccess.getSpanInfoAccess().getRowFromAssignment_1_0_1(), "rule__SpanInfo__RowFromAssignment_1_0_1");
 					put(grammarAccess.getSpanInfoAccess().getRowToAssignment_1_1_1(), "rule__SpanInfo__RowToAssignment_1_1_1");
-					put(grammarAccess.getTextAccess().getDatatypeAssignment_0_1(), "rule__Text__DatatypeAssignment_0_1");
-					put(grammarAccess.getTextAccess().getDatadescriptionAssignment_1_1(), "rule__Text__DatadescriptionAssignment_1_1");
-					put(grammarAccess.getTextAccess().getValueAssignment_2_1(), "rule__Text__ValueAssignment_2_1");
+					put(grammarAccess.getTextAccess().getNameAssignment_1(), "rule__Text__NameAssignment_1");
+					put(grammarAccess.getTextAccess().getDatatypeAssignment_3_1(), "rule__Text__DatatypeAssignment_3_1");
+					put(grammarAccess.getTextAccess().getDatadescriptionAssignment_4_1(), "rule__Text__DatadescriptionAssignment_4_1");
+					put(grammarAccess.getTextAccess().getValueAssignment_5_1(), "rule__Text__ValueAssignment_5_1");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_0_1(), "rule__XAssignment__FeatureAssignment_0_1");
 					put(grammarAccess.getXAssignmentAccess().getValueAssignment_0_3(), "rule__XAssignment__ValueAssignment_0_3");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_1_1_0_0_1(), "rule__XAssignment__FeatureAssignment_1_1_0_0_1");

@@ -1,0 +1,5 @@
+viewset myViewSet {
+	beanslots {
+		slot root : my.types.MyDto
+	}
+}

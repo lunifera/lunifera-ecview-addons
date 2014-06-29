@@ -14,6 +14,26 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.emf.mwe2.launch;resolution:=optional,
  org.eclipse.emf.ecp.ecview.common.model;bundle-version="0.0.1",
  org.eclipse.emf.ecp.ecview.extension.model;bundle-version="0.0.1",
- org.eclipse.xtext.xbase.junit;bundle-version="2.6.1"
-Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
+ org.eclipse.xtext.xbase.lib,
+ org.lunifera.xtext.builder.types.bundles;bundle-version="0.8.1",
+ org.lunifera.xtext.builder.xbase.setups;bundle-version="0.8.1"
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.lunifera.ecview.dsl,
+ org.lunifera.ecview.dsl.services,
+ org.lunifera.ecview.dsl.uIGrammar,
+ org.lunifera.ecview.dsl.uIGrammar.impl,
+ org.lunifera.ecview.dsl.uIGrammar.util,
+ org.lunifera.ecview.dsl.serializer,
+ org.lunifera.ecview.dsl.parser.antlr,
+ org.lunifera.ecview.dsl.parser.antlr.internal,
+ org.lunifera.ecview.dsl.validation,
+ org.lunifera.ecview.dsl.formatting,
+ org.lunifera.ecview.dsl.jvmmodel

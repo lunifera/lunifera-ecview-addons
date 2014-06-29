@@ -4,21 +4,27 @@
 package org.lunifera.ecview.dsl.ui.labeling
 
 import com.google.inject.Inject
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
+import org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider
 
 /**
  * Provides labels for a EObjects.
  * 
  * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
-class UIGrammarLabelProvider extends org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider {
+class UIGrammarLabelProvider extends XbaseLabelProvider {
 
 	@Inject
-	new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
+	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
 
-	// Labels and icons can be computed like this:
-	
+	override getImage(Object object) {
+		//		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		return null
+	}
+
+// Labels and icons can be computed like this:
 //	def text(Greeting ele) {
 //		'A greeting to ' + ele.name
 //	}
