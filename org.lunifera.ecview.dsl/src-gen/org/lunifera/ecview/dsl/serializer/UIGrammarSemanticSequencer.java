@@ -5,15 +5,11 @@ import com.google.inject.Provider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSpanInfo;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayout;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayoutCellStyle;
 import org.eclipse.xtext.common.types.JvmFormalParameter;
 import org.eclipse.xtext.common.types.JvmGenericArrayTypeReference;
 import org.eclipse.xtext.common.types.JvmLowerBound;
@@ -70,8 +66,18 @@ import org.eclipse.xtext.xtype.XImportSection;
 import org.eclipse.xtext.xtype.XtypePackage;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess;
 import org.lunifera.ecview.dsl.uIGrammar.Action;
+import org.lunifera.ecview.dsl.uIGrammar.Binding;
 import org.lunifera.ecview.dsl.uIGrammar.GBeanSlot;
+import org.lunifera.ecview.dsl.uIGrammar.GGridLayout;
+import org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment;
+import org.lunifera.ecview.dsl.uIGrammar.GTable;
+import org.lunifera.ecview.dsl.uIGrammar.GTextArea;
+import org.lunifera.ecview.dsl.uIGrammar.GTextBindingDef;
+import org.lunifera.ecview.dsl.uIGrammar.GTextBindingDefs;
+import org.lunifera.ecview.dsl.uIGrammar.GTextField;
+import org.lunifera.ecview.dsl.uIGrammar.GTtree;
 import org.lunifera.ecview.dsl.uIGrammar.IDEView;
+import org.lunifera.ecview.dsl.uIGrammar.Point;
 import org.lunifera.ecview.dsl.uIGrammar.UIGrammarPackage;
 import org.lunifera.ecview.dsl.uIGrammar.UiModel;
 
@@ -91,60 +97,15 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 				else break;
 			}
 		else if(semanticObject.eClass().getEPackage() == ExtensionModelPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case ExtensionModelPackage.YGRID_LAYOUT:
-				if(context == grammarAccess.getEmbeddableRule() ||
-				   context == grammarAccess.getGridLayoutRule() ||
-				   context == grammarAccess.getLayoutRule()) {
-					sequence_GridLayout(context, (YGridLayout) semanticObject); 
-					return; 
-				}
-				else break;
 			case ExtensionModelPackage.YGRID_LAYOUT_CELL_STYLE:
 				if(context == grammarAccess.getGridLayoutCellStyleRule()) {
 					sequence_GridLayoutCellStyle(context, (YGridLayoutCellStyle) semanticObject); 
 					return; 
 				}
 				else break;
-			case ExtensionModelPackage.YHORIZONTAL_LAYOUT:
-				if(context == grammarAccess.getEmbeddableRule() ||
-				   context == grammarAccess.getHorizontalLayoutRule() ||
-				   context == grammarAccess.getLayoutRule()) {
-					sequence_HorizontalLayout(context, (YHorizontalLayout) semanticObject); 
-					return; 
-				}
-				else break;
-			case ExtensionModelPackage.YHORIZONTAL_LAYOUT_CELL_STYLE:
-				if(context == grammarAccess.getHorizontalLayoutCellStyleRule()) {
-					sequence_HorizontalLayoutCellStyle(context, (YHorizontalLayoutCellStyle) semanticObject); 
-					return; 
-				}
-				else break;
 			case ExtensionModelPackage.YSPAN_INFO:
 				if(context == grammarAccess.getSpanInfoRule()) {
 					sequence_SpanInfo(context, (YSpanInfo) semanticObject); 
-					return; 
-				}
-				else break;
-			case ExtensionModelPackage.YTEXT_FIELD:
-				if(context == grammarAccess.getEmbeddableRule() ||
-				   context == grammarAccess.getFieldRule() ||
-				   context == grammarAccess.getInputRule() ||
-				   context == grammarAccess.getTextRule()) {
-					sequence_Text(context, (YTextField) semanticObject); 
-					return; 
-				}
-				else break;
-			case ExtensionModelPackage.YVERTICAL_LAYOUT:
-				if(context == grammarAccess.getEmbeddableRule() ||
-				   context == grammarAccess.getLayoutRule() ||
-				   context == grammarAccess.getVerticalLayoutRule()) {
-					sequence_VerticalLayout(context, (YVerticalLayout) semanticObject); 
-					return; 
-				}
-				else break;
-			case ExtensionModelPackage.YVERTICAL_LAYOUT_CELL_STYLE:
-				if(context == grammarAccess.getVerticalLayoutCellStyleRule()) {
-					sequence_VerticalLayoutCellStyle(context, (YVerticalLayoutCellStyle) semanticObject); 
 					return; 
 				}
 				else break;
@@ -214,10 +175,73 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 					return; 
 				}
 				else break;
+			case UIGrammarPackage.BINDING:
+				if(context == grammarAccess.getBindingRule()) {
+					sequence_Binding(context, (Binding) semanticObject); 
+					return; 
+				}
+				else break;
 			case UIGrammarPackage.GBEAN_SLOT:
-				if(context == grammarAccess.getBeanSlotRule() ||
-				   context == grammarAccess.getGBeanSlotRule()) {
+				if(context == grammarAccess.getGBeanSlotRule()) {
 					sequence_GBeanSlot(context, (GBeanSlot) semanticObject); 
+					return; 
+				}
+				else break;
+			case UIGrammarPackage.GGRID_LAYOUT:
+				if(context == grammarAccess.getEmbeddableRule() ||
+				   context == grammarAccess.getGGridLayoutRule() ||
+				   context == grammarAccess.getLayoutRule()) {
+					sequence_GGridLayout(context, (GGridLayout) semanticObject); 
+					return; 
+				}
+				else break;
+			case UIGrammarPackage.GGRID_LAYOUT_ASSIGMENT:
+				if(context == grammarAccess.getGGridLayoutAssigmentRule()) {
+					sequence_GGridLayoutAssigment(context, (GGridLayoutAssigment) semanticObject); 
+					return; 
+				}
+				else break;
+			case UIGrammarPackage.GTABLE:
+				if(context == grammarAccess.getEmbeddableRule() ||
+				   context == grammarAccess.getFieldRule() ||
+				   context == grammarAccess.getGTableRule()) {
+					sequence_GTable(context, (GTable) semanticObject); 
+					return; 
+				}
+				else break;
+			case UIGrammarPackage.GTEXT_AREA:
+				if(context == grammarAccess.getEmbeddableRule() ||
+				   context == grammarAccess.getFieldRule() ||
+				   context == grammarAccess.getGTextAreaRule()) {
+					sequence_GTextArea(context, (GTextArea) semanticObject); 
+					return; 
+				}
+				else break;
+			case UIGrammarPackage.GTEXT_BINDING_DEF:
+				if(context == grammarAccess.getGTextBindingDefRule()) {
+					sequence_GTextBindingDef(context, (GTextBindingDef) semanticObject); 
+					return; 
+				}
+				else break;
+			case UIGrammarPackage.GTEXT_BINDING_DEFS:
+				if(context == grammarAccess.getGTextBindingDefsRule()) {
+					sequence_GTextBindingDefs(context, (GTextBindingDefs) semanticObject); 
+					return; 
+				}
+				else break;
+			case UIGrammarPackage.GTEXT_FIELD:
+				if(context == grammarAccess.getEmbeddableRule() ||
+				   context == grammarAccess.getFieldRule() ||
+				   context == grammarAccess.getGTextFieldRule()) {
+					sequence_GTextField(context, (GTextField) semanticObject); 
+					return; 
+				}
+				else break;
+			case UIGrammarPackage.GTTREE:
+				if(context == grammarAccess.getEmbeddableRule() ||
+				   context == grammarAccess.getFieldRule() ||
+				   context == grammarAccess.getGTreeRule()) {
+					sequence_GTree(context, (GTtree) semanticObject); 
 					return; 
 				}
 				else break;
@@ -228,9 +252,25 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 					return; 
 				}
 				else break;
+			case UIGrammarPackage.POINT:
+				if(context == grammarAccess.getPointRule()) {
+					sequence_Point(context, (Point) semanticObject); 
+					return; 
+				}
+				else break;
 			case UIGrammarPackage.UI_MODEL:
 				if(context == grammarAccess.getUiModelRule()) {
 					sequence_UiModel(context, (UiModel) semanticObject); 
+					return; 
+				}
+				else break;
+			}
+		else if(semanticObject.eClass().getEPackage() == ValidationPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case ValidationPackage.YVALIDATOR:
+				if(context == grammarAccess.getMaxLengthValidatorRule() ||
+				   context == grammarAccess.getMinLengthValidatorRule() ||
+				   context == grammarAccess.getValidatorRule()) {
+					sequence_MaxLengthValidator_MinLengthValidator(context, (YValidator) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1286,7 +1326,26 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getActionAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getActionAccess().getBodyXExpressionParserRuleCall_2_1_0(), semanticObject.getBody());
+		feeder.accept(grammarAccess.getActionAccess().getBodyXExpressionParserRuleCall_3_0(), semanticObject.getBody());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (embeddable=[YEmbeddable|ID] method=[BindingMethod|ID])
+	 */
+	protected void sequence_Binding(EObject context, Binding semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, UIGrammarPackage.Literals.BINDING__EMBEDDABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UIGrammarPackage.Literals.BINDING__EMBEDDABLE));
+			if(transientValues.isValueTransient(semanticObject, UIGrammarPackage.Literals.BINDING__METHOD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UIGrammarPackage.Literals.BINDING__METHOD));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getBindingAccess().getEmbeddableYEmbeddableIDTerminalRuleCall_1_0_1(), semanticObject.getEmbeddable());
+		feeder.accept(grammarAccess.getBindingAccess().getMethodBindingMethodIDTerminalRuleCall_3_0_1(), semanticObject.getMethod());
 		feeder.finish();
 	}
 	
@@ -1302,7 +1361,108 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (target=[YEmbeddable|ID] | alignment=Alignment | spanInfo=SpanInfo)
+	 *     (element=Embeddable alignment=Alignment? (from=Point to=Point)?)
+	 */
+	protected void sequence_GGridLayoutAssigment(EObject context, GGridLayoutAssigment semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         (columns=INT? fillHorizontal?='fill-h'? fillVertical?='fill-v'? spacing?='spacing'? margin?='margin'?)? 
+	 *         name=ID? 
+	 *         contents+=GGridLayoutAssigment*
+	 *     )
+	 */
+	protected void sequence_GGridLayout(EObject context, GGridLayout semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         name=ID? 
+	 *         datatype=[YTableDatatype|ID]? 
+	 *         datadescription=[YDatadescription|ID]? 
+	 *         selectionType=SelectionType? 
+	 *         jvmType=JvmTypeReference? 
+	 *         collectionBindingEndpoint=[YEmbeddableCollectionEndpoint|ID]? 
+	 *         selectionBindingEndpoint=[YEmbeddableSelectionEndpoint|ID]? 
+	 *         multiSelectionBindingEndpoint=[YEmbeddableMultiSelectionEndpoint|ID]?
+	 *     )
+	 */
+	protected void sequence_GTable(EObject context, GTable semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID? (datatype=[YTextAreaDatatype|ID]? datadescription=[YDatadescription|ID]? value=ID?)?)
+	 */
+	protected void sequence_GTextArea(EObject context, GTextArea semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_GTextBindingDef(EObject context, GTextBindingDef semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, UIGrammarPackage.Literals.GTEXT_BINDING_DEF__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UIGrammarPackage.Literals.GTEXT_BINDING_DEF__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getGTextBindingDefAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (methods+=GTextBindingDef methods+=GTextBindingDef*)
+	 */
+	protected void sequence_GTextBindingDefs(EObject context, GTextBindingDefs semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID? (datatype=[YTextDatatype|ID]? datadescription=[YDatadescription|ID]? value=ID?)?)
+	 */
+	protected void sequence_GTextField(EObject context, GTextField semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         name=ID? 
+	 *         datatype=[YTreeDatatype|ID]? 
+	 *         datadescription=[YDatadescription|ID]? 
+	 *         selectionType=SelectionType? 
+	 *         jvmType=JvmTypeReference? 
+	 *         collectionBindingEndpoint=[YEmbeddableCollectionEndpoint|ID]? 
+	 *         selectionBindingEndpoint=[YEmbeddableSelectionEndpoint|ID]? 
+	 *         multiSelectionBindingEndpoint=[YEmbeddableMultiSelectionEndpoint|ID]?
+	 *     )
+	 */
+	protected void sequence_GTree(EObject context, GTtree semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (target=[YEmbeddable|ID]? alignment=Alignment? spanInfo=SpanInfo?)
 	 */
 	protected void sequence_GridLayoutCellStyle(EObject context, YGridLayoutCellStyle semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1312,36 +1472,13 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         id=ID 
-	 *         (cellStyles+=GridLayoutCellStyle* | columns=INT | fillHorizontal?='fillhorizontal' | (fillVertical?='fillvertical' elements+=Embeddable*))
+	 *         name=ID 
+	 *         for=[EClass|ID] 
+	 *         defs+=GTextBindingDefs* 
+	 *         actions+=Action* 
+	 *         layouts+=Layout* 
+	 *         bindings+=Binding*
 	 *     )
-	 */
-	protected void sequence_GridLayout(EObject context, YGridLayout semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (target=[YEmbeddable|ID] | alignment=Alignment)
-	 */
-	protected void sequence_HorizontalLayoutCellStyle(EObject context, YHorizontalLayoutCellStyle semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (id=ID (cellStyles+=HorizontalLayoutCellStyle* | fillHorizontal?='fillhorizontal'))
-	 */
-	protected void sequence_HorizontalLayout(EObject context, YHorizontalLayout semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID (actions+=Action* layouts+=Layout*)?)
 	 */
 	protected void sequence_IDEView(EObject context, IDEView semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1350,18 +1487,37 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((columnFrom=INT columnTo=INT) | (rowFrom=INT rowTo=INT))
+	 *     {YValidator}
 	 */
-	protected void sequence_SpanInfo(EObject context, YSpanInfo semanticObject) {
+	protected void sequence_MaxLengthValidator_MinLengthValidator(EObject context, YValidator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (name=ID datatype=[YTextDatatype|ID]? datadescription=[YDatadescription|ID]? value=ID?)
+	 *     (x=INT y=INT)
 	 */
-	protected void sequence_Text(EObject context, YTextField semanticObject) {
+	protected void sequence_Point(EObject context, Point semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, UIGrammarPackage.Literals.POINT__X) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UIGrammarPackage.Literals.POINT__X));
+			if(transientValues.isValueTransient(semanticObject, UIGrammarPackage.Literals.POINT__Y) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UIGrammarPackage.Literals.POINT__Y));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getPointAccess().getXINTTerminalRuleCall_0_0(), semanticObject.getX());
+		feeder.accept(grammarAccess.getPointAccess().getYINTTerminalRuleCall_2_0(), semanticObject.getY());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((columnFrom=INT columnTo=INT)? (rowFrom=INT rowTo=INT)?)
+	 */
+	protected void sequence_SpanInfo(EObject context, YSpanInfo semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1377,25 +1533,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (target=[YEmbeddable|ID] | alignment=Alignment)
-	 */
-	protected void sequence_VerticalLayoutCellStyle(EObject context, YVerticalLayoutCellStyle semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (id=ID (cellStyles+=VerticalLayoutCellStyle* | fillVertical?='fillvertical'))
-	 */
-	protected void sequence_VerticalLayout(EObject context, YVerticalLayout semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID (beanSlots+=BeanSlot* views+=View*)?)
+	 *     (name=ID beanSlots+=GBeanSlot* views+=View*)
 	 */
 	protected void sequence_ViewSet(EObject context, YViewSet semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

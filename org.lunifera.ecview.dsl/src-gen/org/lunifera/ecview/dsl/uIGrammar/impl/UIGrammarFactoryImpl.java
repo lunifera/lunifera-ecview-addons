@@ -65,9 +65,19 @@ public class UIGrammarFactoryImpl extends EFactoryImpl implements UIGrammarFacto
     switch (eClass.getClassifierID())
     {
       case UIGrammarPackage.UI_MODEL: return createUiModel();
-      case UIGrammarPackage.GBEAN_SLOT: return createGBeanSlot();
       case UIGrammarPackage.IDE_VIEW: return createIDEView();
+      case UIGrammarPackage.GTEXT_BINDING_DEFS: return createGTextBindingDefs();
+      case UIGrammarPackage.GTEXT_BINDING_DEF: return createGTextBindingDef();
       case UIGrammarPackage.ACTION: return createAction();
+      case UIGrammarPackage.GGRID_LAYOUT_ASSIGMENT: return createGGridLayoutAssigment();
+      case UIGrammarPackage.POINT: return createPoint();
+      case UIGrammarPackage.BINDING: return createBinding();
+      case UIGrammarPackage.GBEAN_SLOT: return createGBeanSlot();
+      case UIGrammarPackage.GGRID_LAYOUT: return createGGridLayout();
+      case UIGrammarPackage.GTEXT_FIELD: return createGTextField();
+      case UIGrammarPackage.GTEXT_AREA: return createGTextArea();
+      case UIGrammarPackage.GTABLE: return createGTable();
+      case UIGrammarPackage.GTTREE: return createGTtree();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -89,17 +99,6 @@ public class UIGrammarFactoryImpl extends EFactoryImpl implements UIGrammarFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public GBeanSlot createGBeanSlot()
-  {
-    GBeanSlotImpl gBeanSlot = new GBeanSlotImpl();
-    return gBeanSlot;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public IDEView createIDEView()
   {
     IDEViewImpl ideView = new IDEViewImpl();
@@ -111,10 +110,131 @@ public class UIGrammarFactoryImpl extends EFactoryImpl implements UIGrammarFacto
    * <!-- end-user-doc -->
    * @generated
    */
+  public GTextBindingDefs createGTextBindingDefs()
+  {
+    GTextBindingDefsImpl gTextBindingDefs = new GTextBindingDefsImpl();
+    return gTextBindingDefs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GTextBindingDef createGTextBindingDef()
+  {
+    GTextBindingDefImpl gTextBindingDef = new GTextBindingDefImpl();
+    return gTextBindingDef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Action createAction()
   {
     ActionImpl action = new ActionImpl();
     return action;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GGridLayoutAssigment createGGridLayoutAssigment()
+  {
+    GGridLayoutAssigmentImpl gGridLayoutAssigment = new GGridLayoutAssigmentImpl();
+    return gGridLayoutAssigment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Point createPoint()
+  {
+    PointImpl point = new PointImpl();
+    return point;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Binding createBinding()
+  {
+    BindingImpl binding = new BindingImpl();
+    return binding;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GBeanSlot createGBeanSlot()
+  {
+    GBeanSlotImpl gBeanSlot = new GBeanSlotImpl();
+    return gBeanSlot;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GGridLayout createGGridLayout()
+  {
+    GGridLayoutImpl gGridLayout = new GGridLayoutImpl();
+    return gGridLayout;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GTextField createGTextField()
+  {
+    GTextFieldImpl gTextField = new GTextFieldImpl();
+    return gTextField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GTextArea createGTextArea()
+  {
+    GTextAreaImpl gTextArea = new GTextAreaImpl();
+    return gTextArea;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GTable createGTable()
+  {
+    GTableImpl gTable = new GTableImpl();
+    return gTable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GTtree createGTtree()
+  {
+    GTtreeImpl gTtree = new GTtreeImpl();
+    return gTtree;
   }
 
   /**

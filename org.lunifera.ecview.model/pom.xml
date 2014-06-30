@@ -13,13 +13,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.lunifera.xtext.builder</groupId>
-		<artifactId>org.lunifera.xtext.builder.parent</artifactId>
-		<version>0.8.0</version>
+		<groupId>org.lunifera.ecview</groupId>
+		<artifactId>org.lunifera.ecview.parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../org.lunifera.xtext.builder.parent/pom.xml</relativePath>
 	</parent>
 
-	<artifactId>org.lunifera.xtext.builder.participant.xbase</artifactId>
+	<artifactId>org.lunifera.ecview.model</artifactId>
 	<packaging>eclipse-plugin</packaging>
 	<name>XBase Builder Participant</name>
 	<description>This bundle contains a builder participant. It will setup the Xbase with annotations grammar and exposes a service IXbaseMetadataService.

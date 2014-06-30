@@ -7,20 +7,62 @@
         eType="ecore:EClass platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YViewSet"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GBeanSlot" eSuperTypes="platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBeanSlot">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IDEView" eSuperTypes="platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YView">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="for" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defs" upperBound="-1" eType="#//GTextBindingDefs"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
         eType="#//Action" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="layouts" upperBound="-1"
         eType="ecore:EClass platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YLayout"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
+        eType="#//Binding" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GTextBindingDefs">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1"
+        eType="#//GTextBindingDef" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GTextBindingDef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="ecore:EClass platform:/resource/org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GGridLayoutAssigment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="ecore:EClass platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YEmbeddable"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="ecore:EEnum platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore#//YAlignment"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//Point"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//Point" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Point">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Binding">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="embeddable" eType="ecore:EClass platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YEmbeddable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="ecore:EClass platform:/resource/org.lunifera.ecview.model/model/configs.ecore#//BindingMethod"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GBeanSlot" eSuperTypes="platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBeanSlot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GGridLayout" eSuperTypes="platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore#//YGridLayout">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
+        eType="#//GGridLayoutAssigment" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GTextField" eSuperTypes="platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore#//YTextField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GTextArea" eSuperTypes="platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore#//YTextArea"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GTable" eSuperTypes="platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore#//YTable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GTtree" eSuperTypes="platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore#//YTree">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

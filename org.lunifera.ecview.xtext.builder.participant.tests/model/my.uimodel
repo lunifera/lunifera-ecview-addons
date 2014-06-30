@@ -2,4 +2,11 @@ viewset myViewSet {
 	beanslots {
 		slot root : my.types.MyDto
 	}
+	ideview haha {
+		gridlayout iii {
+			textfield name {
+				
+			}
+		}
+	}
 }

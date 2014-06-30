@@ -1,5 +1,5 @@
 grammar org.lunifera.ecview.dsl.UIGrammar with org.eclipse.xtext.xbase.Xbase
-  
+
 import "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore" as core
 import "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore" as coreDt
 import "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/visibility.ecore" as coreVis
@@ -7,6 +7,7 @@ import "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/binding
 import "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore" as coreVal
 import "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore" as ext
 import "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extdatatypes.ecore" as extDt
+import "platform:/resource/org.lunifera.ecview.model/model/configs.ecore" as cfg
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 generate uIGrammar "http://www.lunifera.org/ecview/dsl/UIGrammar"
 
@@ -15,106 +16,163 @@ UiModel:
 
 ViewSet returns core::YViewSet:
 	{core::YViewSet}
-	'viewset' name=ID ('{'
-	('beanslots' '{' (beanSlots+=BeanSlot)* '}')?
-	(views+=View)*
-	'}')?;
+	'viewset' name=ID
+	(('beanslots' '{' (beanSlots+=GBeanSlot)* '}')?
+	(views+=View)*);
 
-BeanSlot returns core::YBeanSlot:
-	GBeanSlot;
-
-GBeanSlot:
+GBeanSlot returns core::YBeanSlot:
+	{GBeanSlot}
 	'slot' name=ID ':' jvmType=JvmTypeReference;
 
 View returns core::YView:
 	IDEView;
 
 IDEView:
-	'ideview' name=ID ('{'
+	'ideview' name=ID
+	'{'
+	('bindingdefs' for=[ecore::EClass] '{' (defs+=GTextBindingDefs)* '}')
 	(actions+=Action)*
 	(layouts+=Layout)*
-	'}')?;
-
-Action:
-	'action' name=ID ('{' body=XExpression '}');
-
-Layout returns core::YLayout:
-	HorizontalLayout | VerticalLayout | GridLayout;
-
-HorizontalLayout returns ext::YHorizontalLayout:
-	'horizontal layout' id=ID ('{'
-	(cellStyles+=HorizontalLayoutCellStyle)*
-	|
-	(fillHorizontal?='fillhorizontal')
-	'}');
-
-HorizontalLayoutCellStyle returns ext::YHorizontalLayoutCellStyle:
-	('target' target=[core::YEmbeddable]) |
-	('alignment' alignment=Alignment);
-
-VerticalLayout returns ext::YVerticalLayout:
-	'vertical layout' id=ID ('{'
-	(cellStyles+=VerticalLayoutCellStyle)*
-	|
-	(fillVertical?='fillvertical')
-	'}');
-
-VerticalLayoutCellStyle returns ext::YVerticalLayoutCellStyle:
-	('target' target=[core::YEmbeddable]) |
-	('alignment' alignment=Alignment);
-
-GridLayout returns ext::YGridLayout:
-	'gridlayout' id=ID ('{'
-	(cellStyles+=GridLayoutCellStyle)*
-	|
-	('columns' columns=INT)
-	|
-	(fillHorizontal?='fillhorizontal')
-	|
-	(fillVertical?='fillvertical')
-	(elements+=Embeddable)*
-	'}');
-
-GridLayoutCellStyle returns ext::YGridLayoutCellStyle:
-	('target' target=[core::YEmbeddable]) |
-	('alignment' alignment=Alignment) |
-	('spaninfo' spanInfo=SpanInfo);
-
-enum Alignment returns ext::YAlignment:
-	BOTTOM_LEFT="BOTTOM_LEFT" | BOTTOM_CENTER="BOTTOM_CENTER" | BOTTOM_RIGHT="BOTTOM_RIGHT" | BOTTOM_FILL="BOTTOM_FILL" |
-	MIDDLE_LEFT="MIDDLE_LEFT" | MIDDLE_CENTER="MIDDLE_CENTER" | MIDDLE_RIGHT="MIDDLE_RIGHT" | BOTTOM_FILL="MIDDLE_FILL" |
-	TOP_LEFT="TOP_LEFT" | TOP_CENTER="TOP_CENTER" | TOP_RIGHT="TOP_RIGHT" | TOP_FILL="TOP_FILL" |
-	FILL_LEFT="FILL_LEFT" | FILL_CENTER="FILL_CENTER" | FILL_RIGHT="FILL_RIGHT" | FILL_FILL="FILL_FILL" |
-	UNDEFINED="UNDEFINED";
-
-SpanInfo returns ext::YSpanInfo:
-	(('columnFrom' columnFrom=INT)
-	('columnTo' columnTo=INT))
-	|
-	(('rowFrom' rowFrom=INT)
-	('rowTo' rowTo=INT));
-
-Text returns ext::YTextField:
-	'textfield' name=ID '{'
-	('datatype' datatype=[extDt::YTextDatatype])?
-	('datadescription' datadescription=[coreDt::YDatadescription])?
-	('value' value=ID)?
+	(bindings+=Binding)*
 	'}';
 
-Input returns ext::YInput:
-	Text;
+GTextBindingDefs:
+	methods+=GTextBindingDef (', ' methods+=GTextBindingDef)*;
+
+GTextBindingDef:
+	name=ID;
+
+Action:
+	'action' name=ID
+	'{'
+	body=XExpression
+	'}';
+
+GGridLayout returns ext::YGridLayout:
+	{GGridLayout}
+	'gridlayout'
+	('('
+	((('columns=' columns=INT)?)
+	&
+	((fillHorizontal?='fill-h')?)
+	&
+	((fillVertical?='fill-v')?)
+	&
+	((spacing?='spacing')?)
+	&
+	((margin?='margin')?))
+	')')?
+	name=ID?
+	'{'
+	(contents+=GGridLayoutAssigment)*
+	'}';
+
+GGridLayoutAssigment:
+	element=Embeddable (('align' alignment=Alignment)? & ('span' from=Point 'to' to=Point)?);
+
+Point:
+	x=INT '/' y=INT;
+
+GridLayoutCellStyle returns ext::YGridLayoutCellStyle:
+	{ext::YGridLayoutCellStyle}
+	(('target' target=[core::YEmbeddable])?
+	&
+	('alignment' alignment=Alignment)?
+	&
+	('spaninfo' spanInfo=SpanInfo)?);
+
+enum Alignment returns ext::YAlignment:
+	BOTTOM_LEFT="bottom left" | BOTTOM_CENTER="bottom center" | BOTTOM_RIGHT="bottom right" | BOTTOM_FILL="bottom fill" |
+	MIDDLE_LEFT="middle left" | MIDDLE_CENTER="middle center" | MIDDLE_RIGHT="middle right" | BOTTOM_FILL="middle fill" |
+	TOP_LEFT="top left" | TOP_CENTER="top center" | TOP_RIGHT="top right" | TOP_FILL="top fill" |
+	FILL_LEFT="fill left" | FILL_CENTER="fill center" | FILL_RIGHT="fill RIGHT" | FILL_FILL="fill fill" |
+	UNDEFINED="undefined";
+
+SpanInfo returns ext::YSpanInfo:
+	{ext::YSpanInfo}
+	((('columnFrom' columnFrom=INT)
+	&
+	('columnTo' columnTo=INT))?
+	&
+	(('rowFrom' rowFrom=INT)
+	&
+	('rowTo' rowTo=INT))?);
+
+GTextField returns ext::YTextField:
+	{GTextField}
+	'textfield' name=ID?
+	('{' (('datatype' datatype=[extDt::YTextDatatype])?
+	&
+	('datadescription' datadescription=[coreDt::YDatadescription])?
+	&
+	('value' value=ID)?) '}')?;
+
+GTextArea returns ext::YTextArea:
+	{GTextArea}
+	'textarea' name=ID?
+	('{' (('datatype' datatype=[extDt::YTextAreaDatatype])?
+	&
+	('datadescription' datadescription=[coreDt::YDatadescription])?
+	&
+	('value' value=ID)?) '}')?;
+
+GTable returns ext::YTable:
+	{GTable}
+	'table' name=ID?
+	'{' (('datatype' datatype=[extDt::YTableDatatype])?
+	&
+	('datadescription' datadescription=[coreDt::YDatadescription])?
+	&
+	('selectiontype' selectionType=SelectionType)?
+	&
+	('type' jvmType=JvmTypeReference)?
+	&
+	('collection binding endpoint' collectionBindingEndpoint=[core::YEmbeddableCollectionEndpoint])?
+	&
+	('selection binding endpoint' selectionBindingEndpoint=[core::YEmbeddableSelectionEndpoint])?
+	&
+	('multi selection binding endpoint' multiSelectionBindingEndpoint=[core::YEmbeddableMultiSelectionEndpoint])?) '}';
+
+GTree returns ext::YTree:
+	{GTtree}
+	'tree' name=ID?
+	'{' (('datatype' datatype=[extDt::YTreeDatatype])?
+	&
+	('datadescription' datadescription=[coreDt::YDatadescription])?
+	&
+	('selectiontype' selectionType=SelectionType)?
+	&
+	('type' jvmType=JvmTypeReference)?
+	&
+	('collection binding endpoint' collectionBindingEndpoint=[core::YEmbeddableCollectionEndpoint])?
+	&
+	('selection binding endpoint' selectionBindingEndpoint=[core::YEmbeddableSelectionEndpoint])?
+	&
+	('multi selection binding endpoint' multiSelectionBindingEndpoint=[core::YEmbeddableMultiSelectionEndpoint])?) '}';
+
+enum SelectionType returns ext::YSelectionType:
+	SINGLE="SINGLE" | MULTI="MULTI";
 
 Embeddable returns core::YEmbeddable:
 	Layout | Field;
 
+Layout returns core::YLayout:
+	GGridLayout;
+
 Field returns core::YField:
-	Text;
+	GTextField | GTextArea | GTable | GTree;
 
 Validator returns coreVal::YValidator:
 	MaxLengthValidator | MinLengthValidator;
 
 MaxLengthValidator returns coreVal::YValidator:
+	{coreVal::YValidator}
 	'max';
 
 MinLengthValidator returns coreVal::YValidator:
+	{coreVal::YValidator}
 	'min';
+
+Binding:
+	'bind' embeddable=[core::YEmbeddable] '.' method=[cfg::BindingMethod] 'to';
+
