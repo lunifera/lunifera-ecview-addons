@@ -19,9 +19,9 @@ class UiModelDerivedStateComputerx implements IDerivedStateComputer {
 
 		if (!preLinkingPhase) {
 			if (!setup) {
-				resource.resourceSet.getResource(URI::createURI("uiconfig://TextField"), true).contents
-				val result = resource.resourceSet.getEObject(URI::createURI("uiconfig://TextField"), false)
-				setup = true;
+//				resource.resourceSet.getResource(URI::createURI("uiconfig://TextField"), true).contents
+//				val result = resource.resourceSet.getEObject(URI::createURI("uiconfig://TextField"), false)
+//				setup = true;
 			}
 
 			resource.getAllContents.forEach [

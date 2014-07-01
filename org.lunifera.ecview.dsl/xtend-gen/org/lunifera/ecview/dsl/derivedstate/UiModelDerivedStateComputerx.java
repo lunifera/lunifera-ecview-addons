@@ -4,10 +4,7 @@ import com.google.common.base.Objects;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
 import org.eclipse.xtext.common.types.JvmTypeReference;
@@ -31,14 +28,6 @@ public class UiModelDerivedStateComputerx implements IDerivedStateComputer {
     }
     if ((!preLinkingPhase)) {
       if ((!this.setup)) {
-        ResourceSet _resourceSet = resource.getResourceSet();
-        URI _createURI = URI.createURI("uiconfig://TextField");
-        Resource _resource = _resourceSet.getResource(_createURI, true);
-        _resource.getContents();
-        ResourceSet _resourceSet_1 = resource.getResourceSet();
-        URI _createURI_1 = URI.createURI("uiconfig://TextField");
-        final EObject result = _resourceSet_1.getEObject(_createURI_1, false);
-        this.setup = true;
       }
       TreeIterator<EObject> _allContents = resource.getAllContents();
       final Procedure1<EObject> _function = new Procedure1<EObject>() {

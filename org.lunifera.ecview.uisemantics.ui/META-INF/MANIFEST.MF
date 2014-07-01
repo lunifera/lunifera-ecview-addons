@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lunifera.ecview.uisemantics.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.lunifera.ecview.uisemantics.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.lunifera.ecview.uisemantics;visibility:=reexport,
+ org.eclipse.xtext.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.xbase.ui,
+ org.eclipse.ui,
+ org.eclipse.xtext.builder,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types.ui,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.compare
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.lunifera.ecview.uisemantics.ui.quickfix,
+ org.lunifera.ecview.uisemantics.ui.contentassist,
+ org.lunifera.ecview.uisemantics.ui.contentassist.antlr,
+ org.lunifera.ecview.uisemantics.ui.internal
+Bundle-Activator: org.lunifera.ecview.uisemantics.ui.internal.UISemanticsGrammarActivator

@@ -23,7 +23,8 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.xtext.xbase.lib,
  org.lunifera.xtext.builder.types.bundles;bundle-version="0.8.1",
  org.lunifera.xtext.builder.xbase.setups;bundle-version="0.8.1",
- org.lunifera.ecview.model;bundle-version="0.0.1"
+ org.lunifera.ecview.uisemantics;bundle-version="1.0.0",
+ org.lunifera.ecview.model
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

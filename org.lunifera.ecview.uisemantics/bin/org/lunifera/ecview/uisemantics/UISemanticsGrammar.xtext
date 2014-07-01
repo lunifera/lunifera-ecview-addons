@@ -1,0 +1,39 @@
+grammar org.lunifera.ecview.uisemantics.UISemanticsGrammar with org.eclipse.xtext.xbase.Xbase
+
+generate uISemanticsGrammar "http://www.lunifera.org/ecview/uisemantics/UISemanticsGrammar"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+Model:
+	elementDefinitions+=ElementDefinition*
+;
+	
+ElementDefinition:
+	'element' name=ID '{' 
+		('nsURI' nsURI=[ecore::EPackage|STRING])?
+		'bindings' '{'
+			bindingContainer=AvailableBindings
+		'}'
+	'}'
+;
+
+AvailableBindings:
+	{AvailableBindings}
+	bindings+=Binding*
+;
+
+Binding:
+	'binding' name=ID dataType=DataType multiplicity=Multiplicity
+;
+
+//enum BindingType:
+//	VALUEBINDING="value binding" | SELECTIONBINDING="selection binding" | 
+//	MULTISELECTIONBINDING="multi-selection binding" | COLLECTIONBINDING="collection binding"
+//;
+
+DataType:
+	jvmType=JvmTypeReference
+;
+
+Multiplicity:
+	SINGLE="single" | MULTI="multi"
+;
