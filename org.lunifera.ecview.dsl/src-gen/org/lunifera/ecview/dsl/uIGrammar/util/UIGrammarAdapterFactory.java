@@ -111,16 +111,6 @@ public class UIGrammarAdapterFactory extends AdapterFactoryImpl
         return createIDEViewAdapter();
       }
       @Override
-      public Adapter caseGTextBindingDefs(GTextBindingDefs object)
-      {
-        return createGTextBindingDefsAdapter();
-      }
-      @Override
-      public Adapter caseGTextBindingDef(GTextBindingDef object)
-      {
-        return createGTextBindingDefAdapter();
-      }
-      @Override
       public Adapter caseAction(Action object)
       {
         return createActionAdapter();
@@ -338,36 +328,6 @@ public class UIGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIDEViewAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.GTextBindingDefs <em>GText Binding Defs</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GTextBindingDefs
-   * @generated
-   */
-  public Adapter createGTextBindingDefsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.GTextBindingDef <em>GText Binding Def</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GTextBindingDef
-   * @generated
-   */
-  public Adapter createGTextBindingDefAdapter()
   {
     return null;
   }

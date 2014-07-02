@@ -41,24 +41,6 @@ public interface UIGrammarFactory extends EFactory
   IDEView createIDEView();
 
   /**
-   * Returns a new object of class '<em>GText Binding Defs</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>GText Binding Defs</em>'.
-   * @generated
-   */
-  GTextBindingDefs createGTextBindingDefs();
-
-  /**
-   * Returns a new object of class '<em>GText Binding Def</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>GText Binding Def</em>'.
-   * @generated
-   */
-  GTextBindingDef createGTextBindingDef();
-
-  /**
    * Returns a new object of class '<em>Action</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

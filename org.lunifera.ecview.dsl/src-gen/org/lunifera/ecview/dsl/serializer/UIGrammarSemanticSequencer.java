@@ -72,8 +72,6 @@ import org.lunifera.ecview.dsl.uIGrammar.GGridLayout;
 import org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment;
 import org.lunifera.ecview.dsl.uIGrammar.GTable;
 import org.lunifera.ecview.dsl.uIGrammar.GTextArea;
-import org.lunifera.ecview.dsl.uIGrammar.GTextBindingDef;
-import org.lunifera.ecview.dsl.uIGrammar.GTextBindingDefs;
 import org.lunifera.ecview.dsl.uIGrammar.GTextField;
 import org.lunifera.ecview.dsl.uIGrammar.GTtree;
 import org.lunifera.ecview.dsl.uIGrammar.IDEView;
@@ -214,18 +212,6 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 				   context == grammarAccess.getFieldRule() ||
 				   context == grammarAccess.getGTextAreaRule()) {
 					sequence_GTextArea(context, (GTextArea) semanticObject); 
-					return; 
-				}
-				else break;
-			case UIGrammarPackage.GTEXT_BINDING_DEF:
-				if(context == grammarAccess.getGTextBindingDefRule()) {
-					sequence_GTextBindingDef(context, (GTextBindingDef) semanticObject); 
-					return; 
-				}
-				else break;
-			case UIGrammarPackage.GTEXT_BINDING_DEFS:
-				if(context == grammarAccess.getGTextBindingDefsRule()) {
-					sequence_GTextBindingDefs(context, (GTextBindingDefs) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1333,7 +1319,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (embeddable=[YEmbeddable|ID] method=[BindingMethod|ID])
+	 *     (embeddable=[YEmbeddable|FQN] method=[Binding|ID])
 	 */
 	protected void sequence_Binding(EObject context, Binding semanticObject) {
 		if(errorAcceptor != null) {
@@ -1344,8 +1330,8 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getBindingAccess().getEmbeddableYEmbeddableIDTerminalRuleCall_1_0_1(), semanticObject.getEmbeddable());
-		feeder.accept(grammarAccess.getBindingAccess().getMethodBindingMethodIDTerminalRuleCall_3_0_1(), semanticObject.getMethod());
+		feeder.accept(grammarAccess.getBindingAccess().getEmbeddableYEmbeddableFQNParserRuleCall_1_0_1(), semanticObject.getEmbeddable());
+		feeder.accept(grammarAccess.getBindingAccess().getMethodBindingIDTerminalRuleCall_3_0_1(), semanticObject.getMethod());
 		feeder.finish();
 	}
 	
@@ -1410,31 +1396,6 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_GTextBindingDef(EObject context, GTextBindingDef semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, UIGrammarPackage.Literals.GTEXT_BINDING_DEF__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UIGrammarPackage.Literals.GTEXT_BINDING_DEF__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getGTextBindingDefAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (methods+=GTextBindingDef methods+=GTextBindingDef*)
-	 */
-	protected void sequence_GTextBindingDefs(EObject context, GTextBindingDefs semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (name=ID? (datatype=[YTextDatatype|ID]? datadescription=[YDatadescription|ID]? value=ID?)?)
 	 */
 	protected void sequence_GTextField(EObject context, GTextField semanticObject) {
@@ -1471,14 +1432,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         for=[EClass|ID] 
-	 *         defs+=GTextBindingDefs* 
-	 *         actions+=Action* 
-	 *         layouts+=Layout* 
-	 *         bindings+=Binding*
-	 *     )
+	 *     (name=ID actions+=Action* layouts+=Layout* bindings+=Binding*)
 	 */
 	protected void sequence_IDEView(EObject context, IDEView semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

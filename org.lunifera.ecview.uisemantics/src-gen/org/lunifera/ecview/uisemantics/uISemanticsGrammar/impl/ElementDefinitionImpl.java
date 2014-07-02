@@ -34,24 +34,14 @@ import org.lunifera.ecview.uisemantics.uISemanticsGrammar.UISemanticsGrammarPack
 public class ElementDefinitionImpl extends MinimalEObjectImpl.Container implements ElementDefinition
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected EClass name;
 
   /**
    * The cached value of the '{@link #getNsURI() <em>Ns URI</em>}' reference.
@@ -99,7 +89,27 @@ public class ElementDefinitionImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public EClass getName()
+  {
+    if (name != null && name.eIsProxy())
+    {
+      InternalEObject oldName = (InternalEObject)name;
+      name = (EClass)eResolveProxy(oldName);
+      if (name != oldName)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UISemanticsGrammarPackage.ELEMENT_DEFINITION__NAME, oldName, name));
+      }
+    }
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass basicGetName()
   {
     return name;
   }
@@ -109,9 +119,9 @@ public class ElementDefinitionImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setName(EClass newName)
   {
-    String oldName = name;
+    EClass oldName = name;
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, UISemanticsGrammarPackage.ELEMENT_DEFINITION__NAME, oldName, name));
@@ -235,7 +245,8 @@ public class ElementDefinitionImpl extends MinimalEObjectImpl.Container implemen
     switch (featureID)
     {
       case UISemanticsGrammarPackage.ELEMENT_DEFINITION__NAME:
-        return getName();
+        if (resolve) return getName();
+        return basicGetName();
       case UISemanticsGrammarPackage.ELEMENT_DEFINITION__NS_URI:
         if (resolve) return getNsURI();
         return basicGetNsURI();
@@ -256,7 +267,7 @@ public class ElementDefinitionImpl extends MinimalEObjectImpl.Container implemen
     switch (featureID)
     {
       case UISemanticsGrammarPackage.ELEMENT_DEFINITION__NAME:
-        setName((String)newValue);
+        setName((EClass)newValue);
         return;
       case UISemanticsGrammarPackage.ELEMENT_DEFINITION__NS_URI:
         setNsURI((EPackage)newValue);
@@ -279,7 +290,7 @@ public class ElementDefinitionImpl extends MinimalEObjectImpl.Container implemen
     switch (featureID)
     {
       case UISemanticsGrammarPackage.ELEMENT_DEFINITION__NAME:
-        setName(NAME_EDEFAULT);
+        setName((EClass)null);
         return;
       case UISemanticsGrammarPackage.ELEMENT_DEFINITION__NS_URI:
         setNsURI((EPackage)null);
@@ -302,30 +313,13 @@ public class ElementDefinitionImpl extends MinimalEObjectImpl.Container implemen
     switch (featureID)
     {
       case UISemanticsGrammarPackage.ELEMENT_DEFINITION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+        return name != null;
       case UISemanticsGrammarPackage.ELEMENT_DEFINITION__NS_URI:
         return nsURI != null;
       case UISemanticsGrammarPackage.ELEMENT_DEFINITION__BINDING_CONTAINER:
         return bindingContainer != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //ElementDefinitionImpl

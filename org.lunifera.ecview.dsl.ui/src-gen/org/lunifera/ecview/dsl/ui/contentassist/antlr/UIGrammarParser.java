@@ -86,9 +86,6 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getViewSetAccess().getGroup_3_0(), "rule__ViewSet__Group_3_0__0");
 					put(grammarAccess.getGBeanSlotAccess().getGroup(), "rule__GBeanSlot__Group__0");
 					put(grammarAccess.getIDEViewAccess().getGroup(), "rule__IDEView__Group__0");
-					put(grammarAccess.getIDEViewAccess().getGroup_3(), "rule__IDEView__Group_3__0");
-					put(grammarAccess.getGTextBindingDefsAccess().getGroup(), "rule__GTextBindingDefs__Group__0");
-					put(grammarAccess.getGTextBindingDefsAccess().getGroup_1(), "rule__GTextBindingDefs__Group_1__0");
 					put(grammarAccess.getActionAccess().getGroup(), "rule__Action__Group__0");
 					put(grammarAccess.getGGridLayoutAccess().getGroup(), "rule__GGridLayout__Group__0");
 					put(grammarAccess.getGGridLayoutAccess().getGroup_2(), "rule__GGridLayout__Group_2__0");
@@ -135,6 +132,8 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMaxLengthValidatorAccess().getGroup(), "rule__MaxLengthValidator__Group__0");
 					put(grammarAccess.getMinLengthValidatorAccess().getGroup(), "rule__MinLengthValidator__Group__0");
 					put(grammarAccess.getBindingAccess().getGroup(), "rule__Binding__Group__0");
+					put(grammarAccess.getFQNAccess().getGroup(), "rule__FQN__Group__0");
+					put(grammarAccess.getFQNAccess().getGroup_0(), "rule__FQN__Group_0__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_0(), "rule__XAssignment__Group_0__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_1(), "rule__XAssignment__Group_1__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_1_1(), "rule__XAssignment__Group_1_1__0");
@@ -313,14 +312,9 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGBeanSlotAccess().getNameAssignment_2(), "rule__GBeanSlot__NameAssignment_2");
 					put(grammarAccess.getGBeanSlotAccess().getJvmTypeAssignment_4(), "rule__GBeanSlot__JvmTypeAssignment_4");
 					put(grammarAccess.getIDEViewAccess().getNameAssignment_1(), "rule__IDEView__NameAssignment_1");
-					put(grammarAccess.getIDEViewAccess().getForAssignment_3_1(), "rule__IDEView__ForAssignment_3_1");
-					put(grammarAccess.getIDEViewAccess().getDefsAssignment_3_3(), "rule__IDEView__DefsAssignment_3_3");
-					put(grammarAccess.getIDEViewAccess().getActionsAssignment_4(), "rule__IDEView__ActionsAssignment_4");
-					put(grammarAccess.getIDEViewAccess().getLayoutsAssignment_5(), "rule__IDEView__LayoutsAssignment_5");
-					put(grammarAccess.getIDEViewAccess().getBindingsAssignment_6(), "rule__IDEView__BindingsAssignment_6");
-					put(grammarAccess.getGTextBindingDefsAccess().getMethodsAssignment_0(), "rule__GTextBindingDefs__MethodsAssignment_0");
-					put(grammarAccess.getGTextBindingDefsAccess().getMethodsAssignment_1_1(), "rule__GTextBindingDefs__MethodsAssignment_1_1");
-					put(grammarAccess.getGTextBindingDefAccess().getNameAssignment(), "rule__GTextBindingDef__NameAssignment");
+					put(grammarAccess.getIDEViewAccess().getActionsAssignment_3(), "rule__IDEView__ActionsAssignment_3");
+					put(grammarAccess.getIDEViewAccess().getLayoutsAssignment_4(), "rule__IDEView__LayoutsAssignment_4");
+					put(grammarAccess.getIDEViewAccess().getBindingsAssignment_5(), "rule__IDEView__BindingsAssignment_5");
 					put(grammarAccess.getActionAccess().getNameAssignment_1(), "rule__Action__NameAssignment_1");
 					put(grammarAccess.getActionAccess().getBodyAssignment_3(), "rule__Action__BodyAssignment_3");
 					put(grammarAccess.getGGridLayoutAccess().getColumnsAssignment_2_1_0_1(), "rule__GGridLayout__ColumnsAssignment_2_1_0_1");

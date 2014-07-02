@@ -8,7 +8,7 @@ Model:
 ;
 	
 ElementDefinition:
-	'element' name=ID '{' 
+	'element' name=[ecore::EClass] '{' 
 		('nsURI' nsURI=[ecore::EPackage|STRING])?
 		'bindings' '{'
 			bindingContainer=AvailableBindings

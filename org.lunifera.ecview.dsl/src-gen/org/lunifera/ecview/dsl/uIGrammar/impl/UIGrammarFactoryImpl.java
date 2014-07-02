@@ -66,8 +66,6 @@ public class UIGrammarFactoryImpl extends EFactoryImpl implements UIGrammarFacto
     {
       case UIGrammarPackage.UI_MODEL: return createUiModel();
       case UIGrammarPackage.IDE_VIEW: return createIDEView();
-      case UIGrammarPackage.GTEXT_BINDING_DEFS: return createGTextBindingDefs();
-      case UIGrammarPackage.GTEXT_BINDING_DEF: return createGTextBindingDef();
       case UIGrammarPackage.ACTION: return createAction();
       case UIGrammarPackage.GGRID_LAYOUT_ASSIGMENT: return createGGridLayoutAssigment();
       case UIGrammarPackage.POINT: return createPoint();
@@ -103,28 +101,6 @@ public class UIGrammarFactoryImpl extends EFactoryImpl implements UIGrammarFacto
   {
     IDEViewImpl ideView = new IDEViewImpl();
     return ideView;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public GTextBindingDefs createGTextBindingDefs()
-  {
-    GTextBindingDefsImpl gTextBindingDefs = new GTextBindingDefsImpl();
-    return gTextBindingDefs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public GTextBindingDef createGTextBindingDef()
-  {
-    GTextBindingDefImpl gTextBindingDef = new GTextBindingDefImpl();
-    return gTextBindingDef;
   }
 
   /**

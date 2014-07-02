@@ -122,20 +122,15 @@ ruleElementDefinition returns [EObject current=null]
     }
 (
 (
-		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_name_1_0, grammarAccess.getElementDefinitionAccess().getNameIDTerminalRuleCall_1_0()); 
-		}
-		{
-	        if ($current==null) {
+			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getElementDefinitionRule());
 	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"name",
-        		lv_name_1_0, 
-        		"ID");
-	    }
+        }
+	otherlv_1=RULE_ID
+	{
+		newLeafNode(otherlv_1, grammarAccess.getElementDefinitionAccess().getNameEClassCrossReference_1_0()); 
+	}
 
 )
 )	otherlv_2='{' 

@@ -6,8 +6,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 
-import org.lunifera.ecview.model.uiConfigs.BindingMethod;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Binding</b></em>'.
@@ -62,12 +60,12 @@ public interface Binding extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Method</em>' reference.
-   * @see #setMethod(BindingMethod)
+   * @see #setMethod(org.lunifera.ecview.uisemantics.uISemanticsGrammar.Binding)
    * @see org.lunifera.ecview.dsl.uIGrammar.UIGrammarPackage#getBinding_Method()
    * @model
    * @generated
    */
-  BindingMethod getMethod();
+  org.lunifera.ecview.uisemantics.uISemanticsGrammar.Binding getMethod();
 
   /**
    * Sets the value of the '{@link org.lunifera.ecview.dsl.uIGrammar.Binding#getMethod <em>Method</em>}' reference.
@@ -77,6 +75,6 @@ public interface Binding extends EObject
    * @see #getMethod()
    * @generated
    */
-  void setMethod(BindingMethod value);
+  void setMethod(org.lunifera.ecview.uisemantics.uISemanticsGrammar.Binding value);
 
 } // Binding

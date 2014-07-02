@@ -198,31 +198,13 @@ public interface UIGrammarPackage extends EPackage
   int IDE_VIEW__BEAN_SLOTS = CoreModelPackage.YVIEW__BEAN_SLOTS;
 
   /**
-   * The feature id for the '<em><b>For</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDE_VIEW__FOR = CoreModelPackage.YVIEW_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Defs</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDE_VIEW__DEFS = CoreModelPackage.YVIEW_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Actions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IDE_VIEW__ACTIONS = CoreModelPackage.YVIEW_FEATURE_COUNT + 2;
+  int IDE_VIEW__ACTIONS = CoreModelPackage.YVIEW_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Layouts</b></em>' containment reference list.
@@ -231,7 +213,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_VIEW__LAYOUTS = CoreModelPackage.YVIEW_FEATURE_COUNT + 3;
+  int IDE_VIEW__LAYOUTS = CoreModelPackage.YVIEW_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -240,7 +222,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_VIEW__BINDINGS = CoreModelPackage.YVIEW_FEATURE_COUNT + 4;
+  int IDE_VIEW__BINDINGS = CoreModelPackage.YVIEW_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>IDE View</em>' class.
@@ -249,63 +231,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_VIEW_FEATURE_COUNT = CoreModelPackage.YVIEW_FEATURE_COUNT + 5;
-
-  /**
-   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.GTextBindingDefsImpl <em>GText Binding Defs</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.GTextBindingDefsImpl
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGTextBindingDefs()
-   * @generated
-   */
-  int GTEXT_BINDING_DEFS = 2;
-
-  /**
-   * The feature id for the '<em><b>Methods</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTEXT_BINDING_DEFS__METHODS = 0;
-
-  /**
-   * The number of structural features of the '<em>GText Binding Defs</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTEXT_BINDING_DEFS_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.GTextBindingDefImpl <em>GText Binding Def</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.GTextBindingDefImpl
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGTextBindingDef()
-   * @generated
-   */
-  int GTEXT_BINDING_DEF = 3;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTEXT_BINDING_DEF__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>GText Binding Def</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTEXT_BINDING_DEF_FEATURE_COUNT = 1;
+  int IDE_VIEW_FEATURE_COUNT = CoreModelPackage.YVIEW_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.ActionImpl <em>Action</em>}' class.
@@ -315,7 +241,7 @@ public interface UIGrammarPackage extends EPackage
    * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getAction()
    * @generated
    */
-  int ACTION = 4;
+  int ACTION = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -352,7 +278,7 @@ public interface UIGrammarPackage extends EPackage
    * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGGridLayoutAssigment()
    * @generated
    */
-  int GGRID_LAYOUT_ASSIGMENT = 5;
+  int GGRID_LAYOUT_ASSIGMENT = 3;
 
   /**
    * The feature id for the '<em><b>Element</b></em>' containment reference.
@@ -407,7 +333,7 @@ public interface UIGrammarPackage extends EPackage
    * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getPoint()
    * @generated
    */
-  int POINT = 6;
+  int POINT = 4;
 
   /**
    * The feature id for the '<em><b>X</b></em>' attribute.
@@ -444,7 +370,7 @@ public interface UIGrammarPackage extends EPackage
    * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getBinding()
    * @generated
    */
-  int BINDING = 7;
+  int BINDING = 5;
 
   /**
    * The feature id for the '<em><b>Embeddable</b></em>' reference.
@@ -481,7 +407,7 @@ public interface UIGrammarPackage extends EPackage
    * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGBeanSlot()
    * @generated
    */
-  int GBEAN_SLOT = 8;
+  int GBEAN_SLOT = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -536,7 +462,7 @@ public interface UIGrammarPackage extends EPackage
    * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGGridLayout()
    * @generated
    */
-  int GGRID_LAYOUT = 9;
+  int GGRID_LAYOUT = 7;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -690,7 +616,7 @@ public interface UIGrammarPackage extends EPackage
    * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGTextField()
    * @generated
    */
-  int GTEXT_FIELD = 10;
+  int GTEXT_FIELD = 8;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -862,7 +788,7 @@ public interface UIGrammarPackage extends EPackage
    * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGTextArea()
    * @generated
    */
-  int GTEXT_AREA = 11;
+  int GTEXT_AREA = 9;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1034,7 +960,7 @@ public interface UIGrammarPackage extends EPackage
    * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGTable()
    * @generated
    */
-  int GTABLE = 12;
+  int GTABLE = 10;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1278,7 +1204,7 @@ public interface UIGrammarPackage extends EPackage
    * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGTtree()
    * @generated
    */
-  int GTTREE = 13;
+  int GTTREE = 11;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1547,28 +1473,6 @@ public interface UIGrammarPackage extends EPackage
   EClass getIDEView();
 
   /**
-   * Returns the meta object for the reference '{@link org.lunifera.ecview.dsl.uIGrammar.IDEView#getFor <em>For</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>For</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.IDEView#getFor()
-   * @see #getIDEView()
-   * @generated
-   */
-  EReference getIDEView_For();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.dsl.uIGrammar.IDEView#getDefs <em>Defs</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Defs</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.IDEView#getDefs()
-   * @see #getIDEView()
-   * @generated
-   */
-  EReference getIDEView_Defs();
-
-  /**
    * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.dsl.uIGrammar.IDEView#getActions <em>Actions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1600,48 +1504,6 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    */
   EReference getIDEView_Bindings();
-
-  /**
-   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.GTextBindingDefs <em>GText Binding Defs</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>GText Binding Defs</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GTextBindingDefs
-   * @generated
-   */
-  EClass getGTextBindingDefs();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.dsl.uIGrammar.GTextBindingDefs#getMethods <em>Methods</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Methods</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GTextBindingDefs#getMethods()
-   * @see #getGTextBindingDefs()
-   * @generated
-   */
-  EReference getGTextBindingDefs_Methods();
-
-  /**
-   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.GTextBindingDef <em>GText Binding Def</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>GText Binding Def</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GTextBindingDef
-   * @generated
-   */
-  EClass getGTextBindingDef();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.lunifera.ecview.dsl.uIGrammar.GTextBindingDef#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GTextBindingDef#getName()
-   * @see #getGTextBindingDef()
-   * @generated
-   */
-  EAttribute getGTextBindingDef_Name();
 
   /**
    * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.Action <em>Action</em>}'.
@@ -1949,22 +1811,6 @@ public interface UIGrammarPackage extends EPackage
     EClass IDE_VIEW = eINSTANCE.getIDEView();
 
     /**
-     * The meta object literal for the '<em><b>For</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference IDE_VIEW__FOR = eINSTANCE.getIDEView_For();
-
-    /**
-     * The meta object literal for the '<em><b>Defs</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference IDE_VIEW__DEFS = eINSTANCE.getIDEView_Defs();
-
-    /**
      * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1987,42 +1833,6 @@ public interface UIGrammarPackage extends EPackage
      * @generated
      */
     EReference IDE_VIEW__BINDINGS = eINSTANCE.getIDEView_Bindings();
-
-    /**
-     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.GTextBindingDefsImpl <em>GText Binding Defs</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.GTextBindingDefsImpl
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGTextBindingDefs()
-     * @generated
-     */
-    EClass GTEXT_BINDING_DEFS = eINSTANCE.getGTextBindingDefs();
-
-    /**
-     * The meta object literal for the '<em><b>Methods</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference GTEXT_BINDING_DEFS__METHODS = eINSTANCE.getGTextBindingDefs_Methods();
-
-    /**
-     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.GTextBindingDefImpl <em>GText Binding Def</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.GTextBindingDefImpl
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGTextBindingDef()
-     * @generated
-     */
-    EClass GTEXT_BINDING_DEF = eINSTANCE.getGTextBindingDef();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute GTEXT_BINDING_DEF__NAME = eINSTANCE.getGTextBindingDef_Name();
 
     /**
      * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.ActionImpl <em>Action</em>}' class.

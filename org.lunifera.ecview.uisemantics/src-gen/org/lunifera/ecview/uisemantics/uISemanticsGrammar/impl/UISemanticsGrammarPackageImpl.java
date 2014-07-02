@@ -171,9 +171,9 @@ public class UISemanticsGrammarPackageImpl extends EPackageImpl implements UISem
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getElementDefinition_Name()
+  public EReference getElementDefinition_Name()
   {
-    return (EAttribute)elementDefinitionEClass.getEStructuralFeatures().get(0);
+    return (EReference)elementDefinitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -340,7 +340,7 @@ public class UISemanticsGrammarPackageImpl extends EPackageImpl implements UISem
     createEReference(modelEClass, MODEL__ELEMENT_DEFINITIONS);
 
     elementDefinitionEClass = createEClass(ELEMENT_DEFINITION);
-    createEAttribute(elementDefinitionEClass, ELEMENT_DEFINITION__NAME);
+    createEReference(elementDefinitionEClass, ELEMENT_DEFINITION__NAME);
     createEReference(elementDefinitionEClass, ELEMENT_DEFINITION__NS_URI);
     createEReference(elementDefinitionEClass, ELEMENT_DEFINITION__BINDING_CONTAINER);
 
@@ -398,7 +398,7 @@ public class UISemanticsGrammarPackageImpl extends EPackageImpl implements UISem
     initEReference(getModel_ElementDefinitions(), this.getElementDefinition(), null, "elementDefinitions", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementDefinitionEClass, ElementDefinition.class, "ElementDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getElementDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getElementDefinition_Name(), ecorePackage.getEClass(), null, "name", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getElementDefinition_NsURI(), ecorePackage.getEPackage(), null, "nsURI", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getElementDefinition_BindingContainer(), this.getAvailableBindings(), null, "bindingContainer", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

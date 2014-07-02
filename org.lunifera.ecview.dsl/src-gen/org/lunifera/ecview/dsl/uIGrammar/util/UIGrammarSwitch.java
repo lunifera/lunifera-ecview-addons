@@ -117,20 +117,6 @@ public class UIGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case UIGrammarPackage.GTEXT_BINDING_DEFS:
-      {
-        GTextBindingDefs gTextBindingDefs = (GTextBindingDefs)theEObject;
-        T result = caseGTextBindingDefs(gTextBindingDefs);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case UIGrammarPackage.GTEXT_BINDING_DEF:
-      {
-        GTextBindingDef gTextBindingDef = (GTextBindingDef)theEObject;
-        T result = caseGTextBindingDef(gTextBindingDef);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case UIGrammarPackage.ACTION:
       {
         Action action = (Action)theEObject;
@@ -295,38 +281,6 @@ public class UIGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseIDEView(IDEView object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>GText Binding Defs</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>GText Binding Defs</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseGTextBindingDefs(GTextBindingDefs object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>GText Binding Def</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>GText Binding Def</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseGTextBindingDef(GTextBindingDef object)
   {
     return null;
   }

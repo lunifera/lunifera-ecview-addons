@@ -15,8 +15,6 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.lunifera.ecview.dsl.uIGrammar.Binding;
 import org.lunifera.ecview.dsl.uIGrammar.UIGrammarPackage;
 
-import org.lunifera.ecview.model.uiConfigs.BindingMethod;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Binding</b></em>'.
@@ -51,7 +49,7 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * @generated
    * @ordered
    */
-  protected BindingMethod method;
+  protected org.lunifera.ecview.uisemantics.uISemanticsGrammar.Binding method;
 
   /**
    * <!-- begin-user-doc -->
@@ -122,12 +120,12 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * <!-- end-user-doc -->
    * @generated
    */
-  public BindingMethod getMethod()
+  public org.lunifera.ecview.uisemantics.uISemanticsGrammar.Binding getMethod()
   {
     if (method != null && method.eIsProxy())
     {
       InternalEObject oldMethod = (InternalEObject)method;
-      method = (BindingMethod)eResolveProxy(oldMethod);
+      method = (org.lunifera.ecview.uisemantics.uISemanticsGrammar.Binding)eResolveProxy(oldMethod);
       if (method != oldMethod)
       {
         if (eNotificationRequired())
@@ -142,7 +140,7 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * <!-- end-user-doc -->
    * @generated
    */
-  public BindingMethod basicGetMethod()
+  public org.lunifera.ecview.uisemantics.uISemanticsGrammar.Binding basicGetMethod()
   {
     return method;
   }
@@ -152,9 +150,9 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMethod(BindingMethod newMethod)
+  public void setMethod(org.lunifera.ecview.uisemantics.uISemanticsGrammar.Binding newMethod)
   {
-    BindingMethod oldMethod = method;
+    org.lunifera.ecview.uisemantics.uISemanticsGrammar.Binding oldMethod = method;
     method = newMethod;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, UIGrammarPackage.BINDING__METHOD, oldMethod, method));
@@ -194,7 +192,7 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
         setEmbeddable((YEmbeddable)newValue);
         return;
       case UIGrammarPackage.BINDING__METHOD:
-        setMethod((BindingMethod)newValue);
+        setMethod((org.lunifera.ecview.uisemantics.uISemanticsGrammar.Binding)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -214,7 +212,7 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
         setEmbeddable((YEmbeddable)null);
         return;
       case UIGrammarPackage.BINDING__METHOD:
-        setMethod((BindingMethod)null);
+        setMethod((org.lunifera.ecview.uisemantics.uISemanticsGrammar.Binding)null);
         return;
     }
     super.eUnset(featureID);

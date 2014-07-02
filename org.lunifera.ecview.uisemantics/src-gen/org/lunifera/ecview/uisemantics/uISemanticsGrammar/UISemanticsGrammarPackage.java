@@ -95,7 +95,7 @@ public interface UISemanticsGrammarPackage extends EPackage
   int ELEMENT_DEFINITION = 1;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -302,15 +302,15 @@ public interface UISemanticsGrammarPackage extends EPackage
   EClass getElementDefinition();
 
   /**
-   * Returns the meta object for the attribute '{@link org.lunifera.ecview.uisemantics.uISemanticsGrammar.ElementDefinition#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link org.lunifera.ecview.uisemantics.uISemanticsGrammar.ElementDefinition#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
+   * @return the meta object for the reference '<em>Name</em>'.
    * @see org.lunifera.ecview.uisemantics.uISemanticsGrammar.ElementDefinition#getName()
    * @see #getElementDefinition()
    * @generated
    */
-  EAttribute getElementDefinition_Name();
+  EReference getElementDefinition_Name();
 
   /**
    * Returns the meta object for the reference '{@link org.lunifera.ecview.uisemantics.uISemanticsGrammar.ElementDefinition#getNsURI <em>Ns URI</em>}'.
@@ -503,12 +503,12 @@ public interface UISemanticsGrammarPackage extends EPackage
     EClass ELEMENT_DEFINITION = eINSTANCE.getElementDefinition();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ELEMENT_DEFINITION__NAME = eINSTANCE.getElementDefinition_Name();
+    EReference ELEMENT_DEFINITION__NAME = eINSTANCE.getElementDefinition_Name();
 
     /**
      * The meta object literal for the '<em><b>Ns URI</b></em>' reference feature.

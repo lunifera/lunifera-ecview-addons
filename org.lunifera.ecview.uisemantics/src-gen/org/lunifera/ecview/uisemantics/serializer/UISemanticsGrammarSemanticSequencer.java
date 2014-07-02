@@ -1255,7 +1255,7 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (name=ID nsURI=[EPackage|STRING]? bindingContainer=AvailableBindings)
+	 *     (name=[EClass|ID] nsURI=[EPackage|STRING]? bindingContainer=AvailableBindings)
 	 */
 	protected void sequence_ElementDefinition(EObject context, ElementDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

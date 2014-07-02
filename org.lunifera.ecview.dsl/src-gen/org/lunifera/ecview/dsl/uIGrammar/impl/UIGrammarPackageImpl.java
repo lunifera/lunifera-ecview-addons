@@ -26,8 +26,6 @@ import org.lunifera.ecview.dsl.uIGrammar.GGridLayout;
 import org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment;
 import org.lunifera.ecview.dsl.uIGrammar.GTable;
 import org.lunifera.ecview.dsl.uIGrammar.GTextArea;
-import org.lunifera.ecview.dsl.uIGrammar.GTextBindingDef;
-import org.lunifera.ecview.dsl.uIGrammar.GTextBindingDefs;
 import org.lunifera.ecview.dsl.uIGrammar.GTextField;
 import org.lunifera.ecview.dsl.uIGrammar.GTtree;
 import org.lunifera.ecview.dsl.uIGrammar.IDEView;
@@ -36,7 +34,7 @@ import org.lunifera.ecview.dsl.uIGrammar.UIGrammarFactory;
 import org.lunifera.ecview.dsl.uIGrammar.UIGrammarPackage;
 import org.lunifera.ecview.dsl.uIGrammar.UiModel;
 
-import org.lunifera.ecview.model.uiConfigs.UiConfigsPackage;
+import org.lunifera.ecview.uisemantics.uISemanticsGrammar.UISemanticsGrammarPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,20 +57,6 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * @generated
    */
   private EClass ideViewEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass gTextBindingDefsEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass gTextBindingDefEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -195,7 +179,7 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
     // Initialize simple dependencies
     ExtensionModelPackage.eINSTANCE.eClass();
     XbasePackage.eINSTANCE.eClass();
-    UiConfigsPackage.eINSTANCE.eClass();
+    UISemanticsGrammarPackage.eINSTANCE.eClass();
     ExtDatatypesPackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
@@ -248,7 +232,7 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIDEView_For()
+  public EReference getIDEView_Actions()
   {
     return (EReference)ideViewEClass.getEStructuralFeatures().get(0);
   }
@@ -258,7 +242,7 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIDEView_Defs()
+  public EReference getIDEView_Layouts()
   {
     return (EReference)ideViewEClass.getEStructuralFeatures().get(1);
   }
@@ -268,69 +252,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIDEView_Actions()
-  {
-    return (EReference)ideViewEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getIDEView_Layouts()
-  {
-    return (EReference)ideViewEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getIDEView_Bindings()
   {
-    return (EReference)ideViewEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getGTextBindingDefs()
-  {
-    return gTextBindingDefsEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getGTextBindingDefs_Methods()
-  {
-    return (EReference)gTextBindingDefsEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getGTextBindingDef()
-  {
-    return gTextBindingDefEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getGTextBindingDef_Name()
-  {
-    return (EAttribute)gTextBindingDefEClass.getEStructuralFeatures().get(0);
+    return (EReference)ideViewEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -607,17 +531,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
     createEReference(uiModelEClass, UI_MODEL__VIEW_SET);
 
     ideViewEClass = createEClass(IDE_VIEW);
-    createEReference(ideViewEClass, IDE_VIEW__FOR);
-    createEReference(ideViewEClass, IDE_VIEW__DEFS);
     createEReference(ideViewEClass, IDE_VIEW__ACTIONS);
     createEReference(ideViewEClass, IDE_VIEW__LAYOUTS);
     createEReference(ideViewEClass, IDE_VIEW__BINDINGS);
-
-    gTextBindingDefsEClass = createEClass(GTEXT_BINDING_DEFS);
-    createEReference(gTextBindingDefsEClass, GTEXT_BINDING_DEFS__METHODS);
-
-    gTextBindingDefEClass = createEClass(GTEXT_BINDING_DEF);
-    createEAttribute(gTextBindingDefEClass, GTEXT_BINDING_DEF__NAME);
 
     actionEClass = createEClass(ACTION);
     createEAttribute(actionEClass, ACTION__NAME);
@@ -682,7 +598,7 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
     CoreModelPackage theCoreModelPackage = (CoreModelPackage)EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI);
     XbasePackage theXbasePackage = (XbasePackage)EPackage.Registry.INSTANCE.getEPackage(XbasePackage.eNS_URI);
     ExtensionModelPackage theExtensionModelPackage = (ExtensionModelPackage)EPackage.Registry.INSTANCE.getEPackage(ExtensionModelPackage.eNS_URI);
-    UiConfigsPackage theUiConfigsPackage = (UiConfigsPackage)EPackage.Registry.INSTANCE.getEPackage(UiConfigsPackage.eNS_URI);
+    UISemanticsGrammarPackage theUISemanticsGrammarPackage = (UISemanticsGrammarPackage)EPackage.Registry.INSTANCE.getEPackage(UISemanticsGrammarPackage.eNS_URI);
     TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
 
     // Create type parameters
@@ -703,17 +619,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
     initEReference(getUiModel_ViewSet(), theCoreModelPackage.getYViewSet(), null, "viewSet", null, 0, -1, UiModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ideViewEClass, IDEView.class, "IDEView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getIDEView_For(), ecorePackage.getEClass(), null, "for", null, 0, 1, IDEView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIDEView_Defs(), this.getGTextBindingDefs(), null, "defs", null, 0, -1, IDEView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIDEView_Actions(), this.getAction(), null, "actions", null, 0, -1, IDEView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIDEView_Layouts(), theCoreModelPackage.getYLayout(), null, "layouts", null, 0, -1, IDEView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIDEView_Bindings(), this.getBinding(), null, "bindings", null, 0, -1, IDEView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(gTextBindingDefsEClass, GTextBindingDefs.class, "GTextBindingDefs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getGTextBindingDefs_Methods(), this.getGTextBindingDef(), null, "methods", null, 0, -1, GTextBindingDefs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(gTextBindingDefEClass, GTextBindingDef.class, "GTextBindingDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGTextBindingDef_Name(), ecorePackage.getEString(), "name", null, 0, 1, GTextBindingDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAction_Name(), ecorePackage.getEString(), "name", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -731,7 +639,7 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
 
     initEClass(bindingEClass, Binding.class, "Binding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBinding_Embeddable(), theCoreModelPackage.getYEmbeddable(), null, "embeddable", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBinding_Method(), theUiConfigsPackage.getBindingMethod(), null, "method", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBinding_Method(), theUISemanticsGrammarPackage.getBinding(), null, "method", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(gBeanSlotEClass, GBeanSlot.class, "GBeanSlot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getGBeanSlot_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, GBeanSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

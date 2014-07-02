@@ -167,5 +167,8 @@ MinLengthValidator returns coreVal::YValidator:
 	'min';
 
 Binding:
-	'bind' embeddable=[core::YEmbeddable] '.' method=[cfg::Binding] 'to';
+	'bind' embeddable=[core::YEmbeddable|FQN] '.' method=[cfg::Binding] 'to';
 
+FQN:
+	(ID '.')* ID
+;

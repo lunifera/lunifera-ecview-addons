@@ -2,6 +2,7 @@
  */
 package org.lunifera.ecview.uisemantics.uISemanticsGrammar;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -26,30 +27,30 @@ import org.eclipse.emf.ecore.EPackage;
 public interface ElementDefinition extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
+   * @return the value of the '<em>Name</em>' reference.
+   * @see #setName(EClass)
    * @see org.lunifera.ecview.uisemantics.uISemanticsGrammar.UISemanticsGrammarPackage#getElementDefinition_Name()
    * @model
    * @generated
    */
-  String getName();
+  EClass getName();
 
   /**
-   * Sets the value of the '{@link org.lunifera.ecview.uisemantics.uISemanticsGrammar.ElementDefinition#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.lunifera.ecview.uisemantics.uISemanticsGrammar.ElementDefinition#getName <em>Name</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
+   * @param value the new value of the '<em>Name</em>' reference.
    * @see #getName()
    * @generated
    */
-  void setName(String value);
+  void setName(EClass value);
 
   /**
    * Returns the value of the '<em><b>Ns URI</b></em>' reference.

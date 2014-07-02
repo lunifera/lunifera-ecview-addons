@@ -158,30 +158,19 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cBindingdefsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cForAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cForEClassCrossReference_3_1_0 = (CrossReference)cForAssignment_3_1.eContents().get(0);
-		private final RuleCall cForEClassIDTerminalRuleCall_3_1_0_1 = (RuleCall)cForEClassCrossReference_3_1_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
-		private final Assignment cDefsAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
-		private final RuleCall cDefsGTextBindingDefsParserRuleCall_3_3_0 = (RuleCall)cDefsAssignment_3_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
-		private final Assignment cActionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cActionsActionParserRuleCall_4_0 = (RuleCall)cActionsAssignment_4.eContents().get(0);
-		private final Assignment cLayoutsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cLayoutsLayoutParserRuleCall_5_0 = (RuleCall)cLayoutsAssignment_5.eContents().get(0);
-		private final Assignment cBindingsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cBindingsBindingParserRuleCall_6_0 = (RuleCall)cBindingsAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cActionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cActionsActionParserRuleCall_3_0 = (RuleCall)cActionsAssignment_3.eContents().get(0);
+		private final Assignment cLayoutsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cLayoutsLayoutParserRuleCall_4_0 = (RuleCall)cLayoutsAssignment_4.eContents().get(0);
+		private final Assignment cBindingsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cBindingsBindingParserRuleCall_5_0 = (RuleCall)cBindingsAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//IDEView:
-		//	"ideview" name=ID "{" ("bindingdefs" for=[ecore::EClass] "{" defs+=GTextBindingDefs* "}") actions+=Action*
-		//	layouts+=Layout* bindings+=Binding* "}";
+		//	"ideview" name=ID "{" actions+=Action* layouts+=Layout* bindings+=Binding* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"ideview" name=ID "{" ("bindingdefs" for=[ecore::EClass] "{" defs+=GTextBindingDefs* "}") actions+=Action*
-		//layouts+=Layout* bindings+=Binding* "}"
+		//"ideview" name=ID "{" actions+=Action* layouts+=Layout* bindings+=Binding* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"ideview"
@@ -196,105 +185,26 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//"bindingdefs" for=[ecore::EClass] "{" defs+=GTextBindingDefs* "}"
-		public Group getGroup_3() { return cGroup_3; }
-
-		//"bindingdefs"
-		public Keyword getBindingdefsKeyword_3_0() { return cBindingdefsKeyword_3_0; }
-
-		//for=[ecore::EClass]
-		public Assignment getForAssignment_3_1() { return cForAssignment_3_1; }
-
-		//[ecore::EClass]
-		public CrossReference getForEClassCrossReference_3_1_0() { return cForEClassCrossReference_3_1_0; }
-
-		//ID
-		public RuleCall getForEClassIDTerminalRuleCall_3_1_0_1() { return cForEClassIDTerminalRuleCall_3_1_0_1; }
-
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_3_2() { return cLeftCurlyBracketKeyword_3_2; }
-
-		//defs+=GTextBindingDefs*
-		public Assignment getDefsAssignment_3_3() { return cDefsAssignment_3_3; }
-
-		//GTextBindingDefs
-		public RuleCall getDefsGTextBindingDefsParserRuleCall_3_3_0() { return cDefsGTextBindingDefsParserRuleCall_3_3_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_3_4() { return cRightCurlyBracketKeyword_3_4; }
-
 		//actions+=Action*
-		public Assignment getActionsAssignment_4() { return cActionsAssignment_4; }
+		public Assignment getActionsAssignment_3() { return cActionsAssignment_3; }
 
 		//Action
-		public RuleCall getActionsActionParserRuleCall_4_0() { return cActionsActionParserRuleCall_4_0; }
+		public RuleCall getActionsActionParserRuleCall_3_0() { return cActionsActionParserRuleCall_3_0; }
 
 		//layouts+=Layout*
-		public Assignment getLayoutsAssignment_5() { return cLayoutsAssignment_5; }
+		public Assignment getLayoutsAssignment_4() { return cLayoutsAssignment_4; }
 
 		//Layout
-		public RuleCall getLayoutsLayoutParserRuleCall_5_0() { return cLayoutsLayoutParserRuleCall_5_0; }
+		public RuleCall getLayoutsLayoutParserRuleCall_4_0() { return cLayoutsLayoutParserRuleCall_4_0; }
 
 		//bindings+=Binding*
-		public Assignment getBindingsAssignment_6() { return cBindingsAssignment_6; }
+		public Assignment getBindingsAssignment_5() { return cBindingsAssignment_5; }
 
 		//Binding
-		public RuleCall getBindingsBindingParserRuleCall_6_0() { return cBindingsBindingParserRuleCall_6_0; }
+		public RuleCall getBindingsBindingParserRuleCall_5_0() { return cBindingsBindingParserRuleCall_5_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
-	}
-
-	public class GTextBindingDefsElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "GTextBindingDefs");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cMethodsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cMethodsGTextBindingDefParserRuleCall_0_0 = (RuleCall)cMethodsAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cCommaSpaceKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cMethodsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cMethodsGTextBindingDefParserRuleCall_1_1_0 = (RuleCall)cMethodsAssignment_1_1.eContents().get(0);
-		
-		//GTextBindingDefs:
-		//	methods+=GTextBindingDef (", " methods+=GTextBindingDef)*;
-		public ParserRule getRule() { return rule; }
-
-		//methods+=GTextBindingDef (", " methods+=GTextBindingDef)*
-		public Group getGroup() { return cGroup; }
-
-		//methods+=GTextBindingDef
-		public Assignment getMethodsAssignment_0() { return cMethodsAssignment_0; }
-
-		//GTextBindingDef
-		public RuleCall getMethodsGTextBindingDefParserRuleCall_0_0() { return cMethodsGTextBindingDefParserRuleCall_0_0; }
-
-		//(", " methods+=GTextBindingDef)*
-		public Group getGroup_1() { return cGroup_1; }
-
-		//", "
-		public Keyword getCommaSpaceKeyword_1_0() { return cCommaSpaceKeyword_1_0; }
-
-		//methods+=GTextBindingDef
-		public Assignment getMethodsAssignment_1_1() { return cMethodsAssignment_1_1; }
-
-		//GTextBindingDef
-		public RuleCall getMethodsGTextBindingDefParserRuleCall_1_1_0() { return cMethodsGTextBindingDefParserRuleCall_1_1_0; }
-	}
-
-	public class GTextBindingDefElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "GTextBindingDef");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
-		
-		//GTextBindingDef:
-		//	name=ID;
-		public ParserRule getRule() { return rule; }
-
-		//name=ID
-		public Assignment getNameAssignment() { return cNameAssignment; }
-
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class ActionElements extends AbstractParserRuleElementFinder {
@@ -1423,46 +1333,74 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cBindKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cEmbeddableAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cEmbeddableYEmbeddableCrossReference_1_0 = (CrossReference)cEmbeddableAssignment_1.eContents().get(0);
-		private final RuleCall cEmbeddableYEmbeddableIDTerminalRuleCall_1_0_1 = (RuleCall)cEmbeddableYEmbeddableCrossReference_1_0.eContents().get(1);
+		private final RuleCall cEmbeddableYEmbeddableFQNParserRuleCall_1_0_1 = (RuleCall)cEmbeddableYEmbeddableCrossReference_1_0.eContents().get(1);
 		private final Keyword cFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cMethodAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cMethodBindingMethodCrossReference_3_0 = (CrossReference)cMethodAssignment_3.eContents().get(0);
-		private final RuleCall cMethodBindingMethodIDTerminalRuleCall_3_0_1 = (RuleCall)cMethodBindingMethodCrossReference_3_0.eContents().get(1);
+		private final CrossReference cMethodBindingCrossReference_3_0 = (CrossReference)cMethodAssignment_3.eContents().get(0);
+		private final RuleCall cMethodBindingIDTerminalRuleCall_3_0_1 = (RuleCall)cMethodBindingCrossReference_3_0.eContents().get(1);
 		private final Keyword cToKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Binding:
-		//	"bind" embeddable=[core::YEmbeddable] "." method=[cfg::BindingMethod] "to";
+		//	"bind" embeddable=[core::YEmbeddable|FQN] "." method=[cfg::Binding] "to";
 		public ParserRule getRule() { return rule; }
 
-		//"bind" embeddable=[core::YEmbeddable] "." method=[cfg::BindingMethod] "to"
+		//"bind" embeddable=[core::YEmbeddable|FQN] "." method=[cfg::Binding] "to"
 		public Group getGroup() { return cGroup; }
 
 		//"bind"
 		public Keyword getBindKeyword_0() { return cBindKeyword_0; }
 
-		//embeddable=[core::YEmbeddable]
+		//embeddable=[core::YEmbeddable|FQN]
 		public Assignment getEmbeddableAssignment_1() { return cEmbeddableAssignment_1; }
 
-		//[core::YEmbeddable]
+		//[core::YEmbeddable|FQN]
 		public CrossReference getEmbeddableYEmbeddableCrossReference_1_0() { return cEmbeddableYEmbeddableCrossReference_1_0; }
 
-		//ID
-		public RuleCall getEmbeddableYEmbeddableIDTerminalRuleCall_1_0_1() { return cEmbeddableYEmbeddableIDTerminalRuleCall_1_0_1; }
+		//FQN
+		public RuleCall getEmbeddableYEmbeddableFQNParserRuleCall_1_0_1() { return cEmbeddableYEmbeddableFQNParserRuleCall_1_0_1; }
 
 		//"."
 		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
 
-		//method=[cfg::BindingMethod]
+		//method=[cfg::Binding]
 		public Assignment getMethodAssignment_3() { return cMethodAssignment_3; }
 
-		//[cfg::BindingMethod]
-		public CrossReference getMethodBindingMethodCrossReference_3_0() { return cMethodBindingMethodCrossReference_3_0; }
+		//[cfg::Binding]
+		public CrossReference getMethodBindingCrossReference_3_0() { return cMethodBindingCrossReference_3_0; }
 
 		//ID
-		public RuleCall getMethodBindingMethodIDTerminalRuleCall_3_0_1() { return cMethodBindingMethodIDTerminalRuleCall_3_0_1; }
+		public RuleCall getMethodBindingIDTerminalRuleCall_3_0_1() { return cMethodBindingIDTerminalRuleCall_3_0_1; }
 
 		//"to"
 		public Keyword getToKeyword_4() { return cToKeyword_4; }
+	}
+
+	public class FQNElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FQN");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
+		private final Keyword cFullStopKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		
+		//FQN:
+		//	(ID ".")* ID;
+		public ParserRule getRule() { return rule; }
+
+		//(ID ".")* ID
+		public Group getGroup() { return cGroup; }
+
+		//(ID ".")*
+		public Group getGroup_0() { return cGroup_0; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_0_0() { return cIDTerminalRuleCall_0_0; }
+
+		//"."
+		public Keyword getFullStopKeyword_0_1() { return cFullStopKeyword_0_1; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
 	}
 	
 	
@@ -1653,8 +1591,6 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private GBeanSlotElements pGBeanSlot;
 	private ViewElements pView;
 	private IDEViewElements pIDEView;
-	private GTextBindingDefsElements pGTextBindingDefs;
-	private GTextBindingDefElements pGTextBindingDef;
 	private ActionElements pAction;
 	private GGridLayoutElements pGGridLayout;
 	private GGridLayoutAssigmentElements pGGridLayoutAssigment;
@@ -1674,6 +1610,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private MaxLengthValidatorElements pMaxLengthValidator;
 	private MinLengthValidatorElements pMinLengthValidator;
 	private BindingElements pBinding;
+	private FQNElements pFQN;
 	
 	private final Grammar grammar;
 
@@ -1754,34 +1691,13 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//IDEView:
-	//	"ideview" name=ID "{" ("bindingdefs" for=[ecore::EClass] "{" defs+=GTextBindingDefs* "}") actions+=Action*
-	//	layouts+=Layout* bindings+=Binding* "}";
+	//	"ideview" name=ID "{" actions+=Action* layouts+=Layout* bindings+=Binding* "}";
 	public IDEViewElements getIDEViewAccess() {
 		return (pIDEView != null) ? pIDEView : (pIDEView = new IDEViewElements());
 	}
 	
 	public ParserRule getIDEViewRule() {
 		return getIDEViewAccess().getRule();
-	}
-
-	//GTextBindingDefs:
-	//	methods+=GTextBindingDef (", " methods+=GTextBindingDef)*;
-	public GTextBindingDefsElements getGTextBindingDefsAccess() {
-		return (pGTextBindingDefs != null) ? pGTextBindingDefs : (pGTextBindingDefs = new GTextBindingDefsElements());
-	}
-	
-	public ParserRule getGTextBindingDefsRule() {
-		return getGTextBindingDefsAccess().getRule();
-	}
-
-	//GTextBindingDef:
-	//	name=ID;
-	public GTextBindingDefElements getGTextBindingDefAccess() {
-		return (pGTextBindingDef != null) ? pGTextBindingDef : (pGTextBindingDef = new GTextBindingDefElements());
-	}
-	
-	public ParserRule getGTextBindingDefRule() {
-		return getGTextBindingDefAccess().getRule();
 	}
 
 	//Action:
@@ -1983,13 +1899,23 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Binding:
-	//	"bind" embeddable=[core::YEmbeddable] "." method=[cfg::BindingMethod] "to";
+	//	"bind" embeddable=[core::YEmbeddable|FQN] "." method=[cfg::Binding] "to";
 	public BindingElements getBindingAccess() {
 		return (pBinding != null) ? pBinding : (pBinding = new BindingElements());
 	}
 	
 	public ParserRule getBindingRule() {
 		return getBindingAccess().getRule();
+	}
+
+	//FQN:
+	//	(ID ".")* ID;
+	public FQNElements getFQNAccess() {
+		return (pFQN != null) ? pFQN : (pFQN = new FQNElements());
+	}
+	
+	public ParserRule getFQNRule() {
+		return getFQNAccess().getRule();
 	}
 
 	//XExpression:

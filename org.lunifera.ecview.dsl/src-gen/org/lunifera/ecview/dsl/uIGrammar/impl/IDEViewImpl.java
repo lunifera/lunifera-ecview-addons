@@ -4,15 +4,12 @@ package org.lunifera.ecview.dsl.uIGrammar.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -23,7 +20,6 @@ import org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl;
 
 import org.lunifera.ecview.dsl.uIGrammar.Action;
 import org.lunifera.ecview.dsl.uIGrammar.Binding;
-import org.lunifera.ecview.dsl.uIGrammar.GTextBindingDefs;
 import org.lunifera.ecview.dsl.uIGrammar.IDEView;
 import org.lunifera.ecview.dsl.uIGrammar.UIGrammarPackage;
 
@@ -34,8 +30,6 @@ import org.lunifera.ecview.dsl.uIGrammar.UIGrammarPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.lunifera.ecview.dsl.uIGrammar.impl.IDEViewImpl#getFor <em>For</em>}</li>
- *   <li>{@link org.lunifera.ecview.dsl.uIGrammar.impl.IDEViewImpl#getDefs <em>Defs</em>}</li>
  *   <li>{@link org.lunifera.ecview.dsl.uIGrammar.impl.IDEViewImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link org.lunifera.ecview.dsl.uIGrammar.impl.IDEViewImpl#getLayouts <em>Layouts</em>}</li>
  *   <li>{@link org.lunifera.ecview.dsl.uIGrammar.impl.IDEViewImpl#getBindings <em>Bindings</em>}</li>
@@ -46,26 +40,6 @@ import org.lunifera.ecview.dsl.uIGrammar.UIGrammarPackage;
  */
 public class IDEViewImpl extends YViewImpl implements IDEView
 {
-  /**
-   * The cached value of the '{@link #getFor() <em>For</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFor()
-   * @generated
-   * @ordered
-   */
-  protected EClass for_;
-
-  /**
-   * The cached value of the '{@link #getDefs() <em>Defs</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDefs()
-   * @generated
-   * @ordered
-   */
-  protected EList<GTextBindingDefs> defs;
-
   /**
    * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -122,63 +96,6 @@ public class IDEViewImpl extends YViewImpl implements IDEView
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getFor()
-  {
-    if (for_ != null && for_.eIsProxy())
-    {
-      InternalEObject oldFor = (InternalEObject)for_;
-      for_ = (EClass)eResolveProxy(oldFor);
-      if (for_ != oldFor)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UIGrammarPackage.IDE_VIEW__FOR, oldFor, for_));
-      }
-    }
-    return for_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass basicGetFor()
-  {
-    return for_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFor(EClass newFor)
-  {
-    EClass oldFor = for_;
-    for_ = newFor;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UIGrammarPackage.IDE_VIEW__FOR, oldFor, for_));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<GTextBindingDefs> getDefs()
-  {
-    if (defs == null)
-    {
-      defs = new EObjectContainmentEList<GTextBindingDefs>(GTextBindingDefs.class, this, UIGrammarPackage.IDE_VIEW__DEFS);
-    }
-    return defs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Action> getActions()
   {
     if (actions == null)
@@ -226,8 +143,6 @@ public class IDEViewImpl extends YViewImpl implements IDEView
   {
     switch (featureID)
     {
-      case UIGrammarPackage.IDE_VIEW__DEFS:
-        return ((InternalEList<?>)getDefs()).basicRemove(otherEnd, msgs);
       case UIGrammarPackage.IDE_VIEW__ACTIONS:
         return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
       case UIGrammarPackage.IDE_VIEW__LAYOUTS:
@@ -248,11 +163,6 @@ public class IDEViewImpl extends YViewImpl implements IDEView
   {
     switch (featureID)
     {
-      case UIGrammarPackage.IDE_VIEW__FOR:
-        if (resolve) return getFor();
-        return basicGetFor();
-      case UIGrammarPackage.IDE_VIEW__DEFS:
-        return getDefs();
       case UIGrammarPackage.IDE_VIEW__ACTIONS:
         return getActions();
       case UIGrammarPackage.IDE_VIEW__LAYOUTS:
@@ -274,13 +184,6 @@ public class IDEViewImpl extends YViewImpl implements IDEView
   {
     switch (featureID)
     {
-      case UIGrammarPackage.IDE_VIEW__FOR:
-        setFor((EClass)newValue);
-        return;
-      case UIGrammarPackage.IDE_VIEW__DEFS:
-        getDefs().clear();
-        getDefs().addAll((Collection<? extends GTextBindingDefs>)newValue);
-        return;
       case UIGrammarPackage.IDE_VIEW__ACTIONS:
         getActions().clear();
         getActions().addAll((Collection<? extends Action>)newValue);
@@ -307,12 +210,6 @@ public class IDEViewImpl extends YViewImpl implements IDEView
   {
     switch (featureID)
     {
-      case UIGrammarPackage.IDE_VIEW__FOR:
-        setFor((EClass)null);
-        return;
-      case UIGrammarPackage.IDE_VIEW__DEFS:
-        getDefs().clear();
-        return;
       case UIGrammarPackage.IDE_VIEW__ACTIONS:
         getActions().clear();
         return;
@@ -336,10 +233,6 @@ public class IDEViewImpl extends YViewImpl implements IDEView
   {
     switch (featureID)
     {
-      case UIGrammarPackage.IDE_VIEW__FOR:
-        return for_ != null;
-      case UIGrammarPackage.IDE_VIEW__DEFS:
-        return defs != null && !defs.isEmpty();
       case UIGrammarPackage.IDE_VIEW__ACTIONS:
         return actions != null && !actions.isEmpty();
       case UIGrammarPackage.IDE_VIEW__LAYOUTS:

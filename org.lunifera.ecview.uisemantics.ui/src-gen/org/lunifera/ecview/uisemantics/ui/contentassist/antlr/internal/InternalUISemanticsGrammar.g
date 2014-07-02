@@ -17052,8 +17052,12 @@ rule__ElementDefinition__NameAssignment_1
     }
 :
 (
-{ before(grammarAccess.getElementDefinitionAccess().getNameIDTerminalRuleCall_1_0()); }
-	RULE_ID{ after(grammarAccess.getElementDefinitionAccess().getNameIDTerminalRuleCall_1_0()); }
+{ before(grammarAccess.getElementDefinitionAccess().getNameEClassCrossReference_1_0()); }
+(
+{ before(grammarAccess.getElementDefinitionAccess().getNameEClassIDTerminalRuleCall_1_0_1()); }
+	RULE_ID{ after(grammarAccess.getElementDefinitionAccess().getNameEClassIDTerminalRuleCall_1_0_1()); }
+)
+{ after(grammarAccess.getElementDefinitionAccess().getNameEClassCrossReference_1_0()); }
 )
 
 ;

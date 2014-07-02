@@ -8,9 +8,6 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IDEView" eSuperTypes="platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YView">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="for" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="defs" upperBound="-1" eType="#//GTextBindingDefs"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
         eType="#//Action" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="layouts" upperBound="-1"
@@ -18,13 +15,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
         eType="#//Binding" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GTextBindingDefs">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1"
-        eType="#//GTextBindingDef" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GTextBindingDef">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -45,7 +35,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Binding">
     <eStructuralFeatures xsi:type="ecore:EReference" name="embeddable" eType="ecore:EClass platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YEmbeddable"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="ecore:EClass platform:/resource/org.lunifera.ecview.model/model/configs.ecore#//BindingMethod"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="ecore:EClass platform:/resource/org.lunifera.ecview.uisemantics/model/generated/UISemanticsGrammar.ecore#//Binding"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GBeanSlot" eSuperTypes="platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBeanSlot">
     <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"

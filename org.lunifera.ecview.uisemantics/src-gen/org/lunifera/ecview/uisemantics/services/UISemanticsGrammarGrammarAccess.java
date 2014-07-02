@@ -40,7 +40,8 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cElementKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final CrossReference cNameEClassCrossReference_1_0 = (CrossReference)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameEClassIDTerminalRuleCall_1_0_1 = (RuleCall)cNameEClassCrossReference_1_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cNsURIKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
@@ -55,22 +56,25 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//ElementDefinition:
-		//	"element" name=ID "{" ("nsURI" nsURI=[ecore::EPackage|STRING])? "bindings" "{" bindingContainer=AvailableBindings "}"
-		//	"}";
+		//	"element" name=[ecore::EClass] "{" ("nsURI" nsURI=[ecore::EPackage|STRING])? "bindings" "{"
+		//	bindingContainer=AvailableBindings "}" "}";
 		public ParserRule getRule() { return rule; }
 
-		//"element" name=ID "{" ("nsURI" nsURI=[ecore::EPackage|STRING])? "bindings" "{" bindingContainer=AvailableBindings "}"
-		//"}"
+		//"element" name=[ecore::EClass] "{" ("nsURI" nsURI=[ecore::EPackage|STRING])? "bindings" "{"
+		//bindingContainer=AvailableBindings "}" "}"
 		public Group getGroup() { return cGroup; }
 
 		//"element"
 		public Keyword getElementKeyword_0() { return cElementKeyword_0; }
 
-		//name=ID
+		//name=[ecore::EClass]
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
+		//[ecore::EClass]
+		public CrossReference getNameEClassCrossReference_1_0() { return cNameEClassCrossReference_1_0; }
+
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameEClassIDTerminalRuleCall_1_0_1() { return cNameEClassIDTerminalRuleCall_1_0_1; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -278,8 +282,8 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	}
 
 	//ElementDefinition:
-	//	"element" name=ID "{" ("nsURI" nsURI=[ecore::EPackage|STRING])? "bindings" "{" bindingContainer=AvailableBindings "}"
-	//	"}";
+	//	"element" name=[ecore::EClass] "{" ("nsURI" nsURI=[ecore::EPackage|STRING])? "bindings" "{"
+	//	bindingContainer=AvailableBindings "}" "}";
 	public ElementDefinitionElements getElementDefinitionAccess() {
 		return (pElementDefinition != null) ? pElementDefinition : (pElementDefinition = new ElementDefinitionElements());
 	}
