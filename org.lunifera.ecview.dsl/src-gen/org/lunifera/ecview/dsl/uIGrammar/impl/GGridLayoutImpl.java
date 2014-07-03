@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YGridLayoutImpl;
 
 import org.lunifera.ecview.dsl.uIGrammar.GGridLayout;
-import org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment;
 import org.lunifera.ecview.dsl.uIGrammar.UIGrammarPackage;
+import org.lunifera.ecview.dsl.uIGrammar.UiGridLayoutAssigment;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,7 +43,7 @@ public class GGridLayoutImpl extends YGridLayoutImpl implements GGridLayout
    * @generated
    * @ordered
    */
-  protected EList<GGridLayoutAssigment> contents;
+  protected EList<UiGridLayoutAssigment> contents;
 
   /**
    * <!-- begin-user-doc -->
@@ -71,11 +71,11 @@ public class GGridLayoutImpl extends YGridLayoutImpl implements GGridLayout
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<GGridLayoutAssigment> getContents()
+  public EList<UiGridLayoutAssigment> getContents()
   {
     if (contents == null)
     {
-      contents = new EObjectContainmentEList<GGridLayoutAssigment>(GGridLayoutAssigment.class, this, UIGrammarPackage.GGRID_LAYOUT__CONTENTS);
+      contents = new EObjectContainmentEList<UiGridLayoutAssigment>(UiGridLayoutAssigment.class, this, UIGrammarPackage.GGRID_LAYOUT__CONTENTS);
     }
     return contents;
   }
@@ -125,7 +125,7 @@ public class GGridLayoutImpl extends YGridLayoutImpl implements GGridLayout
     {
       case UIGrammarPackage.GGRID_LAYOUT__CONTENTS:
         getContents().clear();
-        getContents().addAll((Collection<? extends GGridLayoutAssigment>)newValue);
+        getContents().addAll((Collection<? extends UiGridLayoutAssigment>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

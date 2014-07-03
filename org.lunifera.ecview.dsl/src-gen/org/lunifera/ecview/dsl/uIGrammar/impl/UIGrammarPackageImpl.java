@@ -17,22 +17,20 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackag
 
 import org.eclipse.xtext.common.types.TypesPackage;
 
-import org.eclipse.xtext.xbase.XbasePackage;
-
-import org.lunifera.ecview.dsl.uIGrammar.Action;
-import org.lunifera.ecview.dsl.uIGrammar.Binding;
 import org.lunifera.ecview.dsl.uIGrammar.GBeanSlot;
 import org.lunifera.ecview.dsl.uIGrammar.GGridLayout;
-import org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment;
-import org.lunifera.ecview.dsl.uIGrammar.GTable;
-import org.lunifera.ecview.dsl.uIGrammar.GTextArea;
+import org.lunifera.ecview.dsl.uIGrammar.GList;
 import org.lunifera.ecview.dsl.uIGrammar.GTextField;
-import org.lunifera.ecview.dsl.uIGrammar.GTtree;
-import org.lunifera.ecview.dsl.uIGrammar.IDEView;
-import org.lunifera.ecview.dsl.uIGrammar.Point;
 import org.lunifera.ecview.dsl.uIGrammar.UIGrammarFactory;
 import org.lunifera.ecview.dsl.uIGrammar.UIGrammarPackage;
+import org.lunifera.ecview.dsl.uIGrammar.UiBinding;
+import org.lunifera.ecview.dsl.uIGrammar.UiGridLayoutAssigment;
+import org.lunifera.ecview.dsl.uIGrammar.UiIDEView;
 import org.lunifera.ecview.dsl.uIGrammar.UiModel;
+import org.lunifera.ecview.dsl.uIGrammar.UiPathSegment;
+import org.lunifera.ecview.dsl.uIGrammar.UiPoint;
+import org.lunifera.ecview.dsl.uIGrammar.UiSourceBindingEndpoint;
+import org.lunifera.ecview.dsl.uIGrammar.UiTargetBindingEndpoint;
 
 import org.lunifera.ecview.uisemantics.uISemanticsGrammar.UISemanticsGrammarPackage;
 
@@ -56,35 +54,49 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass ideViewEClass = null;
+  private EClass uiIDEViewEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass actionEClass = null;
+  private EClass uiGridLayoutAssigmentEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass gGridLayoutAssigmentEClass = null;
+  private EClass uiPointEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass pointEClass = null;
+  private EClass uiBindingEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass bindingEClass = null;
+  private EClass uiSourceBindingEndpointEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass uiTargetBindingEndpointEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass uiPathSegmentEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -112,21 +124,7 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass gTextAreaEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass gTableEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass gTtreeEClass = null;
+  private EClass gListEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -178,7 +176,6 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
 
     // Initialize simple dependencies
     ExtensionModelPackage.eINSTANCE.eClass();
-    XbasePackage.eINSTANCE.eClass();
     UISemanticsGrammarPackage.eINSTANCE.eClass();
     ExtDatatypesPackage.eINSTANCE.eClass();
 
@@ -222,9 +219,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getIDEView()
+  public EClass getUiIDEView()
   {
-    return ideViewEClass;
+    return uiIDEViewEClass;
   }
 
   /**
@@ -232,9 +229,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIDEView_Actions()
+  public EReference getUiIDEView_Layouts()
   {
-    return (EReference)ideViewEClass.getEStructuralFeatures().get(0);
+    return (EReference)uiIDEViewEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -242,9 +239,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIDEView_Layouts()
+  public EReference getUiIDEView_Bindings()
   {
-    return (EReference)ideViewEClass.getEStructuralFeatures().get(1);
+    return (EReference)uiIDEViewEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -252,9 +249,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIDEView_Bindings()
+  public EClass getUiGridLayoutAssigment()
   {
-    return (EReference)ideViewEClass.getEStructuralFeatures().get(2);
+    return uiGridLayoutAssigmentEClass;
   }
 
   /**
@@ -262,9 +259,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAction()
+  public EReference getUiGridLayoutAssigment_Element()
   {
-    return actionEClass;
+    return (EReference)uiGridLayoutAssigmentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -272,9 +269,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAction_Name()
+  public EAttribute getUiGridLayoutAssigment_Alignment()
   {
-    return (EAttribute)actionEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)uiGridLayoutAssigmentEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -282,9 +279,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAction_Body()
+  public EReference getUiGridLayoutAssigment_From()
   {
-    return (EReference)actionEClass.getEStructuralFeatures().get(1);
+    return (EReference)uiGridLayoutAssigmentEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -292,9 +289,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getGGridLayoutAssigment()
+  public EReference getUiGridLayoutAssigment_To()
   {
-    return gGridLayoutAssigmentEClass;
+    return (EReference)uiGridLayoutAssigmentEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -302,9 +299,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGGridLayoutAssigment_Element()
+  public EClass getUiPoint()
   {
-    return (EReference)gGridLayoutAssigmentEClass.getEStructuralFeatures().get(0);
+    return uiPointEClass;
   }
 
   /**
@@ -312,9 +309,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getGGridLayoutAssigment_Alignment()
+  public EAttribute getUiPoint_X()
   {
-    return (EAttribute)gGridLayoutAssigmentEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)uiPointEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -322,9 +319,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGGridLayoutAssigment_From()
+  public EAttribute getUiPoint_Y()
   {
-    return (EReference)gGridLayoutAssigmentEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)uiPointEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -332,9 +329,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGGridLayoutAssigment_To()
+  public EClass getUiBinding()
   {
-    return (EReference)gGridLayoutAssigmentEClass.getEStructuralFeatures().get(3);
+    return uiBindingEClass;
   }
 
   /**
@@ -342,9 +339,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPoint()
+  public EReference getUiBinding_Source()
   {
-    return pointEClass;
+    return (EReference)uiBindingEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -352,9 +349,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPoint_X()
+  public EAttribute getUiBinding_TargetToSource()
   {
-    return (EAttribute)pointEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)uiBindingEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -362,9 +359,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPoint_Y()
+  public EAttribute getUiBinding_SourceToTarget()
   {
-    return (EAttribute)pointEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)uiBindingEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -372,9 +369,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getBinding()
+  public EReference getUiBinding_Target()
   {
-    return bindingEClass;
+    return (EReference)uiBindingEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -382,9 +379,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBinding_Embeddable()
+  public EClass getUiSourceBindingEndpoint()
   {
-    return (EReference)bindingEClass.getEStructuralFeatures().get(0);
+    return uiSourceBindingEndpointEClass;
   }
 
   /**
@@ -392,9 +389,99 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBinding_Method()
+  public EReference getUiSourceBindingEndpoint_Embeddable()
   {
-    return (EReference)bindingEClass.getEStructuralFeatures().get(1);
+    return (EReference)uiSourceBindingEndpointEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUiSourceBindingEndpoint_Endpoint()
+  {
+    return (EReference)uiSourceBindingEndpointEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUiSourceBindingEndpoint_Path()
+  {
+    return (EReference)uiSourceBindingEndpointEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUiTargetBindingEndpoint()
+  {
+    return uiTargetBindingEndpointEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUiTargetBindingEndpoint_Embeddable()
+  {
+    return (EReference)uiTargetBindingEndpointEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUiTargetBindingEndpoint_Endpoint()
+  {
+    return (EReference)uiTargetBindingEndpointEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUiTargetBindingEndpoint_Path()
+  {
+    return (EReference)uiTargetBindingEndpointEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUiPathSegment()
+  {
+    return uiPathSegmentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUiPathSegment_JvmField()
+  {
+    return (EReference)uiPathSegmentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUiPathSegment_Path()
+  {
+    return (EReference)uiPathSegmentEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -452,49 +539,9 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getGTextArea()
+  public EClass getGList()
   {
-    return gTextAreaEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getGTable()
-  {
-    return gTableEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getGTable_JvmType()
-  {
-    return (EReference)gTableEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getGTtree()
-  {
-    return gTtreeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getGTtree_JvmType()
-  {
-    return (EReference)gTtreeEClass.getEStructuralFeatures().get(0);
+    return gListEClass;
   }
 
   /**
@@ -530,28 +577,39 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
     uiModelEClass = createEClass(UI_MODEL);
     createEReference(uiModelEClass, UI_MODEL__VIEW_SET);
 
-    ideViewEClass = createEClass(IDE_VIEW);
-    createEReference(ideViewEClass, IDE_VIEW__ACTIONS);
-    createEReference(ideViewEClass, IDE_VIEW__LAYOUTS);
-    createEReference(ideViewEClass, IDE_VIEW__BINDINGS);
+    uiIDEViewEClass = createEClass(UI_IDE_VIEW);
+    createEReference(uiIDEViewEClass, UI_IDE_VIEW__LAYOUTS);
+    createEReference(uiIDEViewEClass, UI_IDE_VIEW__BINDINGS);
 
-    actionEClass = createEClass(ACTION);
-    createEAttribute(actionEClass, ACTION__NAME);
-    createEReference(actionEClass, ACTION__BODY);
+    uiGridLayoutAssigmentEClass = createEClass(UI_GRID_LAYOUT_ASSIGMENT);
+    createEReference(uiGridLayoutAssigmentEClass, UI_GRID_LAYOUT_ASSIGMENT__ELEMENT);
+    createEAttribute(uiGridLayoutAssigmentEClass, UI_GRID_LAYOUT_ASSIGMENT__ALIGNMENT);
+    createEReference(uiGridLayoutAssigmentEClass, UI_GRID_LAYOUT_ASSIGMENT__FROM);
+    createEReference(uiGridLayoutAssigmentEClass, UI_GRID_LAYOUT_ASSIGMENT__TO);
 
-    gGridLayoutAssigmentEClass = createEClass(GGRID_LAYOUT_ASSIGMENT);
-    createEReference(gGridLayoutAssigmentEClass, GGRID_LAYOUT_ASSIGMENT__ELEMENT);
-    createEAttribute(gGridLayoutAssigmentEClass, GGRID_LAYOUT_ASSIGMENT__ALIGNMENT);
-    createEReference(gGridLayoutAssigmentEClass, GGRID_LAYOUT_ASSIGMENT__FROM);
-    createEReference(gGridLayoutAssigmentEClass, GGRID_LAYOUT_ASSIGMENT__TO);
+    uiPointEClass = createEClass(UI_POINT);
+    createEAttribute(uiPointEClass, UI_POINT__X);
+    createEAttribute(uiPointEClass, UI_POINT__Y);
 
-    pointEClass = createEClass(POINT);
-    createEAttribute(pointEClass, POINT__X);
-    createEAttribute(pointEClass, POINT__Y);
+    uiBindingEClass = createEClass(UI_BINDING);
+    createEReference(uiBindingEClass, UI_BINDING__SOURCE);
+    createEAttribute(uiBindingEClass, UI_BINDING__TARGET_TO_SOURCE);
+    createEAttribute(uiBindingEClass, UI_BINDING__SOURCE_TO_TARGET);
+    createEReference(uiBindingEClass, UI_BINDING__TARGET);
 
-    bindingEClass = createEClass(BINDING);
-    createEReference(bindingEClass, BINDING__EMBEDDABLE);
-    createEReference(bindingEClass, BINDING__METHOD);
+    uiSourceBindingEndpointEClass = createEClass(UI_SOURCE_BINDING_ENDPOINT);
+    createEReference(uiSourceBindingEndpointEClass, UI_SOURCE_BINDING_ENDPOINT__EMBEDDABLE);
+    createEReference(uiSourceBindingEndpointEClass, UI_SOURCE_BINDING_ENDPOINT__ENDPOINT);
+    createEReference(uiSourceBindingEndpointEClass, UI_SOURCE_BINDING_ENDPOINT__PATH);
+
+    uiTargetBindingEndpointEClass = createEClass(UI_TARGET_BINDING_ENDPOINT);
+    createEReference(uiTargetBindingEndpointEClass, UI_TARGET_BINDING_ENDPOINT__EMBEDDABLE);
+    createEReference(uiTargetBindingEndpointEClass, UI_TARGET_BINDING_ENDPOINT__ENDPOINT);
+    createEReference(uiTargetBindingEndpointEClass, UI_TARGET_BINDING_ENDPOINT__PATH);
+
+    uiPathSegmentEClass = createEClass(UI_PATH_SEGMENT);
+    createEReference(uiPathSegmentEClass, UI_PATH_SEGMENT__JVM_FIELD);
+    createEReference(uiPathSegmentEClass, UI_PATH_SEGMENT__PATH);
 
     gBeanSlotEClass = createEClass(GBEAN_SLOT);
     createEReference(gBeanSlotEClass, GBEAN_SLOT__JVM_TYPE);
@@ -561,13 +619,7 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
 
     gTextFieldEClass = createEClass(GTEXT_FIELD);
 
-    gTextAreaEClass = createEClass(GTEXT_AREA);
-
-    gTableEClass = createEClass(GTABLE);
-    createEReference(gTableEClass, GTABLE__JVM_TYPE);
-
-    gTtreeEClass = createEClass(GTTREE);
-    createEReference(gTtreeEClass, GTTREE__JVM_TYPE);
+    gListEClass = createEClass(GLIST);
   }
 
   /**
@@ -596,7 +648,6 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
 
     // Obtain other dependent packages
     CoreModelPackage theCoreModelPackage = (CoreModelPackage)EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI);
-    XbasePackage theXbasePackage = (XbasePackage)EPackage.Registry.INSTANCE.getEPackage(XbasePackage.eNS_URI);
     ExtensionModelPackage theExtensionModelPackage = (ExtensionModelPackage)EPackage.Registry.INSTANCE.getEPackage(ExtensionModelPackage.eNS_URI);
     UISemanticsGrammarPackage theUISemanticsGrammarPackage = (UISemanticsGrammarPackage)EPackage.Registry.INSTANCE.getEPackage(UISemanticsGrammarPackage.eNS_URI);
     TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
@@ -606,56 +657,59 @@ public class UIGrammarPackageImpl extends EPackageImpl implements UIGrammarPacka
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    ideViewEClass.getESuperTypes().add(theCoreModelPackage.getYView());
+    uiIDEViewEClass.getESuperTypes().add(theCoreModelPackage.getYView());
     gBeanSlotEClass.getESuperTypes().add(theCoreModelPackage.getYBeanSlot());
     gGridLayoutEClass.getESuperTypes().add(theExtensionModelPackage.getYGridLayout());
     gTextFieldEClass.getESuperTypes().add(theExtensionModelPackage.getYTextField());
-    gTextAreaEClass.getESuperTypes().add(theExtensionModelPackage.getYTextArea());
-    gTableEClass.getESuperTypes().add(theExtensionModelPackage.getYTable());
-    gTtreeEClass.getESuperTypes().add(theExtensionModelPackage.getYTree());
+    gListEClass.getESuperTypes().add(theExtensionModelPackage.getYList());
 
     // Initialize classes and features; add operations and parameters
     initEClass(uiModelEClass, UiModel.class, "UiModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getUiModel_ViewSet(), theCoreModelPackage.getYViewSet(), null, "viewSet", null, 0, -1, UiModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(ideViewEClass, IDEView.class, "IDEView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getIDEView_Actions(), this.getAction(), null, "actions", null, 0, -1, IDEView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIDEView_Layouts(), theCoreModelPackage.getYLayout(), null, "layouts", null, 0, -1, IDEView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIDEView_Bindings(), this.getBinding(), null, "bindings", null, 0, -1, IDEView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(uiIDEViewEClass, UiIDEView.class, "UiIDEView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUiIDEView_Layouts(), theCoreModelPackage.getYLayout(), null, "layouts", null, 0, -1, UiIDEView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUiIDEView_Bindings(), this.getUiBinding(), null, "bindings", null, 0, -1, UiIDEView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAction_Name(), ecorePackage.getEString(), "name", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAction_Body(), theXbasePackage.getXExpression(), null, "body", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(uiGridLayoutAssigmentEClass, UiGridLayoutAssigment.class, "UiGridLayoutAssigment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUiGridLayoutAssigment_Element(), theCoreModelPackage.getYEmbeddable(), null, "element", null, 0, 1, UiGridLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUiGridLayoutAssigment_Alignment(), theExtensionModelPackage.getYAlignment(), "alignment", null, 0, 1, UiGridLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUiGridLayoutAssigment_From(), this.getUiPoint(), null, "from", null, 0, 1, UiGridLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUiGridLayoutAssigment_To(), this.getUiPoint(), null, "to", null, 0, 1, UiGridLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(gGridLayoutAssigmentEClass, GGridLayoutAssigment.class, "GGridLayoutAssigment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getGGridLayoutAssigment_Element(), theCoreModelPackage.getYEmbeddable(), null, "element", null, 0, 1, GGridLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getGGridLayoutAssigment_Alignment(), theExtensionModelPackage.getYAlignment(), "alignment", null, 0, 1, GGridLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGGridLayoutAssigment_From(), this.getPoint(), null, "from", null, 0, 1, GGridLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGGridLayoutAssigment_To(), this.getPoint(), null, "to", null, 0, 1, GGridLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(uiPointEClass, UiPoint.class, "UiPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUiPoint_X(), ecorePackage.getEInt(), "x", null, 0, 1, UiPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUiPoint_Y(), ecorePackage.getEInt(), "y", null, 0, 1, UiPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPoint_X(), ecorePackage.getEInt(), "x", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPoint_Y(), ecorePackage.getEInt(), "y", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(uiBindingEClass, UiBinding.class, "UiBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUiBinding_Source(), this.getUiSourceBindingEndpoint(), null, "source", null, 0, 1, UiBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUiBinding_TargetToSource(), ecorePackage.getEBoolean(), "targetToSource", null, 0, 1, UiBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUiBinding_SourceToTarget(), ecorePackage.getEBoolean(), "sourceToTarget", null, 0, 1, UiBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUiBinding_Target(), this.getUiTargetBindingEndpoint(), null, "target", null, 0, 1, UiBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(bindingEClass, Binding.class, "Binding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBinding_Embeddable(), theCoreModelPackage.getYEmbeddable(), null, "embeddable", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBinding_Method(), theUISemanticsGrammarPackage.getBinding(), null, "method", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(uiSourceBindingEndpointEClass, UiSourceBindingEndpoint.class, "UiSourceBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUiSourceBindingEndpoint_Embeddable(), theCoreModelPackage.getYBindable(), null, "embeddable", null, 0, 1, UiSourceBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUiSourceBindingEndpoint_Endpoint(), theUISemanticsGrammarPackage.getUxEndpointDefCommon(), null, "endpoint", null, 0, 1, UiSourceBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUiSourceBindingEndpoint_Path(), this.getUiPathSegment(), null, "path", null, 0, 1, UiSourceBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(uiTargetBindingEndpointEClass, UiTargetBindingEndpoint.class, "UiTargetBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUiTargetBindingEndpoint_Embeddable(), theCoreModelPackage.getYBindable(), null, "embeddable", null, 0, 1, UiTargetBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUiTargetBindingEndpoint_Endpoint(), theUISemanticsGrammarPackage.getUxEndpointDefCommon(), null, "endpoint", null, 0, 1, UiTargetBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUiTargetBindingEndpoint_Path(), this.getUiPathSegment(), null, "path", null, 0, 1, UiTargetBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(uiPathSegmentEClass, UiPathSegment.class, "UiPathSegment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUiPathSegment_JvmField(), theTypesPackage.getJvmField(), null, "jvmField", null, 0, 1, UiPathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUiPathSegment_Path(), this.getUiPathSegment(), null, "path", null, 0, 1, UiPathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(gBeanSlotEClass, GBeanSlot.class, "GBeanSlot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getGBeanSlot_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, GBeanSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(gGridLayoutEClass, GGridLayout.class, "GGridLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getGGridLayout_Contents(), this.getGGridLayoutAssigment(), null, "contents", null, 0, -1, GGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGGridLayout_Contents(), this.getUiGridLayoutAssigment(), null, "contents", null, 0, -1, GGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(gTextFieldEClass, GTextField.class, "GTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(gTextAreaEClass, GTextArea.class, "GTextArea", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(gTableEClass, GTable.class, "GTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getGTable_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, GTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(gTtreeEClass, GTtree.class, "GTtree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getGTtree_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, GTtree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(gListEClass, GList.class, "GList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

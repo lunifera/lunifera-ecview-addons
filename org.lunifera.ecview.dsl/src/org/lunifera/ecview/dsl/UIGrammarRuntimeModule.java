@@ -32,7 +32,7 @@ public class UIGrammarRuntimeModule extends
 
 	@Override
 	public Class<? extends XbaseBatchScopeProvider> bindXbaseBatchScopeProvider() {
-		return BatchScopeProvider.class;
+		return ScopeProvider.class;
 	}
 
 	@Override

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Uisemantics
+Bundle-SymbolicName: org.lunifera.ecview.semantic.uisemantics;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.10.0",
+ org.eclipse.xtext.xbase;bundle-version="2.6.1"
+Export-Package: org.lunifera.ecview.semantic.uisemantics,
+ org.lunifera.ecview.semantic.uisemantics.impl;x-internal:=true,
+ org.lunifera.ecview.semantic.uisemantics.util

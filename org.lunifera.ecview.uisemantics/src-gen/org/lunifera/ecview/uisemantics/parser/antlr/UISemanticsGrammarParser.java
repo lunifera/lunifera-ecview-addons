@@ -25,7 +25,7 @@ public class UISemanticsGrammarParser extends org.eclipse.xtext.parser.antlr.Abs
 	
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "UxModel";
 	}
 	
 	public UISemanticsGrammarGrammarAccess getGrammarAccess() {

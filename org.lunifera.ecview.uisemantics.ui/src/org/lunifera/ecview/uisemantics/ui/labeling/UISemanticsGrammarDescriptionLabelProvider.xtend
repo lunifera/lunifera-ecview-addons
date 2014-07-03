@@ -3,6 +3,8 @@
 */
 package org.lunifera.ecview.uisemantics.ui.labeling
 
+import org.eclipse.xtext.resource.IEObjectDescription
+
 //import org.eclipse.xtext.resource.IEObjectDescription
 
 /**
@@ -12,11 +14,9 @@ package org.lunifera.ecview.uisemantics.ui.labeling
  */
 class UISemanticsGrammarDescriptionLabelProvider extends org.eclipse.xtext.xbase.ui.labeling.XbaseDescriptionLabelProvider {
 
-	// Labels and icons can be computed like this:
-	
-//	override text(IEObjectDescription ele) {
-//		ele.name.toString
-//	}
+	override text(IEObjectDescription ele) {
+		ele.name.toString
+	}
 //	 
 //	override image(IEObjectDescription ele) {
 //		ele.EClass.name + '.gif'

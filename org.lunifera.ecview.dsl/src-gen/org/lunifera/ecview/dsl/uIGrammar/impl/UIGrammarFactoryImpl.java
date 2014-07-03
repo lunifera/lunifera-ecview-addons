@@ -65,17 +65,17 @@ public class UIGrammarFactoryImpl extends EFactoryImpl implements UIGrammarFacto
     switch (eClass.getClassifierID())
     {
       case UIGrammarPackage.UI_MODEL: return createUiModel();
-      case UIGrammarPackage.IDE_VIEW: return createIDEView();
-      case UIGrammarPackage.ACTION: return createAction();
-      case UIGrammarPackage.GGRID_LAYOUT_ASSIGMENT: return createGGridLayoutAssigment();
-      case UIGrammarPackage.POINT: return createPoint();
-      case UIGrammarPackage.BINDING: return createBinding();
+      case UIGrammarPackage.UI_IDE_VIEW: return createUiIDEView();
+      case UIGrammarPackage.UI_GRID_LAYOUT_ASSIGMENT: return createUiGridLayoutAssigment();
+      case UIGrammarPackage.UI_POINT: return createUiPoint();
+      case UIGrammarPackage.UI_BINDING: return createUiBinding();
+      case UIGrammarPackage.UI_SOURCE_BINDING_ENDPOINT: return createUiSourceBindingEndpoint();
+      case UIGrammarPackage.UI_TARGET_BINDING_ENDPOINT: return createUiTargetBindingEndpoint();
+      case UIGrammarPackage.UI_PATH_SEGMENT: return createUiPathSegment();
       case UIGrammarPackage.GBEAN_SLOT: return createGBeanSlot();
       case UIGrammarPackage.GGRID_LAYOUT: return createGGridLayout();
       case UIGrammarPackage.GTEXT_FIELD: return createGTextField();
-      case UIGrammarPackage.GTEXT_AREA: return createGTextArea();
-      case UIGrammarPackage.GTABLE: return createGTable();
-      case UIGrammarPackage.GTTREE: return createGTtree();
+      case UIGrammarPackage.GLIST: return createGList();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -97,10 +97,10 @@ public class UIGrammarFactoryImpl extends EFactoryImpl implements UIGrammarFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public IDEView createIDEView()
+  public UiIDEView createUiIDEView()
   {
-    IDEViewImpl ideView = new IDEViewImpl();
-    return ideView;
+    UiIDEViewImpl uiIDEView = new UiIDEViewImpl();
+    return uiIDEView;
   }
 
   /**
@@ -108,10 +108,10 @@ public class UIGrammarFactoryImpl extends EFactoryImpl implements UIGrammarFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public Action createAction()
+  public UiGridLayoutAssigment createUiGridLayoutAssigment()
   {
-    ActionImpl action = new ActionImpl();
-    return action;
+    UiGridLayoutAssigmentImpl uiGridLayoutAssigment = new UiGridLayoutAssigmentImpl();
+    return uiGridLayoutAssigment;
   }
 
   /**
@@ -119,10 +119,10 @@ public class UIGrammarFactoryImpl extends EFactoryImpl implements UIGrammarFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public GGridLayoutAssigment createGGridLayoutAssigment()
+  public UiPoint createUiPoint()
   {
-    GGridLayoutAssigmentImpl gGridLayoutAssigment = new GGridLayoutAssigmentImpl();
-    return gGridLayoutAssigment;
+    UiPointImpl uiPoint = new UiPointImpl();
+    return uiPoint;
   }
 
   /**
@@ -130,10 +130,10 @@ public class UIGrammarFactoryImpl extends EFactoryImpl implements UIGrammarFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public Point createPoint()
+  public UiBinding createUiBinding()
   {
-    PointImpl point = new PointImpl();
-    return point;
+    UiBindingImpl uiBinding = new UiBindingImpl();
+    return uiBinding;
   }
 
   /**
@@ -141,10 +141,32 @@ public class UIGrammarFactoryImpl extends EFactoryImpl implements UIGrammarFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public Binding createBinding()
+  public UiSourceBindingEndpoint createUiSourceBindingEndpoint()
   {
-    BindingImpl binding = new BindingImpl();
-    return binding;
+    UiSourceBindingEndpointImpl uiSourceBindingEndpoint = new UiSourceBindingEndpointImpl();
+    return uiSourceBindingEndpoint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UiTargetBindingEndpoint createUiTargetBindingEndpoint()
+  {
+    UiTargetBindingEndpointImpl uiTargetBindingEndpoint = new UiTargetBindingEndpointImpl();
+    return uiTargetBindingEndpoint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UiPathSegment createUiPathSegment()
+  {
+    UiPathSegmentImpl uiPathSegment = new UiPathSegmentImpl();
+    return uiPathSegment;
   }
 
   /**
@@ -185,32 +207,10 @@ public class UIGrammarFactoryImpl extends EFactoryImpl implements UIGrammarFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public GTextArea createGTextArea()
+  public GList createGList()
   {
-    GTextAreaImpl gTextArea = new GTextAreaImpl();
-    return gTextArea;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public GTable createGTable()
-  {
-    GTableImpl gTable = new GTableImpl();
-    return gTable;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public GTtree createGTtree()
-  {
-    GTtreeImpl gTtree = new GTtreeImpl();
-    return gTtree;
+    GListImpl gList = new GListImpl();
+    return gList;
   }
 
   /**

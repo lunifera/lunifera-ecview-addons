@@ -19,19 +19,15 @@ Workflow {
 	//		}
 		uriMap = {
 			from = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/"
-			to =
-			"file://home/klemens/git/org.eclipse.emf.ecp.other/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.common.model/"
+			to = "file://daten/dev/lunifera/ws_ecviewaddon/models/org.eclipse.emf.ecp.ecview.common.model/"
 		}
 		uriMap = {
 			from = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/"
-			to =
-			"file://home/klemens/git/org.eclipse.emf.ecp.other/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.extension.model/"
+			to = "file://daten/dev/lunifera/ws_ecviewaddon/models/org.eclipse.emf.ecp.ecview.extension.model/"
 		}
-		
 		uriMap = {
 			from = "platform:/resource/org.lunifera.ecview.uisemantics/"
-			to =
-			"file://home/klemens/git/lunifera-ecview-addons/org.lunifera.ecview.uisemantics/"
+			to = "file://Users/admin/git/lunifera-ecview-addons/org.lunifera.ecview.uisemantics/"
 		}
 		scanClassPath = true
 		platformUri = "${runtimeProject}/.."
@@ -42,23 +38,21 @@ Workflow {
 		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage"
 		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore"
 		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage"
-		registerEcoreFile ="platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore"
-		registerGeneratedEPackage="org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage"
-		registerEcoreFile="platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore"
-		registerGeneratedEPackage="org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage"
-		registerEcoreFile= "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/visibility.ecore"
+		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore"
+		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage"
+		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore"
+		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage"
+		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/visibility.ecore"
 		registerGenModelFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel"
-		
 		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage"
 		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extdatatypes.ecore"
 		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage"
 		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore"
 		registerGenModelFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.genmodel"
-	
 		registerGeneratedEPackage = "org.lunifera.ecview.uisemantics.uISemanticsGrammar.UISemanticsGrammarPackage"
 		registerEcoreFile = "platform:/resource/org.lunifera.ecview.uisemantics/model/generated/UISemanticsGrammar.ecore"
-		registerGenModelFile = "platform:/resource/org.lunifera.ecview.uisemantics/model/generated/UISemanticsGrammar.genmodel"
-	
+		registerGenModelFile =
+		"platform:/resource/org.lunifera.ecview.uisemantics/model/generated/UISemanticsGrammar.genmodel"
 	}
 
 	component = DirectoryCleaner {

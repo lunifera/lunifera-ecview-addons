@@ -28,10 +28,8 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
 
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YInput;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YTree;
 
 import org.lunifera.ecview.dsl.uIGrammar.*;
 
@@ -105,43 +103,57 @@ public class UIGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case UIGrammarPackage.IDE_VIEW:
+      case UIGrammarPackage.UI_IDE_VIEW:
       {
-        IDEView ideView = (IDEView)theEObject;
-        T result = caseIDEView(ideView);
-        if (result == null) result = caseYView(ideView);
-        if (result == null) result = caseYElement(ideView);
-        if (result == null) result = caseYCssAble(ideView);
-        if (result == null) result = caseYMarginable(ideView);
-        if (result == null) result = caseYVisibilityProcessable(ideView);
+        UiIDEView uiIDEView = (UiIDEView)theEObject;
+        T result = caseUiIDEView(uiIDEView);
+        if (result == null) result = caseYView(uiIDEView);
+        if (result == null) result = caseYElement(uiIDEView);
+        if (result == null) result = caseYCssAble(uiIDEView);
+        if (result == null) result = caseYMarginable(uiIDEView);
+        if (result == null) result = caseYVisibilityProcessable(uiIDEView);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case UIGrammarPackage.ACTION:
+      case UIGrammarPackage.UI_GRID_LAYOUT_ASSIGMENT:
       {
-        Action action = (Action)theEObject;
-        T result = caseAction(action);
+        UiGridLayoutAssigment uiGridLayoutAssigment = (UiGridLayoutAssigment)theEObject;
+        T result = caseUiGridLayoutAssigment(uiGridLayoutAssigment);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case UIGrammarPackage.GGRID_LAYOUT_ASSIGMENT:
+      case UIGrammarPackage.UI_POINT:
       {
-        GGridLayoutAssigment gGridLayoutAssigment = (GGridLayoutAssigment)theEObject;
-        T result = caseGGridLayoutAssigment(gGridLayoutAssigment);
+        UiPoint uiPoint = (UiPoint)theEObject;
+        T result = caseUiPoint(uiPoint);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case UIGrammarPackage.POINT:
+      case UIGrammarPackage.UI_BINDING:
       {
-        Point point = (Point)theEObject;
-        T result = casePoint(point);
+        UiBinding uiBinding = (UiBinding)theEObject;
+        T result = caseUiBinding(uiBinding);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case UIGrammarPackage.BINDING:
+      case UIGrammarPackage.UI_SOURCE_BINDING_ENDPOINT:
       {
-        Binding binding = (Binding)theEObject;
-        T result = caseBinding(binding);
+        UiSourceBindingEndpoint uiSourceBindingEndpoint = (UiSourceBindingEndpoint)theEObject;
+        T result = caseUiSourceBindingEndpoint(uiSourceBindingEndpoint);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UIGrammarPackage.UI_TARGET_BINDING_ENDPOINT:
+      {
+        UiTargetBindingEndpoint uiTargetBindingEndpoint = (UiTargetBindingEndpoint)theEObject;
+        T result = caseUiTargetBindingEndpoint(uiTargetBindingEndpoint);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UIGrammarPackage.UI_PATH_SEGMENT:
+      {
+        UiPathSegment uiPathSegment = (UiPathSegment)theEObject;
+        T result = caseUiPathSegment(uiPathSegment);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -150,6 +162,7 @@ public class UIGrammarSwitch<T> extends Switch<T>
         GBeanSlot gBeanSlot = (GBeanSlot)theEObject;
         T result = caseGBeanSlot(gBeanSlot);
         if (result == null) result = caseYBeanSlot(gBeanSlot);
+        if (result == null) result = caseYBindable(gBeanSlot);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -188,64 +201,24 @@ public class UIGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case UIGrammarPackage.GTEXT_AREA:
+      case UIGrammarPackage.GLIST:
       {
-        GTextArea gTextArea = (GTextArea)theEObject;
-        T result = caseGTextArea(gTextArea);
-        if (result == null) result = caseYTextArea(gTextArea);
-        if (result == null) result = caseYInput(gTextArea);
-        if (result == null) result = caseYValueBindable(gTextArea);
-        if (result == null) result = caseYField(gTextArea);
-        if (result == null) result = caseYBindable(gTextArea);
-        if (result == null) result = caseYEmbeddable(gTextArea);
-        if (result == null) result = caseYEditable(gTextArea);
-        if (result == null) result = caseYEnable(gTextArea);
-        if (result == null) result = caseYElement(gTextArea);
-        if (result == null) result = caseYCssAble(gTextArea);
-        if (result == null) result = caseYVisibleable(gTextArea);
-        if (result == null) result = caseYVisibilityProcessable(gTextArea);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case UIGrammarPackage.GTABLE:
-      {
-        GTable gTable = (GTable)theEObject;
-        T result = caseGTable(gTable);
-        if (result == null) result = caseYTable(gTable);
-        if (result == null) result = caseYInput(gTable);
-        if (result == null) result = caseYCollectionBindable(gTable);
-        if (result == null) result = caseYSelectionBindable(gTable);
-        if (result == null) result = caseYMultiSelectionBindable(gTable);
-        if (result == null) result = caseYField(gTable);
-        if (result == null) result = caseYBindable(gTable);
-        if (result == null) result = caseYEmbeddable(gTable);
-        if (result == null) result = caseYEditable(gTable);
-        if (result == null) result = caseYEnable(gTable);
-        if (result == null) result = caseYElement(gTable);
-        if (result == null) result = caseYCssAble(gTable);
-        if (result == null) result = caseYVisibleable(gTable);
-        if (result == null) result = caseYVisibilityProcessable(gTable);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case UIGrammarPackage.GTTREE:
-      {
-        GTtree gTtree = (GTtree)theEObject;
-        T result = caseGTtree(gTtree);
-        if (result == null) result = caseYTree(gTtree);
-        if (result == null) result = caseYInput(gTtree);
-        if (result == null) result = caseYCollectionBindable(gTtree);
-        if (result == null) result = caseYSelectionBindable(gTtree);
-        if (result == null) result = caseYMultiSelectionBindable(gTtree);
-        if (result == null) result = caseYField(gTtree);
-        if (result == null) result = caseYBindable(gTtree);
-        if (result == null) result = caseYEmbeddable(gTtree);
-        if (result == null) result = caseYEditable(gTtree);
-        if (result == null) result = caseYEnable(gTtree);
-        if (result == null) result = caseYElement(gTtree);
-        if (result == null) result = caseYCssAble(gTtree);
-        if (result == null) result = caseYVisibleable(gTtree);
-        if (result == null) result = caseYVisibilityProcessable(gTtree);
+        GList gList = (GList)theEObject;
+        T result = caseGList(gList);
+        if (result == null) result = caseYList(gList);
+        if (result == null) result = caseYInput(gList);
+        if (result == null) result = caseYCollectionBindable(gList);
+        if (result == null) result = caseYSelectionBindable(gList);
+        if (result == null) result = caseYMultiSelectionBindable(gList);
+        if (result == null) result = caseYField(gList);
+        if (result == null) result = caseYBindable(gList);
+        if (result == null) result = caseYEmbeddable(gList);
+        if (result == null) result = caseYEditable(gList);
+        if (result == null) result = caseYEnable(gList);
+        if (result == null) result = caseYElement(gList);
+        if (result == null) result = caseYCssAble(gList);
+        if (result == null) result = caseYVisibleable(gList);
+        if (result == null) result = caseYVisibilityProcessable(gList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -270,81 +243,113 @@ public class UIGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>IDE View</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Ui IDE View</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>IDE View</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Ui IDE View</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseIDEView(IDEView object)
+  public T caseUiIDEView(UiIDEView object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Ui Grid Layout Assigment</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Action</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Ui Grid Layout Assigment</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAction(Action object)
+  public T caseUiGridLayoutAssigment(UiGridLayoutAssigment object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>GGrid Layout Assigment</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Ui Point</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>GGrid Layout Assigment</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Ui Point</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseGGridLayoutAssigment(GGridLayoutAssigment object)
+  public T caseUiPoint(UiPoint object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Point</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Ui Binding</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Point</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Ui Binding</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePoint(Point object)
+  public T caseUiBinding(UiBinding object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Binding</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Ui Source Binding Endpoint</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Binding</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Ui Source Binding Endpoint</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBinding(Binding object)
+  public T caseUiSourceBindingEndpoint(UiSourceBindingEndpoint object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ui Target Binding Endpoint</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ui Target Binding Endpoint</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUiTargetBindingEndpoint(UiTargetBindingEndpoint object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ui Path Segment</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ui Path Segment</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUiPathSegment(UiPathSegment object)
   {
     return null;
   }
@@ -398,49 +403,17 @@ public class UIGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>GText Area</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>GList</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>GText Area</em>'.
+   * @return the result of interpreting the object as an instance of '<em>GList</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseGTextArea(GTextArea object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>GTable</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>GTable</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseGTable(GTable object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>GTtree</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>GTtree</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseGTtree(GTtree object)
+  public T caseGList(GList object)
   {
     return null;
   }
@@ -521,6 +494,22 @@ public class UIGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseYView(YView object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>YBindable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>YBindable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseYBindable(YBindable object)
   {
     return null;
   }
@@ -686,22 +675,6 @@ public class UIGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>YBindable</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>YBindable</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseYBindable(YBindable object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>YValue Bindable</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -729,22 +702,6 @@ public class UIGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseYTextField(YTextField object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>YText Area</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>YText Area</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseYTextArea(YTextArea object)
   {
     return null;
   }
@@ -798,33 +755,17 @@ public class UIGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>YTable</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>YList</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>YTable</em>'.
+   * @return the result of interpreting the object as an instance of '<em>YList</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseYTable(YTable object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>YTree</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>YTree</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseYTree(YTree object)
+  public T caseYList(YList object)
   {
     return null;
   }

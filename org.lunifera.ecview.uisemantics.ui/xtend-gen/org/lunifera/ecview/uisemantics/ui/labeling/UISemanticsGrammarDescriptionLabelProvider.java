@@ -3,6 +3,8 @@
  */
 package org.lunifera.ecview.uisemantics.ui.labeling;
 
+import org.eclipse.xtext.naming.QualifiedName;
+import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.xbase.ui.labeling.XbaseDescriptionLabelProvider;
 
 /**
@@ -12,4 +14,8 @@ import org.eclipse.xtext.xbase.ui.labeling.XbaseDescriptionLabelProvider;
  */
 @SuppressWarnings("all")
 public class UISemanticsGrammarDescriptionLabelProvider extends XbaseDescriptionLabelProvider {
+  public Object text(final IEObjectDescription ele) {
+    QualifiedName _name = ele.getName();
+    return _name.toString();
+  }
 }

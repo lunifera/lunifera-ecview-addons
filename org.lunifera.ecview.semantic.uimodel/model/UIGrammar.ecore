@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="uimodel" nsURI="http://www.lunifera.org/ecview/dsl/UIModel"
+    nsPrefix="uimodel">
+  <eClassifiers xsi:type="ecore:EClass" name="UiModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewSet" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YViewSet"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiIDEView" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YView">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="layouts" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YLayout"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
+        eType="#//UiBinding" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiGridLayoutAssigment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YEmbeddable"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="ecore:EEnum ../../org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore#//YAlignment"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//UiPoint"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//UiPoint"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiPoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiBinding">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//UiSourceBindingEndpoint"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetToSource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceToTarget" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//UiTargetBindingEndpoint"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiSourceBindingEndpoint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="embeddable" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBindable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" eType="ecore:EClass ../../org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore#//UxEndpointDef"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//UiPathSegment"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiTargetBindingEndpoint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="embeddable" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBindable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" eType="ecore:EClass ../../org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore#//UxEndpointDef"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//UiPathSegment"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiPathSegment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jvmField" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmField"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//UiPathSegment"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiBeanSlot" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBeanSlot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiGridLayout" eSuperTypes="../../org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore#//YGridLayout">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
+        eType="#//UiGridLayoutAssigment" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiTextField" eSuperTypes="../../org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore#//YTextField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiList" eSuperTypes="../../org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore#//YList"/>
+</ecore:EPackage>

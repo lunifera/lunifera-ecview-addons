@@ -54,17 +54,19 @@ import org.eclipse.xtext.xbase.XWhileExpression;
 import org.eclipse.xtext.xbase.XbasePackage;
 import org.eclipse.xtext.xbase.serializer.XbaseSemanticSequencer;
 import org.eclipse.xtext.xtype.XFunctionTypeRef;
-import org.eclipse.xtext.xtype.XImportDeclaration;
 import org.eclipse.xtext.xtype.XImportSection;
 import org.eclipse.xtext.xtype.XtypePackage;
+import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
+import org.lunifera.ecview.semantic.uisemantics.UxAvailableBindings;
+import org.lunifera.ecview.semantic.uisemantics.UxEPackageImport;
+import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
+import org.lunifera.ecview.semantic.uisemantics.UxElementURI;
+import org.lunifera.ecview.semantic.uisemantics.UxImportDeclaration;
+import org.lunifera.ecview.semantic.uisemantics.UxListBindingEndpointDef;
+import org.lunifera.ecview.semantic.uisemantics.UxModel;
+import org.lunifera.ecview.semantic.uisemantics.UxSetBindingEndpointDef;
+import org.lunifera.ecview.semantic.uisemantics.UxValueBindingEndpointDef;
 import org.lunifera.ecview.uisemantics.services.UISemanticsGrammarGrammarAccess;
-import org.lunifera.ecview.uisemantics.uISemanticsGrammar.AvailableBindings;
-import org.lunifera.ecview.uisemantics.uISemanticsGrammar.Binding;
-import org.lunifera.ecview.uisemantics.uISemanticsGrammar.DataType;
-import org.lunifera.ecview.uisemantics.uISemanticsGrammar.ElementDefinition;
-import org.lunifera.ecview.uisemantics.uISemanticsGrammar.Model;
-import org.lunifera.ecview.uisemantics.uISemanticsGrammar.Multiplicity;
-import org.lunifera.ecview.uisemantics.uISemanticsGrammar.UISemanticsGrammarPackage;
 
 @SuppressWarnings("all")
 public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer {
@@ -131,40 +133,61 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 				}
 				else break;
 			}
-		else if(semanticObject.eClass().getEPackage() == UISemanticsGrammarPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case UISemanticsGrammarPackage.AVAILABLE_BINDINGS:
-				if(context == grammarAccess.getAvailableBindingsRule()) {
-					sequence_AvailableBindings(context, (AvailableBindings) semanticObject); 
+		else if(semanticObject.eClass().getEPackage() == UiSemanticsPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case UiSemanticsPackage.UX_AVAILABLE_BINDINGS:
+				if(context == grammarAccess.getUxAvailableBindingsRule()) {
+					sequence_UxAvailableBindings(context, (UxAvailableBindings) semanticObject); 
 					return; 
 				}
 				else break;
-			case UISemanticsGrammarPackage.BINDING:
-				if(context == grammarAccess.getBindingRule()) {
-					sequence_Binding(context, (Binding) semanticObject); 
+			case UiSemanticsPackage.UX_EPACKAGE_IMPORT:
+				if(context == grammarAccess.getUxEPackageImportRule()) {
+					sequence_UxEPackageImport(context, (UxEPackageImport) semanticObject); 
 					return; 
 				}
 				else break;
-			case UISemanticsGrammarPackage.DATA_TYPE:
-				if(context == grammarAccess.getDataTypeRule()) {
-					sequence_DataType(context, (DataType) semanticObject); 
+			case UiSemanticsPackage.UX_ELEMENT_DEFINITION:
+				if(context == grammarAccess.getUxElementDefinitionRule()) {
+					sequence_UxElementDefinition(context, (UxElementDefinition) semanticObject); 
 					return; 
 				}
 				else break;
-			case UISemanticsGrammarPackage.ELEMENT_DEFINITION:
-				if(context == grammarAccess.getElementDefinitionRule()) {
-					sequence_ElementDefinition(context, (ElementDefinition) semanticObject); 
+			case UiSemanticsPackage.UX_ELEMENT_URI:
+				if(context == grammarAccess.getUxElementURIRule()) {
+					sequence_UxElementURI(context, (UxElementURI) semanticObject); 
 					return; 
 				}
 				else break;
-			case UISemanticsGrammarPackage.MODEL:
-				if(context == grammarAccess.getModelRule()) {
-					sequence_Model(context, (Model) semanticObject); 
+			case UiSemanticsPackage.UX_IMPORT_DECLARATION:
+				if(context == grammarAccess.getXImportDeclarationRule()) {
+					sequence_XImportDeclaration(context, (UxImportDeclaration) semanticObject); 
 					return; 
 				}
 				else break;
-			case UISemanticsGrammarPackage.MULTIPLICITY:
-				if(context == grammarAccess.getMultiplicityRule()) {
-					sequence_Multiplicity(context, (Multiplicity) semanticObject); 
+			case UiSemanticsPackage.UX_LIST_BINDING_ENDPOINT_DEF:
+				if(context == grammarAccess.getUxEndpointDefRule() ||
+				   context == grammarAccess.getUxListBindingEndpointDefRule()) {
+					sequence_UxListBindingEndpointDef(context, (UxListBindingEndpointDef) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiSemanticsPackage.UX_MODEL:
+				if(context == grammarAccess.getUxModelRule()) {
+					sequence_UxModel(context, (UxModel) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiSemanticsPackage.UX_SET_BINDING_ENDPOINT_DEF:
+				if(context == grammarAccess.getUxEndpointDefRule() ||
+				   context == grammarAccess.getUxSetBindingEndpointDefRule()) {
+					sequence_UxSetBindingEndpointDef(context, (UxSetBindingEndpointDef) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiSemanticsPackage.UX_VALUE_BINDING_ENDPOINT_DEF:
+				if(context == grammarAccess.getUxEndpointDefRule() ||
+				   context == grammarAccess.getUxValueBindingEndpointDefRule()) {
+					sequence_UxValueBindingEndpointDef(context, (UxValueBindingEndpointDef) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1190,12 +1213,6 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 					return; 
 				}
 				else break;
-			case XtypePackage.XIMPORT_DECLARATION:
-				if(context == grammarAccess.getXImportDeclarationRule()) {
-					sequence_XImportDeclaration(context, (XImportDeclaration) semanticObject); 
-					return; 
-				}
-				else break;
 			case XtypePackage.XIMPORT_SECTION:
 				if(context == grammarAccess.getXImportSectionRule()) {
 					sequence_XImportSection(context, (XImportSection) semanticObject); 
@@ -1208,74 +1225,106 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (bindings+=Binding*)
+	 *     bindings+=UxEndpointDef*
 	 */
-	protected void sequence_AvailableBindings(EObject context, AvailableBindings semanticObject) {
+	protected void sequence_UxAvailableBindings(EObject context, UxAvailableBindings semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (name=ID dataType=DataType multiplicity=Multiplicity)
+	 *     (ePackage=[EPackage|STRING] alias=ID)
 	 */
-	protected void sequence_Binding(EObject context, Binding semanticObject) {
+	protected void sequence_UxEPackageImport(EObject context, UxEPackageImport semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, UISemanticsGrammarPackage.Literals.BINDING__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UISemanticsGrammarPackage.Literals.BINDING__NAME));
-			if(transientValues.isValueTransient(semanticObject, UISemanticsGrammarPackage.Literals.BINDING__DATA_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UISemanticsGrammarPackage.Literals.BINDING__DATA_TYPE));
-			if(transientValues.isValueTransient(semanticObject, UISemanticsGrammarPackage.Literals.BINDING__MULTIPLICITY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UISemanticsGrammarPackage.Literals.BINDING__MULTIPLICITY));
+			if(transientValues.isValueTransient(semanticObject, UiSemanticsPackage.Literals.UX_EPACKAGE_IMPORT__ALIAS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiSemanticsPackage.Literals.UX_EPACKAGE_IMPORT__ALIAS));
+			if(transientValues.isValueTransient(semanticObject, UiSemanticsPackage.Literals.UX_EPACKAGE_IMPORT__EPACKAGE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiSemanticsPackage.Literals.UX_EPACKAGE_IMPORT__EPACKAGE));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getBindingAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getBindingAccess().getDataTypeDataTypeParserRuleCall_2_0(), semanticObject.getDataType());
-		feeder.accept(grammarAccess.getBindingAccess().getMultiplicityMultiplicityParserRuleCall_3_0(), semanticObject.getMultiplicity());
+		feeder.accept(grammarAccess.getUxEPackageImportAccess().getEPackageEPackageSTRINGTerminalRuleCall_0_0_1(), semanticObject.getEPackage());
+		feeder.accept(grammarAccess.getUxEPackageImportAccess().getAliasIDTerminalRuleCall_2_0(), semanticObject.getAlias());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     jvmType=JvmTypeReference
+	 *     (name=ID uri=UxElementURI? bindingContainer=UxAvailableBindings)
 	 */
-	protected void sequence_DataType(EObject context, DataType semanticObject) {
+	protected void sequence_UxElementDefinition(EObject context, UxElementDefinition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (ePackage=[UxEPackageImport|ID] eClass=[EClass|ID])
+	 */
+	protected void sequence_UxElementURI(EObject context, UxElementURI semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, UISemanticsGrammarPackage.Literals.DATA_TYPE__JVM_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UISemanticsGrammarPackage.Literals.DATA_TYPE__JVM_TYPE));
+			if(transientValues.isValueTransient(semanticObject, UiSemanticsPackage.Literals.UX_ELEMENT_URI__EPACKAGE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiSemanticsPackage.Literals.UX_ELEMENT_URI__EPACKAGE));
+			if(transientValues.isValueTransient(semanticObject, UiSemanticsPackage.Literals.UX_ELEMENT_URI__ECLASS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiSemanticsPackage.Literals.UX_ELEMENT_URI__ECLASS));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getDataTypeAccess().getJvmTypeJvmTypeReferenceParserRuleCall_0(), semanticObject.getJvmType());
+		feeder.accept(grammarAccess.getUxElementURIAccess().getEPackageUxEPackageImportIDTerminalRuleCall_1_0_1(), semanticObject.getEPackage());
+		feeder.accept(grammarAccess.getUxElementURIAccess().getEClassEClassIDTerminalRuleCall_3_0_1(), semanticObject.getEClass());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (name=[EClass|ID] nsURI=[EPackage|STRING]? bindingContainer=AvailableBindings)
+	 *     (name=ID jvmType=JvmTypeReference)
 	 */
-	protected void sequence_ElementDefinition(EObject context, ElementDefinition semanticObject) {
+	protected void sequence_UxListBindingEndpointDef(EObject context, UxListBindingEndpointDef semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     elementDefinitions+=ElementDefinition*
+	 *     (importSection=XImportSection? elementDefinitions+=UxElementDefinition*)
 	 */
-	protected void sequence_Model(EObject context, Model semanticObject) {
+	protected void sequence_UxModel(EObject context, UxModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (SINGLE='single' | MULTI='multi')
+	 *     (name=ID jvmType=JvmTypeReference)
 	 */
-	protected void sequence_Multiplicity(EObject context, Multiplicity semanticObject) {
+	protected void sequence_UxSetBindingEndpointDef(EObject context, UxSetBindingEndpointDef semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (final?='final'? name=ID jvmType=JvmTypeReference)
+	 */
+	protected void sequence_UxValueBindingEndpointDef(EObject context, UxValueBindingEndpointDef semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         (static?='static' extension?='extension'? importedType=[JvmDeclaredType|QualifiedNameInStaticImport] (wildcard?='*' | memberName=ValidID)) | 
+	 *         importedType=[JvmDeclaredType|QualifiedName] | 
+	 *         importedNamespace=QualifiedNameWithWildcard | 
+	 *         importedEPackage=UxEPackageImport
+	 *     )
+	 */
+	protected void sequence_XImportDeclaration(EObject context, UxImportDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }

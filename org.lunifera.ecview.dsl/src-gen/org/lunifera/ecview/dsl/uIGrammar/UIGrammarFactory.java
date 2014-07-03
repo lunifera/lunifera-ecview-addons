@@ -32,49 +32,67 @@ public interface UIGrammarFactory extends EFactory
   UiModel createUiModel();
 
   /**
-   * Returns a new object of class '<em>IDE View</em>'.
+   * Returns a new object of class '<em>Ui IDE View</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>IDE View</em>'.
+   * @return a new object of class '<em>Ui IDE View</em>'.
    * @generated
    */
-  IDEView createIDEView();
+  UiIDEView createUiIDEView();
 
   /**
-   * Returns a new object of class '<em>Action</em>'.
+   * Returns a new object of class '<em>Ui Grid Layout Assigment</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Action</em>'.
+   * @return a new object of class '<em>Ui Grid Layout Assigment</em>'.
    * @generated
    */
-  Action createAction();
+  UiGridLayoutAssigment createUiGridLayoutAssigment();
 
   /**
-   * Returns a new object of class '<em>GGrid Layout Assigment</em>'.
+   * Returns a new object of class '<em>Ui Point</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>GGrid Layout Assigment</em>'.
+   * @return a new object of class '<em>Ui Point</em>'.
    * @generated
    */
-  GGridLayoutAssigment createGGridLayoutAssigment();
+  UiPoint createUiPoint();
 
   /**
-   * Returns a new object of class '<em>Point</em>'.
+   * Returns a new object of class '<em>Ui Binding</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Point</em>'.
+   * @return a new object of class '<em>Ui Binding</em>'.
    * @generated
    */
-  Point createPoint();
+  UiBinding createUiBinding();
 
   /**
-   * Returns a new object of class '<em>Binding</em>'.
+   * Returns a new object of class '<em>Ui Source Binding Endpoint</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Binding</em>'.
+   * @return a new object of class '<em>Ui Source Binding Endpoint</em>'.
    * @generated
    */
-  Binding createBinding();
+  UiSourceBindingEndpoint createUiSourceBindingEndpoint();
+
+  /**
+   * Returns a new object of class '<em>Ui Target Binding Endpoint</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ui Target Binding Endpoint</em>'.
+   * @generated
+   */
+  UiTargetBindingEndpoint createUiTargetBindingEndpoint();
+
+  /**
+   * Returns a new object of class '<em>Ui Path Segment</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ui Path Segment</em>'.
+   * @generated
+   */
+  UiPathSegment createUiPathSegment();
 
   /**
    * Returns a new object of class '<em>GBean Slot</em>'.
@@ -104,31 +122,13 @@ public interface UIGrammarFactory extends EFactory
   GTextField createGTextField();
 
   /**
-   * Returns a new object of class '<em>GText Area</em>'.
+   * Returns a new object of class '<em>GList</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>GText Area</em>'.
+   * @return a new object of class '<em>GList</em>'.
    * @generated
    */
-  GTextArea createGTextArea();
-
-  /**
-   * Returns a new object of class '<em>GTable</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>GTable</em>'.
-   * @generated
-   */
-  GTable createGTable();
-
-  /**
-   * Returns a new object of class '<em>GTtree</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>GTtree</em>'.
-   * @generated
-   */
-  GTtree createGTtree();
+  GList createGList();
 
   /**
    * Returns the package supported by this factory.

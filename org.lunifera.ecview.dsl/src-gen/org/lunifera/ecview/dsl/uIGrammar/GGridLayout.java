@@ -26,7 +26,7 @@ public interface GGridLayout extends YGridLayout
 {
   /**
    * Returns the value of the '<em><b>Contents</b></em>' containment reference list.
-   * The list contents are of type {@link org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment}.
+   * The list contents are of type {@link org.lunifera.ecview.dsl.uIGrammar.UiGridLayoutAssigment}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Contents</em>' containment reference list isn't clear,
@@ -38,6 +38,6 @@ public interface GGridLayout extends YGridLayout
    * @model containment="true"
    * @generated
    */
-  EList<GGridLayoutAssigment> getContents();
+  EList<UiGridLayoutAssigment> getContents();
 
 } // GGridLayout

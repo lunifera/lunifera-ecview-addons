@@ -89,14 +89,14 @@ public interface UIGrammarPackage extends EPackage
   int UI_MODEL_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.IDEViewImpl <em>IDE View</em>}' class.
+   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.UiIDEViewImpl <em>Ui IDE View</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.IDEViewImpl
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getIDEView()
+   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UiIDEViewImpl
+   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getUiIDEView()
    * @generated
    */
-  int IDE_VIEW = 1;
+  int UI_IDE_VIEW = 1;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -105,7 +105,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_VIEW__ID = CoreModelPackage.YVIEW__ID;
+  int UI_IDE_VIEW__ID = CoreModelPackage.YVIEW__ID;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -114,7 +114,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_VIEW__NAME = CoreModelPackage.YVIEW__NAME;
+  int UI_IDE_VIEW__NAME = CoreModelPackage.YVIEW__NAME;
 
   /**
    * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -123,7 +123,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_VIEW__CSS_CLASS = CoreModelPackage.YVIEW__CSS_CLASS;
+  int UI_IDE_VIEW__CSS_CLASS = CoreModelPackage.YVIEW__CSS_CLASS;
 
   /**
    * The feature id for the '<em><b>Css ID</b></em>' attribute.
@@ -132,7 +132,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_VIEW__CSS_ID = CoreModelPackage.YVIEW__CSS_ID;
+  int UI_IDE_VIEW__CSS_ID = CoreModelPackage.YVIEW__CSS_ID;
 
   /**
    * The feature id for the '<em><b>Margin</b></em>' attribute.
@@ -141,7 +141,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_VIEW__MARGIN = CoreModelPackage.YVIEW__MARGIN;
+  int UI_IDE_VIEW__MARGIN = CoreModelPackage.YVIEW__MARGIN;
 
   /**
    * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
@@ -150,7 +150,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_VIEW__VISIBILITY_PROCESSOR = CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR;
+  int UI_IDE_VIEW__VISIBILITY_PROCESSOR = CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR;
 
   /**
    * The feature id for the '<em><b>Root</b></em>' container reference.
@@ -159,7 +159,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_VIEW__ROOT = CoreModelPackage.YVIEW__ROOT;
+  int UI_IDE_VIEW__ROOT = CoreModelPackage.YVIEW__ROOT;
 
   /**
    * The feature id for the '<em><b>View Name</b></em>' attribute.
@@ -168,7 +168,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_VIEW__VIEW_NAME = CoreModelPackage.YVIEW__VIEW_NAME;
+  int UI_IDE_VIEW__VIEW_NAME = CoreModelPackage.YVIEW__VIEW_NAME;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' containment reference.
@@ -177,7 +177,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_VIEW__CONTENT = CoreModelPackage.YVIEW__CONTENT;
+  int UI_IDE_VIEW__CONTENT = CoreModelPackage.YVIEW__CONTENT;
 
   /**
    * The feature id for the '<em><b>Binding Set</b></em>' containment reference.
@@ -186,7 +186,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_VIEW__BINDING_SET = CoreModelPackage.YVIEW__BINDING_SET;
+  int UI_IDE_VIEW__BINDING_SET = CoreModelPackage.YVIEW__BINDING_SET;
 
   /**
    * The feature id for the '<em><b>Bean Slots</b></em>' containment reference list.
@@ -195,16 +195,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_VIEW__BEAN_SLOTS = CoreModelPackage.YVIEW__BEAN_SLOTS;
-
-  /**
-   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDE_VIEW__ACTIONS = CoreModelPackage.YVIEW_FEATURE_COUNT + 0;
+  int UI_IDE_VIEW__BEAN_SLOTS = CoreModelPackage.YVIEW__BEAN_SLOTS;
 
   /**
    * The feature id for the '<em><b>Layouts</b></em>' containment reference list.
@@ -213,7 +204,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_VIEW__LAYOUTS = CoreModelPackage.YVIEW_FEATURE_COUNT + 1;
+  int UI_IDE_VIEW__LAYOUTS = CoreModelPackage.YVIEW_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -222,63 +213,26 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_VIEW__BINDINGS = CoreModelPackage.YVIEW_FEATURE_COUNT + 2;
+  int UI_IDE_VIEW__BINDINGS = CoreModelPackage.YVIEW_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>IDE View</em>' class.
+   * The number of structural features of the '<em>Ui IDE View</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IDE_VIEW_FEATURE_COUNT = CoreModelPackage.YVIEW_FEATURE_COUNT + 3;
+  int UI_IDE_VIEW_FEATURE_COUNT = CoreModelPackage.YVIEW_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.ActionImpl <em>Action</em>}' class.
+   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.UiGridLayoutAssigmentImpl <em>Ui Grid Layout Assigment</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.ActionImpl
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getAction()
+   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UiGridLayoutAssigmentImpl
+   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getUiGridLayoutAssigment()
    * @generated
    */
-  int ACTION = 2;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Body</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION__BODY = 1;
-
-  /**
-   * The number of structural features of the '<em>Action</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.GGridLayoutAssigmentImpl <em>GGrid Layout Assigment</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.GGridLayoutAssigmentImpl
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGGridLayoutAssigment()
-   * @generated
-   */
-  int GGRID_LAYOUT_ASSIGMENT = 3;
+  int UI_GRID_LAYOUT_ASSIGMENT = 2;
 
   /**
    * The feature id for the '<em><b>Element</b></em>' containment reference.
@@ -287,7 +241,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GGRID_LAYOUT_ASSIGMENT__ELEMENT = 0;
+  int UI_GRID_LAYOUT_ASSIGMENT__ELEMENT = 0;
 
   /**
    * The feature id for the '<em><b>Alignment</b></em>' attribute.
@@ -296,7 +250,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GGRID_LAYOUT_ASSIGMENT__ALIGNMENT = 1;
+  int UI_GRID_LAYOUT_ASSIGMENT__ALIGNMENT = 1;
 
   /**
    * The feature id for the '<em><b>From</b></em>' containment reference.
@@ -305,7 +259,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GGRID_LAYOUT_ASSIGMENT__FROM = 2;
+  int UI_GRID_LAYOUT_ASSIGMENT__FROM = 2;
 
   /**
    * The feature id for the '<em><b>To</b></em>' containment reference.
@@ -314,26 +268,26 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GGRID_LAYOUT_ASSIGMENT__TO = 3;
+  int UI_GRID_LAYOUT_ASSIGMENT__TO = 3;
 
   /**
-   * The number of structural features of the '<em>GGrid Layout Assigment</em>' class.
+   * The number of structural features of the '<em>Ui Grid Layout Assigment</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GGRID_LAYOUT_ASSIGMENT_FEATURE_COUNT = 4;
+  int UI_GRID_LAYOUT_ASSIGMENT_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.PointImpl <em>Point</em>}' class.
+   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.UiPointImpl <em>Ui Point</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.PointImpl
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getPoint()
+   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UiPointImpl
+   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getUiPoint()
    * @generated
    */
-  int POINT = 4;
+  int UI_POINT = 3;
 
   /**
    * The feature id for the '<em><b>X</b></em>' attribute.
@@ -342,7 +296,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POINT__X = 0;
+  int UI_POINT__X = 0;
 
   /**
    * The feature id for the '<em><b>Y</b></em>' attribute.
@@ -351,26 +305,81 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POINT__Y = 1;
+  int UI_POINT__Y = 1;
 
   /**
-   * The number of structural features of the '<em>Point</em>' class.
+   * The number of structural features of the '<em>Ui Point</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POINT_FEATURE_COUNT = 2;
+  int UI_POINT_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.BindingImpl <em>Binding</em>}' class.
+   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.UiBindingImpl <em>Ui Binding</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.BindingImpl
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getBinding()
+   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UiBindingImpl
+   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getUiBinding()
    * @generated
    */
-  int BINDING = 5;
+  int UI_BINDING = 4;
+
+  /**
+   * The feature id for the '<em><b>Source</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_BINDING__SOURCE = 0;
+
+  /**
+   * The feature id for the '<em><b>Target To Source</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_BINDING__TARGET_TO_SOURCE = 1;
+
+  /**
+   * The feature id for the '<em><b>Source To Target</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_BINDING__SOURCE_TO_TARGET = 2;
+
+  /**
+   * The feature id for the '<em><b>Target</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_BINDING__TARGET = 3;
+
+  /**
+   * The number of structural features of the '<em>Ui Binding</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_BINDING_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.UiSourceBindingEndpointImpl <em>Ui Source Binding Endpoint</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UiSourceBindingEndpointImpl
+   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getUiSourceBindingEndpoint()
+   * @generated
+   */
+  int UI_SOURCE_BINDING_ENDPOINT = 5;
 
   /**
    * The feature id for the '<em><b>Embeddable</b></em>' reference.
@@ -379,25 +388,117 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINDING__EMBEDDABLE = 0;
+  int UI_SOURCE_BINDING_ENDPOINT__EMBEDDABLE = 0;
 
   /**
-   * The feature id for the '<em><b>Method</b></em>' reference.
+   * The feature id for the '<em><b>Endpoint</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINDING__METHOD = 1;
+  int UI_SOURCE_BINDING_ENDPOINT__ENDPOINT = 1;
 
   /**
-   * The number of structural features of the '<em>Binding</em>' class.
+   * The feature id for the '<em><b>Path</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINDING_FEATURE_COUNT = 2;
+  int UI_SOURCE_BINDING_ENDPOINT__PATH = 2;
+
+  /**
+   * The number of structural features of the '<em>Ui Source Binding Endpoint</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_SOURCE_BINDING_ENDPOINT_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.UiTargetBindingEndpointImpl <em>Ui Target Binding Endpoint</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UiTargetBindingEndpointImpl
+   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getUiTargetBindingEndpoint()
+   * @generated
+   */
+  int UI_TARGET_BINDING_ENDPOINT = 6;
+
+  /**
+   * The feature id for the '<em><b>Embeddable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_TARGET_BINDING_ENDPOINT__EMBEDDABLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Endpoint</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_TARGET_BINDING_ENDPOINT__ENDPOINT = 1;
+
+  /**
+   * The feature id for the '<em><b>Path</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_TARGET_BINDING_ENDPOINT__PATH = 2;
+
+  /**
+   * The number of structural features of the '<em>Ui Target Binding Endpoint</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_TARGET_BINDING_ENDPOINT_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.UiPathSegmentImpl <em>Ui Path Segment</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UiPathSegmentImpl
+   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getUiPathSegment()
+   * @generated
+   */
+  int UI_PATH_SEGMENT = 7;
+
+  /**
+   * The feature id for the '<em><b>Jvm Field</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_PATH_SEGMENT__JVM_FIELD = 0;
+
+  /**
+   * The feature id for the '<em><b>Path</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_PATH_SEGMENT__PATH = 1;
+
+  /**
+   * The number of structural features of the '<em>Ui Path Segment</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_PATH_SEGMENT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.GBeanSlotImpl <em>GBean Slot</em>}' class.
@@ -407,7 +508,7 @@ public interface UIGrammarPackage extends EPackage
    * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGBeanSlot()
    * @generated
    */
-  int GBEAN_SLOT = 6;
+  int GBEAN_SLOT = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -462,7 +563,7 @@ public interface UIGrammarPackage extends EPackage
    * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGGridLayout()
    * @generated
    */
-  int GGRID_LAYOUT = 7;
+  int GGRID_LAYOUT = 9;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -616,7 +717,7 @@ public interface UIGrammarPackage extends EPackage
    * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGTextField()
    * @generated
    */
-  int GTEXT_FIELD = 8;
+  int GTEXT_FIELD = 10;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -781,14 +882,14 @@ public interface UIGrammarPackage extends EPackage
   int GTEXT_FIELD_FEATURE_COUNT = ExtensionModelPackage.YTEXT_FIELD_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.GTextAreaImpl <em>GText Area</em>}' class.
+   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.GListImpl <em>GList</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.GTextAreaImpl
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGTextArea()
+   * @see org.lunifera.ecview.dsl.uIGrammar.impl.GListImpl
+   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGList()
    * @generated
    */
-  int GTEXT_AREA = 9;
+  int GLIST = 11;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -797,7 +898,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTEXT_AREA__ID = ExtensionModelPackage.YTEXT_AREA__ID;
+  int GLIST__ID = ExtensionModelPackage.YLIST__ID;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -806,7 +907,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTEXT_AREA__NAME = ExtensionModelPackage.YTEXT_AREA__NAME;
+  int GLIST__NAME = ExtensionModelPackage.YLIST__NAME;
 
   /**
    * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -815,7 +916,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTEXT_AREA__CSS_CLASS = ExtensionModelPackage.YTEXT_AREA__CSS_CLASS;
+  int GLIST__CSS_CLASS = ExtensionModelPackage.YLIST__CSS_CLASS;
 
   /**
    * The feature id for the '<em><b>Css ID</b></em>' attribute.
@@ -824,7 +925,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTEXT_AREA__CSS_ID = ExtensionModelPackage.YTEXT_AREA__CSS_ID;
+  int GLIST__CSS_ID = ExtensionModelPackage.YLIST__CSS_ID;
 
   /**
    * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
@@ -833,7 +934,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTEXT_AREA__INITIAL_VISIBLE = ExtensionModelPackage.YTEXT_AREA__INITIAL_VISIBLE;
+  int GLIST__INITIAL_VISIBLE = ExtensionModelPackage.YLIST__INITIAL_VISIBLE;
 
   /**
    * The feature id for the '<em><b>Visible</b></em>' attribute.
@@ -842,7 +943,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTEXT_AREA__VISIBLE = ExtensionModelPackage.YTEXT_AREA__VISIBLE;
+  int GLIST__VISIBLE = ExtensionModelPackage.YLIST__VISIBLE;
 
   /**
    * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
@@ -851,7 +952,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTEXT_AREA__VISIBILITY_PROCESSOR = ExtensionModelPackage.YTEXT_AREA__VISIBILITY_PROCESSOR;
+  int GLIST__VISIBILITY_PROCESSOR = ExtensionModelPackage.YLIST__VISIBILITY_PROCESSOR;
 
   /**
    * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
@@ -860,7 +961,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTEXT_AREA__INITIAL_EDITABLE = ExtensionModelPackage.YTEXT_AREA__INITIAL_EDITABLE;
+  int GLIST__INITIAL_EDITABLE = ExtensionModelPackage.YLIST__INITIAL_EDITABLE;
 
   /**
    * The feature id for the '<em><b>Editable</b></em>' attribute.
@@ -869,7 +970,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTEXT_AREA__EDITABLE = ExtensionModelPackage.YTEXT_AREA__EDITABLE;
+  int GLIST__EDITABLE = ExtensionModelPackage.YLIST__EDITABLE;
 
   /**
    * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
@@ -878,7 +979,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTEXT_AREA__INITIAL_ENABLED = ExtensionModelPackage.YTEXT_AREA__INITIAL_ENABLED;
+  int GLIST__INITIAL_ENABLED = ExtensionModelPackage.YLIST__INITIAL_ENABLED;
 
   /**
    * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -887,7 +988,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTEXT_AREA__ENABLED = ExtensionModelPackage.YTEXT_AREA__ENABLED;
+  int GLIST__ENABLED = ExtensionModelPackage.YLIST__ENABLED;
 
   /**
    * The feature id for the '<em><b>Validators</b></em>' containment reference list.
@@ -896,7 +997,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTEXT_AREA__VALIDATORS = ExtensionModelPackage.YTEXT_AREA__VALIDATORS;
+  int GLIST__VALIDATORS = ExtensionModelPackage.YLIST__VALIDATORS;
 
   /**
    * The feature id for the '<em><b>Internal Validators</b></em>' containment reference list.
@@ -905,179 +1006,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTEXT_AREA__INTERNAL_VALIDATORS = ExtensionModelPackage.YTEXT_AREA__INTERNAL_VALIDATORS;
-
-  /**
-   * The feature id for the '<em><b>Value Binding Endpoint</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTEXT_AREA__VALUE_BINDING_ENDPOINT = ExtensionModelPackage.YTEXT_AREA__VALUE_BINDING_ENDPOINT;
-
-  /**
-   * The feature id for the '<em><b>Datadescription</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTEXT_AREA__DATADESCRIPTION = ExtensionModelPackage.YTEXT_AREA__DATADESCRIPTION;
-
-  /**
-   * The feature id for the '<em><b>Datatype</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTEXT_AREA__DATATYPE = ExtensionModelPackage.YTEXT_AREA__DATATYPE;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTEXT_AREA__VALUE = ExtensionModelPackage.YTEXT_AREA__VALUE;
-
-  /**
-   * The number of structural features of the '<em>GText Area</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTEXT_AREA_FEATURE_COUNT = ExtensionModelPackage.YTEXT_AREA_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.GTableImpl <em>GTable</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.GTableImpl
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGTable()
-   * @generated
-   */
-  int GTABLE = 10;
-
-  /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__ID = ExtensionModelPackage.YTABLE__ID;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__NAME = ExtensionModelPackage.YTABLE__NAME;
-
-  /**
-   * The feature id for the '<em><b>Css Class</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__CSS_CLASS = ExtensionModelPackage.YTABLE__CSS_CLASS;
-
-  /**
-   * The feature id for the '<em><b>Css ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__CSS_ID = ExtensionModelPackage.YTABLE__CSS_ID;
-
-  /**
-   * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__INITIAL_VISIBLE = ExtensionModelPackage.YTABLE__INITIAL_VISIBLE;
-
-  /**
-   * The feature id for the '<em><b>Visible</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__VISIBLE = ExtensionModelPackage.YTABLE__VISIBLE;
-
-  /**
-   * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__VISIBILITY_PROCESSOR = ExtensionModelPackage.YTABLE__VISIBILITY_PROCESSOR;
-
-  /**
-   * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__INITIAL_EDITABLE = ExtensionModelPackage.YTABLE__INITIAL_EDITABLE;
-
-  /**
-   * The feature id for the '<em><b>Editable</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__EDITABLE = ExtensionModelPackage.YTABLE__EDITABLE;
-
-  /**
-   * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__INITIAL_ENABLED = ExtensionModelPackage.YTABLE__INITIAL_ENABLED;
-
-  /**
-   * The feature id for the '<em><b>Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__ENABLED = ExtensionModelPackage.YTABLE__ENABLED;
-
-  /**
-   * The feature id for the '<em><b>Validators</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__VALIDATORS = ExtensionModelPackage.YTABLE__VALIDATORS;
-
-  /**
-   * The feature id for the '<em><b>Internal Validators</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__INTERNAL_VALIDATORS = ExtensionModelPackage.YTABLE__INTERNAL_VALIDATORS;
+  int GLIST__INTERNAL_VALIDATORS = ExtensionModelPackage.YLIST__INTERNAL_VALIDATORS;
 
   /**
    * The feature id for the '<em><b>Collection Binding Endpoint</b></em>' reference.
@@ -1086,7 +1015,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTABLE__COLLECTION_BINDING_ENDPOINT = ExtensionModelPackage.YTABLE__COLLECTION_BINDING_ENDPOINT;
+  int GLIST__COLLECTION_BINDING_ENDPOINT = ExtensionModelPackage.YLIST__COLLECTION_BINDING_ENDPOINT;
 
   /**
    * The feature id for the '<em><b>Selection Binding Endpoint</b></em>' reference.
@@ -1095,7 +1024,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTABLE__SELECTION_BINDING_ENDPOINT = ExtensionModelPackage.YTABLE__SELECTION_BINDING_ENDPOINT;
+  int GLIST__SELECTION_BINDING_ENDPOINT = ExtensionModelPackage.YLIST__SELECTION_BINDING_ENDPOINT;
 
   /**
    * The feature id for the '<em><b>Multi Selection Binding Endpoint</b></em>' reference.
@@ -1104,16 +1033,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTABLE__MULTI_SELECTION_BINDING_ENDPOINT = ExtensionModelPackage.YTABLE__MULTI_SELECTION_BINDING_ENDPOINT;
-
-  /**
-   * The feature id for the '<em><b>Datatype</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__DATATYPE = ExtensionModelPackage.YTABLE__DATATYPE;
+  int GLIST__MULTI_SELECTION_BINDING_ENDPOINT = ExtensionModelPackage.YLIST__MULTI_SELECTION_BINDING_ENDPOINT;
 
   /**
    * The feature id for the '<em><b>Datadescription</b></em>' reference.
@@ -1122,233 +1042,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTABLE__DATADESCRIPTION = ExtensionModelPackage.YTABLE__DATADESCRIPTION;
-
-  /**
-   * The feature id for the '<em><b>Selection Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__SELECTION_TYPE = ExtensionModelPackage.YTABLE__SELECTION_TYPE;
-
-  /**
-   * The feature id for the '<em><b>Selection</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__SELECTION = ExtensionModelPackage.YTABLE__SELECTION;
-
-  /**
-   * The feature id for the '<em><b>Multi Selection</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__MULTI_SELECTION = ExtensionModelPackage.YTABLE__MULTI_SELECTION;
-
-  /**
-   * The feature id for the '<em><b>Collection</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__COLLECTION = ExtensionModelPackage.YTABLE__COLLECTION;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__TYPE = ExtensionModelPackage.YTABLE__TYPE;
-
-  /**
-   * The feature id for the '<em><b>Type Qualified Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__TYPE_QUALIFIED_NAME = ExtensionModelPackage.YTABLE__TYPE_QUALIFIED_NAME;
-
-  /**
-   * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE__JVM_TYPE = ExtensionModelPackage.YTABLE_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>GTable</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTABLE_FEATURE_COUNT = ExtensionModelPackage.YTABLE_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.GTtreeImpl <em>GTtree</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.GTtreeImpl
-   * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGTtree()
-   * @generated
-   */
-  int GTTREE = 11;
-
-  /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE__ID = ExtensionModelPackage.YTREE__ID;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE__NAME = ExtensionModelPackage.YTREE__NAME;
-
-  /**
-   * The feature id for the '<em><b>Css Class</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE__CSS_CLASS = ExtensionModelPackage.YTREE__CSS_CLASS;
-
-  /**
-   * The feature id for the '<em><b>Css ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE__CSS_ID = ExtensionModelPackage.YTREE__CSS_ID;
-
-  /**
-   * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE__INITIAL_VISIBLE = ExtensionModelPackage.YTREE__INITIAL_VISIBLE;
-
-  /**
-   * The feature id for the '<em><b>Visible</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE__VISIBLE = ExtensionModelPackage.YTREE__VISIBLE;
-
-  /**
-   * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE__VISIBILITY_PROCESSOR = ExtensionModelPackage.YTREE__VISIBILITY_PROCESSOR;
-
-  /**
-   * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE__INITIAL_EDITABLE = ExtensionModelPackage.YTREE__INITIAL_EDITABLE;
-
-  /**
-   * The feature id for the '<em><b>Editable</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE__EDITABLE = ExtensionModelPackage.YTREE__EDITABLE;
-
-  /**
-   * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE__INITIAL_ENABLED = ExtensionModelPackage.YTREE__INITIAL_ENABLED;
-
-  /**
-   * The feature id for the '<em><b>Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE__ENABLED = ExtensionModelPackage.YTREE__ENABLED;
-
-  /**
-   * The feature id for the '<em><b>Validators</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE__VALIDATORS = ExtensionModelPackage.YTREE__VALIDATORS;
-
-  /**
-   * The feature id for the '<em><b>Internal Validators</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE__INTERNAL_VALIDATORS = ExtensionModelPackage.YTREE__INTERNAL_VALIDATORS;
-
-  /**
-   * The feature id for the '<em><b>Collection Binding Endpoint</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE__COLLECTION_BINDING_ENDPOINT = ExtensionModelPackage.YTREE__COLLECTION_BINDING_ENDPOINT;
-
-  /**
-   * The feature id for the '<em><b>Selection Binding Endpoint</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE__SELECTION_BINDING_ENDPOINT = ExtensionModelPackage.YTREE__SELECTION_BINDING_ENDPOINT;
-
-  /**
-   * The feature id for the '<em><b>Multi Selection Binding Endpoint</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE__MULTI_SELECTION_BINDING_ENDPOINT = ExtensionModelPackage.YTREE__MULTI_SELECTION_BINDING_ENDPOINT;
+  int GLIST__DATADESCRIPTION = ExtensionModelPackage.YLIST__DATADESCRIPTION;
 
   /**
    * The feature id for the '<em><b>Datatype</b></em>' reference.
@@ -1357,16 +1051,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTTREE__DATATYPE = ExtensionModelPackage.YTREE__DATATYPE;
-
-  /**
-   * The feature id for the '<em><b>Datadescription</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE__DATADESCRIPTION = ExtensionModelPackage.YTREE__DATADESCRIPTION;
+  int GLIST__DATATYPE = ExtensionModelPackage.YLIST__DATATYPE;
 
   /**
    * The feature id for the '<em><b>Selection Type</b></em>' attribute.
@@ -1375,7 +1060,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTTREE__SELECTION_TYPE = ExtensionModelPackage.YTREE__SELECTION_TYPE;
+  int GLIST__SELECTION_TYPE = ExtensionModelPackage.YLIST__SELECTION_TYPE;
 
   /**
    * The feature id for the '<em><b>Selection</b></em>' attribute.
@@ -1384,7 +1069,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTTREE__SELECTION = ExtensionModelPackage.YTREE__SELECTION;
+  int GLIST__SELECTION = ExtensionModelPackage.YLIST__SELECTION;
 
   /**
    * The feature id for the '<em><b>Multi Selection</b></em>' attribute list.
@@ -1393,7 +1078,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTTREE__MULTI_SELECTION = ExtensionModelPackage.YTREE__MULTI_SELECTION;
+  int GLIST__MULTI_SELECTION = ExtensionModelPackage.YLIST__MULTI_SELECTION;
 
   /**
    * The feature id for the '<em><b>Collection</b></em>' attribute list.
@@ -1402,7 +1087,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTTREE__COLLECTION = ExtensionModelPackage.YTREE__COLLECTION;
+  int GLIST__COLLECTION = ExtensionModelPackage.YLIST__COLLECTION;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1411,7 +1096,7 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTTREE__TYPE = ExtensionModelPackage.YTREE__TYPE;
+  int GLIST__TYPE = ExtensionModelPackage.YLIST__TYPE;
 
   /**
    * The feature id for the '<em><b>Type Qualified Name</b></em>' attribute.
@@ -1420,25 +1105,16 @@ public interface UIGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GTTREE__TYPE_QUALIFIED_NAME = ExtensionModelPackage.YTREE__TYPE_QUALIFIED_NAME;
+  int GLIST__TYPE_QUALIFIED_NAME = ExtensionModelPackage.YLIST__TYPE_QUALIFIED_NAME;
 
   /**
-   * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
+   * The number of structural features of the '<em>GList</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GTTREE__JVM_TYPE = ExtensionModelPackage.YTREE_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>GTtree</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GTTREE_FEATURE_COUNT = ExtensionModelPackage.YTREE_FEATURE_COUNT + 1;
+  int GLIST_FEATURE_COUNT = ExtensionModelPackage.YLIST_FEATURE_COUNT + 0;
 
 
   /**
@@ -1463,197 +1139,294 @@ public interface UIGrammarPackage extends EPackage
   EReference getUiModel_ViewSet();
 
   /**
-   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.IDEView <em>IDE View</em>}'.
+   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.UiIDEView <em>Ui IDE View</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>IDE View</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.IDEView
+   * @return the meta object for class '<em>Ui IDE View</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiIDEView
    * @generated
    */
-  EClass getIDEView();
+  EClass getUiIDEView();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.dsl.uIGrammar.IDEView#getActions <em>Actions</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Actions</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.IDEView#getActions()
-   * @see #getIDEView()
-   * @generated
-   */
-  EReference getIDEView_Actions();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.dsl.uIGrammar.IDEView#getLayouts <em>Layouts</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.dsl.uIGrammar.UiIDEView#getLayouts <em>Layouts</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Layouts</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.IDEView#getLayouts()
-   * @see #getIDEView()
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiIDEView#getLayouts()
+   * @see #getUiIDEView()
    * @generated
    */
-  EReference getIDEView_Layouts();
+  EReference getUiIDEView_Layouts();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.dsl.uIGrammar.IDEView#getBindings <em>Bindings</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.dsl.uIGrammar.UiIDEView#getBindings <em>Bindings</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Bindings</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.IDEView#getBindings()
-   * @see #getIDEView()
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiIDEView#getBindings()
+   * @see #getUiIDEView()
    * @generated
    */
-  EReference getIDEView_Bindings();
+  EReference getUiIDEView_Bindings();
 
   /**
-   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.Action <em>Action</em>}'.
+   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.UiGridLayoutAssigment <em>Ui Grid Layout Assigment</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Action</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.Action
+   * @return the meta object for class '<em>Ui Grid Layout Assigment</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiGridLayoutAssigment
    * @generated
    */
-  EClass getAction();
+  EClass getUiGridLayoutAssigment();
 
   /**
-   * Returns the meta object for the attribute '{@link org.lunifera.ecview.dsl.uIGrammar.Action#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.Action#getName()
-   * @see #getAction()
-   * @generated
-   */
-  EAttribute getAction_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.lunifera.ecview.dsl.uIGrammar.Action#getBody <em>Body</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Body</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.Action#getBody()
-   * @see #getAction()
-   * @generated
-   */
-  EReference getAction_Body();
-
-  /**
-   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment <em>GGrid Layout Assigment</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>GGrid Layout Assigment</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment
-   * @generated
-   */
-  EClass getGGridLayoutAssigment();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment#getElement <em>Element</em>}'.
+   * Returns the meta object for the containment reference '{@link org.lunifera.ecview.dsl.uIGrammar.UiGridLayoutAssigment#getElement <em>Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Element</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment#getElement()
-   * @see #getGGridLayoutAssigment()
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiGridLayoutAssigment#getElement()
+   * @see #getUiGridLayoutAssigment()
    * @generated
    */
-  EReference getGGridLayoutAssigment_Element();
+  EReference getUiGridLayoutAssigment_Element();
 
   /**
-   * Returns the meta object for the attribute '{@link org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment#getAlignment <em>Alignment</em>}'.
+   * Returns the meta object for the attribute '{@link org.lunifera.ecview.dsl.uIGrammar.UiGridLayoutAssigment#getAlignment <em>Alignment</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Alignment</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment#getAlignment()
-   * @see #getGGridLayoutAssigment()
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiGridLayoutAssigment#getAlignment()
+   * @see #getUiGridLayoutAssigment()
    * @generated
    */
-  EAttribute getGGridLayoutAssigment_Alignment();
+  EAttribute getUiGridLayoutAssigment_Alignment();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment#getFrom <em>From</em>}'.
+   * Returns the meta object for the containment reference '{@link org.lunifera.ecview.dsl.uIGrammar.UiGridLayoutAssigment#getFrom <em>From</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>From</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment#getFrom()
-   * @see #getGGridLayoutAssigment()
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiGridLayoutAssigment#getFrom()
+   * @see #getUiGridLayoutAssigment()
    * @generated
    */
-  EReference getGGridLayoutAssigment_From();
+  EReference getUiGridLayoutAssigment_From();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment#getTo <em>To</em>}'.
+   * Returns the meta object for the containment reference '{@link org.lunifera.ecview.dsl.uIGrammar.UiGridLayoutAssigment#getTo <em>To</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>To</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment#getTo()
-   * @see #getGGridLayoutAssigment()
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiGridLayoutAssigment#getTo()
+   * @see #getUiGridLayoutAssigment()
    * @generated
    */
-  EReference getGGridLayoutAssigment_To();
+  EReference getUiGridLayoutAssigment_To();
 
   /**
-   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.Point <em>Point</em>}'.
+   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.UiPoint <em>Ui Point</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Point</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.Point
+   * @return the meta object for class '<em>Ui Point</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiPoint
    * @generated
    */
-  EClass getPoint();
+  EClass getUiPoint();
 
   /**
-   * Returns the meta object for the attribute '{@link org.lunifera.ecview.dsl.uIGrammar.Point#getX <em>X</em>}'.
+   * Returns the meta object for the attribute '{@link org.lunifera.ecview.dsl.uIGrammar.UiPoint#getX <em>X</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>X</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.Point#getX()
-   * @see #getPoint()
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiPoint#getX()
+   * @see #getUiPoint()
    * @generated
    */
-  EAttribute getPoint_X();
+  EAttribute getUiPoint_X();
 
   /**
-   * Returns the meta object for the attribute '{@link org.lunifera.ecview.dsl.uIGrammar.Point#getY <em>Y</em>}'.
+   * Returns the meta object for the attribute '{@link org.lunifera.ecview.dsl.uIGrammar.UiPoint#getY <em>Y</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Y</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.Point#getY()
-   * @see #getPoint()
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiPoint#getY()
+   * @see #getUiPoint()
    * @generated
    */
-  EAttribute getPoint_Y();
+  EAttribute getUiPoint_Y();
 
   /**
-   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.Binding <em>Binding</em>}'.
+   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.UiBinding <em>Ui Binding</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Binding</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.Binding
+   * @return the meta object for class '<em>Ui Binding</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiBinding
    * @generated
    */
-  EClass getBinding();
+  EClass getUiBinding();
 
   /**
-   * Returns the meta object for the reference '{@link org.lunifera.ecview.dsl.uIGrammar.Binding#getEmbeddable <em>Embeddable</em>}'.
+   * Returns the meta object for the containment reference '{@link org.lunifera.ecview.dsl.uIGrammar.UiBinding#getSource <em>Source</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Source</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiBinding#getSource()
+   * @see #getUiBinding()
+   * @generated
+   */
+  EReference getUiBinding_Source();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.lunifera.ecview.dsl.uIGrammar.UiBinding#isTargetToSource <em>Target To Source</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Target To Source</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiBinding#isTargetToSource()
+   * @see #getUiBinding()
+   * @generated
+   */
+  EAttribute getUiBinding_TargetToSource();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.lunifera.ecview.dsl.uIGrammar.UiBinding#isSourceToTarget <em>Source To Target</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Source To Target</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiBinding#isSourceToTarget()
+   * @see #getUiBinding()
+   * @generated
+   */
+  EAttribute getUiBinding_SourceToTarget();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.lunifera.ecview.dsl.uIGrammar.UiBinding#getTarget <em>Target</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Target</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiBinding#getTarget()
+   * @see #getUiBinding()
+   * @generated
+   */
+  EReference getUiBinding_Target();
+
+  /**
+   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.UiSourceBindingEndpoint <em>Ui Source Binding Endpoint</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ui Source Binding Endpoint</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiSourceBindingEndpoint
+   * @generated
+   */
+  EClass getUiSourceBindingEndpoint();
+
+  /**
+   * Returns the meta object for the reference '{@link org.lunifera.ecview.dsl.uIGrammar.UiSourceBindingEndpoint#getEmbeddable <em>Embeddable</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Embeddable</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.Binding#getEmbeddable()
-   * @see #getBinding()
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiSourceBindingEndpoint#getEmbeddable()
+   * @see #getUiSourceBindingEndpoint()
    * @generated
    */
-  EReference getBinding_Embeddable();
+  EReference getUiSourceBindingEndpoint_Embeddable();
 
   /**
-   * Returns the meta object for the reference '{@link org.lunifera.ecview.dsl.uIGrammar.Binding#getMethod <em>Method</em>}'.
+   * Returns the meta object for the reference '{@link org.lunifera.ecview.dsl.uIGrammar.UiSourceBindingEndpoint#getEndpoint <em>Endpoint</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Method</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.Binding#getMethod()
-   * @see #getBinding()
+   * @return the meta object for the reference '<em>Endpoint</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiSourceBindingEndpoint#getEndpoint()
+   * @see #getUiSourceBindingEndpoint()
    * @generated
    */
-  EReference getBinding_Method();
+  EReference getUiSourceBindingEndpoint_Endpoint();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.lunifera.ecview.dsl.uIGrammar.UiSourceBindingEndpoint#getPath <em>Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Path</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiSourceBindingEndpoint#getPath()
+   * @see #getUiSourceBindingEndpoint()
+   * @generated
+   */
+  EReference getUiSourceBindingEndpoint_Path();
+
+  /**
+   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.UiTargetBindingEndpoint <em>Ui Target Binding Endpoint</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ui Target Binding Endpoint</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiTargetBindingEndpoint
+   * @generated
+   */
+  EClass getUiTargetBindingEndpoint();
+
+  /**
+   * Returns the meta object for the reference '{@link org.lunifera.ecview.dsl.uIGrammar.UiTargetBindingEndpoint#getEmbeddable <em>Embeddable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Embeddable</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiTargetBindingEndpoint#getEmbeddable()
+   * @see #getUiTargetBindingEndpoint()
+   * @generated
+   */
+  EReference getUiTargetBindingEndpoint_Embeddable();
+
+  /**
+   * Returns the meta object for the reference '{@link org.lunifera.ecview.dsl.uIGrammar.UiTargetBindingEndpoint#getEndpoint <em>Endpoint</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Endpoint</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiTargetBindingEndpoint#getEndpoint()
+   * @see #getUiTargetBindingEndpoint()
+   * @generated
+   */
+  EReference getUiTargetBindingEndpoint_Endpoint();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.lunifera.ecview.dsl.uIGrammar.UiTargetBindingEndpoint#getPath <em>Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Path</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiTargetBindingEndpoint#getPath()
+   * @see #getUiTargetBindingEndpoint()
+   * @generated
+   */
+  EReference getUiTargetBindingEndpoint_Path();
+
+  /**
+   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.UiPathSegment <em>Ui Path Segment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ui Path Segment</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiPathSegment
+   * @generated
+   */
+  EClass getUiPathSegment();
+
+  /**
+   * Returns the meta object for the reference '{@link org.lunifera.ecview.dsl.uIGrammar.UiPathSegment#getJvmField <em>Jvm Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Jvm Field</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiPathSegment#getJvmField()
+   * @see #getUiPathSegment()
+   * @generated
+   */
+  EReference getUiPathSegment_JvmField();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.lunifera.ecview.dsl.uIGrammar.UiPathSegment#getPath <em>Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Path</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiPathSegment#getPath()
+   * @see #getUiPathSegment()
+   * @generated
+   */
+  EReference getUiPathSegment_Path();
 
   /**
    * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.GBeanSlot <em>GBean Slot</em>}'.
@@ -1708,56 +1481,14 @@ public interface UIGrammarPackage extends EPackage
   EClass getGTextField();
 
   /**
-   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.GTextArea <em>GText Area</em>}'.
+   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.GList <em>GList</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>GText Area</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GTextArea
+   * @return the meta object for class '<em>GList</em>'.
+   * @see org.lunifera.ecview.dsl.uIGrammar.GList
    * @generated
    */
-  EClass getGTextArea();
-
-  /**
-   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.GTable <em>GTable</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>GTable</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GTable
-   * @generated
-   */
-  EClass getGTable();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.lunifera.ecview.dsl.uIGrammar.GTable#getJvmType <em>Jvm Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Jvm Type</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GTable#getJvmType()
-   * @see #getGTable()
-   * @generated
-   */
-  EReference getGTable_JvmType();
-
-  /**
-   * Returns the meta object for class '{@link org.lunifera.ecview.dsl.uIGrammar.GTtree <em>GTtree</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>GTtree</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GTtree
-   * @generated
-   */
-  EClass getGTtree();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.lunifera.ecview.dsl.uIGrammar.GTtree#getJvmType <em>Jvm Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Jvm Type</em>'.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GTtree#getJvmType()
-   * @see #getGTtree()
-   * @generated
-   */
-  EReference getGTtree_JvmType();
+  EClass getGList();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1801,22 +1532,14 @@ public interface UIGrammarPackage extends EPackage
     EReference UI_MODEL__VIEW_SET = eINSTANCE.getUiModel_ViewSet();
 
     /**
-     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.IDEViewImpl <em>IDE View</em>}' class.
+     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.UiIDEViewImpl <em>Ui IDE View</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.IDEViewImpl
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getIDEView()
+     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UiIDEViewImpl
+     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getUiIDEView()
      * @generated
      */
-    EClass IDE_VIEW = eINSTANCE.getIDEView();
-
-    /**
-     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference IDE_VIEW__ACTIONS = eINSTANCE.getIDEView_Actions();
+    EClass UI_IDE_VIEW = eINSTANCE.getUiIDEView();
 
     /**
      * The meta object literal for the '<em><b>Layouts</b></em>' containment reference list feature.
@@ -1824,7 +1547,7 @@ public interface UIGrammarPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference IDE_VIEW__LAYOUTS = eINSTANCE.getIDEView_Layouts();
+    EReference UI_IDE_VIEW__LAYOUTS = eINSTANCE.getUiIDEView_Layouts();
 
     /**
      * The meta object literal for the '<em><b>Bindings</b></em>' containment reference list feature.
@@ -1832,43 +1555,17 @@ public interface UIGrammarPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference IDE_VIEW__BINDINGS = eINSTANCE.getIDEView_Bindings();
+    EReference UI_IDE_VIEW__BINDINGS = eINSTANCE.getUiIDEView_Bindings();
 
     /**
-     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.ActionImpl <em>Action</em>}' class.
+     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.UiGridLayoutAssigmentImpl <em>Ui Grid Layout Assigment</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.ActionImpl
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getAction()
+     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UiGridLayoutAssigmentImpl
+     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getUiGridLayoutAssigment()
      * @generated
      */
-    EClass ACTION = eINSTANCE.getAction();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ACTION__NAME = eINSTANCE.getAction_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ACTION__BODY = eINSTANCE.getAction_Body();
-
-    /**
-     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.GGridLayoutAssigmentImpl <em>GGrid Layout Assigment</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.GGridLayoutAssigmentImpl
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGGridLayoutAssigment()
-     * @generated
-     */
-    EClass GGRID_LAYOUT_ASSIGMENT = eINSTANCE.getGGridLayoutAssigment();
+    EClass UI_GRID_LAYOUT_ASSIGMENT = eINSTANCE.getUiGridLayoutAssigment();
 
     /**
      * The meta object literal for the '<em><b>Element</b></em>' containment reference feature.
@@ -1876,7 +1573,7 @@ public interface UIGrammarPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference GGRID_LAYOUT_ASSIGMENT__ELEMENT = eINSTANCE.getGGridLayoutAssigment_Element();
+    EReference UI_GRID_LAYOUT_ASSIGMENT__ELEMENT = eINSTANCE.getUiGridLayoutAssigment_Element();
 
     /**
      * The meta object literal for the '<em><b>Alignment</b></em>' attribute feature.
@@ -1884,7 +1581,7 @@ public interface UIGrammarPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GGRID_LAYOUT_ASSIGMENT__ALIGNMENT = eINSTANCE.getGGridLayoutAssigment_Alignment();
+    EAttribute UI_GRID_LAYOUT_ASSIGMENT__ALIGNMENT = eINSTANCE.getUiGridLayoutAssigment_Alignment();
 
     /**
      * The meta object literal for the '<em><b>From</b></em>' containment reference feature.
@@ -1892,7 +1589,7 @@ public interface UIGrammarPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference GGRID_LAYOUT_ASSIGMENT__FROM = eINSTANCE.getGGridLayoutAssigment_From();
+    EReference UI_GRID_LAYOUT_ASSIGMENT__FROM = eINSTANCE.getUiGridLayoutAssigment_From();
 
     /**
      * The meta object literal for the '<em><b>To</b></em>' containment reference feature.
@@ -1900,17 +1597,17 @@ public interface UIGrammarPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference GGRID_LAYOUT_ASSIGMENT__TO = eINSTANCE.getGGridLayoutAssigment_To();
+    EReference UI_GRID_LAYOUT_ASSIGMENT__TO = eINSTANCE.getUiGridLayoutAssigment_To();
 
     /**
-     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.PointImpl <em>Point</em>}' class.
+     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.UiPointImpl <em>Ui Point</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.PointImpl
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getPoint()
+     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UiPointImpl
+     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getUiPoint()
      * @generated
      */
-    EClass POINT = eINSTANCE.getPoint();
+    EClass UI_POINT = eINSTANCE.getUiPoint();
 
     /**
      * The meta object literal for the '<em><b>X</b></em>' attribute feature.
@@ -1918,7 +1615,7 @@ public interface UIGrammarPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute POINT__X = eINSTANCE.getPoint_X();
+    EAttribute UI_POINT__X = eINSTANCE.getUiPoint_X();
 
     /**
      * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
@@ -1926,17 +1623,59 @@ public interface UIGrammarPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute POINT__Y = eINSTANCE.getPoint_Y();
+    EAttribute UI_POINT__Y = eINSTANCE.getUiPoint_Y();
 
     /**
-     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.BindingImpl <em>Binding</em>}' class.
+     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.UiBindingImpl <em>Ui Binding</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.BindingImpl
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getBinding()
+     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UiBindingImpl
+     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getUiBinding()
      * @generated
      */
-    EClass BINDING = eINSTANCE.getBinding();
+    EClass UI_BINDING = eINSTANCE.getUiBinding();
+
+    /**
+     * The meta object literal for the '<em><b>Source</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_BINDING__SOURCE = eINSTANCE.getUiBinding_Source();
+
+    /**
+     * The meta object literal for the '<em><b>Target To Source</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UI_BINDING__TARGET_TO_SOURCE = eINSTANCE.getUiBinding_TargetToSource();
+
+    /**
+     * The meta object literal for the '<em><b>Source To Target</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UI_BINDING__SOURCE_TO_TARGET = eINSTANCE.getUiBinding_SourceToTarget();
+
+    /**
+     * The meta object literal for the '<em><b>Target</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_BINDING__TARGET = eINSTANCE.getUiBinding_Target();
+
+    /**
+     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.UiSourceBindingEndpointImpl <em>Ui Source Binding Endpoint</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UiSourceBindingEndpointImpl
+     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getUiSourceBindingEndpoint()
+     * @generated
+     */
+    EClass UI_SOURCE_BINDING_ENDPOINT = eINSTANCE.getUiSourceBindingEndpoint();
 
     /**
      * The meta object literal for the '<em><b>Embeddable</b></em>' reference feature.
@@ -1944,15 +1683,83 @@ public interface UIGrammarPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINDING__EMBEDDABLE = eINSTANCE.getBinding_Embeddable();
+    EReference UI_SOURCE_BINDING_ENDPOINT__EMBEDDABLE = eINSTANCE.getUiSourceBindingEndpoint_Embeddable();
 
     /**
-     * The meta object literal for the '<em><b>Method</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Endpoint</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINDING__METHOD = eINSTANCE.getBinding_Method();
+    EReference UI_SOURCE_BINDING_ENDPOINT__ENDPOINT = eINSTANCE.getUiSourceBindingEndpoint_Endpoint();
+
+    /**
+     * The meta object literal for the '<em><b>Path</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_SOURCE_BINDING_ENDPOINT__PATH = eINSTANCE.getUiSourceBindingEndpoint_Path();
+
+    /**
+     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.UiTargetBindingEndpointImpl <em>Ui Target Binding Endpoint</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UiTargetBindingEndpointImpl
+     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getUiTargetBindingEndpoint()
+     * @generated
+     */
+    EClass UI_TARGET_BINDING_ENDPOINT = eINSTANCE.getUiTargetBindingEndpoint();
+
+    /**
+     * The meta object literal for the '<em><b>Embeddable</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_TARGET_BINDING_ENDPOINT__EMBEDDABLE = eINSTANCE.getUiTargetBindingEndpoint_Embeddable();
+
+    /**
+     * The meta object literal for the '<em><b>Endpoint</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_TARGET_BINDING_ENDPOINT__ENDPOINT = eINSTANCE.getUiTargetBindingEndpoint_Endpoint();
+
+    /**
+     * The meta object literal for the '<em><b>Path</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_TARGET_BINDING_ENDPOINT__PATH = eINSTANCE.getUiTargetBindingEndpoint_Path();
+
+    /**
+     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.UiPathSegmentImpl <em>Ui Path Segment</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UiPathSegmentImpl
+     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getUiPathSegment()
+     * @generated
+     */
+    EClass UI_PATH_SEGMENT = eINSTANCE.getUiPathSegment();
+
+    /**
+     * The meta object literal for the '<em><b>Jvm Field</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_PATH_SEGMENT__JVM_FIELD = eINSTANCE.getUiPathSegment_JvmField();
+
+    /**
+     * The meta object literal for the '<em><b>Path</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_PATH_SEGMENT__PATH = eINSTANCE.getUiPathSegment_Path();
 
     /**
      * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.GBeanSlotImpl <em>GBean Slot</em>}' class.
@@ -2001,50 +1808,14 @@ public interface UIGrammarPackage extends EPackage
     EClass GTEXT_FIELD = eINSTANCE.getGTextField();
 
     /**
-     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.GTextAreaImpl <em>GText Area</em>}' class.
+     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.GListImpl <em>GList</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.GTextAreaImpl
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGTextArea()
+     * @see org.lunifera.ecview.dsl.uIGrammar.impl.GListImpl
+     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGList()
      * @generated
      */
-    EClass GTEXT_AREA = eINSTANCE.getGTextArea();
-
-    /**
-     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.GTableImpl <em>GTable</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.GTableImpl
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGTable()
-     * @generated
-     */
-    EClass GTABLE = eINSTANCE.getGTable();
-
-    /**
-     * The meta object literal for the '<em><b>Jvm Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference GTABLE__JVM_TYPE = eINSTANCE.getGTable_JvmType();
-
-    /**
-     * The meta object literal for the '{@link org.lunifera.ecview.dsl.uIGrammar.impl.GTtreeImpl <em>GTtree</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.GTtreeImpl
-     * @see org.lunifera.ecview.dsl.uIGrammar.impl.UIGrammarPackageImpl#getGTtree()
-     * @generated
-     */
-    EClass GTTREE = eINSTANCE.getGTtree();
-
-    /**
-     * The meta object literal for the '<em><b>Jvm Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference GTTREE__JVM_TYPE = eINSTANCE.getGTtree_JvmType();
+    EClass GLIST = eINSTANCE.getGList();
 
   }
 

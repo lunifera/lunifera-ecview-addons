@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="uisemantics" nsURI="http://www.lunifera.org/ecview/uisemantics/UISemantics"
+    nsPrefix="uisemantics">
+  <eClassifiers xsi:type="ecore:EClass" name="UxModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="importSection" eType="ecore:EClass ../../org.eclipse.xtext.xbase/model/Xtype.ecore#//XImportSection"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elementDefinitions" upperBound="-1"
+        eType="#//UxElementDefinition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UxImportDeclaration" eSuperTypes="../../org.eclipse.xtext.xbase/model/Xtype.ecore#//XImportDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="importedEPackage" eType="#//UxEPackageImport"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UxEPackageImport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ePackage" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UxElementDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="uri" eType="#//UxElementURI"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindingContainer" eType="#//UxAvailableBindings"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UxElementURI">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ePackage" eType="#//UxEPackageImport"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eClass" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UxAvailableBindings">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
+        eType="#//UxEndpointDef" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UxEndpointDef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UxValueBindingEndpointDef" eSuperTypes="#//UxEndpointDef"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UxListBindingEndpointDef" eSuperTypes="#//UxEndpointDef"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UxSetBindingEndpointDef" eSuperTypes="#//UxEndpointDef"/>
+</ecore:EPackage>

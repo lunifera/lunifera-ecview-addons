@@ -37,7 +37,10 @@ public class UISemanticsGrammarParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getMultiplicityAccess().getAlternatives(), "rule__Multiplicity__Alternatives");
+					put(grammarAccess.getXImportDeclarationAccess().getAlternatives(), "rule__XImportDeclaration__Alternatives");
+					put(grammarAccess.getXImportDeclarationAccess().getAlternatives_0_1(), "rule__XImportDeclaration__Alternatives_0_1");
+					put(grammarAccess.getXImportDeclarationAccess().getAlternatives_0_1_0_3(), "rule__XImportDeclaration__Alternatives_0_1_0_3");
+					put(grammarAccess.getUxEndpointDefAccess().getAlternatives(), "rule__UxEndpointDef__Alternatives");
 					put(grammarAccess.getXAssignmentAccess().getAlternatives(), "rule__XAssignment__Alternatives");
 					put(grammarAccess.getOpMultiAssignAccess().getAlternatives(), "rule__OpMultiAssign__Alternatives");
 					put(grammarAccess.getOpEqualityAccess().getAlternatives(), "rule__OpEquality__Alternatives");
@@ -75,12 +78,17 @@ public class UISemanticsGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getJvmTypeReferenceAccess().getAlternatives(), "rule__JvmTypeReference__Alternatives");
 					put(grammarAccess.getJvmArgumentTypeReferenceAccess().getAlternatives(), "rule__JvmArgumentTypeReference__Alternatives");
 					put(grammarAccess.getJvmWildcardTypeReferenceAccess().getAlternatives_2(), "rule__JvmWildcardTypeReference__Alternatives_2");
-					put(grammarAccess.getXImportDeclarationAccess().getAlternatives_1(), "rule__XImportDeclaration__Alternatives_1");
-					put(grammarAccess.getXImportDeclarationAccess().getAlternatives_1_0_3(), "rule__XImportDeclaration__Alternatives_1_0_3");
-					put(grammarAccess.getElementDefinitionAccess().getGroup(), "rule__ElementDefinition__Group__0");
-					put(grammarAccess.getElementDefinitionAccess().getGroup_3(), "rule__ElementDefinition__Group_3__0");
-					put(grammarAccess.getAvailableBindingsAccess().getGroup(), "rule__AvailableBindings__Group__0");
-					put(grammarAccess.getBindingAccess().getGroup(), "rule__Binding__Group__0");
+					put(grammarAccess.getUxModelAccess().getGroup(), "rule__UxModel__Group__0");
+					put(grammarAccess.getXImportDeclarationAccess().getGroup_0(), "rule__XImportDeclaration__Group_0__0");
+					put(grammarAccess.getXImportDeclarationAccess().getGroup_0_1_0(), "rule__XImportDeclaration__Group_0_1_0__0");
+					put(grammarAccess.getXImportDeclarationAccess().getGroup_1(), "rule__XImportDeclaration__Group_1__0");
+					put(grammarAccess.getXImportDeclarationAccess().getGroup_1_0(), "rule__XImportDeclaration__Group_1_0__0");
+					put(grammarAccess.getUxEPackageImportAccess().getGroup(), "rule__UxEPackageImport__Group__0");
+					put(grammarAccess.getUxElementDefinitionAccess().getGroup(), "rule__UxElementDefinition__Group__0");
+					put(grammarAccess.getUxElementURIAccess().getGroup(), "rule__UxElementURI__Group__0");
+					put(grammarAccess.getUxValueBindingEndpointDefAccess().getGroup(), "rule__UxValueBindingEndpointDef__Group__0");
+					put(grammarAccess.getUxListBindingEndpointDefAccess().getGroup(), "rule__UxListBindingEndpointDef__Group__0");
+					put(grammarAccess.getUxSetBindingEndpointDefAccess().getGroup(), "rule__UxSetBindingEndpointDef__Group__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_0(), "rule__XAssignment__Group_0__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_1(), "rule__XAssignment__Group_1__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_1_1(), "rule__XAssignment__Group_1_1__0");
@@ -249,20 +257,32 @@ public class UISemanticsGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getJvmTypeParameterAccess().getGroup(), "rule__JvmTypeParameter__Group__0");
 					put(grammarAccess.getJvmTypeParameterAccess().getGroup_1(), "rule__JvmTypeParameter__Group_1__0");
 					put(grammarAccess.getQualifiedNameWithWildcardAccess().getGroup(), "rule__QualifiedNameWithWildcard__Group__0");
-					put(grammarAccess.getXImportDeclarationAccess().getGroup(), "rule__XImportDeclaration__Group__0");
-					put(grammarAccess.getXImportDeclarationAccess().getGroup_1_0(), "rule__XImportDeclaration__Group_1_0__0");
 					put(grammarAccess.getQualifiedNameInStaticImportAccess().getGroup(), "rule__QualifiedNameInStaticImport__Group__0");
-					put(grammarAccess.getModelAccess().getElementDefinitionsAssignment(), "rule__Model__ElementDefinitionsAssignment");
-					put(grammarAccess.getElementDefinitionAccess().getNameAssignment_1(), "rule__ElementDefinition__NameAssignment_1");
-					put(grammarAccess.getElementDefinitionAccess().getNsURIAssignment_3_1(), "rule__ElementDefinition__NsURIAssignment_3_1");
-					put(grammarAccess.getElementDefinitionAccess().getBindingContainerAssignment_6(), "rule__ElementDefinition__BindingContainerAssignment_6");
-					put(grammarAccess.getAvailableBindingsAccess().getBindingsAssignment_1(), "rule__AvailableBindings__BindingsAssignment_1");
-					put(grammarAccess.getBindingAccess().getNameAssignment_1(), "rule__Binding__NameAssignment_1");
-					put(grammarAccess.getBindingAccess().getDataTypeAssignment_2(), "rule__Binding__DataTypeAssignment_2");
-					put(grammarAccess.getBindingAccess().getMultiplicityAssignment_3(), "rule__Binding__MultiplicityAssignment_3");
-					put(grammarAccess.getDataTypeAccess().getJvmTypeAssignment(), "rule__DataType__JvmTypeAssignment");
-					put(grammarAccess.getMultiplicityAccess().getSINGLEAssignment_0(), "rule__Multiplicity__SINGLEAssignment_0");
-					put(grammarAccess.getMultiplicityAccess().getMULTIAssignment_1(), "rule__Multiplicity__MULTIAssignment_1");
+					put(grammarAccess.getUxModelAccess().getImportSectionAssignment_0(), "rule__UxModel__ImportSectionAssignment_0");
+					put(grammarAccess.getUxModelAccess().getElementDefinitionsAssignment_1(), "rule__UxModel__ElementDefinitionsAssignment_1");
+					put(grammarAccess.getXImportDeclarationAccess().getStaticAssignment_0_1_0_0(), "rule__XImportDeclaration__StaticAssignment_0_1_0_0");
+					put(grammarAccess.getXImportDeclarationAccess().getExtensionAssignment_0_1_0_1(), "rule__XImportDeclaration__ExtensionAssignment_0_1_0_1");
+					put(grammarAccess.getXImportDeclarationAccess().getImportedTypeAssignment_0_1_0_2(), "rule__XImportDeclaration__ImportedTypeAssignment_0_1_0_2");
+					put(grammarAccess.getXImportDeclarationAccess().getWildcardAssignment_0_1_0_3_0(), "rule__XImportDeclaration__WildcardAssignment_0_1_0_3_0");
+					put(grammarAccess.getXImportDeclarationAccess().getMemberNameAssignment_0_1_0_3_1(), "rule__XImportDeclaration__MemberNameAssignment_0_1_0_3_1");
+					put(grammarAccess.getXImportDeclarationAccess().getImportedTypeAssignment_0_1_1(), "rule__XImportDeclaration__ImportedTypeAssignment_0_1_1");
+					put(grammarAccess.getXImportDeclarationAccess().getImportedNamespaceAssignment_0_1_2(), "rule__XImportDeclaration__ImportedNamespaceAssignment_0_1_2");
+					put(grammarAccess.getXImportDeclarationAccess().getImportedEPackageAssignment_1_0_1(), "rule__XImportDeclaration__ImportedEPackageAssignment_1_0_1");
+					put(grammarAccess.getUxEPackageImportAccess().getEPackageAssignment_0(), "rule__UxEPackageImport__EPackageAssignment_0");
+					put(grammarAccess.getUxEPackageImportAccess().getAliasAssignment_2(), "rule__UxEPackageImport__AliasAssignment_2");
+					put(grammarAccess.getUxElementDefinitionAccess().getNameAssignment_1(), "rule__UxElementDefinition__NameAssignment_1");
+					put(grammarAccess.getUxElementDefinitionAccess().getUriAssignment_3(), "rule__UxElementDefinition__UriAssignment_3");
+					put(grammarAccess.getUxElementDefinitionAccess().getBindingContainerAssignment_6(), "rule__UxElementDefinition__BindingContainerAssignment_6");
+					put(grammarAccess.getUxElementURIAccess().getEPackageAssignment_1(), "rule__UxElementURI__EPackageAssignment_1");
+					put(grammarAccess.getUxElementURIAccess().getEClassAssignment_3(), "rule__UxElementURI__EClassAssignment_3");
+					put(grammarAccess.getUxAvailableBindingsAccess().getBindingsAssignment(), "rule__UxAvailableBindings__BindingsAssignment");
+					put(grammarAccess.getUxValueBindingEndpointDefAccess().getFinalAssignment_0(), "rule__UxValueBindingEndpointDef__FinalAssignment_0");
+					put(grammarAccess.getUxValueBindingEndpointDefAccess().getNameAssignment_2(), "rule__UxValueBindingEndpointDef__NameAssignment_2");
+					put(grammarAccess.getUxValueBindingEndpointDefAccess().getJvmTypeAssignment_3(), "rule__UxValueBindingEndpointDef__JvmTypeAssignment_3");
+					put(grammarAccess.getUxListBindingEndpointDefAccess().getNameAssignment_1(), "rule__UxListBindingEndpointDef__NameAssignment_1");
+					put(grammarAccess.getUxListBindingEndpointDefAccess().getJvmTypeAssignment_2(), "rule__UxListBindingEndpointDef__JvmTypeAssignment_2");
+					put(grammarAccess.getUxSetBindingEndpointDefAccess().getNameAssignment_1(), "rule__UxSetBindingEndpointDef__NameAssignment_1");
+					put(grammarAccess.getUxSetBindingEndpointDefAccess().getJvmTypeAssignment_2(), "rule__UxSetBindingEndpointDef__JvmTypeAssignment_2");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_0_1(), "rule__XAssignment__FeatureAssignment_0_1");
 					put(grammarAccess.getXAssignmentAccess().getValueAssignment_0_3(), "rule__XAssignment__ValueAssignment_0_3");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_1_1_0_0_1(), "rule__XAssignment__FeatureAssignment_1_1_0_0_1");
@@ -393,13 +413,6 @@ public class UISemanticsGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getJvmTypeParameterAccess().getConstraintsAssignment_1_0(), "rule__JvmTypeParameter__ConstraintsAssignment_1_0");
 					put(grammarAccess.getJvmTypeParameterAccess().getConstraintsAssignment_1_1(), "rule__JvmTypeParameter__ConstraintsAssignment_1_1");
 					put(grammarAccess.getXImportSectionAccess().getImportDeclarationsAssignment(), "rule__XImportSection__ImportDeclarationsAssignment");
-					put(grammarAccess.getXImportDeclarationAccess().getStaticAssignment_1_0_0(), "rule__XImportDeclaration__StaticAssignment_1_0_0");
-					put(grammarAccess.getXImportDeclarationAccess().getExtensionAssignment_1_0_1(), "rule__XImportDeclaration__ExtensionAssignment_1_0_1");
-					put(grammarAccess.getXImportDeclarationAccess().getImportedTypeAssignment_1_0_2(), "rule__XImportDeclaration__ImportedTypeAssignment_1_0_2");
-					put(grammarAccess.getXImportDeclarationAccess().getWildcardAssignment_1_0_3_0(), "rule__XImportDeclaration__WildcardAssignment_1_0_3_0");
-					put(grammarAccess.getXImportDeclarationAccess().getMemberNameAssignment_1_0_3_1(), "rule__XImportDeclaration__MemberNameAssignment_1_0_3_1");
-					put(grammarAccess.getXImportDeclarationAccess().getImportedTypeAssignment_1_1(), "rule__XImportDeclaration__ImportedTypeAssignment_1_1");
-					put(grammarAccess.getXImportDeclarationAccess().getImportedNamespaceAssignment_1_2(), "rule__XImportDeclaration__ImportedNamespaceAssignment_1_2");
 				}
 			};
 		}
@@ -410,7 +423,7 @@ public class UISemanticsGrammarParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			org.lunifera.ecview.uisemantics.ui.contentassist.antlr.internal.InternalUISemanticsGrammarParser typedParser = (org.lunifera.ecview.uisemantics.ui.contentassist.antlr.internal.InternalUISemanticsGrammarParser) parser;
-			typedParser.entryRuleModel();
+			typedParser.entryRuleUxModel();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

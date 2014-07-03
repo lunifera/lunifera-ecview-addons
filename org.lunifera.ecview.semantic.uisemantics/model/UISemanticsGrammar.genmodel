@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.lunifera.ecview.semantic.uisemantics/src"
+    editDirectory="/org.lunifera.ecview.uisemantics.edit/src" editorDirectory="/org.lunifera.ecview.uisemantics.editor/src"
+    modelPluginID="org.lunifera.ecview.uisemantics" forceOverwrite="true" modelName="uisemantics"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="org.lunifera.ecview.uisemantics.edit"
+    editorPluginID="org.lunifera.ecview.uisemantics.editor" runtimeVersion="2.10"
+    usedGenPackages="../../org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types ../../org.eclipse.xtext.xbase/model/Xbase.genmodel#//xtype"
+    interfaceNamePattern="">
+  <genPackages prefix="UiSemantics" basePackage="org.lunifera.ecview.semantic" disposableProviderFactory="true"
+      fileExtensions="UiSemantics" ecorePackage="UISemanticsGrammar.ecore#/">
+    <genClasses ecoreClass="UISemanticsGrammar.ecore#//UxModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UISemanticsGrammar.ecore#//UxModel/importSection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UISemanticsGrammar.ecore#//UxModel/elementDefinitions"/>
+    </genClasses>
+    <genClasses ecoreClass="UISemanticsGrammar.ecore#//XImportDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UISemanticsGrammar.ecore#//XImportDeclaration/importedEPackage"/>
+    </genClasses>
+    <genClasses ecoreClass="UISemanticsGrammar.ecore#//UxEPackageImport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UISemanticsGrammar.ecore#//UxEPackageImport/alias"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UISemanticsGrammar.ecore#//UxEPackageImport/ePackage"/>
+    </genClasses>
+    <genClasses ecoreClass="UISemanticsGrammar.ecore#//UxElementDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UISemanticsGrammar.ecore#//UxElementDefinition/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UISemanticsGrammar.ecore#//UxElementDefinition/uri"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UISemanticsGrammar.ecore#//UxElementDefinition/bindingContainer"/>
+    </genClasses>
+    <genClasses ecoreClass="UISemanticsGrammar.ecore#//UxElementURI">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UISemanticsGrammar.ecore#//UxElementURI/ePackage"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UISemanticsGrammar.ecore#//UxElementURI/eClass"/>
+    </genClasses>
+    <genClasses ecoreClass="UISemanticsGrammar.ecore#//UxAvailableBindings">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UISemanticsGrammar.ecore#//UxAvailableBindings/bindings"/>
+    </genClasses>
+    <genClasses ecoreClass="UISemanticsGrammar.ecore#//UxEndpointDef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UISemanticsGrammar.ecore#//UxEndpointDef/final"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UISemanticsGrammar.ecore#//UxEndpointDef/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UISemanticsGrammar.ecore#//UxEndpointDef/jvmType"/>
+    </genClasses>
+    <genClasses ecoreClass="UISemanticsGrammar.ecore#//UxValueBindingEndpointDef"/>
+    <genClasses ecoreClass="UISemanticsGrammar.ecore#//UxListBindingEndpointDef"/>
+    <genClasses ecoreClass="UISemanticsGrammar.ecore#//UxSetBindingEndpointDef"/>
+  </genPackages>
+</genmodel:GenModel>

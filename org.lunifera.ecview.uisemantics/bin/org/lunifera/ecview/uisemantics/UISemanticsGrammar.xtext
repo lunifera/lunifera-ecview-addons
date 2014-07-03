@@ -1,39 +1,46 @@
 grammar org.lunifera.ecview.uisemantics.UISemanticsGrammar with org.eclipse.xtext.xbase.Xbase
 
-generate uISemanticsGrammar "http://www.lunifera.org/ecview/uisemantics/UISemanticsGrammar"
+import "http://www.eclipse.org/xtext/xbase/Xtype"
+import "http://www.eclipse.org/xtext/common/JavaVMTypes"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+import "platform:/resource/org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore" 
 
-Model:
-	elementDefinitions+=ElementDefinition*
-;
-	
-ElementDefinition:
-	'element' name=[ecore::EClass] '{' 
-		('nsURI' nsURI=[ecore::EPackage|STRING])?
-		'bindings' '{'
-			bindingContainer=AvailableBindings
-		'}'
+UxModel:
+	importSection=XImportSection?
+	elementDefinitions+=UxElementDefinition*;
+
+XImportDeclaration returns UxImportDeclaration:
+	('import' ((static?='static' extension?='extension'? importedType=[JvmDeclaredType|QualifiedNameInStaticImport]
+	(wildcard?='*' | memberName=ValidID))
+	| importedType=[JvmDeclaredType|QualifiedName]
+	| importedNamespace=QualifiedNameWithWildcard))
+	| (("ePackage" importedEPackage=UxEPackageImport)) ';'?;
+ 
+UxEPackageImport returns UxEPackageImport:
+	ePackage=[ecore::EPackage|STRING] 'as' alias=ID;
+ 
+UxElementDefinition:
+	'element' name=ID '{'
+	(uri=UxElementURI)?
+	'bindings' '{'
+	bindingContainer=UxAvailableBindings
 	'}'
-;
+	'}';
 
-AvailableBindings:
-	{AvailableBindings}
-	bindings+=Binding*
-;
+UxElementURI:
+	'uri' ePackage=[UxEPackageImport] ":" eClass=[ecore::EClass];
 
-Binding:
-	'binding' name=ID dataType=DataType multiplicity=Multiplicity
-;
+UxAvailableBindings:
+	bindings+=UxEndpointDef*;
 
-//enum BindingType:
-//	VALUEBINDING="value binding" | SELECTIONBINDING="selection binding" | 
-//	MULTISELECTIONBINDING="multi-selection binding" | COLLECTIONBINDING="collection binding"
-//;
+UxEndpointDef:
+	UxValueBindingEndpointDef | UxListBindingEndpointDef | UxSetBindingEndpointDef;
 
-DataType:
-	jvmType=JvmTypeReference
-;
+UxValueBindingEndpointDef:
+	(final?='final')? 'valueEndpoint' name=ID jvmType=JvmTypeReference;
 
-Multiplicity:
-	SINGLE="single" | MULTI="multi"
-;
+UxListBindingEndpointDef:
+	'listEndpoint' name=ID jvmType=JvmTypeReference;
+
+UxSetBindingEndpointDef:
+	'setEndpoint' name=ID jvmType=JvmTypeReference;

@@ -30,10 +30,8 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
 
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YInput;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YTree;
 
 import org.lunifera.ecview.dsl.uIGrammar.*;
 
@@ -106,29 +104,39 @@ public class UIGrammarAdapterFactory extends AdapterFactoryImpl
         return createUiModelAdapter();
       }
       @Override
-      public Adapter caseIDEView(IDEView object)
+      public Adapter caseUiIDEView(UiIDEView object)
       {
-        return createIDEViewAdapter();
+        return createUiIDEViewAdapter();
       }
       @Override
-      public Adapter caseAction(Action object)
+      public Adapter caseUiGridLayoutAssigment(UiGridLayoutAssigment object)
       {
-        return createActionAdapter();
+        return createUiGridLayoutAssigmentAdapter();
       }
       @Override
-      public Adapter caseGGridLayoutAssigment(GGridLayoutAssigment object)
+      public Adapter caseUiPoint(UiPoint object)
       {
-        return createGGridLayoutAssigmentAdapter();
+        return createUiPointAdapter();
       }
       @Override
-      public Adapter casePoint(Point object)
+      public Adapter caseUiBinding(UiBinding object)
       {
-        return createPointAdapter();
+        return createUiBindingAdapter();
       }
       @Override
-      public Adapter caseBinding(Binding object)
+      public Adapter caseUiSourceBindingEndpoint(UiSourceBindingEndpoint object)
       {
-        return createBindingAdapter();
+        return createUiSourceBindingEndpointAdapter();
+      }
+      @Override
+      public Adapter caseUiTargetBindingEndpoint(UiTargetBindingEndpoint object)
+      {
+        return createUiTargetBindingEndpointAdapter();
+      }
+      @Override
+      public Adapter caseUiPathSegment(UiPathSegment object)
+      {
+        return createUiPathSegmentAdapter();
       }
       @Override
       public Adapter caseGBeanSlot(GBeanSlot object)
@@ -146,19 +154,9 @@ public class UIGrammarAdapterFactory extends AdapterFactoryImpl
         return createGTextFieldAdapter();
       }
       @Override
-      public Adapter caseGTextArea(GTextArea object)
+      public Adapter caseGList(GList object)
       {
-        return createGTextAreaAdapter();
-      }
-      @Override
-      public Adapter caseGTable(GTable object)
-      {
-        return createGTableAdapter();
-      }
-      @Override
-      public Adapter caseGTtree(GTtree object)
-      {
-        return createGTtreeAdapter();
+        return createGListAdapter();
       }
       @Override
       public Adapter caseYElement(YElement object)
@@ -184,6 +182,11 @@ public class UIGrammarAdapterFactory extends AdapterFactoryImpl
       public Adapter caseYView(YView object)
       {
         return createYViewAdapter();
+      }
+      @Override
+      public Adapter caseYBindable(YBindable object)
+      {
+        return createYBindableAdapter();
       }
       @Override
       public Adapter caseYBeanSlot(YBeanSlot object)
@@ -236,11 +239,6 @@ public class UIGrammarAdapterFactory extends AdapterFactoryImpl
         return createYInputAdapter();
       }
       @Override
-      public Adapter caseYBindable(YBindable object)
-      {
-        return createYBindableAdapter();
-      }
-      @Override
       public Adapter caseYValueBindable(YValueBindable object)
       {
         return createYValueBindableAdapter();
@@ -249,11 +247,6 @@ public class UIGrammarAdapterFactory extends AdapterFactoryImpl
       public Adapter caseYTextField(YTextField object)
       {
         return createYTextFieldAdapter();
-      }
-      @Override
-      public Adapter caseYTextArea(YTextArea object)
-      {
-        return createYTextAreaAdapter();
       }
       @Override
       public Adapter caseYCollectionBindable(YCollectionBindable object)
@@ -271,14 +264,9 @@ public class UIGrammarAdapterFactory extends AdapterFactoryImpl
         return createYMultiSelectionBindableAdapter();
       }
       @Override
-      public Adapter caseYTable(YTable object)
+      public Adapter caseYList(YList object)
       {
-        return createYTableAdapter();
-      }
-      @Override
-      public Adapter caseYTree(YTree object)
-      {
-        return createYTreeAdapter();
+        return createYListAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -318,76 +306,106 @@ public class UIGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.IDEView <em>IDE View</em>}'.
+   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.UiIDEView <em>Ui IDE View</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.lunifera.ecview.dsl.uIGrammar.IDEView
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiIDEView
    * @generated
    */
-  public Adapter createIDEViewAdapter()
+  public Adapter createUiIDEViewAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.Action <em>Action</em>}'.
+   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.UiGridLayoutAssigment <em>Ui Grid Layout Assigment</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.lunifera.ecview.dsl.uIGrammar.Action
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiGridLayoutAssigment
    * @generated
    */
-  public Adapter createActionAdapter()
+  public Adapter createUiGridLayoutAssigmentAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment <em>GGrid Layout Assigment</em>}'.
+   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.UiPoint <em>Ui Point</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GGridLayoutAssigment
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiPoint
    * @generated
    */
-  public Adapter createGGridLayoutAssigmentAdapter()
+  public Adapter createUiPointAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.Point <em>Point</em>}'.
+   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.UiBinding <em>Ui Binding</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.lunifera.ecview.dsl.uIGrammar.Point
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiBinding
    * @generated
    */
-  public Adapter createPointAdapter()
+  public Adapter createUiBindingAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.Binding <em>Binding</em>}'.
+   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.UiSourceBindingEndpoint <em>Ui Source Binding Endpoint</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.lunifera.ecview.dsl.uIGrammar.Binding
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiSourceBindingEndpoint
    * @generated
    */
-  public Adapter createBindingAdapter()
+  public Adapter createUiSourceBindingEndpointAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.UiTargetBindingEndpoint <em>Ui Target Binding Endpoint</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiTargetBindingEndpoint
+   * @generated
+   */
+  public Adapter createUiTargetBindingEndpointAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.UiPathSegment <em>Ui Path Segment</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.lunifera.ecview.dsl.uIGrammar.UiPathSegment
+   * @generated
+   */
+  public Adapter createUiPathSegmentAdapter()
   {
     return null;
   }
@@ -438,46 +456,16 @@ public class UIGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.GTextArea <em>GText Area</em>}'.
+   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.GList <em>GList</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GTextArea
+   * @see org.lunifera.ecview.dsl.uIGrammar.GList
    * @generated
    */
-  public Adapter createGTextAreaAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.GTable <em>GTable</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GTable
-   * @generated
-   */
-  public Adapter createGTableAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.lunifera.ecview.dsl.uIGrammar.GTtree <em>GTtree</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.lunifera.ecview.dsl.uIGrammar.GTtree
-   * @generated
-   */
-  public Adapter createGTtreeAdapter()
+  public Adapter createGListAdapter()
   {
     return null;
   }
@@ -553,6 +541,21 @@ public class UIGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createYViewAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBindable <em>YBindable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipse.emf.ecp.ecview.common.model.core.YBindable
+   * @generated
+   */
+  public Adapter createYBindableAdapter()
   {
     return null;
   }
@@ -708,21 +711,6 @@ public class UIGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBindable <em>YBindable</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.emf.ecp.ecview.common.model.core.YBindable
-   * @generated
-   */
-  public Adapter createYBindableAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable <em>YValue Bindable</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -748,21 +736,6 @@ public class UIGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createYTextFieldAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea <em>YText Area</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea
-   * @generated
-   */
-  public Adapter createYTextAreaAdapter()
   {
     return null;
   }
@@ -813,31 +786,16 @@ public class UIGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable <em>YTable</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList <em>YList</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTable
+   * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YList
    * @generated
    */
-  public Adapter createYTableAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree <em>YTree</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTree
-   * @generated
-   */
-  public Adapter createYTreeAdapter()
+  public Adapter createYListAdapter()
   {
     return null;
   }
