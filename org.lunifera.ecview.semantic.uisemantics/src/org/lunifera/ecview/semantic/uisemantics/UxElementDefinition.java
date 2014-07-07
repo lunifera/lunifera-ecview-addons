@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxElementDefinition#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxElementDefinition#getUri <em>Uri</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxElementDefinition#getBindingContainer <em>Binding Container</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxElementDefinition#getVisibilityContainer <em>Visibility Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,5 +101,31 @@ public interface UxElementDefinition extends EObject {
 	 * @generated
 	 */
 	void setBindingContainer(UxAvailableBindings value);
+
+	/**
+	 * Returns the value of the '<em><b>Visibility Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Visibility Container</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Visibility Container</em>' containment reference.
+	 * @see #setVisibilityContainer(UxAvailableVisibilityOptions)
+	 * @see org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage#getUxElementDefinition_VisibilityContainer()
+	 * @model containment="true"
+	 * @generated
+	 */
+	UxAvailableVisibilityOptions getVisibilityContainer();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uisemantics.UxElementDefinition#getVisibilityContainer <em>Visibility Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Visibility Container</em>' containment reference.
+	 * @see #getVisibilityContainer()
+	 * @generated
+	 */
+	void setVisibilityContainer(UxAvailableVisibilityOptions value);
 
 } // UxElementDefinition

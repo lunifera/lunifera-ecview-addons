@@ -14,8 +14,8 @@ import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.SimpleScope;
 import org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider;
-import org.lunifera.ecview.uisemantics.uISemanticsGrammar.UISemanticsGrammarPackage;
-import org.lunifera.ecview.uisemantics.uISemanticsGrammar.UxElementURI;
+import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
+import org.lunifera.ecview.semantic.uisemantics.UxElementURI;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Iterables;
@@ -26,9 +26,9 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
 
-		if (reference == UISemanticsGrammarPackage.Literals.UX_EPACKAGE_IMPORT__EPACKAGE) {
+		if (reference == UiSemanticsPackage.Literals.UX_EPACKAGE_IMPORT__EPACKAGE) {
 			return createEPackageScope();
-		} else if (reference == UISemanticsGrammarPackage.Literals.UX_ELEMENT_URI__ECLASS) {
+		} else if (reference == UiSemanticsPackage.Literals.UX_ELEMENT_URI__ECLASS) {
 			UxElementURI elementURI = (UxElementURI) context;
 			return new EPackageContentScope(elementURI.getEPackage()
 					.getEPackage());

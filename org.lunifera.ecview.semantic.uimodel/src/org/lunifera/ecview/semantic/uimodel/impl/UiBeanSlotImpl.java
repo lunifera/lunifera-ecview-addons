@@ -4,16 +4,11 @@ package org.lunifera.ecview.semantic.uimodel.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotImpl;
-
 import org.eclipse.xtext.common.types.JvmTypeReference;
-
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
 
@@ -66,6 +61,29 @@ public class UiBeanSlotImpl extends YBeanSlotImpl implements UiBeanSlot {
 	 * @generated
 	 */
 	public JvmTypeReference getJvmType() {
+		if (jvmType != null && jvmType.eIsProxy()) {
+			InternalEObject oldJvmType = (InternalEObject)jvmType;
+			jvmType = (JvmTypeReference)eResolveProxy(oldJvmType);
+			if (jvmType != oldJvmType) {
+				InternalEObject newJvmType = (InternalEObject)jvmType;
+				NotificationChain msgs = oldJvmType.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BEAN_SLOT__JVM_TYPE, null, null);
+				if (newJvmType.eInternalContainer() == null) {
+					msgs = newJvmType.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BEAN_SLOT__JVM_TYPE, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelPackage.UI_BEAN_SLOT__JVM_TYPE, oldJvmType, jvmType));
+			}
+		}
+		return jvmType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JvmTypeReference basicGetJvmType() {
 		return jvmType;
 	}
 
@@ -126,7 +144,8 @@ public class UiBeanSlotImpl extends YBeanSlotImpl implements UiBeanSlot {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UimodelPackage.UI_BEAN_SLOT__JVM_TYPE:
-				return getJvmType();
+				if (resolve) return getJvmType();
+				return basicGetJvmType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

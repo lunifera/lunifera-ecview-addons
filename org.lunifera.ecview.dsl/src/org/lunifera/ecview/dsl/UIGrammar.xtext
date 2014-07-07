@@ -7,36 +7,54 @@ import "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/binding
 import "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore" as coreVal
 import "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore" as ext
 import "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extdatatypes.ecore" as extDt
-import "platform:/resource/org.lunifera.ecview.uisemantics/model/generated/UISemanticsGrammar.ecore" as cfg
+import "platform:/resource/org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore" as cfg
+import "platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarCore.ecore" as grammarCore
+import "platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarExtensions.ecore"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://www.eclipse.org/xtext/common/JavaVMTypes"
-import "http://www.lunifera.org/ecview/dsl/UIModel"
-
-UiModel:
-	viewSet+=UiViewSet*;
-
-UiViewSet returns core::YViewSet:
-	{core::YViewSet}
+ 
+UiModel returns grammarCore::UiModel:
+	viewSets+=UiViewSet*
+	views+=UiView*
+;
+   
+UiViewSet returns grammarCore::UiViewSet:
 	'viewset' name=ID
 	(('beanslots' '{' (beanSlots+=UiBeanSlot)* '}')?
-	(views+=UiView)*);
+	(bindingEndpointAlias+=UiBindingEndpointAlias)*)
+	;
 
-UiBeanSlot returns core::YBeanSlot:
-	{GBeanSlot}
+UiBindingEndpointAlias returns grammarCore::UiBindingEndpointAlias:
+	'bindingAlias' endpoint=UiBindingEndpointDef 'as' alias=ID;
+
+UiBeanSlot returns grammarCore::UiBeanSlot:
 	'slot' name=ID ':' jvmType=JvmTypeReference;
 
-UiView returns core::YView:
+UiBinding returns grammarCore::UiBinding:
+	'bind' (source=UiBindingEndpointDef | sourceAlias=[grammarCore::UiBindingEndpointAlias]) ((targetToSource?='<')? '--'
+	(sourceToTarget?='>')?)
+	(target=UiBindingEndpointDef | targetAlias=[grammarCore::UiBindingEndpointAlias]);
+
+UiBindingEndpointDef returns grammarCore::UiBindingEndpointDef:
+	bindable=[core::YBindable|ID] ':' endpoint=[cfg::UxEndpointDef] (path=UiPathSegment)?;
+
+UiPathSegment returns grammarCore::UiPathSegment:
+	'.' jvmField=[JvmField] path=(UiPathSegment)?;
+
+UiView returns grammarCore::UiView:
 	UiIDEView;
 
-UiIDEView:
+UiIDEView returns grammarCore::UiIDEView:
 	'ideview' name=ID
 	'{'
-	(layouts+=UiLayout)*
+	(content=UiLayout)?
+	// TODO make unordered group
+	('bindingAlias' '{' (bindingEndpointAlias+=UiBindingEndpointAlias)*'}')?
 	(bindings+=UiBinding)*
 	'}';
 
 UiGridLayout returns ext::YGridLayout:
-	{GGridLayout}
+	{UiGridLayout}
 	'gridlayout'
 	('('
 	((('columns=' columns=INT)?)
@@ -57,7 +75,7 @@ UiGridLayout returns ext::YGridLayout:
 UiGridLayoutAssigment:
 	element=UiEmbeddable (('align' alignment=UiAlignment)? & ('span' from=UiPoint 'to' to=UiPoint)?);
 
-UiPoint:
+UiPoint returns grammarCore::UiPoint:
 	x=INT '/' y=INT;
 
 enum UiAlignment returns ext::YAlignment:
@@ -78,7 +96,7 @@ UiSpanInfo returns ext::YSpanInfo:
 	('rowTo' rowTo=INT))?);
 
 UiTextField returns ext::YTextField:
-	{GTextField}
+	{UiTextField}
 	'textfield' name=ID?
 	('{' (('datatype' datatype=[extDt::YTextDatatype])?
 	&
@@ -87,7 +105,7 @@ UiTextField returns ext::YTextField:
 	('value' value=ID)?) '}')?;
 
 UiList returns ext::YList:
-	{GList}
+	{UiList}
 	'list' name=ID?;
 
 enum SelectionType returns ext::YSelectionType:
@@ -112,19 +130,6 @@ UiMaxLengthValidator returns coreVal::YValidator:
 UiMinLengthValidator returns coreVal::YValidator:
 	{coreVal::YValidator}
 	'min';
-	
-UiBinding:
-	'bind' source=UiSourceBindingEndpoint ((targetToSource?='<')? '--' (sourceToTarget?='>')?) target=UiTargetBindingEndpoint;
-
-UiSourceBindingEndpoint:
-	embeddable=[core::YBindable|FQN] ':' endpoint=[cfg::UxEndpointDefCommon] (path=UiPathSegment)?;
-
-UiTargetBindingEndpoint:
-	embeddable=[core::YBindable|FQN] ':' endpoint=[cfg::UxEndpointDefCommon] (path=UiPathSegment)?;
-	
-UiPathSegment:
-	{UiPathSegment}
-	'->' jvmField=[JvmField] path=(UiPathSegment)?;
 
 FQN:
 	(ID '.')* ID;

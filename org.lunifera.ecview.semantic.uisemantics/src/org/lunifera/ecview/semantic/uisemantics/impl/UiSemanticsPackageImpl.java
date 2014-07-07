@@ -16,6 +16,7 @@ import org.eclipse.xtext.xtype.XtypePackage;
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsFactory;
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableBindings;
+import org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions;
 import org.lunifera.ecview.semantic.uisemantics.UxEPackageImport;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxElementURI;
@@ -24,6 +25,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxListBindingEndpointDef;
 import org.lunifera.ecview.semantic.uisemantics.UxModel;
 import org.lunifera.ecview.semantic.uisemantics.UxSetBindingEndpointDef;
 import org.lunifera.ecview.semantic.uisemantics.UxValueBindingEndpointDef;
+import org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption;
 import org.lunifera.ecview.semantic.uisemantics.XImportDeclaration;
 
 /**
@@ -102,6 +104,20 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	 * @generated
 	 */
 	private EClass uxSetBindingEndpointDefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uxAvailableVisibilityOptionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uxVisibilityOptionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -280,6 +296,15 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getUxElementDefinition_VisibilityContainer() {
+		return (EReference)uxElementDefinitionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUxElementURI() {
 		return uxElementURIEClass;
 	}
@@ -388,6 +413,51 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUxAvailableVisibilityOptions() {
+		return uxAvailableVisibilityOptionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUxAvailableVisibilityOptions_Options() {
+		return (EReference)uxAvailableVisibilityOptionsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUxVisibilityOption() {
+		return uxVisibilityOptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUxVisibilityOption_Name() {
+		return (EAttribute)uxVisibilityOptionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUxVisibilityOption_JvmType() {
+		return (EReference)uxVisibilityOptionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiSemanticsFactory getUiSemanticsFactory() {
 		return (UiSemanticsFactory)getEFactoryInstance();
 	}
@@ -426,6 +496,7 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 		createEAttribute(uxElementDefinitionEClass, UX_ELEMENT_DEFINITION__NAME);
 		createEReference(uxElementDefinitionEClass, UX_ELEMENT_DEFINITION__URI);
 		createEReference(uxElementDefinitionEClass, UX_ELEMENT_DEFINITION__BINDING_CONTAINER);
+		createEReference(uxElementDefinitionEClass, UX_ELEMENT_DEFINITION__VISIBILITY_CONTAINER);
 
 		uxElementURIEClass = createEClass(UX_ELEMENT_URI);
 		createEReference(uxElementURIEClass, UX_ELEMENT_URI__EPACKAGE);
@@ -444,6 +515,13 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 		uxListBindingEndpointDefEClass = createEClass(UX_LIST_BINDING_ENDPOINT_DEF);
 
 		uxSetBindingEndpointDefEClass = createEClass(UX_SET_BINDING_ENDPOINT_DEF);
+
+		uxAvailableVisibilityOptionsEClass = createEClass(UX_AVAILABLE_VISIBILITY_OPTIONS);
+		createEReference(uxAvailableVisibilityOptionsEClass, UX_AVAILABLE_VISIBILITY_OPTIONS__OPTIONS);
+
+		uxVisibilityOptionEClass = createEClass(UX_VISIBILITY_OPTION);
+		createEAttribute(uxVisibilityOptionEClass, UX_VISIBILITY_OPTION__NAME);
+		createEReference(uxVisibilityOptionEClass, UX_VISIBILITY_OPTION__JVM_TYPE);
 	}
 
 	/**
@@ -499,6 +577,7 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 		initEAttribute(getUxElementDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, UxElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUxElementDefinition_Uri(), this.getUxElementURI(), null, "uri", null, 0, 1, UxElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUxElementDefinition_BindingContainer(), this.getUxAvailableBindings(), null, "bindingContainer", null, 0, 1, UxElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUxElementDefinition_VisibilityContainer(), this.getUxAvailableVisibilityOptions(), null, "visibilityContainer", null, 0, 1, UxElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uxElementURIEClass, UxElementURI.class, "UxElementURI", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUxElementURI_EPackage(), this.getUxEPackageImport(), null, "ePackage", null, 0, 1, UxElementURI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -517,6 +596,13 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 		initEClass(uxListBindingEndpointDefEClass, UxListBindingEndpointDef.class, "UxListBindingEndpointDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(uxSetBindingEndpointDefEClass, UxSetBindingEndpointDef.class, "UxSetBindingEndpointDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uxAvailableVisibilityOptionsEClass, UxAvailableVisibilityOptions.class, "UxAvailableVisibilityOptions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUxAvailableVisibilityOptions_Options(), this.getUxVisibilityOption(), null, "options", null, 0, -1, UxAvailableVisibilityOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uxVisibilityOptionEClass, UxVisibilityOption.class, "UxVisibilityOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUxVisibilityOption_Name(), ecorePackage.getEString(), "name", null, 0, 1, UxVisibilityOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUxVisibilityOption_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, UxVisibilityOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

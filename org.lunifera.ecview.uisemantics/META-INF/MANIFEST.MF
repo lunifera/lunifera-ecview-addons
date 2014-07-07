@@ -26,8 +26,6 @@ Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.lunifera.ecview.uisemantics,
- org.lunifera.ecview.uisemantics.impl,
- org.lunifera.ecview.uisemantics.util,
  org.lunifera.ecview.uisemantics.formatting,
  org.lunifera.ecview.uisemantics.jvmmodel,
  org.lunifera.ecview.uisemantics.naming,
@@ -35,8 +33,5 @@ Export-Package: org.lunifera.ecview.uisemantics,
  org.lunifera.ecview.uisemantics.parser.antlr.internal,
  org.lunifera.ecview.uisemantics.serializer,
  org.lunifera.ecview.uisemantics.services,
- org.lunifera.ecview.uisemantics.uISemanticsGrammar,
- org.lunifera.ecview.uisemantics.uISemanticsGrammar.impl,
- org.lunifera.ecview.uisemantics.uISemanticsGrammar.util,
  org.lunifera.ecview.uisemantics.validation
 

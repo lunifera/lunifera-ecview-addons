@@ -4,7 +4,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.xbase.scoping.XbaseQualifiedNameProvider;
-import org.lunifera.ecview.uisemantics.uISemanticsGrammar.UxEPackageImport;
+import org.lunifera.ecview.semantic.uisemantics.UxEPackageImport;
 
 public class QualifiedNameProvider extends XbaseQualifiedNameProvider {
 

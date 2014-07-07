@@ -5,12 +5,20 @@ package org.lunifera.ecview.semantic.uimodel.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.lunifera.ecview.semantic.uimodel.*;
+import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
+import org.lunifera.ecview.semantic.uimodel.UiBinding;
+import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
+import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef;
+import org.lunifera.ecview.semantic.uimodel.UiIDEView;
+import org.lunifera.ecview.semantic.uimodel.UiModel;
+import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
+import org.lunifera.ecview.semantic.uimodel.UiPoint;
+import org.lunifera.ecview.semantic.uimodel.UiViewSet;
+import org.lunifera.ecview.semantic.uimodel.UimodelFactory;
+import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,17 +65,15 @@ public class UimodelFactoryImpl extends EFactoryImpl implements UimodelFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case UimodelPackage.UI_MODEL: return createUiModel();
+			case UimodelPackage.UI_VIEW: return createUiView();
 			case UimodelPackage.UI_IDE_VIEW: return createUiIDEView();
-			case UimodelPackage.UI_GRID_LAYOUT_ASSIGMENT: return createUiGridLayoutAssigment();
 			case UimodelPackage.UI_POINT: return createUiPoint();
+			case UimodelPackage.UI_BINDING_ENDPOINT_ALIAS: return createUiBindingEndpointAlias();
+			case UimodelPackage.UI_BINDING_ENDPOINT_DEF: return createUiBindingEndpointDef();
 			case UimodelPackage.UI_BINDING: return createUiBinding();
-			case UimodelPackage.UI_SOURCE_BINDING_ENDPOINT: return createUiSourceBindingEndpoint();
-			case UimodelPackage.UI_TARGET_BINDING_ENDPOINT: return createUiTargetBindingEndpoint();
 			case UimodelPackage.UI_PATH_SEGMENT: return createUiPathSegment();
 			case UimodelPackage.UI_BEAN_SLOT: return createUiBeanSlot();
-			case UimodelPackage.UI_GRID_LAYOUT: return createUiGridLayout();
-			case UimodelPackage.UI_TEXT_FIELD: return createUiTextField();
-			case UimodelPackage.UI_LIST: return createUiList();
+			case UimodelPackage.UI_VIEW_SET: return createUiViewSet();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -88,9 +94,9 @@ public class UimodelFactoryImpl extends EFactoryImpl implements UimodelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UiIDEView createUiIDEView() {
-		UiIDEViewImpl uiIDEView = new UiIDEViewImpl();
-		return uiIDEView;
+	public UiView createUiView() {
+		UiViewImpl uiView = new UiViewImpl();
+		return uiView;
 	}
 
 	/**
@@ -98,9 +104,9 @@ public class UimodelFactoryImpl extends EFactoryImpl implements UimodelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UiGridLayoutAssigment createUiGridLayoutAssigment() {
-		UiGridLayoutAssigmentImpl uiGridLayoutAssigment = new UiGridLayoutAssigmentImpl();
-		return uiGridLayoutAssigment;
+	public UiIDEView createUiIDEView() {
+		UiIDEViewImpl uiIDEView = new UiIDEViewImpl();
+		return uiIDEView;
 	}
 
 	/**
@@ -118,29 +124,29 @@ public class UimodelFactoryImpl extends EFactoryImpl implements UimodelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiBindingEndpointAlias createUiBindingEndpointAlias() {
+		UiBindingEndpointAliasImpl uiBindingEndpointAlias = new UiBindingEndpointAliasImpl();
+		return uiBindingEndpointAlias;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiBindingEndpointDef createUiBindingEndpointDef() {
+		UiBindingEndpointDefImpl uiBindingEndpointDef = new UiBindingEndpointDefImpl();
+		return uiBindingEndpointDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiBinding createUiBinding() {
 		UiBindingImpl uiBinding = new UiBindingImpl();
 		return uiBinding;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiSourceBindingEndpoint createUiSourceBindingEndpoint() {
-		UiSourceBindingEndpointImpl uiSourceBindingEndpoint = new UiSourceBindingEndpointImpl();
-		return uiSourceBindingEndpoint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiTargetBindingEndpoint createUiTargetBindingEndpoint() {
-		UiTargetBindingEndpointImpl uiTargetBindingEndpoint = new UiTargetBindingEndpointImpl();
-		return uiTargetBindingEndpoint;
 	}
 
 	/**
@@ -168,29 +174,9 @@ public class UimodelFactoryImpl extends EFactoryImpl implements UimodelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UiGridLayout createUiGridLayout() {
-		UiGridLayoutImpl uiGridLayout = new UiGridLayoutImpl();
-		return uiGridLayout;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiTextField createUiTextField() {
-		UiTextFieldImpl uiTextField = new UiTextFieldImpl();
-		return uiTextField;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiList createUiList() {
-		UiListImpl uiList = new UiListImpl();
-		return uiList;
+	public UiViewSet createUiViewSet() {
+		UiViewSetImpl uiViewSet = new UiViewSetImpl();
+		return uiViewSet;
 	}
 
 	/**

@@ -112,6 +112,24 @@ public interface UiSemanticsFactory extends EFactory {
 	UxSetBindingEndpointDef createUxSetBindingEndpointDef();
 
 	/**
+	 * Returns a new object of class '<em>Ux Available Visibility Options</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ux Available Visibility Options</em>'.
+	 * @generated
+	 */
+	UxAvailableVisibilityOptions createUxAvailableVisibilityOptions();
+
+	/**
+	 * Returns a new object of class '<em>Ux Visibility Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ux Visibility Option</em>'.
+	 * @generated
+	 */
+	UxVisibilityOption createUxVisibilityOption();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

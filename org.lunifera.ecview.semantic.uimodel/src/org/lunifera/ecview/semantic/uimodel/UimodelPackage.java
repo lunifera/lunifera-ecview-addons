@@ -6,10 +6,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
-
-import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,7 +39,7 @@ public interface UimodelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.lunifera.org/ecview/dsl/UIModel";
+	String eNS_URI = "http://www.lunifera.org/ecview/dsl/UIModel/core";
 
 	/**
 	 * The package namespace name.
@@ -71,13 +68,22 @@ public interface UimodelPackage extends EPackage {
 	int UI_MODEL = 0;
 
 	/**
-	 * The feature id for the '<em><b>View Set</b></em>' containment reference list.
+	 * The feature id for the '<em><b>View Sets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_MODEL__VIEW_SET = 0;
+	int UI_MODEL__VIEW_SETS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MODEL__VIEWS = 1;
 
 	/**
 	 * The number of structural features of the '<em>Ui Model</em>' class.
@@ -86,16 +92,125 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_MODEL_FEATURE_COUNT = 1;
+	int UI_MODEL_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Ui Model</em>' class.
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl <em>Ui View</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiView()
+	 * @generated
+	 */
+	int UI_VIEW = 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_MODEL_OPERATION_COUNT = 0;
+	int UI_VIEW__ID = CoreModelPackage.YVIEW__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VIEW__NAME = CoreModelPackage.YVIEW__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VIEW__CSS_CLASS = CoreModelPackage.YVIEW__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VIEW__CSS_ID = CoreModelPackage.YVIEW__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Margin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VIEW__MARGIN = CoreModelPackage.YVIEW__MARGIN;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VIEW__VISIBILITY_PROCESSOR = CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR;
+
+	/**
+	 * The feature id for the '<em><b>Root</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VIEW__ROOT = CoreModelPackage.YVIEW__ROOT;
+
+	/**
+	 * The feature id for the '<em><b>View Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VIEW__VIEW_NAME = CoreModelPackage.YVIEW__VIEW_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VIEW__CONTENT = CoreModelPackage.YVIEW__CONTENT;
+
+	/**
+	 * The feature id for the '<em><b>Binding Set</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VIEW__BINDING_SET = CoreModelPackage.YVIEW__BINDING_SET;
+
+	/**
+	 * The feature id for the '<em><b>Bean Slots</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VIEW__BEAN_SLOTS = CoreModelPackage.YVIEW__BEAN_SLOTS;
+
+	/**
+	 * The number of structural features of the '<em>Ui View</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VIEW_FEATURE_COUNT = CoreModelPackage.YVIEW_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiIDEViewImpl <em>Ui IDE View</em>}' class.
@@ -105,7 +220,7 @@ public interface UimodelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiIDEView()
 	 * @generated
 	 */
-	int UI_IDE_VIEW = 1;
+	int UI_IDE_VIEW = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -114,7 +229,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_IDE_VIEW__ID = CoreModelPackage.YVIEW__ID;
+	int UI_IDE_VIEW__ID = UI_VIEW__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -123,7 +238,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_IDE_VIEW__NAME = CoreModelPackage.YVIEW__NAME;
+	int UI_IDE_VIEW__NAME = UI_VIEW__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -132,7 +247,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_IDE_VIEW__CSS_CLASS = CoreModelPackage.YVIEW__CSS_CLASS;
+	int UI_IDE_VIEW__CSS_CLASS = UI_VIEW__CSS_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
@@ -141,7 +256,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_IDE_VIEW__CSS_ID = CoreModelPackage.YVIEW__CSS_ID;
+	int UI_IDE_VIEW__CSS_ID = UI_VIEW__CSS_ID;
 
 	/**
 	 * The feature id for the '<em><b>Margin</b></em>' attribute.
@@ -150,7 +265,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_IDE_VIEW__MARGIN = CoreModelPackage.YVIEW__MARGIN;
+	int UI_IDE_VIEW__MARGIN = UI_VIEW__MARGIN;
 
 	/**
 	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
@@ -159,16 +274,16 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_IDE_VIEW__VISIBILITY_PROCESSOR = CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR;
+	int UI_IDE_VIEW__VISIBILITY_PROCESSOR = UI_VIEW__VISIBILITY_PROCESSOR;
 
 	/**
-	 * The feature id for the '<em><b>Root</b></em>' container reference.
+	 * The feature id for the '<em><b>Root</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_IDE_VIEW__ROOT = CoreModelPackage.YVIEW__ROOT;
+	int UI_IDE_VIEW__ROOT = UI_VIEW__ROOT;
 
 	/**
 	 * The feature id for the '<em><b>View Name</b></em>' attribute.
@@ -177,7 +292,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_IDE_VIEW__VIEW_NAME = CoreModelPackage.YVIEW__VIEW_NAME;
+	int UI_IDE_VIEW__VIEW_NAME = UI_VIEW__VIEW_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference.
@@ -186,7 +301,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_IDE_VIEW__CONTENT = CoreModelPackage.YVIEW__CONTENT;
+	int UI_IDE_VIEW__CONTENT = UI_VIEW__CONTENT;
 
 	/**
 	 * The feature id for the '<em><b>Binding Set</b></em>' containment reference.
@@ -195,7 +310,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_IDE_VIEW__BINDING_SET = CoreModelPackage.YVIEW__BINDING_SET;
+	int UI_IDE_VIEW__BINDING_SET = UI_VIEW__BINDING_SET;
 
 	/**
 	 * The feature id for the '<em><b>Bean Slots</b></em>' containment reference list.
@@ -204,16 +319,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_IDE_VIEW__BEAN_SLOTS = CoreModelPackage.YVIEW__BEAN_SLOTS;
-
-	/**
-	 * The feature id for the '<em><b>Layouts</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_IDE_VIEW__LAYOUTS = CoreModelPackage.YVIEW_FEATURE_COUNT + 0;
+	int UI_IDE_VIEW__BEAN_SLOTS = UI_VIEW__BEAN_SLOTS;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -222,7 +328,16 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_IDE_VIEW__BINDINGS = CoreModelPackage.YVIEW_FEATURE_COUNT + 1;
+	int UI_IDE_VIEW__BINDINGS = UI_VIEW_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Binding Endpoint Alias</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_IDE_VIEW__BINDING_ENDPOINT_ALIAS = UI_VIEW_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Ui IDE View</em>' class.
@@ -231,89 +346,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_IDE_VIEW_FEATURE_COUNT = CoreModelPackage.YVIEW_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Get Or Create Binding Set</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_IDE_VIEW___GET_OR_CREATE_BINDING_SET = CoreModelPackage.YVIEW___GET_OR_CREATE_BINDING_SET;
-
-	/**
-	 * The number of operations of the '<em>Ui IDE View</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_IDE_VIEW_OPERATION_COUNT = CoreModelPackage.YVIEW_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutAssigmentImpl <em>Ui Grid Layout Assigment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutAssigmentImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiGridLayoutAssigment()
-	 * @generated
-	 */
-	int UI_GRID_LAYOUT_ASSIGMENT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Element</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT_ASSIGMENT__ELEMENT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Alignment</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT_ASSIGMENT__ALIGNMENT = 1;
-
-	/**
-	 * The feature id for the '<em><b>From</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT_ASSIGMENT__FROM = 2;
-
-	/**
-	 * The feature id for the '<em><b>To</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT_ASSIGMENT__TO = 3;
-
-	/**
-	 * The number of structural features of the '<em>Ui Grid Layout Assigment</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT_ASSIGMENT_FEATURE_COUNT = 4;
-
-	/**
-	 * The number of operations of the '<em>Ui Grid Layout Assigment</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT_ASSIGMENT_OPERATION_COUNT = 0;
+	int UI_IDE_VIEW_FEATURE_COUNT = UI_VIEW_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiPointImpl <em>Ui Point</em>}' class.
@@ -353,13 +386,87 @@ public interface UimodelPackage extends EPackage {
 	int UI_POINT_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Ui Point</em>' class.
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointAliasImpl <em>Ui Binding Endpoint Alias</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointAliasImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiBindingEndpointAlias()
+	 * @generated
+	 */
+	int UI_BINDING_ENDPOINT_ALIAS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_POINT_OPERATION_COUNT = 0;
+	int UI_BINDING_ENDPOINT_ALIAS__ALIAS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Endpoint</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BINDING_ENDPOINT_ALIAS__ENDPOINT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Ui Binding Endpoint Alias</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BINDING_ENDPOINT_ALIAS_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointDefImpl <em>Ui Binding Endpoint Def</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointDefImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiBindingEndpointDef()
+	 * @generated
+	 */
+	int UI_BINDING_ENDPOINT_DEF = 5;
+
+	/**
+	 * The feature id for the '<em><b>Bindable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BINDING_ENDPOINT_DEF__BINDABLE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Endpoint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BINDING_ENDPOINT_DEF__ENDPOINT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BINDING_ENDPOINT_DEF__PATH = 2;
+
+	/**
+	 * The number of structural features of the '<em>Ui Binding Endpoint Def</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BINDING_ENDPOINT_DEF_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingImpl <em>Ui Binding</em>}' class.
@@ -369,7 +476,7 @@ public interface UimodelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiBinding()
 	 * @generated
 	 */
-	int UI_BINDING = 4;
+	int UI_BINDING = 6;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' containment reference.
@@ -381,13 +488,22 @@ public interface UimodelPackage extends EPackage {
 	int UI_BINDING__SOURCE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Source Alias</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BINDING__SOURCE_ALIAS = 1;
+
+	/**
 	 * The feature id for the '<em><b>Target To Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING__TARGET_TO_SOURCE = 1;
+	int UI_BINDING__TARGET_TO_SOURCE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Source To Target</b></em>' attribute.
@@ -396,7 +512,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING__SOURCE_TO_TARGET = 2;
+	int UI_BINDING__SOURCE_TO_TARGET = 3;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' containment reference.
@@ -405,7 +521,16 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING__TARGET = 3;
+	int UI_BINDING__TARGET = 4;
+
+	/**
+	 * The feature id for the '<em><b>Target Alias</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BINDING__TARGET_ALIAS = 5;
 
 	/**
 	 * The number of structural features of the '<em>Ui Binding</em>' class.
@@ -414,126 +539,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING_FEATURE_COUNT = 4;
-
-	/**
-	 * The number of operations of the '<em>Ui Binding</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_BINDING_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiSourceBindingEndpointImpl <em>Ui Source Binding Endpoint</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiSourceBindingEndpointImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiSourceBindingEndpoint()
-	 * @generated
-	 */
-	int UI_SOURCE_BINDING_ENDPOINT = 5;
-
-	/**
-	 * The feature id for the '<em><b>Embeddable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_SOURCE_BINDING_ENDPOINT__EMBEDDABLE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Endpoint</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_SOURCE_BINDING_ENDPOINT__ENDPOINT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Path</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_SOURCE_BINDING_ENDPOINT__PATH = 2;
-
-	/**
-	 * The number of structural features of the '<em>Ui Source Binding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_SOURCE_BINDING_ENDPOINT_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Ui Source Binding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_SOURCE_BINDING_ENDPOINT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTargetBindingEndpointImpl <em>Ui Target Binding Endpoint</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiTargetBindingEndpointImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiTargetBindingEndpoint()
-	 * @generated
-	 */
-	int UI_TARGET_BINDING_ENDPOINT = 6;
-
-	/**
-	 * The feature id for the '<em><b>Embeddable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TARGET_BINDING_ENDPOINT__EMBEDDABLE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Endpoint</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TARGET_BINDING_ENDPOINT__ENDPOINT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Path</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TARGET_BINDING_ENDPOINT__PATH = 2;
-
-	/**
-	 * The number of structural features of the '<em>Ui Target Binding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TARGET_BINDING_ENDPOINT_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Ui Target Binding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TARGET_BINDING_ENDPOINT_OPERATION_COUNT = 0;
+	int UI_BINDING_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiPathSegmentImpl <em>Ui Path Segment</em>}' class.
@@ -571,15 +577,6 @@ public interface UimodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_PATH_SEGMENT_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Ui Path Segment</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_PATH_SEGMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanSlotImpl <em>Ui Bean Slot</em>}' class.
@@ -637,23 +634,14 @@ public interface UimodelPackage extends EPackage {
 	int UI_BEAN_SLOT_FEATURE_COUNT = CoreModelPackage.YBEAN_SLOT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Ui Bean Slot</em>' class.
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewSetImpl <em>Ui View Set</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_BEAN_SLOT_OPERATION_COUNT = CoreModelPackage.YBEAN_SLOT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl <em>Ui Grid Layout</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiGridLayout()
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiViewSetImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiViewSet()
 	 * @generated
 	 */
-	int UI_GRID_LAYOUT = 9;
+	int UI_VIEW_SET = 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -662,7 +650,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_GRID_LAYOUT__ID = ExtensionModelPackage.YGRID_LAYOUT__ID;
+	int UI_VIEW_SET__ID = CoreModelPackage.YVIEW_SET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -671,721 +659,43 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_GRID_LAYOUT__NAME = ExtensionModelPackage.YGRID_LAYOUT__NAME;
+	int UI_VIEW_SET__NAME = CoreModelPackage.YVIEW_SET__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * The feature id for the '<em><b>Views</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_GRID_LAYOUT__CSS_CLASS = ExtensionModelPackage.YGRID_LAYOUT__CSS_CLASS;
+	int UI_VIEW_SET__VIEWS = CoreModelPackage.YVIEW_SET__VIEWS;
 
 	/**
-	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * The feature id for the '<em><b>Bean Slots</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_GRID_LAYOUT__CSS_ID = ExtensionModelPackage.YGRID_LAYOUT__CSS_ID;
+	int UI_VIEW_SET__BEAN_SLOTS = CoreModelPackage.YVIEW_SET__BEAN_SLOTS;
 
 	/**
-	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
+	 * The feature id for the '<em><b>Binding Endpoint Alias</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_GRID_LAYOUT__INITIAL_VISIBLE = ExtensionModelPackage.YGRID_LAYOUT__INITIAL_VISIBLE;
+	int UI_VIEW_SET__BINDING_ENDPOINT_ALIAS = CoreModelPackage.YVIEW_SET_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * The number of structural features of the '<em>Ui View Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_GRID_LAYOUT__VISIBLE = ExtensionModelPackage.YGRID_LAYOUT__VISIBLE;
-
-	/**
-	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT__VISIBILITY_PROCESSOR = ExtensionModelPackage.YGRID_LAYOUT__VISIBILITY_PROCESSOR;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT__ELEMENTS = ExtensionModelPackage.YGRID_LAYOUT__ELEMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Spacing</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT__SPACING = ExtensionModelPackage.YGRID_LAYOUT__SPACING;
-
-	/**
-	 * The feature id for the '<em><b>Margin</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT__MARGIN = ExtensionModelPackage.YGRID_LAYOUT__MARGIN;
-
-	/**
-	 * The feature id for the '<em><b>Cell Styles</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT__CELL_STYLES = ExtensionModelPackage.YGRID_LAYOUT__CELL_STYLES;
-
-	/**
-	 * The feature id for the '<em><b>Columns</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT__COLUMNS = ExtensionModelPackage.YGRID_LAYOUT__COLUMNS;
-
-	/**
-	 * The feature id for the '<em><b>Fill Horizontal</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT__FILL_HORIZONTAL = ExtensionModelPackage.YGRID_LAYOUT__FILL_HORIZONTAL;
-
-	/**
-	 * The feature id for the '<em><b>Fill Vertical</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT__FILL_VERTICAL = ExtensionModelPackage.YGRID_LAYOUT__FILL_VERTICAL;
-
-	/**
-	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT__CONTENTS = ExtensionModelPackage.YGRID_LAYOUT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Ui Grid Layout</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT_FEATURE_COUNT = ExtensionModelPackage.YGRID_LAYOUT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT___GET_PARENT = ExtensionModelPackage.YGRID_LAYOUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT___GET_VIEW = ExtensionModelPackage.YGRID_LAYOUT___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Grid Layout Cell Style</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT___ADD_GRID_LAYOUT_CELL_STYLE__YEMBEDDABLE = ExtensionModelPackage.YGRID_LAYOUT___ADD_GRID_LAYOUT_CELL_STYLE__YEMBEDDABLE;
-
-	/**
-	 * The number of operations of the '<em>Ui Grid Layout</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT_OPERATION_COUNT = ExtensionModelPackage.YGRID_LAYOUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl <em>Ui Text Field</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiTextField()
-	 * @generated
-	 */
-	int UI_TEXT_FIELD = 10;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD__ID = ExtensionModelPackage.YTEXT_FIELD__ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD__NAME = ExtensionModelPackage.YTEXT_FIELD__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD__CSS_CLASS = ExtensionModelPackage.YTEXT_FIELD__CSS_CLASS;
-
-	/**
-	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD__CSS_ID = ExtensionModelPackage.YTEXT_FIELD__CSS_ID;
-
-	/**
-	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD__INITIAL_VISIBLE = ExtensionModelPackage.YTEXT_FIELD__INITIAL_VISIBLE;
-
-	/**
-	 * The feature id for the '<em><b>Visible</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD__VISIBLE = ExtensionModelPackage.YTEXT_FIELD__VISIBLE;
-
-	/**
-	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD__VISIBILITY_PROCESSOR = ExtensionModelPackage.YTEXT_FIELD__VISIBILITY_PROCESSOR;
-
-	/**
-	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD__INITIAL_EDITABLE = ExtensionModelPackage.YTEXT_FIELD__INITIAL_EDITABLE;
-
-	/**
-	 * The feature id for the '<em><b>Editable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD__EDITABLE = ExtensionModelPackage.YTEXT_FIELD__EDITABLE;
-
-	/**
-	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD__INITIAL_ENABLED = ExtensionModelPackage.YTEXT_FIELD__INITIAL_ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD__ENABLED = ExtensionModelPackage.YTEXT_FIELD__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD__VALIDATORS = ExtensionModelPackage.YTEXT_FIELD__VALIDATORS;
-
-	/**
-	 * The feature id for the '<em><b>Internal Validators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD__INTERNAL_VALIDATORS = ExtensionModelPackage.YTEXT_FIELD__INTERNAL_VALIDATORS;
-
-	/**
-	 * The feature id for the '<em><b>Value Binding Endpoint</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD__VALUE_BINDING_ENDPOINT = ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDING_ENDPOINT;
-
-	/**
-	 * The feature id for the '<em><b>Datatype</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD__DATATYPE = ExtensionModelPackage.YTEXT_FIELD__DATATYPE;
-
-	/**
-	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD__DATADESCRIPTION = ExtensionModelPackage.YTEXT_FIELD__DATADESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD__VALUE = ExtensionModelPackage.YTEXT_FIELD__VALUE;
-
-	/**
-	 * The number of structural features of the '<em>Ui Text Field</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD_FEATURE_COUNT = ExtensionModelPackage.YTEXT_FIELD_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD___GET_PARENT = ExtensionModelPackage.YTEXT_FIELD___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD___GET_VIEW = ExtensionModelPackage.YTEXT_FIELD___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = ExtensionModelPackage.YTEXT_FIELD___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = ExtensionModelPackage.YTEXT_FIELD___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD___REMOVE_ALL_VALUE_CHANG_LISTENERS = ExtensionModelPackage.YTEXT_FIELD___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The operation id for the '<em>Create Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD___CREATE_VALUE_ENDPOINT = ExtensionModelPackage.YTEXT_FIELD___CREATE_VALUE_ENDPOINT;
-
-	/**
-	 * The number of operations of the '<em>Ui Text Field</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_TEXT_FIELD_OPERATION_COUNT = ExtensionModelPackage.YTEXT_FIELD_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl <em>Ui List</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiListImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiList()
-	 * @generated
-	 */
-	int UI_LIST = 11;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__ID = ExtensionModelPackage.YLIST__ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__NAME = ExtensionModelPackage.YLIST__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__CSS_CLASS = ExtensionModelPackage.YLIST__CSS_CLASS;
-
-	/**
-	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__CSS_ID = ExtensionModelPackage.YLIST__CSS_ID;
-
-	/**
-	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__INITIAL_VISIBLE = ExtensionModelPackage.YLIST__INITIAL_VISIBLE;
-
-	/**
-	 * The feature id for the '<em><b>Visible</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__VISIBLE = ExtensionModelPackage.YLIST__VISIBLE;
-
-	/**
-	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__VISIBILITY_PROCESSOR = ExtensionModelPackage.YLIST__VISIBILITY_PROCESSOR;
-
-	/**
-	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__INITIAL_EDITABLE = ExtensionModelPackage.YLIST__INITIAL_EDITABLE;
-
-	/**
-	 * The feature id for the '<em><b>Editable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__EDITABLE = ExtensionModelPackage.YLIST__EDITABLE;
-
-	/**
-	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__INITIAL_ENABLED = ExtensionModelPackage.YLIST__INITIAL_ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__ENABLED = ExtensionModelPackage.YLIST__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__VALIDATORS = ExtensionModelPackage.YLIST__VALIDATORS;
-
-	/**
-	 * The feature id for the '<em><b>Internal Validators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__INTERNAL_VALIDATORS = ExtensionModelPackage.YLIST__INTERNAL_VALIDATORS;
-
-	/**
-	 * The feature id for the '<em><b>Collection Binding Endpoint</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__COLLECTION_BINDING_ENDPOINT = ExtensionModelPackage.YLIST__COLLECTION_BINDING_ENDPOINT;
-
-	/**
-	 * The feature id for the '<em><b>Selection Binding Endpoint</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__SELECTION_BINDING_ENDPOINT = ExtensionModelPackage.YLIST__SELECTION_BINDING_ENDPOINT;
-
-	/**
-	 * The feature id for the '<em><b>Multi Selection Binding Endpoint</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__MULTI_SELECTION_BINDING_ENDPOINT = ExtensionModelPackage.YLIST__MULTI_SELECTION_BINDING_ENDPOINT;
-
-	/**
-	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__DATADESCRIPTION = ExtensionModelPackage.YLIST__DATADESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Datatype</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__DATATYPE = ExtensionModelPackage.YLIST__DATATYPE;
-
-	/**
-	 * The feature id for the '<em><b>Selection Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__SELECTION_TYPE = ExtensionModelPackage.YLIST__SELECTION_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Selection</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__SELECTION = ExtensionModelPackage.YLIST__SELECTION;
-
-	/**
-	 * The feature id for the '<em><b>Multi Selection</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__MULTI_SELECTION = ExtensionModelPackage.YLIST__MULTI_SELECTION;
-
-	/**
-	 * The feature id for the '<em><b>Collection</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__COLLECTION = ExtensionModelPackage.YLIST__COLLECTION;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__TYPE = ExtensionModelPackage.YLIST__TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Type Qualified Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST__TYPE_QUALIFIED_NAME = ExtensionModelPackage.YLIST__TYPE_QUALIFIED_NAME;
-
-	/**
-	 * The number of structural features of the '<em>Ui List</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST_FEATURE_COUNT = ExtensionModelPackage.YLIST_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST___GET_PARENT = ExtensionModelPackage.YLIST___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST___GET_VIEW = ExtensionModelPackage.YLIST___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = ExtensionModelPackage.YLIST___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = ExtensionModelPackage.YLIST___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST___REMOVE_ALL_VALUE_CHANG_LISTENERS = ExtensionModelPackage.YLIST___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The operation id for the '<em>Create Collection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST___CREATE_COLLECTION_ENDPOINT = ExtensionModelPackage.YLIST___CREATE_COLLECTION_ENDPOINT;
-
-	/**
-	 * The operation id for the '<em>Create Selection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST___CREATE_SELECTION_ENDPOINT = ExtensionModelPackage.YLIST___CREATE_SELECTION_ENDPOINT;
-
-	/**
-	 * The operation id for the '<em>Create Multi Selection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST___CREATE_MULTI_SELECTION_ENDPOINT = ExtensionModelPackage.YLIST___CREATE_MULTI_SELECTION_ENDPOINT;
-
-	/**
-	 * The number of operations of the '<em>Ui List</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_LIST_OPERATION_COUNT = ExtensionModelPackage.YLIST_OPERATION_COUNT + 0;
-
+	int UI_VIEW_SET_FEATURE_COUNT = CoreModelPackage.YVIEW_SET_FEATURE_COUNT + 1;
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiModel <em>Ui Model</em>}'.
@@ -1398,15 +708,36 @@ public interface UimodelPackage extends EPackage {
 	EClass getUiModel();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiModel#getViewSet <em>View Set</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiModel#getViewSets <em>View Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>View Set</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiModel#getViewSet()
+	 * @return the meta object for the containment reference list '<em>View Sets</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModel#getViewSets()
 	 * @see #getUiModel()
 	 * @generated
 	 */
-	EReference getUiModel_ViewSet();
+	EReference getUiModel_ViewSets();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiModel#getViews <em>Views</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Views</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModel#getViews()
+	 * @see #getUiModel()
+	 * @generated
+	 */
+	EReference getUiModel_Views();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiView <em>Ui View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui View</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiView
+	 * @generated
+	 */
+	EClass getUiView();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiIDEView <em>Ui IDE View</em>}'.
@@ -1417,17 +748,6 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUiIDEView();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiIDEView#getLayouts <em>Layouts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Layouts</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiIDEView#getLayouts()
-	 * @see #getUiIDEView()
-	 * @generated
-	 */
-	EReference getUiIDEView_Layouts();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiIDEView#getBindings <em>Bindings</em>}'.
@@ -1441,58 +761,15 @@ public interface UimodelPackage extends EPackage {
 	EReference getUiIDEView_Bindings();
 
 	/**
-	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment <em>Ui Grid Layout Assigment</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiIDEView#getBindingEndpointAlias <em>Binding Endpoint Alias</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ui Grid Layout Assigment</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment
+	 * @return the meta object for the containment reference list '<em>Binding Endpoint Alias</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiIDEView#getBindingEndpointAlias()
+	 * @see #getUiIDEView()
 	 * @generated
 	 */
-	EClass getUiGridLayoutAssigment();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment#getElement <em>Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Element</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment#getElement()
-	 * @see #getUiGridLayoutAssigment()
-	 * @generated
-	 */
-	EReference getUiGridLayoutAssigment_Element();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment#getAlignment <em>Alignment</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Alignment</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment#getAlignment()
-	 * @see #getUiGridLayoutAssigment()
-	 * @generated
-	 */
-	EAttribute getUiGridLayoutAssigment_Alignment();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment#getFrom <em>From</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>From</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment#getFrom()
-	 * @see #getUiGridLayoutAssigment()
-	 * @generated
-	 */
-	EReference getUiGridLayoutAssigment_From();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment#getTo <em>To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>To</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment#getTo()
-	 * @see #getUiGridLayoutAssigment()
-	 * @generated
-	 */
-	EReference getUiGridLayoutAssigment_To();
+	EReference getUiIDEView_BindingEndpointAlias();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiPoint <em>Ui Point</em>}'.
@@ -1527,6 +804,81 @@ public interface UimodelPackage extends EPackage {
 	EAttribute getUiPoint_Y();
 
 	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias <em>Ui Binding Endpoint Alias</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Binding Endpoint Alias</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
+	 * @generated
+	 */
+	EClass getUiBindingEndpointAlias();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias#getAlias <em>Alias</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alias</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias#getAlias()
+	 * @see #getUiBindingEndpointAlias()
+	 * @generated
+	 */
+	EAttribute getUiBindingEndpointAlias_Alias();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias#getEndpoint <em>Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Endpoint</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias#getEndpoint()
+	 * @see #getUiBindingEndpointAlias()
+	 * @generated
+	 */
+	EReference getUiBindingEndpointAlias_Endpoint();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef <em>Ui Binding Endpoint Def</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Binding Endpoint Def</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef
+	 * @generated
+	 */
+	EClass getUiBindingEndpointDef();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef#getBindable <em>Bindable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Bindable</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef#getBindable()
+	 * @see #getUiBindingEndpointDef()
+	 * @generated
+	 */
+	EReference getUiBindingEndpointDef_Bindable();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef#getEndpoint <em>Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Endpoint</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef#getEndpoint()
+	 * @see #getUiBindingEndpointDef()
+	 * @generated
+	 */
+	EReference getUiBindingEndpointDef_Endpoint();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Path</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef#getPath()
+	 * @see #getUiBindingEndpointDef()
+	 * @generated
+	 */
+	EReference getUiBindingEndpointDef_Path();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiBinding <em>Ui Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1546,6 +898,17 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUiBinding_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiBinding#getSourceAlias <em>Source Alias</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source Alias</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBinding#getSourceAlias()
+	 * @see #getUiBinding()
+	 * @generated
+	 */
+	EReference getUiBinding_SourceAlias();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiBinding#isTargetToSource <em>Target To Source</em>}'.
@@ -1581,90 +944,15 @@ public interface UimodelPackage extends EPackage {
 	EReference getUiBinding_Target();
 
 	/**
-	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiSourceBindingEndpoint <em>Ui Source Binding Endpoint</em>}'.
+	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiBinding#getTargetAlias <em>Target Alias</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ui Source Binding Endpoint</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiSourceBindingEndpoint
+	 * @return the meta object for the reference '<em>Target Alias</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBinding#getTargetAlias()
+	 * @see #getUiBinding()
 	 * @generated
 	 */
-	EClass getUiSourceBindingEndpoint();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiSourceBindingEndpoint#getEmbeddable <em>Embeddable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Embeddable</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiSourceBindingEndpoint#getEmbeddable()
-	 * @see #getUiSourceBindingEndpoint()
-	 * @generated
-	 */
-	EReference getUiSourceBindingEndpoint_Embeddable();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiSourceBindingEndpoint#getEndpoint <em>Endpoint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Endpoint</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiSourceBindingEndpoint#getEndpoint()
-	 * @see #getUiSourceBindingEndpoint()
-	 * @generated
-	 */
-	EReference getUiSourceBindingEndpoint_Endpoint();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiSourceBindingEndpoint#getPath <em>Path</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Path</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiSourceBindingEndpoint#getPath()
-	 * @see #getUiSourceBindingEndpoint()
-	 * @generated
-	 */
-	EReference getUiSourceBindingEndpoint_Path();
-
-	/**
-	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiTargetBindingEndpoint <em>Ui Target Binding Endpoint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ui Target Binding Endpoint</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiTargetBindingEndpoint
-	 * @generated
-	 */
-	EClass getUiTargetBindingEndpoint();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiTargetBindingEndpoint#getEmbeddable <em>Embeddable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Embeddable</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiTargetBindingEndpoint#getEmbeddable()
-	 * @see #getUiTargetBindingEndpoint()
-	 * @generated
-	 */
-	EReference getUiTargetBindingEndpoint_Embeddable();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiTargetBindingEndpoint#getEndpoint <em>Endpoint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Endpoint</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiTargetBindingEndpoint#getEndpoint()
-	 * @see #getUiTargetBindingEndpoint()
-	 * @generated
-	 */
-	EReference getUiTargetBindingEndpoint_Endpoint();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiTargetBindingEndpoint#getPath <em>Path</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Path</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiTargetBindingEndpoint#getPath()
-	 * @see #getUiTargetBindingEndpoint()
-	 * @generated
-	 */
-	EReference getUiTargetBindingEndpoint_Path();
+	EReference getUiBinding_TargetAlias();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiPathSegment <em>Ui Path Segment</em>}'.
@@ -1720,45 +1008,25 @@ public interface UimodelPackage extends EPackage {
 	EReference getUiBeanSlot_JvmType();
 
 	/**
-	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout <em>Ui Grid Layout</em>}'.
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiViewSet <em>Ui View Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ui Grid Layout</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiGridLayout
+	 * @return the meta object for class '<em>Ui View Set</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiViewSet
 	 * @generated
 	 */
-	EClass getUiGridLayout();
+	EClass getUiViewSet();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout#getContents <em>Contents</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiViewSet#getBindingEndpointAlias <em>Binding Endpoint Alias</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Contents</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiGridLayout#getContents()
-	 * @see #getUiGridLayout()
+	 * @return the meta object for the containment reference list '<em>Binding Endpoint Alias</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiViewSet#getBindingEndpointAlias()
+	 * @see #getUiViewSet()
 	 * @generated
 	 */
-	EReference getUiGridLayout_Contents();
-
-	/**
-	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiTextField <em>Ui Text Field</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ui Text Field</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiTextField
-	 * @generated
-	 */
-	EClass getUiTextField();
-
-	/**
-	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiList <em>Ui List</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ui List</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiList
-	 * @generated
-	 */
-	EClass getUiList();
+	EReference getUiViewSet_BindingEndpointAlias();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1794,12 +1062,30 @@ public interface UimodelPackage extends EPackage {
 		EClass UI_MODEL = eINSTANCE.getUiModel();
 
 		/**
-		 * The meta object literal for the '<em><b>View Set</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>View Sets</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference UI_MODEL__VIEW_SET = eINSTANCE.getUiModel_ViewSet();
+		EReference UI_MODEL__VIEW_SETS = eINSTANCE.getUiModel_ViewSets();
+
+		/**
+		 * The meta object literal for the '<em><b>Views</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_MODEL__VIEWS = eINSTANCE.getUiModel_Views();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl <em>Ui View</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiView()
+		 * @generated
+		 */
+		EClass UI_VIEW = eINSTANCE.getUiView();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiIDEViewImpl <em>Ui IDE View</em>}' class.
@@ -1812,14 +1098,6 @@ public interface UimodelPackage extends EPackage {
 		EClass UI_IDE_VIEW = eINSTANCE.getUiIDEView();
 
 		/**
-		 * The meta object literal for the '<em><b>Layouts</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UI_IDE_VIEW__LAYOUTS = eINSTANCE.getUiIDEView_Layouts();
-
-		/**
 		 * The meta object literal for the '<em><b>Bindings</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1828,46 +1106,12 @@ public interface UimodelPackage extends EPackage {
 		EReference UI_IDE_VIEW__BINDINGS = eINSTANCE.getUiIDEView_Bindings();
 
 		/**
-		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutAssigmentImpl <em>Ui Grid Layout Assigment</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutAssigmentImpl
-		 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiGridLayoutAssigment()
-		 * @generated
-		 */
-		EClass UI_GRID_LAYOUT_ASSIGMENT = eINSTANCE.getUiGridLayoutAssigment();
-
-		/**
-		 * The meta object literal for the '<em><b>Element</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Binding Endpoint Alias</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference UI_GRID_LAYOUT_ASSIGMENT__ELEMENT = eINSTANCE.getUiGridLayoutAssigment_Element();
-
-		/**
-		 * The meta object literal for the '<em><b>Alignment</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute UI_GRID_LAYOUT_ASSIGMENT__ALIGNMENT = eINSTANCE.getUiGridLayoutAssigment_Alignment();
-
-		/**
-		 * The meta object literal for the '<em><b>From</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UI_GRID_LAYOUT_ASSIGMENT__FROM = eINSTANCE.getUiGridLayoutAssigment_From();
-
-		/**
-		 * The meta object literal for the '<em><b>To</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UI_GRID_LAYOUT_ASSIGMENT__TO = eINSTANCE.getUiGridLayoutAssigment_To();
+		EReference UI_IDE_VIEW__BINDING_ENDPOINT_ALIAS = eINSTANCE.getUiIDEView_BindingEndpointAlias();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiPointImpl <em>Ui Point</em>}' class.
@@ -1896,6 +1140,66 @@ public interface UimodelPackage extends EPackage {
 		EAttribute UI_POINT__Y = eINSTANCE.getUiPoint_Y();
 
 		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointAliasImpl <em>Ui Binding Endpoint Alias</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointAliasImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiBindingEndpointAlias()
+		 * @generated
+		 */
+		EClass UI_BINDING_ENDPOINT_ALIAS = eINSTANCE.getUiBindingEndpointAlias();
+
+		/**
+		 * The meta object literal for the '<em><b>Alias</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_BINDING_ENDPOINT_ALIAS__ALIAS = eINSTANCE.getUiBindingEndpointAlias_Alias();
+
+		/**
+		 * The meta object literal for the '<em><b>Endpoint</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_BINDING_ENDPOINT_ALIAS__ENDPOINT = eINSTANCE.getUiBindingEndpointAlias_Endpoint();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointDefImpl <em>Ui Binding Endpoint Def</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointDefImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiBindingEndpointDef()
+		 * @generated
+		 */
+		EClass UI_BINDING_ENDPOINT_DEF = eINSTANCE.getUiBindingEndpointDef();
+
+		/**
+		 * The meta object literal for the '<em><b>Bindable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_BINDING_ENDPOINT_DEF__BINDABLE = eINSTANCE.getUiBindingEndpointDef_Bindable();
+
+		/**
+		 * The meta object literal for the '<em><b>Endpoint</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_BINDING_ENDPOINT_DEF__ENDPOINT = eINSTANCE.getUiBindingEndpointDef_Endpoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_BINDING_ENDPOINT_DEF__PATH = eINSTANCE.getUiBindingEndpointDef_Path();
+
+		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingImpl <em>Ui Binding</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1912,6 +1216,14 @@ public interface UimodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_BINDING__SOURCE = eINSTANCE.getUiBinding_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Alias</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_BINDING__SOURCE_ALIAS = eINSTANCE.getUiBinding_SourceAlias();
 
 		/**
 		 * The meta object literal for the '<em><b>Target To Source</b></em>' attribute feature.
@@ -1938,72 +1250,12 @@ public interface UimodelPackage extends EPackage {
 		EReference UI_BINDING__TARGET = eINSTANCE.getUiBinding_Target();
 
 		/**
-		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiSourceBindingEndpointImpl <em>Ui Source Binding Endpoint</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiSourceBindingEndpointImpl
-		 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiSourceBindingEndpoint()
-		 * @generated
-		 */
-		EClass UI_SOURCE_BINDING_ENDPOINT = eINSTANCE.getUiSourceBindingEndpoint();
-
-		/**
-		 * The meta object literal for the '<em><b>Embeddable</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Target Alias</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference UI_SOURCE_BINDING_ENDPOINT__EMBEDDABLE = eINSTANCE.getUiSourceBindingEndpoint_Embeddable();
-
-		/**
-		 * The meta object literal for the '<em><b>Endpoint</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UI_SOURCE_BINDING_ENDPOINT__ENDPOINT = eINSTANCE.getUiSourceBindingEndpoint_Endpoint();
-
-		/**
-		 * The meta object literal for the '<em><b>Path</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UI_SOURCE_BINDING_ENDPOINT__PATH = eINSTANCE.getUiSourceBindingEndpoint_Path();
-
-		/**
-		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTargetBindingEndpointImpl <em>Ui Target Binding Endpoint</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiTargetBindingEndpointImpl
-		 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiTargetBindingEndpoint()
-		 * @generated
-		 */
-		EClass UI_TARGET_BINDING_ENDPOINT = eINSTANCE.getUiTargetBindingEndpoint();
-
-		/**
-		 * The meta object literal for the '<em><b>Embeddable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UI_TARGET_BINDING_ENDPOINT__EMBEDDABLE = eINSTANCE.getUiTargetBindingEndpoint_Embeddable();
-
-		/**
-		 * The meta object literal for the '<em><b>Endpoint</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UI_TARGET_BINDING_ENDPOINT__ENDPOINT = eINSTANCE.getUiTargetBindingEndpoint_Endpoint();
-
-		/**
-		 * The meta object literal for the '<em><b>Path</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UI_TARGET_BINDING_ENDPOINT__PATH = eINSTANCE.getUiTargetBindingEndpoint_Path();
+		EReference UI_BINDING__TARGET_ALIAS = eINSTANCE.getUiBinding_TargetAlias();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiPathSegmentImpl <em>Ui Path Segment</em>}' class.
@@ -2050,42 +1302,22 @@ public interface UimodelPackage extends EPackage {
 		EReference UI_BEAN_SLOT__JVM_TYPE = eINSTANCE.getUiBeanSlot_JvmType();
 
 		/**
-		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl <em>Ui Grid Layout</em>}' class.
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewSetImpl <em>Ui View Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl
-		 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiGridLayout()
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiViewSetImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiViewSet()
 		 * @generated
 		 */
-		EClass UI_GRID_LAYOUT = eINSTANCE.getUiGridLayout();
+		EClass UI_VIEW_SET = eINSTANCE.getUiViewSet();
 
 		/**
-		 * The meta object literal for the '<em><b>Contents</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Binding Endpoint Alias</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference UI_GRID_LAYOUT__CONTENTS = eINSTANCE.getUiGridLayout_Contents();
-
-		/**
-		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl <em>Ui Text Field</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl
-		 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiTextField()
-		 * @generated
-		 */
-		EClass UI_TEXT_FIELD = eINSTANCE.getUiTextField();
-
-		/**
-		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl <em>Ui List</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiListImpl
-		 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiList()
-		 * @generated
-		 */
-		EClass UI_LIST = eINSTANCE.getUiList();
+		EReference UI_VIEW_SET__BINDING_ENDPOINT_ALIAS = eINSTANCE.getUiViewSet_BindingEndpointAlias();
 
 	}
 

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.lunifera.ecview.semantic.uimodel/src" modelPluginID="org.lunifera.ecview.semantic.uimodel"
+    modelName="UIGrammarCore" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" containmentProxies="true" complianceLevel="7.0"
+    copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//binding ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//core ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//datatypes ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//validation ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//visibility ../../org.eclipse.emf.ecp.ecview.extension.model/model/extension.genmodel#//datatypes ../../org.eclipse.emf.ecp.ecview.extension.model/model/extension.genmodel#//extension ../../org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types ../../org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.genmodel#//uisemantics ../../org.eclipse.xtext.xbase/model/Xbase.genmodel#//xtype"
+    importOrganizing="true">
+  <foreignModel>UIGrammarExtensions.ecore</foreignModel>
+  <genPackages prefix="Uiextension" basePackage="org.lunifera.ecview.semantic.uimodel"
+      disposableProviderFactory="true" ecorePackage="UIGrammarExtensions.ecore#/">
+    <genClasses ecoreClass="UIGrammarExtensions.ecore#//UiGridLayoutAssigment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarExtensions.ecore#//UiGridLayoutAssigment/element"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UIGrammarExtensions.ecore#//UiGridLayoutAssigment/alignment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarExtensions.ecore#//UiGridLayoutAssigment/from"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarExtensions.ecore#//UiGridLayoutAssigment/to"/>
+    </genClasses>
+    <genClasses ecoreClass="UIGrammarExtensions.ecore#//UiGridLayout">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarExtensions.ecore#//UiGridLayout/contents"/>
+    </genClasses>
+    <genClasses ecoreClass="UIGrammarExtensions.ecore#//UiTextField"/>
+    <genClasses ecoreClass="UIGrammarExtensions.ecore#//UiList"/>
+    <genClasses ecoreClass="UIGrammarExtensions.ecore#//UiViewSet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarExtensions.ecore#//UiViewSet/bindingEndpointAlias"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Uimodel" basePackage="org.lunifera.ecview.semantic" disposableProviderFactory="true"
+      ecorePackage="UIGrammarCore.ecore#/">
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiModel/viewSet"/>
+    </genClasses>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiIDEView">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiIDEView/layouts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiIDEView/bindings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiIDEView/bindingEndpointAlias"/>
+    </genClasses>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiPoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UIGrammarCore.ecore#//UiPoint/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UIGrammarCore.ecore#//UiPoint/y"/>
+    </genClasses>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiBindingEndpointAlias">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UIGrammarCore.ecore#//UiBindingEndpointAlias/alias"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBindingEndpointAlias/endpoint"/>
+    </genClasses>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiBindingEndpointDef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBindingEndpointDef/bindable"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBindingEndpointDef/endpoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBindingEndpointDef/path"/>
+    </genClasses>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiBinding">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBinding/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBinding/sourceAlias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UIGrammarCore.ecore#//UiBinding/targetToSource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UIGrammarCore.ecore#//UiBinding/sourceToTarget"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBinding/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBinding/targetAlias"/>
+    </genClasses>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiPathSegment">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiPathSegment/jvmField"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiPathSegment/path"/>
+    </genClasses>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiBeanSlot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBeanSlot/jvmType"/>
+    </genClasses>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiViewSet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiViewSet/bindingEndpointAlias"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

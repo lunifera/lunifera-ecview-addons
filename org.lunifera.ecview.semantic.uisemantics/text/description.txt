@@ -22,6 +22,7 @@ Package uisemantics <http://www.lunifera.org/ecview/uisemantics/UISemantics>
     Attribute name : EString
     Reference uri : UxElementURI
     Reference bindingContainer : UxAvailableBindings
+    Reference visibilityContainer : UxAvailableVisibilityOptions
 
   Class UxElementURI
     Reference ePackage : UxEPackageImport
@@ -40,3 +41,10 @@ Package uisemantics <http://www.lunifera.org/ecview/uisemantics/UISemantics>
   Class UxListBindingEndpointDef -> UxEndpointDef
 
   Class UxSetBindingEndpointDef -> UxEndpointDef
+
+  Class UxAvailableVisibilityOptions
+    Reference options : UxVisibilityOption<<0..*>>
+
+  Class UxVisibilityOption
+    Attribute name : EString
+    Reference jvmType : JvmTypeReference

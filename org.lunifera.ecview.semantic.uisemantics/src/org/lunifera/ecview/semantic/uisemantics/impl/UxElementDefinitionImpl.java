@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableBindings;
+import org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxElementURI;
 
@@ -26,6 +27,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxElementURI;
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxElementDefinitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxElementDefinitionImpl#getUri <em>Uri</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxElementDefinitionImpl#getBindingContainer <em>Binding Container</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxElementDefinitionImpl#getVisibilityContainer <em>Visibility Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,6 +73,16 @@ public class UxElementDefinitionImpl extends MinimalEObjectImpl.Container implem
 	 * @ordered
 	 */
 	protected UxAvailableBindings bindingContainer;
+
+	/**
+	 * The cached value of the '{@link #getVisibilityContainer() <em>Visibility Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVisibilityContainer()
+	 * @generated
+	 * @ordered
+	 */
+	protected UxAvailableVisibilityOptions visibilityContainer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -203,6 +215,49 @@ public class UxElementDefinitionImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UxAvailableVisibilityOptions getVisibilityContainer() {
+		return visibilityContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetVisibilityContainer(UxAvailableVisibilityOptions newVisibilityContainer, NotificationChain msgs) {
+		UxAvailableVisibilityOptions oldVisibilityContainer = visibilityContainer;
+		visibilityContainer = newVisibilityContainer;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiSemanticsPackage.UX_ELEMENT_DEFINITION__VISIBILITY_CONTAINER, oldVisibilityContainer, newVisibilityContainer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVisibilityContainer(UxAvailableVisibilityOptions newVisibilityContainer) {
+		if (newVisibilityContainer != visibilityContainer) {
+			NotificationChain msgs = null;
+			if (visibilityContainer != null)
+				msgs = ((InternalEObject)visibilityContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiSemanticsPackage.UX_ELEMENT_DEFINITION__VISIBILITY_CONTAINER, null, msgs);
+			if (newVisibilityContainer != null)
+				msgs = ((InternalEObject)newVisibilityContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiSemanticsPackage.UX_ELEMENT_DEFINITION__VISIBILITY_CONTAINER, null, msgs);
+			msgs = basicSetVisibilityContainer(newVisibilityContainer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiSemanticsPackage.UX_ELEMENT_DEFINITION__VISIBILITY_CONTAINER, newVisibilityContainer, newVisibilityContainer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -210,6 +265,8 @@ public class UxElementDefinitionImpl extends MinimalEObjectImpl.Container implem
 				return basicSetUri(null, msgs);
 			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__BINDING_CONTAINER:
 				return basicSetBindingContainer(null, msgs);
+			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__VISIBILITY_CONTAINER:
+				return basicSetVisibilityContainer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -228,6 +285,8 @@ public class UxElementDefinitionImpl extends MinimalEObjectImpl.Container implem
 				return getUri();
 			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__BINDING_CONTAINER:
 				return getBindingContainer();
+			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__VISIBILITY_CONTAINER:
+				return getVisibilityContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -248,6 +307,9 @@ public class UxElementDefinitionImpl extends MinimalEObjectImpl.Container implem
 				return;
 			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__BINDING_CONTAINER:
 				setBindingContainer((UxAvailableBindings)newValue);
+				return;
+			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__VISIBILITY_CONTAINER:
+				setVisibilityContainer((UxAvailableVisibilityOptions)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -270,6 +332,9 @@ public class UxElementDefinitionImpl extends MinimalEObjectImpl.Container implem
 			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__BINDING_CONTAINER:
 				setBindingContainer((UxAvailableBindings)null);
 				return;
+			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__VISIBILITY_CONTAINER:
+				setVisibilityContainer((UxAvailableVisibilityOptions)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -288,6 +353,8 @@ public class UxElementDefinitionImpl extends MinimalEObjectImpl.Container implem
 				return uri != null;
 			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__BINDING_CONTAINER:
 				return bindingContainer != null;
+			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__VISIBILITY_CONTAINER:
+				return visibilityContainer != null;
 		}
 		return super.eIsSet(featureID);
 	}

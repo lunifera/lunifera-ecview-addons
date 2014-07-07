@@ -31,6 +31,15 @@ public interface UimodelFactory extends EFactory {
 	UiModel createUiModel();
 
 	/**
+	 * Returns a new object of class '<em>Ui View</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui View</em>'.
+	 * @generated
+	 */
+	UiView createUiView();
+
+	/**
 	 * Returns a new object of class '<em>Ui IDE View</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,15 +47,6 @@ public interface UimodelFactory extends EFactory {
 	 * @generated
 	 */
 	UiIDEView createUiIDEView();
-
-	/**
-	 * Returns a new object of class '<em>Ui Grid Layout Assigment</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui Grid Layout Assigment</em>'.
-	 * @generated
-	 */
-	UiGridLayoutAssigment createUiGridLayoutAssigment();
 
 	/**
 	 * Returns a new object of class '<em>Ui Point</em>'.
@@ -58,6 +58,24 @@ public interface UimodelFactory extends EFactory {
 	UiPoint createUiPoint();
 
 	/**
+	 * Returns a new object of class '<em>Ui Binding Endpoint Alias</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Binding Endpoint Alias</em>'.
+	 * @generated
+	 */
+	UiBindingEndpointAlias createUiBindingEndpointAlias();
+
+	/**
+	 * Returns a new object of class '<em>Ui Binding Endpoint Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Binding Endpoint Def</em>'.
+	 * @generated
+	 */
+	UiBindingEndpointDef createUiBindingEndpointDef();
+
+	/**
 	 * Returns a new object of class '<em>Ui Binding</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,24 +83,6 @@ public interface UimodelFactory extends EFactory {
 	 * @generated
 	 */
 	UiBinding createUiBinding();
-
-	/**
-	 * Returns a new object of class '<em>Ui Source Binding Endpoint</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui Source Binding Endpoint</em>'.
-	 * @generated
-	 */
-	UiSourceBindingEndpoint createUiSourceBindingEndpoint();
-
-	/**
-	 * Returns a new object of class '<em>Ui Target Binding Endpoint</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui Target Binding Endpoint</em>'.
-	 * @generated
-	 */
-	UiTargetBindingEndpoint createUiTargetBindingEndpoint();
 
 	/**
 	 * Returns a new object of class '<em>Ui Path Segment</em>'.
@@ -103,31 +103,13 @@ public interface UimodelFactory extends EFactory {
 	UiBeanSlot createUiBeanSlot();
 
 	/**
-	 * Returns a new object of class '<em>Ui Grid Layout</em>'.
+	 * Returns a new object of class '<em>Ui View Set</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui Grid Layout</em>'.
+	 * @return a new object of class '<em>Ui View Set</em>'.
 	 * @generated
 	 */
-	UiGridLayout createUiGridLayout();
-
-	/**
-	 * Returns a new object of class '<em>Ui Text Field</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui Text Field</em>'.
-	 * @generated
-	 */
-	UiTextField createUiTextField();
-
-	/**
-	 * Returns a new object of class '<em>Ui List</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui List</em>'.
-	 * @generated
-	 */
-	UiList createUiList();
+	UiViewSet createUiViewSet();
 
 	/**
 	 * Returns the package supported by this factory.

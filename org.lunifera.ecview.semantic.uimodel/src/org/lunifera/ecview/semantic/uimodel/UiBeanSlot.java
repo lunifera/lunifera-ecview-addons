@@ -3,7 +3,6 @@
 package org.lunifera.ecview.semantic.uimodel;
 
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
-
 import org.eclipse.xtext.common.types.JvmTypeReference;
 
 /**
@@ -34,7 +33,7 @@ public interface UiBeanSlot extends YBeanSlot {
 	 * @return the value of the '<em>Jvm Type</em>' containment reference.
 	 * @see #setJvmType(JvmTypeReference)
 	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiBeanSlot_JvmType()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	JvmTypeReference getJvmType();

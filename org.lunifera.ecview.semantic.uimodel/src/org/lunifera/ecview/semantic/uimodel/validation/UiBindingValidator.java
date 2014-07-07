@@ -4,8 +4,8 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
-import org.lunifera.ecview.semantic.uimodel.UiSourceBindingEndpoint;
-import org.lunifera.ecview.semantic.uimodel.UiTargetBindingEndpoint;
+import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
+import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiBinding}.
@@ -16,8 +16,10 @@ import org.lunifera.ecview.semantic.uimodel.UiTargetBindingEndpoint;
 public interface UiBindingValidator {
 	boolean validate();
 
-	boolean validateSource(UiSourceBindingEndpoint value);
+	boolean validateSource(UiBindingEndpointDef value);
+	boolean validateSourceAlias(UiBindingEndpointAlias value);
 	boolean validateTargetToSource(boolean value);
 	boolean validateSourceToTarget(boolean value);
-	boolean validateTarget(UiTargetBindingEndpoint value);
+	boolean validateTarget(UiBindingEndpointDef value);
+	boolean validateTargetAlias(UiBindingEndpointAlias value);
 }

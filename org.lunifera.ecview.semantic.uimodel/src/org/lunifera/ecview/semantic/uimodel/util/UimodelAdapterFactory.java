@@ -4,36 +4,27 @@ package org.lunifera.ecview.semantic.uimodel.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEnable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YField;
-import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
-
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YInput;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
-
 import org.lunifera.ecview.semantic.uimodel.*;
+import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
+import org.lunifera.ecview.semantic.uimodel.UiBinding;
+import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
+import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef;
+import org.lunifera.ecview.semantic.uimodel.UiIDEView;
+import org.lunifera.ecview.semantic.uimodel.UiModel;
+import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
+import org.lunifera.ecview.semantic.uimodel.UiPoint;
+import org.lunifera.ecview.semantic.uimodel.UiViewSet;
+import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -96,28 +87,28 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 				return createUiModelAdapter();
 			}
 			@Override
-			public Adapter caseUiIDEView(UiIDEView object) {
-				return createUiIDEViewAdapter();
+			public Adapter caseUiView(UiView object) {
+				return createUiViewAdapter();
 			}
 			@Override
-			public Adapter caseUiGridLayoutAssigment(UiGridLayoutAssigment object) {
-				return createUiGridLayoutAssigmentAdapter();
+			public Adapter caseUiIDEView(UiIDEView object) {
+				return createUiIDEViewAdapter();
 			}
 			@Override
 			public Adapter caseUiPoint(UiPoint object) {
 				return createUiPointAdapter();
 			}
 			@Override
+			public Adapter caseUiBindingEndpointAlias(UiBindingEndpointAlias object) {
+				return createUiBindingEndpointAliasAdapter();
+			}
+			@Override
+			public Adapter caseUiBindingEndpointDef(UiBindingEndpointDef object) {
+				return createUiBindingEndpointDefAdapter();
+			}
+			@Override
 			public Adapter caseUiBinding(UiBinding object) {
 				return createUiBindingAdapter();
-			}
-			@Override
-			public Adapter caseUiSourceBindingEndpoint(UiSourceBindingEndpoint object) {
-				return createUiSourceBindingEndpointAdapter();
-			}
-			@Override
-			public Adapter caseUiTargetBindingEndpoint(UiTargetBindingEndpoint object) {
-				return createUiTargetBindingEndpointAdapter();
 			}
 			@Override
 			public Adapter caseUiPathSegment(UiPathSegment object) {
@@ -128,16 +119,8 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 				return createUiBeanSlotAdapter();
 			}
 			@Override
-			public Adapter caseUiGridLayout(UiGridLayout object) {
-				return createUiGridLayoutAdapter();
-			}
-			@Override
-			public Adapter caseUiTextField(UiTextField object) {
-				return createUiTextFieldAdapter();
-			}
-			@Override
-			public Adapter caseUiList(UiList object) {
-				return createUiListAdapter();
+			public Adapter caseUiViewSet(UiViewSet object) {
+				return createUiViewSetAdapter();
 			}
 			@Override
 			public Adapter caseYElement(YElement object) {
@@ -168,64 +151,8 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 				return createYBeanSlotAdapter();
 			}
 			@Override
-			public Adapter caseYVisibleable(YVisibleable object) {
-				return createYVisibleableAdapter();
-			}
-			@Override
-			public Adapter caseYEmbeddable(YEmbeddable object) {
-				return createYEmbeddableAdapter();
-			}
-			@Override
-			public Adapter caseYLayout(YLayout object) {
-				return createYLayoutAdapter();
-			}
-			@Override
-			public Adapter caseYSpacingable(YSpacingable object) {
-				return createYSpacingableAdapter();
-			}
-			@Override
-			public Adapter caseYGridLayout(YGridLayout object) {
-				return createYGridLayoutAdapter();
-			}
-			@Override
-			public Adapter caseYEditable(YEditable object) {
-				return createYEditableAdapter();
-			}
-			@Override
-			public Adapter caseYEnable(YEnable object) {
-				return createYEnableAdapter();
-			}
-			@Override
-			public Adapter caseYField(YField object) {
-				return createYFieldAdapter();
-			}
-			@Override
-			public Adapter caseYInput(YInput object) {
-				return createYInputAdapter();
-			}
-			@Override
-			public Adapter caseYValueBindable(YValueBindable object) {
-				return createYValueBindableAdapter();
-			}
-			@Override
-			public Adapter caseYTextField(YTextField object) {
-				return createYTextFieldAdapter();
-			}
-			@Override
-			public Adapter caseYCollectionBindable(YCollectionBindable object) {
-				return createYCollectionBindableAdapter();
-			}
-			@Override
-			public Adapter caseYSelectionBindable(YSelectionBindable object) {
-				return createYSelectionBindableAdapter();
-			}
-			@Override
-			public Adapter caseYMultiSelectionBindable(YMultiSelectionBindable object) {
-				return createYMultiSelectionBindableAdapter();
-			}
-			@Override
-			public Adapter caseYList(YList object) {
-				return createYListAdapter();
+			public Adapter caseYViewSet(YViewSet object) {
+				return createYViewSetAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -262,6 +189,20 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiView <em>Ui View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiView
+	 * @generated
+	 */
+	public Adapter createUiViewAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiIDEView <em>Ui IDE View</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -272,20 +213,6 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiIDEViewAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment <em>Ui Grid Layout Assigment</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment
-	 * @generated
-	 */
-	public Adapter createUiGridLayoutAssigmentAdapter() {
 		return null;
 	}
 
@@ -304,6 +231,34 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias <em>Ui Binding Endpoint Alias</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
+	 * @generated
+	 */
+	public Adapter createUiBindingEndpointAliasAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef <em>Ui Binding Endpoint Def</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef
+	 * @generated
+	 */
+	public Adapter createUiBindingEndpointDefAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiBinding <em>Ui Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -314,34 +269,6 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiBindingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiSourceBindingEndpoint <em>Ui Source Binding Endpoint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiSourceBindingEndpoint
-	 * @generated
-	 */
-	public Adapter createUiSourceBindingEndpointAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiTargetBindingEndpoint <em>Ui Target Binding Endpoint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiTargetBindingEndpoint
-	 * @generated
-	 */
-	public Adapter createUiTargetBindingEndpointAdapter() {
 		return null;
 	}
 
@@ -374,44 +301,16 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout <em>Ui Grid Layout</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiViewSet <em>Ui View Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiGridLayout
+	 * @see org.lunifera.ecview.semantic.uimodel.UiViewSet
 	 * @generated
 	 */
-	public Adapter createUiGridLayoutAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiTextField <em>Ui Text Field</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiTextField
-	 * @generated
-	 */
-	public Adapter createUiTextFieldAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiList <em>Ui List</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiList
-	 * @generated
-	 */
-	public Adapter createUiListAdapter() {
+	public Adapter createUiViewSetAdapter() {
 		return null;
 	}
 
@@ -514,212 +413,16 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable <em>YVisibleable</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YViewSet <em>YView Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YViewSet
 	 * @generated
 	 */
-	public Adapter createYVisibleableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable <em>YEmbeddable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable
-	 * @generated
-	 */
-	public Adapter createYEmbeddableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YLayout <em>YLayout</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YLayout
-	 * @generated
-	 */
-	public Adapter createYLayoutAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable <em>YSpacingable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable
-	 * @generated
-	 */
-	public Adapter createYSpacingableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout <em>YGrid Layout</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout
-	 * @generated
-	 */
-	public Adapter createYGridLayoutAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEditable <em>YEditable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEditable
-	 * @generated
-	 */
-	public Adapter createYEditableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEnable <em>YEnable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEnable
-	 * @generated
-	 */
-	public Adapter createYEnableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YField <em>YField</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YField
-	 * @generated
-	 */
-	public Adapter createYFieldAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YInput <em>YInput</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YInput
-	 * @generated
-	 */
-	public Adapter createYInputAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable <em>YValue Bindable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable
-	 * @generated
-	 */
-	public Adapter createYValueBindableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField <em>YText Field</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField
-	 * @generated
-	 */
-	public Adapter createYTextFieldAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable <em>YCollection Bindable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable
-	 * @generated
-	 */
-	public Adapter createYCollectionBindableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable <em>YSelection Bindable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable
-	 * @generated
-	 */
-	public Adapter createYSelectionBindableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable <em>YMulti Selection Bindable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable
-	 * @generated
-	 */
-	public Adapter createYMultiSelectionBindableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList <em>YList</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YList
-	 * @generated
-	 */
-	public Adapter createYListAdapter() {
+	public Adapter createYViewSetAdapter() {
 		return null;
 	}
 

@@ -19,20 +19,28 @@ Workflow {
 	//		}
 		uriMap = {
 			from = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/"
-			to = "file://daten/dev/lunifera/ws_ecviewaddon/models/org.eclipse.emf.ecp.ecview.common.model/"
+			to = "file://Users/admin/git/org.eclipse.emf.ecp.other/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.common.model/"
 		}
 		uriMap = {
 			from = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/"
-			to = "file://daten/dev/lunifera/ws_ecviewaddon/models/org.eclipse.emf.ecp.ecview.extension.model/"
+			to = "file://Users/admin/git/org.eclipse.emf.ecp.other/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.extension.model/"
 		}
 		uriMap = {
-			from = "platform:/resource/org.lunifera.ecview.uisemantics/"
-			to = "file://Users/admin/git/lunifera-ecview-addons/org.lunifera.ecview.uisemantics/"
+			from = "platform:/resource/org.lunifera.ecview.semantic.uisemantics/"
+			to = "file://Users/admin/git/lunifera-ecview-addons/org.lunifera.ecview.semantic.uisemantics/"
 		}
+		uriMap = {
+			from = "platform:/resource/org.lunifera.ecview.semantic.uimodel/"
+			to = "file://Users/admin/git/lunifera-ecview-addons/org.lunifera.ecview.semantic.uimodel/"
+		}
+		resourceSet = org.eclipse.xtext.resource.XtextResourceSet : theResourceSet {}
 		scanClassPath = true
 		platformUri = "${runtimeProject}/.."
 		registerGeneratedEPackage = "org.eclipse.xtext.xbase.XbasePackage"
 		registerGenModelFile = "platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel"
+		registerEcoreFile = "platform:/resource/org.eclipse.xtext.xbase/model/XAnnotations.ecore"
+		registerEcoreFile = "platform:/resource/org.eclipse.xtext.xbase/model/Xtype.ecore"
+		registerEcoreFile = "platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore"
 		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage"
 		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/binding.ecore"
 		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage"
@@ -49,10 +57,15 @@ Workflow {
 		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage"
 		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore"
 		registerGenModelFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.genmodel"
-		registerGeneratedEPackage = "org.lunifera.ecview.uisemantics.uISemanticsGrammar.UISemanticsGrammarPackage"
-		registerEcoreFile = "platform:/resource/org.lunifera.ecview.uisemantics/model/generated/UISemanticsGrammar.ecore"
-		registerGenModelFile =
-		"platform:/resource/org.lunifera.ecview.uisemantics/model/generated/UISemanticsGrammar.genmodel"
+		registerGeneratedEPackage = "org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage"
+		registerEcoreFile = "platform:/resource/org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore"
+		registerGenModelFile ="platform:/resource/org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.genmodel"
+		registerGeneratedEPackage = "org.lunifera.ecview.semantic.uimodel.UimodelPackage"
+		registerEcoreFile = "platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarCore.ecore"
+		registerGenModelFile ="platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarCore.genmodel"
+		registerGeneratedEPackage = "org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionPackage"
+		registerEcoreFile = "platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarExtensions.ecore"
+		registerGenModelFile ="platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarCore.genmodel"
 	}
 
 	component = DirectoryCleaner {
@@ -79,6 +92,7 @@ Workflow {
 		projectNameUi = "${projectName}.ui"
 		encoding = encoding
 		language = auto-inject {
+			forcedResourceSet = theResourceSet
 			uri = grammarURI
 
 			// Java API to access grammar elements (required by several other fragments)

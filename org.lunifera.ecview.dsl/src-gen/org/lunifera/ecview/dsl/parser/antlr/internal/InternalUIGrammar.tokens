@@ -40,6 +40,7 @@ T__86=86
 T__89=89
 T__88=88
 RULE_ML_COMMENT=9
+T__125=125
 RULE_STRING=6
 T__71=71
 T__72=72
@@ -119,115 +120,116 @@ T__37=37
 T__38=38
 T__39=39
 RULE_WS=11
-'>='=51
-'=='=54
-'bottom right'=110
-'extension'=93
-';'=79
-'==='=56
-'return'=101
-'value'=35
-'<>'=62
-'list'=36
-'for'=85
-'?.'=73
-'=>'=61
-'columns='=22
-'static'=91
-'catch'=105
-'extends'=90
-'align'=28
-'top left'=116
+'>='=52
+'=='=55
+'bottom right'=111
+'extension'=94
+';'=80
+'==='=57
+'return'=102
+'value'=42
+'<>'=64
+'list'=43
+'for'=86
+'?.'=74
+'=>'=63
+'columns='=29
+'static'=92
+'catch'=106
+'extends'=91
+'align'=35
+'top left'=117
 '{'=15
-'span'=29
-'fill-h'=23
-'try'=102
-'var'=88
-'('=21
-':'=18
-'**'=67
-'synchronized'=104
-'default'=83
-']'=77
-'..<'=59
-'finally'=103
-'fill center'=121
-'new'=95
-'val'=89
+'span'=36
+'fill-h'=30
+'try'=103
+'var'=89
+':'=20
+'('=28
+'**'=69
+'synchronized'=105
+'default'=84
+']'=78
+'..<'=61
+'finally'=104
+'fill center'=122
+'new'=96
+'val'=90
 'beanslots'=14
-'spacing'=25
-'slot'=17
-'='=45
-'top fill'=119
-'->'=43
-'%'=68
-'super'=94
-'case'=84
-'top center'=117
-'!=='=57
-'!='=55
-'--'=41
-'<'=40
-'['=76
-'gridlayout'=20
-'&'=107
-'instanceof'=58
-'#'=75
-'/'=31
-'/='=49
-'switch'=82
-'%='=50
-'>'=42
-'||'=52
-'&&'=53
-'bottom fill'=111
-'+'=64
-'.'=44
-'import'=92
-'?:'=63
-'++'=71
-'true'=97
-'middle center'=113
-'else'=81
-'top right'=118
-'+='=46
-'as'=70
-'?'=106
-'fill fill'=123
-'if'=80
+'spacing'=32
+'slot'=19
+'bindingAlias'=17
+'='=46
+'top fill'=120
+'->'=60
+'%'=70
+'super'=95
+'case'=85
+'top center'=118
+'!=='=58
+'!='=56
+'--'=23
+'<'=22
+'['=77
+'gridlayout'=27
+'&'=108
+'instanceof'=59
+'#'=76
+'/'=38
+'/='=50
+'switch'=83
+'%='=51
+'>'=24
+'||'=53
+'&&'=54
+'bottom fill'=112
+'+'=66
+'.'=25
+'import'=93
+'?:'=65
+'++'=72
+'true'=98
+'middle center'=114
+'else'=82
+'top right'=119
+'+='=47
+'as'=18
+'?'=107
+'fill fill'=124
+'if'=81
 'viewset'=13
-'-'=65
-'while'=86
-'undefined'=124
-'middle left'=112
-','=74
-'middle fill'=115
-'-='=47
-'..'=60
-'!'=69
-'|'=78
-'datadescription'=34
-'ideview'=19
-'null'=98
-'datatype'=33
-'typeof'=99
-'fill left'=120
-'margin'=26
-'::'=72
-'throw'=100
-')'=27
-'*='=48
-'max'=37
-'do'=87
+'-'=67
+'while'=87
+'undefined'=125
+'middle left'=113
+','=75
+'middle fill'=116
+'-='=48
+'..'=62
+'!'=71
+'|'=79
+'datadescription'=41
+'ideview'=26
+'null'=99
+'datatype'=40
+'typeof'=100
+'fill left'=121
+'margin'=33
+'::'=73
+'throw'=101
+')'=34
+'*='=49
+'max'=44
+'do'=88
 '}'=16
-'bottom center'=109
-'bind'=39
-'to'=30
-'fill RIGHT'=122
-'middle right'=114
-'bottom left'=108
-'fill-v'=24
-'textfield'=32
-'false'=96
-'*'=66
-'min'=38
+'bottom center'=110
+'bind'=21
+'to'=37
+'fill RIGHT'=123
+'middle right'=115
+'bottom left'=109
+'fill-v'=31
+'textfield'=39
+'false'=97
+'*'=68
+'min'=45

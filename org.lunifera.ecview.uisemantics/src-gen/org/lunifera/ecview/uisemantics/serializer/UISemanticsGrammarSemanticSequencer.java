@@ -58,14 +58,16 @@ import org.eclipse.xtext.xtype.XImportSection;
 import org.eclipse.xtext.xtype.XtypePackage;
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableBindings;
+import org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions;
 import org.lunifera.ecview.semantic.uisemantics.UxEPackageImport;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxElementURI;
-import org.lunifera.ecview.semantic.uisemantics.UxImportDeclaration;
 import org.lunifera.ecview.semantic.uisemantics.UxListBindingEndpointDef;
 import org.lunifera.ecview.semantic.uisemantics.UxModel;
 import org.lunifera.ecview.semantic.uisemantics.UxSetBindingEndpointDef;
 import org.lunifera.ecview.semantic.uisemantics.UxValueBindingEndpointDef;
+import org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption;
+import org.lunifera.ecview.semantic.uisemantics.XImportDeclaration;
 import org.lunifera.ecview.uisemantics.services.UISemanticsGrammarGrammarAccess;
 
 @SuppressWarnings("all")
@@ -140,6 +142,12 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 					return; 
 				}
 				else break;
+			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS:
+				if(context == grammarAccess.getUxAvailableVisibilityOptionsRule()) {
+					sequence_UxAvailableVisibilityOptions(context, (UxAvailableVisibilityOptions) semanticObject); 
+					return; 
+				}
+				else break;
 			case UiSemanticsPackage.UX_EPACKAGE_IMPORT:
 				if(context == grammarAccess.getUxEPackageImportRule()) {
 					sequence_UxEPackageImport(context, (UxEPackageImport) semanticObject); 
@@ -155,12 +163,6 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 			case UiSemanticsPackage.UX_ELEMENT_URI:
 				if(context == grammarAccess.getUxElementURIRule()) {
 					sequence_UxElementURI(context, (UxElementURI) semanticObject); 
-					return; 
-				}
-				else break;
-			case UiSemanticsPackage.UX_IMPORT_DECLARATION:
-				if(context == grammarAccess.getXImportDeclarationRule()) {
-					sequence_XImportDeclaration(context, (UxImportDeclaration) semanticObject); 
 					return; 
 				}
 				else break;
@@ -188,6 +190,18 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 				if(context == grammarAccess.getUxEndpointDefRule() ||
 				   context == grammarAccess.getUxValueBindingEndpointDefRule()) {
 					sequence_UxValueBindingEndpointDef(context, (UxValueBindingEndpointDef) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiSemanticsPackage.UX_VISIBILITY_OPTION:
+				if(context == grammarAccess.getUxVisibilityOptionRule()) {
+					sequence_UxVisibilityOption(context, (UxVisibilityOption) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiSemanticsPackage.XIMPORT_DECLARATION:
+				if(context == grammarAccess.getXImportDeclarationRule()) {
+					sequence_XImportDeclaration(context, (XImportDeclaration) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1225,9 +1239,18 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     bindings+=UxEndpointDef*
+	 *     (bindings+=UxEndpointDef*)
 	 */
 	protected void sequence_UxAvailableBindings(EObject context, UxAvailableBindings semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (options+=UxVisibilityOption*)
+	 */
+	protected void sequence_UxAvailableVisibilityOptions(EObject context, UxAvailableVisibilityOptions semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1253,7 +1276,7 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (name=ID uri=UxElementURI? bindingContainer=UxAvailableBindings)
+	 *     (name=ID uri=UxElementURI? bindingContainer=UxAvailableBindings? visibilityContainer=UxAvailableVisibilityOptions?)
 	 */
 	protected void sequence_UxElementDefinition(EObject context, UxElementDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1317,6 +1340,25 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
+	 *     (name=ID jvmType=JvmTypeReference)
+	 */
+	protected void sequence_UxVisibilityOption(EObject context, UxVisibilityOption semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, UiSemanticsPackage.Literals.UX_VISIBILITY_OPTION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiSemanticsPackage.Literals.UX_VISIBILITY_OPTION__NAME));
+			if(transientValues.isValueTransient(semanticObject, UiSemanticsPackage.Literals.UX_VISIBILITY_OPTION__JVM_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiSemanticsPackage.Literals.UX_VISIBILITY_OPTION__JVM_TYPE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUxVisibilityOptionAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getUxVisibilityOptionAccess().getJvmTypeJvmTypeReferenceParserRuleCall_2_0(), semanticObject.getJvmType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         (static?='static' extension?='extension'? importedType=[JvmDeclaredType|QualifiedNameInStaticImport] (wildcard?='*' | memberName=ValidID)) | 
 	 *         importedType=[JvmDeclaredType|QualifiedName] | 
@@ -1324,7 +1366,7 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	 *         importedEPackage=UxEPackageImport
 	 *     )
 	 */
-	protected void sequence_XImportDeclaration(EObject context, UxImportDeclaration semanticObject) {
+	protected void sequence_XImportDeclaration(EObject context, XImportDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }

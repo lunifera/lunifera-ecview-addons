@@ -4,7 +4,10 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot
 import org.eclipse.xtext.resource.DerivedStateAwareResource
 import org.eclipse.xtext.resource.IDerivedStateComputer
-import org.lunifera.ecview.dsl.uIGrammar.GBeanSlot
+import org.lunifera.ecview.semantic.uimodel.UiBeanSlot
+import org.lunifera.ecview.semantic.uimodel.UiIDEView
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayout
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiTextField
 
 class UiModelDerivedStateComputerx implements IDerivedStateComputer {
 
@@ -15,12 +18,6 @@ class UiModelDerivedStateComputerx implements IDerivedStateComputer {
 			return;
 
 		if (!preLinkingPhase) {
-			if (!setup) {
-				//				resource.resourceSet.getResource(URI::createURI("uiconfig://TextField"), true).contents
-				//				val result = resource.resourceSet.getEObject(URI::createURI("uiconfig://TextField"), false)
-				//				setup = true;
-			}
-
 			resource.getAllContents.forEach [
 				it.complete
 			]
@@ -29,9 +26,24 @@ class UiModelDerivedStateComputerx implements IDerivedStateComputer {
 
 	def dispatch void complete(EObject eObject) {
 	}
-
+	
+	def dispatch void complete(UiIDEView eObject) {
+	}
+	
+	def dispatch void complete(UiTextField eObject) {
+		eObject.label = eObject.name
+	}
+	
+	def dispatch void complete(UiGridLayout eObject) {
+		eObject.columns = 4
+		
+		for(assignment : eObject.contents){
+			eObject.addElement(assignment.element)
+		}
+	}
+ 
 	def dispatch void complete(YBeanSlot yBeanSlot) {
-		val gSlot = yBeanSlot as GBeanSlot
+		val gSlot = yBeanSlot as UiBeanSlot
 		val typeReference = gSlot.getJvmType
 		if(typeReference != null) yBeanSlot.valueTypeQualifiedName = typeReference.qualifiedName
 	}

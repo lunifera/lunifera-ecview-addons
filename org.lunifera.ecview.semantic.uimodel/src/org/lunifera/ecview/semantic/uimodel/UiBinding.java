@@ -3,19 +3,21 @@
 package org.lunifera.ecview.semantic.uimodel;
 
 import org.eclipse.emf.ecore.EObject;
+import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Ui Binding</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>Ui Binding</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBinding#getSource <em>Source</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBinding#getSourceAlias <em>Source Alias</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBinding#isTargetToSource <em>Target To Source</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBinding#isSourceToTarget <em>Source To Target</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBinding#getTarget <em>Target</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBinding#getTargetAlias <em>Target Alias</em>}</li>
  * </ul>
  * </p>
  *
@@ -28,27 +30,54 @@ public interface UiBinding extends EObject {
 	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Source</em>' containment reference isn't
+	 * clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' containment reference.
-	 * @see #setSource(UiSourceBindingEndpoint)
+	 * @see #setSource(UiBindingEndpointDef)
 	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiBinding_Source()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
-	UiSourceBindingEndpoint getSource();
+	UiBindingEndpointDef getSource();
 
 	/**
 	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiBinding#getSource <em>Source</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @param value the new value of the '<em>Source</em>' containment reference.
 	 * @see #getSource()
 	 * @generated
 	 */
-	void setSource(UiSourceBindingEndpoint value);
+	void setSource(UiBindingEndpointDef value);
+
+	/**
+	 * Returns the value of the '<em><b>Source Alias</b></em>' reference. <!--
+	 * begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Alias</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Source Alias</em>' reference.
+	 * @see #setSourceAlias(UiBindingEndpointAlias)
+	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiBinding_SourceAlias()
+	 * @model
+	 * @generated
+	 */
+	UiBindingEndpointAlias getSourceAlias();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiBinding#getSourceAlias <em>Source Alias</em>}' reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * @param value the new value of the '<em>Source Alias</em>' reference.
+	 * @see #getSourceAlias()
+	 * @generated
+	 */
+	void setSourceAlias(UiBindingEndpointAlias value);
 
 	/**
 	 * Returns the value of the '<em><b>Target To Source</b></em>' attribute.
@@ -68,8 +97,8 @@ public interface UiBinding extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiBinding#isTargetToSource <em>Target To Source</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @param value the new value of the '<em>Target To Source</em>' attribute.
 	 * @see #isTargetToSource()
 	 * @generated
@@ -94,8 +123,8 @@ public interface UiBinding extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiBinding#isSourceToTarget <em>Source To Target</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @param value the new value of the '<em>Source To Target</em>' attribute.
 	 * @see #isSourceToTarget()
 	 * @generated
@@ -106,26 +135,69 @@ public interface UiBinding extends EObject {
 	 * Returns the value of the '<em><b>Target</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Target</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Target</em>' containment reference isn't
+	 * clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' containment reference.
-	 * @see #setTarget(UiTargetBindingEndpoint)
+	 * @see #setTarget(UiBindingEndpointDef)
 	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiBinding_Target()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
-	UiTargetBindingEndpoint getTarget();
+	UiBindingEndpointDef getTarget();
 
 	/**
 	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiBinding#getTarget <em>Target</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @param value the new value of the '<em>Target</em>' containment reference.
 	 * @see #getTarget()
 	 * @generated
 	 */
-	void setTarget(UiTargetBindingEndpoint value);
+	void setTarget(UiBindingEndpointDef value);
+
+	/**
+	 * Returns the value of the '<em><b>Target Alias</b></em>' reference. <!--
+	 * begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target Alias</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Target Alias</em>' reference.
+	 * @see #setTargetAlias(UiBindingEndpointAlias)
+	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiBinding_TargetAlias()
+	 * @model
+	 * @generated
+	 */
+	UiBindingEndpointAlias getTargetAlias();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiBinding#getTargetAlias <em>Target Alias</em>}' reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * @param value the new value of the '<em>Target Alias</em>' reference.
+	 * @see #getTargetAlias()
+	 * @generated
+	 */
+	void setTargetAlias(UiBindingEndpointAlias value);
+
+	/**
+	 * Returns the source endpoint definition of the semantic ui definitions.
+	 * Therefore {@link #getSource()} and {@link #getSourceAlias()} are used.
+	 * 
+	 * @return
+	 */
+	UxEndpointDef getSourceEndpointDef();
+
+	/**
+	 * Returns the target endpoint definition of the semantic ui definitions.
+	 * Therefore {@link #getTarget()} and {@link #getTargetAlias()} are used.
+	 * 
+	 * @return
+	 */
+	UxEndpointDef getTargetEndpointDef();
 
 } // UiBinding

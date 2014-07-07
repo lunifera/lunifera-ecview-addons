@@ -130,6 +130,18 @@ public class UiSemanticsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS: {
+				UxAvailableVisibilityOptions uxAvailableVisibilityOptions = (UxAvailableVisibilityOptions)theEObject;
+				T result = caseUxAvailableVisibilityOptions(uxAvailableVisibilityOptions);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiSemanticsPackage.UX_VISIBILITY_OPTION: {
+				UxVisibilityOption uxVisibilityOption = (UxVisibilityOption)theEObject;
+				T result = caseUxVisibilityOption(uxVisibilityOption);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -281,6 +293,36 @@ public class UiSemanticsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUxSetBindingEndpointDef(UxSetBindingEndpointDef object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ux Available Visibility Options</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ux Available Visibility Options</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUxAvailableVisibilityOptions(UxAvailableVisibilityOptions object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ux Visibility Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ux Visibility Option</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUxVisibilityOption(UxVisibilityOption object) {
 		return null;
 	}
 

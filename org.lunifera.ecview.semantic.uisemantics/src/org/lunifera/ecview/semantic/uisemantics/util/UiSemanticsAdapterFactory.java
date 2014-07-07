@@ -108,6 +108,14 @@ public class UiSemanticsAdapterFactory extends AdapterFactoryImpl {
 				return createUxSetBindingEndpointDefAdapter();
 			}
 			@Override
+			public Adapter caseUxAvailableVisibilityOptions(UxAvailableVisibilityOptions object) {
+				return createUxAvailableVisibilityOptionsAdapter();
+			}
+			@Override
+			public Adapter caseUxVisibilityOption(UxVisibilityOption object) {
+				return createUxVisibilityOptionAdapter();
+			}
+			@Override
 			public Adapter caseXtype_XImportDeclaration(org.eclipse.xtext.xtype.XImportDeclaration object) {
 				return createXtype_XImportDeclarationAdapter();
 			}
@@ -268,6 +276,34 @@ public class UiSemanticsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUxSetBindingEndpointDefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions <em>Ux Available Visibility Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions
+	 * @generated
+	 */
+	public Adapter createUxAvailableVisibilityOptionsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption <em>Ux Visibility Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption
+	 * @generated
+	 */
+	public Adapter createUxVisibilityOptionAdapter() {
 		return null;
 	}
 

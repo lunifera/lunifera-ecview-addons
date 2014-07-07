@@ -66,6 +66,8 @@ public class UiSemanticsFactoryImpl extends EFactoryImpl implements UiSemanticsF
 			case UiSemanticsPackage.UX_VALUE_BINDING_ENDPOINT_DEF: return createUxValueBindingEndpointDef();
 			case UiSemanticsPackage.UX_LIST_BINDING_ENDPOINT_DEF: return createUxListBindingEndpointDef();
 			case UiSemanticsPackage.UX_SET_BINDING_ENDPOINT_DEF: return createUxSetBindingEndpointDef();
+			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS: return createUxAvailableVisibilityOptions();
+			case UiSemanticsPackage.UX_VISIBILITY_OPTION: return createUxVisibilityOption();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -169,6 +171,26 @@ public class UiSemanticsFactoryImpl extends EFactoryImpl implements UiSemanticsF
 	public UxSetBindingEndpointDef createUxSetBindingEndpointDef() {
 		UxSetBindingEndpointDefImpl uxSetBindingEndpointDef = new UxSetBindingEndpointDefImpl();
 		return uxSetBindingEndpointDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UxAvailableVisibilityOptions createUxAvailableVisibilityOptions() {
+		UxAvailableVisibilityOptionsImpl uxAvailableVisibilityOptions = new UxAvailableVisibilityOptionsImpl();
+		return uxAvailableVisibilityOptions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UxVisibilityOption createUxVisibilityOption() {
+		UxVisibilityOptionImpl uxVisibilityOption = new UxVisibilityOptionImpl();
+		return uxVisibilityOption;
 	}
 
 	/**

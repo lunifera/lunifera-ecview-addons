@@ -29,9 +29,6 @@ public class UIGrammarStandaloneSetupGenerated implements ISetup {
 	}
 	
 	public void register(Injector injector) {
-	if (!EPackage.Registry.INSTANCE.containsKey("http://www.lunifera.org/ecview/dsl/UIGrammar")) {
-		EPackage.Registry.INSTANCE.put("http://www.lunifera.org/ecview/dsl/UIGrammar", org.lunifera.ecview.dsl.uIGrammar.UIGrammarPackage.eINSTANCE);
-	}
 
 		org.eclipse.xtext.resource.IResourceFactory resourceFactory = injector.getInstance(org.eclipse.xtext.resource.IResourceFactory.class);
 		org.eclipse.xtext.resource.IResourceServiceProvider serviceProvider = injector.getInstance(org.eclipse.xtext.resource.IResourceServiceProvider.class);

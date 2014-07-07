@@ -23,8 +23,8 @@ import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider;
 import org.eclipse.xtext.scoping.IGlobalScopeProvider;
 import org.eclipse.xtext.scoping.IScope;
-import org.lunifera.ecview.uisemantics.uISemanticsGrammar.UISemanticsGrammarPackage;
-import org.lunifera.ecview.uisemantics.uISemanticsGrammar.UxEPackageImport;
+import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
+import org.lunifera.ecview.semantic.uisemantics.UxEPackageImport;
 
 import com.google.common.base.Predicate;
 import com.google.inject.Inject;
@@ -43,8 +43,7 @@ public class UiSemanticsLinkingService extends DefaultLinkingService {
 	@Override
 	public List<EObject> getLinkedObjects(EObject context, EReference ref,
 			INode node) throws IllegalNodeException {
-		if (ref == UISemanticsGrammarPackage.eINSTANCE
-				.getUxEPackageImport_EPackage()) {
+		if (ref == UiSemanticsPackage.eINSTANCE.getUxEPackageImport_EPackage()) {
 			return getPackage((UxEPackageImport) context, (ILeafNode) node);
 		}
 
@@ -140,7 +139,7 @@ public class UiSemanticsLinkingService extends DefaultLinkingService {
 	private EPackage findPackageInScope(EObject context,
 			QualifiedName packageNsURI) {
 		IScope scopedPackages = scopeProvider.getScope(context.eResource(),
-				UISemanticsGrammarPackage.Literals.UX_EPACKAGE_IMPORT__EPACKAGE,
+				UiSemanticsPackage.Literals.UX_EPACKAGE_IMPORT__EPACKAGE,
 				new Predicate<IEObjectDescription>() {
 					public boolean apply(IEObjectDescription input) {
 						return isNsUriIndexEntry(input);

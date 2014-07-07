@@ -3,7 +3,6 @@
 package org.lunifera.ecview.semantic.uimodel;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.xtext.common.types.JvmField;
 
 /**
@@ -61,7 +60,7 @@ public interface UiPathSegment extends EObject {
 	 * @return the value of the '<em>Path</em>' containment reference.
 	 * @see #setPath(UiPathSegment)
 	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiPathSegment_Path()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	UiPathSegment getPath();

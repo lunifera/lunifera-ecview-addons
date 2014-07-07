@@ -5,8 +5,8 @@
 package org.lunifera.ecview.semantic.uimodel.validation;
 
 import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.lunifera.ecview.semantic.uimodel.UiViewSet;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiModel}.
@@ -17,5 +17,6 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 public interface UiModelValidator {
 	boolean validate();
 
-	boolean validateViewSet(EList<YViewSet> value);
+	boolean validateViewSets(EList<UiViewSet> value);
+	boolean validateViews(EList<YView> value);
 }

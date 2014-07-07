@@ -3,22 +3,14 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
-
-import org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl;
-
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
+import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
 import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
 
@@ -29,24 +21,14 @@ import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiIDEViewImpl#getLayouts <em>Layouts</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiIDEViewImpl#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiIDEViewImpl#getBindingEndpointAlias <em>Binding Endpoint Alias</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class UiIDEViewImpl extends YViewImpl implements UiIDEView {
-	/**
-	 * The cached value of the '{@link #getLayouts() <em>Layouts</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLayouts()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<YLayout> layouts;
-
+public class UiIDEViewImpl extends UiViewImpl implements UiIDEView {
 	/**
 	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -56,6 +38,16 @@ public class UiIDEViewImpl extends YViewImpl implements UiIDEView {
 	 * @ordered
 	 */
 	protected EList<UiBinding> bindings;
+
+	/**
+	 * The cached value of the '{@link #getBindingEndpointAlias() <em>Binding Endpoint Alias</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBindingEndpointAlias()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UiBindingEndpointAlias> bindingEndpointAlias;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,11 +73,11 @@ public class UiIDEViewImpl extends YViewImpl implements UiIDEView {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<YLayout> getLayouts() {
-		if (layouts == null) {
-			layouts = new EObjectContainmentEList<YLayout>(YLayout.class, this, UimodelPackage.UI_IDE_VIEW__LAYOUTS);
+	public EList<UiBinding> getBindings() {
+		if (bindings == null) {
+			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UimodelPackage.UI_IDE_VIEW__BINDINGS);
 		}
-		return layouts;
+		return bindings;
 	}
 
 	/**
@@ -93,11 +85,11 @@ public class UiIDEViewImpl extends YViewImpl implements UiIDEView {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<UiBinding> getBindings() {
-		if (bindings == null) {
-			bindings = new EObjectContainmentEList<UiBinding>(UiBinding.class, this, UimodelPackage.UI_IDE_VIEW__BINDINGS);
+	public EList<UiBindingEndpointAlias> getBindingEndpointAlias() {
+		if (bindingEndpointAlias == null) {
+			bindingEndpointAlias = new EObjectContainmentEList.Resolving<UiBindingEndpointAlias>(UiBindingEndpointAlias.class, this, UimodelPackage.UI_IDE_VIEW__BINDING_ENDPOINT_ALIAS);
 		}
-		return bindings;
+		return bindingEndpointAlias;
 	}
 
 	/**
@@ -108,10 +100,10 @@ public class UiIDEViewImpl extends YViewImpl implements UiIDEView {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case UimodelPackage.UI_IDE_VIEW__LAYOUTS:
-				return ((InternalEList<?>)getLayouts()).basicRemove(otherEnd, msgs);
 			case UimodelPackage.UI_IDE_VIEW__BINDINGS:
 				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
+			case UimodelPackage.UI_IDE_VIEW__BINDING_ENDPOINT_ALIAS:
+				return ((InternalEList<?>)getBindingEndpointAlias()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -124,10 +116,10 @@ public class UiIDEViewImpl extends YViewImpl implements UiIDEView {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UimodelPackage.UI_IDE_VIEW__LAYOUTS:
-				return getLayouts();
 			case UimodelPackage.UI_IDE_VIEW__BINDINGS:
 				return getBindings();
+			case UimodelPackage.UI_IDE_VIEW__BINDING_ENDPOINT_ALIAS:
+				return getBindingEndpointAlias();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -141,13 +133,13 @@ public class UiIDEViewImpl extends YViewImpl implements UiIDEView {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UimodelPackage.UI_IDE_VIEW__LAYOUTS:
-				getLayouts().clear();
-				getLayouts().addAll((Collection<? extends YLayout>)newValue);
-				return;
 			case UimodelPackage.UI_IDE_VIEW__BINDINGS:
 				getBindings().clear();
 				getBindings().addAll((Collection<? extends UiBinding>)newValue);
+				return;
+			case UimodelPackage.UI_IDE_VIEW__BINDING_ENDPOINT_ALIAS:
+				getBindingEndpointAlias().clear();
+				getBindingEndpointAlias().addAll((Collection<? extends UiBindingEndpointAlias>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -161,11 +153,11 @@ public class UiIDEViewImpl extends YViewImpl implements UiIDEView {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UimodelPackage.UI_IDE_VIEW__LAYOUTS:
-				getLayouts().clear();
-				return;
 			case UimodelPackage.UI_IDE_VIEW__BINDINGS:
 				getBindings().clear();
+				return;
+			case UimodelPackage.UI_IDE_VIEW__BINDING_ENDPOINT_ALIAS:
+				getBindingEndpointAlias().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -179,10 +171,10 @@ public class UiIDEViewImpl extends YViewImpl implements UiIDEView {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UimodelPackage.UI_IDE_VIEW__LAYOUTS:
-				return layouts != null && !layouts.isEmpty();
 			case UimodelPackage.UI_IDE_VIEW__BINDINGS:
 				return bindings != null && !bindings.isEmpty();
+			case UimodelPackage.UI_IDE_VIEW__BINDING_ENDPOINT_ALIAS:
+				return bindingEndpointAlias != null && !bindingEndpointAlias.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

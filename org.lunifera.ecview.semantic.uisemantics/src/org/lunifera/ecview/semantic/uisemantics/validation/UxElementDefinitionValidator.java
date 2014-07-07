@@ -5,6 +5,7 @@
 package org.lunifera.ecview.semantic.uisemantics.validation;
 
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableBindings;
+import org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions;
 import org.lunifera.ecview.semantic.uisemantics.UxElementURI;
 
 /**
@@ -19,4 +20,6 @@ public interface UxElementDefinitionValidator {
 	boolean validateName(String value);
 	boolean validateUri(UxElementURI value);
 	boolean validateBindingContainer(UxAvailableBindings value);
+
+	boolean validateVisibilityContainer(UxAvailableVisibilityOptions value);
 }

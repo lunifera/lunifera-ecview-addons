@@ -400,18 +400,18 @@ ruleUxElementDefinition returns [EObject current=null]
 	    }
 
 )
-)?	otherlv_4='bindings' 
+)?(	otherlv_4='bindings' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getUxElementDefinitionAccess().getBindingsKeyword_4());
+    	newLeafNode(otherlv_4, grammarAccess.getUxElementDefinitionAccess().getBindingsKeyword_4_0());
     }
 	otherlv_5='{' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getUxElementDefinitionAccess().getLeftCurlyBracketKeyword_5());
+    	newLeafNode(otherlv_5, grammarAccess.getUxElementDefinitionAccess().getLeftCurlyBracketKeyword_4_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUxElementDefinitionAccess().getBindingContainerUxAvailableBindingsParserRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getUxElementDefinitionAccess().getBindingContainerUxAvailableBindingsParserRuleCall_4_2_0()); 
 	    }
 		lv_bindingContainer_6_0=ruleUxAvailableBindings		{
 	        if ($current==null) {
@@ -428,13 +428,149 @@ ruleUxElementDefinition returns [EObject current=null]
 )
 )	otherlv_7='}' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getUxElementDefinitionAccess().getRightCurlyBracketKeyword_7());
+    	newLeafNode(otherlv_7, grammarAccess.getUxElementDefinitionAccess().getRightCurlyBracketKeyword_4_3());
     }
-	otherlv_8='}' 
+)?(	otherlv_8='visibility' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getUxElementDefinitionAccess().getRightCurlyBracketKeyword_8());
+    	newLeafNode(otherlv_8, grammarAccess.getUxElementDefinitionAccess().getVisibilityKeyword_5_0());
+    }
+	otherlv_9='{' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getUxElementDefinitionAccess().getLeftCurlyBracketKeyword_5_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUxElementDefinitionAccess().getVisibilityContainerUxAvailableVisibilityOptionsParserRuleCall_5_2_0()); 
+	    }
+		lv_visibilityContainer_10_0=ruleUxAvailableVisibilityOptions		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUxElementDefinitionRule());
+	        }
+       		set(
+       			$current, 
+       			"visibilityContainer",
+        		lv_visibilityContainer_10_0, 
+        		"UxAvailableVisibilityOptions");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_11='}' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getUxElementDefinitionAccess().getRightCurlyBracketKeyword_5_3());
+    }
+)?	otherlv_12='}' 
+    {
+    	newLeafNode(otherlv_12, grammarAccess.getUxElementDefinitionAccess().getRightCurlyBracketKeyword_6());
     }
 )
+;
+
+
+
+
+
+// Entry rule entryRuleUxAvailableVisibilityOptions
+entryRuleUxAvailableVisibilityOptions returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUxAvailableVisibilityOptionsRule()); }
+	 iv_ruleUxAvailableVisibilityOptions=ruleUxAvailableVisibilityOptions 
+	 { $current=$iv_ruleUxAvailableVisibilityOptions.current; } 
+	 EOF 
+;
+
+// Rule UxAvailableVisibilityOptions
+ruleUxAvailableVisibilityOptions returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUxAvailableVisibilityOptionsAccess().getUxAvailableVisibilityOptionsAction_0(),
+            $current);
+    }
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUxAvailableVisibilityOptionsAccess().getOptionsUxVisibilityOptionParserRuleCall_1_0()); 
+	    }
+		lv_options_1_0=ruleUxVisibilityOption		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUxAvailableVisibilityOptionsRule());
+	        }
+       		add(
+       			$current, 
+       			"options",
+        		lv_options_1_0, 
+        		"UxVisibilityOption");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*)
+;
+
+
+
+
+
+// Entry rule entryRuleUxVisibilityOption
+entryRuleUxVisibilityOption returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUxVisibilityOptionRule()); }
+	 iv_ruleUxVisibilityOption=ruleUxVisibilityOption 
+	 { $current=$iv_ruleUxVisibilityOption.current; } 
+	 EOF 
+;
+
+// Rule UxVisibilityOption
+ruleUxVisibilityOption returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='endpoint' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getUxVisibilityOptionAccess().getEndpointKeyword_0());
+    }
+(
+(
+		lv_name_1_0=RULE_ID
+		{
+			newLeafNode(lv_name_1_0, grammarAccess.getUxVisibilityOptionAccess().getNameIDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUxVisibilityOptionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"ID");
+	    }
+
+)
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUxVisibilityOptionAccess().getJvmTypeJvmTypeReferenceParserRuleCall_2_0()); 
+	    }
+		lv_jvmType_2_0=ruleJvmTypeReference		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUxVisibilityOptionRule());
+	        }
+       		set(
+       			$current, 
+       			"jvmType",
+        		lv_jvmType_2_0, 
+        		"JvmTypeReference");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
 ;
 
 
@@ -510,25 +646,31 @@ ruleUxAvailableBindings returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUxAvailableBindingsAccess().getUxAvailableBindingsAction_0(),
+            $current);
+    }
+)(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUxAvailableBindingsAccess().getBindingsUxEndpointDefParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getUxAvailableBindingsAccess().getBindingsUxEndpointDefParserRuleCall_1_0()); 
 	    }
-		lv_bindings_0_0=ruleUxEndpointDef		{
+		lv_bindings_1_0=ruleUxEndpointDef		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUxAvailableBindingsRule());
 	        }
        		add(
        			$current, 
        			"bindings",
-        		lv_bindings_0_0, 
+        		lv_bindings_1_0, 
         		"UxEndpointDef");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*
+)*)
 ;
 
 

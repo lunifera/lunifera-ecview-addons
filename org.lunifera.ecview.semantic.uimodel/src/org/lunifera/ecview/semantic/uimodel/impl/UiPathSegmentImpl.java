@@ -4,15 +4,11 @@ package org.lunifera.ecview.semantic.uimodel.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.xtext.common.types.JvmField;
-
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
 
@@ -114,6 +110,29 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 	 * @generated
 	 */
 	public UiPathSegment getPath() {
+		if (path != null && path.eIsProxy()) {
+			InternalEObject oldPath = (InternalEObject)path;
+			path = (UiPathSegment)eResolveProxy(oldPath);
+			if (path != oldPath) {
+				InternalEObject newPath = (InternalEObject)path;
+				NotificationChain msgs = oldPath.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_PATH_SEGMENT__PATH, null, null);
+				if (newPath.eInternalContainer() == null) {
+					msgs = newPath.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_PATH_SEGMENT__PATH, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelPackage.UI_PATH_SEGMENT__PATH, oldPath, path));
+			}
+		}
+		return path;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiPathSegment basicGetPath() {
 		return path;
 	}
 
@@ -177,7 +196,8 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 				if (resolve) return getJvmField();
 				return basicGetJvmField();
 			case UimodelPackage.UI_PATH_SEGMENT__PATH:
-				return getPath();
+				if (resolve) return getPath();
+				return basicGetPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

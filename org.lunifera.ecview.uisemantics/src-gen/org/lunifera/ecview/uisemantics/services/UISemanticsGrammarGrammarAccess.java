@@ -78,7 +78,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final RuleCall cImportedEPackageUxEPackageImportParserRuleCall_1_0_1_0 = (RuleCall)cImportedEPackageAssignment_1_0_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		
-		//XImportDeclaration returns UxImportDeclaration:
+		//XImportDeclaration:
 		//	"import" (static?="static" extension?="extension"? importedType=[JvmDeclaredType|QualifiedNameInStaticImport]
 		//	(wildcard?="*" | memberName=ValidID) | importedType=[JvmDeclaredType|QualifiedName] |
 		//	importedNamespace=QualifiedNameWithWildcard) | ("ePackage" importedEPackage=UxEPackageImport) ";"?;
@@ -220,18 +220,27 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cUriAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cUriUxElementURIParserRuleCall_3_0 = (RuleCall)cUriAssignment_3.eContents().get(0);
-		private final Keyword cBindingsKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cBindingContainerAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cBindingContainerUxAvailableBindingsParserRuleCall_6_0 = (RuleCall)cBindingContainerAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cBindingsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cBindingContainerAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cBindingContainerUxAvailableBindingsParserRuleCall_4_2_0 = (RuleCall)cBindingContainerAssignment_4_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cVisibilityKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Assignment cVisibilityContainerAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cVisibilityContainerUxAvailableVisibilityOptionsParserRuleCall_5_2_0 = (RuleCall)cVisibilityContainerAssignment_5_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5_3 = (Keyword)cGroup_5.eContents().get(3);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//UxElementDefinition:
-		//	"element" name=ID "{" uri=UxElementURI? "bindings" "{" bindingContainer=UxAvailableBindings "}" "}";
+		//	"element" name=ID "{" uri=UxElementURI? ("bindings" "{" bindingContainer=UxAvailableBindings "}")? ("visibility" "{"
+		//	visibilityContainer=UxAvailableVisibilityOptions "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"element" name=ID "{" uri=UxElementURI? "bindings" "{" bindingContainer=UxAvailableBindings "}" "}"
+		//"element" name=ID "{" uri=UxElementURI? ("bindings" "{" bindingContainer=UxAvailableBindings "}")? ("visibility" "{"
+		//visibilityContainer=UxAvailableVisibilityOptions "}")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"element"
@@ -252,23 +261,100 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		//UxElementURI
 		public RuleCall getUriUxElementURIParserRuleCall_3_0() { return cUriUxElementURIParserRuleCall_3_0; }
 
+		//("bindings" "{" bindingContainer=UxAvailableBindings "}")?
+		public Group getGroup_4() { return cGroup_4; }
+
 		//"bindings"
-		public Keyword getBindingsKeyword_4() { return cBindingsKeyword_4; }
+		public Keyword getBindingsKeyword_4_0() { return cBindingsKeyword_4_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
+		public Keyword getLeftCurlyBracketKeyword_4_1() { return cLeftCurlyBracketKeyword_4_1; }
 
 		//bindingContainer=UxAvailableBindings
-		public Assignment getBindingContainerAssignment_6() { return cBindingContainerAssignment_6; }
+		public Assignment getBindingContainerAssignment_4_2() { return cBindingContainerAssignment_4_2; }
 
 		//UxAvailableBindings
-		public RuleCall getBindingContainerUxAvailableBindingsParserRuleCall_6_0() { return cBindingContainerUxAvailableBindingsParserRuleCall_6_0; }
+		public RuleCall getBindingContainerUxAvailableBindingsParserRuleCall_4_2_0() { return cBindingContainerUxAvailableBindingsParserRuleCall_4_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_4_3() { return cRightCurlyBracketKeyword_4_3; }
+
+		//("visibility" "{" visibilityContainer=UxAvailableVisibilityOptions "}")?
+		public Group getGroup_5() { return cGroup_5; }
+
+		//"visibility"
+		public Keyword getVisibilityKeyword_5_0() { return cVisibilityKeyword_5_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_5_1() { return cLeftCurlyBracketKeyword_5_1; }
+
+		//visibilityContainer=UxAvailableVisibilityOptions
+		public Assignment getVisibilityContainerAssignment_5_2() { return cVisibilityContainerAssignment_5_2; }
+
+		//UxAvailableVisibilityOptions
+		public RuleCall getVisibilityContainerUxAvailableVisibilityOptionsParserRuleCall_5_2_0() { return cVisibilityContainerUxAvailableVisibilityOptionsParserRuleCall_5_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_5_3() { return cRightCurlyBracketKeyword_5_3; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+
+	public class UxAvailableVisibilityOptionsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UxAvailableVisibilityOptions");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cUxAvailableVisibilityOptionsAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cOptionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cOptionsUxVisibilityOptionParserRuleCall_1_0 = (RuleCall)cOptionsAssignment_1.eContents().get(0);
+		
+		//UxAvailableVisibilityOptions:
+		//	{UxAvailableVisibilityOptions} options+=UxVisibilityOption*;
+		public ParserRule getRule() { return rule; }
+
+		//{UxAvailableVisibilityOptions} options+=UxVisibilityOption*
+		public Group getGroup() { return cGroup; }
+
+		//{UxAvailableVisibilityOptions}
+		public Action getUxAvailableVisibilityOptionsAction_0() { return cUxAvailableVisibilityOptionsAction_0; }
+
+		//options+=UxVisibilityOption*
+		public Assignment getOptionsAssignment_1() { return cOptionsAssignment_1; }
+
+		//UxVisibilityOption
+		public RuleCall getOptionsUxVisibilityOptionParserRuleCall_1_0() { return cOptionsUxVisibilityOptionParserRuleCall_1_0; }
+	}
+
+	public class UxVisibilityOptionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UxVisibilityOption");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cEndpointKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cJvmTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_2_0 = (RuleCall)cJvmTypeAssignment_2.eContents().get(0);
+		
+		//UxVisibilityOption:
+		//	"endpoint" name=ID jvmType=JvmTypeReference;
+		public ParserRule getRule() { return rule; }
+
+		//"endpoint" name=ID jvmType=JvmTypeReference
+		public Group getGroup() { return cGroup; }
+
+		//"endpoint"
+		public Keyword getEndpointKeyword_0() { return cEndpointKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//jvmType=JvmTypeReference
+		public Assignment getJvmTypeAssignment_2() { return cJvmTypeAssignment_2; }
+
+		//JvmTypeReference
+		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_2_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_2_0; }
 	}
 
 	public class UxElementURIElements extends AbstractParserRuleElementFinder {
@@ -317,18 +403,26 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 
 	public class UxAvailableBindingsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UxAvailableBindings");
-		private final Assignment cBindingsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cBindingsUxEndpointDefParserRuleCall_0 = (RuleCall)cBindingsAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cUxAvailableBindingsAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cBindingsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cBindingsUxEndpointDefParserRuleCall_1_0 = (RuleCall)cBindingsAssignment_1.eContents().get(0);
 		
 		//UxAvailableBindings:
-		//	bindings+=UxEndpointDef*;
+		//	{UxAvailableBindings} bindings+=UxEndpointDef*;
 		public ParserRule getRule() { return rule; }
 
+		//{UxAvailableBindings} bindings+=UxEndpointDef*
+		public Group getGroup() { return cGroup; }
+
+		//{UxAvailableBindings}
+		public Action getUxAvailableBindingsAction_0() { return cUxAvailableBindingsAction_0; }
+
 		//bindings+=UxEndpointDef*
-		public Assignment getBindingsAssignment() { return cBindingsAssignment; }
+		public Assignment getBindingsAssignment_1() { return cBindingsAssignment_1; }
 
 		//UxEndpointDef
-		public RuleCall getBindingsUxEndpointDefParserRuleCall_0() { return cBindingsUxEndpointDefParserRuleCall_0; }
+		public RuleCall getBindingsUxEndpointDefParserRuleCall_1_0() { return cBindingsUxEndpointDefParserRuleCall_1_0; }
 	}
 
 	public class UxEndpointDefElements extends AbstractParserRuleElementFinder {
@@ -464,6 +558,8 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	private XImportDeclarationElements pXImportDeclaration;
 	private UxEPackageImportElements pUxEPackageImport;
 	private UxElementDefinitionElements pUxElementDefinition;
+	private UxAvailableVisibilityOptionsElements pUxAvailableVisibilityOptions;
+	private UxVisibilityOptionElements pUxVisibilityOption;
 	private UxElementURIElements pUxElementURI;
 	private UxAvailableBindingsElements pUxAvailableBindings;
 	private UxEndpointDefElements pUxEndpointDef;
@@ -519,7 +615,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		return getUxModelAccess().getRule();
 	}
 
-	//XImportDeclaration returns UxImportDeclaration:
+	//XImportDeclaration:
 	//	"import" (static?="static" extension?="extension"? importedType=[JvmDeclaredType|QualifiedNameInStaticImport]
 	//	(wildcard?="*" | memberName=ValidID) | importedType=[JvmDeclaredType|QualifiedName] |
 	//	importedNamespace=QualifiedNameWithWildcard) | ("ePackage" importedEPackage=UxEPackageImport) ";"?;
@@ -542,13 +638,34 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	}
 
 	//UxElementDefinition:
-	//	"element" name=ID "{" uri=UxElementURI? "bindings" "{" bindingContainer=UxAvailableBindings "}" "}";
+	//	"element" name=ID "{" uri=UxElementURI? ("bindings" "{" bindingContainer=UxAvailableBindings "}")? ("visibility" "{"
+	//	visibilityContainer=UxAvailableVisibilityOptions "}")? "}";
 	public UxElementDefinitionElements getUxElementDefinitionAccess() {
 		return (pUxElementDefinition != null) ? pUxElementDefinition : (pUxElementDefinition = new UxElementDefinitionElements());
 	}
 	
 	public ParserRule getUxElementDefinitionRule() {
 		return getUxElementDefinitionAccess().getRule();
+	}
+
+	//UxAvailableVisibilityOptions:
+	//	{UxAvailableVisibilityOptions} options+=UxVisibilityOption*;
+	public UxAvailableVisibilityOptionsElements getUxAvailableVisibilityOptionsAccess() {
+		return (pUxAvailableVisibilityOptions != null) ? pUxAvailableVisibilityOptions : (pUxAvailableVisibilityOptions = new UxAvailableVisibilityOptionsElements());
+	}
+	
+	public ParserRule getUxAvailableVisibilityOptionsRule() {
+		return getUxAvailableVisibilityOptionsAccess().getRule();
+	}
+
+	//UxVisibilityOption:
+	//	"endpoint" name=ID jvmType=JvmTypeReference;
+	public UxVisibilityOptionElements getUxVisibilityOptionAccess() {
+		return (pUxVisibilityOption != null) ? pUxVisibilityOption : (pUxVisibilityOption = new UxVisibilityOptionElements());
+	}
+	
+	public ParserRule getUxVisibilityOptionRule() {
+		return getUxVisibilityOptionAccess().getRule();
 	}
 
 	//UxElementURI:
@@ -562,7 +679,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	}
 
 	//UxAvailableBindings:
-	//	bindings+=UxEndpointDef*;
+	//	{UxAvailableBindings} bindings+=UxEndpointDef*;
 	public UxAvailableBindingsElements getUxAvailableBindingsAccess() {
 		return (pUxAvailableBindings != null) ? pUxAvailableBindings : (pUxAvailableBindings = new UxAvailableBindingsElements());
 	}

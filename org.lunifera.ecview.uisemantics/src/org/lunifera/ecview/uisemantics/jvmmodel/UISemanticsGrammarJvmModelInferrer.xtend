@@ -6,7 +6,7 @@ import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor.IPostIndexingInitializing
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import org.lunifera.ecview.uisemantics.uISemanticsGrammar.UxModel
+import org.lunifera.ecview.semantic.uisemantics.UxModel
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
