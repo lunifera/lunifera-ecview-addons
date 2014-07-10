@@ -78,20 +78,135 @@ ruleUiModel returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiModelAccess().getViewSetsUiViewSetParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getUiModelAccess().getRootsUiRootElementsParserRuleCall_0()); 
 	    }
-		lv_viewSets_0_0=ruleUiViewSet		{
+		lv_roots_0_0=ruleUiRootElements		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiModelRule());
 	        }
        		add(
        			$current, 
-       			"viewSets",
-        		lv_viewSets_0_0, 
-        		"UiViewSet");
+       			"roots",
+        		lv_roots_0_0, 
+        		"UiRootElements");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*
+;
+
+
+
+
+
+// Entry rule entryRuleUiRootElements
+entryRuleUiRootElements returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiRootElementsRule()); }
+	 iv_ruleUiRootElements=ruleUiRootElements 
+	 { $current=$iv_ruleUiRootElements.current; } 
+	 EOF 
+;
+
+// Rule UiRootElements
+ruleUiRootElements returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getUiRootElementsAccess().getUiViewParserRuleCall_0()); 
+    }
+    this_UiView_0=ruleUiView
+    { 
+        $current = $this_UiView_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiRootElementsAccess().getUiViewSetParserRuleCall_1()); 
+    }
+    this_UiViewSet_1=ruleUiViewSet
+    { 
+        $current = $this_UiViewSet_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiRootElementsAccess().getUiVisibilityProcessorParserRuleCall_2()); 
+    }
+    this_UiVisibilityProcessor_2=ruleUiVisibilityProcessor
+    { 
+        $current = $this_UiVisibilityProcessor_2.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleUiVisibilityProcessor
+entryRuleUiVisibilityProcessor returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiVisibilityProcessorRule()); }
+	 iv_ruleUiVisibilityProcessor=ruleUiVisibilityProcessor 
+	 { $current=$iv_ruleUiVisibilityProcessor.current; } 
+	 EOF 
+;
+
+// Rule UiVisibilityProcessor
+ruleUiVisibilityProcessor returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='visibilityProcessor' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getUiVisibilityProcessorAccess().getVisibilityProcessorKeyword_0());
+    }
+(
+(
+		lv_name_1_0=RULE_ID
+		{
+			newLeafNode(lv_name_1_0, grammarAccess.getUiVisibilityProcessorAccess().getNameIDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiVisibilityProcessorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"ID");
+	    }
+
+)
+)	otherlv_2='{' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getUiVisibilityProcessorAccess().getLeftCurlyBracketKeyword_2());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiVisibilityProcessorAccess().getBindingAliasUiBindingEndpointAliasParserRuleCall_3_0()); 
+	    }
+		lv_bindingAlias_3_0=ruleUiBindingEndpointAlias		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiVisibilityProcessorRule());
+	        }
+       		add(
+       			$current, 
+       			"bindingAlias",
+        		lv_bindingAlias_3_0, 
+        		"UiBindingEndpointAlias");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -99,22 +214,170 @@ ruleUiModel returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiModelAccess().getViewsUiViewParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getUiVisibilityProcessorAccess().getChangeTriggerUiChangeTriggerParserRuleCall_4_0()); 
 	    }
-		lv_views_1_0=ruleUiView		{
+		lv_changeTrigger_4_0=ruleUiChangeTrigger		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getUiModelRule());
+	            $current = createModelElementForParent(grammarAccess.getUiVisibilityProcessorRule());
 	        }
        		add(
        			$current, 
-       			"views",
-        		lv_views_1_0, 
-        		"UiView");
+       			"changeTrigger",
+        		lv_changeTrigger_4_0, 
+        		"UiChangeTrigger");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*)
+)*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiVisibilityProcessorAccess().getRuleUiVisibilityRuleParserRuleCall_5_0()); 
+	    }
+		lv_rule_5_0=ruleUiVisibilityRule		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiVisibilityProcessorRule());
+	        }
+       		set(
+       			$current, 
+       			"rule",
+        		lv_rule_5_0, 
+        		"UiVisibilityRule");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_6='}' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getUiVisibilityProcessorAccess().getRightCurlyBracketKeyword_6());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleUiChangeTrigger
+entryRuleUiChangeTrigger returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiChangeTriggerRule()); }
+	 iv_ruleUiChangeTrigger=ruleUiChangeTrigger 
+	 { $current=$iv_ruleUiChangeTrigger.current; } 
+	 EOF 
+;
+
+// Rule UiChangeTrigger
+ruleUiChangeTrigger returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='trigger' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getUiChangeTriggerAccess().getTriggerKeyword_0());
+    }
+((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiChangeTriggerAccess().getEndpointUiBindingEndpointDefParserRuleCall_1_0_0()); 
+	    }
+		lv_endpoint_1_0=ruleUiBindingEndpointDef		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiChangeTriggerRule());
+	        }
+       		set(
+       			$current, 
+       			"endpoint",
+        		lv_endpoint_1_0, 
+        		"UiBindingEndpointDef");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+    |(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiChangeTriggerRule());
+	        }
+        }
+	otherlv_2=RULE_ID
+	{
+		newLeafNode(otherlv_2, grammarAccess.getUiChangeTriggerAccess().getEndpointAliasUiBindingEndpointAliasCrossReference_1_1_0()); 
+	}
+
+)
+)))
+;
+
+
+
+
+
+// Entry rule entryRuleUiVisibilityRule
+entryRuleUiVisibilityRule returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiVisibilityRuleRule()); }
+	 iv_ruleUiVisibilityRule=ruleUiVisibilityRule 
+	 { $current=$iv_ruleUiVisibilityRule.current; } 
+	 EOF 
+;
+
+// Rule UiVisibilityRule
+ruleUiVisibilityRule returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+
+    { 
+        newCompositeNode(grammarAccess.getUiVisibilityRuleAccess().getUiXbaseVisibilityRuleParserRuleCall()); 
+    }
+    this_UiXbaseVisibilityRule_0=ruleUiXbaseVisibilityRule
+    { 
+        $current = $this_UiXbaseVisibilityRule_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+;
+
+
+
+
+
+// Entry rule entryRuleUiXbaseVisibilityRule
+entryRuleUiXbaseVisibilityRule returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiXbaseVisibilityRuleRule()); }
+	 iv_ruleUiXbaseVisibilityRule=ruleUiXbaseVisibilityRule 
+	 { $current=$iv_ruleUiXbaseVisibilityRule.current; } 
+	 EOF 
+;
+
+// Rule UiXbaseVisibilityRule
+ruleUiXbaseVisibilityRule returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUiXbaseVisibilityRuleAccess().getUiXbaseVisibilityRuleAction_0(),
+            $current);
+    }
+)	otherlv_1='rule' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiXbaseVisibilityRuleAccess().getRuleKeyword_1());
+    }
+	otherlv_2='{' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getUiXbaseVisibilityRuleAccess().getLeftCurlyBracketKeyword_2());
+    }
+	otherlv_3='}' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getUiXbaseVisibilityRuleAccess().getRightCurlyBracketKeyword_3());
+    }
+)
 ;
 
 
@@ -157,55 +420,63 @@ ruleUiViewSet returns [EObject current=null]
 	    }
 
 )
-)((	otherlv_2='beanslots' 
+)	otherlv_2='{' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getUiViewSetAccess().getBeanslotsKeyword_2_0_0());
+    	newLeafNode(otherlv_2, grammarAccess.getUiViewSetAccess().getLeftCurlyBracketKeyword_2());
     }
-	otherlv_3='{' 
+((	otherlv_3='beanslots' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getUiViewSetAccess().getLeftCurlyBracketKeyword_2_0_1());
+    	newLeafNode(otherlv_3, grammarAccess.getUiViewSetAccess().getBeanslotsKeyword_3_0_0());
+    }
+	otherlv_4='{' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getUiViewSetAccess().getLeftCurlyBracketKeyword_3_0_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiViewSetAccess().getBeanSlotsUiBeanSlotParserRuleCall_2_0_2_0()); 
+	        newCompositeNode(grammarAccess.getUiViewSetAccess().getBeanSlotsUiBeanSlotParserRuleCall_3_0_2_0()); 
 	    }
-		lv_beanSlots_4_0=ruleUiBeanSlot		{
+		lv_beanSlots_5_0=ruleUiBeanSlot		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiViewSetRule());
 	        }
        		add(
        			$current, 
        			"beanSlots",
-        		lv_beanSlots_4_0, 
+        		lv_beanSlots_5_0, 
         		"UiBeanSlot");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_5='}' 
+)*	otherlv_6='}' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getUiViewSetAccess().getRightCurlyBracketKeyword_2_0_3());
+    	newLeafNode(otherlv_6, grammarAccess.getUiViewSetAccess().getRightCurlyBracketKeyword_3_0_3());
     }
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiViewSetAccess().getBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_2_1_0()); 
+	        newCompositeNode(grammarAccess.getUiViewSetAccess().getBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_3_1_0()); 
 	    }
-		lv_bindingEndpointAlias_6_0=ruleUiBindingEndpointAlias		{
+		lv_bindingEndpointAlias_7_0=ruleUiBindingEndpointAlias		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiViewSetRule());
 	        }
        		add(
        			$current, 
        			"bindingEndpointAlias",
-        		lv_bindingEndpointAlias_6_0, 
+        		lv_bindingEndpointAlias_7_0, 
         		"UiBindingEndpointAlias");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*))
+)*)	otherlv_8='}' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getUiViewSetAccess().getRightCurlyBracketKeyword_4());
+    }
+)
 ;
 
 
@@ -488,7 +759,7 @@ ruleUiBindingEndpointDef returns [EObject current=null]
         }
 	otherlv_0=RULE_ID
 	{
-		newLeafNode(otherlv_0, grammarAccess.getUiBindingEndpointDefAccess().getBindableYBindableCrossReference_0_0()); 
+		newLeafNode(otherlv_0, grammarAccess.getUiBindingEndpointDefAccess().getBindableYElementCrossReference_0_0()); 
 	}
 
 )
@@ -660,75 +931,122 @@ ruleUiIDEView returns [EObject current=null]
     {
     	newLeafNode(otherlv_2, grammarAccess.getUiIDEViewAccess().getLeftCurlyBracketKeyword_2());
     }
+(	otherlv_3='viewset' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getUiIDEViewAccess().getViewsetKeyword_3_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiIDEViewRule());
+	        }
+        }
+	otherlv_4=RULE_ID
+	{
+		newLeafNode(otherlv_4, grammarAccess.getUiIDEViewAccess().getRootUiViewSetCrossReference_3_1_0()); 
+	}
+
+)
+))?(	otherlv_5='beanslots' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getUiIDEViewAccess().getBeanslotsKeyword_4_0());
+    }
+	otherlv_6='{' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getUiIDEViewAccess().getLeftCurlyBracketKeyword_4_1());
+    }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiIDEViewAccess().getContentUiLayoutParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getUiIDEViewAccess().getBeanSlotsUiBeanSlotParserRuleCall_4_2_0()); 
 	    }
-		lv_content_3_0=ruleUiLayout		{
+		lv_beanSlots_7_0=ruleUiBeanSlot		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiIDEViewRule());
+	        }
+       		add(
+       			$current, 
+       			"beanSlots",
+        		lv_beanSlots_7_0, 
+        		"UiBeanSlot");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_8='}' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getUiIDEViewAccess().getRightCurlyBracketKeyword_4_3());
+    }
+)?(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiIDEViewAccess().getContentUiLayoutParserRuleCall_5_0()); 
+	    }
+		lv_content_9_0=ruleUiLayout		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiIDEViewRule());
 	        }
        		set(
        			$current, 
        			"content",
-        		lv_content_3_0, 
+        		lv_content_9_0, 
         		"UiLayout");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?(	otherlv_4='bindingAlias' 
+)?(	otherlv_10='bindingAlias' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getUiIDEViewAccess().getBindingAliasKeyword_4_0());
+    	newLeafNode(otherlv_10, grammarAccess.getUiIDEViewAccess().getBindingAliasKeyword_6_0());
     }
-	otherlv_5='{' 
+	otherlv_11='{' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getUiIDEViewAccess().getLeftCurlyBracketKeyword_4_1());
+    	newLeafNode(otherlv_11, grammarAccess.getUiIDEViewAccess().getLeftCurlyBracketKeyword_6_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiIDEViewAccess().getBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_4_2_0()); 
+	        newCompositeNode(grammarAccess.getUiIDEViewAccess().getBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_6_2_0()); 
 	    }
-		lv_bindingEndpointAlias_6_0=ruleUiBindingEndpointAlias		{
+		lv_bindingEndpointAlias_12_0=ruleUiBindingEndpointAlias		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiIDEViewRule());
 	        }
        		add(
        			$current, 
        			"bindingEndpointAlias",
-        		lv_bindingEndpointAlias_6_0, 
+        		lv_bindingEndpointAlias_12_0, 
         		"UiBindingEndpointAlias");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_7='}' 
+)*	otherlv_13='}' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getUiIDEViewAccess().getRightCurlyBracketKeyword_4_3());
+    	newLeafNode(otherlv_13, grammarAccess.getUiIDEViewAccess().getRightCurlyBracketKeyword_6_3());
     }
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiIDEViewAccess().getBindingsUiBindingParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getUiIDEViewAccess().getBindingsUiBindingParserRuleCall_7_0()); 
 	    }
-		lv_bindings_8_0=ruleUiBinding		{
+		lv_bindings_14_0=ruleUiBinding		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiIDEViewRule());
 	        }
        		add(
        			$current, 
        			"bindings",
-        		lv_bindings_8_0, 
+        		lv_bindings_14_0, 
         		"UiBinding");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_9='}' 
+)*	otherlv_15='}' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getUiIDEViewAccess().getRightCurlyBracketKeyword_6());
+    	newLeafNode(otherlv_15, grammarAccess.getUiIDEViewAccess().getRightCurlyBracketKeyword_8());
     }
 )
 ;
@@ -1233,116 +1551,26 @@ ruleUiTextField returns [EObject current=null]
     	newLeafNode(otherlv_3, grammarAccess.getUiTextFieldAccess().getLeftCurlyBracketKeyword_3_0());
     }
 (
-
 (
-	{ 
-	  getUnorderedGroupHelper().enter(grammarAccess.getUiTextFieldAccess().getUnorderedGroup_3_1());
-	}
-	(
-		(
-
-			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getUiTextFieldAccess().getUnorderedGroup_3_1(), 0)}?=>(
-					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getUiTextFieldAccess().getUnorderedGroup_3_1(), 0);
-	 				}
-					({true}?=>(	otherlv_5='datatype' 
-    {
-    	newLeafNode(otherlv_5, grammarAccess.getUiTextFieldAccess().getDatatypeKeyword_3_1_0_0());
-    }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getUiTextFieldRule());
-	        }
-        }
-	otherlv_6=RULE_ID
-	{
-		newLeafNode(otherlv_6, grammarAccess.getUiTextFieldAccess().getDatatypeYTextDatatypeCrossReference_3_1_0_1_0()); 
-	}
-
-)
-)))
-					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getUiTextFieldAccess().getUnorderedGroup_3_1());
-	 				}
- 				)
-			)  |
-
-			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getUiTextFieldAccess().getUnorderedGroup_3_1(), 1)}?=>(
-					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getUiTextFieldAccess().getUnorderedGroup_3_1(), 1);
-	 				}
-					({true}?=>(	otherlv_7='datadescription' 
-    {
-    	newLeafNode(otherlv_7, grammarAccess.getUiTextFieldAccess().getDatadescriptionKeyword_3_1_1_0());
-    }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getUiTextFieldRule());
-	        }
-        }
-	otherlv_8=RULE_ID
-	{
-		newLeafNode(otherlv_8, grammarAccess.getUiTextFieldAccess().getDatadescriptionYDatadescriptionCrossReference_3_1_1_1_0()); 
-	}
-
-)
-)))
-					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getUiTextFieldAccess().getUnorderedGroup_3_1());
-	 				}
- 				)
-			)  |
-
-			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getUiTextFieldAccess().getUnorderedGroup_3_1(), 2)}?=>(
-					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getUiTextFieldAccess().getUnorderedGroup_3_1(), 2);
-	 				}
-					({true}?=>(	otherlv_9='value' 
-    {
-    	newLeafNode(otherlv_9, grammarAccess.getUiTextFieldAccess().getValueKeyword_3_1_2_0());
-    }
-(
-(
-		lv_value_10_0=RULE_ID
-		{
-			newLeafNode(lv_value_10_0, grammarAccess.getUiTextFieldAccess().getValueIDTerminalRuleCall_3_1_2_1_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getUiTextFieldAccess().getValidatorsUiValidatorParserRuleCall_3_1_0()); 
+	    }
+		lv_validators_4_0=ruleUiValidator		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getUiTextFieldRule());
+	            $current = createModelElementForParent(grammarAccess.getUiTextFieldRule());
 	        }
-       		setWithLastConsumed(
+       		add(
        			$current, 
-       			"value",
-        		lv_value_10_0, 
-        		"ID");
+       			"validators",
+        		lv_validators_4_0, 
+        		"UiValidator");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)))
-					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getUiTextFieldAccess().getUnorderedGroup_3_1());
-	 				}
- 				)
-			)  
-
-		)*	
-	)
-)
-	{ 
-	  getUnorderedGroupHelper().leave(grammarAccess.getUiTextFieldAccess().getUnorderedGroup_3_1());
-	}
-
-)	otherlv_11='}' 
+)*	otherlv_5='}' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getUiTextFieldAccess().getRightCurlyBracketKeyword_3_2());
+    	newLeafNode(otherlv_5, grammarAccess.getUiTextFieldAccess().getRightCurlyBracketKeyword_3_2());
     }
 )?)
 ;
@@ -1503,10 +1731,228 @@ ruleUiField returns [EObject current=null]
         $current = $this_UiList_1.current; 
         afterParserOrEnumRuleCall();
     }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiFieldAccess().getUiNumericFieldParserRuleCall_2()); 
+    }
+    this_UiNumericField_2=ruleUiNumericField
+    { 
+        $current = $this_UiNumericField_2.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiFieldAccess().getUiCheckBoxParserRuleCall_3()); 
+    }
+    this_UiCheckBox_3=ruleUiCheckBox
+    { 
+        $current = $this_UiCheckBox_3.current; 
+        afterParserOrEnumRuleCall();
+    }
 )
 ;
 
 
+
+
+
+// Entry rule entryRuleUiNumericField
+entryRuleUiNumericField returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiNumericFieldRule()); }
+	 iv_ruleUiNumericField=ruleUiNumericField 
+	 { $current=$iv_ruleUiNumericField.current; } 
+	 EOF 
+;
+
+// Rule UiNumericField
+ruleUiNumericField returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUiNumericFieldAccess().getUiNumericFieldAction_0(),
+            $current);
+    }
+)	otherlv_1='numericField' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiNumericFieldAccess().getNumericFieldKeyword_1());
+    }
+(
+(
+		lv_name_2_0=RULE_ID
+		{
+			newLeafNode(lv_name_2_0, grammarAccess.getUiNumericFieldAccess().getNameIDTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiNumericFieldRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_2_0, 
+        		"ID");
+	    }
+
+)
+)?(	otherlv_3='{' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getUiNumericFieldAccess().getLeftCurlyBracketKeyword_3_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiNumericFieldAccess().getValidatorsUiValidatorParserRuleCall_3_1_0()); 
+	    }
+		lv_validators_4_0=ruleUiValidator		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiNumericFieldRule());
+	        }
+       		add(
+       			$current, 
+       			"validators",
+        		lv_validators_4_0, 
+        		"UiValidator");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_5='}' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getUiNumericFieldAccess().getRightCurlyBracketKeyword_3_2());
+    }
+)?)
+;
+
+
+
+
+
+// Entry rule entryRuleUiCheckBox
+entryRuleUiCheckBox returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiCheckBoxRule()); }
+	 iv_ruleUiCheckBox=ruleUiCheckBox 
+	 { $current=$iv_ruleUiCheckBox.current; } 
+	 EOF 
+;
+
+// Rule UiCheckBox
+ruleUiCheckBox returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUiCheckBoxAccess().getUiCheckBoxAction_0(),
+            $current);
+    }
+)	otherlv_1='checkbox' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiCheckBoxAccess().getCheckboxKeyword_1());
+    }
+(
+(
+		lv_name_2_0=RULE_ID
+		{
+			newLeafNode(lv_name_2_0, grammarAccess.getUiCheckBoxAccess().getNameIDTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiCheckBoxRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_2_0, 
+        		"ID");
+	    }
+
+)
+)?(	otherlv_3='{' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getUiCheckBoxAccess().getLeftCurlyBracketKeyword_3_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiCheckBoxAccess().getValidatorsUiValidatorParserRuleCall_3_1_0()); 
+	    }
+		lv_validators_4_0=ruleUiValidator		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiCheckBoxRule());
+	        }
+       		add(
+       			$current, 
+       			"validators",
+        		lv_validators_4_0, 
+        		"UiValidator");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_5='}' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getUiCheckBoxAccess().getRightCurlyBracketKeyword_3_2());
+    }
+)?)
+;
+
+
+
+
+
+// Entry rule entryRuleUiValidator
+entryRuleUiValidator returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiValidatorRule()); }
+	 iv_ruleUiValidator=ruleUiValidator 
+	 { $current=$iv_ruleUiValidator.current; } 
+	 EOF 
+;
+
+// Rule UiValidator
+ruleUiValidator returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getUiValidatorAccess().getUiMaxLengthValidatorParserRuleCall_0()); 
+    }
+    this_UiMaxLengthValidator_0=ruleUiMaxLengthValidator
+    { 
+        $current = $this_UiMaxLengthValidator_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiValidatorAccess().getUiMinLengthValidatorParserRuleCall_1()); 
+    }
+    this_UiMinLengthValidator_1=ruleUiMinLengthValidator
+    { 
+        $current = $this_UiMinLengthValidator_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiValidatorAccess().getUiRegexpValidatorParserRuleCall_2()); 
+    }
+    this_UiRegexpValidator_2=ruleUiRegexpValidator
+    { 
+        $current = $this_UiRegexpValidator_2.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
+;
 
 
 
@@ -1529,14 +1975,54 @@ ruleUiMaxLengthValidator returns [EObject current=null]
 ((
     {
         $current = forceCreateModelElement(
-            grammarAccess.getUiMaxLengthValidatorAccess().getYValidatorAction_0(),
+            grammarAccess.getUiMaxLengthValidatorAccess().getUiMaxLengthValidatorAction_0(),
             $current);
     }
-)	otherlv_1='max' 
+)	otherlv_1='maxLengthValidator' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getUiMaxLengthValidatorAccess().getMaxKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getUiMaxLengthValidatorAccess().getMaxLengthValidatorKeyword_1());
     }
+(
+(
+		lv_name_2_0=RULE_ID
+		{
+			newLeafNode(lv_name_2_0, grammarAccess.getUiMaxLengthValidatorAccess().getNameIDTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiMaxLengthValidatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_2_0, 
+        		"ID");
+	    }
+
 )
+)(	otherlv_3='maxLength' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getUiMaxLengthValidatorAccess().getMaxLengthKeyword_3_0());
+    }
+(
+(
+		lv_maxLength_4_0=RULE_INT
+		{
+			newLeafNode(lv_maxLength_4_0, grammarAccess.getUiMaxLengthValidatorAccess().getMaxLengthINTTerminalRuleCall_3_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiMaxLengthValidatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"maxLength",
+        		lv_maxLength_4_0, 
+        		"INT");
+	    }
+
+)
+))?)
 ;
 
 
@@ -1560,14 +2046,125 @@ ruleUiMinLengthValidator returns [EObject current=null]
 ((
     {
         $current = forceCreateModelElement(
-            grammarAccess.getUiMinLengthValidatorAccess().getYValidatorAction_0(),
+            grammarAccess.getUiMinLengthValidatorAccess().getUiMinLengthValidatorAction_0(),
             $current);
     }
-)	otherlv_1='min' 
+)	otherlv_1='minLengthValidator' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getUiMinLengthValidatorAccess().getMinKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getUiMinLengthValidatorAccess().getMinLengthValidatorKeyword_1());
     }
+(
+(
+		lv_name_2_0=RULE_ID
+		{
+			newLeafNode(lv_name_2_0, grammarAccess.getUiMinLengthValidatorAccess().getNameIDTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiMinLengthValidatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_2_0, 
+        		"ID");
+	    }
+
 )
+)(	otherlv_3='minLength' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getUiMinLengthValidatorAccess().getMinLengthKeyword_3_0());
+    }
+(
+(
+		lv_minLength_4_0=RULE_INT
+		{
+			newLeafNode(lv_minLength_4_0, grammarAccess.getUiMinLengthValidatorAccess().getMinLengthINTTerminalRuleCall_3_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiMinLengthValidatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"minLength",
+        		lv_minLength_4_0, 
+        		"INT");
+	    }
+
+)
+))?)
+;
+
+
+
+
+
+// Entry rule entryRuleUiRegexpValidator
+entryRuleUiRegexpValidator returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiRegexpValidatorRule()); }
+	 iv_ruleUiRegexpValidator=ruleUiRegexpValidator 
+	 { $current=$iv_ruleUiRegexpValidator.current; } 
+	 EOF 
+;
+
+// Rule UiRegexpValidator
+ruleUiRegexpValidator returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUiRegexpValidatorAccess().getUiRegexpValidatorAction_0(),
+            $current);
+    }
+)	otherlv_1='regexValidator' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiRegexpValidatorAccess().getRegexValidatorKeyword_1());
+    }
+(
+(
+		lv_name_2_0=RULE_ID
+		{
+			newLeafNode(lv_name_2_0, grammarAccess.getUiRegexpValidatorAccess().getNameIDTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiRegexpValidatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_2_0, 
+        		"ID");
+	    }
+
+)
+)(	otherlv_3='regex' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getUiRegexpValidatorAccess().getRegexKeyword_3_0());
+    }
+(
+(
+		lv_regExpression_4_0=RULE_STRING
+		{
+			newLeafNode(lv_regExpression_4_0, grammarAccess.getUiRegexpValidatorAccess().getRegExpressionSTRINGTerminalRuleCall_3_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiRegexpValidatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"regExpression",
+        		lv_regExpression_4_0, 
+        		"STRING");
+	    }
+
+)
+))?)
 ;
 
 

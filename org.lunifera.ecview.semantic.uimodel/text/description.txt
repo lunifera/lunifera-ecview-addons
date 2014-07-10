@@ -11,45 +11,61 @@ Contains packages:
 
 Package uiextension <http://www.lunifera.org/ecview/dsl/UIModel/extension>
 
-  Class UiGridLayoutAssigment
+  Class UiGridLayoutAssigment -> UiModelElement
     Reference element : YEmbeddable
     Attribute alignment : YAlignment
     Reference from : UiPoint
     Reference to : UiPoint
 
-  Class UiGridLayout -> YGridLayout
+  Class UiGridLayout -> YGridLayout, UiModelElement
     Reference contents : UiGridLayoutAssigment<<0..*>>
 
-  Class UiTextField -> YTextField
+  Class UiTextField -> YTextField, UiModelElement
 
-  Class UiList -> YList
+  Class UiList -> YList, UiModelElement
+
+  Class UiNumericField -> YNumericField, UiModelElement
+
+  Class UiCheckBox -> YCheckBox, UiModelElement
+
+  Class UiVisibilityProcessor -> YRuledVisibilityProcessor, UiRootElements, UiModelElement
+    Reference bindingAlias : UiBindingEndpointAlias<<0..*>>
+    Reference changeTrigger : UiChangeTrigger<<0..*>>
+
+  Class UiChangeTrigger -> UiModelElement
+    Reference endpoint : UiBindingEndpointDef
+    Reference endpointAlias : UiBindingEndpointAlias
+
+  Class UiVisibilityRule -> YVisibilityRule, UiModelElement
+
+  Class UiXbaseVisibilityRule -> UiVisibilityRule
+    Reference expression : XExpression
 
 Package uimodel <http://www.lunifera.org/ecview/dsl/UIModel/core>
 
-  Class UiModel
-    Reference viewSets : UiViewSet<<0..*>>
-    Reference views : UiView<<0..*>>
+  Class UiModel -> UiModelElement
+    Reference roots : UiRootElements<<0..*>>
 
-  Class UiView -> YView
+  Class UiView -> YView, UiRootElements, UiModelElement
 
-  Class UiIDEView -> UiView
+  Class UiIDEView -> UiView, UiModelElement
     Reference bindings : UiBinding<<0..*>>
     Reference bindingEndpointAlias : UiBindingEndpointAlias<<0..*>>
 
-  Class UiPoint
+  Class UiPoint -> UiModelElement
     Attribute x : EInt
     Attribute y : EInt
 
-  Class UiBindingEndpointAlias
+  Class UiBindingEndpointAlias -> UiModelElement
     Attribute alias : EString<<1..1>>
     Reference endpoint : UiBindingEndpointDef<<1..1>>
 
-  Class UiBindingEndpointDef
-    Reference bindable : YBindable
+  Class UiBindingEndpointDef -> UiModelElement
+    Reference bindable : YElement
     Reference endpoint : UxEndpointDef
     Reference path : UiPathSegment
 
-  Class UiBinding
+  Class UiBinding -> UiModelElement
     Reference source : UiBindingEndpointDef
     Reference sourceAlias : UiBindingEndpointAlias
     Attribute targetToSource : EBoolean
@@ -57,12 +73,22 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/UIModel/core>
     Reference target : UiBindingEndpointDef
     Reference targetAlias : UiBindingEndpointAlias
 
-  Class UiPathSegment
+  Class UiPathSegment -> UiModelElement
     Reference jvmField : JvmField
     Reference path : UiPathSegment
 
-  Class UiBeanSlot -> YBeanSlot
+  Class UiBeanSlot -> YBeanSlot, UiModelElement
     Reference jvmType : JvmTypeReference
 
-  Class UiViewSet -> YViewSet
+  Class UiViewSet -> YViewSet, UiRootElements
     Reference bindingEndpointAlias : UiBindingEndpointAlias<<0..*>>
+
+  Class UiRootElements -> UiModel
+
+  Class UiModelElement
+
+  Class UiMaxLengthValidator -> YMaxLengthValidator, UiModelElement
+
+  Class UiMinLengthValidator -> YMinLengthValidator, UiModelElement
+
+  Class UiRegexpValidator -> YRegexpValidator, UiModelElement

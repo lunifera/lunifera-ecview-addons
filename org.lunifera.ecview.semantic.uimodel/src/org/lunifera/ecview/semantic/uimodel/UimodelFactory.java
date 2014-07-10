@@ -112,6 +112,33 @@ public interface UimodelFactory extends EFactory {
 	UiViewSet createUiViewSet();
 
 	/**
+	 * Returns a new object of class '<em>Ui Max Length Validator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Max Length Validator</em>'.
+	 * @generated
+	 */
+	UiMaxLengthValidator createUiMaxLengthValidator();
+
+	/**
+	 * Returns a new object of class '<em>Ui Min Length Validator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Min Length Validator</em>'.
+	 * @generated
+	 */
+	UiMinLengthValidator createUiMinLengthValidator();
+
+	/**
+	 * Returns a new object of class '<em>Ui Regexp Validator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Regexp Validator</em>'.
+	 * @generated
+	 */
+	UiRegexpValidator createUiRegexpValidator();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

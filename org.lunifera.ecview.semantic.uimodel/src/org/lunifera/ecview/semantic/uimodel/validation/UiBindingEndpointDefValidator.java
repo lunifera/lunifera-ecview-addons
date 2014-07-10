@@ -6,6 +6,7 @@ package org.lunifera.ecview.semantic.uimodel.validation;
 
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
@@ -18,6 +19,8 @@ import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
  */
 public interface UiBindingEndpointDefValidator {
 	boolean validate();
+
+	boolean validateBindable(YElement value);
 
 	boolean validateBindable(YBindable value);
 	boolean validateEndpoint(UxEndpointDef value);

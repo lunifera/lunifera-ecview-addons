@@ -21,7 +21,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
  * @model
  * @generated
  */
-public interface UiViewSet extends YViewSet {
+public interface UiViewSet extends YViewSet, UiRootElements {
 	/**
 	 * Returns the value of the '<em><b>Binding Endpoint Alias</b></em>' containment reference list.
 	 * The list contents are of type {@link org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias}.

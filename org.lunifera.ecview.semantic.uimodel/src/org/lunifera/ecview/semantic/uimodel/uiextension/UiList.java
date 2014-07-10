@@ -3,6 +3,7 @@
 package org.lunifera.ecview.semantic.uimodel.uiextension;
 
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
+import org.lunifera.ecview.semantic.uimodel.UiModelElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,5 +15,5 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
  * @model
  * @generated
  */
-public interface UiList extends YList {
+public interface UiList extends YList, UiModelElement {
 } // UiList

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.xtext.resource.EObjectDescription;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
@@ -27,7 +27,7 @@ public class BindingEndpointDefMethodScope extends AbstractScope {
 
 	@Override
 	protected Iterable<IEObjectDescription> getAllLocalElements() {
-		YBindable yEmb = bindingEndpointDef.getBindable();
+		YElement yEmb = bindingEndpointDef.getBindable();
 
 		List<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 		for (IEObjectDescription des : parent.getAllElements()) {

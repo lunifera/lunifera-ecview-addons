@@ -13,6 +13,14 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 import org.lunifera.ecview.semantic.uimodel.*;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
@@ -85,6 +93,7 @@ public class UimodelSwitch<T> extends Switch<T> {
 			case UimodelPackage.UI_MODEL: {
 				UiModel uiModel = (UiModel)theEObject;
 				T result = caseUiModel(uiModel);
+				if (result == null) result = caseUiModelElement(uiModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -92,10 +101,13 @@ public class UimodelSwitch<T> extends Switch<T> {
 				UiView uiView = (UiView)theEObject;
 				T result = caseUiView(uiView);
 				if (result == null) result = caseYView(uiView);
+				if (result == null) result = caseUiRootElements(uiView);
 				if (result == null) result = caseYElement(uiView);
 				if (result == null) result = caseYCssAble(uiView);
 				if (result == null) result = caseYMarginable(uiView);
 				if (result == null) result = caseYVisibilityProcessable(uiView);
+				if (result == null) result = caseUiModel(uiView);
+				if (result == null) result = caseUiModelElement(uiView);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -104,40 +116,48 @@ public class UimodelSwitch<T> extends Switch<T> {
 				T result = caseUiIDEView(uiIDEView);
 				if (result == null) result = caseUiView(uiIDEView);
 				if (result == null) result = caseYView(uiIDEView);
+				if (result == null) result = caseUiRootElements(uiIDEView);
 				if (result == null) result = caseYElement(uiIDEView);
 				if (result == null) result = caseYCssAble(uiIDEView);
 				if (result == null) result = caseYMarginable(uiIDEView);
 				if (result == null) result = caseYVisibilityProcessable(uiIDEView);
+				if (result == null) result = caseUiModel(uiIDEView);
+				if (result == null) result = caseUiModelElement(uiIDEView);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case UimodelPackage.UI_POINT: {
 				UiPoint uiPoint = (UiPoint)theEObject;
 				T result = caseUiPoint(uiPoint);
+				if (result == null) result = caseUiModelElement(uiPoint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case UimodelPackage.UI_BINDING_ENDPOINT_ALIAS: {
 				UiBindingEndpointAlias uiBindingEndpointAlias = (UiBindingEndpointAlias)theEObject;
 				T result = caseUiBindingEndpointAlias(uiBindingEndpointAlias);
+				if (result == null) result = caseUiModelElement(uiBindingEndpointAlias);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case UimodelPackage.UI_BINDING_ENDPOINT_DEF: {
 				UiBindingEndpointDef uiBindingEndpointDef = (UiBindingEndpointDef)theEObject;
 				T result = caseUiBindingEndpointDef(uiBindingEndpointDef);
+				if (result == null) result = caseUiModelElement(uiBindingEndpointDef);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case UimodelPackage.UI_BINDING: {
 				UiBinding uiBinding = (UiBinding)theEObject;
 				T result = caseUiBinding(uiBinding);
+				if (result == null) result = caseUiModelElement(uiBinding);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case UimodelPackage.UI_PATH_SEGMENT: {
 				UiPathSegment uiPathSegment = (UiPathSegment)theEObject;
 				T result = caseUiPathSegment(uiPathSegment);
+				if (result == null) result = caseUiModelElement(uiPathSegment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -145,6 +165,7 @@ public class UimodelSwitch<T> extends Switch<T> {
 				UiBeanSlot uiBeanSlot = (UiBeanSlot)theEObject;
 				T result = caseUiBeanSlot(uiBeanSlot);
 				if (result == null) result = caseYBeanSlot(uiBeanSlot);
+				if (result == null) result = caseUiModelElement(uiBeanSlot);
 				if (result == null) result = caseYBindable(uiBeanSlot);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -153,7 +174,63 @@ public class UimodelSwitch<T> extends Switch<T> {
 				UiViewSet uiViewSet = (UiViewSet)theEObject;
 				T result = caseUiViewSet(uiViewSet);
 				if (result == null) result = caseYViewSet(uiViewSet);
+				if (result == null) result = caseUiRootElements(uiViewSet);
 				if (result == null) result = caseYElement(uiViewSet);
+				if (result == null) result = caseUiModel(uiViewSet);
+				if (result == null) result = caseUiModelElement(uiViewSet);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UimodelPackage.UI_ROOT_ELEMENTS: {
+				UiRootElements uiRootElements = (UiRootElements)theEObject;
+				T result = caseUiRootElements(uiRootElements);
+				if (result == null) result = caseUiModel(uiRootElements);
+				if (result == null) result = caseUiModelElement(uiRootElements);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UimodelPackage.UI_MODEL_ELEMENT: {
+				UiModelElement uiModelElement = (UiModelElement)theEObject;
+				T result = caseUiModelElement(uiModelElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UimodelPackage.UI_MAX_LENGTH_VALIDATOR: {
+				UiMaxLengthValidator uiMaxLengthValidator = (UiMaxLengthValidator)theEObject;
+				T result = caseUiMaxLengthValidator(uiMaxLengthValidator);
+				if (result == null) result = caseYMaxLengthValidator(uiMaxLengthValidator);
+				if (result == null) result = caseUiModelElement(uiMaxLengthValidator);
+				if (result == null) result = caseYValidator(uiMaxLengthValidator);
+				if (result == null) result = caseYMaxLengthValidationConfig(uiMaxLengthValidator);
+				if (result == null) result = caseYElement(uiMaxLengthValidator);
+				if (result == null) result = caseYBindable(uiMaxLengthValidator);
+				if (result == null) result = caseYValidationConfig(uiMaxLengthValidator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UimodelPackage.UI_MIN_LENGTH_VALIDATOR: {
+				UiMinLengthValidator uiMinLengthValidator = (UiMinLengthValidator)theEObject;
+				T result = caseUiMinLengthValidator(uiMinLengthValidator);
+				if (result == null) result = caseYMinLengthValidator(uiMinLengthValidator);
+				if (result == null) result = caseUiModelElement(uiMinLengthValidator);
+				if (result == null) result = caseYValidator(uiMinLengthValidator);
+				if (result == null) result = caseYMinLengthValidationConfig(uiMinLengthValidator);
+				if (result == null) result = caseYElement(uiMinLengthValidator);
+				if (result == null) result = caseYBindable(uiMinLengthValidator);
+				if (result == null) result = caseYValidationConfig(uiMinLengthValidator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UimodelPackage.UI_REGEXP_VALIDATOR: {
+				UiRegexpValidator uiRegexpValidator = (UiRegexpValidator)theEObject;
+				T result = caseUiRegexpValidator(uiRegexpValidator);
+				if (result == null) result = caseYRegexpValidator(uiRegexpValidator);
+				if (result == null) result = caseUiModelElement(uiRegexpValidator);
+				if (result == null) result = caseYValidator(uiRegexpValidator);
+				if (result == null) result = caseYRegexpValidationConfig(uiRegexpValidator);
+				if (result == null) result = caseYElement(uiRegexpValidator);
+				if (result == null) result = caseYBindable(uiRegexpValidator);
+				if (result == null) result = caseYValidationConfig(uiRegexpValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -312,6 +389,81 @@ public class UimodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Root Elements</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Root Elements</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiRootElements(UiRootElements object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Model Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Model Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiModelElement(UiModelElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Max Length Validator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Max Length Validator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMaxLengthValidator(UiMaxLengthValidator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Min Length Validator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Min Length Validator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMinLengthValidator(UiMinLengthValidator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Regexp Validator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Regexp Validator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiRegexpValidator(UiRegexpValidator object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>YElement</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -428,6 +580,126 @@ public class UimodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYViewSet(YViewSet object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YValidator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YValidator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYValidator(YValidator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YValidation Config</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YValidation Config</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYValidationConfig(YValidationConfig object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YMax Length Validation Config</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YMax Length Validation Config</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYMaxLengthValidationConfig(YMaxLengthValidationConfig object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YMax Length Validator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YMax Length Validator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYMaxLengthValidator(YMaxLengthValidator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YMin Length Validation Config</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YMin Length Validation Config</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYMinLengthValidationConfig(YMinLengthValidationConfig object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YMin Length Validator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YMin Length Validator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYMinLengthValidator(YMinLengthValidator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YRegexp Validation Config</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YRegexp Validation Config</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYRegexpValidationConfig(YRegexpValidationConfig object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YRegexp Validator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YRegexp Validator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYRegexpValidator(YRegexpValidator object) {
 		return null;
 	}
 

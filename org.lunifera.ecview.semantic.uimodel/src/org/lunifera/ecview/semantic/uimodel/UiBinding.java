@@ -2,7 +2,6 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
-import org.eclipse.emf.ecore.EObject;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 
 /**
@@ -25,7 +24,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
  * @model
  * @generated
  */
-public interface UiBinding extends EObject {
+public interface UiBinding extends UiModelElement {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

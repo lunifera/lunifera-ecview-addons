@@ -13,8 +13,8 @@ public class AbstractUIGrammarValidator extends org.eclipse.xtext.xbase.validati
 	protected List<EPackage> getEPackages() {
 	    List<EPackage> result = new ArrayList<EPackage>();
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.lunifera.org/ecview/dsl/UIModel/core"));
-	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://eclipse.org/emf/ecp/ecview/extension/view"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.lunifera.org/ecview/dsl/UIModel/extension"));
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://eclipse.org/emf/ecp/ecview/extension/view"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://eclipse.org/emf/ecp/ecview/common/view"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://eclipse.org/emf/ecp/ecview/common/validation"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/xtext/xbase/Xbase"));

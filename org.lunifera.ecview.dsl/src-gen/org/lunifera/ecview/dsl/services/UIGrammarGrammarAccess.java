@@ -21,30 +21,180 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class UiModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiModel");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cViewSetsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cViewSetsUiViewSetParserRuleCall_0_0 = (RuleCall)cViewSetsAssignment_0.eContents().get(0);
-		private final Assignment cViewsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cViewsUiViewParserRuleCall_1_0 = (RuleCall)cViewsAssignment_1.eContents().get(0);
+		private final Assignment cRootsAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cRootsUiRootElementsParserRuleCall_0 = (RuleCall)cRootsAssignment.eContents().get(0);
 		
 		//UiModel returns grammarCore::UiModel:
-		//	viewSets+=UiViewSet* views+=UiView*;
+		//	roots+=UiRootElements*;
 		public ParserRule getRule() { return rule; }
 
-		//viewSets+=UiViewSet* views+=UiView*
-		public Group getGroup() { return cGroup; }
+		//roots+=UiRootElements*
+		public Assignment getRootsAssignment() { return cRootsAssignment; }
 
-		//viewSets+=UiViewSet*
-		public Assignment getViewSetsAssignment_0() { return cViewSetsAssignment_0; }
+		//UiRootElements
+		public RuleCall getRootsUiRootElementsParserRuleCall_0() { return cRootsUiRootElementsParserRuleCall_0; }
+	}
 
-		//UiViewSet
-		public RuleCall getViewSetsUiViewSetParserRuleCall_0_0() { return cViewSetsUiViewSetParserRuleCall_0_0; }
+	public class UiRootElementsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiRootElements");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cUiViewParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cUiViewSetParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cUiVisibilityProcessorParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//UiRootElements returns grammarCore::UiRootElements:
+		//	UiView | UiViewSet | UiVisibilityProcessor;
+		public ParserRule getRule() { return rule; }
 
-		//views+=UiView*
-		public Assignment getViewsAssignment_1() { return cViewsAssignment_1; }
+		//UiView | UiViewSet | UiVisibilityProcessor
+		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//UiView
-		public RuleCall getViewsUiViewParserRuleCall_1_0() { return cViewsUiViewParserRuleCall_1_0; }
+		public RuleCall getUiViewParserRuleCall_0() { return cUiViewParserRuleCall_0; }
+
+		//UiViewSet
+		public RuleCall getUiViewSetParserRuleCall_1() { return cUiViewSetParserRuleCall_1; }
+
+		//UiVisibilityProcessor
+		public RuleCall getUiVisibilityProcessorParserRuleCall_2() { return cUiVisibilityProcessorParserRuleCall_2; }
+	}
+
+	public class UiVisibilityProcessorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiVisibilityProcessor");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cVisibilityProcessorKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cBindingAliasAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cBindingAliasUiBindingEndpointAliasParserRuleCall_3_0 = (RuleCall)cBindingAliasAssignment_3.eContents().get(0);
+		private final Assignment cChangeTriggerAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cChangeTriggerUiChangeTriggerParserRuleCall_4_0 = (RuleCall)cChangeTriggerAssignment_4.eContents().get(0);
+		private final Assignment cRuleAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cRuleUiVisibilityRuleParserRuleCall_5_0 = (RuleCall)cRuleAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//UiVisibilityProcessor:
+		//	"visibilityProcessor" name=ID "{" bindingAlias+=UiBindingEndpointAlias* changeTrigger+=UiChangeTrigger*
+		//	rule=UiVisibilityRule "}";
+		public ParserRule getRule() { return rule; }
+
+		//"visibilityProcessor" name=ID "{" bindingAlias+=UiBindingEndpointAlias* changeTrigger+=UiChangeTrigger*
+		//rule=UiVisibilityRule "}"
+		public Group getGroup() { return cGroup; }
+
+		//"visibilityProcessor"
+		public Keyword getVisibilityProcessorKeyword_0() { return cVisibilityProcessorKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//bindingAlias+=UiBindingEndpointAlias*
+		public Assignment getBindingAliasAssignment_3() { return cBindingAliasAssignment_3; }
+
+		//UiBindingEndpointAlias
+		public RuleCall getBindingAliasUiBindingEndpointAliasParserRuleCall_3_0() { return cBindingAliasUiBindingEndpointAliasParserRuleCall_3_0; }
+
+		//changeTrigger+=UiChangeTrigger*
+		public Assignment getChangeTriggerAssignment_4() { return cChangeTriggerAssignment_4; }
+
+		//UiChangeTrigger
+		public RuleCall getChangeTriggerUiChangeTriggerParserRuleCall_4_0() { return cChangeTriggerUiChangeTriggerParserRuleCall_4_0; }
+
+		//rule=UiVisibilityRule
+		public Assignment getRuleAssignment_5() { return cRuleAssignment_5; }
+
+		//UiVisibilityRule
+		public RuleCall getRuleUiVisibilityRuleParserRuleCall_5_0() { return cRuleUiVisibilityRuleParserRuleCall_5_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+
+	public class UiChangeTriggerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiChangeTrigger");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTriggerKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cEndpointAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cEndpointUiBindingEndpointDefParserRuleCall_1_0_0 = (RuleCall)cEndpointAssignment_1_0.eContents().get(0);
+		private final Assignment cEndpointAliasAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final CrossReference cEndpointAliasUiBindingEndpointAliasCrossReference_1_1_0 = (CrossReference)cEndpointAliasAssignment_1_1.eContents().get(0);
+		private final RuleCall cEndpointAliasUiBindingEndpointAliasIDTerminalRuleCall_1_1_0_1 = (RuleCall)cEndpointAliasUiBindingEndpointAliasCrossReference_1_1_0.eContents().get(1);
+		
+		//UiChangeTrigger:
+		//	"trigger" (endpoint=UiBindingEndpointDef | endpointAlias=[grammarCore::UiBindingEndpointAlias]);
+		public ParserRule getRule() { return rule; }
+
+		//"trigger" (endpoint=UiBindingEndpointDef | endpointAlias=[grammarCore::UiBindingEndpointAlias])
+		public Group getGroup() { return cGroup; }
+
+		//"trigger"
+		public Keyword getTriggerKeyword_0() { return cTriggerKeyword_0; }
+
+		//endpoint=UiBindingEndpointDef | endpointAlias=[grammarCore::UiBindingEndpointAlias]
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+
+		//endpoint=UiBindingEndpointDef
+		public Assignment getEndpointAssignment_1_0() { return cEndpointAssignment_1_0; }
+
+		//UiBindingEndpointDef
+		public RuleCall getEndpointUiBindingEndpointDefParserRuleCall_1_0_0() { return cEndpointUiBindingEndpointDefParserRuleCall_1_0_0; }
+
+		//endpointAlias=[grammarCore::UiBindingEndpointAlias]
+		public Assignment getEndpointAliasAssignment_1_1() { return cEndpointAliasAssignment_1_1; }
+
+		//[grammarCore::UiBindingEndpointAlias]
+		public CrossReference getEndpointAliasUiBindingEndpointAliasCrossReference_1_1_0() { return cEndpointAliasUiBindingEndpointAliasCrossReference_1_1_0; }
+
+		//ID
+		public RuleCall getEndpointAliasUiBindingEndpointAliasIDTerminalRuleCall_1_1_0_1() { return cEndpointAliasUiBindingEndpointAliasIDTerminalRuleCall_1_1_0_1; }
+	}
+
+	public class UiVisibilityRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiVisibilityRule");
+		private final RuleCall cUiXbaseVisibilityRuleParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//UiVisibilityRule:
+		//	UiXbaseVisibilityRule;
+		public ParserRule getRule() { return rule; }
+
+		//UiXbaseVisibilityRule
+		public RuleCall getUiXbaseVisibilityRuleParserRuleCall() { return cUiXbaseVisibilityRuleParserRuleCall; }
+	}
+
+	public class UiXbaseVisibilityRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiXbaseVisibilityRule");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cUiXbaseVisibilityRuleAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cRuleKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//UiXbaseVisibilityRule:
+		//	{UiXbaseVisibilityRule} "rule" "{" "}";
+		public ParserRule getRule() { return rule; }
+
+		//{UiXbaseVisibilityRule} "rule" "{" "}"
+		public Group getGroup() { return cGroup; }
+
+		//{UiXbaseVisibilityRule}
+		public Action getUiXbaseVisibilityRuleAction_0() { return cUiXbaseVisibilityRuleAction_0; }
+
+		//"rule"
+		public Keyword getRuleKeyword_1() { return cRuleKeyword_1; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
 
 	public class UiViewSetElements extends AbstractParserRuleElementFinder {
@@ -53,21 +203,24 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cViewsetKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Group cGroup_2_0 = (Group)cGroup_2.eContents().get(0);
-		private final Keyword cBeanslotsKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2_0_1 = (Keyword)cGroup_2_0.eContents().get(1);
-		private final Assignment cBeanSlotsAssignment_2_0_2 = (Assignment)cGroup_2_0.eContents().get(2);
-		private final RuleCall cBeanSlotsUiBeanSlotParserRuleCall_2_0_2_0 = (RuleCall)cBeanSlotsAssignment_2_0_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_2_0_3 = (Keyword)cGroup_2_0.eContents().get(3);
-		private final Assignment cBindingEndpointAliasAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_2_1_0 = (RuleCall)cBindingEndpointAliasAssignment_2_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Group cGroup_3_0 = (Group)cGroup_3.eContents().get(0);
+		private final Keyword cBeanslotsKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_0_1 = (Keyword)cGroup_3_0.eContents().get(1);
+		private final Assignment cBeanSlotsAssignment_3_0_2 = (Assignment)cGroup_3_0.eContents().get(2);
+		private final RuleCall cBeanSlotsUiBeanSlotParserRuleCall_3_0_2_0 = (RuleCall)cBeanSlotsAssignment_3_0_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_0_3 = (Keyword)cGroup_3_0.eContents().get(3);
+		private final Assignment cBindingEndpointAliasAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_3_1_0 = (RuleCall)cBindingEndpointAliasAssignment_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//UiViewSet returns grammarCore::UiViewSet:
-		//	"viewset" name=ID (("beanslots" "{" beanSlots+=UiBeanSlot* "}")? bindingEndpointAlias+=UiBindingEndpointAlias*);
+		//	"viewset" name=ID "{" (("beanslots" "{" beanSlots+=UiBeanSlot* "}")? bindingEndpointAlias+=UiBindingEndpointAlias*)
+		//	"}";
 		public ParserRule getRule() { return rule; }
 
-		//"viewset" name=ID (("beanslots" "{" beanSlots+=UiBeanSlot* "}")? bindingEndpointAlias+=UiBindingEndpointAlias*)
+		//"viewset" name=ID "{" (("beanslots" "{" beanSlots+=UiBeanSlot* "}")? bindingEndpointAlias+=UiBindingEndpointAlias*) "}"
 		public Group getGroup() { return cGroup; }
 
 		//"viewset"
@@ -79,32 +232,38 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
 		//("beanslots" "{" beanSlots+=UiBeanSlot* "}")? bindingEndpointAlias+=UiBindingEndpointAlias*
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_3() { return cGroup_3; }
 
 		//("beanslots" "{" beanSlots+=UiBeanSlot* "}")?
-		public Group getGroup_2_0() { return cGroup_2_0; }
+		public Group getGroup_3_0() { return cGroup_3_0; }
 
 		//"beanslots"
-		public Keyword getBeanslotsKeyword_2_0_0() { return cBeanslotsKeyword_2_0_0; }
+		public Keyword getBeanslotsKeyword_3_0_0() { return cBeanslotsKeyword_3_0_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2_0_1() { return cLeftCurlyBracketKeyword_2_0_1; }
+		public Keyword getLeftCurlyBracketKeyword_3_0_1() { return cLeftCurlyBracketKeyword_3_0_1; }
 
 		//beanSlots+=UiBeanSlot*
-		public Assignment getBeanSlotsAssignment_2_0_2() { return cBeanSlotsAssignment_2_0_2; }
+		public Assignment getBeanSlotsAssignment_3_0_2() { return cBeanSlotsAssignment_3_0_2; }
 
 		//UiBeanSlot
-		public RuleCall getBeanSlotsUiBeanSlotParserRuleCall_2_0_2_0() { return cBeanSlotsUiBeanSlotParserRuleCall_2_0_2_0; }
+		public RuleCall getBeanSlotsUiBeanSlotParserRuleCall_3_0_2_0() { return cBeanSlotsUiBeanSlotParserRuleCall_3_0_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_2_0_3() { return cRightCurlyBracketKeyword_2_0_3; }
+		public Keyword getRightCurlyBracketKeyword_3_0_3() { return cRightCurlyBracketKeyword_3_0_3; }
 
 		//bindingEndpointAlias+=UiBindingEndpointAlias*
-		public Assignment getBindingEndpointAliasAssignment_2_1() { return cBindingEndpointAliasAssignment_2_1; }
+		public Assignment getBindingEndpointAliasAssignment_3_1() { return cBindingEndpointAliasAssignment_3_1; }
 
 		//UiBindingEndpointAlias
-		public RuleCall getBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_2_1_0() { return cBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_2_1_0; }
+		public RuleCall getBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_3_1_0() { return cBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_3_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 
 	public class UiBindingEndpointAliasElements extends AbstractParserRuleElementFinder {
@@ -273,8 +432,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiBindingEndpointDef");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cBindableAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cBindableYBindableCrossReference_0_0 = (CrossReference)cBindableAssignment_0.eContents().get(0);
-		private final RuleCall cBindableYBindableIDTerminalRuleCall_0_0_1 = (RuleCall)cBindableYBindableCrossReference_0_0.eContents().get(1);
+		private final CrossReference cBindableYElementCrossReference_0_0 = (CrossReference)cBindableAssignment_0.eContents().get(0);
+		private final RuleCall cBindableYElementIDTerminalRuleCall_0_0_1 = (RuleCall)cBindableYElementCrossReference_0_0.eContents().get(1);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cEndpointAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cEndpointUxEndpointDefCrossReference_2_0 = (CrossReference)cEndpointAssignment_2.eContents().get(0);
@@ -283,20 +442,20 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPathUiPathSegmentParserRuleCall_3_0 = (RuleCall)cPathAssignment_3.eContents().get(0);
 		
 		//UiBindingEndpointDef returns grammarCore::UiBindingEndpointDef:
-		//	bindable=[core::YBindable] ":" endpoint=[cfg::UxEndpointDef] path=UiPathSegment?;
+		//	bindable=[core::YElement] ":" endpoint=[cfg::UxEndpointDef] path=UiPathSegment?;
 		public ParserRule getRule() { return rule; }
 
-		//bindable=[core::YBindable] ":" endpoint=[cfg::UxEndpointDef] path=UiPathSegment?
+		//bindable=[core::YElement] ":" endpoint=[cfg::UxEndpointDef] path=UiPathSegment?
 		public Group getGroup() { return cGroup; }
 
-		//bindable=[core::YBindable]
+		//bindable=[core::YElement]
 		public Assignment getBindableAssignment_0() { return cBindableAssignment_0; }
 
-		//[core::YBindable]
-		public CrossReference getBindableYBindableCrossReference_0_0() { return cBindableYBindableCrossReference_0_0; }
+		//[core::YElement]
+		public CrossReference getBindableYElementCrossReference_0_0() { return cBindableYElementCrossReference_0_0; }
 
 		//ID
-		public RuleCall getBindableYBindableIDTerminalRuleCall_0_0_1() { return cBindableYBindableIDTerminalRuleCall_0_0_1; }
+		public RuleCall getBindableYElementIDTerminalRuleCall_0_0_1() { return cBindableYElementIDTerminalRuleCall_0_0_1; }
 
 		//":"
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
@@ -372,24 +531,37 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cContentAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cContentUiLayoutParserRuleCall_3_0 = (RuleCall)cContentAssignment_3.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cViewsetKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cRootAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cRootUiViewSetCrossReference_3_1_0 = (CrossReference)cRootAssignment_3_1.eContents().get(0);
+		private final RuleCall cRootUiViewSetIDTerminalRuleCall_3_1_0_1 = (RuleCall)cRootUiViewSetCrossReference_3_1_0.eContents().get(1);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cBindingAliasKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cBeanslotsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cBindingEndpointAliasAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_4_2_0 = (RuleCall)cBindingEndpointAliasAssignment_4_2.eContents().get(0);
+		private final Assignment cBeanSlotsAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cBeanSlotsUiBeanSlotParserRuleCall_4_2_0 = (RuleCall)cBeanSlotsAssignment_4_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
-		private final Assignment cBindingsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cBindingsUiBindingParserRuleCall_5_0 = (RuleCall)cBindingsAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cContentAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cContentUiLayoutParserRuleCall_5_0 = (RuleCall)cContentAssignment_5.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cBindingAliasKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Assignment cBindingEndpointAliasAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_6_2_0 = (RuleCall)cBindingEndpointAliasAssignment_6_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6_3 = (Keyword)cGroup_6.eContents().get(3);
+		private final Assignment cBindingsAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cBindingsUiBindingParserRuleCall_7_0 = (RuleCall)cBindingsAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//UiIDEView returns grammarCore::UiIDEView:
-		//	"ideview" name=ID "{" content=UiLayout? // TODO make unordered group
+		//	"ideview" name=ID "{" ("viewset" root=[grammarCore::UiViewSet])? ("beanslots" "{" beanSlots+=UiBeanSlot* "}")?
+		//	content=UiLayout? // TODO make unordered group
 		//	("bindingAlias" "{" bindingEndpointAlias+=UiBindingEndpointAlias* "}")? bindings+=UiBinding* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"ideview" name=ID "{" content=UiLayout? // TODO make unordered group
+		//"ideview" name=ID "{" ("viewset" root=[grammarCore::UiViewSet])? ("beanslots" "{" beanSlots+=UiBeanSlot* "}")?
+		//content=UiLayout? // TODO make unordered group
 		//("bindingAlias" "{" bindingEndpointAlias+=UiBindingEndpointAlias* "}")? bindings+=UiBinding* "}"
 		public Group getGroup() { return cGroup; }
 
@@ -405,38 +577,71 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//content=UiLayout?
-		public Assignment getContentAssignment_3() { return cContentAssignment_3; }
+		//("viewset" root=[grammarCore::UiViewSet])?
+		public Group getGroup_3() { return cGroup_3; }
 
-		//UiLayout
-		public RuleCall getContentUiLayoutParserRuleCall_3_0() { return cContentUiLayoutParserRuleCall_3_0; }
+		//"viewset"
+		public Keyword getViewsetKeyword_3_0() { return cViewsetKeyword_3_0; }
 
-		//("bindingAlias" "{" bindingEndpointAlias+=UiBindingEndpointAlias* "}")?
+		//root=[grammarCore::UiViewSet]
+		public Assignment getRootAssignment_3_1() { return cRootAssignment_3_1; }
+
+		//[grammarCore::UiViewSet]
+		public CrossReference getRootUiViewSetCrossReference_3_1_0() { return cRootUiViewSetCrossReference_3_1_0; }
+
+		//ID
+		public RuleCall getRootUiViewSetIDTerminalRuleCall_3_1_0_1() { return cRootUiViewSetIDTerminalRuleCall_3_1_0_1; }
+
+		//("beanslots" "{" beanSlots+=UiBeanSlot* "}")?
 		public Group getGroup_4() { return cGroup_4; }
 
-		//"bindingAlias"
-		public Keyword getBindingAliasKeyword_4_0() { return cBindingAliasKeyword_4_0; }
+		//"beanslots"
+		public Keyword getBeanslotsKeyword_4_0() { return cBeanslotsKeyword_4_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_4_1() { return cLeftCurlyBracketKeyword_4_1; }
 
-		//bindingEndpointAlias+=UiBindingEndpointAlias*
-		public Assignment getBindingEndpointAliasAssignment_4_2() { return cBindingEndpointAliasAssignment_4_2; }
+		//beanSlots+=UiBeanSlot*
+		public Assignment getBeanSlotsAssignment_4_2() { return cBeanSlotsAssignment_4_2; }
 
-		//UiBindingEndpointAlias
-		public RuleCall getBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_4_2_0() { return cBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_4_2_0; }
+		//UiBeanSlot
+		public RuleCall getBeanSlotsUiBeanSlotParserRuleCall_4_2_0() { return cBeanSlotsUiBeanSlotParserRuleCall_4_2_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4_3() { return cRightCurlyBracketKeyword_4_3; }
 
-		//bindings+=UiBinding*
-		public Assignment getBindingsAssignment_5() { return cBindingsAssignment_5; }
+		//content=UiLayout?
+		public Assignment getContentAssignment_5() { return cContentAssignment_5; }
 
-		//UiBinding
-		public RuleCall getBindingsUiBindingParserRuleCall_5_0() { return cBindingsUiBindingParserRuleCall_5_0; }
+		//UiLayout
+		public RuleCall getContentUiLayoutParserRuleCall_5_0() { return cContentUiLayoutParserRuleCall_5_0; }
+
+		//("bindingAlias" "{" bindingEndpointAlias+=UiBindingEndpointAlias* "}")?
+		public Group getGroup_6() { return cGroup_6; }
+
+		//"bindingAlias"
+		public Keyword getBindingAliasKeyword_6_0() { return cBindingAliasKeyword_6_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_6_1() { return cLeftCurlyBracketKeyword_6_1; }
+
+		//bindingEndpointAlias+=UiBindingEndpointAlias*
+		public Assignment getBindingEndpointAliasAssignment_6_2() { return cBindingEndpointAliasAssignment_6_2; }
+
+		//UiBindingEndpointAlias
+		public RuleCall getBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_6_2_0() { return cBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_6_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_6_3() { return cRightCurlyBracketKeyword_6_3; }
+
+		//bindings+=UiBinding*
+		public Assignment getBindingsAssignment_7() { return cBindingsAssignment_7; }
+
+		//UiBinding
+		public RuleCall getBindingsUiBindingParserRuleCall_7_0() { return cBindingsUiBindingParserRuleCall_7_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 
 	public class UiGridLayoutElements extends AbstractParserRuleElementFinder {
@@ -754,30 +959,15 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cLeftCurlyBracketKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final UnorderedGroup cUnorderedGroup_3_1 = (UnorderedGroup)cGroup_3.eContents().get(1);
-		private final Group cGroup_3_1_0 = (Group)cUnorderedGroup_3_1.eContents().get(0);
-		private final Keyword cDatatypeKeyword_3_1_0_0 = (Keyword)cGroup_3_1_0.eContents().get(0);
-		private final Assignment cDatatypeAssignment_3_1_0_1 = (Assignment)cGroup_3_1_0.eContents().get(1);
-		private final CrossReference cDatatypeYTextDatatypeCrossReference_3_1_0_1_0 = (CrossReference)cDatatypeAssignment_3_1_0_1.eContents().get(0);
-		private final RuleCall cDatatypeYTextDatatypeIDTerminalRuleCall_3_1_0_1_0_1 = (RuleCall)cDatatypeYTextDatatypeCrossReference_3_1_0_1_0.eContents().get(1);
-		private final Group cGroup_3_1_1 = (Group)cUnorderedGroup_3_1.eContents().get(1);
-		private final Keyword cDatadescriptionKeyword_3_1_1_0 = (Keyword)cGroup_3_1_1.eContents().get(0);
-		private final Assignment cDatadescriptionAssignment_3_1_1_1 = (Assignment)cGroup_3_1_1.eContents().get(1);
-		private final CrossReference cDatadescriptionYDatadescriptionCrossReference_3_1_1_1_0 = (CrossReference)cDatadescriptionAssignment_3_1_1_1.eContents().get(0);
-		private final RuleCall cDatadescriptionYDatadescriptionIDTerminalRuleCall_3_1_1_1_0_1 = (RuleCall)cDatadescriptionYDatadescriptionCrossReference_3_1_1_1_0.eContents().get(1);
-		private final Group cGroup_3_1_2 = (Group)cUnorderedGroup_3_1.eContents().get(2);
-		private final Keyword cValueKeyword_3_1_2_0 = (Keyword)cGroup_3_1_2.eContents().get(0);
-		private final Assignment cValueAssignment_3_1_2_1 = (Assignment)cGroup_3_1_2.eContents().get(1);
-		private final RuleCall cValueIDTerminalRuleCall_3_1_2_1_0 = (RuleCall)cValueAssignment_3_1_2_1.eContents().get(0);
+		private final Assignment cValidatorsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cValidatorsUiValidatorParserRuleCall_3_1_0 = (RuleCall)cValidatorsAssignment_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
 		
-		//UiTextField returns ext::YTextField:
-		//	{UiTextField} "textfield" name=ID? ("{" (("datatype" datatype=[extDt::YTextDatatype])? & ("datadescription"
-		//	datadescription=[coreDt::YDatadescription])? & ("value" value=ID)?) "}")?;
+		//UiTextField:
+		//	{UiTextField} "textfield" name=ID? ("{" validators+=UiValidator* "}")?;
 		public ParserRule getRule() { return rule; }
 
-		//{UiTextField} "textfield" name=ID? ("{" (("datatype" datatype=[extDt::YTextDatatype])? & ("datadescription"
-		//datadescription=[coreDt::YDatadescription])? & ("value" value=ID)?) "}")?
+		//{UiTextField} "textfield" name=ID? ("{" validators+=UiValidator* "}")?
 		public Group getGroup() { return cGroup; }
 
 		//{UiTextField}
@@ -792,58 +982,17 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
-		//("{" (("datatype" datatype=[extDt::YTextDatatype])? & ("datadescription" datadescription=[coreDt::YDatadescription])? &
-		//("value" value=ID)?) "}")?
+		//("{" validators+=UiValidator* "}")?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3_0() { return cLeftCurlyBracketKeyword_3_0; }
 
-		//("datatype" datatype=[extDt::YTextDatatype])? & ("datadescription" datadescription=[coreDt::YDatadescription])? &
-		//("value" value=ID)?
-		public UnorderedGroup getUnorderedGroup_3_1() { return cUnorderedGroup_3_1; }
+		//validators+=UiValidator*
+		public Assignment getValidatorsAssignment_3_1() { return cValidatorsAssignment_3_1; }
 
-		//("datatype" datatype=[extDt::YTextDatatype])?
-		public Group getGroup_3_1_0() { return cGroup_3_1_0; }
-
-		//"datatype"
-		public Keyword getDatatypeKeyword_3_1_0_0() { return cDatatypeKeyword_3_1_0_0; }
-
-		//datatype=[extDt::YTextDatatype]
-		public Assignment getDatatypeAssignment_3_1_0_1() { return cDatatypeAssignment_3_1_0_1; }
-
-		//[extDt::YTextDatatype]
-		public CrossReference getDatatypeYTextDatatypeCrossReference_3_1_0_1_0() { return cDatatypeYTextDatatypeCrossReference_3_1_0_1_0; }
-
-		//ID
-		public RuleCall getDatatypeYTextDatatypeIDTerminalRuleCall_3_1_0_1_0_1() { return cDatatypeYTextDatatypeIDTerminalRuleCall_3_1_0_1_0_1; }
-
-		//("datadescription" datadescription=[coreDt::YDatadescription])?
-		public Group getGroup_3_1_1() { return cGroup_3_1_1; }
-
-		//"datadescription"
-		public Keyword getDatadescriptionKeyword_3_1_1_0() { return cDatadescriptionKeyword_3_1_1_0; }
-
-		//datadescription=[coreDt::YDatadescription]
-		public Assignment getDatadescriptionAssignment_3_1_1_1() { return cDatadescriptionAssignment_3_1_1_1; }
-
-		//[coreDt::YDatadescription]
-		public CrossReference getDatadescriptionYDatadescriptionCrossReference_3_1_1_1_0() { return cDatadescriptionYDatadescriptionCrossReference_3_1_1_1_0; }
-
-		//ID
-		public RuleCall getDatadescriptionYDatadescriptionIDTerminalRuleCall_3_1_1_1_0_1() { return cDatadescriptionYDatadescriptionIDTerminalRuleCall_3_1_1_1_0_1; }
-
-		//("value" value=ID)?
-		public Group getGroup_3_1_2() { return cGroup_3_1_2; }
-
-		//"value"
-		public Keyword getValueKeyword_3_1_2_0() { return cValueKeyword_3_1_2_0; }
-
-		//value=ID
-		public Assignment getValueAssignment_3_1_2_1() { return cValueAssignment_3_1_2_1; }
-
-		//ID
-		public RuleCall getValueIDTerminalRuleCall_3_1_2_1_0() { return cValueIDTerminalRuleCall_3_1_2_1_0; }
+		//UiValidator
+		public RuleCall getValidatorsUiValidatorParserRuleCall_3_1_0() { return cValidatorsUiValidatorParserRuleCall_3_1_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_3_2() { return cRightCurlyBracketKeyword_3_2; }
@@ -914,12 +1063,14 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cUiTextFieldParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cUiListParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cUiNumericFieldParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cUiCheckBoxParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//UiField returns core::YField:
-		//	UiTextField | UiList;
+		//	UiTextField | UiList | UiNumericField | UiCheckBox;
 		public ParserRule getRule() { return rule; }
 
-		//UiTextField | UiList
+		//UiTextField | UiList | UiNumericField | UiCheckBox
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//UiTextField
@@ -927,6 +1078,108 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 		//UiList
 		public RuleCall getUiListParserRuleCall_1() { return cUiListParserRuleCall_1; }
+
+		//UiNumericField
+		public RuleCall getUiNumericFieldParserRuleCall_2() { return cUiNumericFieldParserRuleCall_2; }
+
+		//UiCheckBox
+		public RuleCall getUiCheckBoxParserRuleCall_3() { return cUiCheckBoxParserRuleCall_3; }
+	}
+
+	public class UiNumericFieldElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiNumericField");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cUiNumericFieldAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cNumericFieldKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cLeftCurlyBracketKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cValidatorsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cValidatorsUiValidatorParserRuleCall_3_1_0 = (RuleCall)cValidatorsAssignment_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		
+		//UiNumericField:
+		//	{UiNumericField} "numericField" name=ID? ("{" validators+=UiValidator* "}")?;
+		public ParserRule getRule() { return rule; }
+
+		//{UiNumericField} "numericField" name=ID? ("{" validators+=UiValidator* "}")?
+		public Group getGroup() { return cGroup; }
+
+		//{UiNumericField}
+		public Action getUiNumericFieldAction_0() { return cUiNumericFieldAction_0; }
+
+		//"numericField"
+		public Keyword getNumericFieldKeyword_1() { return cNumericFieldKeyword_1; }
+
+		//name=ID?
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+
+		//("{" validators+=UiValidator* "}")?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3_0() { return cLeftCurlyBracketKeyword_3_0; }
+
+		//validators+=UiValidator*
+		public Assignment getValidatorsAssignment_3_1() { return cValidatorsAssignment_3_1; }
+
+		//UiValidator
+		public RuleCall getValidatorsUiValidatorParserRuleCall_3_1_0() { return cValidatorsUiValidatorParserRuleCall_3_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3_2() { return cRightCurlyBracketKeyword_3_2; }
+	}
+
+	public class UiCheckBoxElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiCheckBox");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cUiCheckBoxAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cCheckboxKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cLeftCurlyBracketKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cValidatorsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cValidatorsUiValidatorParserRuleCall_3_1_0 = (RuleCall)cValidatorsAssignment_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		
+		//UiCheckBox:
+		//	{UiCheckBox} "checkbox" name=ID? ("{" validators+=UiValidator* "}")?;
+		public ParserRule getRule() { return rule; }
+
+		//{UiCheckBox} "checkbox" name=ID? ("{" validators+=UiValidator* "}")?
+		public Group getGroup() { return cGroup; }
+
+		//{UiCheckBox}
+		public Action getUiCheckBoxAction_0() { return cUiCheckBoxAction_0; }
+
+		//"checkbox"
+		public Keyword getCheckboxKeyword_1() { return cCheckboxKeyword_1; }
+
+		//name=ID?
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+
+		//("{" validators+=UiValidator* "}")?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3_0() { return cLeftCurlyBracketKeyword_3_0; }
+
+		//validators+=UiValidator*
+		public Assignment getValidatorsAssignment_3_1() { return cValidatorsAssignment_3_1; }
+
+		//UiValidator
+		public RuleCall getValidatorsUiValidatorParserRuleCall_3_1_0() { return cValidatorsUiValidatorParserRuleCall_3_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3_2() { return cRightCurlyBracketKeyword_3_2; }
 	}
 
 	public class UiValidatorElements extends AbstractParserRuleElementFinder {
@@ -934,12 +1187,13 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cUiMaxLengthValidatorParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cUiMinLengthValidatorParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cUiRegexpValidatorParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//UiValidator returns coreVal::YValidator:
-		//	UiMaxLengthValidator | UiMinLengthValidator;
+		//	UiMaxLengthValidator | UiMinLengthValidator | UiRegexpValidator;
 		public ParserRule getRule() { return rule; }
 
-		//UiMaxLengthValidator | UiMinLengthValidator
+		//UiMaxLengthValidator | UiMinLengthValidator | UiRegexpValidator
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//UiMaxLengthValidator
@@ -947,46 +1201,141 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 		//UiMinLengthValidator
 		public RuleCall getUiMinLengthValidatorParserRuleCall_1() { return cUiMinLengthValidatorParserRuleCall_1; }
+
+		//UiRegexpValidator
+		public RuleCall getUiRegexpValidatorParserRuleCall_2() { return cUiRegexpValidatorParserRuleCall_2; }
 	}
 
 	public class UiMaxLengthValidatorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiMaxLengthValidator");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cYValidatorAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cMaxKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Action cUiMaxLengthValidatorAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cMaxLengthValidatorKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cMaxLengthKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cMaxLengthAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cMaxLengthINTTerminalRuleCall_3_1_0 = (RuleCall)cMaxLengthAssignment_3_1.eContents().get(0);
 		
-		//UiMaxLengthValidator returns coreVal::YValidator:
-		//	{coreVal::YValidator} "max";
+		//UiMaxLengthValidator returns grammarCore::UiMaxLengthValidator:
+		//	{grammarCore::UiMaxLengthValidator} "maxLengthValidator" name=ID ("maxLength" maxLength=INT)?;
 		public ParserRule getRule() { return rule; }
 
-		//{coreVal::YValidator} "max"
+		//{grammarCore::UiMaxLengthValidator} "maxLengthValidator" name=ID ("maxLength" maxLength=INT)?
 		public Group getGroup() { return cGroup; }
 
-		//{coreVal::YValidator}
-		public Action getYValidatorAction_0() { return cYValidatorAction_0; }
+		//{grammarCore::UiMaxLengthValidator}
+		public Action getUiMaxLengthValidatorAction_0() { return cUiMaxLengthValidatorAction_0; }
 
-		//"max"
-		public Keyword getMaxKeyword_1() { return cMaxKeyword_1; }
+		//"maxLengthValidator"
+		public Keyword getMaxLengthValidatorKeyword_1() { return cMaxLengthValidatorKeyword_1; }
+
+		//name=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+
+		//("maxLength" maxLength=INT)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"maxLength"
+		public Keyword getMaxLengthKeyword_3_0() { return cMaxLengthKeyword_3_0; }
+
+		//maxLength=INT
+		public Assignment getMaxLengthAssignment_3_1() { return cMaxLengthAssignment_3_1; }
+
+		//INT
+		public RuleCall getMaxLengthINTTerminalRuleCall_3_1_0() { return cMaxLengthINTTerminalRuleCall_3_1_0; }
 	}
 
 	public class UiMinLengthValidatorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiMinLengthValidator");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cYValidatorAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cMinKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Action cUiMinLengthValidatorAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cMinLengthValidatorKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cMinLengthKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cMinLengthAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cMinLengthINTTerminalRuleCall_3_1_0 = (RuleCall)cMinLengthAssignment_3_1.eContents().get(0);
 		
-		//UiMinLengthValidator returns coreVal::YValidator:
-		//	{coreVal::YValidator} "min";
+		//UiMinLengthValidator returns grammarCore::UiMinLengthValidator:
+		//	{grammarCore::UiMinLengthValidator} "minLengthValidator" name=ID ("minLength" minLength=INT)?;
 		public ParserRule getRule() { return rule; }
 
-		//{coreVal::YValidator} "min"
+		//{grammarCore::UiMinLengthValidator} "minLengthValidator" name=ID ("minLength" minLength=INT)?
 		public Group getGroup() { return cGroup; }
 
-		//{coreVal::YValidator}
-		public Action getYValidatorAction_0() { return cYValidatorAction_0; }
+		//{grammarCore::UiMinLengthValidator}
+		public Action getUiMinLengthValidatorAction_0() { return cUiMinLengthValidatorAction_0; }
 
-		//"min"
-		public Keyword getMinKeyword_1() { return cMinKeyword_1; }
+		//"minLengthValidator"
+		public Keyword getMinLengthValidatorKeyword_1() { return cMinLengthValidatorKeyword_1; }
+
+		//name=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+
+		//("minLength" minLength=INT)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"minLength"
+		public Keyword getMinLengthKeyword_3_0() { return cMinLengthKeyword_3_0; }
+
+		//minLength=INT
+		public Assignment getMinLengthAssignment_3_1() { return cMinLengthAssignment_3_1; }
+
+		//INT
+		public RuleCall getMinLengthINTTerminalRuleCall_3_1_0() { return cMinLengthINTTerminalRuleCall_3_1_0; }
+	}
+
+	public class UiRegexpValidatorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiRegexpValidator");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cUiRegexpValidatorAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cRegexValidatorKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cRegexKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cRegExpressionAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cRegExpressionSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cRegExpressionAssignment_3_1.eContents().get(0);
+		
+		//UiRegexpValidator returns grammarCore::UiRegexpValidator:
+		//	{grammarCore::UiRegexpValidator} "regexValidator" name=ID ("regex" regExpression=STRING)?;
+		public ParserRule getRule() { return rule; }
+
+		//{grammarCore::UiRegexpValidator} "regexValidator" name=ID ("regex" regExpression=STRING)?
+		public Group getGroup() { return cGroup; }
+
+		//{grammarCore::UiRegexpValidator}
+		public Action getUiRegexpValidatorAction_0() { return cUiRegexpValidatorAction_0; }
+
+		//"regexValidator"
+		public Keyword getRegexValidatorKeyword_1() { return cRegexValidatorKeyword_1; }
+
+		//name=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+
+		//("regex" regExpression=STRING)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"regex"
+		public Keyword getRegexKeyword_3_0() { return cRegexKeyword_3_0; }
+
+		//regExpression=STRING
+		public Assignment getRegExpressionAssignment_3_1() { return cRegExpressionAssignment_3_1; }
+
+		//STRING
+		public RuleCall getRegExpressionSTRINGTerminalRuleCall_3_1_0() { return cRegExpressionSTRINGTerminalRuleCall_3_1_0; }
 	}
 
 	public class FQNElements extends AbstractParserRuleElementFinder {
@@ -1201,6 +1550,11 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	private UiModelElements pUiModel;
+	private UiRootElementsElements pUiRootElements;
+	private UiVisibilityProcessorElements pUiVisibilityProcessor;
+	private UiChangeTriggerElements pUiChangeTrigger;
+	private UiVisibilityRuleElements pUiVisibilityRule;
+	private UiXbaseVisibilityRuleElements pUiXbaseVisibilityRule;
 	private UiViewSetElements pUiViewSet;
 	private UiBindingEndpointAliasElements pUiBindingEndpointAlias;
 	private UiBeanSlotElements pUiBeanSlot;
@@ -1220,9 +1574,12 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private UiEmbeddableElements pUiEmbeddable;
 	private UiLayoutElements pUiLayout;
 	private UiFieldElements pUiField;
+	private UiNumericFieldElements pUiNumericField;
+	private UiCheckBoxElements pUiCheckBox;
 	private UiValidatorElements pUiValidator;
 	private UiMaxLengthValidatorElements pUiMaxLengthValidator;
 	private UiMinLengthValidatorElements pUiMinLengthValidator;
+	private UiRegexpValidatorElements pUiRegexpValidator;
 	private FQNElements pFQN;
 	
 	private final Grammar grammar;
@@ -1264,7 +1621,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//UiModel returns grammarCore::UiModel:
-	//	viewSets+=UiViewSet* views+=UiView*;
+	//	roots+=UiRootElements*;
 	public UiModelElements getUiModelAccess() {
 		return (pUiModel != null) ? pUiModel : (pUiModel = new UiModelElements());
 	}
@@ -1273,8 +1630,60 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getUiModelAccess().getRule();
 	}
 
+	//UiRootElements returns grammarCore::UiRootElements:
+	//	UiView | UiViewSet | UiVisibilityProcessor;
+	public UiRootElementsElements getUiRootElementsAccess() {
+		return (pUiRootElements != null) ? pUiRootElements : (pUiRootElements = new UiRootElementsElements());
+	}
+	
+	public ParserRule getUiRootElementsRule() {
+		return getUiRootElementsAccess().getRule();
+	}
+
+	//UiVisibilityProcessor:
+	//	"visibilityProcessor" name=ID "{" bindingAlias+=UiBindingEndpointAlias* changeTrigger+=UiChangeTrigger*
+	//	rule=UiVisibilityRule "}";
+	public UiVisibilityProcessorElements getUiVisibilityProcessorAccess() {
+		return (pUiVisibilityProcessor != null) ? pUiVisibilityProcessor : (pUiVisibilityProcessor = new UiVisibilityProcessorElements());
+	}
+	
+	public ParserRule getUiVisibilityProcessorRule() {
+		return getUiVisibilityProcessorAccess().getRule();
+	}
+
+	//UiChangeTrigger:
+	//	"trigger" (endpoint=UiBindingEndpointDef | endpointAlias=[grammarCore::UiBindingEndpointAlias]);
+	public UiChangeTriggerElements getUiChangeTriggerAccess() {
+		return (pUiChangeTrigger != null) ? pUiChangeTrigger : (pUiChangeTrigger = new UiChangeTriggerElements());
+	}
+	
+	public ParserRule getUiChangeTriggerRule() {
+		return getUiChangeTriggerAccess().getRule();
+	}
+
+	//UiVisibilityRule:
+	//	UiXbaseVisibilityRule;
+	public UiVisibilityRuleElements getUiVisibilityRuleAccess() {
+		return (pUiVisibilityRule != null) ? pUiVisibilityRule : (pUiVisibilityRule = new UiVisibilityRuleElements());
+	}
+	
+	public ParserRule getUiVisibilityRuleRule() {
+		return getUiVisibilityRuleAccess().getRule();
+	}
+
+	//UiXbaseVisibilityRule:
+	//	{UiXbaseVisibilityRule} "rule" "{" "}";
+	public UiXbaseVisibilityRuleElements getUiXbaseVisibilityRuleAccess() {
+		return (pUiXbaseVisibilityRule != null) ? pUiXbaseVisibilityRule : (pUiXbaseVisibilityRule = new UiXbaseVisibilityRuleElements());
+	}
+	
+	public ParserRule getUiXbaseVisibilityRuleRule() {
+		return getUiXbaseVisibilityRuleAccess().getRule();
+	}
+
 	//UiViewSet returns grammarCore::UiViewSet:
-	//	"viewset" name=ID (("beanslots" "{" beanSlots+=UiBeanSlot* "}")? bindingEndpointAlias+=UiBindingEndpointAlias*);
+	//	"viewset" name=ID "{" (("beanslots" "{" beanSlots+=UiBeanSlot* "}")? bindingEndpointAlias+=UiBindingEndpointAlias*)
+	//	"}";
 	public UiViewSetElements getUiViewSetAccess() {
 		return (pUiViewSet != null) ? pUiViewSet : (pUiViewSet = new UiViewSetElements());
 	}
@@ -1315,7 +1724,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiBindingEndpointDef returns grammarCore::UiBindingEndpointDef:
-	//	bindable=[core::YBindable] ":" endpoint=[cfg::UxEndpointDef] path=UiPathSegment?;
+	//	bindable=[core::YElement] ":" endpoint=[cfg::UxEndpointDef] path=UiPathSegment?;
 	public UiBindingEndpointDefElements getUiBindingEndpointDefAccess() {
 		return (pUiBindingEndpointDef != null) ? pUiBindingEndpointDef : (pUiBindingEndpointDef = new UiBindingEndpointDefElements());
 	}
@@ -1345,7 +1754,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiIDEView returns grammarCore::UiIDEView:
-	//	"ideview" name=ID "{" content=UiLayout? // TODO make unordered group
+	//	"ideview" name=ID "{" ("viewset" root=[grammarCore::UiViewSet])? ("beanslots" "{" beanSlots+=UiBeanSlot* "}")?
+	//	content=UiLayout? // TODO make unordered group
 	//	("bindingAlias" "{" bindingEndpointAlias+=UiBindingEndpointAlias* "}")? bindings+=UiBinding* "}";
 	public UiIDEViewElements getUiIDEViewAccess() {
 		return (pUiIDEView != null) ? pUiIDEView : (pUiIDEView = new UiIDEViewElements());
@@ -1410,9 +1820,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getUiSpanInfoAccess().getRule();
 	}
 
-	//UiTextField returns ext::YTextField:
-	//	{UiTextField} "textfield" name=ID? ("{" (("datatype" datatype=[extDt::YTextDatatype])? & ("datadescription"
-	//	datadescription=[coreDt::YDatadescription])? & ("value" value=ID)?) "}")?;
+	//UiTextField:
+	//	{UiTextField} "textfield" name=ID? ("{" validators+=UiValidator* "}")?;
 	public UiTextFieldElements getUiTextFieldAccess() {
 		return (pUiTextField != null) ? pUiTextField : (pUiTextField = new UiTextFieldElements());
 	}
@@ -1462,7 +1871,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiField returns core::YField:
-	//	UiTextField | UiList;
+	//	UiTextField | UiList | UiNumericField | UiCheckBox;
 	public UiFieldElements getUiFieldAccess() {
 		return (pUiField != null) ? pUiField : (pUiField = new UiFieldElements());
 	}
@@ -1471,8 +1880,28 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getUiFieldAccess().getRule();
 	}
 
+	//UiNumericField:
+	//	{UiNumericField} "numericField" name=ID? ("{" validators+=UiValidator* "}")?;
+	public UiNumericFieldElements getUiNumericFieldAccess() {
+		return (pUiNumericField != null) ? pUiNumericField : (pUiNumericField = new UiNumericFieldElements());
+	}
+	
+	public ParserRule getUiNumericFieldRule() {
+		return getUiNumericFieldAccess().getRule();
+	}
+
+	//UiCheckBox:
+	//	{UiCheckBox} "checkbox" name=ID? ("{" validators+=UiValidator* "}")?;
+	public UiCheckBoxElements getUiCheckBoxAccess() {
+		return (pUiCheckBox != null) ? pUiCheckBox : (pUiCheckBox = new UiCheckBoxElements());
+	}
+	
+	public ParserRule getUiCheckBoxRule() {
+		return getUiCheckBoxAccess().getRule();
+	}
+
 	//UiValidator returns coreVal::YValidator:
-	//	UiMaxLengthValidator | UiMinLengthValidator;
+	//	UiMaxLengthValidator | UiMinLengthValidator | UiRegexpValidator;
 	public UiValidatorElements getUiValidatorAccess() {
 		return (pUiValidator != null) ? pUiValidator : (pUiValidator = new UiValidatorElements());
 	}
@@ -1481,8 +1910,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getUiValidatorAccess().getRule();
 	}
 
-	//UiMaxLengthValidator returns coreVal::YValidator:
-	//	{coreVal::YValidator} "max";
+	//UiMaxLengthValidator returns grammarCore::UiMaxLengthValidator:
+	//	{grammarCore::UiMaxLengthValidator} "maxLengthValidator" name=ID ("maxLength" maxLength=INT)?;
 	public UiMaxLengthValidatorElements getUiMaxLengthValidatorAccess() {
 		return (pUiMaxLengthValidator != null) ? pUiMaxLengthValidator : (pUiMaxLengthValidator = new UiMaxLengthValidatorElements());
 	}
@@ -1491,14 +1920,24 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getUiMaxLengthValidatorAccess().getRule();
 	}
 
-	//UiMinLengthValidator returns coreVal::YValidator:
-	//	{coreVal::YValidator} "min";
+	//UiMinLengthValidator returns grammarCore::UiMinLengthValidator:
+	//	{grammarCore::UiMinLengthValidator} "minLengthValidator" name=ID ("minLength" minLength=INT)?;
 	public UiMinLengthValidatorElements getUiMinLengthValidatorAccess() {
 		return (pUiMinLengthValidator != null) ? pUiMinLengthValidator : (pUiMinLengthValidator = new UiMinLengthValidatorElements());
 	}
 	
 	public ParserRule getUiMinLengthValidatorRule() {
 		return getUiMinLengthValidatorAccess().getRule();
+	}
+
+	//UiRegexpValidator returns grammarCore::UiRegexpValidator:
+	//	{grammarCore::UiRegexpValidator} "regexValidator" name=ID ("regex" regExpression=STRING)?;
+	public UiRegexpValidatorElements getUiRegexpValidatorAccess() {
+		return (pUiRegexpValidator != null) ? pUiRegexpValidator : (pUiRegexpValidator = new UiRegexpValidatorElements());
+	}
+	
+	public ParserRule getUiRegexpValidatorRule() {
+		return getUiRegexpValidatorAccess().getRule();
 	}
 
 	//FQN:

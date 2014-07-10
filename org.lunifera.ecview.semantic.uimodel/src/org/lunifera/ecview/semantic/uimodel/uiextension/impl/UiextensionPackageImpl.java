@@ -8,14 +8,22 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
+import org.eclipse.xtext.xbase.XbasePackage;
 import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
 import org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiChangeTrigger;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayout;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiList;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiTextField;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityRule;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiXbaseVisibilityRule;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionFactory;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionPackage;
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
@@ -54,6 +62,48 @@ public class UiextensionPackageImpl extends EPackageImpl implements UiextensionP
 	 * @generated
 	 */
 	private EClass uiListEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiNumericFieldEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiCheckBoxEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiVisibilityProcessorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiChangeTriggerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiVisibilityRuleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiXbaseVisibilityRuleEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -105,6 +155,7 @@ public class UiextensionPackageImpl extends EPackageImpl implements UiextensionP
 		ExtDatatypesPackage.eINSTANCE.eClass();
 		ExtensionModelPackage.eINSTANCE.eClass();
 		UiSemanticsPackage.eINSTANCE.eClass();
+		XbasePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		UimodelPackageImpl theUimodelPackage = (UimodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UimodelPackage.eNS_URI) instanceof UimodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UimodelPackage.eNS_URI) : UimodelPackage.eINSTANCE);
@@ -212,6 +263,105 @@ public class UiextensionPackageImpl extends EPackageImpl implements UiextensionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiNumericField() {
+		return uiNumericFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiCheckBox() {
+		return uiCheckBoxEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiVisibilityProcessor() {
+		return uiVisibilityProcessorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiVisibilityProcessor_BindingAlias() {
+		return (EReference)uiVisibilityProcessorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiVisibilityProcessor_ChangeTrigger() {
+		return (EReference)uiVisibilityProcessorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiChangeTrigger() {
+		return uiChangeTriggerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiChangeTrigger_Endpoint() {
+		return (EReference)uiChangeTriggerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiChangeTrigger_EndpointAlias() {
+		return (EReference)uiChangeTriggerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiVisibilityRule() {
+		return uiVisibilityRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiXbaseVisibilityRule() {
+		return uiXbaseVisibilityRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiXbaseVisibilityRule_Expression() {
+		return (EReference)uiXbaseVisibilityRuleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiextensionFactory getUiextensionFactory() {
 		return (UiextensionFactory)getEFactoryInstance();
 	}
@@ -247,6 +397,23 @@ public class UiextensionPackageImpl extends EPackageImpl implements UiextensionP
 		uiTextFieldEClass = createEClass(UI_TEXT_FIELD);
 
 		uiListEClass = createEClass(UI_LIST);
+
+		uiNumericFieldEClass = createEClass(UI_NUMERIC_FIELD);
+
+		uiCheckBoxEClass = createEClass(UI_CHECK_BOX);
+
+		uiVisibilityProcessorEClass = createEClass(UI_VISIBILITY_PROCESSOR);
+		createEReference(uiVisibilityProcessorEClass, UI_VISIBILITY_PROCESSOR__BINDING_ALIAS);
+		createEReference(uiVisibilityProcessorEClass, UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER);
+
+		uiChangeTriggerEClass = createEClass(UI_CHANGE_TRIGGER);
+		createEReference(uiChangeTriggerEClass, UI_CHANGE_TRIGGER__ENDPOINT);
+		createEReference(uiChangeTriggerEClass, UI_CHANGE_TRIGGER__ENDPOINT_ALIAS);
+
+		uiVisibilityRuleEClass = createEClass(UI_VISIBILITY_RULE);
+
+		uiXbaseVisibilityRuleEClass = createEClass(UI_XBASE_VISIBILITY_RULE);
+		createEReference(uiXbaseVisibilityRuleEClass, UI_XBASE_VISIBILITY_RULE__EXPRESSION);
 	}
 
 	/**
@@ -273,18 +440,35 @@ public class UiextensionPackageImpl extends EPackageImpl implements UiextensionP
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		UimodelPackage theUimodelPackage = (UimodelPackage)EPackage.Registry.INSTANCE.getEPackage(UimodelPackage.eNS_URI);
 		CoreModelPackage theCoreModelPackage = (CoreModelPackage)EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI);
 		ExtensionModelPackage theExtensionModelPackage = (ExtensionModelPackage)EPackage.Registry.INSTANCE.getEPackage(ExtensionModelPackage.eNS_URI);
-		UimodelPackage theUimodelPackage = (UimodelPackage)EPackage.Registry.INSTANCE.getEPackage(UimodelPackage.eNS_URI);
+		VisibilityPackage theVisibilityPackage = (VisibilityPackage)EPackage.Registry.INSTANCE.getEPackage(VisibilityPackage.eNS_URI);
+		XbasePackage theXbasePackage = (XbasePackage)EPackage.Registry.INSTANCE.getEPackage(XbasePackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		uiGridLayoutAssigmentEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
 		uiGridLayoutEClass.getESuperTypes().add(theExtensionModelPackage.getYGridLayout());
+		uiGridLayoutEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
 		uiTextFieldEClass.getESuperTypes().add(theExtensionModelPackage.getYTextField());
+		uiTextFieldEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
 		uiListEClass.getESuperTypes().add(theExtensionModelPackage.getYList());
+		uiListEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
+		uiNumericFieldEClass.getESuperTypes().add(theExtensionModelPackage.getYNumericField());
+		uiNumericFieldEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
+		uiCheckBoxEClass.getESuperTypes().add(theExtensionModelPackage.getYCheckBox());
+		uiCheckBoxEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
+		uiVisibilityProcessorEClass.getESuperTypes().add(theVisibilityPackage.getYRuledVisibilityProcessor());
+		uiVisibilityProcessorEClass.getESuperTypes().add(theUimodelPackage.getUiRootElements());
+		uiVisibilityProcessorEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
+		uiChangeTriggerEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
+		uiVisibilityRuleEClass.getESuperTypes().add(theVisibilityPackage.getYVisibilityRule());
+		uiVisibilityRuleEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
+		uiXbaseVisibilityRuleEClass.getESuperTypes().add(this.getUiVisibilityRule());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(uiGridLayoutAssigmentEClass, UiGridLayoutAssigment.class, "UiGridLayoutAssigment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -299,6 +483,23 @@ public class UiextensionPackageImpl extends EPackageImpl implements UiextensionP
 		initEClass(uiTextFieldEClass, UiTextField.class, "UiTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(uiListEClass, UiList.class, "UiList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiNumericFieldEClass, UiNumericField.class, "UiNumericField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiCheckBoxEClass, UiCheckBox.class, "UiCheckBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiVisibilityProcessorEClass, UiVisibilityProcessor.class, "UiVisibilityProcessor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiVisibilityProcessor_BindingAlias(), theUimodelPackage.getUiBindingEndpointAlias(), null, "bindingAlias", null, 0, -1, UiVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiVisibilityProcessor_ChangeTrigger(), this.getUiChangeTrigger(), null, "changeTrigger", null, 0, -1, UiVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiChangeTriggerEClass, UiChangeTrigger.class, "UiChangeTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiChangeTrigger_Endpoint(), theUimodelPackage.getUiBindingEndpointDef(), null, "endpoint", null, 0, 1, UiChangeTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiChangeTrigger_EndpointAlias(), theUimodelPackage.getUiBindingEndpointAlias(), null, "endpointAlias", null, 0, 1, UiChangeTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiVisibilityRuleEClass, UiVisibilityRule.class, "UiVisibilityRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiXbaseVisibilityRuleEClass, UiXbaseVisibilityRule.class, "UiXbaseVisibilityRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiXbaseVisibilityRule_Expression(), theXbasePackage.getXExpression(), null, "expression", null, 0, 1, UiXbaseVisibilityRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

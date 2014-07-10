@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface UiIDEView extends UiView {
+public interface UiIDEView extends UiView, UiModelElement {
 	/**
 	 * Returns the value of the '<em><b>Bindings</b></em>' containment reference list.
 	 * The list contents are of type {@link org.lunifera.ecview.semantic.uimodel.UiBinding}.

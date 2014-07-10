@@ -21,10 +21,19 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YRuledVisibilityProcessor;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YInput;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.lunifera.ecview.semantic.uimodel.UiModel;
+import org.lunifera.ecview.semantic.uimodel.UiModelElement;
+import org.lunifera.ecview.semantic.uimodel.UiRootElements;
+import org.lunifera.ecview.semantic.uimodel.uiextension.*;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayout;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiList;
@@ -91,6 +100,7 @@ public class UiextensionSwitch<T> extends Switch<T> {
 			case UiextensionPackage.UI_GRID_LAYOUT_ASSIGMENT: {
 				UiGridLayoutAssigment uiGridLayoutAssigment = (UiGridLayoutAssigment)theEObject;
 				T result = caseUiGridLayoutAssigment(uiGridLayoutAssigment);
+				if (result == null) result = caseUiModelElement(uiGridLayoutAssigment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -98,6 +108,7 @@ public class UiextensionSwitch<T> extends Switch<T> {
 				UiGridLayout uiGridLayout = (UiGridLayout)theEObject;
 				T result = caseUiGridLayout(uiGridLayout);
 				if (result == null) result = caseYGridLayout(uiGridLayout);
+				if (result == null) result = caseUiModelElement(uiGridLayout);
 				if (result == null) result = caseYLayout(uiGridLayout);
 				if (result == null) result = caseYSpacingable(uiGridLayout);
 				if (result == null) result = caseYMarginable(uiGridLayout);
@@ -113,6 +124,7 @@ public class UiextensionSwitch<T> extends Switch<T> {
 				UiTextField uiTextField = (UiTextField)theEObject;
 				T result = caseUiTextField(uiTextField);
 				if (result == null) result = caseYTextField(uiTextField);
+				if (result == null) result = caseUiModelElement(uiTextField);
 				if (result == null) result = caseYInput(uiTextField);
 				if (result == null) result = caseYValueBindable(uiTextField);
 				if (result == null) result = caseYField(uiTextField);
@@ -131,6 +143,7 @@ public class UiextensionSwitch<T> extends Switch<T> {
 				UiList uiList = (UiList)theEObject;
 				T result = caseUiList(uiList);
 				if (result == null) result = caseYList(uiList);
+				if (result == null) result = caseUiModelElement(uiList);
 				if (result == null) result = caseYInput(uiList);
 				if (result == null) result = caseYCollectionBindable(uiList);
 				if (result == null) result = caseYSelectionBindable(uiList);
@@ -144,6 +157,82 @@ public class UiextensionSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYCssAble(uiList);
 				if (result == null) result = caseYVisibleable(uiList);
 				if (result == null) result = caseYVisibilityProcessable(uiList);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiextensionPackage.UI_NUMERIC_FIELD: {
+				UiNumericField uiNumericField = (UiNumericField)theEObject;
+				T result = caseUiNumericField(uiNumericField);
+				if (result == null) result = caseYNumericField(uiNumericField);
+				if (result == null) result = caseUiModelElement(uiNumericField);
+				if (result == null) result = caseYInput(uiNumericField);
+				if (result == null) result = caseYValueBindable(uiNumericField);
+				if (result == null) result = caseYField(uiNumericField);
+				if (result == null) result = caseYBindable(uiNumericField);
+				if (result == null) result = caseYEmbeddable(uiNumericField);
+				if (result == null) result = caseYEditable(uiNumericField);
+				if (result == null) result = caseYEnable(uiNumericField);
+				if (result == null) result = caseYElement(uiNumericField);
+				if (result == null) result = caseYCssAble(uiNumericField);
+				if (result == null) result = caseYVisibleable(uiNumericField);
+				if (result == null) result = caseYVisibilityProcessable(uiNumericField);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiextensionPackage.UI_CHECK_BOX: {
+				UiCheckBox uiCheckBox = (UiCheckBox)theEObject;
+				T result = caseUiCheckBox(uiCheckBox);
+				if (result == null) result = caseYCheckBox(uiCheckBox);
+				if (result == null) result = caseUiModelElement(uiCheckBox);
+				if (result == null) result = caseYInput(uiCheckBox);
+				if (result == null) result = caseYValueBindable(uiCheckBox);
+				if (result == null) result = caseYField(uiCheckBox);
+				if (result == null) result = caseYBindable(uiCheckBox);
+				if (result == null) result = caseYEmbeddable(uiCheckBox);
+				if (result == null) result = caseYEditable(uiCheckBox);
+				if (result == null) result = caseYEnable(uiCheckBox);
+				if (result == null) result = caseYElement(uiCheckBox);
+				if (result == null) result = caseYCssAble(uiCheckBox);
+				if (result == null) result = caseYVisibleable(uiCheckBox);
+				if (result == null) result = caseYVisibilityProcessable(uiCheckBox);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiextensionPackage.UI_VISIBILITY_PROCESSOR: {
+				UiVisibilityProcessor uiVisibilityProcessor = (UiVisibilityProcessor)theEObject;
+				T result = caseUiVisibilityProcessor(uiVisibilityProcessor);
+				if (result == null) result = caseYRuledVisibilityProcessor(uiVisibilityProcessor);
+				if (result == null) result = caseUiRootElements(uiVisibilityProcessor);
+				if (result == null) result = caseYVisibilityProcessor(uiVisibilityProcessor);
+				if (result == null) result = caseUiModel(uiVisibilityProcessor);
+				if (result == null) result = caseYElement(uiVisibilityProcessor);
+				if (result == null) result = caseUiModelElement(uiVisibilityProcessor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiextensionPackage.UI_CHANGE_TRIGGER: {
+				UiChangeTrigger uiChangeTrigger = (UiChangeTrigger)theEObject;
+				T result = caseUiChangeTrigger(uiChangeTrigger);
+				if (result == null) result = caseUiModelElement(uiChangeTrigger);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiextensionPackage.UI_VISIBILITY_RULE: {
+				UiVisibilityRule uiVisibilityRule = (UiVisibilityRule)theEObject;
+				T result = caseUiVisibilityRule(uiVisibilityRule);
+				if (result == null) result = caseYVisibilityRule(uiVisibilityRule);
+				if (result == null) result = caseUiModelElement(uiVisibilityRule);
+				if (result == null) result = caseYElement(uiVisibilityRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiextensionPackage.UI_XBASE_VISIBILITY_RULE: {
+				UiXbaseVisibilityRule uiXbaseVisibilityRule = (UiXbaseVisibilityRule)theEObject;
+				T result = caseUiXbaseVisibilityRule(uiXbaseVisibilityRule);
+				if (result == null) result = caseUiVisibilityRule(uiXbaseVisibilityRule);
+				if (result == null) result = caseYVisibilityRule(uiXbaseVisibilityRule);
+				if (result == null) result = caseUiModelElement(uiXbaseVisibilityRule);
+				if (result == null) result = caseYElement(uiXbaseVisibilityRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -208,6 +297,111 @@ public class UiextensionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiList(UiList object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Numeric Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Numeric Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiNumericField(UiNumericField object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Check Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Check Box</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiCheckBox(UiCheckBox object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Visibility Processor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Visibility Processor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiVisibilityProcessor(UiVisibilityProcessor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Change Trigger</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Change Trigger</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiChangeTrigger(UiChangeTrigger object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Visibility Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Visibility Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiVisibilityRule(UiVisibilityRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Xbase Visibility Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Xbase Visibility Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiXbaseVisibilityRule(UiXbaseVisibilityRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Model Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Model Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiModelElement(UiModelElement object) {
 		return null;
 	}
 
@@ -508,6 +702,111 @@ public class UiextensionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYList(YList object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YNumeric Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YNumeric Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYNumericField(YNumericField object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YCheck Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YCheck Box</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYCheckBox(YCheckBox object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YVisibility Processor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YVisibility Processor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYVisibilityProcessor(YVisibilityProcessor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YRuled Visibility Processor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YRuled Visibility Processor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYRuledVisibilityProcessor(YRuledVisibilityProcessor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiModel(UiModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Root Elements</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Root Elements</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiRootElements(UiRootElements object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YVisibility Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YVisibility Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYVisibilityRule(YVisibilityRule object) {
 		return null;
 	}
 

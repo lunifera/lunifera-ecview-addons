@@ -9,7 +9,8 @@
  *******************************************************************************/
 package org.lunifera.ecview.vaadin.ide.preview.parts;
 
-import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchPartSite;
@@ -17,7 +18,7 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.model.IXtextModelListener;
-import org.lunifera.ecview.semantic.uimodel.UiModel;
+import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.lunifera.ecview.vaadin.ide.preview.Activator;
 
 import com.google.inject.Inject;
@@ -64,6 +65,15 @@ public class ECViewVaadinSynchronizer implements IPartListener,
 				lastActiveDocument = xtextDocument;
 				lastActiveEditor = xtextEditor;
 				lastActiveDocument.addModelListener(this);
+				lastActiveDocument
+						.readOnly(new IUnitOfWork<Boolean, XtextResource>() {
+							@Override
+							public Boolean exec(XtextResource state)
+									throws Exception {
+								modelChanged(state);
+								return true;
+							}
+						});
 			}
 		}
 	}
@@ -81,11 +91,14 @@ public class ECViewVaadinSynchronizer implements IPartListener,
 	}
 
 	public void modelChanged(XtextResource resource) {
-		if (resource.getContents().get(0) instanceof UiModel) {
-			UiModel model = (UiModel) resource.getContents().get(0);
-				if (model.getViews().size() > 0) {
-					Activator.getDefault().setActiveView(model.getViews().get(0));
-				}	
+		if (resource.getContents().size() < 2) {
+			return;
+		}
+		for (EObject e : resource.getContents()) {
+			if (e instanceof YView) {
+				Activator.getDefault().setActiveView((YView) e);
+				break;
+			}
 		}
 	}
 }

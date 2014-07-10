@@ -13,9 +13,8 @@ import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Ui Path Segment</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Ui Path Segment</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -26,11 +25,11 @@ import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
  *
  * @generated
  */
-public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements UiPathSegment {
+public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
+		UiPathSegment {
 	/**
 	 * The cached value of the '{@link #getJvmField() <em>Jvm Field</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getJvmField()
 	 * @generated
 	 * @ordered
@@ -39,8 +38,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPath()
 	 * @generated
 	 * @ordered
@@ -48,8 +46,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 	protected UiPathSegment path;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected UiPathSegmentImpl() {
@@ -57,8 +54,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -67,8 +63,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public JvmField getJvmField() {
@@ -84,8 +79,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public JvmField basicGetJvmField() {
@@ -93,8 +87,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setJvmField(JvmField newJvmField) {
@@ -105,8 +98,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public UiPathSegment getPath() {
@@ -128,8 +120,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public UiPathSegment basicGetPath() {
@@ -137,11 +128,11 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPath(UiPathSegment newPath, NotificationChain msgs) {
+	public NotificationChain basicSetPath(UiPathSegment newPath,
+			NotificationChain msgs) {
 		UiPathSegment oldPath = path;
 		path = newPath;
 		if (eNotificationRequired()) {
@@ -152,8 +143,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setPath(UiPathSegment newPath) {
@@ -171,12 +161,12 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case UimodelPackage.UI_PATH_SEGMENT__PATH:
 				return basicSetPath(null, msgs);
@@ -185,8 +175,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -203,8 +192,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -221,8 +209,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -239,8 +226,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -254,4 +240,22 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements U
 		return super.eIsSet(featureID);
 	}
 
-} //UiPathSegmentImpl
+	@Override
+	public String toPathString() {
+		String result = "";
+		UiPathSegment child = getPath();
+		if (child != null) {
+			result = child.toPathString();
+			if(result != null){
+				result = getJvmField().getSimpleName() + "." + result;
+			}else {
+				result=getJvmField().getSimpleName();
+			}
+		} else {
+			return getJvmField() != null ? getJvmField().getSimpleName() : null;
+		}
+
+		return result;
+	}
+
+} // UiPathSegmentImpl

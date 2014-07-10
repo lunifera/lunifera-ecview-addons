@@ -14,6 +14,14 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 import org.lunifera.ecview.semantic.uimodel.*;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
@@ -123,6 +131,26 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 				return createUiViewSetAdapter();
 			}
 			@Override
+			public Adapter caseUiRootElements(UiRootElements object) {
+				return createUiRootElementsAdapter();
+			}
+			@Override
+			public Adapter caseUiModelElement(UiModelElement object) {
+				return createUiModelElementAdapter();
+			}
+			@Override
+			public Adapter caseUiMaxLengthValidator(UiMaxLengthValidator object) {
+				return createUiMaxLengthValidatorAdapter();
+			}
+			@Override
+			public Adapter caseUiMinLengthValidator(UiMinLengthValidator object) {
+				return createUiMinLengthValidatorAdapter();
+			}
+			@Override
+			public Adapter caseUiRegexpValidator(UiRegexpValidator object) {
+				return createUiRegexpValidatorAdapter();
+			}
+			@Override
 			public Adapter caseYElement(YElement object) {
 				return createYElementAdapter();
 			}
@@ -153,6 +181,38 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYViewSet(YViewSet object) {
 				return createYViewSetAdapter();
+			}
+			@Override
+			public Adapter caseYValidator(YValidator object) {
+				return createYValidatorAdapter();
+			}
+			@Override
+			public Adapter caseYValidationConfig(YValidationConfig object) {
+				return createYValidationConfigAdapter();
+			}
+			@Override
+			public Adapter caseYMaxLengthValidationConfig(YMaxLengthValidationConfig object) {
+				return createYMaxLengthValidationConfigAdapter();
+			}
+			@Override
+			public Adapter caseYMaxLengthValidator(YMaxLengthValidator object) {
+				return createYMaxLengthValidatorAdapter();
+			}
+			@Override
+			public Adapter caseYMinLengthValidationConfig(YMinLengthValidationConfig object) {
+				return createYMinLengthValidationConfigAdapter();
+			}
+			@Override
+			public Adapter caseYMinLengthValidator(YMinLengthValidator object) {
+				return createYMinLengthValidatorAdapter();
+			}
+			@Override
+			public Adapter caseYRegexpValidationConfig(YRegexpValidationConfig object) {
+				return createYRegexpValidationConfigAdapter();
+			}
+			@Override
+			public Adapter caseYRegexpValidator(YRegexpValidator object) {
+				return createYRegexpValidatorAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -315,6 +375,76 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiRootElements <em>Ui Root Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRootElements
+	 * @generated
+	 */
+	public Adapter createUiRootElementsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiModelElement <em>Ui Model Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelElement
+	 * @generated
+	 */
+	public Adapter createUiModelElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator <em>Ui Max Length Validator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator
+	 * @generated
+	 */
+	public Adapter createUiMaxLengthValidatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator <em>Ui Min Length Validator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator
+	 * @generated
+	 */
+	public Adapter createUiMinLengthValidatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiRegexpValidator <em>Ui Regexp Validator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRegexpValidator
+	 * @generated
+	 */
+	public Adapter createUiRegexpValidatorAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YElement <em>YElement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -423,6 +553,118 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYViewSetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidator <em>YValidator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YValidator
+	 * @generated
+	 */
+	public Adapter createYValidatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig <em>YValidation Config</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig
+	 * @generated
+	 */
+	public Adapter createYValidationConfigAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig <em>YMax Length Validation Config</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig
+	 * @generated
+	 */
+	public Adapter createYMaxLengthValidationConfigAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator <em>YMax Length Validator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator
+	 * @generated
+	 */
+	public Adapter createYMaxLengthValidatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig <em>YMin Length Validation Config</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig
+	 * @generated
+	 */
+	public Adapter createYMinLengthValidationConfigAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator <em>YMin Length Validator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator
+	 * @generated
+	 */
+	public Adapter createYMinLengthValidatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig <em>YRegexp Validation Config</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig
+	 * @generated
+	 */
+	public Adapter createYRegexpValidationConfigAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator <em>YRegexp Validator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator
+	 * @generated
+	 */
+	public Adapter createYRegexpValidatorAdapter() {
 		return null;
 	}
 

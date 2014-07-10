@@ -22,10 +22,19 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YRuledVisibilityProcessor;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YInput;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.lunifera.ecview.semantic.uimodel.UiModel;
+import org.lunifera.ecview.semantic.uimodel.UiModelElement;
+import org.lunifera.ecview.semantic.uimodel.UiRootElements;
+import org.lunifera.ecview.semantic.uimodel.uiextension.*;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayout;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiList;
@@ -103,6 +112,34 @@ public class UiextensionAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUiList(UiList object) {
 				return createUiListAdapter();
+			}
+			@Override
+			public Adapter caseUiNumericField(UiNumericField object) {
+				return createUiNumericFieldAdapter();
+			}
+			@Override
+			public Adapter caseUiCheckBox(UiCheckBox object) {
+				return createUiCheckBoxAdapter();
+			}
+			@Override
+			public Adapter caseUiVisibilityProcessor(UiVisibilityProcessor object) {
+				return createUiVisibilityProcessorAdapter();
+			}
+			@Override
+			public Adapter caseUiChangeTrigger(UiChangeTrigger object) {
+				return createUiChangeTriggerAdapter();
+			}
+			@Override
+			public Adapter caseUiVisibilityRule(UiVisibilityRule object) {
+				return createUiVisibilityRuleAdapter();
+			}
+			@Override
+			public Adapter caseUiXbaseVisibilityRule(UiXbaseVisibilityRule object) {
+				return createUiXbaseVisibilityRuleAdapter();
+			}
+			@Override
+			public Adapter caseUiModelElement(UiModelElement object) {
+				return createUiModelElementAdapter();
 			}
 			@Override
 			public Adapter caseYElement(YElement object) {
@@ -185,6 +222,34 @@ public class UiextensionAdapterFactory extends AdapterFactoryImpl {
 				return createYListAdapter();
 			}
 			@Override
+			public Adapter caseYNumericField(YNumericField object) {
+				return createYNumericFieldAdapter();
+			}
+			@Override
+			public Adapter caseYCheckBox(YCheckBox object) {
+				return createYCheckBoxAdapter();
+			}
+			@Override
+			public Adapter caseYVisibilityProcessor(YVisibilityProcessor object) {
+				return createYVisibilityProcessorAdapter();
+			}
+			@Override
+			public Adapter caseYRuledVisibilityProcessor(YRuledVisibilityProcessor object) {
+				return createYRuledVisibilityProcessorAdapter();
+			}
+			@Override
+			public Adapter caseUiModel(UiModel object) {
+				return createUiModelAdapter();
+			}
+			@Override
+			public Adapter caseUiRootElements(UiRootElements object) {
+				return createUiRootElementsAdapter();
+			}
+			@Override
+			public Adapter caseYVisibilityRule(YVisibilityRule object) {
+				return createYVisibilityRuleAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -257,6 +322,104 @@ public class UiextensionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiListAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiNumericField <em>Ui Numeric Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiNumericField
+	 * @generated
+	 */
+	public Adapter createUiNumericFieldAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiCheckBox <em>Ui Check Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiCheckBox
+	 * @generated
+	 */
+	public Adapter createUiCheckBoxAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor <em>Ui Visibility Processor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor
+	 * @generated
+	 */
+	public Adapter createUiVisibilityProcessorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiChangeTrigger <em>Ui Change Trigger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiChangeTrigger
+	 * @generated
+	 */
+	public Adapter createUiChangeTriggerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityRule <em>Ui Visibility Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityRule
+	 * @generated
+	 */
+	public Adapter createUiVisibilityRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiXbaseVisibilityRule <em>Ui Xbase Visibility Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiXbaseVisibilityRule
+	 * @generated
+	 */
+	public Adapter createUiXbaseVisibilityRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiModelElement <em>Ui Model Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelElement
+	 * @generated
+	 */
+	public Adapter createUiModelElementAdapter() {
 		return null;
 	}
 
@@ -537,6 +700,104 @@ public class UiextensionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYListAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField <em>YNumeric Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField
+	 * @generated
+	 */
+	public Adapter createYNumericFieldAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox <em>YCheck Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox
+	 * @generated
+	 */
+	public Adapter createYCheckBoxAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor <em>YVisibility Processor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor
+	 * @generated
+	 */
+	public Adapter createYVisibilityProcessorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YRuledVisibilityProcessor <em>YRuled Visibility Processor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YRuledVisibilityProcessor
+	 * @generated
+	 */
+	public Adapter createYRuledVisibilityProcessorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiModel <em>Ui Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModel
+	 * @generated
+	 */
+	public Adapter createUiModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiRootElements <em>Ui Root Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRootElements
+	 * @generated
+	 */
+	public Adapter createUiRootElementsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule <em>YVisibility Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule
+	 * @generated
+	 */
+	public Adapter createYVisibilityRuleAdapter() {
 		return null;
 	}
 

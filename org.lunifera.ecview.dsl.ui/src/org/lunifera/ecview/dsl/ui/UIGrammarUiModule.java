@@ -4,12 +4,26 @@
 package org.lunifera.ecview.dsl.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.lunifera.ecview.dsl.IJdtTypeLoaderFactory;
+import org.lunifera.ecview.dsl.IJdtTypeLoaderProvider;
+import org.lunifera.ecview.dsl.ui.quickfix.typesloader.JdtTypeLoaderFactory;
+import org.lunifera.ecview.dsl.ui.quickfix.typesloader.JdtTypeLoaderProvider;
 
 /**
  * Use this class to register components to be used within the IDE.
  */
-public class UIGrammarUiModule extends org.lunifera.ecview.dsl.ui.AbstractUIGrammarUiModule {
+public class UIGrammarUiModule extends
+		org.lunifera.ecview.dsl.ui.AbstractUIGrammarUiModule {
 	public UIGrammarUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
+
+	public Class<? extends IJdtTypeLoaderFactory> bindIJdtTypeLoaderFactory() {
+		return JdtTypeLoaderFactory.class;
+	}
+
+	public Class<? extends IJdtTypeLoaderProvider> bindIJdtTypeLoaderProvider() {
+		return JdtTypeLoaderProvider.class;
+	}
+
 }

@@ -3,6 +3,7 @@
 package org.lunifera.ecview.semantic.uimodel.uiextension;
 
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.lunifera.ecview.semantic.uimodel.UiModelElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,5 +15,5 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
  * @model
  * @generated
  */
-public interface UiTextField extends YTextField {
+public interface UiTextField extends YTextField, UiModelElement {
 } // UiTextField

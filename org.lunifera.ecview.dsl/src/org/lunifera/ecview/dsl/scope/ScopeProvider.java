@@ -3,11 +3,12 @@ package org.lunifera.ecview.dsl.scope;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.common.types.util.TypeReferences;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider;
+import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
@@ -54,7 +55,7 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 			UiBindingEndpointDef parent = (UiBindingEndpointDef) segment
 					.eContainer();
 			UxEndpointDef uxEndpointDef = (UxEndpointDef) parent.getEndpoint();
-			YBindable bindable = parent.getBindable();
+			YElement bindable = parent.getBindable();
 
 			JvmTypeReference expectedType = uxEndpointDef.getJvmType();
 			if (expectedType == null) {
@@ -62,9 +63,9 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 			} else if (expectedType.getQualifiedName().equals(
 					Void.class.getName())) {
 				if (bindable instanceof YBeanSlot) {
-					YBeanSlot slot = (YBeanSlot) bindable;
-					return new BindingPathScope(types.findDeclaredType(
-							slot.getValueTypeQualifiedName(), context));
+					UiBeanSlot slot = (UiBeanSlot) bindable;
+					return new BindingPathScope(types.findDeclaredType(slot
+							.getJvmType().getQualifiedName(), context));
 				}
 				throw new IllegalStateException("Not a valid input! " + context);
 			} else {
@@ -89,7 +90,7 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 	private IScope createBindingEndpointDefPathScope(EObject context) {
 		UiBindingEndpointDef parent = (UiBindingEndpointDef) context;
 		UxEndpointDef uxEndpointDef = (UxEndpointDef) parent.getEndpoint();
-		YBindable bindable = parent.getBindable();
+		YElement bindable = parent.getBindable();
 
 		JvmTypeReference expectedType = uxEndpointDef.getJvmType();
 		if (expectedType.getQualifiedName().equals(Void.class.getName())) {

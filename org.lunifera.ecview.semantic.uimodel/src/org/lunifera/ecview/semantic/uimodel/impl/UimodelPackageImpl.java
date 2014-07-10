@@ -8,17 +8,24 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.xtext.common.types.TypesPackage;
+import org.eclipse.xtext.xbase.XbasePackage;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
+import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
+import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
+import org.lunifera.ecview.semantic.uimodel.UiModelElement;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
+import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
+import org.lunifera.ecview.semantic.uimodel.UiRootElements;
 import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.semantic.uimodel.UiViewSet;
 import org.lunifera.ecview.semantic.uimodel.UimodelFactory;
@@ -105,6 +112,41 @@ public class UimodelPackageImpl extends EPackageImpl implements UimodelPackage {
 	private EClass uiViewSetEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiRootElementsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiModelElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMaxLengthValidatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMinLengthValidatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiRegexpValidatorEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -154,6 +196,7 @@ public class UimodelPackageImpl extends EPackageImpl implements UimodelPackage {
 		ExtDatatypesPackage.eINSTANCE.eClass();
 		ExtensionModelPackage.eINSTANCE.eClass();
 		UiSemanticsPackage.eINSTANCE.eClass();
+		XbasePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		UiextensionPackageImpl theUiextensionPackage = (UiextensionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UiextensionPackage.eNS_URI) instanceof UiextensionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UiextensionPackage.eNS_URI) : UiextensionPackage.eINSTANCE);
@@ -189,17 +232,8 @@ public class UimodelPackageImpl extends EPackageImpl implements UimodelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUiModel_ViewSets() {
+	public EReference getUiModel_Roots() {
 		return (EReference)uiModelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUiModel_Views() {
-		return (EReference)uiModelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -459,6 +493,51 @@ public class UimodelPackageImpl extends EPackageImpl implements UimodelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiRootElements() {
+		return uiRootElementsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiModelElement() {
+		return uiModelElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMaxLengthValidator() {
+		return uiMaxLengthValidatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMinLengthValidator() {
+		return uiMinLengthValidatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiRegexpValidator() {
+		return uiRegexpValidatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UimodelFactory getUimodelFactory() {
 		return (UimodelFactory)getEFactoryInstance();
 	}
@@ -483,8 +562,7 @@ public class UimodelPackageImpl extends EPackageImpl implements UimodelPackage {
 
 		// Create classes and their features
 		uiModelEClass = createEClass(UI_MODEL);
-		createEReference(uiModelEClass, UI_MODEL__VIEW_SETS);
-		createEReference(uiModelEClass, UI_MODEL__VIEWS);
+		createEReference(uiModelEClass, UI_MODEL__ROOTS);
 
 		uiViewEClass = createEClass(UI_VIEW);
 
@@ -522,6 +600,16 @@ public class UimodelPackageImpl extends EPackageImpl implements UimodelPackage {
 
 		uiViewSetEClass = createEClass(UI_VIEW_SET);
 		createEReference(uiViewSetEClass, UI_VIEW_SET__BINDING_ENDPOINT_ALIAS);
+
+		uiRootElementsEClass = createEClass(UI_ROOT_ELEMENTS);
+
+		uiModelElementEClass = createEClass(UI_MODEL_ELEMENT);
+
+		uiMaxLengthValidatorEClass = createEClass(UI_MAX_LENGTH_VALIDATOR);
+
+		uiMinLengthValidatorEClass = createEClass(UI_MIN_LENGTH_VALIDATOR);
+
+		uiRegexpValidatorEClass = createEClass(UI_REGEXP_VALIDATOR);
 	}
 
 	/**
@@ -551,21 +639,39 @@ public class UimodelPackageImpl extends EPackageImpl implements UimodelPackage {
 		CoreModelPackage theCoreModelPackage = (CoreModelPackage)EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI);
 		UiSemanticsPackage theUiSemanticsPackage = (UiSemanticsPackage)EPackage.Registry.INSTANCE.getEPackage(UiSemanticsPackage.eNS_URI);
 		TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+		ValidationPackage theValidationPackage = (ValidationPackage)EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		uiModelEClass.getESuperTypes().add(this.getUiModelElement());
 		uiViewEClass.getESuperTypes().add(theCoreModelPackage.getYView());
+		uiViewEClass.getESuperTypes().add(this.getUiRootElements());
+		uiViewEClass.getESuperTypes().add(this.getUiModelElement());
 		uiIDEViewEClass.getESuperTypes().add(this.getUiView());
+		uiIDEViewEClass.getESuperTypes().add(this.getUiModelElement());
+		uiPointEClass.getESuperTypes().add(this.getUiModelElement());
+		uiBindingEndpointAliasEClass.getESuperTypes().add(this.getUiModelElement());
+		uiBindingEndpointDefEClass.getESuperTypes().add(this.getUiModelElement());
+		uiBindingEClass.getESuperTypes().add(this.getUiModelElement());
+		uiPathSegmentEClass.getESuperTypes().add(this.getUiModelElement());
 		uiBeanSlotEClass.getESuperTypes().add(theCoreModelPackage.getYBeanSlot());
+		uiBeanSlotEClass.getESuperTypes().add(this.getUiModelElement());
 		uiViewSetEClass.getESuperTypes().add(theCoreModelPackage.getYViewSet());
+		uiViewSetEClass.getESuperTypes().add(this.getUiRootElements());
+		uiRootElementsEClass.getESuperTypes().add(this.getUiModel());
+		uiMaxLengthValidatorEClass.getESuperTypes().add(theValidationPackage.getYMaxLengthValidator());
+		uiMaxLengthValidatorEClass.getESuperTypes().add(this.getUiModelElement());
+		uiMinLengthValidatorEClass.getESuperTypes().add(theValidationPackage.getYMinLengthValidator());
+		uiMinLengthValidatorEClass.getESuperTypes().add(this.getUiModelElement());
+		uiRegexpValidatorEClass.getESuperTypes().add(theValidationPackage.getYRegexpValidator());
+		uiRegexpValidatorEClass.getESuperTypes().add(this.getUiModelElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(uiModelEClass, UiModel.class, "UiModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUiModel_ViewSets(), this.getUiViewSet(), null, "viewSets", null, 0, -1, UiModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUiModel_Views(), this.getUiView(), null, "views", null, 0, -1, UiModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiModel_Roots(), this.getUiRootElements(), null, "roots", null, 0, -1, UiModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiViewEClass, UiView.class, "UiView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -582,7 +688,7 @@ public class UimodelPackageImpl extends EPackageImpl implements UimodelPackage {
 		initEReference(getUiBindingEndpointAlias_Endpoint(), this.getUiBindingEndpointDef(), null, "endpoint", null, 1, 1, UiBindingEndpointAlias.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiBindingEndpointDefEClass, UiBindingEndpointDef.class, "UiBindingEndpointDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUiBindingEndpointDef_Bindable(), theCoreModelPackage.getYBindable(), null, "bindable", null, 0, 1, UiBindingEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiBindingEndpointDef_Bindable(), theCoreModelPackage.getYElement(), null, "bindable", null, 0, 1, UiBindingEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiBindingEndpointDef_Endpoint(), theUiSemanticsPackage.getUxEndpointDef(), null, "endpoint", null, 0, 1, UiBindingEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiBindingEndpointDef_Path(), this.getUiPathSegment(), null, "path", null, 0, 1, UiBindingEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -603,6 +709,16 @@ public class UimodelPackageImpl extends EPackageImpl implements UimodelPackage {
 
 		initEClass(uiViewSetEClass, UiViewSet.class, "UiViewSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiViewSet_BindingEndpointAlias(), this.getUiBindingEndpointAlias(), null, "bindingEndpointAlias", null, 0, -1, UiViewSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiRootElementsEClass, UiRootElements.class, "UiRootElements", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiModelElementEClass, UiModelElement.class, "UiModelElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiMaxLengthValidatorEClass, UiMaxLengthValidator.class, "UiMaxLengthValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiMinLengthValidatorEClass, UiMinLengthValidator.class, "UiMinLengthValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiRegexpValidatorEClass, UiRegexpValidator.class, "UiRegexpValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

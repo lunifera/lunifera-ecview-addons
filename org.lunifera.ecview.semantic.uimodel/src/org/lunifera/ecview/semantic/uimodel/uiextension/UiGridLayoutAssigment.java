@@ -2,9 +2,9 @@
  */
 package org.lunifera.ecview.semantic.uimodel.uiextension;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
+import org.lunifera.ecview.semantic.uimodel.UiModelElement;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
 
 /**
@@ -26,7 +26,7 @@ import org.lunifera.ecview.semantic.uimodel.UiPoint;
  * @model
  * @generated
  */
-public interface UiGridLayoutAssigment extends EObject {
+public interface UiGridLayoutAssigment extends UiModelElement {
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

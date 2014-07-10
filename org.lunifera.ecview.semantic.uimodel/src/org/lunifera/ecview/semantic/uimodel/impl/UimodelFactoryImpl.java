@@ -74,6 +74,9 @@ public class UimodelFactoryImpl extends EFactoryImpl implements UimodelFactory {
 			case UimodelPackage.UI_PATH_SEGMENT: return createUiPathSegment();
 			case UimodelPackage.UI_BEAN_SLOT: return createUiBeanSlot();
 			case UimodelPackage.UI_VIEW_SET: return createUiViewSet();
+			case UimodelPackage.UI_MAX_LENGTH_VALIDATOR: return createUiMaxLengthValidator();
+			case UimodelPackage.UI_MIN_LENGTH_VALIDATOR: return createUiMinLengthValidator();
+			case UimodelPackage.UI_REGEXP_VALIDATOR: return createUiRegexpValidator();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -177,6 +180,36 @@ public class UimodelFactoryImpl extends EFactoryImpl implements UimodelFactory {
 	public UiViewSet createUiViewSet() {
 		UiViewSetImpl uiViewSet = new UiViewSetImpl();
 		return uiViewSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiMaxLengthValidator createUiMaxLengthValidator() {
+		UiMaxLengthValidatorImpl uiMaxLengthValidator = new UiMaxLengthValidatorImpl();
+		return uiMaxLengthValidator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiMinLengthValidator createUiMinLengthValidator() {
+		UiMinLengthValidatorImpl uiMinLengthValidator = new UiMinLengthValidatorImpl();
+		return uiMinLengthValidator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiRegexpValidator createUiRegexpValidator() {
+		UiRegexpValidatorImpl uiRegexpValidator = new UiRegexpValidatorImpl();
+		return uiRegexpValidator;
 	}
 
 	/**

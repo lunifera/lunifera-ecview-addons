@@ -2,7 +2,6 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.common.types.JvmField;
 
 /**
@@ -22,7 +21,7 @@ import org.eclipse.xtext.common.types.JvmField;
  * @model
  * @generated
  */
-public interface UiPathSegment extends EObject {
+public interface UiPathSegment extends UiModelElement {
 	/**
 	 * Returns the value of the '<em><b>Jvm Field</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -74,5 +73,11 @@ public interface UiPathSegment extends EObject {
 	 * @generated
 	 */
 	void setPath(UiPathSegment value);
+
+	/**
+	 * Creates a string value containing all path attributes including their parents.
+	 * @return
+	 */
+	String toPathString();
 
 } // UiPathSegment

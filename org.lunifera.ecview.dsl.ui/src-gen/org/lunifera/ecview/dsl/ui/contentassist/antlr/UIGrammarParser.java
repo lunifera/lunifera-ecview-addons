@@ -37,6 +37,8 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getUiRootElementsAccess().getAlternatives(), "rule__UiRootElements__Alternatives");
+					put(grammarAccess.getUiChangeTriggerAccess().getAlternatives_1(), "rule__UiChangeTrigger__Alternatives_1");
 					put(grammarAccess.getUiBindingAccess().getAlternatives_1(), "rule__UiBinding__Alternatives_1");
 					put(grammarAccess.getUiBindingAccess().getAlternatives_3(), "rule__UiBinding__Alternatives_3");
 					put(grammarAccess.getUiEmbeddableAccess().getAlternatives(), "rule__UiEmbeddable__Alternatives");
@@ -83,10 +85,12 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getXImportDeclarationAccess().getAlternatives_1_0_3(), "rule__XImportDeclaration__Alternatives_1_0_3");
 					put(grammarAccess.getUiAlignmentAccess().getAlternatives(), "rule__UiAlignment__Alternatives");
 					put(grammarAccess.getSelectionTypeAccess().getAlternatives(), "rule__SelectionType__Alternatives");
-					put(grammarAccess.getUiModelAccess().getGroup(), "rule__UiModel__Group__0");
+					put(grammarAccess.getUiVisibilityProcessorAccess().getGroup(), "rule__UiVisibilityProcessor__Group__0");
+					put(grammarAccess.getUiChangeTriggerAccess().getGroup(), "rule__UiChangeTrigger__Group__0");
+					put(grammarAccess.getUiXbaseVisibilityRuleAccess().getGroup(), "rule__UiXbaseVisibilityRule__Group__0");
 					put(grammarAccess.getUiViewSetAccess().getGroup(), "rule__UiViewSet__Group__0");
-					put(grammarAccess.getUiViewSetAccess().getGroup_2(), "rule__UiViewSet__Group_2__0");
-					put(grammarAccess.getUiViewSetAccess().getGroup_2_0(), "rule__UiViewSet__Group_2_0__0");
+					put(grammarAccess.getUiViewSetAccess().getGroup_3(), "rule__UiViewSet__Group_3__0");
+					put(grammarAccess.getUiViewSetAccess().getGroup_3_0(), "rule__UiViewSet__Group_3_0__0");
 					put(grammarAccess.getUiBindingEndpointAliasAccess().getGroup(), "rule__UiBindingEndpointAlias__Group__0");
 					put(grammarAccess.getUiBeanSlotAccess().getGroup(), "rule__UiBeanSlot__Group__0");
 					put(grammarAccess.getUiBindingAccess().getGroup(), "rule__UiBinding__Group__0");
@@ -94,7 +98,9 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiBindingEndpointDefAccess().getGroup(), "rule__UiBindingEndpointDef__Group__0");
 					put(grammarAccess.getUiPathSegmentAccess().getGroup(), "rule__UiPathSegment__Group__0");
 					put(grammarAccess.getUiIDEViewAccess().getGroup(), "rule__UiIDEView__Group__0");
+					put(grammarAccess.getUiIDEViewAccess().getGroup_3(), "rule__UiIDEView__Group_3__0");
 					put(grammarAccess.getUiIDEViewAccess().getGroup_4(), "rule__UiIDEView__Group_4__0");
+					put(grammarAccess.getUiIDEViewAccess().getGroup_6(), "rule__UiIDEView__Group_6__0");
 					put(grammarAccess.getUiGridLayoutAccess().getGroup(), "rule__UiGridLayout__Group__0");
 					put(grammarAccess.getUiGridLayoutAccess().getGroup_2(), "rule__UiGridLayout__Group_2__0");
 					put(grammarAccess.getUiGridLayoutAccess().getGroup_2_1_0(), "rule__UiGridLayout__Group_2_1_0__0");
@@ -109,12 +115,17 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiSpanInfoAccess().getGroup_1_1_1(), "rule__UiSpanInfo__Group_1_1_1__0");
 					put(grammarAccess.getUiTextFieldAccess().getGroup(), "rule__UiTextField__Group__0");
 					put(grammarAccess.getUiTextFieldAccess().getGroup_3(), "rule__UiTextField__Group_3__0");
-					put(grammarAccess.getUiTextFieldAccess().getGroup_3_1_0(), "rule__UiTextField__Group_3_1_0__0");
-					put(grammarAccess.getUiTextFieldAccess().getGroup_3_1_1(), "rule__UiTextField__Group_3_1_1__0");
-					put(grammarAccess.getUiTextFieldAccess().getGroup_3_1_2(), "rule__UiTextField__Group_3_1_2__0");
 					put(grammarAccess.getUiListAccess().getGroup(), "rule__UiList__Group__0");
+					put(grammarAccess.getUiNumericFieldAccess().getGroup(), "rule__UiNumericField__Group__0");
+					put(grammarAccess.getUiNumericFieldAccess().getGroup_3(), "rule__UiNumericField__Group_3__0");
+					put(grammarAccess.getUiCheckBoxAccess().getGroup(), "rule__UiCheckBox__Group__0");
+					put(grammarAccess.getUiCheckBoxAccess().getGroup_3(), "rule__UiCheckBox__Group_3__0");
 					put(grammarAccess.getUiMaxLengthValidatorAccess().getGroup(), "rule__UiMaxLengthValidator__Group__0");
+					put(grammarAccess.getUiMaxLengthValidatorAccess().getGroup_3(), "rule__UiMaxLengthValidator__Group_3__0");
 					put(grammarAccess.getUiMinLengthValidatorAccess().getGroup(), "rule__UiMinLengthValidator__Group__0");
+					put(grammarAccess.getUiMinLengthValidatorAccess().getGroup_3(), "rule__UiMinLengthValidator__Group_3__0");
+					put(grammarAccess.getUiRegexpValidatorAccess().getGroup(), "rule__UiRegexpValidator__Group__0");
+					put(grammarAccess.getUiRegexpValidatorAccess().getGroup_3(), "rule__UiRegexpValidator__Group_3__0");
 					put(grammarAccess.getFQNAccess().getGroup(), "rule__FQN__Group__0");
 					put(grammarAccess.getFQNAccess().getGroup_0(), "rule__FQN__Group_0__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_0(), "rule__XAssignment__Group_0__0");
@@ -288,11 +299,16 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getXImportDeclarationAccess().getGroup(), "rule__XImportDeclaration__Group__0");
 					put(grammarAccess.getXImportDeclarationAccess().getGroup_1_0(), "rule__XImportDeclaration__Group_1_0__0");
 					put(grammarAccess.getQualifiedNameInStaticImportAccess().getGroup(), "rule__QualifiedNameInStaticImport__Group__0");
-					put(grammarAccess.getUiModelAccess().getViewSetsAssignment_0(), "rule__UiModel__ViewSetsAssignment_0");
-					put(grammarAccess.getUiModelAccess().getViewsAssignment_1(), "rule__UiModel__ViewsAssignment_1");
+					put(grammarAccess.getUiModelAccess().getRootsAssignment(), "rule__UiModel__RootsAssignment");
+					put(grammarAccess.getUiVisibilityProcessorAccess().getNameAssignment_1(), "rule__UiVisibilityProcessor__NameAssignment_1");
+					put(grammarAccess.getUiVisibilityProcessorAccess().getBindingAliasAssignment_3(), "rule__UiVisibilityProcessor__BindingAliasAssignment_3");
+					put(grammarAccess.getUiVisibilityProcessorAccess().getChangeTriggerAssignment_4(), "rule__UiVisibilityProcessor__ChangeTriggerAssignment_4");
+					put(grammarAccess.getUiVisibilityProcessorAccess().getRuleAssignment_5(), "rule__UiVisibilityProcessor__RuleAssignment_5");
+					put(grammarAccess.getUiChangeTriggerAccess().getEndpointAssignment_1_0(), "rule__UiChangeTrigger__EndpointAssignment_1_0");
+					put(grammarAccess.getUiChangeTriggerAccess().getEndpointAliasAssignment_1_1(), "rule__UiChangeTrigger__EndpointAliasAssignment_1_1");
 					put(grammarAccess.getUiViewSetAccess().getNameAssignment_1(), "rule__UiViewSet__NameAssignment_1");
-					put(grammarAccess.getUiViewSetAccess().getBeanSlotsAssignment_2_0_2(), "rule__UiViewSet__BeanSlotsAssignment_2_0_2");
-					put(grammarAccess.getUiViewSetAccess().getBindingEndpointAliasAssignment_2_1(), "rule__UiViewSet__BindingEndpointAliasAssignment_2_1");
+					put(grammarAccess.getUiViewSetAccess().getBeanSlotsAssignment_3_0_2(), "rule__UiViewSet__BeanSlotsAssignment_3_0_2");
+					put(grammarAccess.getUiViewSetAccess().getBindingEndpointAliasAssignment_3_1(), "rule__UiViewSet__BindingEndpointAliasAssignment_3_1");
 					put(grammarAccess.getUiBindingEndpointAliasAccess().getEndpointAssignment_1(), "rule__UiBindingEndpointAlias__EndpointAssignment_1");
 					put(grammarAccess.getUiBindingEndpointAliasAccess().getAliasAssignment_3(), "rule__UiBindingEndpointAlias__AliasAssignment_3");
 					put(grammarAccess.getUiBeanSlotAccess().getNameAssignment_1(), "rule__UiBeanSlot__NameAssignment_1");
@@ -309,9 +325,11 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiPathSegmentAccess().getJvmFieldAssignment_1(), "rule__UiPathSegment__JvmFieldAssignment_1");
 					put(grammarAccess.getUiPathSegmentAccess().getPathAssignment_2(), "rule__UiPathSegment__PathAssignment_2");
 					put(grammarAccess.getUiIDEViewAccess().getNameAssignment_1(), "rule__UiIDEView__NameAssignment_1");
-					put(grammarAccess.getUiIDEViewAccess().getContentAssignment_3(), "rule__UiIDEView__ContentAssignment_3");
-					put(grammarAccess.getUiIDEViewAccess().getBindingEndpointAliasAssignment_4_2(), "rule__UiIDEView__BindingEndpointAliasAssignment_4_2");
-					put(grammarAccess.getUiIDEViewAccess().getBindingsAssignment_5(), "rule__UiIDEView__BindingsAssignment_5");
+					put(grammarAccess.getUiIDEViewAccess().getRootAssignment_3_1(), "rule__UiIDEView__RootAssignment_3_1");
+					put(grammarAccess.getUiIDEViewAccess().getBeanSlotsAssignment_4_2(), "rule__UiIDEView__BeanSlotsAssignment_4_2");
+					put(grammarAccess.getUiIDEViewAccess().getContentAssignment_5(), "rule__UiIDEView__ContentAssignment_5");
+					put(grammarAccess.getUiIDEViewAccess().getBindingEndpointAliasAssignment_6_2(), "rule__UiIDEView__BindingEndpointAliasAssignment_6_2");
+					put(grammarAccess.getUiIDEViewAccess().getBindingsAssignment_7(), "rule__UiIDEView__BindingsAssignment_7");
 					put(grammarAccess.getUiGridLayoutAccess().getColumnsAssignment_2_1_0_1(), "rule__UiGridLayout__ColumnsAssignment_2_1_0_1");
 					put(grammarAccess.getUiGridLayoutAccess().getFillHorizontalAssignment_2_1_1(), "rule__UiGridLayout__FillHorizontalAssignment_2_1_1");
 					put(grammarAccess.getUiGridLayoutAccess().getFillVerticalAssignment_2_1_2(), "rule__UiGridLayout__FillVerticalAssignment_2_1_2");
@@ -330,10 +348,18 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiSpanInfoAccess().getRowFromAssignment_1_1_0_1(), "rule__UiSpanInfo__RowFromAssignment_1_1_0_1");
 					put(grammarAccess.getUiSpanInfoAccess().getRowToAssignment_1_1_1_1(), "rule__UiSpanInfo__RowToAssignment_1_1_1_1");
 					put(grammarAccess.getUiTextFieldAccess().getNameAssignment_2(), "rule__UiTextField__NameAssignment_2");
-					put(grammarAccess.getUiTextFieldAccess().getDatatypeAssignment_3_1_0_1(), "rule__UiTextField__DatatypeAssignment_3_1_0_1");
-					put(grammarAccess.getUiTextFieldAccess().getDatadescriptionAssignment_3_1_1_1(), "rule__UiTextField__DatadescriptionAssignment_3_1_1_1");
-					put(grammarAccess.getUiTextFieldAccess().getValueAssignment_3_1_2_1(), "rule__UiTextField__ValueAssignment_3_1_2_1");
+					put(grammarAccess.getUiTextFieldAccess().getValidatorsAssignment_3_1(), "rule__UiTextField__ValidatorsAssignment_3_1");
 					put(grammarAccess.getUiListAccess().getNameAssignment_2(), "rule__UiList__NameAssignment_2");
+					put(grammarAccess.getUiNumericFieldAccess().getNameAssignment_2(), "rule__UiNumericField__NameAssignment_2");
+					put(grammarAccess.getUiNumericFieldAccess().getValidatorsAssignment_3_1(), "rule__UiNumericField__ValidatorsAssignment_3_1");
+					put(grammarAccess.getUiCheckBoxAccess().getNameAssignment_2(), "rule__UiCheckBox__NameAssignment_2");
+					put(grammarAccess.getUiCheckBoxAccess().getValidatorsAssignment_3_1(), "rule__UiCheckBox__ValidatorsAssignment_3_1");
+					put(grammarAccess.getUiMaxLengthValidatorAccess().getNameAssignment_2(), "rule__UiMaxLengthValidator__NameAssignment_2");
+					put(grammarAccess.getUiMaxLengthValidatorAccess().getMaxLengthAssignment_3_1(), "rule__UiMaxLengthValidator__MaxLengthAssignment_3_1");
+					put(grammarAccess.getUiMinLengthValidatorAccess().getNameAssignment_2(), "rule__UiMinLengthValidator__NameAssignment_2");
+					put(grammarAccess.getUiMinLengthValidatorAccess().getMinLengthAssignment_3_1(), "rule__UiMinLengthValidator__MinLengthAssignment_3_1");
+					put(grammarAccess.getUiRegexpValidatorAccess().getNameAssignment_2(), "rule__UiRegexpValidator__NameAssignment_2");
+					put(grammarAccess.getUiRegexpValidatorAccess().getRegExpressionAssignment_3_1(), "rule__UiRegexpValidator__RegExpressionAssignment_3_1");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_0_1(), "rule__XAssignment__FeatureAssignment_0_1");
 					put(grammarAccess.getXAssignmentAccess().getValueAssignment_0_3(), "rule__XAssignment__ValueAssignment_0_3");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_1_1_0_0_1(), "rule__XAssignment__FeatureAssignment_1_1_0_0_1");
@@ -476,7 +502,6 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiSpanInfoAccess().getUnorderedGroup_1(), "rule__UiSpanInfo__UnorderedGroup_1");
 					put(grammarAccess.getUiSpanInfoAccess().getUnorderedGroup_1_0(), "rule__UiSpanInfo__UnorderedGroup_1_0");
 					put(grammarAccess.getUiSpanInfoAccess().getUnorderedGroup_1_1(), "rule__UiSpanInfo__UnorderedGroup_1_1");
-					put(grammarAccess.getUiTextFieldAccess().getUnorderedGroup_3_1(), "rule__UiTextField__UnorderedGroup_3_1");
 				}
 			};
 		}

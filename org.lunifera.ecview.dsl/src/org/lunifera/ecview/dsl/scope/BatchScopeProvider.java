@@ -4,6 +4,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.common.types.util.TypeReferences;
 import org.eclipse.xtext.scoping.IScope;
@@ -48,7 +49,7 @@ public class BatchScopeProvider extends XbaseBatchScopeProvider {
 			UiBindingEndpointDef parent = (UiBindingEndpointDef) segment
 					.eContainer();
 			UxEndpointDef uxEndpointDef = (UxEndpointDef) parent.getEndpoint();
-			YBindable bindable = parent.getBindable();
+			YElement bindable = parent.getBindable();
 
 			JvmTypeReference expectedType = uxEndpointDef.getJvmType();
 			if (expectedType.getQualifiedName().equals(Void.class.getName())) {
@@ -77,7 +78,7 @@ public class BatchScopeProvider extends XbaseBatchScopeProvider {
 	private IScope createBindingEndpointDefPathScope(EObject context) {
 		UiBindingEndpointDef parent = (UiBindingEndpointDef) context;
 		UxEndpointDef uxEndpointDef = (UxEndpointDef) parent.getEndpoint();
-		YBindable bindable = parent.getBindable();
+		YElement bindable = parent.getBindable();
 
 		JvmTypeReference expectedType = uxEndpointDef.getJvmType();
 		if (expectedType.getQualifiedName().equals(Void.class.getName())) {

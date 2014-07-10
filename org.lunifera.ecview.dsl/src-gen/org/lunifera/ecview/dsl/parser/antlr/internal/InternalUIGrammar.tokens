@@ -40,14 +40,20 @@ T__86=86
 T__89=89
 T__88=88
 RULE_ML_COMMENT=9
+T__126=126
 T__125=125
+T__128=128
 RULE_STRING=6
+T__127=127
 T__71=71
+T__129=129
 T__72=72
 T__70=70
 T__76=76
 T__75=75
+T__130=130
 T__74=74
+T__131=131
 T__73=73
 T__79=79
 T__78=78
@@ -120,116 +126,122 @@ T__37=37
 T__38=38
 T__39=39
 RULE_WS=11
-'>='=52
-'=='=55
-'bottom right'=111
-'extension'=94
-';'=80
-'==='=57
-'return'=102
-'value'=42
-'<>'=64
+'>='=58
+'trigger'=16
+'=='=61
+'bottom right'=117
+'visibilityProcessor'=13
+'extension'=100
+';'=86
+'==='=63
+'return'=108
+'minLengthValidator'=48
+'<>'=70
 'list'=43
-'for'=86
-'?.'=74
-'=>'=63
-'columns='=29
-'static'=92
-'catch'=106
-'extends'=91
-'align'=35
-'top left'=117
-'{'=15
-'span'=36
-'fill-h'=30
-'try'=103
-'var'=89
-':'=20
-'('=28
-'**'=69
-'synchronized'=105
-'default'=84
-']'=78
-'..<'=61
-'finally'=104
-'fill center'=122
-'new'=96
-'val'=90
-'beanslots'=14
-'spacing'=32
-'slot'=19
-'bindingAlias'=17
-'='=46
-'top fill'=120
-'->'=60
-'%'=70
-'super'=95
-'case'=85
-'top center'=118
-'!=='=58
-'!='=56
-'--'=23
-'<'=22
-'['=77
-'gridlayout'=27
-'&'=108
-'instanceof'=59
-'#'=76
-'/'=38
-'/='=50
-'switch'=83
-'%='=51
-'>'=24
-'||'=53
-'&&'=54
-'bottom fill'=112
-'+'=66
-'.'=25
-'import'=93
-'?:'=65
-'++'=72
-'true'=98
-'middle center'=114
-'else'=82
-'top right'=119
-'+='=47
-'as'=18
-'?'=107
-'fill fill'=124
-'if'=81
-'viewset'=13
-'-'=67
-'while'=87
-'undefined'=125
-'middle left'=113
-','=75
-'middle fill'=116
-'-='=48
-'..'=62
-'!'=71
-'|'=79
-'datadescription'=41
-'ideview'=26
-'null'=99
-'datatype'=40
-'typeof'=100
-'fill left'=121
-'margin'=33
-'::'=73
-'throw'=101
-')'=34
-'*='=49
-'max'=44
-'do'=88
-'}'=16
-'bottom center'=110
-'bind'=21
-'to'=37
-'fill RIGHT'=123
-'middle right'=115
-'bottom left'=109
-'fill-v'=31
-'textfield'=39
-'false'=97
-'*'=68
-'min'=45
+'for'=92
+'maxLength'=47
+'?.'=80
+'=>'=69
+'columns='=32
+'static'=98
+'catch'=112
+'extends'=97
+'align'=38
+'top left'=123
+'{'=14
+'span'=39
+'try'=109
+'fill-h'=33
+'var'=95
+'minLength'=49
+':'=23
+'('=31
+'**'=75
+'synchronized'=111
+'default'=90
+']'=84
+'finally'=110
+'..<'=67
+'fill center'=128
+'new'=102
+'val'=96
+'beanslots'=19
+'spacing'=35
+'slot'=22
+'bindingAlias'=20
+'='=52
+'top fill'=126
+'->'=66
+'%'=76
+'super'=101
+'case'=91
+'top center'=124
+'!='=62
+'!=='=64
+'<'=25
+'--'=26
+'['=83
+'gridlayout'=30
+'&'=114
+'instanceof'=65
+'#'=82
+'/'=41
+'/='=56
+'switch'=89
+'%='=57
+'>'=27
+'||'=59
+'&&'=60
+'maxLengthValidator'=46
+'bottom fill'=118
+'+'=72
+'.'=28
+'import'=99
+'?:'=71
+'++'=78
+'true'=104
+'middle center'=120
+'rule'=17
+'else'=88
+'top right'=125
+'+='=53
+'as'=21
+'?'=113
+'fill fill'=130
+'if'=87
+'viewset'=18
+'-'=73
+'while'=93
+'undefined'=131
+'middle left'=119
+','=81
+'middle fill'=122
+'-='=54
+'..'=68
+'!'=77
+'|'=85
+'ideview'=29
+'checkbox'=45
+'null'=105
+'typeof'=106
+'fill left'=127
+'margin'=36
+'::'=79
+'throw'=107
+'regex'=51
+')'=37
+'*='=55
+'regexValidator'=50
+'do'=94
+'numericField'=44
+'}'=15
+'bottom center'=116
+'bind'=24
+'to'=40
+'fill RIGHT'=129
+'middle right'=121
+'bottom left'=115
+'fill-v'=34
+'textfield'=42
+'false'=103
+'*'=74

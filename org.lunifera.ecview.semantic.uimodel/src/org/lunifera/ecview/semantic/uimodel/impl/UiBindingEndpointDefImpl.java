@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
@@ -38,7 +38,7 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 * @ordered
 	 */
-	protected YBindable bindable;
+	protected YElement bindable;
 
 	/**
 	 * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}' reference.
@@ -84,10 +84,10 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YBindable getBindable() {
+	public YElement getBindable() {
 		if (bindable != null && bindable.eIsProxy()) {
 			InternalEObject oldBindable = (InternalEObject)bindable;
-			bindable = (YBindable)eResolveProxy(oldBindable);
+			bindable = (YElement)eResolveProxy(oldBindable);
 			if (bindable != oldBindable) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelPackage.UI_BINDING_ENDPOINT_DEF__BINDABLE, oldBindable, bindable));
@@ -101,7 +101,7 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YBindable basicGetBindable() {
+	public YElement basicGetBindable() {
 		return bindable;
 	}
 
@@ -110,8 +110,8 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBindable(YBindable newBindable) {
-		YBindable oldBindable = bindable;
+	public void setBindable(YElement newBindable) {
+		YElement oldBindable = bindable;
 		bindable = newBindable;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_BINDING_ENDPOINT_DEF__BINDABLE, oldBindable, bindable));
@@ -265,7 +265,7 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__BINDABLE:
-				setBindable((YBindable)newValue);
+				setBindable((YElement)newValue);
 				return;
 			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__ENDPOINT:
 				setEndpoint((UxEndpointDef)newValue);
@@ -286,7 +286,7 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__BINDABLE:
-				setBindable((YBindable)null);
+				setBindable((YElement)null);
 				return;
 			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__ENDPOINT:
 				setEndpoint((UxEndpointDef)null);

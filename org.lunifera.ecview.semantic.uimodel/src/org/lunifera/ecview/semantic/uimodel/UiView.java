@@ -14,5 +14,5 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YView;
  * @model
  * @generated
  */
-public interface UiView extends YView {
+public interface UiView extends YView, UiRootElements, UiModelElement {
 } // UiView

@@ -3,7 +3,6 @@
 package org.lunifera.ecview.semantic.uimodel;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,8 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiModel#getViewSets <em>View Sets</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiModel#getViews <em>Views</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiModel#getRoots <em>Roots</em>}</li>
  * </ul>
  * </p>
  *
@@ -22,37 +20,21 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface UiModel extends EObject {
+public interface UiModel extends UiModelElement {
 	/**
-	 * Returns the value of the '<em><b>View Sets</b></em>' containment reference list.
-	 * The list contents are of type {@link org.lunifera.ecview.semantic.uimodel.UiViewSet}.
+	 * Returns the value of the '<em><b>Roots</b></em>' containment reference list.
+	 * The list contents are of type {@link org.lunifera.ecview.semantic.uimodel.UiRootElements}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>View Sets</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Roots</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>View Sets</em>' containment reference list.
-	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiModel_ViewSets()
+	 * @return the value of the '<em>Roots</em>' containment reference list.
+	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiModel_Roots()
 	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
-	EList<UiViewSet> getViewSets();
-
-	/**
-	 * Returns the value of the '<em><b>Views</b></em>' containment reference list.
-	 * The list contents are of type {@link org.lunifera.ecview.semantic.uimodel.UiView}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Views</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Views</em>' containment reference list.
-	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiModel_Views()
-	 * @model containment="true" resolveProxies="true"
-	 * @generated
-	 */
-	EList<UiView> getViews();
+	EList<UiRootElements> getRoots();
 
 } // UiModel

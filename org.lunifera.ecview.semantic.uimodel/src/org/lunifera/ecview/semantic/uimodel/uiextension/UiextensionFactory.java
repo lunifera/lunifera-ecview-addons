@@ -58,6 +58,51 @@ public interface UiextensionFactory extends EFactory {
 	UiList createUiList();
 
 	/**
+	 * Returns a new object of class '<em>Ui Numeric Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Numeric Field</em>'.
+	 * @generated
+	 */
+	UiNumericField createUiNumericField();
+
+	/**
+	 * Returns a new object of class '<em>Ui Check Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Check Box</em>'.
+	 * @generated
+	 */
+	UiCheckBox createUiCheckBox();
+
+	/**
+	 * Returns a new object of class '<em>Ui Visibility Processor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Visibility Processor</em>'.
+	 * @generated
+	 */
+	UiVisibilityProcessor createUiVisibilityProcessor();
+
+	/**
+	 * Returns a new object of class '<em>Ui Change Trigger</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Change Trigger</em>'.
+	 * @generated
+	 */
+	UiChangeTrigger createUiChangeTrigger();
+
+	/**
+	 * Returns a new object of class '<em>Ui Xbase Visibility Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Xbase Visibility Rule</em>'.
+	 * @generated
+	 */
+	UiXbaseVisibilityRule createUiXbaseVisibilityRule();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

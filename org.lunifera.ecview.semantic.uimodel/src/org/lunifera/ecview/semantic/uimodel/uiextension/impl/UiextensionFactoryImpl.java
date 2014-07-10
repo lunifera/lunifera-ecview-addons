@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.lunifera.ecview.semantic.uimodel.uiextension.*;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayout;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiList;
@@ -62,6 +63,11 @@ public class UiextensionFactoryImpl extends EFactoryImpl implements UiextensionF
 			case UiextensionPackage.UI_GRID_LAYOUT: return createUiGridLayout();
 			case UiextensionPackage.UI_TEXT_FIELD: return createUiTextField();
 			case UiextensionPackage.UI_LIST: return createUiList();
+			case UiextensionPackage.UI_NUMERIC_FIELD: return createUiNumericField();
+			case UiextensionPackage.UI_CHECK_BOX: return createUiCheckBox();
+			case UiextensionPackage.UI_VISIBILITY_PROCESSOR: return createUiVisibilityProcessor();
+			case UiextensionPackage.UI_CHANGE_TRIGGER: return createUiChangeTrigger();
+			case UiextensionPackage.UI_XBASE_VISIBILITY_RULE: return createUiXbaseVisibilityRule();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -105,6 +111,56 @@ public class UiextensionFactoryImpl extends EFactoryImpl implements UiextensionF
 	public UiList createUiList() {
 		UiListImpl uiList = new UiListImpl();
 		return uiList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiNumericField createUiNumericField() {
+		UiNumericFieldImpl uiNumericField = new UiNumericFieldImpl();
+		return uiNumericField;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiCheckBox createUiCheckBox() {
+		UiCheckBoxImpl uiCheckBox = new UiCheckBoxImpl();
+		return uiCheckBox;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiVisibilityProcessor createUiVisibilityProcessor() {
+		UiVisibilityProcessorImpl uiVisibilityProcessor = new UiVisibilityProcessorImpl();
+		return uiVisibilityProcessor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiChangeTrigger createUiChangeTrigger() {
+		UiChangeTriggerImpl uiChangeTrigger = new UiChangeTriggerImpl();
+		return uiChangeTrigger;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiXbaseVisibilityRule createUiXbaseVisibilityRule() {
+		UiXbaseVisibilityRuleImpl uiXbaseVisibilityRule = new UiXbaseVisibilityRuleImpl();
+		return uiXbaseVisibilityRule;
 	}
 
 	/**

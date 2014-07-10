@@ -2,8 +2,7 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 
 /**
@@ -24,7 +23,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
  * @model
  * @generated
  */
-public interface UiBindingEndpointDef extends EObject {
+public interface UiBindingEndpointDef extends UiModelElement {
 	/**
 	 * Returns the value of the '<em><b>Bindable</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -34,12 +33,12 @@ public interface UiBindingEndpointDef extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bindable</em>' reference.
-	 * @see #setBindable(YBindable)
+	 * @see #setBindable(YElement)
 	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiBindingEndpointDef_Bindable()
 	 * @model
 	 * @generated
 	 */
-	YBindable getBindable();
+	YElement getBindable();
 
 	/**
 	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef#getBindable <em>Bindable</em>}' reference.
@@ -49,7 +48,7 @@ public interface UiBindingEndpointDef extends EObject {
 	 * @see #getBindable()
 	 * @generated
 	 */
-	void setBindable(YBindable value);
+	void setBindable(YElement value);
 
 	/**
 	 * Returns the value of the '<em><b>Endpoint</b></em>' reference.

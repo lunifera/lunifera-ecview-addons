@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,6 +59,25 @@ public interface UimodelPackage extends EPackage {
 	UimodelPackage eINSTANCE = org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiModelElement <em>Ui Model Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelElement
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiModelElement()
+	 * @generated
+	 */
+	int UI_MODEL_ELEMENT = 11;
+
+	/**
+	 * The number of structural features of the '<em>Ui Model Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MODEL_ELEMENT_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiModelImpl <em>Ui Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,22 +88,13 @@ public interface UimodelPackage extends EPackage {
 	int UI_MODEL = 0;
 
 	/**
-	 * The feature id for the '<em><b>View Sets</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Roots</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_MODEL__VIEW_SETS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_MODEL__VIEWS = 1;
+	int UI_MODEL__ROOTS = UI_MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Ui Model</em>' class.
@@ -92,7 +103,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_MODEL_FEATURE_COUNT = 2;
+	int UI_MODEL_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl <em>Ui View</em>}' class.
@@ -204,13 +215,22 @@ public interface UimodelPackage extends EPackage {
 	int UI_VIEW__BEAN_SLOTS = CoreModelPackage.YVIEW__BEAN_SLOTS;
 
 	/**
+	 * The feature id for the '<em><b>Roots</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VIEW__ROOTS = CoreModelPackage.YVIEW_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Ui View</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VIEW_FEATURE_COUNT = CoreModelPackage.YVIEW_FEATURE_COUNT + 0;
+	int UI_VIEW_FEATURE_COUNT = CoreModelPackage.YVIEW_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiIDEViewImpl <em>Ui IDE View</em>}' class.
@@ -322,6 +342,15 @@ public interface UimodelPackage extends EPackage {
 	int UI_IDE_VIEW__BEAN_SLOTS = UI_VIEW__BEAN_SLOTS;
 
 	/**
+	 * The feature id for the '<em><b>Roots</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_IDE_VIEW__ROOTS = UI_VIEW__ROOTS;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -365,7 +394,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_POINT__X = 0;
+	int UI_POINT__X = UI_MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Y</b></em>' attribute.
@@ -374,7 +403,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_POINT__Y = 1;
+	int UI_POINT__Y = UI_MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Ui Point</em>' class.
@@ -383,7 +412,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_POINT_FEATURE_COUNT = 2;
+	int UI_POINT_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointAliasImpl <em>Ui Binding Endpoint Alias</em>}' class.
@@ -402,7 +431,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING_ENDPOINT_ALIAS__ALIAS = 0;
+	int UI_BINDING_ENDPOINT_ALIAS__ALIAS = UI_MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Endpoint</b></em>' containment reference.
@@ -411,7 +440,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING_ENDPOINT_ALIAS__ENDPOINT = 1;
+	int UI_BINDING_ENDPOINT_ALIAS__ENDPOINT = UI_MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Ui Binding Endpoint Alias</em>' class.
@@ -420,7 +449,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING_ENDPOINT_ALIAS_FEATURE_COUNT = 2;
+	int UI_BINDING_ENDPOINT_ALIAS_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointDefImpl <em>Ui Binding Endpoint Def</em>}' class.
@@ -439,7 +468,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING_ENDPOINT_DEF__BINDABLE = 0;
+	int UI_BINDING_ENDPOINT_DEF__BINDABLE = UI_MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Endpoint</b></em>' reference.
@@ -448,7 +477,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING_ENDPOINT_DEF__ENDPOINT = 1;
+	int UI_BINDING_ENDPOINT_DEF__ENDPOINT = UI_MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' containment reference.
@@ -457,7 +486,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING_ENDPOINT_DEF__PATH = 2;
+	int UI_BINDING_ENDPOINT_DEF__PATH = UI_MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Ui Binding Endpoint Def</em>' class.
@@ -466,7 +495,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING_ENDPOINT_DEF_FEATURE_COUNT = 3;
+	int UI_BINDING_ENDPOINT_DEF_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingImpl <em>Ui Binding</em>}' class.
@@ -485,7 +514,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING__SOURCE = 0;
+	int UI_BINDING__SOURCE = UI_MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source Alias</b></em>' reference.
@@ -494,7 +523,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING__SOURCE_ALIAS = 1;
+	int UI_BINDING__SOURCE_ALIAS = UI_MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Target To Source</b></em>' attribute.
@@ -503,7 +532,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING__TARGET_TO_SOURCE = 2;
+	int UI_BINDING__TARGET_TO_SOURCE = UI_MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Source To Target</b></em>' attribute.
@@ -512,7 +541,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING__SOURCE_TO_TARGET = 3;
+	int UI_BINDING__SOURCE_TO_TARGET = UI_MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' containment reference.
@@ -521,7 +550,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING__TARGET = 4;
+	int UI_BINDING__TARGET = UI_MODEL_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Target Alias</b></em>' reference.
@@ -530,7 +559,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING__TARGET_ALIAS = 5;
+	int UI_BINDING__TARGET_ALIAS = UI_MODEL_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Ui Binding</em>' class.
@@ -539,7 +568,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING_FEATURE_COUNT = 6;
+	int UI_BINDING_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiPathSegmentImpl <em>Ui Path Segment</em>}' class.
@@ -558,7 +587,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_PATH_SEGMENT__JVM_FIELD = 0;
+	int UI_PATH_SEGMENT__JVM_FIELD = UI_MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' containment reference.
@@ -567,7 +596,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_PATH_SEGMENT__PATH = 1;
+	int UI_PATH_SEGMENT__PATH = UI_MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Ui Path Segment</em>' class.
@@ -576,7 +605,7 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_PATH_SEGMENT_FEATURE_COUNT = 2;
+	int UI_PATH_SEGMENT_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanSlotImpl <em>Ui Bean Slot</em>}' class.
@@ -680,13 +709,22 @@ public interface UimodelPackage extends EPackage {
 	int UI_VIEW_SET__BEAN_SLOTS = CoreModelPackage.YVIEW_SET__BEAN_SLOTS;
 
 	/**
+	 * The feature id for the '<em><b>Roots</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VIEW_SET__ROOTS = CoreModelPackage.YVIEW_SET_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Binding Endpoint Alias</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VIEW_SET__BINDING_ENDPOINT_ALIAS = CoreModelPackage.YVIEW_SET_FEATURE_COUNT + 0;
+	int UI_VIEW_SET__BINDING_ENDPOINT_ALIAS = CoreModelPackage.YVIEW_SET_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Ui View Set</em>' class.
@@ -695,7 +733,200 @@ public interface UimodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VIEW_SET_FEATURE_COUNT = CoreModelPackage.YVIEW_SET_FEATURE_COUNT + 1;
+	int UI_VIEW_SET_FEATURE_COUNT = CoreModelPackage.YVIEW_SET_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiRootElements <em>Ui Root Elements</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRootElements
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiRootElements()
+	 * @generated
+	 */
+	int UI_ROOT_ELEMENTS = 10;
+
+	/**
+	 * The feature id for the '<em><b>Roots</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_ROOT_ELEMENTS__ROOTS = UI_MODEL__ROOTS;
+
+	/**
+	 * The number of structural features of the '<em>Ui Root Elements</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_ROOT_ELEMENTS_FEATURE_COUNT = UI_MODEL_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMaxLengthValidatorImpl <em>Ui Max Length Validator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMaxLengthValidatorImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiMaxLengthValidator()
+	 * @generated
+	 */
+	int UI_MAX_LENGTH_VALIDATOR = 12;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MAX_LENGTH_VALIDATOR__ID = ValidationPackage.YMAX_LENGTH_VALIDATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MAX_LENGTH_VALIDATOR__NAME = ValidationPackage.YMAX_LENGTH_VALIDATOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MAX_LENGTH_VALIDATOR__TYPE = ValidationPackage.YMAX_LENGTH_VALIDATOR__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MAX_LENGTH_VALIDATOR__MAX_LENGTH = ValidationPackage.YMAX_LENGTH_VALIDATOR__MAX_LENGTH;
+
+	/**
+	 * The number of structural features of the '<em>Ui Max Length Validator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MAX_LENGTH_VALIDATOR_FEATURE_COUNT = ValidationPackage.YMAX_LENGTH_VALIDATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMinLengthValidatorImpl <em>Ui Min Length Validator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMinLengthValidatorImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiMinLengthValidator()
+	 * @generated
+	 */
+	int UI_MIN_LENGTH_VALIDATOR = 13;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MIN_LENGTH_VALIDATOR__ID = ValidationPackage.YMIN_LENGTH_VALIDATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MIN_LENGTH_VALIDATOR__NAME = ValidationPackage.YMIN_LENGTH_VALIDATOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MIN_LENGTH_VALIDATOR__TYPE = ValidationPackage.YMIN_LENGTH_VALIDATOR__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MIN_LENGTH_VALIDATOR__MIN_LENGTH = ValidationPackage.YMIN_LENGTH_VALIDATOR__MIN_LENGTH;
+
+	/**
+	 * The number of structural features of the '<em>Ui Min Length Validator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MIN_LENGTH_VALIDATOR_FEATURE_COUNT = ValidationPackage.YMIN_LENGTH_VALIDATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiRegexpValidatorImpl <em>Ui Regexp Validator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiRegexpValidatorImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiRegexpValidator()
+	 * @generated
+	 */
+	int UI_REGEXP_VALIDATOR = 14;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_REGEXP_VALIDATOR__ID = ValidationPackage.YREGEXP_VALIDATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_REGEXP_VALIDATOR__NAME = ValidationPackage.YREGEXP_VALIDATOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_REGEXP_VALIDATOR__TYPE = ValidationPackage.YREGEXP_VALIDATOR__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Reg Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_REGEXP_VALIDATOR__REG_EXPRESSION = ValidationPackage.YREGEXP_VALIDATOR__REG_EXPRESSION;
+
+	/**
+	 * The number of structural features of the '<em>Ui Regexp Validator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_REGEXP_VALIDATOR_FEATURE_COUNT = ValidationPackage.YREGEXP_VALIDATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiModel <em>Ui Model</em>}'.
@@ -708,26 +939,15 @@ public interface UimodelPackage extends EPackage {
 	EClass getUiModel();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiModel#getViewSets <em>View Sets</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiModel#getRoots <em>Roots</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>View Sets</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiModel#getViewSets()
+	 * @return the meta object for the containment reference list '<em>Roots</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModel#getRoots()
 	 * @see #getUiModel()
 	 * @generated
 	 */
-	EReference getUiModel_ViewSets();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiModel#getViews <em>Views</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Views</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiModel#getViews()
-	 * @see #getUiModel()
-	 * @generated
-	 */
-	EReference getUiModel_Views();
+	EReference getUiModel_Roots();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiView <em>Ui View</em>}'.
@@ -1029,6 +1249,56 @@ public interface UimodelPackage extends EPackage {
 	EReference getUiViewSet_BindingEndpointAlias();
 
 	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiRootElements <em>Ui Root Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Root Elements</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRootElements
+	 * @generated
+	 */
+	EClass getUiRootElements();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiModelElement <em>Ui Model Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Model Element</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelElement
+	 * @generated
+	 */
+	EClass getUiModelElement();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator <em>Ui Max Length Validator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Max Length Validator</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator
+	 * @generated
+	 */
+	EClass getUiMaxLengthValidator();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator <em>Ui Min Length Validator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Min Length Validator</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator
+	 * @generated
+	 */
+	EClass getUiMinLengthValidator();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiRegexpValidator <em>Ui Regexp Validator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Regexp Validator</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRegexpValidator
+	 * @generated
+	 */
+	EClass getUiRegexpValidator();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1062,20 +1332,12 @@ public interface UimodelPackage extends EPackage {
 		EClass UI_MODEL = eINSTANCE.getUiModel();
 
 		/**
-		 * The meta object literal for the '<em><b>View Sets</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Roots</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference UI_MODEL__VIEW_SETS = eINSTANCE.getUiModel_ViewSets();
-
-		/**
-		 * The meta object literal for the '<em><b>Views</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UI_MODEL__VIEWS = eINSTANCE.getUiModel_Views();
+		EReference UI_MODEL__ROOTS = eINSTANCE.getUiModel_Roots();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl <em>Ui View</em>}' class.
@@ -1318,6 +1580,56 @@ public interface UimodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_VIEW_SET__BINDING_ENDPOINT_ALIAS = eINSTANCE.getUiViewSet_BindingEndpointAlias();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiRootElements <em>Ui Root Elements</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.UiRootElements
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiRootElements()
+		 * @generated
+		 */
+		EClass UI_ROOT_ELEMENTS = eINSTANCE.getUiRootElements();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiModelElement <em>Ui Model Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.UiModelElement
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiModelElement()
+		 * @generated
+		 */
+		EClass UI_MODEL_ELEMENT = eINSTANCE.getUiModelElement();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMaxLengthValidatorImpl <em>Ui Max Length Validator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMaxLengthValidatorImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiMaxLengthValidator()
+		 * @generated
+		 */
+		EClass UI_MAX_LENGTH_VALIDATOR = eINSTANCE.getUiMaxLengthValidator();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMinLengthValidatorImpl <em>Ui Min Length Validator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMinLengthValidatorImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiMinLengthValidator()
+		 * @generated
+		 */
+		EClass UI_MIN_LENGTH_VALIDATOR = eINSTANCE.getUiMinLengthValidator();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiRegexpValidatorImpl <em>Ui Regexp Validator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiRegexpValidatorImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UimodelPackageImpl#getUiRegexpValidator()
+		 * @generated
+		 */
+		EClass UI_REGEXP_VALIDATOR = eINSTANCE.getUiRegexpValidator();
 
 	}
 
