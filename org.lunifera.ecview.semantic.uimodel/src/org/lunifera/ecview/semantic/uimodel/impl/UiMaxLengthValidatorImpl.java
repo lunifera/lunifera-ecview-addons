@@ -3,9 +3,7 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecp.ecview.common.model.validation.impl.YMaxLengthValidatorImpl;
-
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
 

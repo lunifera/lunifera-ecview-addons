@@ -61,29 +61,6 @@ public class UiBeanSlotImpl extends YBeanSlotImpl implements UiBeanSlot {
 	 * @generated
 	 */
 	public JvmTypeReference getJvmType() {
-		if (jvmType != null && jvmType.eIsProxy()) {
-			InternalEObject oldJvmType = (InternalEObject)jvmType;
-			jvmType = (JvmTypeReference)eResolveProxy(oldJvmType);
-			if (jvmType != oldJvmType) {
-				InternalEObject newJvmType = (InternalEObject)jvmType;
-				NotificationChain msgs = oldJvmType.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BEAN_SLOT__JVM_TYPE, null, null);
-				if (newJvmType.eInternalContainer() == null) {
-					msgs = newJvmType.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BEAN_SLOT__JVM_TYPE, null, msgs);
-				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelPackage.UI_BEAN_SLOT__JVM_TYPE, oldJvmType, jvmType));
-			}
-		}
-		return jvmType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public JvmTypeReference basicGetJvmType() {
 		return jvmType;
 	}
 
@@ -144,8 +121,7 @@ public class UiBeanSlotImpl extends YBeanSlotImpl implements UiBeanSlot {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UimodelPackage.UI_BEAN_SLOT__JVM_TYPE:
-				if (resolve) return getJvmType();
-				return basicGetJvmType();
+				return getJvmType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

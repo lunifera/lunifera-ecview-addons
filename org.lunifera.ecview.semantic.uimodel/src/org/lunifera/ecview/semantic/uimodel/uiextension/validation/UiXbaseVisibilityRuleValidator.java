@@ -4,7 +4,6 @@
  */
 package org.lunifera.ecview.semantic.uimodel.uiextension.validation;
 
-import org.eclipse.xtext.xbase.XBlockExpression;
 import org.eclipse.xtext.xbase.XExpression;
 
 /**
@@ -15,8 +14,6 @@ import org.eclipse.xtext.xbase.XExpression;
  */
 public interface UiXbaseVisibilityRuleValidator {
 	boolean validate();
-
-	boolean validateExpression(XBlockExpression value);
 
 	boolean validateExpression(XExpression value);
 }

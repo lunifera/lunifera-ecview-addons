@@ -59,7 +59,7 @@ public interface UiPathSegment extends UiModelElement {
 	 * @return the value of the '<em>Path</em>' containment reference.
 	 * @see #setPath(UiPathSegment)
 	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiPathSegment_Path()
-	 * @model containment="true" resolveProxies="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	UiPathSegment getPath();

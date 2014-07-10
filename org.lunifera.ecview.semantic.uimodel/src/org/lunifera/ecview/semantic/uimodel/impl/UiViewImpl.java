@@ -3,15 +3,14 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl;
-
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiModelElement;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
@@ -68,7 +67,7 @@ public class UiViewImpl extends YViewImpl implements UiView {
 	 */
 	public EList<UiRootElements> getRoots() {
 		if (roots == null) {
-			roots = new EObjectContainmentEList.Resolving<UiRootElements>(UiRootElements.class, this, UimodelPackage.UI_VIEW__ROOTS);
+			roots = new EObjectContainmentEList<UiRootElements>(UiRootElements.class, this, UimodelPackage.UI_VIEW__ROOTS);
 		}
 		return roots;
 	}

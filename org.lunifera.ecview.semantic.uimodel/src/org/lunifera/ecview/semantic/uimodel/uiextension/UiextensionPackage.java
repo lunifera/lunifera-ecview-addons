@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
@@ -1135,7 +1136,7 @@ public interface UiextensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VISIBILITY_PROCESSOR__ID = VisibilityPackage.YRULED_VISIBILITY_PROCESSOR__ID;
+	int UI_VISIBILITY_PROCESSOR__ID = CoreModelPackage.YELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1144,34 +1145,7 @@ public interface UiextensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VISIBILITY_PROCESSOR__NAME = VisibilityPackage.YRULED_VISIBILITY_PROCESSOR__NAME;
-
-	/**
-	 * The feature id for the '<em><b>On Match</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_VISIBILITY_PROCESSOR__ON_MATCH = VisibilityPackage.YRULED_VISIBILITY_PROCESSOR__ON_MATCH;
-
-	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_VISIBILITY_PROCESSOR__PARENT = VisibilityPackage.YRULED_VISIBILITY_PROCESSOR__PARENT;
-
-	/**
-	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_VISIBILITY_PROCESSOR__RULE = VisibilityPackage.YRULED_VISIBILITY_PROCESSOR__RULE;
+	int UI_VISIBILITY_PROCESSOR__NAME = CoreModelPackage.YELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Roots</b></em>' containment reference list.
@@ -1180,7 +1154,7 @@ public interface UiextensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VISIBILITY_PROCESSOR__ROOTS = VisibilityPackage.YRULED_VISIBILITY_PROCESSOR_FEATURE_COUNT + 0;
+	int UI_VISIBILITY_PROCESSOR__ROOTS = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Binding Alias</b></em>' containment reference list.
@@ -1189,7 +1163,7 @@ public interface UiextensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VISIBILITY_PROCESSOR__BINDING_ALIAS = VisibilityPackage.YRULED_VISIBILITY_PROCESSOR_FEATURE_COUNT + 1;
+	int UI_VISIBILITY_PROCESSOR__BINDING_ALIAS = CoreModelPackage.YELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Change Trigger</b></em>' containment reference list.
@@ -1198,7 +1172,16 @@ public interface UiextensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER = VisibilityPackage.YRULED_VISIBILITY_PROCESSOR_FEATURE_COUNT + 2;
+	int UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER = CoreModelPackage.YELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROCESSOR__RULE = CoreModelPackage.YELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Ui Visibility Processor</em>' class.
@@ -1207,7 +1190,7 @@ public interface UiextensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VISIBILITY_PROCESSOR_FEATURE_COUNT = VisibilityPackage.YRULED_VISIBILITY_PROCESSOR_FEATURE_COUNT + 3;
+	int UI_VISIBILITY_PROCESSOR_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiChangeTriggerImpl <em>Ui Change Trigger</em>}' class.
@@ -1513,6 +1496,17 @@ public interface UiextensionPackage extends EPackage {
 	EReference getUiVisibilityProcessor_ChangeTrigger();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor#getRule <em>Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rule</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor#getRule()
+	 * @see #getUiVisibilityProcessor()
+	 * @generated
+	 */
+	EReference getUiVisibilityProcessor_Rule();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiChangeTrigger <em>Ui Change Trigger</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1723,6 +1717,14 @@ public interface UiextensionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER = eINSTANCE.getUiVisibilityProcessor_ChangeTrigger();
+
+		/**
+		 * The meta object literal for the '<em><b>Rule</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_VISIBILITY_PROCESSOR__RULE = eINSTANCE.getUiVisibilityProcessor_Rule();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiChangeTriggerImpl <em>Ui Change Trigger</em>}' class.

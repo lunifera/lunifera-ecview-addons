@@ -32,7 +32,7 @@ public interface UiModel extends UiModelElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Roots</em>' containment reference list.
 	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiModel_Roots()
-	 * @model containment="true" resolveProxies="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<UiRootElements> getRoots();

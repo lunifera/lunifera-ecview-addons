@@ -58,7 +58,7 @@ public interface UiBindingEndpointAlias extends UiModelElement {
 	 * @return the value of the '<em>Endpoint</em>' containment reference.
 	 * @see #setEndpoint(UiBindingEndpointDef)
 	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiBindingEndpointAlias_Endpoint()
-	 * @model containment="true" resolveProxies="true" required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	UiBindingEndpointDef getEndpoint();

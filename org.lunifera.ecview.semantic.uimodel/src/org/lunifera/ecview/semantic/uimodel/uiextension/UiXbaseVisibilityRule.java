@@ -32,7 +32,7 @@ public interface UiXbaseVisibilityRule extends UiVisibilityRule {
 	 * @return the value of the '<em>Expression</em>' containment reference.
 	 * @see #setExpression(XExpression)
 	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionPackage#getUiXbaseVisibilityRule_Expression()
-	 * @model containment="true" resolveProxies="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	XExpression getExpression();

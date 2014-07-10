@@ -7,11 +7,15 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.lunifera.ecview.semantic.uimodel.uiextension.*;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiChangeTrigger;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayout;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiList;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiTextField;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiXbaseVisibilityRule;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionFactory;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionPackage;
 

@@ -22,8 +22,6 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
-import org.eclipse.emf.ecp.ecview.common.model.visibility.YRuledVisibilityProcessor;
-import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
@@ -34,11 +32,16 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiModelElement;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
-import org.lunifera.ecview.semantic.uimodel.uiextension.*;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiChangeTrigger;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayout;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiList;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiTextField;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityRule;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiXbaseVisibilityRule;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionPackage;
 
 /**
@@ -228,14 +231,6 @@ public class UiextensionAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYCheckBox(YCheckBox object) {
 				return createYCheckBoxAdapter();
-			}
-			@Override
-			public Adapter caseYVisibilityProcessor(YVisibilityProcessor object) {
-				return createYVisibilityProcessorAdapter();
-			}
-			@Override
-			public Adapter caseYRuledVisibilityProcessor(YRuledVisibilityProcessor object) {
-				return createYRuledVisibilityProcessorAdapter();
 			}
 			@Override
 			public Adapter caseUiModel(UiModel object) {
@@ -728,34 +723,6 @@ public class UiextensionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYCheckBoxAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor <em>YVisibility Processor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor
-	 * @generated
-	 */
-	public Adapter createYVisibilityProcessorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YRuledVisibilityProcessor <em>YRuled Visibility Processor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YRuledVisibilityProcessor
-	 * @generated
-	 */
-	public Adapter createYRuledVisibilityProcessorAdapter() {
 		return null;
 	}
 

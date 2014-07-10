@@ -78,7 +78,7 @@ public class UiViewSetImpl extends YViewSetImpl implements UiViewSet {
 	 */
 	public EList<UiRootElements> getRoots() {
 		if (roots == null) {
-			roots = new EObjectContainmentEList.Resolving<UiRootElements>(UiRootElements.class, this, UimodelPackage.UI_VIEW_SET__ROOTS);
+			roots = new EObjectContainmentEList<UiRootElements>(UiRootElements.class, this, UimodelPackage.UI_VIEW_SET__ROOTS);
 		}
 		return roots;
 	}
@@ -90,7 +90,7 @@ public class UiViewSetImpl extends YViewSetImpl implements UiViewSet {
 	 */
 	public EList<UiBindingEndpointAlias> getBindingEndpointAlias() {
 		if (bindingEndpointAlias == null) {
-			bindingEndpointAlias = new EObjectContainmentEList.Resolving<UiBindingEndpointAlias>(UiBindingEndpointAlias.class, this, UimodelPackage.UI_VIEW_SET__BINDING_ENDPOINT_ALIAS);
+			bindingEndpointAlias = new EObjectContainmentEList<UiBindingEndpointAlias>(UiBindingEndpointAlias.class, this, UimodelPackage.UI_VIEW_SET__BINDING_ENDPOINT_ALIAS);
 		}
 		return bindingEndpointAlias;
 	}

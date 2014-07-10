@@ -3,7 +3,6 @@
 package org.lunifera.ecview.semantic.uimodel.uiextension;
 
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule;
-
 import org.lunifera.ecview.semantic.uimodel.UiModelElement;
 
 /**

@@ -3,6 +3,7 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -75,7 +76,7 @@ public class UiIDEViewImpl extends UiViewImpl implements UiIDEView {
 	 */
 	public EList<UiBinding> getBindings() {
 		if (bindings == null) {
-			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UimodelPackage.UI_IDE_VIEW__BINDINGS);
+			bindings = new EObjectContainmentEList<UiBinding>(UiBinding.class, this, UimodelPackage.UI_IDE_VIEW__BINDINGS);
 		}
 		return bindings;
 	}
@@ -87,7 +88,7 @@ public class UiIDEViewImpl extends UiViewImpl implements UiIDEView {
 	 */
 	public EList<UiBindingEndpointAlias> getBindingEndpointAlias() {
 		if (bindingEndpointAlias == null) {
-			bindingEndpointAlias = new EObjectContainmentEList.Resolving<UiBindingEndpointAlias>(UiBindingEndpointAlias.class, this, UimodelPackage.UI_IDE_VIEW__BINDING_ENDPOINT_ALIAS);
+			bindingEndpointAlias = new EObjectContainmentEList<UiBindingEndpointAlias>(UiBindingEndpointAlias.class, this, UimodelPackage.UI_IDE_VIEW__BINDING_ENDPOINT_ALIAS);
 		}
 		return bindingEndpointAlias;
 	}

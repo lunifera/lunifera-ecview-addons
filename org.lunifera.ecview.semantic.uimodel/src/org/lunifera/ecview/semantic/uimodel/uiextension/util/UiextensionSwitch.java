@@ -21,8 +21,6 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
-import org.eclipse.emf.ecp.ecview.common.model.visibility.YRuledVisibilityProcessor;
-import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
@@ -33,11 +31,16 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiModelElement;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
-import org.lunifera.ecview.semantic.uimodel.uiextension.*;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiChangeTrigger;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayout;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiList;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiTextField;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityRule;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiXbaseVisibilityRule;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionPackage;
 
 /**
@@ -201,11 +204,9 @@ public class UiextensionSwitch<T> extends Switch<T> {
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR: {
 				UiVisibilityProcessor uiVisibilityProcessor = (UiVisibilityProcessor)theEObject;
 				T result = caseUiVisibilityProcessor(uiVisibilityProcessor);
-				if (result == null) result = caseYRuledVisibilityProcessor(uiVisibilityProcessor);
-				if (result == null) result = caseUiRootElements(uiVisibilityProcessor);
-				if (result == null) result = caseYVisibilityProcessor(uiVisibilityProcessor);
-				if (result == null) result = caseUiModel(uiVisibilityProcessor);
 				if (result == null) result = caseYElement(uiVisibilityProcessor);
+				if (result == null) result = caseUiRootElements(uiVisibilityProcessor);
+				if (result == null) result = caseUiModel(uiVisibilityProcessor);
 				if (result == null) result = caseUiModelElement(uiVisibilityProcessor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -732,36 +733,6 @@ public class UiextensionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYCheckBox(YCheckBox object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YVisibility Processor</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YVisibility Processor</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseYVisibilityProcessor(YVisibilityProcessor object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YRuled Visibility Processor</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YRuled Visibility Processor</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseYRuledVisibilityProcessor(YRuledVisibilityProcessor object) {
 		return null;
 	}
 

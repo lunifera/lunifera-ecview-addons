@@ -18,7 +18,7 @@ XImportDeclaration returns XImportDeclaration:
 
 UxEPackageImport returns UxEPackageImport:
 	ePackage=[ecore::EPackage|STRING] 'as' alias=ID;
-
+ 
 UxElementDefinition:
 	'element' name=ID '{'
 	(uri=UxElementURI)?

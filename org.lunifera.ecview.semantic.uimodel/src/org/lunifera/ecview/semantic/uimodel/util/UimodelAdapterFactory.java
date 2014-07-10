@@ -22,15 +22,20 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfi
 import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
-import org.lunifera.ecview.semantic.uimodel.*;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
+import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
+import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
+import org.lunifera.ecview.semantic.uimodel.UiModelElement;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
+import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
+import org.lunifera.ecview.semantic.uimodel.UiRootElements;
+import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.semantic.uimodel.UiViewSet;
 import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
 

@@ -103,29 +103,6 @@ public class UiBindingEndpointAliasImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	public UiBindingEndpointDef getEndpoint() {
-		if (endpoint != null && endpoint.eIsProxy()) {
-			InternalEObject oldEndpoint = (InternalEObject)endpoint;
-			endpoint = (UiBindingEndpointDef)eResolveProxy(oldEndpoint);
-			if (endpoint != oldEndpoint) {
-				InternalEObject newEndpoint = (InternalEObject)endpoint;
-				NotificationChain msgs = oldEndpoint.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT, null, null);
-				if (newEndpoint.eInternalContainer() == null) {
-					msgs = newEndpoint.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT, null, msgs);
-				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT, oldEndpoint, endpoint));
-			}
-		}
-		return endpoint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiBindingEndpointDef basicGetEndpoint() {
 		return endpoint;
 	}
 
@@ -188,8 +165,7 @@ public class UiBindingEndpointAliasImpl extends MinimalEObjectImpl.Container imp
 			case UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ALIAS:
 				return getAlias();
 			case UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT:
-				if (resolve) return getEndpoint();
-				return basicGetEndpoint();
+				return getEndpoint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

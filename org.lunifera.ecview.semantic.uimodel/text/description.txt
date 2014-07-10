@@ -6,40 +6,8 @@ code generator can be extended.
 This can be disabled with -vmargs -Dorg.eclipse.emf.examples.generator.validator=false.
 
 Contains packages:
-  uiextension <http://www.lunifera.org/ecview/dsl/UIModel/extension>
   uimodel <http://www.lunifera.org/ecview/dsl/UIModel/core>
-
-Package uiextension <http://www.lunifera.org/ecview/dsl/UIModel/extension>
-
-  Class UiGridLayoutAssigment -> UiModelElement
-    Reference element : YEmbeddable
-    Attribute alignment : YAlignment
-    Reference from : UiPoint
-    Reference to : UiPoint
-
-  Class UiGridLayout -> YGridLayout, UiModelElement
-    Reference contents : UiGridLayoutAssigment<<0..*>>
-
-  Class UiTextField -> YTextField, UiModelElement
-
-  Class UiList -> YList, UiModelElement
-
-  Class UiNumericField -> YNumericField, UiModelElement
-
-  Class UiCheckBox -> YCheckBox, UiModelElement
-
-  Class UiVisibilityProcessor -> YRuledVisibilityProcessor, UiRootElements, UiModelElement
-    Reference bindingAlias : UiBindingEndpointAlias<<0..*>>
-    Reference changeTrigger : UiChangeTrigger<<0..*>>
-
-  Class UiChangeTrigger -> UiModelElement
-    Reference endpoint : UiBindingEndpointDef
-    Reference endpointAlias : UiBindingEndpointAlias
-
-  Class UiVisibilityRule -> YVisibilityRule, UiModelElement
-
-  Class UiXbaseVisibilityRule -> UiVisibilityRule
-    Reference expression : XExpression
+  uiextension <http://www.lunifera.org/ecview/dsl/UIModel/extension>
 
 Package uimodel <http://www.lunifera.org/ecview/dsl/UIModel/core>
 
@@ -92,3 +60,36 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/UIModel/core>
   Class UiMinLengthValidator -> YMinLengthValidator, UiModelElement
 
   Class UiRegexpValidator -> YRegexpValidator, UiModelElement
+
+Package uiextension <http://www.lunifera.org/ecview/dsl/UIModel/extension>
+
+  Class UiGridLayoutAssigment -> UiModelElement
+    Reference element : YEmbeddable
+    Attribute alignment : YAlignment
+    Reference from : UiPoint
+    Reference to : UiPoint
+
+  Class UiGridLayout -> YGridLayout, UiModelElement
+    Reference contents : UiGridLayoutAssigment<<0..*>>
+
+  Class UiTextField -> YTextField, UiModelElement
+
+  Class UiList -> YList, UiModelElement
+
+  Class UiNumericField -> YNumericField, UiModelElement
+
+  Class UiCheckBox -> YCheckBox, UiModelElement
+
+  Class UiVisibilityProcessor -> YElement, UiRootElements, UiModelElement
+    Reference bindingAlias : UiBindingEndpointAlias<<0..*>>
+    Reference changeTrigger : UiChangeTrigger<<0..*>>
+    Reference rule : UiVisibilityRule
+
+  Class UiChangeTrigger -> UiModelElement
+    Reference endpoint : UiBindingEndpointDef
+    Reference endpointAlias : UiBindingEndpointAlias
+
+  Class UiVisibilityRule -> YVisibilityRule, UiModelElement
+
+  Class UiXbaseVisibilityRule -> UiVisibilityRule
+    Reference expression : XExpression

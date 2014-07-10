@@ -178,10 +178,12 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//UiXbaseVisibilityRule:
-		//	{UiXbaseVisibilityRule} "rule" "{" "}";
+		//	{UiXbaseVisibilityRule} "rule" "{" //	expression=XExpression
+		//	"}";
 		public ParserRule getRule() { return rule; }
 
-		//{UiXbaseVisibilityRule} "rule" "{" "}"
+		//{UiXbaseVisibilityRule} "rule" "{" //	expression=XExpression
+		//"}"
 		public Group getGroup() { return cGroup; }
 
 		//{UiXbaseVisibilityRule}
@@ -193,6 +195,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
+		////	expression=XExpression
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
@@ -1672,7 +1675,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiXbaseVisibilityRule:
-	//	{UiXbaseVisibilityRule} "rule" "{" "}";
+	//	{UiXbaseVisibilityRule} "rule" "{" //	expression=XExpression
+	//	"}";
 	public UiXbaseVisibilityRuleElements getUiXbaseVisibilityRuleAccess() {
 		return (pUiXbaseVisibilityRule != null) ? pUiXbaseVisibilityRule : (pUiXbaseVisibilityRule = new UiXbaseVisibilityRuleElements());
 	}

@@ -3,9 +3,7 @@
 package org.lunifera.ecview.semantic.uimodel.uiextension.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YCheckBoxImpl;
-
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionPackage;
 

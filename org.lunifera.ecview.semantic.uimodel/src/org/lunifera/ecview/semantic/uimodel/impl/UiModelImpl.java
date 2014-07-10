@@ -3,6 +3,7 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -63,7 +64,7 @@ public class UiModelImpl extends MinimalEObjectImpl.Container implements UiModel
 	 */
 	public EList<UiRootElements> getRoots() {
 		if (roots == null) {
-			roots = new EObjectContainmentEList.Resolving<UiRootElements>(UiRootElements.class, this, UimodelPackage.UI_MODEL__ROOTS);
+			roots = new EObjectContainmentEList<UiRootElements>(UiRootElements.class, this, UimodelPackage.UI_MODEL__ROOTS);
 		}
 		return roots;
 	}

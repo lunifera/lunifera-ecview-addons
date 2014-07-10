@@ -33,7 +33,7 @@ public interface UiViewSet extends YViewSet, UiRootElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Binding Endpoint Alias</em>' containment reference list.
 	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiViewSet_BindingEndpointAlias()
-	 * @model containment="true" resolveProxies="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<UiBindingEndpointAlias> getBindingEndpointAlias();

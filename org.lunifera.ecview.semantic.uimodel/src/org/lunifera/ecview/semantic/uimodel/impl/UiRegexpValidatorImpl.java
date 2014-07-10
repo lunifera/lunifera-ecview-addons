@@ -3,9 +3,7 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecp.ecview.common.model.validation.impl.YRegexpValidatorImpl;
-
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
 import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
 

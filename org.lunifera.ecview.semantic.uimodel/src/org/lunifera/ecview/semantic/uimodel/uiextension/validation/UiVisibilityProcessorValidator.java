@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiChangeTrigger;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityRule;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor}.
@@ -21,4 +22,5 @@ public interface UiVisibilityProcessorValidator {
 
 	boolean validateBindingAlias(EList<UiBindingEndpointAlias> value);
 	boolean validateChangeTrigger(EList<UiChangeTrigger> value);
+	boolean validateRule(UiVisibilityRule value);
 }

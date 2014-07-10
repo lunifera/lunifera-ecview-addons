@@ -3,7 +3,6 @@
 package org.lunifera.ecview.semantic.uimodel.uiextension;
 
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
-
 import org.lunifera.ecview.semantic.uimodel.UiModelElement;
 
 /**

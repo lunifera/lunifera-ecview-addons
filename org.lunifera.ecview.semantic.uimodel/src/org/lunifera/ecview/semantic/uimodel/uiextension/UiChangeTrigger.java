@@ -35,7 +35,7 @@ public interface UiChangeTrigger extends UiModelElement {
 	 * @return the value of the '<em>Endpoint</em>' containment reference.
 	 * @see #setEndpoint(UiBindingEndpointDef)
 	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionPackage#getUiChangeTrigger_Endpoint()
-	 * @model containment="true" resolveProxies="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	UiBindingEndpointDef getEndpoint();

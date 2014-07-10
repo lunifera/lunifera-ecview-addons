@@ -106,29 +106,6 @@ public class UiGridLayoutAssigmentImpl extends MinimalEObjectImpl.Container impl
 	 * @generated
 	 */
 	public YEmbeddable getElement() {
-		if (element != null && element.eIsProxy()) {
-			InternalEObject oldElement = (InternalEObject)element;
-			element = (YEmbeddable)eResolveProxy(oldElement);
-			if (element != oldElement) {
-				InternalEObject newElement = (InternalEObject)element;
-				NotificationChain msgs = oldElement.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiextensionPackage.UI_GRID_LAYOUT_ASSIGMENT__ELEMENT, null, null);
-				if (newElement.eInternalContainer() == null) {
-					msgs = newElement.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiextensionPackage.UI_GRID_LAYOUT_ASSIGMENT__ELEMENT, null, msgs);
-				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiextensionPackage.UI_GRID_LAYOUT_ASSIGMENT__ELEMENT, oldElement, element));
-			}
-		}
-		return element;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public YEmbeddable basicGetElement() {
 		return element;
 	}
 
@@ -193,29 +170,6 @@ public class UiGridLayoutAssigmentImpl extends MinimalEObjectImpl.Container impl
 	 * @generated
 	 */
 	public UiPoint getFrom() {
-		if (from != null && from.eIsProxy()) {
-			InternalEObject oldFrom = (InternalEObject)from;
-			from = (UiPoint)eResolveProxy(oldFrom);
-			if (from != oldFrom) {
-				InternalEObject newFrom = (InternalEObject)from;
-				NotificationChain msgs = oldFrom.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiextensionPackage.UI_GRID_LAYOUT_ASSIGMENT__FROM, null, null);
-				if (newFrom.eInternalContainer() == null) {
-					msgs = newFrom.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiextensionPackage.UI_GRID_LAYOUT_ASSIGMENT__FROM, null, msgs);
-				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiextensionPackage.UI_GRID_LAYOUT_ASSIGMENT__FROM, oldFrom, from));
-			}
-		}
-		return from;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiPoint basicGetFrom() {
 		return from;
 	}
 
@@ -259,29 +213,6 @@ public class UiGridLayoutAssigmentImpl extends MinimalEObjectImpl.Container impl
 	 * @generated
 	 */
 	public UiPoint getTo() {
-		if (to != null && to.eIsProxy()) {
-			InternalEObject oldTo = (InternalEObject)to;
-			to = (UiPoint)eResolveProxy(oldTo);
-			if (to != oldTo) {
-				InternalEObject newTo = (InternalEObject)to;
-				NotificationChain msgs = oldTo.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiextensionPackage.UI_GRID_LAYOUT_ASSIGMENT__TO, null, null);
-				if (newTo.eInternalContainer() == null) {
-					msgs = newTo.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiextensionPackage.UI_GRID_LAYOUT_ASSIGMENT__TO, null, msgs);
-				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiextensionPackage.UI_GRID_LAYOUT_ASSIGMENT__TO, oldTo, to));
-			}
-		}
-		return to;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiPoint basicGetTo() {
 		return to;
 	}
 
@@ -346,16 +277,13 @@ public class UiGridLayoutAssigmentImpl extends MinimalEObjectImpl.Container impl
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UiextensionPackage.UI_GRID_LAYOUT_ASSIGMENT__ELEMENT:
-				if (resolve) return getElement();
-				return basicGetElement();
+				return getElement();
 			case UiextensionPackage.UI_GRID_LAYOUT_ASSIGMENT__ALIGNMENT:
 				return getAlignment();
 			case UiextensionPackage.UI_GRID_LAYOUT_ASSIGMENT__FROM:
-				if (resolve) return getFrom();
-				return basicGetFrom();
+				return getFrom();
 			case UiextensionPackage.UI_GRID_LAYOUT_ASSIGMENT__TO:
-				if (resolve) return getTo();
-				return basicGetTo();
+				return getTo();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

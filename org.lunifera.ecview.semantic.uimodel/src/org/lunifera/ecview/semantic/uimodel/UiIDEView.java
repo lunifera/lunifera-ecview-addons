@@ -33,7 +33,7 @@ public interface UiIDEView extends UiView, UiModelElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bindings</em>' containment reference list.
 	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiIDEView_Bindings()
-	 * @model containment="true" resolveProxies="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<UiBinding> getBindings();
@@ -49,7 +49,7 @@ public interface UiIDEView extends UiView, UiModelElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Binding Endpoint Alias</em>' containment reference list.
 	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiIDEView_BindingEndpointAlias()
-	 * @model containment="true" resolveProxies="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<UiBindingEndpointAlias> getBindingEndpointAlias();

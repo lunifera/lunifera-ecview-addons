@@ -4,16 +4,12 @@ package org.lunifera.ecview.semantic.uimodel.uiextension.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef;
-
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiChangeTrigger;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionPackage;
 
@@ -77,29 +73,6 @@ public class UiChangeTriggerImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public UiBindingEndpointDef getEndpoint() {
-		if (endpoint != null && endpoint.eIsProxy()) {
-			InternalEObject oldEndpoint = (InternalEObject)endpoint;
-			endpoint = (UiBindingEndpointDef)eResolveProxy(oldEndpoint);
-			if (endpoint != oldEndpoint) {
-				InternalEObject newEndpoint = (InternalEObject)endpoint;
-				NotificationChain msgs = oldEndpoint.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiextensionPackage.UI_CHANGE_TRIGGER__ENDPOINT, null, null);
-				if (newEndpoint.eInternalContainer() == null) {
-					msgs = newEndpoint.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiextensionPackage.UI_CHANGE_TRIGGER__ENDPOINT, null, msgs);
-				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiextensionPackage.UI_CHANGE_TRIGGER__ENDPOINT, oldEndpoint, endpoint));
-			}
-		}
-		return endpoint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiBindingEndpointDef basicGetEndpoint() {
 		return endpoint;
 	}
 
@@ -198,8 +171,7 @@ public class UiChangeTriggerImpl extends MinimalEObjectImpl.Container implements
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UiextensionPackage.UI_CHANGE_TRIGGER__ENDPOINT:
-				if (resolve) return getEndpoint();
-				return basicGetEndpoint();
+				return getEndpoint();
 			case UiextensionPackage.UI_CHANGE_TRIGGER__ENDPOINT_ALIAS:
 				if (resolve) return getEndpointAlias();
 				return basicGetEndpointAlias();

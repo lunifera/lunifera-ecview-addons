@@ -65,7 +65,7 @@ public class UiGridLayoutImpl extends YGridLayoutImpl implements UiGridLayout {
 	 */
 	public EList<UiGridLayoutAssigment> getContents() {
 		if (contents == null) {
-			contents = new EObjectContainmentEList.Resolving<UiGridLayoutAssigment>(UiGridLayoutAssigment.class, this, UiextensionPackage.UI_GRID_LAYOUT__CONTENTS);
+			contents = new EObjectContainmentEList<UiGridLayoutAssigment>(UiGridLayoutAssigment.class, this, UiextensionPackage.UI_GRID_LAYOUT__CONTENTS);
 		}
 		return contents;
 	}

@@ -131,29 +131,6 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public UiBindingEndpointDef getSource() {
-		if (source != null && source.eIsProxy()) {
-			InternalEObject oldSource = (InternalEObject)source;
-			source = (UiBindingEndpointDef)eResolveProxy(oldSource);
-			if (source != oldSource) {
-				InternalEObject newSource = (InternalEObject)source;
-				NotificationChain msgs = oldSource.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BINDING__SOURCE, null, null);
-				if (newSource.eInternalContainer() == null) {
-					msgs = newSource.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BINDING__SOURCE, null, msgs);
-				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelPackage.UI_BINDING__SOURCE, oldSource, source));
-			}
-		}
-		return source;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiBindingEndpointDef basicGetSource() {
 		return source;
 	}
 
@@ -268,29 +245,6 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public UiBindingEndpointDef getTarget() {
-		if (target != null && target.eIsProxy()) {
-			InternalEObject oldTarget = (InternalEObject)target;
-			target = (UiBindingEndpointDef)eResolveProxy(oldTarget);
-			if (target != oldTarget) {
-				InternalEObject newTarget = (InternalEObject)target;
-				NotificationChain msgs = oldTarget.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BINDING__TARGET, null, null);
-				if (newTarget.eInternalContainer() == null) {
-					msgs = newTarget.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BINDING__TARGET, null, msgs);
-				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelPackage.UI_BINDING__TARGET, oldTarget, target));
-			}
-		}
-		return target;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiBindingEndpointDef basicGetTarget() {
 		return target;
 	}
 
@@ -386,8 +340,7 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UimodelPackage.UI_BINDING__SOURCE:
-				if (resolve) return getSource();
-				return basicGetSource();
+				return getSource();
 			case UimodelPackage.UI_BINDING__SOURCE_ALIAS:
 				if (resolve) return getSourceAlias();
 				return basicGetSourceAlias();
@@ -396,8 +349,7 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements
 			case UimodelPackage.UI_BINDING__SOURCE_TO_TARGET:
 				return isSourceToTarget();
 			case UimodelPackage.UI_BINDING__TARGET:
-				if (resolve) return getTarget();
-				return basicGetTarget();
+				return getTarget();
 			case UimodelPackage.UI_BINDING__TARGET_ALIAS:
 				if (resolve) return getTargetAlias();
 				return basicGetTargetAlias();

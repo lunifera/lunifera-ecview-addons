@@ -161,29 +161,6 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	public UiPathSegment getPath() {
-		if (path != null && path.eIsProxy()) {
-			InternalEObject oldPath = (InternalEObject)path;
-			path = (UiPathSegment)eResolveProxy(oldPath);
-			if (path != oldPath) {
-				InternalEObject newPath = (InternalEObject)path;
-				NotificationChain msgs = oldPath.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BINDING_ENDPOINT_DEF__PATH, null, null);
-				if (newPath.eInternalContainer() == null) {
-					msgs = newPath.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BINDING_ENDPOINT_DEF__PATH, null, msgs);
-				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelPackage.UI_BINDING_ENDPOINT_DEF__PATH, oldPath, path));
-			}
-		}
-		return path;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiPathSegment basicGetPath() {
 		return path;
 	}
 
@@ -250,8 +227,7 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 				if (resolve) return getEndpoint();
 				return basicGetEndpoint();
 			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__PATH:
-				if (resolve) return getPath();
-				return basicGetPath();
+				return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

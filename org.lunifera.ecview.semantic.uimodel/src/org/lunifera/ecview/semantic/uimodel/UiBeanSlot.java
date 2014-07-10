@@ -33,7 +33,7 @@ public interface UiBeanSlot extends YBeanSlot, UiModelElement {
 	 * @return the value of the '<em>Jvm Type</em>' containment reference.
 	 * @see #setJvmType(JvmTypeReference)
 	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiBeanSlot_JvmType()
-	 * @model containment="true" resolveProxies="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	JvmTypeReference getJvmType();
