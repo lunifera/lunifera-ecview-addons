@@ -65,6 +65,7 @@ import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
+import org.lunifera.ecview.semantic.uimodel.UiImports;
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
@@ -81,6 +82,11 @@ import org.lunifera.ecview.semantic.uimodel.uiextension.UiList;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiTextField;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessorAssignment;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessorDef;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProperties;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityPropertiesAssignment;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityPropertiesDef;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiXbaseVisibilityRule;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionPackage;
 
@@ -211,9 +217,40 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 				}
 				else break;
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR:
-				if(context == grammarAccess.getUiRootElementsRule() ||
-				   context == grammarAccess.getUiVisibilityProcessorRule()) {
+				if(context == grammarAccess.getUiVisibilityProcessorRule()) {
 					sequence_UiVisibilityProcessor(context, (UiVisibilityProcessor) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiextensionPackage.UI_VISIBILITY_PROCESSOR_ASSIGNMENT:
+				if(context == grammarAccess.getUiVisibilityProcessorAssignmentRule()) {
+					sequence_UiVisibilityProcessorAssignment(context, (UiVisibilityProcessorAssignment) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiextensionPackage.UI_VISIBILITY_PROCESSOR_DEF:
+				if(context == grammarAccess.getUiRootElementsRule() ||
+				   context == grammarAccess.getUiVisibilityProcessorDefRule()) {
+					sequence_UiVisibilityProcessorDef(context, (UiVisibilityProcessorDef) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiextensionPackage.UI_VISIBILITY_PROPERTIES:
+				if(context == grammarAccess.getUiVisibilityPropertiesRule()) {
+					sequence_UiVisibilityProperties(context, (UiVisibilityProperties) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiextensionPackage.UI_VISIBILITY_PROPERTIES_ASSIGNMENT:
+				if(context == grammarAccess.getUiVisibilityPropertiesAssignmentRule()) {
+					sequence_UiVisibilityPropertiesAssignment(context, (UiVisibilityPropertiesAssignment) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiextensionPackage.UI_VISIBILITY_PROPERTIES_DEF:
+				if(context == grammarAccess.getUiRootElementsRule() ||
+				   context == grammarAccess.getUiVisibilityPropertiesDefRule()) {
+					sequence_UiVisibilityPropertiesDef(context, (UiVisibilityPropertiesDef) semanticObject); 
 					return; 
 				}
 				else break;
@@ -255,6 +292,12 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 				   context == grammarAccess.getUiRootElementsRule() ||
 				   context == grammarAccess.getUiViewRule()) {
 					sequence_UiIDEView(context, (UiIDEView) semanticObject); 
+					return; 
+				}
+				else break;
+			case UimodelPackage.UI_IMPORTS:
+				if(context == grammarAccess.getUiImportsRule()) {
+					sequence_UiImports(context, (UiImports) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1372,7 +1415,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (bindable=[YElement|ID] endpoint=[UxEndpointDef|ID] path=UiPathSegment?)
+	 *     (bindable=[UiBindable|ID] semanticEndpoint=[UxEndpointDef|ID] path=UiPathSegment?)
 	 */
 	protected void sequence_UiBindingEndpointDef(EObject context, UiBindingEndpointDef semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1404,7 +1447,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? validators+=UiValidator*)
+	 *     (name=ID? (validators+=UiValidator* processorAssignment=UiVisibilityProcessorAssignment?)?)
 	 */
 	protected void sequence_UiCheckBox(EObject context, UiCheckBox semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1422,11 +1465,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         (columns=INT? fillHorizontal?='fill-h'? fillVertical?='fill-v'? spacing?='spacing'? margin?='margin'?)? 
-	 *         name=ID? 
-	 *         contents+=UiGridLayoutAssigment*
-	 *     )
+	 *     (columns=INT? name=ID? contents+=UiGridLayoutAssigment* processorAssignment=UiVisibilityProcessorAssignment?)
 	 */
 	protected void sequence_UiGridLayout(EObject context, UiGridLayout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1446,6 +1485,22 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_UiIDEView(EObject context, UiIDEView semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     importedNamespace=QualifiedNameWithWildcard
+	 */
+	protected void sequence_UiImports(EObject context, UiImports semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, UimodelPackage.Literals.UI_IMPORTS__IMPORTED_NAMESPACE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UimodelPackage.Literals.UI_IMPORTS__IMPORTED_NAMESPACE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUiImportsAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0(), semanticObject.getImportedNamespace());
+		feeder.finish();
 	}
 	
 	
@@ -1478,7 +1533,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     roots+=UiRootElements*
+	 *     (packageName=QualifiedName imports+=UiImports* roots+=UiRootElements*)
 	 */
 	protected void sequence_UiModel(EObject context, UiModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1487,7 +1542,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? validators+=UiValidator*)
+	 *     (name=ID? (validators+=UiValidator* processorAssignment=UiVisibilityProcessorAssignment?)?)
 	 */
 	protected void sequence_UiNumericField(EObject context, UiNumericField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1542,7 +1597,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? validators+=UiValidator*)
+	 *     (name=ID? (validators+=UiValidator* processorAssignment=UiVisibilityProcessorAssignment?)?)
 	 */
 	protected void sequence_UiTextField(EObject context, UiTextField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1560,7 +1615,38 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID bindingAlias+=UiBindingEndpointAlias* changeTrigger+=UiChangeTrigger* rule=UiVisibilityRule)
+	 *     (processor=UiVisibilityProcessor | processorAlias=[UiVisibilityProcessor|QualifiedName])
+	 */
+	protected void sequence_UiVisibilityProcessorAssignment(EObject context, UiVisibilityProcessorAssignment semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     processor=UiVisibilityProcessor
+	 */
+	protected void sequence_UiVisibilityProcessorDef(EObject context, UiVisibilityProcessorDef semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, UiextensionPackage.Literals.UI_VISIBILITY_PROCESSOR_DEF__PROCESSOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiextensionPackage.Literals.UI_VISIBILITY_PROCESSOR_DEF__PROCESSOR));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUiVisibilityProcessorDefAccess().getProcessorUiVisibilityProcessorParserRuleCall_1_0(), semanticObject.getProcessor());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         name=ID 
+	 *         bindingAlias+=UiBindingEndpointAlias* 
+	 *         changeTrigger+=UiChangeTrigger* 
+	 *         rule=UiVisibilityRule 
+	 *         propertiesAssignment=UiVisibilityPropertiesAssignment
+	 *     )
 	 */
 	protected void sequence_UiVisibilityProcessor(EObject context, UiVisibilityProcessor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1569,7 +1655,41 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     {UiXbaseVisibilityRule}
+	 *     (properties=UiVisibilityProperties | propertyAlias=[UiVisibilityProperties|QualifiedName])
+	 */
+	protected void sequence_UiVisibilityPropertiesAssignment(EObject context, UiVisibilityPropertiesAssignment semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     properties=UiVisibilityProperties
+	 */
+	protected void sequence_UiVisibilityPropertiesDef(EObject context, UiVisibilityPropertiesDef semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, UiextensionPackage.Literals.UI_VISIBILITY_PROPERTIES_DEF__PROPERTIES) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiextensionPackage.Literals.UI_VISIBILITY_PROPERTIES_DEF__PROPERTIES));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUiVisibilityPropertiesDefAccess().getPropertiesUiVisibilityPropertiesParserRuleCall_1_0(), semanticObject.getProperties());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID?)
+	 */
+	protected void sequence_UiVisibilityProperties(EObject context, UiVisibilityProperties semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     expression=XBlockExpression
 	 */
 	protected void sequence_UiXbaseVisibilityRule(EObject context, UiXbaseVisibilityRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

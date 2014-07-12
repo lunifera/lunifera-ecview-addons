@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.xtext.common.types.TypesPackage;
 import org.eclipse.xtext.xtype.XtypePackage;
@@ -17,12 +18,12 @@ import org.lunifera.ecview.semantic.uisemantics.UxEPackageImport;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxElementURI;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
+import org.lunifera.ecview.semantic.uisemantics.UxImportSectionDeclaration;
 import org.lunifera.ecview.semantic.uisemantics.UxListBindingEndpointDef;
 import org.lunifera.ecview.semantic.uisemantics.UxModel;
 import org.lunifera.ecview.semantic.uisemantics.UxSetBindingEndpointDef;
 import org.lunifera.ecview.semantic.uisemantics.UxValueBindingEndpointDef;
 import org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption;
-import org.lunifera.ecview.semantic.uisemantics.XImportDeclaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,13 +38,6 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	 * @generated
 	 */
 	private EClass uxModelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass xImportDeclarationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,6 +110,13 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	private EClass uxVisibilityOptionEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uxImportSectionDeclarationEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -162,7 +163,7 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 		isInited = true;
 
 		// Initialize simple dependencies
-		org.eclipse.emf.ecore.EcorePackage.eINSTANCE.eClass();
+		EcorePackage.eINSTANCE.eClass();
 		XtypePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -205,24 +206,6 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	 */
 	public EReference getUxModel_ElementDefinitions() {
 		return (EReference)uxModelEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getXImportDeclaration() {
-		return xImportDeclarationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getXImportDeclaration_ImportedEPackage() {
-		return (EReference)xImportDeclarationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -455,6 +438,24 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUxImportSectionDeclaration() {
+		return uxImportSectionDeclarationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUxImportSectionDeclaration_ImportedEPackage() {
+		return (EReference)uxImportSectionDeclarationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiSemanticsFactory getUiSemanticsFactory() {
 		return (UiSemanticsFactory)getEFactoryInstance();
 	}
@@ -482,8 +483,8 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 		createEReference(uxModelEClass, UX_MODEL__IMPORT_SECTION);
 		createEReference(uxModelEClass, UX_MODEL__ELEMENT_DEFINITIONS);
 
-		xImportDeclarationEClass = createEClass(XIMPORT_DECLARATION);
-		createEReference(xImportDeclarationEClass, XIMPORT_DECLARATION__IMPORTED_EPACKAGE);
+		uxImportSectionDeclarationEClass = createEClass(UX_IMPORT_SECTION_DECLARATION);
+		createEReference(uxImportSectionDeclarationEClass, UX_IMPORT_SECTION_DECLARATION__IMPORTED_EPACKAGE);
 
 		uxEPackageImportEClass = createEClass(UX_EPACKAGE_IMPORT);
 		createEAttribute(uxEPackageImportEClass, UX_EPACKAGE_IMPORT__ALIAS);
@@ -546,7 +547,7 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 
 		// Obtain other dependent packages
 		XtypePackage theXtypePackage = (XtypePackage)EPackage.Registry.INSTANCE.getEPackage(XtypePackage.eNS_URI);
-		org.eclipse.emf.ecore.EcorePackage theEcorePackage = (org.eclipse.emf.ecore.EcorePackage)EPackage.Registry.INSTANCE.getEPackage(org.eclipse.emf.ecore.EcorePackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 		TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
 
 		// Create type parameters
@@ -554,7 +555,7 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		xImportDeclarationEClass.getESuperTypes().add(theXtypePackage.getXImportDeclaration());
+		uxImportSectionDeclarationEClass.getESuperTypes().add(theXtypePackage.getXImportDeclaration());
 		uxValueBindingEndpointDefEClass.getESuperTypes().add(this.getUxEndpointDef());
 		uxListBindingEndpointDefEClass.getESuperTypes().add(this.getUxEndpointDef());
 		uxSetBindingEndpointDefEClass.getESuperTypes().add(this.getUxEndpointDef());
@@ -564,8 +565,8 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 		initEReference(getUxModel_ImportSection(), theXtypePackage.getXImportSection(), null, "importSection", null, 0, 1, UxModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUxModel_ElementDefinitions(), this.getUxElementDefinition(), null, "elementDefinitions", null, 0, -1, UxModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(xImportDeclarationEClass, XImportDeclaration.class, "XImportDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getXImportDeclaration_ImportedEPackage(), this.getUxEPackageImport(), null, "importedEPackage", null, 0, 1, XImportDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(uxImportSectionDeclarationEClass, UxImportSectionDeclaration.class, "UxImportSectionDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUxImportSectionDeclaration_ImportedEPackage(), this.getUxEPackageImport(), null, "importedEPackage", null, 0, 1, UxImportSectionDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uxEPackageImportEClass, UxEPackageImport.class, "UxEPackageImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUxEPackageImport_Alias(), theEcorePackage.getEString(), "alias", null, 1, 1, UxEPackageImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

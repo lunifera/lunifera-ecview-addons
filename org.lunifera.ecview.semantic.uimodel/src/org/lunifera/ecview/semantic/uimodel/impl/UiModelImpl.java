@@ -3,14 +3,16 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.lunifera.ecview.semantic.uimodel.UiImports;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
 import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
@@ -22,13 +24,33 @@ import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiModelImpl#getPackageName <em>Package Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiModelImpl#getRoots <em>Roots</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiModelImpl#getImports <em>Imports</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class UiModelImpl extends MinimalEObjectImpl.Container implements UiModel {
+	/**
+	 * The default value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPackageName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PACKAGE_NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPackageName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String packageName = PACKAGE_NAME_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getRoots() <em>Roots</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -38,6 +60,15 @@ public class UiModelImpl extends MinimalEObjectImpl.Container implements UiModel
 	 * @ordered
 	 */
 	protected EList<UiRootElements> roots;
+	/**
+	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImports()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UiImports> imports;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,6 +93,27 @@ public class UiModelImpl extends MinimalEObjectImpl.Container implements UiModel
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPackageName() {
+		return packageName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPackageName(String newPackageName) {
+		String oldPackageName = packageName;
+		packageName = newPackageName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_MODEL__PACKAGE_NAME, oldPackageName, packageName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<UiRootElements> getRoots() {
 		if (roots == null) {
 			roots = new EObjectContainmentEList<UiRootElements>(UiRootElements.class, this, UimodelPackage.UI_MODEL__ROOTS);
@@ -74,11 +126,25 @@ public class UiModelImpl extends MinimalEObjectImpl.Container implements UiModel
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<UiImports> getImports() {
+		if (imports == null) {
+			imports = new EObjectContainmentEList<UiImports>(UiImports.class, this, UimodelPackage.UI_MODEL__IMPORTS);
+		}
+		return imports;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case UimodelPackage.UI_MODEL__ROOTS:
 				return ((InternalEList<?>)getRoots()).basicRemove(otherEnd, msgs);
+			case UimodelPackage.UI_MODEL__IMPORTS:
+				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -91,8 +157,12 @@ public class UiModelImpl extends MinimalEObjectImpl.Container implements UiModel
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case UimodelPackage.UI_MODEL__PACKAGE_NAME:
+				return getPackageName();
 			case UimodelPackage.UI_MODEL__ROOTS:
 				return getRoots();
+			case UimodelPackage.UI_MODEL__IMPORTS:
+				return getImports();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -106,9 +176,16 @@ public class UiModelImpl extends MinimalEObjectImpl.Container implements UiModel
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case UimodelPackage.UI_MODEL__PACKAGE_NAME:
+				setPackageName((String)newValue);
+				return;
 			case UimodelPackage.UI_MODEL__ROOTS:
 				getRoots().clear();
 				getRoots().addAll((Collection<? extends UiRootElements>)newValue);
+				return;
+			case UimodelPackage.UI_MODEL__IMPORTS:
+				getImports().clear();
+				getImports().addAll((Collection<? extends UiImports>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -122,8 +199,14 @@ public class UiModelImpl extends MinimalEObjectImpl.Container implements UiModel
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case UimodelPackage.UI_MODEL__PACKAGE_NAME:
+				setPackageName(PACKAGE_NAME_EDEFAULT);
+				return;
 			case UimodelPackage.UI_MODEL__ROOTS:
 				getRoots().clear();
+				return;
+			case UimodelPackage.UI_MODEL__IMPORTS:
+				getImports().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -137,10 +220,30 @@ public class UiModelImpl extends MinimalEObjectImpl.Container implements UiModel
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case UimodelPackage.UI_MODEL__PACKAGE_NAME:
+				return PACKAGE_NAME_EDEFAULT == null ? packageName != null : !PACKAGE_NAME_EDEFAULT.equals(packageName);
 			case UimodelPackage.UI_MODEL__ROOTS:
 				return roots != null && !roots.isEmpty();
+			case UimodelPackage.UI_MODEL__IMPORTS:
+				return imports != null && !imports.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (packageName: ");
+		result.append(packageName);
+		result.append(')');
+		return result.toString();
 	}
 
 } //UiModelImpl

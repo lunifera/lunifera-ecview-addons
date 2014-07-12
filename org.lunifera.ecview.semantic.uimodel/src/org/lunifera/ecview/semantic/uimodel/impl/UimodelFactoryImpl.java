@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.lunifera.ecview.semantic.uimodel.*;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
@@ -68,6 +69,7 @@ public class UimodelFactoryImpl extends EFactoryImpl implements UimodelFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case UimodelPackage.UI_MODEL: return createUiModel();
+			case UimodelPackage.UI_IMPORTS: return createUiImports();
 			case UimodelPackage.UI_VIEW: return createUiView();
 			case UimodelPackage.UI_IDE_VIEW: return createUiIDEView();
 			case UimodelPackage.UI_POINT: return createUiPoint();
@@ -93,6 +95,16 @@ public class UimodelFactoryImpl extends EFactoryImpl implements UimodelFactory {
 	public UiModel createUiModel() {
 		UiModelImpl uiModel = new UiModelImpl();
 		return uiModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiImports createUiImports() {
+		UiImportsImpl uiImports = new UiImportsImpl();
+		return uiImports;
 	}
 
 	/**

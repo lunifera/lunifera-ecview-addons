@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
+import org.lunifera.ecview.semantic.uimodel.UiBindable;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
@@ -22,7 +22,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointDefImpl#getBindable <em>Bindable</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointDefImpl#getEndpoint <em>Endpoint</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointDefImpl#getSemanticEndpoint <em>Semantic Endpoint</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointDefImpl#getPath <em>Path</em>}</li>
  * </ul>
  * </p>
@@ -38,17 +38,17 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 * @ordered
 	 */
-	protected YElement bindable;
+	protected UiBindable bindable;
 
 	/**
-	 * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}' reference.
+	 * The cached value of the '{@link #getSemanticEndpoint() <em>Semantic Endpoint</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEndpoint()
+	 * @see #getSemanticEndpoint()
 	 * @generated
 	 * @ordered
 	 */
-	protected UxEndpointDef endpoint;
+	protected UxEndpointDef semanticEndpoint;
 
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
@@ -84,10 +84,10 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YElement getBindable() {
+	public UiBindable getBindable() {
 		if (bindable != null && bindable.eIsProxy()) {
 			InternalEObject oldBindable = (InternalEObject)bindable;
-			bindable = (YElement)eResolveProxy(oldBindable);
+			bindable = (UiBindable)eResolveProxy(oldBindable);
 			if (bindable != oldBindable) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelPackage.UI_BINDING_ENDPOINT_DEF__BINDABLE, oldBindable, bindable));
@@ -101,7 +101,7 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YElement basicGetBindable() {
+	public UiBindable basicGetBindable() {
 		return bindable;
 	}
 
@@ -110,8 +110,8 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBindable(YElement newBindable) {
-		YElement oldBindable = bindable;
+	public void setBindable(UiBindable newBindable) {
+		UiBindable oldBindable = bindable;
 		bindable = newBindable;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_BINDING_ENDPOINT_DEF__BINDABLE, oldBindable, bindable));
@@ -122,16 +122,16 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UxEndpointDef getEndpoint() {
-		if (endpoint != null && endpoint.eIsProxy()) {
-			InternalEObject oldEndpoint = (InternalEObject)endpoint;
-			endpoint = (UxEndpointDef)eResolveProxy(oldEndpoint);
-			if (endpoint != oldEndpoint) {
+	public UxEndpointDef getSemanticEndpoint() {
+		if (semanticEndpoint != null && semanticEndpoint.eIsProxy()) {
+			InternalEObject oldSemanticEndpoint = (InternalEObject)semanticEndpoint;
+			semanticEndpoint = (UxEndpointDef)eResolveProxy(oldSemanticEndpoint);
+			if (semanticEndpoint != oldSemanticEndpoint) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelPackage.UI_BINDING_ENDPOINT_DEF__ENDPOINT, oldEndpoint, endpoint));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelPackage.UI_BINDING_ENDPOINT_DEF__SEMANTIC_ENDPOINT, oldSemanticEndpoint, semanticEndpoint));
 			}
 		}
-		return endpoint;
+		return semanticEndpoint;
 	}
 
 	/**
@@ -139,8 +139,8 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UxEndpointDef basicGetEndpoint() {
-		return endpoint;
+	public UxEndpointDef basicGetSemanticEndpoint() {
+		return semanticEndpoint;
 	}
 
 	/**
@@ -148,11 +148,11 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEndpoint(UxEndpointDef newEndpoint) {
-		UxEndpointDef oldEndpoint = endpoint;
-		endpoint = newEndpoint;
+	public void setSemanticEndpoint(UxEndpointDef newSemanticEndpoint) {
+		UxEndpointDef oldSemanticEndpoint = semanticEndpoint;
+		semanticEndpoint = newSemanticEndpoint;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_BINDING_ENDPOINT_DEF__ENDPOINT, oldEndpoint, endpoint));
+			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_BINDING_ENDPOINT_DEF__SEMANTIC_ENDPOINT, oldSemanticEndpoint, semanticEndpoint));
 	}
 
 	/**
@@ -223,9 +223,9 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__BINDABLE:
 				if (resolve) return getBindable();
 				return basicGetBindable();
-			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__ENDPOINT:
-				if (resolve) return getEndpoint();
-				return basicGetEndpoint();
+			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__SEMANTIC_ENDPOINT:
+				if (resolve) return getSemanticEndpoint();
+				return basicGetSemanticEndpoint();
 			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__PATH:
 				return getPath();
 		}
@@ -241,10 +241,10 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__BINDABLE:
-				setBindable((YElement)newValue);
+				setBindable((UiBindable)newValue);
 				return;
-			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__ENDPOINT:
-				setEndpoint((UxEndpointDef)newValue);
+			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__SEMANTIC_ENDPOINT:
+				setSemanticEndpoint((UxEndpointDef)newValue);
 				return;
 			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__PATH:
 				setPath((UiPathSegment)newValue);
@@ -262,10 +262,10 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__BINDABLE:
-				setBindable((YElement)null);
+				setBindable((UiBindable)null);
 				return;
-			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__ENDPOINT:
-				setEndpoint((UxEndpointDef)null);
+			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__SEMANTIC_ENDPOINT:
+				setSemanticEndpoint((UxEndpointDef)null);
 				return;
 			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__PATH:
 				setPath((UiPathSegment)null);
@@ -284,8 +284,8 @@ public class UiBindingEndpointDefImpl extends MinimalEObjectImpl.Container imple
 		switch (featureID) {
 			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__BINDABLE:
 				return bindable != null;
-			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__ENDPOINT:
-				return endpoint != null;
+			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__SEMANTIC_ENDPOINT:
+				return semanticEndpoint != null;
 			case UimodelPackage.UI_BINDING_ENDPOINT_DEF__PATH:
 				return path != null;
 		}

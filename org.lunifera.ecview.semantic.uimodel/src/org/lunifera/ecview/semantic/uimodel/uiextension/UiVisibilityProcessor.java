@@ -6,7 +6,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiModelElement;
-import org.lunifera.ecview.semantic.uimodel.UiRootElements;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +18,7 @@ import org.lunifera.ecview.semantic.uimodel.UiRootElements;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor#getBindingAlias <em>Binding Alias</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor#getChangeTrigger <em>Change Trigger</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor#getRule <em>Rule</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor#getPropertiesAssignment <em>Properties Assignment</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,7 +26,7 @@ import org.lunifera.ecview.semantic.uimodel.UiRootElements;
  * @model
  * @generated
  */
-public interface UiVisibilityProcessor extends YElement, UiRootElements, UiModelElement {
+public interface UiVisibilityProcessor extends YElement, UiModelElement {
 	/**
 	 * Returns the value of the '<em><b>Binding Alias</b></em>' containment reference list.
 	 * The list contents are of type {@link org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias}.
@@ -84,5 +84,31 @@ public interface UiVisibilityProcessor extends YElement, UiRootElements, UiModel
 	 * @generated
 	 */
 	void setRule(UiVisibilityRule value);
+
+	/**
+	 * Returns the value of the '<em><b>Properties Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Properties Assignment</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Properties Assignment</em>' containment reference.
+	 * @see #setPropertiesAssignment(UiVisibilityPropertiesAssignment)
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionPackage#getUiVisibilityProcessor_PropertiesAssignment()
+	 * @model containment="true"
+	 * @generated
+	 */
+	UiVisibilityPropertiesAssignment getPropertiesAssignment();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor#getPropertiesAssignment <em>Properties Assignment</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Properties Assignment</em>' containment reference.
+	 * @see #getPropertiesAssignment()
+	 * @generated
+	 */
+	void setPropertiesAssignment(UiVisibilityPropertiesAssignment value);
 
 } // UiVisibilityProcessor

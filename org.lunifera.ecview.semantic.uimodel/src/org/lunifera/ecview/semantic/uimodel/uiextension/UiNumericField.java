@@ -3,7 +3,7 @@
 package org.lunifera.ecview.semantic.uimodel.uiextension;
 
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
-import org.lunifera.ecview.semantic.uimodel.UiModelElement;
+import org.lunifera.ecview.semantic.uimodel.UiField;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,5 +15,5 @@ import org.lunifera.ecview.semantic.uimodel.UiModelElement;
  * @model
  * @generated
  */
-public interface UiNumericField extends YNumericField, UiModelElement {
+public interface UiNumericField extends YNumericField, UiField {
 } // UiNumericField

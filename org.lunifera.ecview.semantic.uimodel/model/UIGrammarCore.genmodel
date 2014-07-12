@@ -2,8 +2,8 @@
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.lunifera.ecview.semantic.uimodel/src" modelPluginID="org.lunifera.ecview.semantic.uimodel"
     modelName="UIGrammarCore" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    usedGenPackages="platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//binding ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//core ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//validation ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//datatypes ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//visibility ../../org.eclipse.emf.ecp.ecview.extension.model/model/extension.genmodel#//datatypes ../../org.eclipse.emf.ecp.ecview.extension.model/model/extension.genmodel#//extension platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types ../../org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.genmodel#//uisemantics platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xtype platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//binding ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//core ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//validation ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//datatypes ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//visibility ../../org.eclipse.emf.ecp.ecview.extension.model/model/extension.genmodel#//datatypes ../../org.eclipse.emf.ecp.ecview.extension.model/model/extension.genmodel#//extension ../../org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types ../../org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.genmodel#//uisemantics ../../org.eclipse.xtext.xbase/model/Xbase.genmodel#//xtype ../../org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase"
     importOrganizing="true">
   <foreignModel>UIGrammarCore.ecore</foreignModel>
   <foreignModel>UIGrammarExtensions.ecore</foreignModel>
@@ -12,6 +12,7 @@
     <genClasses ecoreClass="UIGrammarCore.ecore#//UiModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiModel/roots"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="UIGrammarCore.ecore#//UiModelElement"/>
     <genClasses ecoreClass="UIGrammarCore.ecore#//UiView"/>
     <genClasses ecoreClass="UIGrammarCore.ecore#//UiIDEView">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiIDEView/bindings"/>
@@ -49,7 +50,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiViewSet/bindingEndpointAlias"/>
     </genClasses>
     <genClasses image="false" ecoreClass="UIGrammarCore.ecore#//UiRootElements"/>
-    <genClasses image="false" ecoreClass="UIGrammarCore.ecore#//UiModelElement"/>
     <genClasses ecoreClass="UIGrammarCore.ecore#//UiMaxLengthValidator"/>
     <genClasses ecoreClass="UIGrammarCore.ecore#//UiMinLengthValidator"/>
     <genClasses ecoreClass="UIGrammarCore.ecore#//UiRegexpValidator"/>

@@ -30,11 +30,14 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.lunifera.ecview.dsl,
- org.lunifera.ecview.dsl.services,
- org.lunifera.ecview.dsl.serializer,
- org.lunifera.ecview.dsl.parser.antlr,
- org.lunifera.ecview.dsl.parser.antlr.internal,
- org.lunifera.ecview.dsl.validation,
- org.lunifera.ecview.dsl.formatting,
- org.lunifera.ecview.dsl.jvmmodel
+Export-Package: org.lunifera.ecview.dsl;x-internal:=true,
+ org.lunifera.ecview.dsl.derivedstate;x-internal:=true,
+ org.lunifera.ecview.dsl.formatting;x-internal:=true,
+ org.lunifera.ecview.dsl.jvmmodel;x-internal:=true,
+ org.lunifera.ecview.dsl.name;x-internal:=true,
+ org.lunifera.ecview.dsl.parser.antlr;x-internal:=true,
+ org.lunifera.ecview.dsl.parser.antlr.internal;x-internal:=true,
+ org.lunifera.ecview.dsl.scope;x-internal:=true,
+ org.lunifera.ecview.dsl.serializer;x-internal:=true,
+ org.lunifera.ecview.dsl.services;x-internal:=true,
+ org.lunifera.ecview.dsl.validation;x-internal:=true

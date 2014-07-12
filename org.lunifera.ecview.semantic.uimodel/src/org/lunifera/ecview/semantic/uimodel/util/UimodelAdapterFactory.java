@@ -10,10 +10,12 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig;
@@ -22,6 +24,8 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfi
 import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
+import org.lunifera.ecview.semantic.uimodel.*;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessable;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
@@ -100,6 +104,14 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 				return createUiModelAdapter();
 			}
 			@Override
+			public Adapter caseUiImports(UiImports object) {
+				return createUiImportsAdapter();
+			}
+			@Override
+			public Adapter caseUiModelElement(UiModelElement object) {
+				return createUiModelElementAdapter();
+			}
+			@Override
 			public Adapter caseUiView(UiView object) {
 				return createUiViewAdapter();
 			}
@@ -140,10 +152,6 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 				return createUiRootElementsAdapter();
 			}
 			@Override
-			public Adapter caseUiModelElement(UiModelElement object) {
-				return createUiModelElementAdapter();
-			}
-			@Override
 			public Adapter caseUiMaxLengthValidator(UiMaxLengthValidator object) {
 				return createUiMaxLengthValidatorAdapter();
 			}
@@ -154,6 +162,26 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUiRegexpValidator(UiRegexpValidator object) {
 				return createUiRegexpValidatorAdapter();
+			}
+			@Override
+			public Adapter caseUiBindable(UiBindable object) {
+				return createUiBindableAdapter();
+			}
+			@Override
+			public Adapter caseUiEmbeddable(UiEmbeddable object) {
+				return createUiEmbeddableAdapter();
+			}
+			@Override
+			public Adapter caseUiField(UiField object) {
+				return createUiFieldAdapter();
+			}
+			@Override
+			public Adapter caseUiLayout(UiLayout object) {
+				return createUiLayoutAdapter();
+			}
+			@Override
+			public Adapter caseUiValidator(UiValidator object) {
+				return createUiValidatorAdapter();
 			}
 			@Override
 			public Adapter caseYElement(YElement object) {
@@ -220,6 +248,18 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 				return createYRegexpValidatorAdapter();
 			}
 			@Override
+			public Adapter caseYVisibleable(YVisibleable object) {
+				return createYVisibleableAdapter();
+			}
+			@Override
+			public Adapter caseYEmbeddable(YEmbeddable object) {
+				return createYEmbeddableAdapter();
+			}
+			@Override
+			public Adapter caseUiVisibilityProcessable(UiVisibilityProcessable object) {
+				return createUiVisibilityProcessableAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -250,6 +290,20 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiImports <em>Ui Imports</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiImports
+	 * @generated
+	 */
+	public Adapter createUiImportsAdapter() {
 		return null;
 	}
 
@@ -446,6 +500,76 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiRegexpValidatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiBindable <em>Ui Bindable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBindable
+	 * @generated
+	 */
+	public Adapter createUiBindableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiEmbeddable <em>Ui Embeddable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiEmbeddable
+	 * @generated
+	 */
+	public Adapter createUiEmbeddableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiField <em>Ui Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiField
+	 * @generated
+	 */
+	public Adapter createUiFieldAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiLayout <em>Ui Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiLayout
+	 * @generated
+	 */
+	public Adapter createUiLayoutAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiValidator <em>Ui Validator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiValidator
+	 * @generated
+	 */
+	public Adapter createUiValidatorAdapter() {
 		return null;
 	}
 
@@ -670,6 +794,48 @@ public class UimodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYRegexpValidatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable <em>YVisibleable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable
+	 * @generated
+	 */
+	public Adapter createYVisibleableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable <em>YEmbeddable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable
+	 * @generated
+	 */
+	public Adapter createYEmbeddableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessable <em>Ui Visibility Processable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessable
+	 * @generated
+	 */
+	public Adapter createUiVisibilityProcessableAdapter() {
 		return null;
 	}
 

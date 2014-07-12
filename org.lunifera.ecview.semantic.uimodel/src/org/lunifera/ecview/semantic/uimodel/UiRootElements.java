@@ -13,5 +13,5 @@ package org.lunifera.ecview.semantic.uimodel;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface UiRootElements extends UiModel {
+public interface UiRootElements extends UiModelElement {
 } // UiRootElements

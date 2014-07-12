@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated UIGrammarCore -->
       <package
-            uri="http://www.lunifera.org/ecview/dsl/UIModel/extension"
+            uri="http://www.lunifera.org/ecview/dsl/uimodel/extension"
             class="org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionPackage"
             genModel="model/UIGrammarCore.genmodel"/>
    </extension>

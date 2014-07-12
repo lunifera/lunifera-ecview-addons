@@ -38,8 +38,8 @@ public class UISemanticsGrammarParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getXImportDeclarationAccess().getAlternatives(), "rule__XImportDeclaration__Alternatives");
-					put(grammarAccess.getXImportDeclarationAccess().getAlternatives_0_1(), "rule__XImportDeclaration__Alternatives_0_1");
-					put(grammarAccess.getXImportDeclarationAccess().getAlternatives_0_1_0_3(), "rule__XImportDeclaration__Alternatives_0_1_0_3");
+					put(grammarAccess.getXImportDeclarationAccess().getAlternatives_0_1_1(), "rule__XImportDeclaration__Alternatives_0_1_1");
+					put(grammarAccess.getXImportDeclarationAccess().getAlternatives_0_1_1_0_3(), "rule__XImportDeclaration__Alternatives_0_1_1_0_3");
 					put(grammarAccess.getUxEndpointDefAccess().getAlternatives(), "rule__UxEndpointDef__Alternatives");
 					put(grammarAccess.getXAssignmentAccess().getAlternatives(), "rule__XAssignment__Alternatives");
 					put(grammarAccess.getOpMultiAssignAccess().getAlternatives(), "rule__OpMultiAssign__Alternatives");
@@ -80,7 +80,8 @@ public class UISemanticsGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getJvmWildcardTypeReferenceAccess().getAlternatives_2(), "rule__JvmWildcardTypeReference__Alternatives_2");
 					put(grammarAccess.getUxModelAccess().getGroup(), "rule__UxModel__Group__0");
 					put(grammarAccess.getXImportDeclarationAccess().getGroup_0(), "rule__XImportDeclaration__Group_0__0");
-					put(grammarAccess.getXImportDeclarationAccess().getGroup_0_1_0(), "rule__XImportDeclaration__Group_0_1_0__0");
+					put(grammarAccess.getXImportDeclarationAccess().getGroup_0_1(), "rule__XImportDeclaration__Group_0_1__0");
+					put(grammarAccess.getXImportDeclarationAccess().getGroup_0_1_1_0(), "rule__XImportDeclaration__Group_0_1_1_0__0");
 					put(grammarAccess.getXImportDeclarationAccess().getGroup_1(), "rule__XImportDeclaration__Group_1__0");
 					put(grammarAccess.getXImportDeclarationAccess().getGroup_1_0(), "rule__XImportDeclaration__Group_1_0__0");
 					put(grammarAccess.getUxEPackageImportAccess().getGroup(), "rule__UxEPackageImport__Group__0");
@@ -265,13 +266,13 @@ public class UISemanticsGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQualifiedNameInStaticImportAccess().getGroup(), "rule__QualifiedNameInStaticImport__Group__0");
 					put(grammarAccess.getUxModelAccess().getImportSectionAssignment_0(), "rule__UxModel__ImportSectionAssignment_0");
 					put(grammarAccess.getUxModelAccess().getElementDefinitionsAssignment_1(), "rule__UxModel__ElementDefinitionsAssignment_1");
-					put(grammarAccess.getXImportDeclarationAccess().getStaticAssignment_0_1_0_0(), "rule__XImportDeclaration__StaticAssignment_0_1_0_0");
-					put(grammarAccess.getXImportDeclarationAccess().getExtensionAssignment_0_1_0_1(), "rule__XImportDeclaration__ExtensionAssignment_0_1_0_1");
-					put(grammarAccess.getXImportDeclarationAccess().getImportedTypeAssignment_0_1_0_2(), "rule__XImportDeclaration__ImportedTypeAssignment_0_1_0_2");
-					put(grammarAccess.getXImportDeclarationAccess().getWildcardAssignment_0_1_0_3_0(), "rule__XImportDeclaration__WildcardAssignment_0_1_0_3_0");
-					put(grammarAccess.getXImportDeclarationAccess().getMemberNameAssignment_0_1_0_3_1(), "rule__XImportDeclaration__MemberNameAssignment_0_1_0_3_1");
-					put(grammarAccess.getXImportDeclarationAccess().getImportedTypeAssignment_0_1_1(), "rule__XImportDeclaration__ImportedTypeAssignment_0_1_1");
-					put(grammarAccess.getXImportDeclarationAccess().getImportedNamespaceAssignment_0_1_2(), "rule__XImportDeclaration__ImportedNamespaceAssignment_0_1_2");
+					put(grammarAccess.getXImportDeclarationAccess().getStaticAssignment_0_1_1_0_0(), "rule__XImportDeclaration__StaticAssignment_0_1_1_0_0");
+					put(grammarAccess.getXImportDeclarationAccess().getExtensionAssignment_0_1_1_0_1(), "rule__XImportDeclaration__ExtensionAssignment_0_1_1_0_1");
+					put(grammarAccess.getXImportDeclarationAccess().getImportedTypeAssignment_0_1_1_0_2(), "rule__XImportDeclaration__ImportedTypeAssignment_0_1_1_0_2");
+					put(grammarAccess.getXImportDeclarationAccess().getWildcardAssignment_0_1_1_0_3_0(), "rule__XImportDeclaration__WildcardAssignment_0_1_1_0_3_0");
+					put(grammarAccess.getXImportDeclarationAccess().getMemberNameAssignment_0_1_1_0_3_1(), "rule__XImportDeclaration__MemberNameAssignment_0_1_1_0_3_1");
+					put(grammarAccess.getXImportDeclarationAccess().getImportedTypeAssignment_0_1_1_1(), "rule__XImportDeclaration__ImportedTypeAssignment_0_1_1_1");
+					put(grammarAccess.getXImportDeclarationAccess().getImportedNamespaceAssignment_0_1_1_2(), "rule__XImportDeclaration__ImportedNamespaceAssignment_0_1_1_2");
 					put(grammarAccess.getXImportDeclarationAccess().getImportedEPackageAssignment_1_0_1(), "rule__XImportDeclaration__ImportedEPackageAssignment_1_0_1");
 					put(grammarAccess.getUxEPackageImportAccess().getEPackageAssignment_0(), "rule__UxEPackageImport__EPackageAssignment_0");
 					put(grammarAccess.getUxEPackageImportAccess().getAliasAssignment_2(), "rule__UxEPackageImport__AliasAssignment_2");

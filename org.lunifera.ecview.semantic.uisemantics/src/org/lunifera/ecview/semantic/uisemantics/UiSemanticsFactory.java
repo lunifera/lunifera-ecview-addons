@@ -31,15 +31,6 @@ public interface UiSemanticsFactory extends EFactory {
 	UxModel createUxModel();
 
 	/**
-	 * Returns a new object of class '<em>XImport Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>XImport Declaration</em>'.
-	 * @generated
-	 */
-	XImportDeclaration createXImportDeclaration();
-
-	/**
 	 * Returns a new object of class '<em>Ux EPackage Import</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,6 +119,15 @@ public interface UiSemanticsFactory extends EFactory {
 	 * @generated
 	 */
 	UxVisibilityOption createUxVisibilityOption();
+
+	/**
+	 * Returns a new object of class '<em>Ux Import Section Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ux Import Section Declaration</em>'.
+	 * @generated
+	 */
+	UxImportSectionDeclaration createUxImportSectionDeclaration();
 
 	/**
 	 * Returns the package supported by this factory.

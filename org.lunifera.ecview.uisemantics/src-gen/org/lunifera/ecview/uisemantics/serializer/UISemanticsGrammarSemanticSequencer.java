@@ -62,12 +62,12 @@ import org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions;
 import org.lunifera.ecview.semantic.uisemantics.UxEPackageImport;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxElementURI;
+import org.lunifera.ecview.semantic.uisemantics.UxImportSectionDeclaration;
 import org.lunifera.ecview.semantic.uisemantics.UxListBindingEndpointDef;
 import org.lunifera.ecview.semantic.uisemantics.UxModel;
 import org.lunifera.ecview.semantic.uisemantics.UxSetBindingEndpointDef;
 import org.lunifera.ecview.semantic.uisemantics.UxValueBindingEndpointDef;
 import org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption;
-import org.lunifera.ecview.semantic.uisemantics.XImportDeclaration;
 import org.lunifera.ecview.uisemantics.services.UISemanticsGrammarGrammarAccess;
 
 @SuppressWarnings("all")
@@ -166,6 +166,12 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 					return; 
 				}
 				else break;
+			case UiSemanticsPackage.UX_IMPORT_SECTION_DECLARATION:
+				if(context == grammarAccess.getXImportDeclarationRule()) {
+					sequence_XImportDeclaration(context, (UxImportSectionDeclaration) semanticObject); 
+					return; 
+				}
+				else break;
 			case UiSemanticsPackage.UX_LIST_BINDING_ENDPOINT_DEF:
 				if(context == grammarAccess.getUxEndpointDefRule() ||
 				   context == grammarAccess.getUxListBindingEndpointDefRule()) {
@@ -196,12 +202,6 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 			case UiSemanticsPackage.UX_VISIBILITY_OPTION:
 				if(context == grammarAccess.getUxVisibilityOptionRule()) {
 					sequence_UxVisibilityOption(context, (UxVisibilityOption) semanticObject); 
-					return; 
-				}
-				else break;
-			case UiSemanticsPackage.XIMPORT_DECLARATION:
-				if(context == grammarAccess.getXImportDeclarationRule()) {
-					sequence_XImportDeclaration(context, (XImportDeclaration) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1362,11 +1362,10 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	 *     (
 	 *         (static?='static' extension?='extension'? importedType=[JvmDeclaredType|QualifiedNameInStaticImport] (wildcard?='*' | memberName=ValidID)) | 
 	 *         importedType=[JvmDeclaredType|QualifiedName] | 
-	 *         importedNamespace=QualifiedNameWithWildcard | 
-	 *         importedEPackage=UxEPackageImport
+	 *         importedNamespace=QualifiedNameWithWildcard
 	 *     )
 	 */
-	protected void sequence_XImportDeclaration(EObject context, XImportDeclaration semanticObject) {
+	protected void sequence_XImportDeclaration(EObject context, UxImportSectionDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }

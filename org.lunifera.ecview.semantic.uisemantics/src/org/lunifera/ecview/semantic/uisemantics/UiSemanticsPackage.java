@@ -6,7 +6,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.xtext.xtype.XtypePackage;
 
 /**
@@ -39,7 +38,7 @@ public interface UiSemanticsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.lunifera.org/ecview/uisemantics/UISemantics";
+	String eNS_URI = "http://www.lunifera.org/ecview/uisemantics/uisemantics";
 
 	/**
 	 * The package namespace name.
@@ -95,88 +94,6 @@ public interface UiSemanticsPackage extends EPackage {
 	int UX_MODEL_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.XImportDeclarationImpl <em>XImport Declaration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.XImportDeclarationImpl
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getXImportDeclaration()
-	 * @generated
-	 */
-	int XIMPORT_DECLARATION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Wildcard</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XIMPORT_DECLARATION__WILDCARD = XtypePackage.XIMPORT_DECLARATION__WILDCARD;
-
-	/**
-	 * The feature id for the '<em><b>Extension</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XIMPORT_DECLARATION__EXTENSION = XtypePackage.XIMPORT_DECLARATION__EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Static</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XIMPORT_DECLARATION__STATIC = XtypePackage.XIMPORT_DECLARATION__STATIC;
-
-	/**
-	 * The feature id for the '<em><b>Imported Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XIMPORT_DECLARATION__IMPORTED_TYPE = XtypePackage.XIMPORT_DECLARATION__IMPORTED_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Member Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XIMPORT_DECLARATION__MEMBER_NAME = XtypePackage.XIMPORT_DECLARATION__MEMBER_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XIMPORT_DECLARATION__IMPORTED_NAMESPACE = XtypePackage.XIMPORT_DECLARATION__IMPORTED_NAMESPACE;
-
-	/**
-	 * The feature id for the '<em><b>Imported EPackage</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XIMPORT_DECLARATION__IMPORTED_EPACKAGE = XtypePackage.XIMPORT_DECLARATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>XImport Declaration</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XIMPORT_DECLARATION_FEATURE_COUNT = XtypePackage.XIMPORT_DECLARATION_FEATURE_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxEPackageImportImpl <em>Ux EPackage Import</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -185,6 +102,178 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @generated
 	 */
 	int UX_EPACKAGE_IMPORT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxElementDefinitionImpl <em>Ux Element Definition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxElementDefinitionImpl
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxElementDefinition()
+	 * @generated
+	 */
+	int UX_ELEMENT_DEFINITION = 3;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxElementURIImpl <em>Ux Element URI</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxElementURIImpl
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxElementURI()
+	 * @generated
+	 */
+	int UX_ELEMENT_URI = 4;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableBindingsImpl <em>Ux Available Bindings</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableBindingsImpl
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxAvailableBindings()
+	 * @generated
+	 */
+	int UX_AVAILABLE_BINDINGS = 5;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxEndpointDefImpl <em>Ux Endpoint Def</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxEndpointDefImpl
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxEndpointDef()
+	 * @generated
+	 */
+	int UX_ENDPOINT_DEF = 6;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxValueBindingEndpointDefImpl <em>Ux Value Binding Endpoint Def</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxValueBindingEndpointDefImpl
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxValueBindingEndpointDef()
+	 * @generated
+	 */
+	int UX_VALUE_BINDING_ENDPOINT_DEF = 7;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxListBindingEndpointDefImpl <em>Ux List Binding Endpoint Def</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxListBindingEndpointDefImpl
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxListBindingEndpointDef()
+	 * @generated
+	 */
+	int UX_LIST_BINDING_ENDPOINT_DEF = 8;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxSetBindingEndpointDefImpl <em>Ux Set Binding Endpoint Def</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxSetBindingEndpointDefImpl
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxSetBindingEndpointDef()
+	 * @generated
+	 */
+	int UX_SET_BINDING_ENDPOINT_DEF = 9;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableVisibilityOptionsImpl <em>Ux Available Visibility Options</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableVisibilityOptionsImpl
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxAvailableVisibilityOptions()
+	 * @generated
+	 */
+	int UX_AVAILABLE_VISIBILITY_OPTIONS = 10;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxVisibilityOptionImpl <em>Ux Visibility Option</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxVisibilityOptionImpl
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxVisibilityOption()
+	 * @generated
+	 */
+	int UX_VISIBILITY_OPTION = 11;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxImportSectionDeclarationImpl <em>Ux Import Section Declaration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxImportSectionDeclarationImpl
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxImportSectionDeclaration()
+	 * @generated
+	 */
+	int UX_IMPORT_SECTION_DECLARATION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Wildcard</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_IMPORT_SECTION_DECLARATION__WILDCARD = XtypePackage.XIMPORT_DECLARATION__WILDCARD;
+
+	/**
+	 * The feature id for the '<em><b>Extension</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_IMPORT_SECTION_DECLARATION__EXTENSION = XtypePackage.XIMPORT_DECLARATION__EXTENSION;
+
+	/**
+	 * The feature id for the '<em><b>Static</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_IMPORT_SECTION_DECLARATION__STATIC = XtypePackage.XIMPORT_DECLARATION__STATIC;
+
+	/**
+	 * The feature id for the '<em><b>Imported Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_IMPORT_SECTION_DECLARATION__IMPORTED_TYPE = XtypePackage.XIMPORT_DECLARATION__IMPORTED_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Member Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_IMPORT_SECTION_DECLARATION__MEMBER_NAME = XtypePackage.XIMPORT_DECLARATION__MEMBER_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_IMPORT_SECTION_DECLARATION__IMPORTED_NAMESPACE = XtypePackage.XIMPORT_DECLARATION__IMPORTED_NAMESPACE;
+
+	/**
+	 * The feature id for the '<em><b>Imported EPackage</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_IMPORT_SECTION_DECLARATION__IMPORTED_EPACKAGE = XtypePackage.XIMPORT_DECLARATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ux Import Section Declaration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_IMPORT_SECTION_DECLARATION_FEATURE_COUNT = XtypePackage.XIMPORT_DECLARATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Alias</b></em>' attribute.
@@ -212,16 +301,6 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @ordered
 	 */
 	int UX_EPACKAGE_IMPORT_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxElementDefinitionImpl <em>Ux Element Definition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxElementDefinitionImpl
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxElementDefinition()
-	 * @generated
-	 */
-	int UX_ELEMENT_DEFINITION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -269,16 +348,6 @@ public interface UiSemanticsPackage extends EPackage {
 	int UX_ELEMENT_DEFINITION_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxElementURIImpl <em>Ux Element URI</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxElementURIImpl
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxElementURI()
-	 * @generated
-	 */
-	int UX_ELEMENT_URI = 4;
-
-	/**
 	 * The feature id for the '<em><b>EPackage</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -306,16 +375,6 @@ public interface UiSemanticsPackage extends EPackage {
 	int UX_ELEMENT_URI_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableBindingsImpl <em>Ux Available Bindings</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableBindingsImpl
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxAvailableBindings()
-	 * @generated
-	 */
-	int UX_AVAILABLE_BINDINGS = 5;
-
-	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -332,16 +391,6 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @ordered
 	 */
 	int UX_AVAILABLE_BINDINGS_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxEndpointDefImpl <em>Ux Endpoint Def</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxEndpointDefImpl
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxEndpointDef()
-	 * @generated
-	 */
-	int UX_ENDPOINT_DEF = 6;
 
 	/**
 	 * The feature id for the '<em><b>Final</b></em>' attribute.
@@ -380,16 +429,6 @@ public interface UiSemanticsPackage extends EPackage {
 	int UX_ENDPOINT_DEF_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxValueBindingEndpointDefImpl <em>Ux Value Binding Endpoint Def</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxValueBindingEndpointDefImpl
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxValueBindingEndpointDef()
-	 * @generated
-	 */
-	int UX_VALUE_BINDING_ENDPOINT_DEF = 7;
-
-	/**
 	 * The feature id for the '<em><b>Final</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -424,16 +463,6 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @ordered
 	 */
 	int UX_VALUE_BINDING_ENDPOINT_DEF_FEATURE_COUNT = UX_ENDPOINT_DEF_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxListBindingEndpointDefImpl <em>Ux List Binding Endpoint Def</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxListBindingEndpointDefImpl
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxListBindingEndpointDef()
-	 * @generated
-	 */
-	int UX_LIST_BINDING_ENDPOINT_DEF = 8;
 
 	/**
 	 * The feature id for the '<em><b>Final</b></em>' attribute.
@@ -472,16 +501,6 @@ public interface UiSemanticsPackage extends EPackage {
 	int UX_LIST_BINDING_ENDPOINT_DEF_FEATURE_COUNT = UX_ENDPOINT_DEF_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxSetBindingEndpointDefImpl <em>Ux Set Binding Endpoint Def</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxSetBindingEndpointDefImpl
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxSetBindingEndpointDef()
-	 * @generated
-	 */
-	int UX_SET_BINDING_ENDPOINT_DEF = 9;
-
-	/**
 	 * The feature id for the '<em><b>Final</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -517,17 +536,6 @@ public interface UiSemanticsPackage extends EPackage {
 	 */
 	int UX_SET_BINDING_ENDPOINT_DEF_FEATURE_COUNT = UX_ENDPOINT_DEF_FEATURE_COUNT + 0;
 
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableVisibilityOptionsImpl <em>Ux Available Visibility Options</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableVisibilityOptionsImpl
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxAvailableVisibilityOptions()
-	 * @generated
-	 */
-	int UX_AVAILABLE_VISIBILITY_OPTIONS = 10;
-
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -545,16 +553,6 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @ordered
 	 */
 	int UX_AVAILABLE_VISIBILITY_OPTIONS_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxVisibilityOptionImpl <em>Ux Visibility Option</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxVisibilityOptionImpl
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxVisibilityOption()
-	 * @generated
-	 */
-	int UX_VISIBILITY_OPTION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -615,27 +613,6 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUxModel_ElementDefinitions();
-
-	/**
-	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.XImportDeclaration <em>XImport Declaration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>XImport Declaration</em>'.
-	 * @see org.lunifera.ecview.semantic.uisemantics.XImportDeclaration
-	 * @generated
-	 */
-	EClass getXImportDeclaration();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uisemantics.XImportDeclaration#getImportedEPackage <em>Imported EPackage</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Imported EPackage</em>'.
-	 * @see org.lunifera.ecview.semantic.uisemantics.XImportDeclaration#getImportedEPackage()
-	 * @see #getXImportDeclaration()
-	 * @generated
-	 */
-	EReference getXImportDeclaration_ImportedEPackage();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxEPackageImport <em>Ux EPackage Import</em>}'.
@@ -903,6 +880,27 @@ public interface UiSemanticsPackage extends EPackage {
 	EReference getUxVisibilityOption_JvmType();
 
 	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxImportSectionDeclaration <em>Ux Import Section Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ux Import Section Declaration</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxImportSectionDeclaration
+	 * @generated
+	 */
+	EClass getUxImportSectionDeclaration();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uisemantics.UxImportSectionDeclaration#getImportedEPackage <em>Imported EPackage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Imported EPackage</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxImportSectionDeclaration#getImportedEPackage()
+	 * @see #getUxImportSectionDeclaration()
+	 * @generated
+	 */
+	EReference getUxImportSectionDeclaration_ImportedEPackage();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -949,24 +947,6 @@ public interface UiSemanticsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UX_MODEL__ELEMENT_DEFINITIONS = eINSTANCE.getUxModel_ElementDefinitions();
-
-		/**
-		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.XImportDeclarationImpl <em>XImport Declaration</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.lunifera.ecview.semantic.uisemantics.impl.XImportDeclarationImpl
-		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getXImportDeclaration()
-		 * @generated
-		 */
-		EClass XIMPORT_DECLARATION = eINSTANCE.getXImportDeclaration();
-
-		/**
-		 * The meta object literal for the '<em><b>Imported EPackage</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference XIMPORT_DECLARATION__IMPORTED_EPACKAGE = eINSTANCE.getXImportDeclaration_ImportedEPackage();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxEPackageImportImpl <em>Ux EPackage Import</em>}' class.
@@ -1187,6 +1167,24 @@ public interface UiSemanticsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UX_VISIBILITY_OPTION__JVM_TYPE = eINSTANCE.getUxVisibilityOption_JvmType();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxImportSectionDeclarationImpl <em>Ux Import Section Declaration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxImportSectionDeclarationImpl
+		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxImportSectionDeclaration()
+		 * @generated
+		 */
+		EClass UX_IMPORT_SECTION_DECLARATION = eINSTANCE.getUxImportSectionDeclaration();
+
+		/**
+		 * The meta object literal for the '<em><b>Imported EPackage</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UX_IMPORT_SECTION_DECLARATION__IMPORTED_EPACKAGE = eINSTANCE.getUxImportSectionDeclaration_ImportedEPackage();
 
 	}
 

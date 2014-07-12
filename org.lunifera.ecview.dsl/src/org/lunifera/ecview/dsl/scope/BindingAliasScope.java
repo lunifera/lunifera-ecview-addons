@@ -46,7 +46,7 @@ public class BindingAliasScope extends AbstractScope {
 				uiBindingEndpointAlias = (UiBindingEndpointAlias) EcoreUtil
 						.resolve(uiBindingEndpointAlias, uiBinding);
 				UxElementDefinition elementDef = (UxElementDefinition) uiBindingEndpointAlias
-						.getEndpoint().getEndpoint();
+						.getEndpoint().getSemanticEndpoint();
 
 				if (uxSourceEndpointDef.eClass().isSuperTypeOf(
 						elementDef.eClass())) {

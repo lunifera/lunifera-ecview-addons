@@ -134,15 +134,21 @@ ruleXImportDeclaration returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((	otherlv_0='import' 
+(((
     {
-    	newLeafNode(otherlv_0, grammarAccess.getXImportDeclarationAccess().getImportKeyword_0_0());
+        $current = forceCreateModelElement(
+            grammarAccess.getXImportDeclarationAccess().getUxImportSectionDeclarationAction_0_0(),
+            $current);
+    }
+)(	otherlv_1='import' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getXImportDeclarationAccess().getImportKeyword_0_1_0());
     }
 (((
 (
-		lv_static_1_0=	'static' 
+		lv_static_2_0=	'static' 
     {
-        newLeafNode(lv_static_1_0, grammarAccess.getXImportDeclarationAccess().getStaticStaticKeyword_0_1_0_0_0());
+        newLeafNode(lv_static_2_0, grammarAccess.getXImportDeclarationAccess().getStaticStaticKeyword_0_1_1_0_0_0());
     }
  
 	    {
@@ -155,9 +161,9 @@ ruleXImportDeclaration returns [EObject current=null]
 )
 )(
 (
-		lv_extension_2_0=	'extension' 
+		lv_extension_3_0=	'extension' 
     {
-        newLeafNode(lv_extension_2_0, grammarAccess.getXImportDeclarationAccess().getExtensionExtensionKeyword_0_1_0_1_0());
+        newLeafNode(lv_extension_3_0, grammarAccess.getXImportDeclarationAccess().getExtensionExtensionKeyword_0_1_1_0_1_0());
     }
  
 	    {
@@ -176,7 +182,7 @@ ruleXImportDeclaration returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getXImportDeclarationAccess().getImportedTypeJvmDeclaredTypeCrossReference_0_1_0_2_0()); 
+	        newCompositeNode(grammarAccess.getXImportDeclarationAccess().getImportedTypeJvmDeclaredTypeCrossReference_0_1_1_0_2_0()); 
 	    }
 		ruleQualifiedNameInStaticImport		{ 
 	        afterParserOrEnumRuleCall();
@@ -185,9 +191,9 @@ ruleXImportDeclaration returns [EObject current=null]
 )
 )((
 (
-		lv_wildcard_4_0=	'*' 
+		lv_wildcard_5_0=	'*' 
     {
-        newLeafNode(lv_wildcard_4_0, grammarAccess.getXImportDeclarationAccess().getWildcardAsteriskKeyword_0_1_0_3_0_0());
+        newLeafNode(lv_wildcard_5_0, grammarAccess.getXImportDeclarationAccess().getWildcardAsteriskKeyword_0_1_1_0_3_0_0());
     }
  
 	    {
@@ -202,16 +208,16 @@ ruleXImportDeclaration returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getXImportDeclarationAccess().getMemberNameValidIDParserRuleCall_0_1_0_3_1_0()); 
+	        newCompositeNode(grammarAccess.getXImportDeclarationAccess().getMemberNameValidIDParserRuleCall_0_1_1_0_3_1_0()); 
 	    }
-		lv_memberName_5_0=ruleValidID		{
+		lv_memberName_6_0=ruleValidID		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXImportDeclarationRule());
 	        }
        		set(
        			$current, 
        			"memberName",
-        		lv_memberName_5_0, 
+        		lv_memberName_6_0, 
         		"ValidID");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -226,7 +232,7 @@ ruleXImportDeclaration returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getXImportDeclarationAccess().getImportedTypeJvmDeclaredTypeCrossReference_0_1_1_0()); 
+	        newCompositeNode(grammarAccess.getXImportDeclarationAccess().getImportedTypeJvmDeclaredTypeCrossReference_0_1_1_1_0()); 
 	    }
 		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
@@ -237,47 +243,47 @@ ruleXImportDeclaration returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getXImportDeclarationAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_0_1_2_0()); 
+	        newCompositeNode(grammarAccess.getXImportDeclarationAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_0_1_1_2_0()); 
 	    }
-		lv_importedNamespace_7_0=ruleQualifiedNameWithWildcard		{
+		lv_importedNamespace_8_0=ruleQualifiedNameWithWildcard		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXImportDeclarationRule());
 	        }
        		set(
        			$current, 
        			"importedNamespace",
-        		lv_importedNamespace_7_0, 
+        		lv_importedNamespace_8_0, 
         		"QualifiedNameWithWildcard");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)))
-    |((	otherlv_8='ePackage' 
+))))
+    |((	otherlv_9='ePackage' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getXImportDeclarationAccess().getEPackageKeyword_1_0_0());
+    	newLeafNode(otherlv_9, grammarAccess.getXImportDeclarationAccess().getEPackageKeyword_1_0_0());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getXImportDeclarationAccess().getImportedEPackageUxEPackageImportParserRuleCall_1_0_1_0()); 
 	    }
-		lv_importedEPackage_9_0=ruleUxEPackageImport		{
+		lv_importedEPackage_10_0=ruleUxEPackageImport		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXImportDeclarationRule());
 	        }
        		set(
        			$current, 
        			"importedEPackage",
-        		lv_importedEPackage_9_0, 
+        		lv_importedEPackage_10_0, 
         		"UxEPackageImport");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))(	otherlv_10=';' 
+))(	otherlv_11=';' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getXImportDeclarationAccess().getSemicolonKeyword_1_1());
+    	newLeafNode(otherlv_11, grammarAccess.getXImportDeclarationAccess().getSemicolonKeyword_1_1());
     }
 )?))
 ;

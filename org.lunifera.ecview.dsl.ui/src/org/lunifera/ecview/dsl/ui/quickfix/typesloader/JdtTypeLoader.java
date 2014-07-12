@@ -16,6 +16,7 @@ import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.launching.JavaRuntime;
 import org.lunifera.ecview.dsl.IJdtTypeLoader;
 
+@SuppressWarnings("restriction")
 public class JdtTypeLoader implements IJdtTypeLoader {
 
 	private final IJavaProject javaProject;

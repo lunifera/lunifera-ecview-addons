@@ -458,9 +458,9 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public UxEndpointDef getSourceEndpointDef() {
 		if (getTarget() != null) {
-			return getTarget().getEndpoint();
+			return getTarget().getSemanticEndpoint();
 		} else if (getTargetAlias() != null) {
-			return getTargetAlias().getEndpoint().getEndpoint();
+			return getTargetAlias().getEndpoint().getSemanticEndpoint();
 		}
 		return null;
 	}
@@ -468,9 +468,9 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public UxEndpointDef getTargetEndpointDef() {
 		if (getSource() != null) {
-			return getSource().getEndpoint();
+			return getSource().getSemanticEndpoint();
 		} else if (getSourceAlias() != null) {
-			return getSourceAlias().getEndpoint().getEndpoint();
+			return getSourceAlias().getEndpoint().getSemanticEndpoint();
 		}
 		return null;
 	}

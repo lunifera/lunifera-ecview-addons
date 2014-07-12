@@ -9,6 +9,7 @@ import org.eclipse.xtext.resource.EObjectDescription;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractScope;
+import org.lunifera.ecview.semantic.uimodel.UiBindable;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
@@ -27,7 +28,7 @@ public class BindingEndpointDefMethodScope extends AbstractScope {
 
 	@Override
 	protected Iterable<IEObjectDescription> getAllLocalElements() {
-		YElement yEmb = bindingEndpointDef.getBindable();
+		UiBindable yEmb = bindingEndpointDef.getBindable();
 
 		List<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 		for (IEObjectDescription des : parent.getAllElements()) {

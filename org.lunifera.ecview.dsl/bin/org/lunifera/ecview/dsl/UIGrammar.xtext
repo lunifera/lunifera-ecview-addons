@@ -1,37 +1,63 @@
 grammar org.lunifera.ecview.dsl.UIGrammar with org.eclipse.xtext.xbase.Xbase
 
-import "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore" as core
-import "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore" as coreVal
-import "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore" as ext
-import "platform:/resource/org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore" as cfg
-import "platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarCore.ecore" as grammarCore
-import "platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarExtensions.ecore"
+import "http://eclipse.org/emf/ecp/ecview/core/view" as core
+import "http://eclipse.org/emf/ecp/ecview/core/validation" as coreVal
+import "http://eclipse.org/emf/ecp/ecview/extension/view" as ext
+import "http://www.lunifera.org/ecview/uisemantics/uisemantics" as cfg
+import "http://www.lunifera.org/ecview/dsl/uimodel/core" as grammarCore
+import "http://www.lunifera.org/ecview/dsl/uimodel/extension" as ext
 import "http://www.eclipse.org/xtext/common/JavaVMTypes"
+import "http://www.eclipse.org/xtext/xbase/Xbase"
+import "http://www.eclipse.org/xtext/xbase/Xtype"
 
 UiModel returns grammarCore::UiModel:
+	'package' packageName=QualifiedName
+	 
+	imports+=UiImports*
 	roots+=UiRootElements*;
 
-UiRootElements returns grammarCore::UiRootElements:
-	UiView | UiViewSet | UiVisibilityProcessor;
+UiImports returns grammarCore::UiImports:
+	'import' importedNamespace=QualifiedNameWithWildcard (';')?;
 
-UiVisibilityProcessor returns UiVisibilityProcessor:
-	'visibilityProcessor' name=ID '{'
+UiRootElements returns grammarCore::UiRootElements:
+	UiView | UiViewSet | UiVisibilityProcessorDef | UiVisibilityPropertiesDef;
+ 
+UiVisibilityProcessor returns ext::UiVisibilityProcessor:
+	{ext::UiVisibilityProcessor}
+	name=ID '{'
 	bindingAlias+=UiBindingEndpointAlias*
 	changeTrigger+=UiChangeTrigger*
 	rule=UiVisibilityRule
+	propertiesAssignment=UiVisibilityPropertiesAssignment
+	'}';
+	
+UiVisibilityProcessorDef returns ext::UiVisibilityProcessorDef:
+	'visibilityProcessor' processor=UiVisibilityProcessor;
+
+UiVisibilityProcessorAssignment returns ext::UiVisibilityProcessorAssignment:
+	'visibilityProcessor' (processor=UiVisibilityProcessor | processorAlias=[ext::UiVisibilityProcessor|QualifiedName] ';');
+
+UiVisibilityProperties returns ext::UiVisibilityProperties:
+	{ext::UiVisibilityProperties}
+	(name=ID)? '{'
 	'}';
 
-UiChangeTrigger returns UiChangeTrigger:
+UiVisibilityPropertiesDef returns ext::UiVisibilityPropertiesDef:
+	'visibilityProps' properties=UiVisibilityProperties;
+
+UiVisibilityPropertiesAssignment returns ext::UiVisibilityPropertiesAssignment:
+	'visibilityProps' (properties=UiVisibilityProperties | propertyAlias=[ext::UiVisibilityProperties|QualifiedName] ';');
+
+UiChangeTrigger returns ext::UiChangeTrigger:
 	'trigger' (endpoint=UiBindingEndpointDef | endpointAlias=[grammarCore::UiBindingEndpointAlias]);
 
-UiVisibilityRule returns UiVisibilityRule:
+UiVisibilityRule returns ext::UiVisibilityRule:
 	UiXbaseVisibilityRule;
 
-UiXbaseVisibilityRule returns UiXbaseVisibilityRule:
-	{UiXbaseVisibilityRule}
-	'rule' '{'
-//	expression=XExpression
-	'}';
+UiXbaseVisibilityRule returns ext::UiXbaseVisibilityRule:
+	{ext::UiXbaseVisibilityRule}
+	'rule'
+	expression=XBlockExpression;
 
 UiViewSet returns grammarCore::UiViewSet:
 	'viewset' name=ID '{'
@@ -51,7 +77,7 @@ UiBinding returns grammarCore::UiBinding:
 	(target=UiBindingEndpointDef | targetAlias=[grammarCore::UiBindingEndpointAlias]);
 
 UiBindingEndpointDef returns grammarCore::UiBindingEndpointDef:
-	bindable=[core::YElement|ID] ':' endpoint=[cfg::UxEndpointDef] (path=UiPathSegment)?;
+	bindable=[grammarCore::UiBindable|ID] ':' semanticEndpoint=[cfg::UxEndpointDef] (path=UiPathSegment)?;
 
 UiPathSegment returns grammarCore::UiPathSegment:
 	'.' jvmField=[JvmField] path=(UiPathSegment)?;
@@ -70,26 +96,19 @@ UiIDEView returns grammarCore::UiIDEView:
 	(bindings+=UiBinding)*
 	'}';
 
-UiGridLayout returns ext::YGridLayout:
-	{UiGridLayout}
+UiGridLayout returns ext::UiGridLayout:
+	{ext::UiGridLayout}
 	'gridlayout'
 	('('
-	((('columns=' columns=INT)?)
-	&
-	((fillHorizontal?='fill-h')?)
-	&
-	((fillVertical?='fill-v')?)
-	&
-	((spacing?='spacing')?)
-	&
-	((margin?='margin')?))
+	(('columns=' columns=INT)?)
 	')')?
 	name=ID?
 	'{'
 	(contents+=UiGridLayoutAssigment)*
+	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}';
 
-UiGridLayoutAssigment:
+UiGridLayoutAssigment returns ext::UiGridLayoutAssigment:
 	element=UiEmbeddable (('align' alignment=UiAlignment)? & ('span' from=UiPoint 'to' to=UiPoint)?);
 
 UiPoint returns grammarCore::UiPoint:
@@ -112,15 +131,17 @@ UiSpanInfo returns ext::YSpanInfo:
 	&
 	('rowTo' rowTo=INT))?);
 
-UiTextField returns UiTextField:
-	{UiTextField}
+UiTextField returns ext::UiTextField:
+	{ext::UiTextField}
 	'textfield' name=ID?
 	('{'
 	(validators+=UiValidator)*
+	(processorAssignment=UiVisibilityProcessorAssignment)?
+	
 	'}')?;
 
-UiList returns ext::YList:
-	{UiList}
+UiList returns ext::UiList:
+	{ext::UiList}
 	'list' name=ID?;
 
 enum SelectionType returns ext::YSelectionType:
@@ -135,18 +156,20 @@ UiLayout returns core::YLayout:
 UiField returns core::YField:
 	UiTextField | UiList | UiNumericField | UiCheckBox;
 
-UiNumericField returns UiNumericField:
-	{UiNumericField}
+UiNumericField returns ext::UiNumericField:
+	{ext::UiNumericField}
 	'numericField' name=ID?
 	('{'
 	(validators+=UiValidator)*
+	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
 
-UiCheckBox returns UiCheckBox:
-	{UiCheckBox}
+UiCheckBox returns ext::UiCheckBox:
+	{ext::UiCheckBox}
 	'checkbox' name=ID?
 	('{'
 	(validators+=UiValidator)*
+	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
 
 UiValidator returns coreVal::YValidator:
@@ -164,5 +187,3 @@ UiRegexpValidator returns grammarCore::UiRegexpValidator:
 	{grammarCore::UiRegexpValidator}
 	'regexValidator' name=ID ('regex' regExpression=STRING)?;
 
-FQN:
-	(ID '.')* ID;

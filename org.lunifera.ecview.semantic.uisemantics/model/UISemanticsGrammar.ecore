@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="uisemantics" nsURI="http://www.lunifera.org/ecview/uisemantics/UISemantics"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="uisemantics" nsURI="http://www.lunifera.org/ecview/uisemantics/uisemantics"
     nsPrefix="uisemantics">
   <eClassifiers xsi:type="ecore:EClass" name="UxModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="importSection" eType="ecore:EClass ../../org.eclipse.xtext.xbase/model/Xtype.ecore#//XImportSection"
@@ -8,7 +8,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="elementDefinitions" upperBound="-1"
         eType="#//UxElementDefinition" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XImportDeclaration" eSuperTypes="../../org.eclipse.xtext.xbase/model/Xtype.ecore#//XImportDeclaration">
+  <eClassifiers xsi:type="ecore:EClass" name="UxImportSectionDeclaration" eSuperTypes="../../org.eclipse.xtext.xbase/model/Xtype.ecore#//XImportDeclaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="importedEPackage" eType="#//UxEPackageImport"
         containment="true"/>
   </eClassifiers>

@@ -21,7 +21,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * @model
  * @generated
  */
-public interface UiBeanSlot extends YBeanSlot, UiModelElement {
+public interface UiBeanSlot extends YBeanSlot, UiBindable {
 	/**
 	 * Returns the value of the '<em><b>Jvm Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

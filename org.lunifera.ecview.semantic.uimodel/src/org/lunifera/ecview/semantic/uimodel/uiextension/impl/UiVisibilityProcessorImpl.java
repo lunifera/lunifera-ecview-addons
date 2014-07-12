@@ -3,7 +3,6 @@
 package org.lunifera.ecview.semantic.uimodel.uiextension.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -14,12 +13,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
-import org.lunifera.ecview.semantic.uimodel.UiModel;
-import org.lunifera.ecview.semantic.uimodel.UiModelElement;
-import org.lunifera.ecview.semantic.uimodel.UiRootElements;
-import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiChangeTrigger;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityPropertiesAssignment;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityRule;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionPackage;
 
@@ -32,10 +28,10 @@ import org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionPackage;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessorImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessorImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessorImpl#getRoots <em>Roots</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessorImpl#getBindingAlias <em>Binding Alias</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessorImpl#getChangeTrigger <em>Change Trigger</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessorImpl#getRule <em>Rule</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessorImpl#getPropertiesAssignment <em>Properties Assignment</em>}</li>
  * </ul>
  * </p>
  *
@@ -83,16 +79,6 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRoots() <em>Roots</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRoots()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<UiRootElements> roots;
-
-	/**
 	 * The cached value of the '{@link #getBindingAlias() <em>Binding Alias</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -121,6 +107,16 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 	 * @ordered
 	 */
 	protected UiVisibilityRule rule;
+
+	/**
+	 * The cached value of the '{@link #getPropertiesAssignment() <em>Properties Assignment</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPropertiesAssignment()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiVisibilityPropertiesAssignment propertiesAssignment;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -181,18 +177,6 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UiextensionPackage.UI_VISIBILITY_PROCESSOR__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<UiRootElements> getRoots() {
-		if (roots == null) {
-			roots = new EObjectContainmentEList<UiRootElements>(UiRootElements.class, this, UiextensionPackage.UI_VISIBILITY_PROCESSOR__ROOTS);
-		}
-		return roots;
 	}
 
 	/**
@@ -267,17 +251,60 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiVisibilityPropertiesAssignment getPropertiesAssignment() {
+		return propertiesAssignment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPropertiesAssignment(UiVisibilityPropertiesAssignment newPropertiesAssignment, NotificationChain msgs) {
+		UiVisibilityPropertiesAssignment oldPropertiesAssignment = propertiesAssignment;
+		propertiesAssignment = newPropertiesAssignment;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiextensionPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT, oldPropertiesAssignment, newPropertiesAssignment);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPropertiesAssignment(UiVisibilityPropertiesAssignment newPropertiesAssignment) {
+		if (newPropertiesAssignment != propertiesAssignment) {
+			NotificationChain msgs = null;
+			if (propertiesAssignment != null)
+				msgs = ((InternalEObject)propertiesAssignment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiextensionPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT, null, msgs);
+			if (newPropertiesAssignment != null)
+				msgs = ((InternalEObject)newPropertiesAssignment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiextensionPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT, null, msgs);
+			msgs = basicSetPropertiesAssignment(newPropertiesAssignment, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiextensionPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT, newPropertiesAssignment, newPropertiesAssignment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__ROOTS:
-				return ((InternalEList<?>)getRoots()).basicRemove(otherEnd, msgs);
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__BINDING_ALIAS:
 				return ((InternalEList<?>)getBindingAlias()).basicRemove(otherEnd, msgs);
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER:
 				return ((InternalEList<?>)getChangeTrigger()).basicRemove(otherEnd, msgs);
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__RULE:
 				return basicSetRule(null, msgs);
+			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT:
+				return basicSetPropertiesAssignment(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -294,14 +321,14 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 				return getId();
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__NAME:
 				return getName();
-			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__ROOTS:
-				return getRoots();
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__BINDING_ALIAS:
 				return getBindingAlias();
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER:
 				return getChangeTrigger();
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__RULE:
 				return getRule();
+			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT:
+				return getPropertiesAssignment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -321,10 +348,6 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__NAME:
 				setName((String)newValue);
 				return;
-			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__ROOTS:
-				getRoots().clear();
-				getRoots().addAll((Collection<? extends UiRootElements>)newValue);
-				return;
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__BINDING_ALIAS:
 				getBindingAlias().clear();
 				getBindingAlias().addAll((Collection<? extends UiBindingEndpointAlias>)newValue);
@@ -335,6 +358,9 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 				return;
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__RULE:
 				setRule((UiVisibilityRule)newValue);
+				return;
+			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT:
+				setPropertiesAssignment((UiVisibilityPropertiesAssignment)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -354,9 +380,6 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__ROOTS:
-				getRoots().clear();
-				return;
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__BINDING_ALIAS:
 				getBindingAlias().clear();
 				return;
@@ -365,6 +388,9 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 				return;
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__RULE:
 				setRule((UiVisibilityRule)null);
+				return;
+			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT:
+				setPropertiesAssignment((UiVisibilityPropertiesAssignment)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -382,68 +408,16 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__ROOTS:
-				return roots != null && !roots.isEmpty();
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__BINDING_ALIAS:
 				return bindingAlias != null && !bindingAlias.isEmpty();
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER:
 				return changeTrigger != null && !changeTrigger.isEmpty();
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__RULE:
 				return rule != null;
+			case UiextensionPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT:
+				return propertiesAssignment != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == UiModelElement.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == UiModel.class) {
-			switch (derivedFeatureID) {
-				case UiextensionPackage.UI_VISIBILITY_PROCESSOR__ROOTS: return UimodelPackage.UI_MODEL__ROOTS;
-				default: return -1;
-			}
-		}
-		if (baseClass == UiRootElements.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == UiModelElement.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == UiModel.class) {
-			switch (baseFeatureID) {
-				case UimodelPackage.UI_MODEL__ROOTS: return UiextensionPackage.UI_VISIBILITY_PROCESSOR__ROOTS;
-				default: return -1;
-			}
-		}
-		if (baseClass == UiRootElements.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

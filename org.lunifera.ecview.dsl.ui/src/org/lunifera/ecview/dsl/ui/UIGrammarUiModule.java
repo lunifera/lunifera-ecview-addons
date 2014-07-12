@@ -12,6 +12,7 @@ import org.lunifera.ecview.dsl.ui.quickfix.typesloader.JdtTypeLoaderProvider;
 /**
  * Use this class to register components to be used within the IDE.
  */
+@SuppressWarnings("restriction")
 public class UIGrammarUiModule extends
 		org.lunifera.ecview.dsl.ui.AbstractUIGrammarUiModule {
 	public UIGrammarUiModule(AbstractUIPlugin plugin) {

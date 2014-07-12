@@ -5,8 +5,7 @@ Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: org.lunifera.ecview.dsl.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.lunifera.ecview.dsl;visibility:=reexport,
- org.eclipse.xtext.ui,
+Require-Bundle: org.eclipse.xtext.ui,
  org.eclipse.ui.editors;bundle-version="3.5.0",
  org.eclipse.ui.ide;bundle-version="3.5.0",
  org.eclipse.xtext.ui.shared,
@@ -21,7 +20,8 @@ Require-Bundle: org.lunifera.ecview.dsl;visibility:=reexport,
  org.eclipse.emf.ecp.ecview.extension.model;bundle-version="0.0.1",
  org.eclipse.swt,
  org.eclipse.jdt.launching;bundle-version="3.7.100",
- org.eclipse.jdt.core;bundle-version="3.10.0"
+ org.eclipse.jdt.core;bundle-version="3.10.0",
+ org.lunifera.ecview.dsl;bundle-version="1.0.0"
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

@@ -81,7 +81,9 @@ class UiModelDerivedStateComputerx implements IDerivedStateComputer {
 				it.map
 			]
 
-			resource.contents += views.get(0)
+			if (views.size > 0) {
+				resource.contents += views.get(0)
+			}
 			views.clear
 			viewContext.clear
 			associations.clear
@@ -287,7 +289,7 @@ class UiModelDerivedStateComputerx implements IDerivedStateComputer {
 			return null
 		}
 		var YBindingEndpoint result = null;
-		val sourceEndpointDef = epDef.endpoint
+		val sourceEndpointDef = epDef.semanticEndpoint
 		if (epDef.bindable instanceof YBeanSlot) {
 			val YBeanSlot yBeanSlot = epDef.bindable.associated
 			if (sourceEndpointDef instanceof UxValueBindingEndpointDef) {
@@ -309,7 +311,7 @@ class UiModelDerivedStateComputerx implements IDerivedStateComputer {
 				ep.attributePath = if (epDef.path != null) {
 					epDef.path.toPathString
 				}
-				ep.collectionTypeQualifiedName = epDef.endpoint.jvmType.qualifiedName
+				ep.collectionTypeQualifiedName = epDef.semanticEndpoint.jvmType.qualifiedName
 				ep.collectionType = loadClass(epDef.eResource.resourceSet, ep.collectionTypeQualifiedName)
 				result = ep
 			}
@@ -325,7 +327,7 @@ class UiModelDerivedStateComputerx implements IDerivedStateComputer {
 					cEndpointDef.name + "." + epDef.path.toPathString
 				} else
 					cEndpointDef.name
-				ep.typeQualifiedName = epDef.endpoint.jvmType.qualifiedName
+				ep.typeQualifiedName = epDef.semanticEndpoint.jvmType.qualifiedName
 				ep.type = loadClass(epDef.eResource.resourceSet, ep.typeQualifiedName)
 				ep.emfNsURI = yElement.eClass.EPackage.nsURI
 				result = ep
@@ -339,7 +341,7 @@ class UiModelDerivedStateComputerx implements IDerivedStateComputer {
 					cEndpointDef.name + "." + epDef.path.toPathString
 				} else
 					cEndpointDef.name
-				ep.typeQualifiedName = epDef.endpoint.jvmType.qualifiedName
+				ep.typeQualifiedName = epDef.semanticEndpoint.jvmType.qualifiedName
 				ep.type = loadClass(epDef.eResource.resourceSet, ep.typeQualifiedName)
 				ep.emfNsURI = yElement.eClass.EPackage.nsURI
 				result = ep

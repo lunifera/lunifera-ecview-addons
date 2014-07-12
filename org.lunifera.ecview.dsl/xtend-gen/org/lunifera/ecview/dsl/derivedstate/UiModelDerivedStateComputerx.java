@@ -47,6 +47,7 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.lunifera.ecview.dsl.IJdtTypeLoader;
 import org.lunifera.ecview.dsl.IJdtTypeLoaderProvider;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
+import org.lunifera.ecview.semantic.uimodel.UiBindable;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef;
@@ -103,9 +104,13 @@ public class UiModelDerivedStateComputerx implements IDerivedStateComputer {
         }
       };
       IterableExtensions.<EObject>forEach(_contents_1, _function);
-      EList<EObject> _contents_2 = resource.getContents();
-      YView _get = this.views.get(0);
-      _contents_2.add(_get);
+      int _size = this.views.size();
+      boolean _greaterThan = (_size > 0);
+      if (_greaterThan) {
+        EList<EObject> _contents_2 = resource.getContents();
+        YView _get = this.views.get(0);
+        _contents_2.add(_get);
+      }
       this.views.clear();
       this.viewContext.clear();
       this.associations.clear();
@@ -365,10 +370,10 @@ public class UiModelDerivedStateComputerx implements IDerivedStateComputer {
       return null;
     }
     YBindingEndpoint result = null;
-    final UxEndpointDef sourceEndpointDef = epDef.getEndpoint();
-    YElement _bindable = epDef.getBindable();
+    final UxEndpointDef sourceEndpointDef = epDef.getSemanticEndpoint();
+    UiBindable _bindable = epDef.getBindable();
     if ((_bindable instanceof YBeanSlot)) {
-      YElement _bindable_1 = epDef.getBindable();
+      UiBindable _bindable_1 = epDef.getBindable();
       final YBeanSlot yBeanSlot = this.<YBeanSlot>associated(_bindable_1);
       if ((sourceEndpointDef instanceof UxValueBindingEndpointDef)) {
         final UxValueBindingEndpointDef cEndpointDef = ((UxValueBindingEndpointDef) sourceEndpointDef);
@@ -400,8 +405,8 @@ public class UiModelDerivedStateComputerx implements IDerivedStateComputer {
             _xifexpression_1 = _path_3.toPathString();
           }
           ep_1.setAttributePath(_xifexpression_1);
-          UxEndpointDef _endpoint = epDef.getEndpoint();
-          JvmTypeReference _jvmType = _endpoint.getJvmType();
+          UxEndpointDef _semanticEndpoint = epDef.getSemanticEndpoint();
+          JvmTypeReference _jvmType = _semanticEndpoint.getJvmType();
           String _qualifiedName = _jvmType.getQualifiedName();
           ep_1.setCollectionTypeQualifiedName(_qualifiedName);
           Resource _eResource = epDef.eResource();
@@ -413,9 +418,9 @@ public class UiModelDerivedStateComputerx implements IDerivedStateComputer {
         }
       }
     } else {
-      YElement _bindable_2 = epDef.getBindable();
+      UiBindable _bindable_2 = epDef.getBindable();
       if ((_bindable_2 instanceof YElement)) {
-        YElement _bindable_3 = epDef.getBindable();
+        UiBindable _bindable_3 = epDef.getBindable();
         final YElement yElement = this.<YElement>associated(_bindable_3);
         if ((sourceEndpointDef instanceof UxValueBindingEndpointDef)) {
           final UxValueBindingEndpointDef cEndpointDef_2 = ((UxValueBindingEndpointDef) sourceEndpointDef);
@@ -436,8 +441,8 @@ public class UiModelDerivedStateComputerx implements IDerivedStateComputer {
             _xifexpression_2 = cEndpointDef_2.getName();
           }
           ep_2.setPropertyPath(_xifexpression_2);
-          UxEndpointDef _endpoint_1 = epDef.getEndpoint();
-          JvmTypeReference _jvmType_1 = _endpoint_1.getJvmType();
+          UxEndpointDef _semanticEndpoint_1 = epDef.getSemanticEndpoint();
+          JvmTypeReference _jvmType_1 = _semanticEndpoint_1.getJvmType();
           String _qualifiedName_1 = _jvmType_1.getQualifiedName();
           ep_2.setTypeQualifiedName(_qualifiedName_1);
           Resource _eResource_1 = epDef.eResource();
@@ -470,8 +475,8 @@ public class UiModelDerivedStateComputerx implements IDerivedStateComputer {
               _xifexpression_3 = cEndpointDef_3.getName();
             }
             ep_3.setPropertyPath(_xifexpression_3);
-            UxEndpointDef _endpoint_2 = epDef.getEndpoint();
-            JvmTypeReference _jvmType_2 = _endpoint_2.getJvmType();
+            UxEndpointDef _semanticEndpoint_2 = epDef.getSemanticEndpoint();
+            JvmTypeReference _jvmType_2 = _semanticEndpoint_2.getJvmType();
             String _qualifiedName_2 = _jvmType_2.getQualifiedName();
             ep_3.setTypeQualifiedName(_qualifiedName_2);
             Resource _eResource_2 = epDef.eResource();
@@ -543,58 +548,58 @@ public class UiModelDerivedStateComputerx implements IDerivedStateComputer {
     }
   }
   
-  public void map(final EObject object) {
-    if (object instanceof UiIDEView) {
-      _map((UiIDEView)object);
+  public void map(final EObject eObject) {
+    if (eObject instanceof UiGridLayout) {
+      _map((UiGridLayout)eObject);
       return;
-    } else if (object instanceof UiGridLayout) {
-      _map((UiGridLayout)object);
+    } else if (eObject instanceof UiIDEView) {
+      _map((UiIDEView)eObject);
       return;
-    } else if (object instanceof UiView) {
-      _map((UiView)object);
+    } else if (eObject instanceof YMaxLengthValidator) {
+      _map((YMaxLengthValidator)eObject);
       return;
-    } else if (object instanceof YMaxLengthValidator) {
-      _map((YMaxLengthValidator)object);
+    } else if (eObject instanceof YMinLengthValidator) {
+      _map((YMinLengthValidator)eObject);
       return;
-    } else if (object instanceof YMinLengthValidator) {
-      _map((YMinLengthValidator)object);
+    } else if (eObject instanceof YRegexpValidator) {
+      _map((YRegexpValidator)eObject);
       return;
-    } else if (object instanceof YRegexpValidator) {
-      _map((YRegexpValidator)object);
+    } else if (eObject instanceof UiBeanSlot) {
+      _map((UiBeanSlot)eObject);
       return;
-    } else if (object instanceof UiBeanSlot) {
-      _map((UiBeanSlot)object);
+    } else if (eObject instanceof UiView) {
+      _map((UiView)eObject);
       return;
-    } else if (object instanceof UiBinding) {
-      _map((UiBinding)object);
+    } else if (eObject instanceof UiBinding) {
+      _map((UiBinding)eObject);
       return;
-    } else if (object instanceof UiBindingEndpointAlias) {
-      _map((UiBindingEndpointAlias)object);
+    } else if (eObject instanceof UiBindingEndpointAlias) {
+      _map((UiBindingEndpointAlias)eObject);
       return;
-    } else if (object instanceof UiBindingEndpointDef) {
-      _map((UiBindingEndpointDef)object);
+    } else if (eObject instanceof UiBindingEndpointDef) {
+      _map((UiBindingEndpointDef)eObject);
       return;
-    } else if (object instanceof UiModel) {
-      _map((UiModel)object);
+    } else if (eObject instanceof UiModel) {
+      _map((UiModel)eObject);
       return;
-    } else if (object instanceof UiPathSegment) {
-      _map((UiPathSegment)object);
+    } else if (eObject instanceof UiPathSegment) {
+      _map((UiPathSegment)eObject);
       return;
-    } else if (object instanceof UiPoint) {
-      _map((UiPoint)object);
+    } else if (eObject instanceof UiPoint) {
+      _map((UiPoint)eObject);
       return;
-    } else if (object instanceof UiGridLayoutAssigment) {
-      _map((UiGridLayoutAssigment)object);
+    } else if (eObject instanceof UiGridLayoutAssigment) {
+      _map((UiGridLayoutAssigment)eObject);
       return;
-    } else if (object != null) {
-      _map(object);
+    } else if (eObject != null) {
+      _map(eObject);
       return;
-    } else if (object == null) {
+    } else if (eObject == null) {
       _map((Void)null);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(object).toString());
+        Arrays.<Object>asList(eObject).toString());
     }
   }
   

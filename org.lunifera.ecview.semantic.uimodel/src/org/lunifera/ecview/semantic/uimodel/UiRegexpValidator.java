@@ -14,5 +14,5 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
  * @model
  * @generated
  */
-public interface UiRegexpValidator extends YRegexpValidator, UiModelElement {
+public interface UiRegexpValidator extends YRegexpValidator, UiValidator {
 } // UiRegexpValidator

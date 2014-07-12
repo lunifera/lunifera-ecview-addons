@@ -14,5 +14,5 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
  * @model
  * @generated
  */
-public interface UiMaxLengthValidator extends YMaxLengthValidator, UiModelElement {
+public interface UiMaxLengthValidator extends YMaxLengthValidator, UiValidator {
 } // UiMaxLengthValidator

@@ -4,7 +4,7 @@ package org.lunifera.ecview.semantic.uimodel.uiextension;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
-import org.lunifera.ecview.semantic.uimodel.UiModelElement;
+import org.lunifera.ecview.semantic.uimodel.UiLayout;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +22,7 @@ import org.lunifera.ecview.semantic.uimodel.UiModelElement;
  * @model
  * @generated
  */
-public interface UiGridLayout extends YGridLayout, UiModelElement {
+public interface UiGridLayout extends YGridLayout, UiLayout {
 	/**
 	 * Returns the value of the '<em><b>Contents</b></em>' containment reference list.
 	 * The list contents are of type {@link org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayoutAssigment}.

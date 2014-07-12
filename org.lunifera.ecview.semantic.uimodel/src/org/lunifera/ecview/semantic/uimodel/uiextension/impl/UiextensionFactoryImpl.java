@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.lunifera.ecview.semantic.uimodel.uiextension.*;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiChangeTrigger;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayout;
@@ -70,8 +71,13 @@ public class UiextensionFactoryImpl extends EFactoryImpl implements UiextensionF
 			case UiextensionPackage.UI_NUMERIC_FIELD: return createUiNumericField();
 			case UiextensionPackage.UI_CHECK_BOX: return createUiCheckBox();
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR: return createUiVisibilityProcessor();
+			case UiextensionPackage.UI_VISIBILITY_PROCESSOR_DEF: return createUiVisibilityProcessorDef();
+			case UiextensionPackage.UI_VISIBILITY_PROCESSOR_ASSIGNMENT: return createUiVisibilityProcessorAssignment();
 			case UiextensionPackage.UI_CHANGE_TRIGGER: return createUiChangeTrigger();
 			case UiextensionPackage.UI_XBASE_VISIBILITY_RULE: return createUiXbaseVisibilityRule();
+			case UiextensionPackage.UI_VISIBILITY_PROPERTIES: return createUiVisibilityProperties();
+			case UiextensionPackage.UI_VISIBILITY_PROPERTIES_DEF: return createUiVisibilityPropertiesDef();
+			case UiextensionPackage.UI_VISIBILITY_PROPERTIES_ASSIGNMENT: return createUiVisibilityPropertiesAssignment();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -152,6 +158,26 @@ public class UiextensionFactoryImpl extends EFactoryImpl implements UiextensionF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiVisibilityProcessorDef createUiVisibilityProcessorDef() {
+		UiVisibilityProcessorDefImpl uiVisibilityProcessorDef = new UiVisibilityProcessorDefImpl();
+		return uiVisibilityProcessorDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiVisibilityProcessorAssignment createUiVisibilityProcessorAssignment() {
+		UiVisibilityProcessorAssignmentImpl uiVisibilityProcessorAssignment = new UiVisibilityProcessorAssignmentImpl();
+		return uiVisibilityProcessorAssignment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiChangeTrigger createUiChangeTrigger() {
 		UiChangeTriggerImpl uiChangeTrigger = new UiChangeTriggerImpl();
 		return uiChangeTrigger;
@@ -165,6 +191,36 @@ public class UiextensionFactoryImpl extends EFactoryImpl implements UiextensionF
 	public UiXbaseVisibilityRule createUiXbaseVisibilityRule() {
 		UiXbaseVisibilityRuleImpl uiXbaseVisibilityRule = new UiXbaseVisibilityRuleImpl();
 		return uiXbaseVisibilityRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiVisibilityProperties createUiVisibilityProperties() {
+		UiVisibilityPropertiesImpl uiVisibilityProperties = new UiVisibilityPropertiesImpl();
+		return uiVisibilityProperties;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiVisibilityPropertiesDef createUiVisibilityPropertiesDef() {
+		UiVisibilityPropertiesDefImpl uiVisibilityPropertiesDef = new UiVisibilityPropertiesDefImpl();
+		return uiVisibilityPropertiesDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiVisibilityPropertiesAssignment createUiVisibilityPropertiesAssignment() {
+		UiVisibilityPropertiesAssignmentImpl uiVisibilityPropertiesAssignment = new UiVisibilityPropertiesAssignmentImpl();
+		return uiVisibilityPropertiesAssignment;
 	}
 
 	/**

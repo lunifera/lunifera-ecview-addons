@@ -21,7 +21,13 @@ import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiList;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiTextField;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessable;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessorAssignment;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessorDef;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProperties;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityPropertiesAssignment;
+import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityPropertiesDef;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityRule;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiXbaseVisibilityRule;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionFactory;
@@ -82,7 +88,28 @@ public class UiextensionPackageImpl extends EPackageImpl implements UiextensionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass uiVisibilityProcessableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass uiVisibilityProcessorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiVisibilityProcessorDefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiVisibilityProcessorAssignmentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,6 +131,27 @@ public class UiextensionPackageImpl extends EPackageImpl implements UiextensionP
 	 * @generated
 	 */
 	private EClass uiXbaseVisibilityRuleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiVisibilityPropertiesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiVisibilityPropertiesAssignmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiVisibilityPropertiesDefEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -281,6 +329,24 @@ public class UiextensionPackageImpl extends EPackageImpl implements UiextensionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiVisibilityProcessable() {
+		return uiVisibilityProcessableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiVisibilityProcessable_ProcessorAssignment() {
+		return (EReference)uiVisibilityProcessableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiVisibilityProcessor() {
 		return uiVisibilityProcessorEClass;
 	}
@@ -310,6 +376,60 @@ public class UiextensionPackageImpl extends EPackageImpl implements UiextensionP
 	 */
 	public EReference getUiVisibilityProcessor_Rule() {
 		return (EReference)uiVisibilityProcessorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiVisibilityProcessor_PropertiesAssignment() {
+		return (EReference)uiVisibilityProcessorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiVisibilityProcessorDef() {
+		return uiVisibilityProcessorDefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiVisibilityProcessorDef_Processor() {
+		return (EReference)uiVisibilityProcessorDefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiVisibilityProcessorAssignment() {
+		return uiVisibilityProcessorAssignmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiVisibilityProcessorAssignment_Processor() {
+		return (EReference)uiVisibilityProcessorAssignmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiVisibilityProcessorAssignment_ProcessorAlias() {
+		return (EReference)uiVisibilityProcessorAssignmentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -371,6 +491,60 @@ public class UiextensionPackageImpl extends EPackageImpl implements UiextensionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiVisibilityProperties() {
+		return uiVisibilityPropertiesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiVisibilityPropertiesAssignment() {
+		return uiVisibilityPropertiesAssignmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiVisibilityPropertiesAssignment_Properties() {
+		return (EReference)uiVisibilityPropertiesAssignmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiVisibilityPropertiesAssignment_PropertyAlias() {
+		return (EReference)uiVisibilityPropertiesAssignmentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiVisibilityPropertiesDef() {
+		return uiVisibilityPropertiesDefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiVisibilityPropertiesDef_Properties() {
+		return (EReference)uiVisibilityPropertiesDefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiextensionFactory getUiextensionFactory() {
 		return (UiextensionFactory)getEFactoryInstance();
 	}
@@ -411,10 +585,21 @@ public class UiextensionPackageImpl extends EPackageImpl implements UiextensionP
 
 		uiCheckBoxEClass = createEClass(UI_CHECK_BOX);
 
+		uiVisibilityProcessableEClass = createEClass(UI_VISIBILITY_PROCESSABLE);
+		createEReference(uiVisibilityProcessableEClass, UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENT);
+
 		uiVisibilityProcessorEClass = createEClass(UI_VISIBILITY_PROCESSOR);
 		createEReference(uiVisibilityProcessorEClass, UI_VISIBILITY_PROCESSOR__BINDING_ALIAS);
 		createEReference(uiVisibilityProcessorEClass, UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER);
 		createEReference(uiVisibilityProcessorEClass, UI_VISIBILITY_PROCESSOR__RULE);
+		createEReference(uiVisibilityProcessorEClass, UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT);
+
+		uiVisibilityProcessorDefEClass = createEClass(UI_VISIBILITY_PROCESSOR_DEF);
+		createEReference(uiVisibilityProcessorDefEClass, UI_VISIBILITY_PROCESSOR_DEF__PROCESSOR);
+
+		uiVisibilityProcessorAssignmentEClass = createEClass(UI_VISIBILITY_PROCESSOR_ASSIGNMENT);
+		createEReference(uiVisibilityProcessorAssignmentEClass, UI_VISIBILITY_PROCESSOR_ASSIGNMENT__PROCESSOR);
+		createEReference(uiVisibilityProcessorAssignmentEClass, UI_VISIBILITY_PROCESSOR_ASSIGNMENT__PROCESSOR_ALIAS);
 
 		uiChangeTriggerEClass = createEClass(UI_CHANGE_TRIGGER);
 		createEReference(uiChangeTriggerEClass, UI_CHANGE_TRIGGER__ENDPOINT);
@@ -424,6 +609,15 @@ public class UiextensionPackageImpl extends EPackageImpl implements UiextensionP
 
 		uiXbaseVisibilityRuleEClass = createEClass(UI_XBASE_VISIBILITY_RULE);
 		createEReference(uiXbaseVisibilityRuleEClass, UI_XBASE_VISIBILITY_RULE__EXPRESSION);
+
+		uiVisibilityPropertiesEClass = createEClass(UI_VISIBILITY_PROPERTIES);
+
+		uiVisibilityPropertiesDefEClass = createEClass(UI_VISIBILITY_PROPERTIES_DEF);
+		createEReference(uiVisibilityPropertiesDefEClass, UI_VISIBILITY_PROPERTIES_DEF__PROPERTIES);
+
+		uiVisibilityPropertiesAssignmentEClass = createEClass(UI_VISIBILITY_PROPERTIES_ASSIGNMENT);
+		createEReference(uiVisibilityPropertiesAssignmentEClass, UI_VISIBILITY_PROPERTIES_ASSIGNMENT__PROPERTIES);
+		createEReference(uiVisibilityPropertiesAssignmentEClass, UI_VISIBILITY_PROPERTIES_ASSIGNMENT__PROPERTY_ALIAS);
 	}
 
 	/**
@@ -463,22 +657,26 @@ public class UiextensionPackageImpl extends EPackageImpl implements UiextensionP
 		// Add supertypes to classes
 		uiGridLayoutAssigmentEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
 		uiGridLayoutEClass.getESuperTypes().add(theExtensionModelPackage.getYGridLayout());
-		uiGridLayoutEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
+		uiGridLayoutEClass.getESuperTypes().add(theUimodelPackage.getUiLayout());
 		uiTextFieldEClass.getESuperTypes().add(theExtensionModelPackage.getYTextField());
-		uiTextFieldEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
+		uiTextFieldEClass.getESuperTypes().add(theUimodelPackage.getUiField());
 		uiListEClass.getESuperTypes().add(theExtensionModelPackage.getYList());
-		uiListEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
+		uiListEClass.getESuperTypes().add(theUimodelPackage.getUiField());
 		uiNumericFieldEClass.getESuperTypes().add(theExtensionModelPackage.getYNumericField());
-		uiNumericFieldEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
+		uiNumericFieldEClass.getESuperTypes().add(theUimodelPackage.getUiField());
 		uiCheckBoxEClass.getESuperTypes().add(theExtensionModelPackage.getYCheckBox());
-		uiCheckBoxEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
+		uiCheckBoxEClass.getESuperTypes().add(theUimodelPackage.getUiField());
 		uiVisibilityProcessorEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
-		uiVisibilityProcessorEClass.getESuperTypes().add(theUimodelPackage.getUiRootElements());
 		uiVisibilityProcessorEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
+		uiVisibilityProcessorDefEClass.getESuperTypes().add(theUimodelPackage.getUiRootElements());
+		uiVisibilityProcessorAssignmentEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
 		uiChangeTriggerEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
 		uiVisibilityRuleEClass.getESuperTypes().add(theVisibilityPackage.getYVisibilityRule());
 		uiVisibilityRuleEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
 		uiXbaseVisibilityRuleEClass.getESuperTypes().add(this.getUiVisibilityRule());
+		uiVisibilityPropertiesEClass.getESuperTypes().add(theVisibilityPackage.getYVisibilityProperties());
+		uiVisibilityPropertiesDefEClass.getESuperTypes().add(theUimodelPackage.getUiRootElements());
+		uiVisibilityPropertiesAssignmentEClass.getESuperTypes().add(theUimodelPackage.getUiModelElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(uiGridLayoutAssigmentEClass, UiGridLayoutAssigment.class, "UiGridLayoutAssigment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -498,10 +696,21 @@ public class UiextensionPackageImpl extends EPackageImpl implements UiextensionP
 
 		initEClass(uiCheckBoxEClass, UiCheckBox.class, "UiCheckBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(uiVisibilityProcessableEClass, UiVisibilityProcessable.class, "UiVisibilityProcessable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiVisibilityProcessable_ProcessorAssignment(), this.getUiVisibilityProcessorAssignment(), null, "processorAssignment", null, 0, 1, UiVisibilityProcessable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(uiVisibilityProcessorEClass, UiVisibilityProcessor.class, "UiVisibilityProcessor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiVisibilityProcessor_BindingAlias(), theUimodelPackage.getUiBindingEndpointAlias(), null, "bindingAlias", null, 0, -1, UiVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiVisibilityProcessor_ChangeTrigger(), this.getUiChangeTrigger(), null, "changeTrigger", null, 0, -1, UiVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiVisibilityProcessor_Rule(), this.getUiVisibilityRule(), null, "rule", null, 0, 1, UiVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiVisibilityProcessor_PropertiesAssignment(), this.getUiVisibilityPropertiesAssignment(), null, "propertiesAssignment", null, 0, 1, UiVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiVisibilityProcessorDefEClass, UiVisibilityProcessorDef.class, "UiVisibilityProcessorDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiVisibilityProcessorDef_Processor(), this.getUiVisibilityProcessor(), null, "processor", null, 0, 1, UiVisibilityProcessorDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiVisibilityProcessorAssignmentEClass, UiVisibilityProcessorAssignment.class, "UiVisibilityProcessorAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiVisibilityProcessorAssignment_Processor(), this.getUiVisibilityProcessor(), null, "processor", null, 0, 1, UiVisibilityProcessorAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiVisibilityProcessorAssignment_ProcessorAlias(), this.getUiVisibilityProcessor(), null, "processorAlias", null, 0, 1, UiVisibilityProcessorAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiChangeTriggerEClass, UiChangeTrigger.class, "UiChangeTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiChangeTrigger_Endpoint(), theUimodelPackage.getUiBindingEndpointDef(), null, "endpoint", null, 0, 1, UiChangeTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -511,6 +720,15 @@ public class UiextensionPackageImpl extends EPackageImpl implements UiextensionP
 
 		initEClass(uiXbaseVisibilityRuleEClass, UiXbaseVisibilityRule.class, "UiXbaseVisibilityRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiXbaseVisibilityRule_Expression(), theXbasePackage.getXExpression(), null, "expression", null, 0, 1, UiXbaseVisibilityRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiVisibilityPropertiesEClass, UiVisibilityProperties.class, "UiVisibilityProperties", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiVisibilityPropertiesDefEClass, UiVisibilityPropertiesDef.class, "UiVisibilityPropertiesDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiVisibilityPropertiesDef_Properties(), this.getUiVisibilityProperties(), null, "properties", null, 0, 1, UiVisibilityPropertiesDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiVisibilityPropertiesAssignmentEClass, UiVisibilityPropertiesAssignment.class, "UiVisibilityPropertiesAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiVisibilityPropertiesAssignment_Properties(), this.getUiVisibilityProperties(), null, "properties", null, 0, 1, UiVisibilityPropertiesAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiVisibilityPropertiesAssignment_PropertyAlias(), this.getUiVisibilityProperties(), null, "propertyAlias", null, 0, 1, UiVisibilityPropertiesAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

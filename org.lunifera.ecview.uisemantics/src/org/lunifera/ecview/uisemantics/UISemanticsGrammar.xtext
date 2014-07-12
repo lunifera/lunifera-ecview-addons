@@ -3,23 +3,24 @@ grammar org.lunifera.ecview.uisemantics.UISemanticsGrammar with org.eclipse.xtex
 import "http://www.eclipse.org/xtext/xbase/Xtype" as type
 import "http://www.eclipse.org/xtext/common/JavaVMTypes"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
-import "platform:/resource/org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore"
+import "http://www.lunifera.org/ecview/uisemantics/uisemantics" as semantic
 
-UxModel:
+UxModel returns semantic::UxModel:
 	importSection=XImportSection?
 	elementDefinitions+=UxElementDefinition*;
-
-XImportDeclaration returns XImportDeclaration:
+ 
+XImportDeclaration returns semantic::UxImportSectionDeclaration:
+	{semantic::UxImportSectionDeclaration}
 	('import' ((static?='static' extension?='extension'? importedType=[JvmDeclaredType|QualifiedNameInStaticImport]
 	(wildcard?='*' | memberName=ValidID))
 	| importedType=[JvmDeclaredType|QualifiedName]
 	| importedNamespace=QualifiedNameWithWildcard))
 	| (("ePackage" importedEPackage=UxEPackageImport)) ';'?;
-
-UxEPackageImport returns UxEPackageImport:
+  
+UxEPackageImport returns semantic::UxEPackageImport:
 	ePackage=[ecore::EPackage|STRING] 'as' alias=ID;
  
-UxElementDefinition:
+UxElementDefinition returns semantic::UxElementDefinition:
 	'element' name=ID '{'
 	(uri=UxElementURI)?
 	('bindings' '{'
@@ -30,28 +31,28 @@ UxElementDefinition:
 	'}')?
 	'}';
 
-UxAvailableVisibilityOptions:
-	{UxAvailableVisibilityOptions}
+UxAvailableVisibilityOptions returns semantic::UxAvailableVisibilityOptions:
+	{semantic::UxAvailableVisibilityOptions}
 	options+=UxVisibilityOption*;
 
-UxVisibilityOption:
+UxVisibilityOption returns semantic::UxVisibilityOption:
 	'endpoint' name=ID jvmType=JvmTypeReference;
 
-UxElementURI:
-	'uri' ePackage=[UxEPackageImport] ":" eClass=[ecore::EClass];
+UxElementURI returns semantic::UxElementURI:
+	'uri' ePackage=[semantic::UxEPackageImport] ":" eClass=[ecore::EClass];
 
-UxAvailableBindings:
-	{UxAvailableBindings}
+UxAvailableBindings returns semantic::UxAvailableBindings:
+	{semantic::UxAvailableBindings}
 	bindings+=UxEndpointDef*;
 
-UxEndpointDef:
+UxEndpointDef returns semantic::UxEndpointDef:
 	UxValueBindingEndpointDef | UxListBindingEndpointDef | UxSetBindingEndpointDef;
 
-UxValueBindingEndpointDef:
+UxValueBindingEndpointDef returns semantic::UxValueBindingEndpointDef:
 	(final?='final')? 'valueEndpoint' name=ID jvmType=JvmTypeReference;
 
-UxListBindingEndpointDef:
+UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
 	'listEndpoint' name=ID jvmType=JvmTypeReference;
 
-UxSetBindingEndpointDef:
+UxSetBindingEndpointDef returns semantic::UxSetBindingEndpointDef:
 	'setEndpoint' name=ID jvmType=JvmTypeReference;

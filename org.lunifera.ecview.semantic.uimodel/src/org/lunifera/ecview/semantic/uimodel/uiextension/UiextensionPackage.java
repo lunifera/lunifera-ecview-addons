@@ -42,7 +42,7 @@ public interface UiextensionPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.lunifera.org/ecview/dsl/UIModel/extension";
+	String eNS_URI = "http://www.lunifera.org/ecview/dsl/uimodel/extension";
 
 	/**
 	 * The package namespace name.
@@ -270,13 +270,22 @@ public interface UiextensionPackage extends EPackage {
 	int UI_GRID_LAYOUT__FILL_VERTICAL = ExtensionModelPackage.YGRID_LAYOUT__FILL_VERTICAL;
 
 	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_GRID_LAYOUT__PROCESSOR_ASSIGNMENT = ExtensionModelPackage.YGRID_LAYOUT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_GRID_LAYOUT__CONTENTS = ExtensionModelPackage.YGRID_LAYOUT_FEATURE_COUNT + 0;
+	int UI_GRID_LAYOUT__CONTENTS = ExtensionModelPackage.YGRID_LAYOUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Ui Grid Layout</em>' class.
@@ -285,7 +294,7 @@ public interface UiextensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_GRID_LAYOUT_FEATURE_COUNT = ExtensionModelPackage.YGRID_LAYOUT_FEATURE_COUNT + 1;
+	int UI_GRID_LAYOUT_FEATURE_COUNT = ExtensionModelPackage.YGRID_LAYOUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiTextFieldImpl <em>Ui Text Field</em>}' class.
@@ -469,13 +478,22 @@ public interface UiextensionPackage extends EPackage {
 	int UI_TEXT_FIELD__VALUE = ExtensionModelPackage.YTEXT_FIELD__VALUE;
 
 	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_FIELD__PROCESSOR_ASSIGNMENT = ExtensionModelPackage.YTEXT_FIELD_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Ui Text Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_TEXT_FIELD_FEATURE_COUNT = ExtensionModelPackage.YTEXT_FIELD_FEATURE_COUNT + 0;
+	int UI_TEXT_FIELD_FEATURE_COUNT = ExtensionModelPackage.YTEXT_FIELD_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiListImpl <em>Ui List</em>}' class.
@@ -731,13 +749,22 @@ public interface UiextensionPackage extends EPackage {
 	int UI_LIST__TYPE_QUALIFIED_NAME = ExtensionModelPackage.YLIST__TYPE_QUALIFIED_NAME;
 
 	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LIST__PROCESSOR_ASSIGNMENT = ExtensionModelPackage.YLIST_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Ui List</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_LIST_FEATURE_COUNT = ExtensionModelPackage.YLIST_FEATURE_COUNT + 0;
+	int UI_LIST_FEATURE_COUNT = ExtensionModelPackage.YLIST_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiNumericFieldImpl <em>Ui Numeric Field</em>}' class.
@@ -921,13 +948,22 @@ public interface UiextensionPackage extends EPackage {
 	int UI_NUMERIC_FIELD__VALUE = ExtensionModelPackage.YNUMERIC_FIELD__VALUE;
 
 	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_NUMERIC_FIELD__PROCESSOR_ASSIGNMENT = ExtensionModelPackage.YNUMERIC_FIELD_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Ui Numeric Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_NUMERIC_FIELD_FEATURE_COUNT = ExtensionModelPackage.YNUMERIC_FIELD_FEATURE_COUNT + 0;
+	int UI_NUMERIC_FIELD_FEATURE_COUNT = ExtensionModelPackage.YNUMERIC_FIELD_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiCheckBoxImpl <em>Ui Check Box</em>}' class.
@@ -1111,13 +1147,50 @@ public interface UiextensionPackage extends EPackage {
 	int UI_CHECK_BOX__VALUE = ExtensionModelPackage.YCHECK_BOX__VALUE;
 
 	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_CHECK_BOX__PROCESSOR_ASSIGNMENT = ExtensionModelPackage.YCHECK_BOX_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Ui Check Box</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_CHECK_BOX_FEATURE_COUNT = ExtensionModelPackage.YCHECK_BOX_FEATURE_COUNT + 0;
+	int UI_CHECK_BOX_FEATURE_COUNT = ExtensionModelPackage.YCHECK_BOX_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessableImpl <em>Ui Visibility Processable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessableImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiextensionPackageImpl#getUiVisibilityProcessable()
+	 * @generated
+	 */
+	int UI_VISIBILITY_PROCESSABLE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Visibility Processable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROCESSABLE_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessorImpl <em>Ui Visibility Processor</em>}' class.
@@ -1127,7 +1200,7 @@ public interface UiextensionPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiextensionPackageImpl#getUiVisibilityProcessor()
 	 * @generated
 	 */
-	int UI_VISIBILITY_PROCESSOR = 6;
+	int UI_VISIBILITY_PROCESSOR = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1148,22 +1221,13 @@ public interface UiextensionPackage extends EPackage {
 	int UI_VISIBILITY_PROCESSOR__NAME = CoreModelPackage.YELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Roots</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_VISIBILITY_PROCESSOR__ROOTS = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Binding Alias</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VISIBILITY_PROCESSOR__BINDING_ALIAS = CoreModelPackage.YELEMENT_FEATURE_COUNT + 1;
+	int UI_VISIBILITY_PROCESSOR__BINDING_ALIAS = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Change Trigger</b></em>' containment reference list.
@@ -1172,7 +1236,7 @@ public interface UiextensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER = CoreModelPackage.YELEMENT_FEATURE_COUNT + 2;
+	int UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER = CoreModelPackage.YELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
@@ -1181,7 +1245,16 @@ public interface UiextensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VISIBILITY_PROCESSOR__RULE = CoreModelPackage.YELEMENT_FEATURE_COUNT + 3;
+	int UI_VISIBILITY_PROCESSOR__RULE = CoreModelPackage.YELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Properties Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Ui Visibility Processor</em>' class.
@@ -1193,6 +1266,71 @@ public interface UiextensionPackage extends EPackage {
 	int UI_VISIBILITY_PROCESSOR_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessorDefImpl <em>Ui Visibility Processor Def</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessorDefImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiextensionPackageImpl#getUiVisibilityProcessorDef()
+	 * @generated
+	 */
+	int UI_VISIBILITY_PROCESSOR_DEF = 8;
+
+	/**
+	 * The feature id for the '<em><b>Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROCESSOR_DEF__PROCESSOR = UimodelPackage.UI_ROOT_ELEMENTS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Visibility Processor Def</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROCESSOR_DEF_FEATURE_COUNT = UimodelPackage.UI_ROOT_ELEMENTS_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessorAssignmentImpl <em>Ui Visibility Processor Assignment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessorAssignmentImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiextensionPackageImpl#getUiVisibilityProcessorAssignment()
+	 * @generated
+	 */
+	int UI_VISIBILITY_PROCESSOR_ASSIGNMENT = 9;
+
+	/**
+	 * The feature id for the '<em><b>Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROCESSOR_ASSIGNMENT__PROCESSOR = UimodelPackage.UI_MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Processor Alias</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROCESSOR_ASSIGNMENT__PROCESSOR_ALIAS = UimodelPackage.UI_MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Ui Visibility Processor Assignment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROCESSOR_ASSIGNMENT_FEATURE_COUNT = UimodelPackage.UI_MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiChangeTriggerImpl <em>Ui Change Trigger</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1200,7 +1338,7 @@ public interface UiextensionPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiextensionPackageImpl#getUiChangeTrigger()
 	 * @generated
 	 */
-	int UI_CHANGE_TRIGGER = 7;
+	int UI_CHANGE_TRIGGER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Endpoint</b></em>' containment reference.
@@ -1237,7 +1375,7 @@ public interface UiextensionPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiextensionPackageImpl#getUiVisibilityRule()
 	 * @generated
 	 */
-	int UI_VISIBILITY_RULE = 8;
+	int UI_VISIBILITY_RULE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1292,7 +1430,7 @@ public interface UiextensionPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiextensionPackageImpl#getUiXbaseVisibilityRule()
 	 * @generated
 	 */
-	int UI_XBASE_VISIBILITY_RULE = 9;
+	int UI_XBASE_VISIBILITY_RULE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1347,6 +1485,198 @@ public interface UiextensionPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_XBASE_VISIBILITY_RULE_FEATURE_COUNT = UI_VISIBILITY_RULE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityPropertiesImpl <em>Ui Visibility Properties</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityPropertiesImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiextensionPackageImpl#getUiVisibilityProperties()
+	 * @generated
+	 */
+	int UI_VISIBILITY_PROPERTIES = 13;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES__ID = VisibilityPackage.YVISIBILITY_PROPERTIES__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES__NAME = VisibilityPackage.YVISIBILITY_PROPERTIES__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES__VISIBLE = VisibilityPackage.YVISIBILITY_PROPERTIES__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES__EDITABLE = VisibilityPackage.YVISIBILITY_PROPERTIES__EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES__ENABLED = VisibilityPackage.YVISIBILITY_PROPERTIES__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Border</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES__BORDER = VisibilityPackage.YVISIBILITY_PROPERTIES__BORDER;
+
+	/**
+	 * The feature id for the '<em><b>Bold</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES__BOLD = VisibilityPackage.YVISIBILITY_PROPERTIES__BOLD;
+
+	/**
+	 * The feature id for the '<em><b>Italic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES__ITALIC = VisibilityPackage.YVISIBILITY_PROPERTIES__ITALIC;
+
+	/**
+	 * The feature id for the '<em><b>Strikethrough</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES__STRIKETHROUGH = VisibilityPackage.YVISIBILITY_PROPERTIES__STRIKETHROUGH;
+
+	/**
+	 * The feature id for the '<em><b>Underline</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES__UNDERLINE = VisibilityPackage.YVISIBILITY_PROPERTIES__UNDERLINE;
+
+	/**
+	 * The feature id for the '<em><b>Background Color</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES__BACKGROUND_COLOR = VisibilityPackage.YVISIBILITY_PROPERTIES__BACKGROUND_COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Foreground Color</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES__FOREGROUND_COLOR = VisibilityPackage.YVISIBILITY_PROPERTIES__FOREGROUND_COLOR;
+
+	/**
+	 * The number of structural features of the '<em>Ui Visibility Properties</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES_FEATURE_COUNT = VisibilityPackage.YVISIBILITY_PROPERTIES_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityPropertiesAssignmentImpl <em>Ui Visibility Properties Assignment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityPropertiesAssignmentImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiextensionPackageImpl#getUiVisibilityPropertiesAssignment()
+	 * @generated
+	 */
+	int UI_VISIBILITY_PROPERTIES_ASSIGNMENT = 15;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityPropertiesDefImpl <em>Ui Visibility Properties Def</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityPropertiesDefImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiextensionPackageImpl#getUiVisibilityPropertiesDef()
+	 * @generated
+	 */
+	int UI_VISIBILITY_PROPERTIES_DEF = 14;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES_DEF__PROPERTIES = UimodelPackage.UI_ROOT_ELEMENTS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Visibility Properties Def</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES_DEF_FEATURE_COUNT = UimodelPackage.UI_ROOT_ELEMENTS_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES_ASSIGNMENT__PROPERTIES = UimodelPackage.UI_MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Property Alias</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES_ASSIGNMENT__PROPERTY_ALIAS = UimodelPackage.UI_MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Ui Visibility Properties Assignment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VISIBILITY_PROPERTIES_ASSIGNMENT_FEATURE_COUNT = UimodelPackage.UI_MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayoutAssigment <em>Ui Grid Layout Assigment</em>}'.
@@ -1464,6 +1794,27 @@ public interface UiextensionPackage extends EPackage {
 	EClass getUiCheckBox();
 
 	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessable <em>Ui Visibility Processable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Visibility Processable</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessable
+	 * @generated
+	 */
+	EClass getUiVisibilityProcessable();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessable#getProcessorAssignment <em>Processor Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Processor Assignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessable#getProcessorAssignment()
+	 * @see #getUiVisibilityProcessable()
+	 * @generated
+	 */
+	EReference getUiVisibilityProcessable_ProcessorAssignment();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor <em>Ui Visibility Processor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1505,6 +1856,70 @@ public interface UiextensionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUiVisibilityProcessor_Rule();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor#getPropertiesAssignment <em>Properties Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Properties Assignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor#getPropertiesAssignment()
+	 * @see #getUiVisibilityProcessor()
+	 * @generated
+	 */
+	EReference getUiVisibilityProcessor_PropertiesAssignment();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessorDef <em>Ui Visibility Processor Def</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Visibility Processor Def</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessorDef
+	 * @generated
+	 */
+	EClass getUiVisibilityProcessorDef();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessorDef#getProcessor <em>Processor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Processor</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessorDef#getProcessor()
+	 * @see #getUiVisibilityProcessorDef()
+	 * @generated
+	 */
+	EReference getUiVisibilityProcessorDef_Processor();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessorAssignment <em>Ui Visibility Processor Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Visibility Processor Assignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessorAssignment
+	 * @generated
+	 */
+	EClass getUiVisibilityProcessorAssignment();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessorAssignment#getProcessor <em>Processor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Processor</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessorAssignment#getProcessor()
+	 * @see #getUiVisibilityProcessorAssignment()
+	 * @generated
+	 */
+	EReference getUiVisibilityProcessorAssignment_Processor();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessorAssignment#getProcessorAlias <em>Processor Alias</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Processor Alias</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessorAssignment#getProcessorAlias()
+	 * @see #getUiVisibilityProcessorAssignment()
+	 * @generated
+	 */
+	EReference getUiVisibilityProcessorAssignment_ProcessorAlias();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiChangeTrigger <em>Ui Change Trigger</em>}'.
@@ -1568,6 +1983,69 @@ public interface UiextensionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUiXbaseVisibilityRule_Expression();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProperties <em>Ui Visibility Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Visibility Properties</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProperties
+	 * @generated
+	 */
+	EClass getUiVisibilityProperties();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityPropertiesAssignment <em>Ui Visibility Properties Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Visibility Properties Assignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityPropertiesAssignment
+	 * @generated
+	 */
+	EClass getUiVisibilityPropertiesAssignment();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityPropertiesAssignment#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Properties</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityPropertiesAssignment#getProperties()
+	 * @see #getUiVisibilityPropertiesAssignment()
+	 * @generated
+	 */
+	EReference getUiVisibilityPropertiesAssignment_Properties();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityPropertiesAssignment#getPropertyAlias <em>Property Alias</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Property Alias</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityPropertiesAssignment#getPropertyAlias()
+	 * @see #getUiVisibilityPropertiesAssignment()
+	 * @generated
+	 */
+	EReference getUiVisibilityPropertiesAssignment_PropertyAlias();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityPropertiesDef <em>Ui Visibility Properties Def</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Visibility Properties Def</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityPropertiesDef
+	 * @generated
+	 */
+	EClass getUiVisibilityPropertiesDef();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityPropertiesDef#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Properties</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityPropertiesDef#getProperties()
+	 * @see #getUiVisibilityPropertiesDef()
+	 * @generated
+	 */
+	EReference getUiVisibilityPropertiesDef_Properties();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1693,6 +2171,24 @@ public interface UiextensionPackage extends EPackage {
 		EClass UI_CHECK_BOX = eINSTANCE.getUiCheckBox();
 
 		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessableImpl <em>Ui Visibility Processable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessableImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiextensionPackageImpl#getUiVisibilityProcessable()
+		 * @generated
+		 */
+		EClass UI_VISIBILITY_PROCESSABLE = eINSTANCE.getUiVisibilityProcessable();
+
+		/**
+		 * The meta object literal for the '<em><b>Processor Assignment</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENT = eINSTANCE.getUiVisibilityProcessable_ProcessorAssignment();
+
+		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessorImpl <em>Ui Visibility Processor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1725,6 +2221,58 @@ public interface UiextensionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_VISIBILITY_PROCESSOR__RULE = eINSTANCE.getUiVisibilityProcessor_Rule();
+
+		/**
+		 * The meta object literal for the '<em><b>Properties Assignment</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT = eINSTANCE.getUiVisibilityProcessor_PropertiesAssignment();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessorDefImpl <em>Ui Visibility Processor Def</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessorDefImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiextensionPackageImpl#getUiVisibilityProcessorDef()
+		 * @generated
+		 */
+		EClass UI_VISIBILITY_PROCESSOR_DEF = eINSTANCE.getUiVisibilityProcessorDef();
+
+		/**
+		 * The meta object literal for the '<em><b>Processor</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_VISIBILITY_PROCESSOR_DEF__PROCESSOR = eINSTANCE.getUiVisibilityProcessorDef_Processor();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessorAssignmentImpl <em>Ui Visibility Processor Assignment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityProcessorAssignmentImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiextensionPackageImpl#getUiVisibilityProcessorAssignment()
+		 * @generated
+		 */
+		EClass UI_VISIBILITY_PROCESSOR_ASSIGNMENT = eINSTANCE.getUiVisibilityProcessorAssignment();
+
+		/**
+		 * The meta object literal for the '<em><b>Processor</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_VISIBILITY_PROCESSOR_ASSIGNMENT__PROCESSOR = eINSTANCE.getUiVisibilityProcessorAssignment_Processor();
+
+		/**
+		 * The meta object literal for the '<em><b>Processor Alias</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_VISIBILITY_PROCESSOR_ASSIGNMENT__PROCESSOR_ALIAS = eINSTANCE.getUiVisibilityProcessorAssignment_ProcessorAlias();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiChangeTriggerImpl <em>Ui Change Trigger</em>}' class.
@@ -1779,6 +2327,60 @@ public interface UiextensionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_XBASE_VISIBILITY_RULE__EXPRESSION = eINSTANCE.getUiXbaseVisibilityRule_Expression();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityPropertiesImpl <em>Ui Visibility Properties</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityPropertiesImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiextensionPackageImpl#getUiVisibilityProperties()
+		 * @generated
+		 */
+		EClass UI_VISIBILITY_PROPERTIES = eINSTANCE.getUiVisibilityProperties();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityPropertiesAssignmentImpl <em>Ui Visibility Properties Assignment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityPropertiesAssignmentImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiextensionPackageImpl#getUiVisibilityPropertiesAssignment()
+		 * @generated
+		 */
+		EClass UI_VISIBILITY_PROPERTIES_ASSIGNMENT = eINSTANCE.getUiVisibilityPropertiesAssignment();
+
+		/**
+		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_VISIBILITY_PROPERTIES_ASSIGNMENT__PROPERTIES = eINSTANCE.getUiVisibilityPropertiesAssignment_Properties();
+
+		/**
+		 * The meta object literal for the '<em><b>Property Alias</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_VISIBILITY_PROPERTIES_ASSIGNMENT__PROPERTY_ALIAS = eINSTANCE.getUiVisibilityPropertiesAssignment_PropertyAlias();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityPropertiesDefImpl <em>Ui Visibility Properties Def</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiVisibilityPropertiesDefImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.uiextension.impl.UiextensionPackageImpl#getUiVisibilityPropertiesDef()
+		 * @generated
+		 */
+		EClass UI_VISIBILITY_PROPERTIES_DEF = eINSTANCE.getUiVisibilityPropertiesDef();
+
+		/**
+		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_VISIBILITY_PROPERTIES_DEF__PROPERTIES = eINSTANCE.getUiVisibilityPropertiesDef_Properties();
 
 	}
 

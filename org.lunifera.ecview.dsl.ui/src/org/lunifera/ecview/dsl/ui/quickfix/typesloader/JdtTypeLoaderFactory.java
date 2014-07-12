@@ -9,6 +9,7 @@ import org.lunifera.ecview.dsl.IJdtTypeLoaderFactory;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
+@SuppressWarnings("restriction")
 @Singleton
 public class JdtTypeLoaderFactory implements IJdtTypeLoaderFactory {
 

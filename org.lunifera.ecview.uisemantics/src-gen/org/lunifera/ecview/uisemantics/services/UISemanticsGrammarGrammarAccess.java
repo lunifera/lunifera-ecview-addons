@@ -27,7 +27,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cElementDefinitionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cElementDefinitionsUxElementDefinitionParserRuleCall_1_0 = (RuleCall)cElementDefinitionsAssignment_1.eContents().get(0);
 		
-		//UxModel:
+		//UxModel returns semantic::UxModel:
 		//	importSection=XImportSection? elementDefinitions+=UxElementDefinition*;
 		public ParserRule getRule() { return rule; }
 
@@ -51,26 +51,28 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "XImportDeclaration");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cImportKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Alternatives cAlternatives_0_1 = (Alternatives)cGroup_0.eContents().get(1);
-		private final Group cGroup_0_1_0 = (Group)cAlternatives_0_1.eContents().get(0);
-		private final Assignment cStaticAssignment_0_1_0_0 = (Assignment)cGroup_0_1_0.eContents().get(0);
-		private final Keyword cStaticStaticKeyword_0_1_0_0_0 = (Keyword)cStaticAssignment_0_1_0_0.eContents().get(0);
-		private final Assignment cExtensionAssignment_0_1_0_1 = (Assignment)cGroup_0_1_0.eContents().get(1);
-		private final Keyword cExtensionExtensionKeyword_0_1_0_1_0 = (Keyword)cExtensionAssignment_0_1_0_1.eContents().get(0);
-		private final Assignment cImportedTypeAssignment_0_1_0_2 = (Assignment)cGroup_0_1_0.eContents().get(2);
-		private final CrossReference cImportedTypeJvmDeclaredTypeCrossReference_0_1_0_2_0 = (CrossReference)cImportedTypeAssignment_0_1_0_2.eContents().get(0);
-		private final RuleCall cImportedTypeJvmDeclaredTypeQualifiedNameInStaticImportParserRuleCall_0_1_0_2_0_1 = (RuleCall)cImportedTypeJvmDeclaredTypeCrossReference_0_1_0_2_0.eContents().get(1);
-		private final Alternatives cAlternatives_0_1_0_3 = (Alternatives)cGroup_0_1_0.eContents().get(3);
-		private final Assignment cWildcardAssignment_0_1_0_3_0 = (Assignment)cAlternatives_0_1_0_3.eContents().get(0);
-		private final Keyword cWildcardAsteriskKeyword_0_1_0_3_0_0 = (Keyword)cWildcardAssignment_0_1_0_3_0.eContents().get(0);
-		private final Assignment cMemberNameAssignment_0_1_0_3_1 = (Assignment)cAlternatives_0_1_0_3.eContents().get(1);
-		private final RuleCall cMemberNameValidIDParserRuleCall_0_1_0_3_1_0 = (RuleCall)cMemberNameAssignment_0_1_0_3_1.eContents().get(0);
-		private final Assignment cImportedTypeAssignment_0_1_1 = (Assignment)cAlternatives_0_1.eContents().get(1);
-		private final CrossReference cImportedTypeJvmDeclaredTypeCrossReference_0_1_1_0 = (CrossReference)cImportedTypeAssignment_0_1_1.eContents().get(0);
-		private final RuleCall cImportedTypeJvmDeclaredTypeQualifiedNameParserRuleCall_0_1_1_0_1 = (RuleCall)cImportedTypeJvmDeclaredTypeCrossReference_0_1_1_0.eContents().get(1);
-		private final Assignment cImportedNamespaceAssignment_0_1_2 = (Assignment)cAlternatives_0_1.eContents().get(2);
-		private final RuleCall cImportedNamespaceQualifiedNameWithWildcardParserRuleCall_0_1_2_0 = (RuleCall)cImportedNamespaceAssignment_0_1_2.eContents().get(0);
+		private final Action cUxImportSectionDeclarationAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
+		private final Keyword cImportKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
+		private final Alternatives cAlternatives_0_1_1 = (Alternatives)cGroup_0_1.eContents().get(1);
+		private final Group cGroup_0_1_1_0 = (Group)cAlternatives_0_1_1.eContents().get(0);
+		private final Assignment cStaticAssignment_0_1_1_0_0 = (Assignment)cGroup_0_1_1_0.eContents().get(0);
+		private final Keyword cStaticStaticKeyword_0_1_1_0_0_0 = (Keyword)cStaticAssignment_0_1_1_0_0.eContents().get(0);
+		private final Assignment cExtensionAssignment_0_1_1_0_1 = (Assignment)cGroup_0_1_1_0.eContents().get(1);
+		private final Keyword cExtensionExtensionKeyword_0_1_1_0_1_0 = (Keyword)cExtensionAssignment_0_1_1_0_1.eContents().get(0);
+		private final Assignment cImportedTypeAssignment_0_1_1_0_2 = (Assignment)cGroup_0_1_1_0.eContents().get(2);
+		private final CrossReference cImportedTypeJvmDeclaredTypeCrossReference_0_1_1_0_2_0 = (CrossReference)cImportedTypeAssignment_0_1_1_0_2.eContents().get(0);
+		private final RuleCall cImportedTypeJvmDeclaredTypeQualifiedNameInStaticImportParserRuleCall_0_1_1_0_2_0_1 = (RuleCall)cImportedTypeJvmDeclaredTypeCrossReference_0_1_1_0_2_0.eContents().get(1);
+		private final Alternatives cAlternatives_0_1_1_0_3 = (Alternatives)cGroup_0_1_1_0.eContents().get(3);
+		private final Assignment cWildcardAssignment_0_1_1_0_3_0 = (Assignment)cAlternatives_0_1_1_0_3.eContents().get(0);
+		private final Keyword cWildcardAsteriskKeyword_0_1_1_0_3_0_0 = (Keyword)cWildcardAssignment_0_1_1_0_3_0.eContents().get(0);
+		private final Assignment cMemberNameAssignment_0_1_1_0_3_1 = (Assignment)cAlternatives_0_1_1_0_3.eContents().get(1);
+		private final RuleCall cMemberNameValidIDParserRuleCall_0_1_1_0_3_1_0 = (RuleCall)cMemberNameAssignment_0_1_1_0_3_1.eContents().get(0);
+		private final Assignment cImportedTypeAssignment_0_1_1_1 = (Assignment)cAlternatives_0_1_1.eContents().get(1);
+		private final CrossReference cImportedTypeJvmDeclaredTypeCrossReference_0_1_1_1_0 = (CrossReference)cImportedTypeAssignment_0_1_1_1.eContents().get(0);
+		private final RuleCall cImportedTypeJvmDeclaredTypeQualifiedNameParserRuleCall_0_1_1_1_0_1 = (RuleCall)cImportedTypeJvmDeclaredTypeCrossReference_0_1_1_1_0.eContents().get(1);
+		private final Assignment cImportedNamespaceAssignment_0_1_1_2 = (Assignment)cAlternatives_0_1_1.eContents().get(2);
+		private final RuleCall cImportedNamespaceQualifiedNameWithWildcardParserRuleCall_0_1_1_2_0 = (RuleCall)cImportedNamespaceAssignment_0_1_1_2.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
 		private final Keyword cEPackageKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
@@ -78,83 +80,93 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final RuleCall cImportedEPackageUxEPackageImportParserRuleCall_1_0_1_0 = (RuleCall)cImportedEPackageAssignment_1_0_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		
-		//XImportDeclaration:
-		//	"import" (static?="static" extension?="extension"? importedType=[JvmDeclaredType|QualifiedNameInStaticImport]
-		//	(wildcard?="*" | memberName=ValidID) | importedType=[JvmDeclaredType|QualifiedName] |
-		//	importedNamespace=QualifiedNameWithWildcard) | ("ePackage" importedEPackage=UxEPackageImport) ";"?;
+		//XImportDeclaration returns semantic::UxImportSectionDeclaration:
+		//	{semantic::UxImportSectionDeclaration} ("import" (static?="static" extension?="extension"?
+		//	importedType=[JvmDeclaredType|QualifiedNameInStaticImport] (wildcard?="*" | memberName=ValidID) |
+		//	importedType=[JvmDeclaredType|QualifiedName] | importedNamespace=QualifiedNameWithWildcard)) | ("ePackage"
+		//	importedEPackage=UxEPackageImport) ";"?;
 		public ParserRule getRule() { return rule; }
 
-		//"import" (static?="static" extension?="extension"? importedType=[JvmDeclaredType|QualifiedNameInStaticImport]
-		//(wildcard?="*" | memberName=ValidID) | importedType=[JvmDeclaredType|QualifiedName] |
-		//importedNamespace=QualifiedNameWithWildcard) | ("ePackage" importedEPackage=UxEPackageImport) ";"?
+		//{semantic::UxImportSectionDeclaration} ("import" (static?="static" extension?="extension"?
+		//importedType=[JvmDeclaredType|QualifiedNameInStaticImport] (wildcard?="*" | memberName=ValidID) |
+		//importedType=[JvmDeclaredType|QualifiedName] | importedNamespace=QualifiedNameWithWildcard)) | ("ePackage"
+		//importedEPackage=UxEPackageImport) ";"?
 		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//{semantic::UxImportSectionDeclaration} ("import" (static?="static" extension?="extension"?
+		//importedType=[JvmDeclaredType|QualifiedNameInStaticImport] (wildcard?="*" | memberName=ValidID) |
+		//importedType=[JvmDeclaredType|QualifiedName] | importedNamespace=QualifiedNameWithWildcard))
+		public Group getGroup_0() { return cGroup_0; }
+
+		//{semantic::UxImportSectionDeclaration}
+		public Action getUxImportSectionDeclarationAction_0_0() { return cUxImportSectionDeclarationAction_0_0; }
 
 		//"import" (static?="static" extension?="extension"? importedType=[JvmDeclaredType|QualifiedNameInStaticImport]
 		//(wildcard?="*" | memberName=ValidID) | importedType=[JvmDeclaredType|QualifiedName] |
 		//importedNamespace=QualifiedNameWithWildcard)
-		public Group getGroup_0() { return cGroup_0; }
+		public Group getGroup_0_1() { return cGroup_0_1; }
 
 		//"import"
-		public Keyword getImportKeyword_0_0() { return cImportKeyword_0_0; }
+		public Keyword getImportKeyword_0_1_0() { return cImportKeyword_0_1_0; }
 
 		//static?="static" extension?="extension"? importedType=[JvmDeclaredType|QualifiedNameInStaticImport] (wildcard?="*" |
 		//memberName=ValidID) | importedType=[JvmDeclaredType|QualifiedName] | importedNamespace=QualifiedNameWithWildcard
-		public Alternatives getAlternatives_0_1() { return cAlternatives_0_1; }
+		public Alternatives getAlternatives_0_1_1() { return cAlternatives_0_1_1; }
 
 		//static?="static" extension?="extension"? importedType=[JvmDeclaredType|QualifiedNameInStaticImport] (wildcard?="*" |
 		//memberName=ValidID)
-		public Group getGroup_0_1_0() { return cGroup_0_1_0; }
+		public Group getGroup_0_1_1_0() { return cGroup_0_1_1_0; }
 
 		//static?="static"
-		public Assignment getStaticAssignment_0_1_0_0() { return cStaticAssignment_0_1_0_0; }
+		public Assignment getStaticAssignment_0_1_1_0_0() { return cStaticAssignment_0_1_1_0_0; }
 
 		//"static"
-		public Keyword getStaticStaticKeyword_0_1_0_0_0() { return cStaticStaticKeyword_0_1_0_0_0; }
+		public Keyword getStaticStaticKeyword_0_1_1_0_0_0() { return cStaticStaticKeyword_0_1_1_0_0_0; }
 
 		//extension?="extension"?
-		public Assignment getExtensionAssignment_0_1_0_1() { return cExtensionAssignment_0_1_0_1; }
+		public Assignment getExtensionAssignment_0_1_1_0_1() { return cExtensionAssignment_0_1_1_0_1; }
 
 		//"extension"
-		public Keyword getExtensionExtensionKeyword_0_1_0_1_0() { return cExtensionExtensionKeyword_0_1_0_1_0; }
+		public Keyword getExtensionExtensionKeyword_0_1_1_0_1_0() { return cExtensionExtensionKeyword_0_1_1_0_1_0; }
 
 		//importedType=[JvmDeclaredType|QualifiedNameInStaticImport]
-		public Assignment getImportedTypeAssignment_0_1_0_2() { return cImportedTypeAssignment_0_1_0_2; }
+		public Assignment getImportedTypeAssignment_0_1_1_0_2() { return cImportedTypeAssignment_0_1_1_0_2; }
 
 		//[JvmDeclaredType|QualifiedNameInStaticImport]
-		public CrossReference getImportedTypeJvmDeclaredTypeCrossReference_0_1_0_2_0() { return cImportedTypeJvmDeclaredTypeCrossReference_0_1_0_2_0; }
+		public CrossReference getImportedTypeJvmDeclaredTypeCrossReference_0_1_1_0_2_0() { return cImportedTypeJvmDeclaredTypeCrossReference_0_1_1_0_2_0; }
 
 		//QualifiedNameInStaticImport
-		public RuleCall getImportedTypeJvmDeclaredTypeQualifiedNameInStaticImportParserRuleCall_0_1_0_2_0_1() { return cImportedTypeJvmDeclaredTypeQualifiedNameInStaticImportParserRuleCall_0_1_0_2_0_1; }
+		public RuleCall getImportedTypeJvmDeclaredTypeQualifiedNameInStaticImportParserRuleCall_0_1_1_0_2_0_1() { return cImportedTypeJvmDeclaredTypeQualifiedNameInStaticImportParserRuleCall_0_1_1_0_2_0_1; }
 
 		//wildcard?="*" | memberName=ValidID
-		public Alternatives getAlternatives_0_1_0_3() { return cAlternatives_0_1_0_3; }
+		public Alternatives getAlternatives_0_1_1_0_3() { return cAlternatives_0_1_1_0_3; }
 
 		//wildcard?="*"
-		public Assignment getWildcardAssignment_0_1_0_3_0() { return cWildcardAssignment_0_1_0_3_0; }
+		public Assignment getWildcardAssignment_0_1_1_0_3_0() { return cWildcardAssignment_0_1_1_0_3_0; }
 
 		//"*"
-		public Keyword getWildcardAsteriskKeyword_0_1_0_3_0_0() { return cWildcardAsteriskKeyword_0_1_0_3_0_0; }
+		public Keyword getWildcardAsteriskKeyword_0_1_1_0_3_0_0() { return cWildcardAsteriskKeyword_0_1_1_0_3_0_0; }
 
 		//memberName=ValidID
-		public Assignment getMemberNameAssignment_0_1_0_3_1() { return cMemberNameAssignment_0_1_0_3_1; }
+		public Assignment getMemberNameAssignment_0_1_1_0_3_1() { return cMemberNameAssignment_0_1_1_0_3_1; }
 
 		//ValidID
-		public RuleCall getMemberNameValidIDParserRuleCall_0_1_0_3_1_0() { return cMemberNameValidIDParserRuleCall_0_1_0_3_1_0; }
+		public RuleCall getMemberNameValidIDParserRuleCall_0_1_1_0_3_1_0() { return cMemberNameValidIDParserRuleCall_0_1_1_0_3_1_0; }
 
 		//importedType=[JvmDeclaredType|QualifiedName]
-		public Assignment getImportedTypeAssignment_0_1_1() { return cImportedTypeAssignment_0_1_1; }
+		public Assignment getImportedTypeAssignment_0_1_1_1() { return cImportedTypeAssignment_0_1_1_1; }
 
 		//[JvmDeclaredType|QualifiedName]
-		public CrossReference getImportedTypeJvmDeclaredTypeCrossReference_0_1_1_0() { return cImportedTypeJvmDeclaredTypeCrossReference_0_1_1_0; }
+		public CrossReference getImportedTypeJvmDeclaredTypeCrossReference_0_1_1_1_0() { return cImportedTypeJvmDeclaredTypeCrossReference_0_1_1_1_0; }
 
 		//QualifiedName
-		public RuleCall getImportedTypeJvmDeclaredTypeQualifiedNameParserRuleCall_0_1_1_0_1() { return cImportedTypeJvmDeclaredTypeQualifiedNameParserRuleCall_0_1_1_0_1; }
+		public RuleCall getImportedTypeJvmDeclaredTypeQualifiedNameParserRuleCall_0_1_1_1_0_1() { return cImportedTypeJvmDeclaredTypeQualifiedNameParserRuleCall_0_1_1_1_0_1; }
 
 		//importedNamespace=QualifiedNameWithWildcard
-		public Assignment getImportedNamespaceAssignment_0_1_2() { return cImportedNamespaceAssignment_0_1_2; }
+		public Assignment getImportedNamespaceAssignment_0_1_1_2() { return cImportedNamespaceAssignment_0_1_1_2; }
 
 		//QualifiedNameWithWildcard
-		public RuleCall getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_0_1_2_0() { return cImportedNamespaceQualifiedNameWithWildcardParserRuleCall_0_1_2_0; }
+		public RuleCall getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_0_1_1_2_0() { return cImportedNamespaceQualifiedNameWithWildcardParserRuleCall_0_1_1_2_0; }
 
 		//("ePackage" importedEPackage=UxEPackageImport) ";"?
 		public Group getGroup_1() { return cGroup_1; }
@@ -185,7 +197,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cAliasAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cAliasIDTerminalRuleCall_2_0 = (RuleCall)cAliasAssignment_2.eContents().get(0);
 		
-		//UxEPackageImport:
+		//UxEPackageImport returns semantic::UxEPackageImport:
 		//	ePackage=[ecore::EPackage|STRING] "as" alias=ID;
 		public ParserRule getRule() { return rule; }
 
@@ -234,7 +246,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final Keyword cRightCurlyBracketKeyword_5_3 = (Keyword)cGroup_5.eContents().get(3);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
-		//UxElementDefinition:
+		//UxElementDefinition returns semantic::UxElementDefinition:
 		//	"element" name=ID "{" uri=UxElementURI? ("bindings" "{" bindingContainer=UxAvailableBindings "}")? ("visibility" "{"
 		//	visibilityContainer=UxAvailableVisibilityOptions "}")? "}";
 		public ParserRule getRule() { return rule; }
@@ -308,14 +320,14 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cOptionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cOptionsUxVisibilityOptionParserRuleCall_1_0 = (RuleCall)cOptionsAssignment_1.eContents().get(0);
 		
-		//UxAvailableVisibilityOptions:
-		//	{UxAvailableVisibilityOptions} options+=UxVisibilityOption*;
+		//UxAvailableVisibilityOptions returns semantic::UxAvailableVisibilityOptions:
+		//	{semantic::UxAvailableVisibilityOptions} options+=UxVisibilityOption*;
 		public ParserRule getRule() { return rule; }
 
-		//{UxAvailableVisibilityOptions} options+=UxVisibilityOption*
+		//{semantic::UxAvailableVisibilityOptions} options+=UxVisibilityOption*
 		public Group getGroup() { return cGroup; }
 
-		//{UxAvailableVisibilityOptions}
+		//{semantic::UxAvailableVisibilityOptions}
 		public Action getUxAvailableVisibilityOptionsAction_0() { return cUxAvailableVisibilityOptionsAction_0; }
 
 		//options+=UxVisibilityOption*
@@ -334,7 +346,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cJvmTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_2_0 = (RuleCall)cJvmTypeAssignment_2.eContents().get(0);
 		
-		//UxVisibilityOption:
+		//UxVisibilityOption returns semantic::UxVisibilityOption:
 		//	"endpoint" name=ID jvmType=JvmTypeReference;
 		public ParserRule getRule() { return rule; }
 
@@ -369,20 +381,20 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final CrossReference cEClassEClassCrossReference_3_0 = (CrossReference)cEClassAssignment_3.eContents().get(0);
 		private final RuleCall cEClassEClassIDTerminalRuleCall_3_0_1 = (RuleCall)cEClassEClassCrossReference_3_0.eContents().get(1);
 		
-		//UxElementURI:
-		//	"uri" ePackage=[UxEPackageImport] ":" eClass=[ecore::EClass];
+		//UxElementURI returns semantic::UxElementURI:
+		//	"uri" ePackage=[semantic::UxEPackageImport] ":" eClass=[ecore::EClass];
 		public ParserRule getRule() { return rule; }
 
-		//"uri" ePackage=[UxEPackageImport] ":" eClass=[ecore::EClass]
+		//"uri" ePackage=[semantic::UxEPackageImport] ":" eClass=[ecore::EClass]
 		public Group getGroup() { return cGroup; }
 
 		//"uri"
 		public Keyword getUriKeyword_0() { return cUriKeyword_0; }
 
-		//ePackage=[UxEPackageImport]
+		//ePackage=[semantic::UxEPackageImport]
 		public Assignment getEPackageAssignment_1() { return cEPackageAssignment_1; }
 
-		//[UxEPackageImport]
+		//[semantic::UxEPackageImport]
 		public CrossReference getEPackageUxEPackageImportCrossReference_1_0() { return cEPackageUxEPackageImportCrossReference_1_0; }
 
 		//ID
@@ -408,14 +420,14 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cBindingsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cBindingsUxEndpointDefParserRuleCall_1_0 = (RuleCall)cBindingsAssignment_1.eContents().get(0);
 		
-		//UxAvailableBindings:
-		//	{UxAvailableBindings} bindings+=UxEndpointDef*;
+		//UxAvailableBindings returns semantic::UxAvailableBindings:
+		//	{semantic::UxAvailableBindings} bindings+=UxEndpointDef*;
 		public ParserRule getRule() { return rule; }
 
-		//{UxAvailableBindings} bindings+=UxEndpointDef*
+		//{semantic::UxAvailableBindings} bindings+=UxEndpointDef*
 		public Group getGroup() { return cGroup; }
 
-		//{UxAvailableBindings}
+		//{semantic::UxAvailableBindings}
 		public Action getUxAvailableBindingsAction_0() { return cUxAvailableBindingsAction_0; }
 
 		//bindings+=UxEndpointDef*
@@ -432,7 +444,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final RuleCall cUxListBindingEndpointDefParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cUxSetBindingEndpointDefParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
-		//UxEndpointDef:
+		//UxEndpointDef returns semantic::UxEndpointDef:
 		//	UxValueBindingEndpointDef | UxListBindingEndpointDef | UxSetBindingEndpointDef;
 		public ParserRule getRule() { return rule; }
 
@@ -460,7 +472,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cJvmTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_3_0 = (RuleCall)cJvmTypeAssignment_3.eContents().get(0);
 		
-		//UxValueBindingEndpointDef:
+		//UxValueBindingEndpointDef returns semantic::UxValueBindingEndpointDef:
 		//	final?="final"? "valueEndpoint" name=ID jvmType=JvmTypeReference;
 		public ParserRule getRule() { return rule; }
 
@@ -498,7 +510,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cJvmTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_2_0 = (RuleCall)cJvmTypeAssignment_2.eContents().get(0);
 		
-		//UxListBindingEndpointDef:
+		//UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
 		//	"listEndpoint" name=ID jvmType=JvmTypeReference;
 		public ParserRule getRule() { return rule; }
 
@@ -530,7 +542,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cJvmTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_2_0 = (RuleCall)cJvmTypeAssignment_2.eContents().get(0);
 		
-		//UxSetBindingEndpointDef:
+		//UxSetBindingEndpointDef returns semantic::UxSetBindingEndpointDef:
 		//	"setEndpoint" name=ID jvmType=JvmTypeReference;
 		public ParserRule getRule() { return rule; }
 
@@ -605,7 +617,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	}
 
 	
-	//UxModel:
+	//UxModel returns semantic::UxModel:
 	//	importSection=XImportSection? elementDefinitions+=UxElementDefinition*;
 	public UxModelElements getUxModelAccess() {
 		return (pUxModel != null) ? pUxModel : (pUxModel = new UxModelElements());
@@ -615,10 +627,11 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		return getUxModelAccess().getRule();
 	}
 
-	//XImportDeclaration:
-	//	"import" (static?="static" extension?="extension"? importedType=[JvmDeclaredType|QualifiedNameInStaticImport]
-	//	(wildcard?="*" | memberName=ValidID) | importedType=[JvmDeclaredType|QualifiedName] |
-	//	importedNamespace=QualifiedNameWithWildcard) | ("ePackage" importedEPackage=UxEPackageImport) ";"?;
+	//XImportDeclaration returns semantic::UxImportSectionDeclaration:
+	//	{semantic::UxImportSectionDeclaration} ("import" (static?="static" extension?="extension"?
+	//	importedType=[JvmDeclaredType|QualifiedNameInStaticImport] (wildcard?="*" | memberName=ValidID) |
+	//	importedType=[JvmDeclaredType|QualifiedName] | importedNamespace=QualifiedNameWithWildcard)) | ("ePackage"
+	//	importedEPackage=UxEPackageImport) ";"?;
 	public XImportDeclarationElements getXImportDeclarationAccess() {
 		return (pXImportDeclaration != null) ? pXImportDeclaration : (pXImportDeclaration = new XImportDeclarationElements());
 	}
@@ -627,7 +640,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		return getXImportDeclarationAccess().getRule();
 	}
 
-	//UxEPackageImport:
+	//UxEPackageImport returns semantic::UxEPackageImport:
 	//	ePackage=[ecore::EPackage|STRING] "as" alias=ID;
 	public UxEPackageImportElements getUxEPackageImportAccess() {
 		return (pUxEPackageImport != null) ? pUxEPackageImport : (pUxEPackageImport = new UxEPackageImportElements());
@@ -637,7 +650,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		return getUxEPackageImportAccess().getRule();
 	}
 
-	//UxElementDefinition:
+	//UxElementDefinition returns semantic::UxElementDefinition:
 	//	"element" name=ID "{" uri=UxElementURI? ("bindings" "{" bindingContainer=UxAvailableBindings "}")? ("visibility" "{"
 	//	visibilityContainer=UxAvailableVisibilityOptions "}")? "}";
 	public UxElementDefinitionElements getUxElementDefinitionAccess() {
@@ -648,8 +661,8 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		return getUxElementDefinitionAccess().getRule();
 	}
 
-	//UxAvailableVisibilityOptions:
-	//	{UxAvailableVisibilityOptions} options+=UxVisibilityOption*;
+	//UxAvailableVisibilityOptions returns semantic::UxAvailableVisibilityOptions:
+	//	{semantic::UxAvailableVisibilityOptions} options+=UxVisibilityOption*;
 	public UxAvailableVisibilityOptionsElements getUxAvailableVisibilityOptionsAccess() {
 		return (pUxAvailableVisibilityOptions != null) ? pUxAvailableVisibilityOptions : (pUxAvailableVisibilityOptions = new UxAvailableVisibilityOptionsElements());
 	}
@@ -658,7 +671,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		return getUxAvailableVisibilityOptionsAccess().getRule();
 	}
 
-	//UxVisibilityOption:
+	//UxVisibilityOption returns semantic::UxVisibilityOption:
 	//	"endpoint" name=ID jvmType=JvmTypeReference;
 	public UxVisibilityOptionElements getUxVisibilityOptionAccess() {
 		return (pUxVisibilityOption != null) ? pUxVisibilityOption : (pUxVisibilityOption = new UxVisibilityOptionElements());
@@ -668,8 +681,8 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		return getUxVisibilityOptionAccess().getRule();
 	}
 
-	//UxElementURI:
-	//	"uri" ePackage=[UxEPackageImport] ":" eClass=[ecore::EClass];
+	//UxElementURI returns semantic::UxElementURI:
+	//	"uri" ePackage=[semantic::UxEPackageImport] ":" eClass=[ecore::EClass];
 	public UxElementURIElements getUxElementURIAccess() {
 		return (pUxElementURI != null) ? pUxElementURI : (pUxElementURI = new UxElementURIElements());
 	}
@@ -678,8 +691,8 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		return getUxElementURIAccess().getRule();
 	}
 
-	//UxAvailableBindings:
-	//	{UxAvailableBindings} bindings+=UxEndpointDef*;
+	//UxAvailableBindings returns semantic::UxAvailableBindings:
+	//	{semantic::UxAvailableBindings} bindings+=UxEndpointDef*;
 	public UxAvailableBindingsElements getUxAvailableBindingsAccess() {
 		return (pUxAvailableBindings != null) ? pUxAvailableBindings : (pUxAvailableBindings = new UxAvailableBindingsElements());
 	}
@@ -688,7 +701,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		return getUxAvailableBindingsAccess().getRule();
 	}
 
-	//UxEndpointDef:
+	//UxEndpointDef returns semantic::UxEndpointDef:
 	//	UxValueBindingEndpointDef | UxListBindingEndpointDef | UxSetBindingEndpointDef;
 	public UxEndpointDefElements getUxEndpointDefAccess() {
 		return (pUxEndpointDef != null) ? pUxEndpointDef : (pUxEndpointDef = new UxEndpointDefElements());
@@ -698,7 +711,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		return getUxEndpointDefAccess().getRule();
 	}
 
-	//UxValueBindingEndpointDef:
+	//UxValueBindingEndpointDef returns semantic::UxValueBindingEndpointDef:
 	//	final?="final"? "valueEndpoint" name=ID jvmType=JvmTypeReference;
 	public UxValueBindingEndpointDefElements getUxValueBindingEndpointDefAccess() {
 		return (pUxValueBindingEndpointDef != null) ? pUxValueBindingEndpointDef : (pUxValueBindingEndpointDef = new UxValueBindingEndpointDefElements());
@@ -708,7 +721,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		return getUxValueBindingEndpointDefAccess().getRule();
 	}
 
-	//UxListBindingEndpointDef:
+	//UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
 	//	"listEndpoint" name=ID jvmType=JvmTypeReference;
 	public UxListBindingEndpointDefElements getUxListBindingEndpointDefAccess() {
 		return (pUxListBindingEndpointDef != null) ? pUxListBindingEndpointDef : (pUxListBindingEndpointDef = new UxListBindingEndpointDefElements());
@@ -718,7 +731,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		return getUxListBindingEndpointDefAccess().getRule();
 	}
 
-	//UxSetBindingEndpointDef:
+	//UxSetBindingEndpointDef returns semantic::UxSetBindingEndpointDef:
 	//	"setEndpoint" name=ID jvmType=JvmTypeReference;
 	public UxSetBindingEndpointDefElements getUxSetBindingEndpointDefAccess() {
 		return (pUxSetBindingEndpointDef != null) ? pUxSetBindingEndpointDef : (pUxSetBindingEndpointDef = new UxSetBindingEndpointDefElements());

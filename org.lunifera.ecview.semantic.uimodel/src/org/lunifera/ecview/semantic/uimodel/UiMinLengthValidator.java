@@ -14,5 +14,5 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator;
  * @model
  * @generated
  */
-public interface UiMinLengthValidator extends YMinLengthValidator, UiModelElement {
+public interface UiMinLengthValidator extends YMinLengthValidator, UiValidator {
 } // UiMinLengthValidator

@@ -5,13 +5,13 @@ org.eclipse.emf.examples.generator.validator plug-in to illustrate how EMF's
 code generator can be extended.
 This can be disabled with -vmargs -Dorg.eclipse.emf.examples.generator.validator=false.
 
-Package uisemantics <http://www.lunifera.org/ecview/uisemantics/UISemantics>
+Package uisemantics <http://www.lunifera.org/ecview/uisemantics/uisemantics>
 
   Class UxModel
     Reference importSection : XImportSection
     Reference elementDefinitions : UxElementDefinition<<0..*>>
 
-  Class XImportDeclaration -> XImportDeclaration
+  Class UxImportSectionDeclaration -> XImportDeclaration
     Reference importedEPackage : UxEPackageImport
 
   Class UxEPackageImport

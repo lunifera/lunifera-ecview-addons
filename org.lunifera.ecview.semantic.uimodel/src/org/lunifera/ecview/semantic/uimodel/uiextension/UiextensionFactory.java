@@ -85,6 +85,24 @@ public interface UiextensionFactory extends EFactory {
 	UiVisibilityProcessor createUiVisibilityProcessor();
 
 	/**
+	 * Returns a new object of class '<em>Ui Visibility Processor Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Visibility Processor Def</em>'.
+	 * @generated
+	 */
+	UiVisibilityProcessorDef createUiVisibilityProcessorDef();
+
+	/**
+	 * Returns a new object of class '<em>Ui Visibility Processor Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Visibility Processor Assignment</em>'.
+	 * @generated
+	 */
+	UiVisibilityProcessorAssignment createUiVisibilityProcessorAssignment();
+
+	/**
 	 * Returns a new object of class '<em>Ui Change Trigger</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,6 +119,33 @@ public interface UiextensionFactory extends EFactory {
 	 * @generated
 	 */
 	UiXbaseVisibilityRule createUiXbaseVisibilityRule();
+
+	/**
+	 * Returns a new object of class '<em>Ui Visibility Properties</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Visibility Properties</em>'.
+	 * @generated
+	 */
+	UiVisibilityProperties createUiVisibilityProperties();
+
+	/**
+	 * Returns a new object of class '<em>Ui Visibility Properties Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Visibility Properties Def</em>'.
+	 * @generated
+	 */
+	UiVisibilityPropertiesDef createUiVisibilityPropertiesDef();
+
+	/**
+	 * Returns a new object of class '<em>Ui Visibility Properties Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Visibility Properties Assignment</em>'.
+	 * @generated
+	 */
+	UiVisibilityPropertiesAssignment createUiVisibilityPropertiesAssignment();
 
 	/**
 	 * Returns the package supported by this factory.

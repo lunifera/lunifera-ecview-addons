@@ -57,7 +57,7 @@ public class UiSemanticsFactoryImpl extends EFactoryImpl implements UiSemanticsF
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case UiSemanticsPackage.UX_MODEL: return createUxModel();
-			case UiSemanticsPackage.XIMPORT_DECLARATION: return createXImportDeclaration();
+			case UiSemanticsPackage.UX_IMPORT_SECTION_DECLARATION: return createUxImportSectionDeclaration();
 			case UiSemanticsPackage.UX_EPACKAGE_IMPORT: return createUxEPackageImport();
 			case UiSemanticsPackage.UX_ELEMENT_DEFINITION: return createUxElementDefinition();
 			case UiSemanticsPackage.UX_ELEMENT_URI: return createUxElementURI();
@@ -81,16 +81,6 @@ public class UiSemanticsFactoryImpl extends EFactoryImpl implements UiSemanticsF
 	public UxModel createUxModel() {
 		UxModelImpl uxModel = new UxModelImpl();
 		return uxModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public XImportDeclaration createXImportDeclaration() {
-		XImportDeclarationImpl xImportDeclaration = new XImportDeclarationImpl();
-		return xImportDeclaration;
 	}
 
 	/**
@@ -191,6 +181,16 @@ public class UiSemanticsFactoryImpl extends EFactoryImpl implements UiSemanticsF
 	public UxVisibilityOption createUxVisibilityOption() {
 		UxVisibilityOptionImpl uxVisibilityOption = new UxVisibilityOptionImpl();
 		return uxVisibilityOption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UxImportSectionDeclaration createUxImportSectionDeclaration() {
+		UxImportSectionDeclarationImpl uxImportSectionDeclaration = new UxImportSectionDeclarationImpl();
+		return uxImportSectionDeclaration;
 	}
 
 	/**

@@ -4,11 +4,9 @@ package org.lunifera.ecview.semantic.uisemantics.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
+import org.eclipse.xtext.xtype.XImportDeclaration;
 import org.lunifera.ecview.semantic.uisemantics.*;
 
 /**
@@ -72,8 +70,8 @@ public class UiSemanticsAdapterFactory extends AdapterFactoryImpl {
 				return createUxModelAdapter();
 			}
 			@Override
-			public Adapter caseXImportDeclaration(XImportDeclaration object) {
-				return createXImportDeclarationAdapter();
+			public Adapter caseUxImportSectionDeclaration(UxImportSectionDeclaration object) {
+				return createUxImportSectionDeclarationAdapter();
 			}
 			@Override
 			public Adapter caseUxEPackageImport(UxEPackageImport object) {
@@ -116,8 +114,8 @@ public class UiSemanticsAdapterFactory extends AdapterFactoryImpl {
 				return createUxVisibilityOptionAdapter();
 			}
 			@Override
-			public Adapter caseXtype_XImportDeclaration(org.eclipse.xtext.xtype.XImportDeclaration object) {
-				return createXtype_XImportDeclarationAdapter();
+			public Adapter caseXImportDeclaration(XImportDeclaration object) {
+				return createXImportDeclarationAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -150,20 +148,6 @@ public class UiSemanticsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUxModelAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uisemantics.XImportDeclaration <em>XImport Declaration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uisemantics.XImportDeclaration
-	 * @generated
-	 */
-	public Adapter createXImportDeclarationAdapter() {
 		return null;
 	}
 
@@ -308,6 +292,20 @@ public class UiSemanticsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uisemantics.UxImportSectionDeclaration <em>Ux Import Section Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxImportSectionDeclaration
+	 * @generated
+	 */
+	public Adapter createUxImportSectionDeclarationAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.xtext.xtype.XImportDeclaration <em>XImport Declaration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -317,7 +315,7 @@ public class UiSemanticsAdapterFactory extends AdapterFactoryImpl {
 	 * @see org.eclipse.xtext.xtype.XImportDeclaration
 	 * @generated
 	 */
-	public Adapter createXtype_XImportDeclarationAdapter() {
+	public Adapter createXImportDeclarationAdapter() {
 		return null;
 	}
 

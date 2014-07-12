@@ -4,9 +4,8 @@ package org.lunifera.ecview.semantic.uisemantics.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
+import org.eclipse.xtext.xtype.XImportDeclaration;
 import org.lunifera.ecview.semantic.uisemantics.*;
 
 /**
@@ -72,10 +71,10 @@ public class UiSemanticsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case UiSemanticsPackage.XIMPORT_DECLARATION: {
-				XImportDeclaration xImportDeclaration = (XImportDeclaration)theEObject;
-				T result = caseXImportDeclaration(xImportDeclaration);
-				if (result == null) result = caseXtype_XImportDeclaration(xImportDeclaration);
+			case UiSemanticsPackage.UX_IMPORT_SECTION_DECLARATION: {
+				UxImportSectionDeclaration uxImportSectionDeclaration = (UxImportSectionDeclaration)theEObject;
+				T result = caseUxImportSectionDeclaration(uxImportSectionDeclaration);
+				if (result == null) result = caseXImportDeclaration(uxImportSectionDeclaration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -158,21 +157,6 @@ public class UiSemanticsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUxModel(UxModel object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>XImport Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>XImport Declaration</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseXImportDeclaration(XImportDeclaration object) {
 		return null;
 	}
 
@@ -327,6 +311,21 @@ public class UiSemanticsSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ux Import Section Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ux Import Section Declaration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUxImportSectionDeclaration(UxImportSectionDeclaration object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>XImport Declaration</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -337,7 +336,7 @@ public class UiSemanticsSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseXtype_XImportDeclaration(org.eclipse.xtext.xtype.XImportDeclaration object) {
+	public T caseXImportDeclaration(XImportDeclaration object) {
 		return null;
 	}
 

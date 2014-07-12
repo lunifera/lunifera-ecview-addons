@@ -21,6 +21,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProperties;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
@@ -28,9 +29,13 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YInput;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
-import org.lunifera.ecview.semantic.uimodel.UiModel;
+import org.lunifera.ecview.semantic.uimodel.UiBindable;
+import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiField;
+import org.lunifera.ecview.semantic.uimodel.UiLayout;
 import org.lunifera.ecview.semantic.uimodel.UiModelElement;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
+import org.lunifera.ecview.semantic.uimodel.uiextension.*;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiChangeTrigger;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiGridLayout;
@@ -111,15 +116,19 @@ public class UiextensionSwitch<T> extends Switch<T> {
 				UiGridLayout uiGridLayout = (UiGridLayout)theEObject;
 				T result = caseUiGridLayout(uiGridLayout);
 				if (result == null) result = caseYGridLayout(uiGridLayout);
-				if (result == null) result = caseUiModelElement(uiGridLayout);
+				if (result == null) result = caseUiLayout(uiGridLayout);
 				if (result == null) result = caseYLayout(uiGridLayout);
 				if (result == null) result = caseYSpacingable(uiGridLayout);
 				if (result == null) result = caseYMarginable(uiGridLayout);
+				if (result == null) result = caseUiEmbeddable(uiGridLayout);
 				if (result == null) result = caseYEmbeddable(uiGridLayout);
+				if (result == null) result = caseUiVisibilityProcessable(uiGridLayout);
+				if (result == null) result = caseUiBindable(uiGridLayout);
 				if (result == null) result = caseYElement(uiGridLayout);
 				if (result == null) result = caseYCssAble(uiGridLayout);
 				if (result == null) result = caseYVisibleable(uiGridLayout);
 				if (result == null) result = caseYVisibilityProcessable(uiGridLayout);
+				if (result == null) result = caseUiModelElement(uiGridLayout);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -127,14 +136,18 @@ public class UiextensionSwitch<T> extends Switch<T> {
 				UiTextField uiTextField = (UiTextField)theEObject;
 				T result = caseUiTextField(uiTextField);
 				if (result == null) result = caseYTextField(uiTextField);
-				if (result == null) result = caseUiModelElement(uiTextField);
+				if (result == null) result = caseUiField(uiTextField);
 				if (result == null) result = caseYInput(uiTextField);
 				if (result == null) result = caseYValueBindable(uiTextField);
+				if (result == null) result = caseUiEmbeddable(uiTextField);
 				if (result == null) result = caseYField(uiTextField);
 				if (result == null) result = caseYBindable(uiTextField);
+				if (result == null) result = caseUiVisibilityProcessable(uiTextField);
+				if (result == null) result = caseUiBindable(uiTextField);
 				if (result == null) result = caseYEmbeddable(uiTextField);
 				if (result == null) result = caseYEditable(uiTextField);
 				if (result == null) result = caseYEnable(uiTextField);
+				if (result == null) result = caseUiModelElement(uiTextField);
 				if (result == null) result = caseYElement(uiTextField);
 				if (result == null) result = caseYCssAble(uiTextField);
 				if (result == null) result = caseYVisibleable(uiTextField);
@@ -146,16 +159,20 @@ public class UiextensionSwitch<T> extends Switch<T> {
 				UiList uiList = (UiList)theEObject;
 				T result = caseUiList(uiList);
 				if (result == null) result = caseYList(uiList);
-				if (result == null) result = caseUiModelElement(uiList);
+				if (result == null) result = caseUiField(uiList);
 				if (result == null) result = caseYInput(uiList);
 				if (result == null) result = caseYCollectionBindable(uiList);
 				if (result == null) result = caseYSelectionBindable(uiList);
 				if (result == null) result = caseYMultiSelectionBindable(uiList);
+				if (result == null) result = caseUiEmbeddable(uiList);
 				if (result == null) result = caseYField(uiList);
 				if (result == null) result = caseYBindable(uiList);
+				if (result == null) result = caseUiVisibilityProcessable(uiList);
+				if (result == null) result = caseUiBindable(uiList);
 				if (result == null) result = caseYEmbeddable(uiList);
 				if (result == null) result = caseYEditable(uiList);
 				if (result == null) result = caseYEnable(uiList);
+				if (result == null) result = caseUiModelElement(uiList);
 				if (result == null) result = caseYElement(uiList);
 				if (result == null) result = caseYCssAble(uiList);
 				if (result == null) result = caseYVisibleable(uiList);
@@ -167,14 +184,18 @@ public class UiextensionSwitch<T> extends Switch<T> {
 				UiNumericField uiNumericField = (UiNumericField)theEObject;
 				T result = caseUiNumericField(uiNumericField);
 				if (result == null) result = caseYNumericField(uiNumericField);
-				if (result == null) result = caseUiModelElement(uiNumericField);
+				if (result == null) result = caseUiField(uiNumericField);
 				if (result == null) result = caseYInput(uiNumericField);
 				if (result == null) result = caseYValueBindable(uiNumericField);
+				if (result == null) result = caseUiEmbeddable(uiNumericField);
 				if (result == null) result = caseYField(uiNumericField);
 				if (result == null) result = caseYBindable(uiNumericField);
+				if (result == null) result = caseUiVisibilityProcessable(uiNumericField);
+				if (result == null) result = caseUiBindable(uiNumericField);
 				if (result == null) result = caseYEmbeddable(uiNumericField);
 				if (result == null) result = caseYEditable(uiNumericField);
 				if (result == null) result = caseYEnable(uiNumericField);
+				if (result == null) result = caseUiModelElement(uiNumericField);
 				if (result == null) result = caseYElement(uiNumericField);
 				if (result == null) result = caseYCssAble(uiNumericField);
 				if (result == null) result = caseYVisibleable(uiNumericField);
@@ -186,14 +207,18 @@ public class UiextensionSwitch<T> extends Switch<T> {
 				UiCheckBox uiCheckBox = (UiCheckBox)theEObject;
 				T result = caseUiCheckBox(uiCheckBox);
 				if (result == null) result = caseYCheckBox(uiCheckBox);
-				if (result == null) result = caseUiModelElement(uiCheckBox);
+				if (result == null) result = caseUiField(uiCheckBox);
 				if (result == null) result = caseYInput(uiCheckBox);
 				if (result == null) result = caseYValueBindable(uiCheckBox);
+				if (result == null) result = caseUiEmbeddable(uiCheckBox);
 				if (result == null) result = caseYField(uiCheckBox);
 				if (result == null) result = caseYBindable(uiCheckBox);
+				if (result == null) result = caseUiVisibilityProcessable(uiCheckBox);
+				if (result == null) result = caseUiBindable(uiCheckBox);
 				if (result == null) result = caseYEmbeddable(uiCheckBox);
 				if (result == null) result = caseYEditable(uiCheckBox);
 				if (result == null) result = caseYEnable(uiCheckBox);
+				if (result == null) result = caseUiModelElement(uiCheckBox);
 				if (result == null) result = caseYElement(uiCheckBox);
 				if (result == null) result = caseYCssAble(uiCheckBox);
 				if (result == null) result = caseYVisibleable(uiCheckBox);
@@ -201,13 +226,32 @@ public class UiextensionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiextensionPackage.UI_VISIBILITY_PROCESSABLE: {
+				UiVisibilityProcessable uiVisibilityProcessable = (UiVisibilityProcessable)theEObject;
+				T result = caseUiVisibilityProcessable(uiVisibilityProcessable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case UiextensionPackage.UI_VISIBILITY_PROCESSOR: {
 				UiVisibilityProcessor uiVisibilityProcessor = (UiVisibilityProcessor)theEObject;
 				T result = caseUiVisibilityProcessor(uiVisibilityProcessor);
 				if (result == null) result = caseYElement(uiVisibilityProcessor);
-				if (result == null) result = caseUiRootElements(uiVisibilityProcessor);
-				if (result == null) result = caseUiModel(uiVisibilityProcessor);
 				if (result == null) result = caseUiModelElement(uiVisibilityProcessor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiextensionPackage.UI_VISIBILITY_PROCESSOR_DEF: {
+				UiVisibilityProcessorDef uiVisibilityProcessorDef = (UiVisibilityProcessorDef)theEObject;
+				T result = caseUiVisibilityProcessorDef(uiVisibilityProcessorDef);
+				if (result == null) result = caseUiRootElements(uiVisibilityProcessorDef);
+				if (result == null) result = caseUiModelElement(uiVisibilityProcessorDef);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiextensionPackage.UI_VISIBILITY_PROCESSOR_ASSIGNMENT: {
+				UiVisibilityProcessorAssignment uiVisibilityProcessorAssignment = (UiVisibilityProcessorAssignment)theEObject;
+				T result = caseUiVisibilityProcessorAssignment(uiVisibilityProcessorAssignment);
+				if (result == null) result = caseUiModelElement(uiVisibilityProcessorAssignment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -234,6 +278,29 @@ public class UiextensionSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYVisibilityRule(uiXbaseVisibilityRule);
 				if (result == null) result = caseUiModelElement(uiXbaseVisibilityRule);
 				if (result == null) result = caseYElement(uiXbaseVisibilityRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiextensionPackage.UI_VISIBILITY_PROPERTIES: {
+				UiVisibilityProperties uiVisibilityProperties = (UiVisibilityProperties)theEObject;
+				T result = caseUiVisibilityProperties(uiVisibilityProperties);
+				if (result == null) result = caseYVisibilityProperties(uiVisibilityProperties);
+				if (result == null) result = caseYElement(uiVisibilityProperties);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiextensionPackage.UI_VISIBILITY_PROPERTIES_DEF: {
+				UiVisibilityPropertiesDef uiVisibilityPropertiesDef = (UiVisibilityPropertiesDef)theEObject;
+				T result = caseUiVisibilityPropertiesDef(uiVisibilityPropertiesDef);
+				if (result == null) result = caseUiRootElements(uiVisibilityPropertiesDef);
+				if (result == null) result = caseUiModelElement(uiVisibilityPropertiesDef);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiextensionPackage.UI_VISIBILITY_PROPERTIES_ASSIGNMENT: {
+				UiVisibilityPropertiesAssignment uiVisibilityPropertiesAssignment = (UiVisibilityPropertiesAssignment)theEObject;
+				T result = caseUiVisibilityPropertiesAssignment(uiVisibilityPropertiesAssignment);
+				if (result == null) result = caseUiModelElement(uiVisibilityPropertiesAssignment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -332,6 +399,21 @@ public class UiextensionSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Visibility Processable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Visibility Processable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiVisibilityProcessable(UiVisibilityProcessable object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Ui Visibility Processor</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -343,6 +425,36 @@ public class UiextensionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiVisibilityProcessor(UiVisibilityProcessor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Visibility Processor Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Visibility Processor Def</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiVisibilityProcessorDef(UiVisibilityProcessorDef object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Visibility Processor Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Visibility Processor Assignment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiVisibilityProcessorAssignment(UiVisibilityProcessorAssignment object) {
 		return null;
 	}
 
@@ -388,6 +500,51 @@ public class UiextensionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiXbaseVisibilityRule(UiXbaseVisibilityRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Visibility Properties</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Visibility Properties</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiVisibilityProperties(UiVisibilityProperties object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Visibility Properties Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Visibility Properties Assignment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiVisibilityPropertiesAssignment(UiVisibilityPropertiesAssignment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Visibility Properties Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Visibility Properties Def</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiVisibilityPropertiesDef(UiVisibilityPropertiesDef object) {
 		return null;
 	}
 
@@ -542,6 +699,51 @@ public class UiextensionSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Bindable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Bindable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiBindable(UiBindable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Embeddable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Embeddable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiEmbeddable(UiEmbeddable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Layout</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Layout</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiLayout(UiLayout object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>YEditable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -647,6 +849,21 @@ public class UiextensionSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiField(UiField object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>YCollection Bindable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -737,21 +954,6 @@ public class UiextensionSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ui Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ui Model</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUiModel(UiModel object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Ui Root Elements</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -778,6 +980,21 @@ public class UiextensionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYVisibilityRule(YVisibilityRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YVisibility Properties</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YVisibility Properties</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYVisibilityProperties(YVisibilityProperties object) {
 		return null;
 	}
 

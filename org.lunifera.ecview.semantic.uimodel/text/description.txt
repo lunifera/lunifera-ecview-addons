@@ -6,13 +6,20 @@ code generator can be extended.
 This can be disabled with -vmargs -Dorg.eclipse.emf.examples.generator.validator=false.
 
 Contains packages:
-  uimodel <http://www.lunifera.org/ecview/dsl/UIModel/core>
-  uiextension <http://www.lunifera.org/ecview/dsl/UIModel/extension>
+  uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
+  uiextension <http://www.lunifera.org/ecview/dsl/uimodel/extension>
 
-Package uimodel <http://www.lunifera.org/ecview/dsl/UIModel/core>
+Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiModel -> UiModelElement
+    Attribute packageName : EString<<1..1>>
     Reference roots : UiRootElements<<0..*>>
+    Reference imports : UiImports<<0..*>>
+
+  Class UiImports
+    Attribute importedNamespace : EString<<1..1>>
+
+  Class UiModelElement
 
   Class UiView -> YView, UiRootElements, UiModelElement
 
@@ -29,8 +36,8 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/UIModel/core>
     Reference endpoint : UiBindingEndpointDef<<1..1>>
 
   Class UiBindingEndpointDef -> UiModelElement
-    Reference bindable : YElement
-    Reference endpoint : UxEndpointDef
+    Reference bindable : UiBindable
+    Reference semanticEndpoint : UxEndpointDef
     Reference path : UiPathSegment
 
   Class UiBinding -> UiModelElement
@@ -45,23 +52,31 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/UIModel/core>
     Reference jvmField : JvmField
     Reference path : UiPathSegment
 
-  Class UiBeanSlot -> YBeanSlot, UiModelElement
+  Class UiBeanSlot -> YBeanSlot, UiBindable
     Reference jvmType : JvmTypeReference
 
   Class UiViewSet -> YViewSet, UiRootElements
     Reference bindingEndpointAlias : UiBindingEndpointAlias<<0..*>>
 
-  Class UiRootElements -> UiModel
+  Class UiRootElements -> UiModelElement
 
-  Class UiModelElement
+  Class UiMaxLengthValidator -> YMaxLengthValidator, UiValidator
 
-  Class UiMaxLengthValidator -> YMaxLengthValidator, UiModelElement
+  Class UiMinLengthValidator -> YMinLengthValidator, UiValidator
 
-  Class UiMinLengthValidator -> YMinLengthValidator, UiModelElement
+  Class UiRegexpValidator -> YRegexpValidator, UiValidator
 
-  Class UiRegexpValidator -> YRegexpValidator, UiModelElement
+  Class UiBindable -> UiModelElement
 
-Package uiextension <http://www.lunifera.org/ecview/dsl/UIModel/extension>
+  Class UiEmbeddable -> YEmbeddable, UiVisibilityProcessable, UiBindable
+
+  Class UiField -> UiEmbeddable
+
+  Class UiLayout -> UiEmbeddable
+
+  Class UiValidator -> YValidator, UiModelElement, UiBindable
+
+Package uiextension <http://www.lunifera.org/ecview/dsl/uimodel/extension>
 
   Class UiGridLayoutAssigment -> UiModelElement
     Reference element : YEmbeddable
@@ -69,21 +84,32 @@ Package uiextension <http://www.lunifera.org/ecview/dsl/UIModel/extension>
     Reference from : UiPoint
     Reference to : UiPoint
 
-  Class UiGridLayout -> YGridLayout, UiModelElement
+  Class UiGridLayout -> YGridLayout, UiLayout
     Reference contents : UiGridLayoutAssigment<<0..*>>
 
-  Class UiTextField -> YTextField, UiModelElement
+  Class UiTextField -> YTextField, UiField
 
-  Class UiList -> YList, UiModelElement
+  Class UiList -> YList, UiField
 
-  Class UiNumericField -> YNumericField, UiModelElement
+  Class UiNumericField -> YNumericField, UiField
 
-  Class UiCheckBox -> YCheckBox, UiModelElement
+  Class UiCheckBox -> YCheckBox, UiField
 
-  Class UiVisibilityProcessor -> YElement, UiRootElements, UiModelElement
+  Class UiVisibilityProcessable
+    Reference processorAssignment : UiVisibilityProcessorAssignment
+
+  Class UiVisibilityProcessor -> YElement, UiModelElement
     Reference bindingAlias : UiBindingEndpointAlias<<0..*>>
     Reference changeTrigger : UiChangeTrigger<<0..*>>
     Reference rule : UiVisibilityRule
+    Reference propertiesAssignment : UiVisibilityPropertiesAssignment
+
+  Class UiVisibilityProcessorDef -> UiRootElements
+    Reference processor : UiVisibilityProcessor
+
+  Class UiVisibilityProcessorAssignment -> UiModelElement
+    Reference processor : UiVisibilityProcessor
+    Reference processorAlias : UiVisibilityProcessor
 
   Class UiChangeTrigger -> UiModelElement
     Reference endpoint : UiBindingEndpointDef
@@ -93,3 +119,12 @@ Package uiextension <http://www.lunifera.org/ecview/dsl/UIModel/extension>
 
   Class UiXbaseVisibilityRule -> UiVisibilityRule
     Reference expression : XExpression
+
+  Class UiVisibilityProperties -> YVisibilityProperties
+
+  Class UiVisibilityPropertiesDef -> UiRootElements
+    Reference properties : UiVisibilityProperties
+
+  Class UiVisibilityPropertiesAssignment -> UiModelElement
+    Reference properties : UiVisibilityProperties
+    Reference propertyAlias : UiVisibilityProperties

@@ -31,6 +31,15 @@ public interface UimodelFactory extends EFactory {
 	UiModel createUiModel();
 
 	/**
+	 * Returns a new object of class '<em>Ui Imports</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Imports</em>'.
+	 * @generated
+	 */
+	UiImports createUiImports();
+
+	/**
 	 * Returns a new object of class '<em>Ui View</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -9,7 +9,6 @@ import java.util.Map;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.xtext.common.types.access.jdt.IJavaProjectProvider;
-import org.eclipse.xtext.resource.XtextResourceSet;
 import org.lunifera.ecview.dsl.IJdtTypeLoader;
 import org.lunifera.ecview.dsl.IJdtTypeLoaderFactory;
 import org.lunifera.ecview.dsl.IJdtTypeLoaderProvider;
@@ -17,6 +16,7 @@ import org.lunifera.ecview.dsl.IJdtTypeLoaderProvider;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
+@SuppressWarnings("restriction")
 @Singleton
 public class JdtTypeLoaderProvider implements IJdtTypeLoaderProvider {
 
@@ -41,7 +41,7 @@ public class JdtTypeLoaderProvider implements IJdtTypeLoaderProvider {
 		IJdtTypeLoader loader = null;
 		synchronized (loaders) {
 			cleanUp();
-			
+
 			if (loaders.containsKey(project)) {
 				loader = loaders.get(project);
 			} else {
