@@ -9,14 +9,14 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
-import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
-import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef;
-import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
-import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
+import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
+import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindable;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Ui Binding</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Ui Binding</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -31,30 +31,31 @@ import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
  *
  * @generated
  */
-public class UiBindingImpl extends MinimalEObjectImpl.Container implements
-		UiBinding {
+public class UiBindingImpl extends MinimalEObjectImpl.Container implements UiBinding {
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSource()
 	 * @generated
 	 * @ordered
 	 */
-	protected UiBindingEndpointDef source;
+	protected UiBindingExpression source;
 
 	/**
 	 * The cached value of the '{@link #getSourceAlias() <em>Source Alias</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSourceAlias()
 	 * @generated
 	 * @ordered
 	 */
-	protected UiBindingEndpointAlias sourceAlias;
+	protected UiTypedBindable sourceAlias;
 
 	/**
 	 * The default value of the '{@link #isTargetToSource() <em>Target To Source</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTargetToSource()
 	 * @generated
 	 * @ordered
@@ -63,8 +64,8 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * The cached value of the '{@link #isTargetToSource() <em>Target To Source</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTargetToSource()
 	 * @generated
 	 * @ordered
@@ -73,8 +74,8 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * The default value of the '{@link #isSourceToTarget() <em>Source To Target</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isSourceToTarget()
 	 * @generated
 	 * @ordered
@@ -83,8 +84,8 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * The cached value of the '{@link #isSourceToTarget() <em>Source To Target</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isSourceToTarget()
 	 * @generated
 	 * @ordered
@@ -93,24 +94,27 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTarget()
 	 * @generated
 	 * @ordered
 	 */
-	protected UiBindingEndpointDef target;
+	protected UiBindingExpression target;
 
 	/**
 	 * The cached value of the '{@link #getTargetAlias() <em>Target Alias</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTargetAlias()
 	 * @generated
 	 * @ordered
 	 */
-	protected UiBindingEndpointAlias targetAlias;
+	protected UiTypedBindable targetAlias;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected UiBindingImpl() {
@@ -118,92 +122,99 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return UimodelPackage.Literals.UI_BINDING;
+		return UiModelPackage.Literals.UI_BINDING;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UiBindingEndpointDef getSource() {
+	public UiBindingExpression getSource() {
 		return source;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSource(UiBindingEndpointDef newSource,
-			NotificationChain msgs) {
-		UiBindingEndpointDef oldSource = source;
+	public NotificationChain basicSetSource(UiBindingExpression newSource, NotificationChain msgs) {
+		UiBindingExpression oldSource = source;
 		source = newSource;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_BINDING__SOURCE, oldSource, newSource);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BINDING__SOURCE, oldSource, newSource);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSource(UiBindingEndpointDef newSource) {
+	public void setSource(UiBindingExpression newSource) {
 		if (newSource != source) {
 			NotificationChain msgs = null;
 			if (source != null)
-				msgs = ((InternalEObject)source).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BINDING__SOURCE, null, msgs);
+				msgs = ((InternalEObject)source).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BINDING__SOURCE, null, msgs);
 			if (newSource != null)
-				msgs = ((InternalEObject)newSource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BINDING__SOURCE, null, msgs);
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BINDING__SOURCE, null, msgs);
 			msgs = basicSetSource(newSource, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_BINDING__SOURCE, newSource, newSource));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BINDING__SOURCE, newSource, newSource));
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UiBindingEndpointAlias getSourceAlias() {
+	public UiTypedBindable getSourceAlias() {
 		if (sourceAlias != null && sourceAlias.eIsProxy()) {
 			InternalEObject oldSourceAlias = (InternalEObject)sourceAlias;
-			sourceAlias = (UiBindingEndpointAlias)eResolveProxy(oldSourceAlias);
+			sourceAlias = (UiTypedBindable)eResolveProxy(oldSourceAlias);
 			if (sourceAlias != oldSourceAlias) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelPackage.UI_BINDING__SOURCE_ALIAS, oldSourceAlias, sourceAlias));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_BINDING__SOURCE_ALIAS, oldSourceAlias, sourceAlias));
 			}
 		}
 		return sourceAlias;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UiBindingEndpointAlias basicGetSourceAlias() {
+	public UiTypedBindable basicGetSourceAlias() {
 		return sourceAlias;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSourceAlias(UiBindingEndpointAlias newSourceAlias) {
-		UiBindingEndpointAlias oldSourceAlias = sourceAlias;
+	public void setSourceAlias(UiTypedBindable newSourceAlias) {
+		UiTypedBindable oldSourceAlias = sourceAlias;
 		sourceAlias = newSourceAlias;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_BINDING__SOURCE_ALIAS, oldSourceAlias, sourceAlias));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BINDING__SOURCE_ALIAS, oldSourceAlias, sourceAlias));
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isTargetToSource() {
@@ -211,18 +222,20 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTargetToSource(boolean newTargetToSource) {
 		boolean oldTargetToSource = targetToSource;
 		targetToSource = newTargetToSource;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_BINDING__TARGET_TO_SOURCE, oldTargetToSource, targetToSource));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BINDING__TARGET_TO_SOURCE, oldTargetToSource, targetToSource));
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSourceToTarget() {
@@ -230,127 +243,134 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSourceToTarget(boolean newSourceToTarget) {
 		boolean oldSourceToTarget = sourceToTarget;
 		sourceToTarget = newSourceToTarget;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_BINDING__SOURCE_TO_TARGET, oldSourceToTarget, sourceToTarget));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BINDING__SOURCE_TO_TARGET, oldSourceToTarget, sourceToTarget));
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UiBindingEndpointDef getTarget() {
+	public UiBindingExpression getTarget() {
 		return target;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTarget(UiBindingEndpointDef newTarget,
-			NotificationChain msgs) {
-		UiBindingEndpointDef oldTarget = target;
+	public NotificationChain basicSetTarget(UiBindingExpression newTarget, NotificationChain msgs) {
+		UiBindingExpression oldTarget = target;
 		target = newTarget;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_BINDING__TARGET, oldTarget, newTarget);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BINDING__TARGET, oldTarget, newTarget);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTarget(UiBindingEndpointDef newTarget) {
+	public void setTarget(UiBindingExpression newTarget) {
 		if (newTarget != target) {
 			NotificationChain msgs = null;
 			if (target != null)
-				msgs = ((InternalEObject)target).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BINDING__TARGET, null, msgs);
+				msgs = ((InternalEObject)target).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BINDING__TARGET, null, msgs);
 			if (newTarget != null)
-				msgs = ((InternalEObject)newTarget).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BINDING__TARGET, null, msgs);
+				msgs = ((InternalEObject)newTarget).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BINDING__TARGET, null, msgs);
 			msgs = basicSetTarget(newTarget, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_BINDING__TARGET, newTarget, newTarget));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BINDING__TARGET, newTarget, newTarget));
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UiBindingEndpointAlias getTargetAlias() {
+	public UiTypedBindable getTargetAlias() {
 		if (targetAlias != null && targetAlias.eIsProxy()) {
 			InternalEObject oldTargetAlias = (InternalEObject)targetAlias;
-			targetAlias = (UiBindingEndpointAlias)eResolveProxy(oldTargetAlias);
+			targetAlias = (UiTypedBindable)eResolveProxy(oldTargetAlias);
 			if (targetAlias != oldTargetAlias) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelPackage.UI_BINDING__TARGET_ALIAS, oldTargetAlias, targetAlias));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_BINDING__TARGET_ALIAS, oldTargetAlias, targetAlias));
 			}
 		}
 		return targetAlias;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UiBindingEndpointAlias basicGetTargetAlias() {
+	public UiTypedBindable basicGetTargetAlias() {
 		return targetAlias;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTargetAlias(UiBindingEndpointAlias newTargetAlias) {
-		UiBindingEndpointAlias oldTargetAlias = targetAlias;
+	public void setTargetAlias(UiTypedBindable newTargetAlias) {
+		UiTypedBindable oldTargetAlias = targetAlias;
 		targetAlias = newTargetAlias;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_BINDING__TARGET_ALIAS, oldTargetAlias, targetAlias));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BINDING__TARGET_ALIAS, oldTargetAlias, targetAlias));
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case UimodelPackage.UI_BINDING__SOURCE:
+			case UiModelPackage.UI_BINDING__SOURCE:
 				return basicSetSource(null, msgs);
-			case UimodelPackage.UI_BINDING__TARGET:
+			case UiModelPackage.UI_BINDING__TARGET:
 				return basicSetTarget(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UimodelPackage.UI_BINDING__SOURCE:
+			case UiModelPackage.UI_BINDING__SOURCE:
 				return getSource();
-			case UimodelPackage.UI_BINDING__SOURCE_ALIAS:
+			case UiModelPackage.UI_BINDING__SOURCE_ALIAS:
 				if (resolve) return getSourceAlias();
 				return basicGetSourceAlias();
-			case UimodelPackage.UI_BINDING__TARGET_TO_SOURCE:
+			case UiModelPackage.UI_BINDING__TARGET_TO_SOURCE:
 				return isTargetToSource();
-			case UimodelPackage.UI_BINDING__SOURCE_TO_TARGET:
+			case UiModelPackage.UI_BINDING__SOURCE_TO_TARGET:
 				return isSourceToTarget();
-			case UimodelPackage.UI_BINDING__TARGET:
+			case UiModelPackage.UI_BINDING__TARGET:
 				return getTarget();
-			case UimodelPackage.UI_BINDING__TARGET_ALIAS:
+			case UiModelPackage.UI_BINDING__TARGET_ALIAS:
 				if (resolve) return getTargetAlias();
 				return basicGetTargetAlias();
 		}
@@ -358,88 +378,92 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UimodelPackage.UI_BINDING__SOURCE:
-				setSource((UiBindingEndpointDef)newValue);
+			case UiModelPackage.UI_BINDING__SOURCE:
+				setSource((UiBindingExpression)newValue);
 				return;
-			case UimodelPackage.UI_BINDING__SOURCE_ALIAS:
-				setSourceAlias((UiBindingEndpointAlias)newValue);
+			case UiModelPackage.UI_BINDING__SOURCE_ALIAS:
+				setSourceAlias((UiTypedBindable)newValue);
 				return;
-			case UimodelPackage.UI_BINDING__TARGET_TO_SOURCE:
+			case UiModelPackage.UI_BINDING__TARGET_TO_SOURCE:
 				setTargetToSource((Boolean)newValue);
 				return;
-			case UimodelPackage.UI_BINDING__SOURCE_TO_TARGET:
+			case UiModelPackage.UI_BINDING__SOURCE_TO_TARGET:
 				setSourceToTarget((Boolean)newValue);
 				return;
-			case UimodelPackage.UI_BINDING__TARGET:
-				setTarget((UiBindingEndpointDef)newValue);
+			case UiModelPackage.UI_BINDING__TARGET:
+				setTarget((UiBindingExpression)newValue);
 				return;
-			case UimodelPackage.UI_BINDING__TARGET_ALIAS:
-				setTargetAlias((UiBindingEndpointAlias)newValue);
+			case UiModelPackage.UI_BINDING__TARGET_ALIAS:
+				setTargetAlias((UiTypedBindable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UimodelPackage.UI_BINDING__SOURCE:
-				setSource((UiBindingEndpointDef)null);
+			case UiModelPackage.UI_BINDING__SOURCE:
+				setSource((UiBindingExpression)null);
 				return;
-			case UimodelPackage.UI_BINDING__SOURCE_ALIAS:
-				setSourceAlias((UiBindingEndpointAlias)null);
+			case UiModelPackage.UI_BINDING__SOURCE_ALIAS:
+				setSourceAlias((UiTypedBindable)null);
 				return;
-			case UimodelPackage.UI_BINDING__TARGET_TO_SOURCE:
+			case UiModelPackage.UI_BINDING__TARGET_TO_SOURCE:
 				setTargetToSource(TARGET_TO_SOURCE_EDEFAULT);
 				return;
-			case UimodelPackage.UI_BINDING__SOURCE_TO_TARGET:
+			case UiModelPackage.UI_BINDING__SOURCE_TO_TARGET:
 				setSourceToTarget(SOURCE_TO_TARGET_EDEFAULT);
 				return;
-			case UimodelPackage.UI_BINDING__TARGET:
-				setTarget((UiBindingEndpointDef)null);
+			case UiModelPackage.UI_BINDING__TARGET:
+				setTarget((UiBindingExpression)null);
 				return;
-			case UimodelPackage.UI_BINDING__TARGET_ALIAS:
-				setTargetAlias((UiBindingEndpointAlias)null);
+			case UiModelPackage.UI_BINDING__TARGET_ALIAS:
+				setTargetAlias((UiTypedBindable)null);
 				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UimodelPackage.UI_BINDING__SOURCE:
+			case UiModelPackage.UI_BINDING__SOURCE:
 				return source != null;
-			case UimodelPackage.UI_BINDING__SOURCE_ALIAS:
+			case UiModelPackage.UI_BINDING__SOURCE_ALIAS:
 				return sourceAlias != null;
-			case UimodelPackage.UI_BINDING__TARGET_TO_SOURCE:
+			case UiModelPackage.UI_BINDING__TARGET_TO_SOURCE:
 				return targetToSource != TARGET_TO_SOURCE_EDEFAULT;
-			case UimodelPackage.UI_BINDING__SOURCE_TO_TARGET:
+			case UiModelPackage.UI_BINDING__SOURCE_TO_TARGET:
 				return sourceToTarget != SOURCE_TO_TARGET_EDEFAULT;
-			case UimodelPackage.UI_BINDING__TARGET:
+			case UiModelPackage.UI_BINDING__TARGET:
 				return target != null;
-			case UimodelPackage.UI_BINDING__TARGET_ALIAS:
+			case UiModelPackage.UI_BINDING__TARGET_ALIAS:
 				return targetAlias != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -455,24 +479,4 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements
 		return result.toString();
 	}
 
-	@Override
-	public UxEndpointDef getSourceEndpointDef() {
-		if (getTarget() != null) {
-			return getTarget().getSemanticEndpoint();
-		} else if (getTargetAlias() != null) {
-			return getTargetAlias().getEndpoint().getSemanticEndpoint();
-		}
-		return null;
-	}
-
-	@Override
-	public UxEndpointDef getTargetEndpointDef() {
-		if (getSource() != null) {
-			return getSource().getSemanticEndpoint();
-		} else if (getSourceAlias() != null) {
-			return getSourceAlias().getEndpoint().getSemanticEndpoint();
-		}
-		return null;
-	}
-
-} // UiBindingImpl
+} //UiBindingImpl

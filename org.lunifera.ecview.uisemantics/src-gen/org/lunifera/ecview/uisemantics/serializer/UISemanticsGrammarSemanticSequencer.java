@@ -58,14 +58,14 @@ import org.eclipse.xtext.xtype.XImportSection;
 import org.eclipse.xtext.xtype.XtypePackage;
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableBindings;
+import org.lunifera.ecview.semantic.uisemantics.UxAvailableValidatorProperties;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions;
 import org.lunifera.ecview.semantic.uisemantics.UxEPackageImport;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxElementURI;
 import org.lunifera.ecview.semantic.uisemantics.UxImportSectionDeclaration;
-import org.lunifera.ecview.semantic.uisemantics.UxListBindingEndpointDef;
 import org.lunifera.ecview.semantic.uisemantics.UxModel;
-import org.lunifera.ecview.semantic.uisemantics.UxSetBindingEndpointDef;
+import org.lunifera.ecview.semantic.uisemantics.UxValidatorProperty;
 import org.lunifera.ecview.semantic.uisemantics.UxValueBindingEndpointDef;
 import org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption;
 import org.lunifera.ecview.uisemantics.services.UISemanticsGrammarGrammarAccess;
@@ -142,6 +142,12 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 					return; 
 				}
 				else break;
+			case UiSemanticsPackage.UX_AVAILABLE_VALIDATOR_PROPERTIES:
+				if(context == grammarAccess.getUxAvailableValidatorPropertiesRule()) {
+					sequence_UxAvailableValidatorProperties(context, (UxAvailableValidatorProperties) semanticObject); 
+					return; 
+				}
+				else break;
 			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS:
 				if(context == grammarAccess.getUxAvailableVisibilityOptionsRule()) {
 					sequence_UxAvailableVisibilityOptions(context, (UxAvailableVisibilityOptions) semanticObject); 
@@ -172,23 +178,15 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 					return; 
 				}
 				else break;
-			case UiSemanticsPackage.UX_LIST_BINDING_ENDPOINT_DEF:
-				if(context == grammarAccess.getUxEndpointDefRule() ||
-				   context == grammarAccess.getUxListBindingEndpointDefRule()) {
-					sequence_UxListBindingEndpointDef(context, (UxListBindingEndpointDef) semanticObject); 
-					return; 
-				}
-				else break;
 			case UiSemanticsPackage.UX_MODEL:
 				if(context == grammarAccess.getUxModelRule()) {
 					sequence_UxModel(context, (UxModel) semanticObject); 
 					return; 
 				}
 				else break;
-			case UiSemanticsPackage.UX_SET_BINDING_ENDPOINT_DEF:
-				if(context == grammarAccess.getUxEndpointDefRule() ||
-				   context == grammarAccess.getUxSetBindingEndpointDefRule()) {
-					sequence_UxSetBindingEndpointDef(context, (UxSetBindingEndpointDef) semanticObject); 
+			case UiSemanticsPackage.UX_VALIDATOR_PROPERTY:
+				if(context == grammarAccess.getUxValidatorPropertyRule()) {
+					sequence_UxValidatorProperty(context, (UxValidatorProperty) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1248,6 +1246,15 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
+	 *     (properties+=UxValidatorProperty*)
+	 */
+	protected void sequence_UxAvailableValidatorProperties(EObject context, UxAvailableValidatorProperties semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (options+=UxVisibilityOption*)
 	 */
 	protected void sequence_UxAvailableVisibilityOptions(EObject context, UxAvailableVisibilityOptions semanticObject) {
@@ -1276,7 +1283,13 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (name=ID uri=UxElementURI? bindingContainer=UxAvailableBindings? visibilityContainer=UxAvailableVisibilityOptions?)
+	 *     (
+	 *         name=ID 
+	 *         uri=UxElementURI? 
+	 *         bindingContainer=UxAvailableBindings? 
+	 *         visibilityContainer=UxAvailableVisibilityOptions? 
+	 *         validatorContainer=UxAvailableValidatorProperties?
+	 *     )
 	 */
 	protected void sequence_UxElementDefinition(EObject context, UxElementDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1304,15 +1317,6 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (name=ID jvmType=JvmTypeReference)
-	 */
-	protected void sequence_UxListBindingEndpointDef(EObject context, UxListBindingEndpointDef semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (importSection=XImportSection? elementDefinitions+=UxElementDefinition*)
 	 */
 	protected void sequence_UxModel(EObject context, UxModel semanticObject) {
@@ -1322,10 +1326,17 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (name=ID jvmType=JvmTypeReference)
+	 *     name=ID
 	 */
-	protected void sequence_UxSetBindingEndpointDef(EObject context, UxSetBindingEndpointDef semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_UxValidatorProperty(EObject context, UxValidatorProperty semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, UiSemanticsPackage.Literals.UX_VALIDATOR_PROPERTY__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiSemanticsPackage.Literals.UX_VALIDATOR_PROPERTY__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUxValidatorPropertyAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	

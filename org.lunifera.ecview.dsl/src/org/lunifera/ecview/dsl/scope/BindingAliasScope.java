@@ -11,7 +11,10 @@ import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractScope;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
-import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
+import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
+import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 
@@ -28,13 +31,16 @@ public class BindingAliasScope extends AbstractScope {
 		uiBinding = context;
 		this.reference = reference;
 	}
- 
+
 	@Override
 	protected Iterable<IEObjectDescription> getAllLocalElements() {
-		boolean filterType = reference == UimodelPackage.Literals.UI_BINDING__TARGET_ALIAS;
+		boolean filterType = reference == UiModelPackage.Literals.UI_BINDING__TARGET_ALIAS;
 		if (filterType) {
-			UxEndpointDef uxSourceEndpointDef = uiBinding
-					.getSourceEndpointDef();
+			UiTypedBindableDef sourceTypedBindableDef = (UiTypedBindableDef) uiBinding
+					.getSource();
+			UxEndpointDef uxSourceEndpointDef = (UxEndpointDef) sourceTypedBindableDef
+					.getMethod();
+			UiRawBindable bindable = sourceTypedBindableDef.getRawBindable();
 			if (uxSourceEndpointDef == null) {
 				return parent.getAllElements();
 			}
@@ -45,8 +51,12 @@ public class BindingAliasScope extends AbstractScope {
 						.getEObjectOrProxy();
 				uiBindingEndpointAlias = (UiBindingEndpointAlias) EcoreUtil
 						.resolve(uiBindingEndpointAlias, uiBinding);
-				UxElementDefinition elementDef = (UxElementDefinition) uiBindingEndpointAlias
-						.getEndpoint().getSemanticEndpoint();
+				UiBindingEndpointAssignment endpointDef = (UiBindingEndpointAssignment) uiBindingEndpointAlias
+						.getEndpoint();
+				UiTypedBindableDef typedBindableDef = (UiTypedBindableDef) endpointDef
+						.getTypedBindableDef();
+				UxElementDefinition elementDef = (UxElementDefinition) typedBindableDef
+						.getMethod().eContainer();
 
 				if (uxSourceEndpointDef.eClass().isSuperTypeOf(
 						elementDef.eClass())) {

@@ -5,7 +5,7 @@ org.eclipse.emf.examples.generator.validator plug-in to illustrate how EMF's
 code generator can be extended.
 This can be disabled with -vmargs -Dorg.eclipse.emf.examples.generator.validator=false.
 
-Package uisemantics <http://www.lunifera.org/ecview/uisemantics/uisemantics>
+Package uisemantics <http://www.lunifera.org/ecview/dsl/uimodel/semantics>
 
   Class UxModel
     Reference importSection : XImportSection
@@ -23,6 +23,7 @@ Package uisemantics <http://www.lunifera.org/ecview/uisemantics/uisemantics>
     Reference uri : UxElementURI
     Reference bindingContainer : UxAvailableBindings
     Reference visibilityContainer : UxAvailableVisibilityOptions
+    Reference validatorContainer : UxAvailableValidatorProperties
 
   Class UxElementURI
     Reference ePackage : UxEPackageImport
@@ -48,3 +49,9 @@ Package uisemantics <http://www.lunifera.org/ecview/uisemantics/uisemantics>
   Class UxVisibilityOption
     Attribute name : EString
     Reference jvmType : JvmTypeReference
+
+  Class UxAvailableValidatorProperties
+    Reference properties : UxValidatorProperty<<0..*>>
+
+  Class UxValidatorProperty
+    Attribute name : EString

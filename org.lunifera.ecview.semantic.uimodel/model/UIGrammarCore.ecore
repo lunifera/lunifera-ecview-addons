@@ -2,77 +2,183 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="uimodel" nsURI="http://www.lunifera.org/ecview/dsl/uimodel/core"
     nsPrefix="uimodel">
-  <eClassifiers xsi:type="ecore:EClass" name="UiModel" eSuperTypes="#//UiModelElement">
+  <eClassifiers xsi:type="ecore:EClass" name="UiNamedElement" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiModel" eSuperTypes="#//UiNamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="packageName" lowerBound="1"
-        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roots" upperBound="-1"
         eType="#//UiRootElements" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
         eType="#//UiImports" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiImports">
+  <eClassifiers xsi:type="ecore:EClass" name="UiImports" eSuperTypes="#//UiNamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" lowerBound="1"
-        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiModelElement" abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiView" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YView #//UiRootElements #//UiModelElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiIDEView" eSuperTypes="#//UiView #//UiModelElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
-        eType="#//UiBinding" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiContext" eSuperTypes="#//UiRootElements">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="beanSlots" upperBound="-1"
+        eType="#//UiBeanSlot" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindingEndpointAlias" upperBound="-1"
         eType="#//UiBindingEndpointAlias" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
+        eType="#//UiBinding" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiPoint" eSuperTypes="#//UiModelElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiViewSet" eSuperTypes="#//UiContext"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiView" eSuperTypes="#//UiContext">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewSet" eType="#//UiViewSet"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//UiEmbeddable"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="validatorAssignments" upperBound="-1"
+        eType="#//UiValidatorAssignment" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiBindingEndpointAlias" eSuperTypes="#//UiModelElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiIDEView" eSuperTypes="#//UiView"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiPoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiBeanSlot" eSuperTypes="#//UiTypedBindable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiRootElements" abstract="true" interface="true"
+      eSuperTypes="#//UiNamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiBindingExpression" abstract="true"
+      interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiBindingEndpointAlias" eSuperTypes="#//UiTypedBindable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" lowerBound="1"
-        eType="#//UiBindingEndpointDef" containment="true"/>
+        eType="#//UiBindingExpression" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiBindingEndpointDef" eSuperTypes="#//UiModelElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bindable" eType="#//UiBindable"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="semanticEndpoint" eType="ecore:EClass ../../org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore#//UxEndpointDef"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiBindingEndpointAssignment" eSuperTypes="#//UiTypedBindable #//UiBindingExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typedBindableDef" eType="#//UiBindingExpression"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//UiPathSegment"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typedBindableAlias" eType="#//UiTypedBindable"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiBinding" eSuperTypes="#//UiModelElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//UiBindingEndpointDef"
+  <eClassifiers xsi:type="ecore:EClass" name="UiBinding">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//UiBindingExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceAlias" eType="#//UiBindingEndpointAlias"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetToSource" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceToTarget" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//UiBindingEndpointDef"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceAlias" eType="#//UiTypedBindable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetToSource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceToTarget" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//UiBindingExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="targetAlias" eType="#//UiBindingEndpointAlias"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetAlias" eType="#//UiTypedBindable"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiPathSegment" eSuperTypes="#//UiModelElement">
+  <eClassifiers xsi:type="ecore:EClass" name="UiPathSegment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="jvmField" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmField"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//UiPathSegment"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiBeanSlot" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBeanSlot #//UiBindable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiRawBindable" abstract="true" interface="true"
+      eSuperTypes="#//UiNamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiTypedBindable" abstract="true" interface="true"
+      eSuperTypes="#//UiNamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiTypedBindableDef" eSuperTypes="#//UiTypedBindable #//UiBindingExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rawBindable" eType="#//UiRawBindable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="ecore:EClass ../../org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore#//UxEndpointDef"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiViewSet" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YViewSet #//UiRootElements">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bindingEndpointAlias" upperBound="-1"
-        eType="#//UiBindingEndpointAlias" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiRootElements" abstract="true" interface="true"
-      eSuperTypes="#//UiModelElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiMaxLengthValidator" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore#//YMaxLengthValidator #//UiValidator"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiMinLengthValidator" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore#//YMinLengthValidator #//UiValidator"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiRegexpValidator" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore#//YRegexpValidator #//UiValidator"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiBindable" abstract="true" interface="true"
-      eSuperTypes="#//UiModelElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiEmbeddable" abstract="true" interface="true"
-      eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YEmbeddable UIGrammarExtensions.ecore#//UiVisibilityProcessable #//UiBindable"/>
+      eSuperTypes="#//UiVisibilityProcessable #//UiRawBindable"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiField" abstract="true" interface="true"
-      eSuperTypes="#//UiEmbeddable"/>
+      eSuperTypes="#//UiEmbeddable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="validators" upperBound="-1"
+        eType="#//UiValidator" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiLayout" abstract="true" interface="true"
       eSuperTypes="#//UiEmbeddable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiGridLayoutAssigment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//UiPoint"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//UiPoint"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiGridLayout" eSuperTypes="#//UiLayout">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
+        eType="#//UiGridLayoutAssigment" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiTextField" eSuperTypes="#//UiField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiList" eSuperTypes="#//UiField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiNumericField" eSuperTypes="#//UiField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiCheckBox" eSuperTypes="#//UiField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiVisibilityProcessable" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processorAssignment" eType="#//UiVisibilityProcessorAssignment"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiVisibilityProcessor" eSuperTypes="#//UiNamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindingAlias" upperBound="-1"
+        eType="#//UiBindingEndpointAlias" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeTrigger" upperBound="-1"
+        eType="#//UiChangeTrigger" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" eType="#//UiVisibilityRule"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertiesAssignment" eType="#//UiVisibilityPropertiesAssignment"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiVisibilityProcessorDef" eSuperTypes="#//UiRootElements">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processor" eType="#//UiVisibilityProcessor"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiVisibilityProcessorAssignment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processor" eType="#//UiVisibilityProcessor"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processorAlias" eType="#//UiVisibilityProcessor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiChangeTrigger">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" eType="#//UiBindingExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointAlias" eType="#//UiBindingEndpointAlias"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiVisibilityRule" abstract="true" eSuperTypes="#//UiNamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiXbaseVisibilityRule" eSuperTypes="#//UiVisibilityRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiVisibilityProperties" eSuperTypes="#//UiNamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiVisibilityPropertiesDef" eSuperTypes="#//UiRootElements">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" eType="#//UiVisibilityProperties"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiVisibilityPropertiesAssignment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" eType="#//UiVisibilityProperties"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyAlias" eType="#//UiVisibilityProperties"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiValidator" abstract="true" interface="true"
-      eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore#//YValidator #//UiModelElement #//UiBindable"/>
+      eSuperTypes="#//UiRawBindable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiMaxLengthValidator" eSuperTypes="#//UiValidator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiMinLengthValidator" eSuperTypes="#//UiValidator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiRegexpValidator" eSuperTypes="#//UiValidator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="regExpression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiXbaseValidator" eSuperTypes="#//UiValidator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiValidatorAlias" eSuperTypes="#//UiRootElements">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="validator" lowerBound="1"
+        eType="#//UiValidator" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiValidatorAssignment" eSuperTypes="#//UiNamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="field" lowerBound="1" eType="#//UiField"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="validatorDef" eType="#//UiValidatorDef"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="validatorAlias" eType="#//UiValidatorAlias"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiValidatorDef" eSuperTypes="#//UiNamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="validator" eType="#//UiValidator"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"/>
+  </eClassifiers>
 </ecore:EPackage>

@@ -1,22 +1,5 @@
 package org.lunifera.ecview.dsl.scope;
 
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
-import org.eclipse.xtext.common.types.JvmTypeReference;
-import org.eclipse.xtext.common.types.util.TypeReferences;
-import org.eclipse.xtext.scoping.IScope;
-import org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider;
-import org.lunifera.ecview.semantic.uimodel.UiBinding;
-import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef;
-import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
-import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
-import org.lunifera.ecview.semantic.uimodel.impl.UiPathSegmentImpl;
-import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
-
-import com.google.inject.Inject;
 
 public class BatchScopeProvider extends ScopeProvider {
 
@@ -25,12 +8,12 @@ public class BatchScopeProvider extends ScopeProvider {
 //
 //	@Override
 //	public IScope getScope(EObject context, EReference reference) {
-//		if (reference == UimodelPackage.Literals.UI_BINDING_ENDPOINT_DEF__ENDPOINT) {
+//		if (reference == UiModelPackage.Literals.UI_BINDING_ENDPOINT_DEF__ENDPOINT) {
 //			return new BindingEndpointDefMethodScope(super.getScope(context,
 //					reference), (UiBindingEndpointDef) context);
-//		} else if (reference == UimodelPackage.Literals.UI_BINDING_ENDPOINT_DEF__PATH) {
+//		} else if (reference == UiModelPackage.Literals.UI_BINDING_ENDPOINT_DEF__PATH) {
 //			return createBindingEndpointDefPathScope(context);
-//		} else if (reference == UimodelPackage.Literals.UI_PATH_SEGMENT__JVM_FIELD) {
+//		} else if (reference == UiModelPackage.Literals.UI_PATH_SEGMENT__JVM_FIELD) {
 //			return createPathSegmentJvmFieldScope(context);
 //		}
 //		return super.getScope(context, reference);

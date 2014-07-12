@@ -6,10 +6,11 @@
 
 <plugin>
 
+
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated UISemanticsGrammar -->
       <package
-            uri="http://www.lunifera.org/ecview/uisemantics/uisemantics"
+            uri="http://www.lunifera.org/ecview/dsl/uimodel/semantics"
             class="org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage"
             genModel="model/UISemanticsGrammar.genmodel"/>
    </extension>

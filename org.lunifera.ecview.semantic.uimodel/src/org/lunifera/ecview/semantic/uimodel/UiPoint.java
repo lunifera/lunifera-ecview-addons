@@ -2,6 +2,7 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,11 +17,11 @@ package org.lunifera.ecview.semantic.uimodel;
  * </ul>
  * </p>
  *
- * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiPoint()
+ * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiPoint()
  * @model
  * @generated
  */
-public interface UiPoint extends UiModelElement {
+public interface UiPoint extends EObject {
 	/**
 	 * Returns the value of the '<em><b>X</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -31,7 +32,7 @@ public interface UiPoint extends UiModelElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>X</em>' attribute.
 	 * @see #setX(int)
-	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiPoint_X()
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiPoint_X()
 	 * @model
 	 * @generated
 	 */
@@ -57,7 +58,7 @@ public interface UiPoint extends UiModelElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Y</em>' attribute.
 	 * @see #setY(int)
-	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiPoint_Y()
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiPoint_Y()
 	 * @model
 	 * @generated
 	 */

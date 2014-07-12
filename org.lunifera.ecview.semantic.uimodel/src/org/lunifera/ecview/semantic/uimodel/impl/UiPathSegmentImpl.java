@@ -9,8 +9,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.xtext.common.types.JvmField;
+import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
-import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -59,7 +59,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return UimodelPackage.Literals.UI_PATH_SEGMENT;
+		return UiModelPackage.Literals.UI_PATH_SEGMENT;
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 			jvmField = (JvmField)eResolveProxy(oldJvmField);
 			if (jvmField != oldJvmField) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelPackage.UI_PATH_SEGMENT__JVM_FIELD, oldJvmField, jvmField));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_PATH_SEGMENT__JVM_FIELD, oldJvmField, jvmField));
 			}
 		}
 		return jvmField;
@@ -94,7 +94,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 		JvmField oldJvmField = jvmField;
 		jvmField = newJvmField;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_PATH_SEGMENT__JVM_FIELD, oldJvmField, jvmField));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_PATH_SEGMENT__JVM_FIELD, oldJvmField, jvmField));
 	}
 
 	/**
@@ -114,7 +114,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 		UiPathSegment oldPath = path;
 		path = newPath;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_PATH_SEGMENT__PATH, oldPath, newPath);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_PATH_SEGMENT__PATH, oldPath, newPath);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -128,14 +128,14 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 		if (newPath != path) {
 			NotificationChain msgs = null;
 			if (path != null)
-				msgs = ((InternalEObject)path).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_PATH_SEGMENT__PATH, null, msgs);
+				msgs = ((InternalEObject)path).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_PATH_SEGMENT__PATH, null, msgs);
 			if (newPath != null)
-				msgs = ((InternalEObject)newPath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_PATH_SEGMENT__PATH, null, msgs);
+				msgs = ((InternalEObject)newPath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_PATH_SEGMENT__PATH, null, msgs);
 			msgs = basicSetPath(newPath, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_PATH_SEGMENT__PATH, newPath, newPath));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_PATH_SEGMENT__PATH, newPath, newPath));
 	}
 
 	/**
@@ -146,7 +146,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case UimodelPackage.UI_PATH_SEGMENT__PATH:
+			case UiModelPackage.UI_PATH_SEGMENT__PATH:
 				return basicSetPath(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -159,10 +159,10 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UimodelPackage.UI_PATH_SEGMENT__JVM_FIELD:
+			case UiModelPackage.UI_PATH_SEGMENT__JVM_FIELD:
 				if (resolve) return getJvmField();
 				return basicGetJvmField();
-			case UimodelPackage.UI_PATH_SEGMENT__PATH:
+			case UiModelPackage.UI_PATH_SEGMENT__PATH:
 				return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -175,10 +175,10 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UimodelPackage.UI_PATH_SEGMENT__JVM_FIELD:
+			case UiModelPackage.UI_PATH_SEGMENT__JVM_FIELD:
 				setJvmField((JvmField)newValue);
 				return;
-			case UimodelPackage.UI_PATH_SEGMENT__PATH:
+			case UiModelPackage.UI_PATH_SEGMENT__PATH:
 				setPath((UiPathSegment)newValue);
 				return;
 		}
@@ -192,10 +192,10 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UimodelPackage.UI_PATH_SEGMENT__JVM_FIELD:
+			case UiModelPackage.UI_PATH_SEGMENT__JVM_FIELD:
 				setJvmField((JvmField)null);
 				return;
-			case UimodelPackage.UI_PATH_SEGMENT__PATH:
+			case UiModelPackage.UI_PATH_SEGMENT__PATH:
 				setPath((UiPathSegment)null);
 				return;
 		}
@@ -209,24 +209,24 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UimodelPackage.UI_PATH_SEGMENT__JVM_FIELD:
+			case UiModelPackage.UI_PATH_SEGMENT__JVM_FIELD:
 				return jvmField != null;
-			case UimodelPackage.UI_PATH_SEGMENT__PATH:
+			case UiModelPackage.UI_PATH_SEGMENT__PATH:
 				return path != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-	@Override
+	@Override 
 	public String toPathString() {
 		String result = "";
 		UiPathSegment child = getPath();
 		if (child != null) {
 			result = child.toPathString();
-			if(result != null){
+			if (result != null) {
 				result = getJvmField().getSimpleName() + "." + result;
-			}else {
-				result=getJvmField().getSimpleName();
+			} else {
+				result = getJvmField().getSimpleName();
 			}
 		} else {
 			return getJvmField() != null ? getJvmField().getSimpleName() : null;

@@ -68,6 +68,8 @@ public class UiSemanticsFactoryImpl extends EFactoryImpl implements UiSemanticsF
 			case UiSemanticsPackage.UX_SET_BINDING_ENDPOINT_DEF: return createUxSetBindingEndpointDef();
 			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS: return createUxAvailableVisibilityOptions();
 			case UiSemanticsPackage.UX_VISIBILITY_OPTION: return createUxVisibilityOption();
+			case UiSemanticsPackage.UX_AVAILABLE_VALIDATOR_PROPERTIES: return createUxAvailableValidatorProperties();
+			case UiSemanticsPackage.UX_VALIDATOR_PROPERTY: return createUxValidatorProperty();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -181,6 +183,26 @@ public class UiSemanticsFactoryImpl extends EFactoryImpl implements UiSemanticsF
 	public UxVisibilityOption createUxVisibilityOption() {
 		UxVisibilityOptionImpl uxVisibilityOption = new UxVisibilityOptionImpl();
 		return uxVisibilityOption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UxAvailableValidatorProperties createUxAvailableValidatorProperties() {
+		UxAvailableValidatorPropertiesImpl uxAvailableValidatorProperties = new UxAvailableValidatorPropertiesImpl();
+		return uxAvailableValidatorProperties;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UxValidatorProperty createUxValidatorProperty() {
+		UxValidatorPropertyImpl uxValidatorProperty = new UxValidatorPropertyImpl();
+		return uxValidatorProperty;
 	}
 
 	/**

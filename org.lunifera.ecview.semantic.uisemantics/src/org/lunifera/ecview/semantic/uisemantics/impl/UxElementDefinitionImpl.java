@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableBindings;
+import org.lunifera.ecview.semantic.uisemantics.UxAvailableValidatorProperties;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxElementURI;
@@ -28,6 +29,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxElementURI;
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxElementDefinitionImpl#getUri <em>Uri</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxElementDefinitionImpl#getBindingContainer <em>Binding Container</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxElementDefinitionImpl#getVisibilityContainer <em>Visibility Container</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxElementDefinitionImpl#getValidatorContainer <em>Validator Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -83,6 +85,16 @@ public class UxElementDefinitionImpl extends MinimalEObjectImpl.Container implem
 	 * @ordered
 	 */
 	protected UxAvailableVisibilityOptions visibilityContainer;
+
+	/**
+	 * The cached value of the '{@link #getValidatorContainer() <em>Validator Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidatorContainer()
+	 * @generated
+	 * @ordered
+	 */
+	protected UxAvailableValidatorProperties validatorContainer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -258,6 +270,49 @@ public class UxElementDefinitionImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UxAvailableValidatorProperties getValidatorContainer() {
+		return validatorContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValidatorContainer(UxAvailableValidatorProperties newValidatorContainer, NotificationChain msgs) {
+		UxAvailableValidatorProperties oldValidatorContainer = validatorContainer;
+		validatorContainer = newValidatorContainer;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiSemanticsPackage.UX_ELEMENT_DEFINITION__VALIDATOR_CONTAINER, oldValidatorContainer, newValidatorContainer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValidatorContainer(UxAvailableValidatorProperties newValidatorContainer) {
+		if (newValidatorContainer != validatorContainer) {
+			NotificationChain msgs = null;
+			if (validatorContainer != null)
+				msgs = ((InternalEObject)validatorContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiSemanticsPackage.UX_ELEMENT_DEFINITION__VALIDATOR_CONTAINER, null, msgs);
+			if (newValidatorContainer != null)
+				msgs = ((InternalEObject)newValidatorContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiSemanticsPackage.UX_ELEMENT_DEFINITION__VALIDATOR_CONTAINER, null, msgs);
+			msgs = basicSetValidatorContainer(newValidatorContainer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiSemanticsPackage.UX_ELEMENT_DEFINITION__VALIDATOR_CONTAINER, newValidatorContainer, newValidatorContainer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -267,6 +322,8 @@ public class UxElementDefinitionImpl extends MinimalEObjectImpl.Container implem
 				return basicSetBindingContainer(null, msgs);
 			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__VISIBILITY_CONTAINER:
 				return basicSetVisibilityContainer(null, msgs);
+			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__VALIDATOR_CONTAINER:
+				return basicSetValidatorContainer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -287,6 +344,8 @@ public class UxElementDefinitionImpl extends MinimalEObjectImpl.Container implem
 				return getBindingContainer();
 			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__VISIBILITY_CONTAINER:
 				return getVisibilityContainer();
+			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__VALIDATOR_CONTAINER:
+				return getValidatorContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -310,6 +369,9 @@ public class UxElementDefinitionImpl extends MinimalEObjectImpl.Container implem
 				return;
 			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__VISIBILITY_CONTAINER:
 				setVisibilityContainer((UxAvailableVisibilityOptions)newValue);
+				return;
+			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__VALIDATOR_CONTAINER:
+				setValidatorContainer((UxAvailableValidatorProperties)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -335,6 +397,9 @@ public class UxElementDefinitionImpl extends MinimalEObjectImpl.Container implem
 			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__VISIBILITY_CONTAINER:
 				setVisibilityContainer((UxAvailableVisibilityOptions)null);
 				return;
+			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__VALIDATOR_CONTAINER:
+				setValidatorContainer((UxAvailableValidatorProperties)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -355,6 +420,8 @@ public class UxElementDefinitionImpl extends MinimalEObjectImpl.Container implem
 				return bindingContainer != null;
 			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__VISIBILITY_CONTAINER:
 				return visibilityContainer != null;
+			case UiSemanticsPackage.UX_ELEMENT_DEFINITION__VALIDATOR_CONTAINER:
+				return validatorContainer != null;
 		}
 		return super.eIsSet(featureID);
 	}

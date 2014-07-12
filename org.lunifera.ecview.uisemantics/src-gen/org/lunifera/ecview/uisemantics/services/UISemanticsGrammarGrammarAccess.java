@@ -244,15 +244,23 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cVisibilityContainerAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
 		private final RuleCall cVisibilityContainerUxAvailableVisibilityOptionsParserRuleCall_5_2_0 = (RuleCall)cVisibilityContainerAssignment_5_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5_3 = (Keyword)cGroup_5.eContents().get(3);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cValidatorKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Assignment cValidatorContainerAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cValidatorContainerUxAvailableValidatorPropertiesParserRuleCall_6_2_0 = (RuleCall)cValidatorContainerAssignment_6_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6_3 = (Keyword)cGroup_6.eContents().get(3);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//UxElementDefinition returns semantic::UxElementDefinition:
 		//	"element" name=ID "{" uri=UxElementURI? ("bindings" "{" bindingContainer=UxAvailableBindings "}")? ("visibility" "{"
-		//	visibilityContainer=UxAvailableVisibilityOptions "}")? "}";
+		//	visibilityContainer=UxAvailableVisibilityOptions "}")? ("validator" "{"
+		//	validatorContainer=UxAvailableValidatorProperties "}")? "}";
 		public ParserRule getRule() { return rule; }
 
 		//"element" name=ID "{" uri=UxElementURI? ("bindings" "{" bindingContainer=UxAvailableBindings "}")? ("visibility" "{"
-		//visibilityContainer=UxAvailableVisibilityOptions "}")? "}"
+		//visibilityContainer=UxAvailableVisibilityOptions "}")? ("validator" "{"
+		//validatorContainer=UxAvailableValidatorProperties "}")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"element"
@@ -309,8 +317,26 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_5_3() { return cRightCurlyBracketKeyword_5_3; }
 
+		//("validator" "{" validatorContainer=UxAvailableValidatorProperties "}")?
+		public Group getGroup_6() { return cGroup_6; }
+
+		//"validator"
+		public Keyword getValidatorKeyword_6_0() { return cValidatorKeyword_6_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_6_1() { return cLeftCurlyBracketKeyword_6_1; }
+
+		//validatorContainer=UxAvailableValidatorProperties
+		public Assignment getValidatorContainerAssignment_6_2() { return cValidatorContainerAssignment_6_2; }
+
+		//UxAvailableValidatorProperties
+		public RuleCall getValidatorContainerUxAvailableValidatorPropertiesParserRuleCall_6_2_0() { return cValidatorContainerUxAvailableValidatorPropertiesParserRuleCall_6_2_0; }
+
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_6_3() { return cRightCurlyBracketKeyword_6_3; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 
 	public class UxAvailableVisibilityOptionsElements extends AbstractParserRuleElementFinder {
@@ -367,6 +393,54 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 
 		//JvmTypeReference
 		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_2_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_2_0; }
+	}
+
+	public class UxAvailableValidatorPropertiesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UxAvailableValidatorProperties");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cUxAvailableValidatorPropertiesAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cPropertiesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPropertiesUxValidatorPropertyParserRuleCall_1_0 = (RuleCall)cPropertiesAssignment_1.eContents().get(0);
+		
+		//UxAvailableValidatorProperties returns semantic::UxAvailableValidatorProperties:
+		//	{semantic::UxAvailableValidatorProperties} properties+=UxValidatorProperty*;
+		public ParserRule getRule() { return rule; }
+
+		//{semantic::UxAvailableValidatorProperties} properties+=UxValidatorProperty*
+		public Group getGroup() { return cGroup; }
+
+		//{semantic::UxAvailableValidatorProperties}
+		public Action getUxAvailableValidatorPropertiesAction_0() { return cUxAvailableValidatorPropertiesAction_0; }
+
+		//properties+=UxValidatorProperty*
+		public Assignment getPropertiesAssignment_1() { return cPropertiesAssignment_1; }
+
+		//UxValidatorProperty
+		public RuleCall getPropertiesUxValidatorPropertyParserRuleCall_1_0() { return cPropertiesUxValidatorPropertyParserRuleCall_1_0; }
+	}
+
+	public class UxValidatorPropertyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UxValidatorProperty");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPropertyKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//UxValidatorProperty returns semantic::UxValidatorProperty:
+		//	"property" name=ID;
+		public ParserRule getRule() { return rule; }
+
+		//"property" name=ID
+		public Group getGroup() { return cGroup; }
+
+		//"property"
+		public Keyword getPropertyKeyword_0() { return cPropertyKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
 
 	public class UxElementURIElements extends AbstractParserRuleElementFinder {
@@ -439,26 +513,14 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 
 	public class UxEndpointDefElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UxEndpointDef");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cUxValueBindingEndpointDefParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cUxListBindingEndpointDefParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cUxSetBindingEndpointDefParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cUxValueBindingEndpointDefParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//UxEndpointDef returns semantic::UxEndpointDef:
-		//	UxValueBindingEndpointDef | UxListBindingEndpointDef | UxSetBindingEndpointDef;
+		//	UxValueBindingEndpointDef;
 		public ParserRule getRule() { return rule; }
 
-		//UxValueBindingEndpointDef | UxListBindingEndpointDef | UxSetBindingEndpointDef
-		public Alternatives getAlternatives() { return cAlternatives; }
-
 		//UxValueBindingEndpointDef
-		public RuleCall getUxValueBindingEndpointDefParserRuleCall_0() { return cUxValueBindingEndpointDefParserRuleCall_0; }
-
-		//UxListBindingEndpointDef
-		public RuleCall getUxListBindingEndpointDefParserRuleCall_1() { return cUxListBindingEndpointDefParserRuleCall_1; }
-
-		//UxSetBindingEndpointDef
-		public RuleCall getUxSetBindingEndpointDefParserRuleCall_2() { return cUxSetBindingEndpointDefParserRuleCall_2; }
+		public RuleCall getUxValueBindingEndpointDefParserRuleCall() { return cUxValueBindingEndpointDefParserRuleCall; }
 	}
 
 	public class UxValueBindingEndpointDefElements extends AbstractParserRuleElementFinder {
@@ -466,17 +528,26 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cFinalAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cFinalFinalKeyword_0_0 = (Keyword)cFinalAssignment_0.eContents().get(0);
-		private final Keyword cValueEndpointKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cEndpointKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Assignment cJvmTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_3_0 = (RuleCall)cJvmTypeAssignment_3.eContents().get(0);
 		
+		////UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
+		////	'listEndpoint' name=ID jvmType=JvmTypeReference;
+		////
+		////UxSetBindingEndpointDef returns semantic::UxSetBindingEndpointDef:
+		////	'setEndpoint' name=ID jvmType=JvmTypeReference;
 		//UxValueBindingEndpointDef returns semantic::UxValueBindingEndpointDef:
-		//	final?="final"? "valueEndpoint" name=ID jvmType=JvmTypeReference;
+		//	final?="final"? "endpoint" name=ID jvmType=JvmTypeReference;
 		public ParserRule getRule() { return rule; }
 
-		//final?="final"? "valueEndpoint" name=ID jvmType=JvmTypeReference
+		//final?="final"? "endpoint" name=ID jvmType=JvmTypeReference //UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
+		////	'listEndpoint' name=ID jvmType=JvmTypeReference;
+		////
+		////UxSetBindingEndpointDef returns semantic::UxSetBindingEndpointDef:
+		////	'setEndpoint' name=ID jvmType=JvmTypeReference;
 		public Group getGroup() { return cGroup; }
 
 		//final?="final"?
@@ -485,8 +556,8 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		//"final"
 		public Keyword getFinalFinalKeyword_0_0() { return cFinalFinalKeyword_0_0; }
 
-		//"valueEndpoint"
-		public Keyword getValueEndpointKeyword_1() { return cValueEndpointKeyword_1; }
+		//"endpoint"
+		public Keyword getEndpointKeyword_1() { return cEndpointKeyword_1; }
 
 		//name=ID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
@@ -494,75 +565,21 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
+		////UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
+		////	'listEndpoint' name=ID jvmType=JvmTypeReference;
+		////
+		////UxSetBindingEndpointDef returns semantic::UxSetBindingEndpointDef:
+		////	'setEndpoint' name=ID jvmType=JvmTypeReference;
 		//jvmType=JvmTypeReference
 		public Assignment getJvmTypeAssignment_3() { return cJvmTypeAssignment_3; }
 
+		////UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
+		////	'listEndpoint' name=ID jvmType=JvmTypeReference;
+		////
+		////UxSetBindingEndpointDef returns semantic::UxSetBindingEndpointDef:
+		////	'setEndpoint' name=ID jvmType=JvmTypeReference;
 		//JvmTypeReference
 		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_3_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_3_0; }
-	}
-
-	public class UxListBindingEndpointDefElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UxListBindingEndpointDef");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cListEndpointKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cJvmTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_2_0 = (RuleCall)cJvmTypeAssignment_2.eContents().get(0);
-		
-		//UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
-		//	"listEndpoint" name=ID jvmType=JvmTypeReference;
-		public ParserRule getRule() { return rule; }
-
-		//"listEndpoint" name=ID jvmType=JvmTypeReference
-		public Group getGroup() { return cGroup; }
-
-		//"listEndpoint"
-		public Keyword getListEndpointKeyword_0() { return cListEndpointKeyword_0; }
-
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-
-		//jvmType=JvmTypeReference
-		public Assignment getJvmTypeAssignment_2() { return cJvmTypeAssignment_2; }
-
-		//JvmTypeReference
-		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_2_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_2_0; }
-	}
-
-	public class UxSetBindingEndpointDefElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UxSetBindingEndpointDef");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSetEndpointKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cJvmTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_2_0 = (RuleCall)cJvmTypeAssignment_2.eContents().get(0);
-		
-		//UxSetBindingEndpointDef returns semantic::UxSetBindingEndpointDef:
-		//	"setEndpoint" name=ID jvmType=JvmTypeReference;
-		public ParserRule getRule() { return rule; }
-
-		//"setEndpoint" name=ID jvmType=JvmTypeReference
-		public Group getGroup() { return cGroup; }
-
-		//"setEndpoint"
-		public Keyword getSetEndpointKeyword_0() { return cSetEndpointKeyword_0; }
-
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-
-		//jvmType=JvmTypeReference
-		public Assignment getJvmTypeAssignment_2() { return cJvmTypeAssignment_2; }
-
-		//JvmTypeReference
-		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_2_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_2_0; }
 	}
 	
 	
@@ -572,12 +589,12 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	private UxElementDefinitionElements pUxElementDefinition;
 	private UxAvailableVisibilityOptionsElements pUxAvailableVisibilityOptions;
 	private UxVisibilityOptionElements pUxVisibilityOption;
+	private UxAvailableValidatorPropertiesElements pUxAvailableValidatorProperties;
+	private UxValidatorPropertyElements pUxValidatorProperty;
 	private UxElementURIElements pUxElementURI;
 	private UxAvailableBindingsElements pUxAvailableBindings;
 	private UxEndpointDefElements pUxEndpointDef;
 	private UxValueBindingEndpointDefElements pUxValueBindingEndpointDef;
-	private UxListBindingEndpointDefElements pUxListBindingEndpointDef;
-	private UxSetBindingEndpointDefElements pUxSetBindingEndpointDef;
 	
 	private final Grammar grammar;
 
@@ -652,7 +669,8 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 
 	//UxElementDefinition returns semantic::UxElementDefinition:
 	//	"element" name=ID "{" uri=UxElementURI? ("bindings" "{" bindingContainer=UxAvailableBindings "}")? ("visibility" "{"
-	//	visibilityContainer=UxAvailableVisibilityOptions "}")? "}";
+	//	visibilityContainer=UxAvailableVisibilityOptions "}")? ("validator" "{"
+	//	validatorContainer=UxAvailableValidatorProperties "}")? "}";
 	public UxElementDefinitionElements getUxElementDefinitionAccess() {
 		return (pUxElementDefinition != null) ? pUxElementDefinition : (pUxElementDefinition = new UxElementDefinitionElements());
 	}
@@ -681,6 +699,26 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		return getUxVisibilityOptionAccess().getRule();
 	}
 
+	//UxAvailableValidatorProperties returns semantic::UxAvailableValidatorProperties:
+	//	{semantic::UxAvailableValidatorProperties} properties+=UxValidatorProperty*;
+	public UxAvailableValidatorPropertiesElements getUxAvailableValidatorPropertiesAccess() {
+		return (pUxAvailableValidatorProperties != null) ? pUxAvailableValidatorProperties : (pUxAvailableValidatorProperties = new UxAvailableValidatorPropertiesElements());
+	}
+	
+	public ParserRule getUxAvailableValidatorPropertiesRule() {
+		return getUxAvailableValidatorPropertiesAccess().getRule();
+	}
+
+	//UxValidatorProperty returns semantic::UxValidatorProperty:
+	//	"property" name=ID;
+	public UxValidatorPropertyElements getUxValidatorPropertyAccess() {
+		return (pUxValidatorProperty != null) ? pUxValidatorProperty : (pUxValidatorProperty = new UxValidatorPropertyElements());
+	}
+	
+	public ParserRule getUxValidatorPropertyRule() {
+		return getUxValidatorPropertyAccess().getRule();
+	}
+
 	//UxElementURI returns semantic::UxElementURI:
 	//	"uri" ePackage=[semantic::UxEPackageImport] ":" eClass=[ecore::EClass];
 	public UxElementURIElements getUxElementURIAccess() {
@@ -702,7 +740,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	}
 
 	//UxEndpointDef returns semantic::UxEndpointDef:
-	//	UxValueBindingEndpointDef | UxListBindingEndpointDef | UxSetBindingEndpointDef;
+	//	UxValueBindingEndpointDef;
 	public UxEndpointDefElements getUxEndpointDefAccess() {
 		return (pUxEndpointDef != null) ? pUxEndpointDef : (pUxEndpointDef = new UxEndpointDefElements());
 	}
@@ -711,34 +749,19 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		return getUxEndpointDefAccess().getRule();
 	}
 
+	////UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
+	////	'listEndpoint' name=ID jvmType=JvmTypeReference;
+	////
+	////UxSetBindingEndpointDef returns semantic::UxSetBindingEndpointDef:
+	////	'setEndpoint' name=ID jvmType=JvmTypeReference;
 	//UxValueBindingEndpointDef returns semantic::UxValueBindingEndpointDef:
-	//	final?="final"? "valueEndpoint" name=ID jvmType=JvmTypeReference;
+	//	final?="final"? "endpoint" name=ID jvmType=JvmTypeReference;
 	public UxValueBindingEndpointDefElements getUxValueBindingEndpointDefAccess() {
 		return (pUxValueBindingEndpointDef != null) ? pUxValueBindingEndpointDef : (pUxValueBindingEndpointDef = new UxValueBindingEndpointDefElements());
 	}
 	
 	public ParserRule getUxValueBindingEndpointDefRule() {
 		return getUxValueBindingEndpointDefAccess().getRule();
-	}
-
-	//UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
-	//	"listEndpoint" name=ID jvmType=JvmTypeReference;
-	public UxListBindingEndpointDefElements getUxListBindingEndpointDefAccess() {
-		return (pUxListBindingEndpointDef != null) ? pUxListBindingEndpointDef : (pUxListBindingEndpointDef = new UxListBindingEndpointDefElements());
-	}
-	
-	public ParserRule getUxListBindingEndpointDefRule() {
-		return getUxListBindingEndpointDefAccess().getRule();
-	}
-
-	//UxSetBindingEndpointDef returns semantic::UxSetBindingEndpointDef:
-	//	"setEndpoint" name=ID jvmType=JvmTypeReference;
-	public UxSetBindingEndpointDefElements getUxSetBindingEndpointDefAccess() {
-		return (pUxSetBindingEndpointDef != null) ? pUxSetBindingEndpointDef : (pUxSetBindingEndpointDef = new UxSetBindingEndpointDefElements());
-	}
-	
-	public ParserRule getUxSetBindingEndpointDefRule() {
-		return getUxSetBindingEndpointDefAccess().getRule();
 	}
 
 	//XExpression:

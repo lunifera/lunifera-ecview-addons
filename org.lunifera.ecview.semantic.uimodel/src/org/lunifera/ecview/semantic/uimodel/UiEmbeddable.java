@@ -2,8 +2,6 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
-import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessable;
 
 /**
  * <!-- begin-user-doc -->
@@ -11,9 +9,9 @@ import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessable;
  * <!-- end-user-doc -->
  *
  *
- * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiEmbeddable()
+ * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiEmbeddable()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface UiEmbeddable extends YEmbeddable, UiVisibilityProcessable, UiBindable {
+public interface UiEmbeddable extends UiVisibilityProcessable, UiRawBindable {
 } // UiEmbeddable

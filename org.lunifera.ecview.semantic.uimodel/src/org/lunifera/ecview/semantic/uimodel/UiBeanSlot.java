@@ -2,7 +2,6 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
-import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 
 /**
@@ -17,11 +16,11 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * </ul>
  * </p>
  *
- * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiBeanSlot()
+ * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiBeanSlot()
  * @model
  * @generated
  */
-public interface UiBeanSlot extends YBeanSlot, UiBindable {
+public interface UiBeanSlot extends UiTypedBindable {
 	/**
 	 * Returns the value of the '<em><b>Jvm Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -32,7 +31,7 @@ public interface UiBeanSlot extends YBeanSlot, UiBindable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Jvm Type</em>' containment reference.
 	 * @see #setJvmType(JvmTypeReference)
-	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiBeanSlot_JvmType()
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiBeanSlot_JvmType()
 	 * @model containment="true"
 	 * @generated
 	 */

@@ -114,6 +114,14 @@ public class UiSemanticsAdapterFactory extends AdapterFactoryImpl {
 				return createUxVisibilityOptionAdapter();
 			}
 			@Override
+			public Adapter caseUxAvailableValidatorProperties(UxAvailableValidatorProperties object) {
+				return createUxAvailableValidatorPropertiesAdapter();
+			}
+			@Override
+			public Adapter caseUxValidatorProperty(UxValidatorProperty object) {
+				return createUxValidatorPropertyAdapter();
+			}
+			@Override
 			public Adapter caseXImportDeclaration(XImportDeclaration object) {
 				return createXImportDeclarationAdapter();
 			}
@@ -288,6 +296,34 @@ public class UiSemanticsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUxVisibilityOptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uisemantics.UxAvailableValidatorProperties <em>Ux Available Validator Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxAvailableValidatorProperties
+	 * @generated
+	 */
+	public Adapter createUxAvailableValidatorPropertiesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uisemantics.UxValidatorProperty <em>Ux Validator Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxValidatorProperty
+	 * @generated
+	 */
+	public Adapter createUxValidatorPropertyAdapter() {
 		return null;
 	}
 

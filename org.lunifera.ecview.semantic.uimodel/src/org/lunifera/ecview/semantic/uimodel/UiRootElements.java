@@ -9,9 +9,9 @@ package org.lunifera.ecview.semantic.uimodel;
  * <!-- end-user-doc -->
  *
  *
- * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiRootElements()
+ * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiRootElements()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface UiRootElements extends UiModelElement {
+public interface UiRootElements extends UiNamedElement {
 } // UiRootElements

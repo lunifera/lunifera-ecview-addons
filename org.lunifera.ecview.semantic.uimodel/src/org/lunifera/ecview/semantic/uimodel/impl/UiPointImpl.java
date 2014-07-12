@@ -3,11 +3,14 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
-import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,7 +83,7 @@ public class UiPointImpl extends MinimalEObjectImpl.Container implements UiPoint
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return UimodelPackage.Literals.UI_POINT;
+		return UiModelPackage.Literals.UI_POINT;
 	}
 
 	/**
@@ -101,7 +104,7 @@ public class UiPointImpl extends MinimalEObjectImpl.Container implements UiPoint
 		int oldX = x;
 		x = newX;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_POINT__X, oldX, x));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_POINT__X, oldX, x));
 	}
 
 	/**
@@ -122,7 +125,7 @@ public class UiPointImpl extends MinimalEObjectImpl.Container implements UiPoint
 		int oldY = y;
 		y = newY;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_POINT__Y, oldY, y));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_POINT__Y, oldY, y));
 	}
 
 	/**
@@ -133,9 +136,9 @@ public class UiPointImpl extends MinimalEObjectImpl.Container implements UiPoint
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UimodelPackage.UI_POINT__X:
+			case UiModelPackage.UI_POINT__X:
 				return getX();
-			case UimodelPackage.UI_POINT__Y:
+			case UiModelPackage.UI_POINT__Y:
 				return getY();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -149,10 +152,10 @@ public class UiPointImpl extends MinimalEObjectImpl.Container implements UiPoint
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UimodelPackage.UI_POINT__X:
+			case UiModelPackage.UI_POINT__X:
 				setX((Integer)newValue);
 				return;
-			case UimodelPackage.UI_POINT__Y:
+			case UiModelPackage.UI_POINT__Y:
 				setY((Integer)newValue);
 				return;
 		}
@@ -167,10 +170,10 @@ public class UiPointImpl extends MinimalEObjectImpl.Container implements UiPoint
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UimodelPackage.UI_POINT__X:
+			case UiModelPackage.UI_POINT__X:
 				setX(X_EDEFAULT);
 				return;
-			case UimodelPackage.UI_POINT__Y:
+			case UiModelPackage.UI_POINT__Y:
 				setY(Y_EDEFAULT);
 				return;
 		}
@@ -185,9 +188,9 @@ public class UiPointImpl extends MinimalEObjectImpl.Container implements UiPoint
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UimodelPackage.UI_POINT__X:
+			case UiModelPackage.UI_POINT__X:
 				return x != X_EDEFAULT;
-			case UimodelPackage.UI_POINT__Y:
+			case UiModelPackage.UI_POINT__Y:
 				return y != Y_EDEFAULT;
 		}
 		return super.eIsSet(featureID);

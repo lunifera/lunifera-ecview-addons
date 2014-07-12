@@ -7,7 +7,6 @@ import org.eclipse.xtext.scoping.IScopeProvider;
 import org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider;
 import org.lunifera.ecview.dsl.derivedstate.UiModelDerivedStateComputerx;
 import org.lunifera.ecview.dsl.name.UiQualifiedNameProvider;
-import org.lunifera.ecview.dsl.scope.BatchScopeProvider;
 import org.lunifera.ecview.dsl.scope.ScopeProvider;
 import org.lunifera.ecview.dsl.scope.UiImportedNamespaceAwareLocalScopeProvider;
 

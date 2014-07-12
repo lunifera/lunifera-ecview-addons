@@ -2,8 +2,6 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
-import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
-
 
 /**
  * <!-- begin-user-doc -->
@@ -11,9 +9,9 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
  * <!-- end-user-doc -->
  *
  *
- * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiValidator()
+ * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiValidator()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface UiValidator extends YValidator, UiModelElement, UiBindable {
+public interface UiValidator extends UiRawBindable {
 } // UiValidator

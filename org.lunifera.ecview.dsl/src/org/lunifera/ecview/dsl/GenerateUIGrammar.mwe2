@@ -49,37 +49,35 @@ Workflow {
 		registerEcoreFile = "platform:/resource/org.eclipse.xtext.xbase/model/Xtype.ecore"
 		registerEcoreFile = "platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore"//
 		
-/*
-		 * ECView 
-		 */
-		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage"
-		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage"
-		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage"
-		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage"
-		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage"
-		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage"
-		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage"
-		registerGenModelFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel"
-		registerGenModelFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.genmodel"//
+///*
+//		 * ECView 
+//		 */
+//		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage"
+//		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage"
+//		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage"
+//		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage"
+//		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage"
+//		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage"
+//		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage"
+//		registerGenModelFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel"
+//		registerGenModelFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.genmodel"//
 /*
 		 * UiModelPackages 
 		 */
 		registerGeneratedEPackage = "org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage"
 		registerGenModelFile =
 		"platform:/resource/org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.genmodel"
-		registerGeneratedEPackage = "org.lunifera.ecview.semantic.uimodel.UimodelPackage"
-		registerGeneratedEPackage = "org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionPackage"
+		registerGeneratedEPackage = "org.lunifera.ecview.semantic.uimodel.UiModelPackage"
 		registerGenModelFile = "platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarCore.genmodel"//
-		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/binding.ecore"
-		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore"
-		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore"
-		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore"
-		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/visibility.ecore"
-		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extdatatypes.ecore"
-		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore"
-		registerEcoreFile = "platform:/resource/org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore"
-		registerEcoreFile = "platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarCore.ecore"
-		registerEcoreFile = "platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarExtensions.ecore"
+//		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/binding.ecore"
+//		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore"
+//		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore"
+//		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore"
+//		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/visibility.ecore"
+//		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extdatatypes.ecore"
+//		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore"
+//		registerEcoreFile = "platform:/resource/org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore"
+//		registerEcoreFile = "platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarCore.ecore"
 		registerGenModelFile ="platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarCore.genmodel"
 	}
 

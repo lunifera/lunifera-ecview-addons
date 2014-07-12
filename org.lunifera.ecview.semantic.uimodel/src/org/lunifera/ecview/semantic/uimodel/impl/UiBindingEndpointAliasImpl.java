@@ -9,8 +9,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
-import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef;
-import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
+import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
+import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +19,8 @@ import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointAliasImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointAliasImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointAliasImpl#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointAliasImpl#getEndpoint <em>Endpoint</em>}</li>
  * </ul>
@@ -27,6 +29,46 @@ import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
  * @generated
  */
 public class UiBindingEndpointAliasImpl extends MinimalEObjectImpl.Container implements UiBindingEndpointAlias {
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getAlias() <em>Alias</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -55,7 +97,7 @@ public class UiBindingEndpointAliasImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 * @ordered
 	 */
-	protected UiBindingEndpointDef endpoint;
+	protected UiBindingExpression endpoint;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -73,7 +115,49 @@ public class UiBindingEndpointAliasImpl extends MinimalEObjectImpl.Container imp
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return UimodelPackage.Literals.UI_BINDING_ENDPOINT_ALIAS;
+		return UiModelPackage.Literals.UI_BINDING_ENDPOINT_ALIAS;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__NAME, oldName, name));
 	}
 
 	/**
@@ -94,7 +178,7 @@ public class UiBindingEndpointAliasImpl extends MinimalEObjectImpl.Container imp
 		String oldAlias = alias;
 		alias = newAlias;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ALIAS, oldAlias, alias));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ALIAS, oldAlias, alias));
 	}
 
 	/**
@@ -102,7 +186,7 @@ public class UiBindingEndpointAliasImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UiBindingEndpointDef getEndpoint() {
+	public UiBindingExpression getEndpoint() {
 		return endpoint;
 	}
 
@@ -111,11 +195,11 @@ public class UiBindingEndpointAliasImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEndpoint(UiBindingEndpointDef newEndpoint, NotificationChain msgs) {
-		UiBindingEndpointDef oldEndpoint = endpoint;
+	public NotificationChain basicSetEndpoint(UiBindingExpression newEndpoint, NotificationChain msgs) {
+		UiBindingExpression oldEndpoint = endpoint;
 		endpoint = newEndpoint;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT, oldEndpoint, newEndpoint);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT, oldEndpoint, newEndpoint);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -126,18 +210,18 @@ public class UiBindingEndpointAliasImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEndpoint(UiBindingEndpointDef newEndpoint) {
+	public void setEndpoint(UiBindingExpression newEndpoint) {
 		if (newEndpoint != endpoint) {
 			NotificationChain msgs = null;
 			if (endpoint != null)
-				msgs = ((InternalEObject)endpoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT, null, msgs);
+				msgs = ((InternalEObject)endpoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT, null, msgs);
 			if (newEndpoint != null)
-				msgs = ((InternalEObject)newEndpoint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT, null, msgs);
+				msgs = ((InternalEObject)newEndpoint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT, null, msgs);
 			msgs = basicSetEndpoint(newEndpoint, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT, newEndpoint, newEndpoint));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT, newEndpoint, newEndpoint));
 	}
 
 	/**
@@ -148,7 +232,7 @@ public class UiBindingEndpointAliasImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT:
+			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT:
 				return basicSetEndpoint(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -162,9 +246,13 @@ public class UiBindingEndpointAliasImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ALIAS:
+			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ID:
+				return getId();
+			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__NAME:
+				return getName();
+			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ALIAS:
 				return getAlias();
-			case UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT:
+			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT:
 				return getEndpoint();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -178,11 +266,17 @@ public class UiBindingEndpointAliasImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ALIAS:
+			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ID:
+				setId((String)newValue);
+				return;
+			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__NAME:
+				setName((String)newValue);
+				return;
+			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ALIAS:
 				setAlias((String)newValue);
 				return;
-			case UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT:
-				setEndpoint((UiBindingEndpointDef)newValue);
+			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT:
+				setEndpoint((UiBindingExpression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -196,11 +290,17 @@ public class UiBindingEndpointAliasImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ALIAS:
+			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ALIAS:
 				setAlias(ALIAS_EDEFAULT);
 				return;
-			case UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT:
-				setEndpoint((UiBindingEndpointDef)null);
+			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT:
+				setEndpoint((UiBindingExpression)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -214,9 +314,13 @@ public class UiBindingEndpointAliasImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ALIAS:
+			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ALIAS:
 				return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
-			case UimodelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT:
+			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS__ENDPOINT:
 				return endpoint != null;
 		}
 		return super.eIsSet(featureID);
@@ -232,7 +336,11 @@ public class UiBindingEndpointAliasImpl extends MinimalEObjectImpl.Container imp
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (alias: ");
+		result.append(" (id: ");
+		result.append(id);
+		result.append(", name: ");
+		result.append(name);
+		result.append(", alias: ");
 		result.append(alias);
 		result.append(')');
 		return result.toString();

@@ -14,4 +14,5 @@ package org.lunifera.ecview.semantic.uimodel.validation;
 public interface UiMaxLengthValidatorValidator {
 	boolean validate();
 
+	boolean validateMaxLength(int value);
 }

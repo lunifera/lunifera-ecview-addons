@@ -12,7 +12,7 @@ package org.lunifera.ecview.factory.mapping;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEditPartManager;
-import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
+import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.osgi.service.component.annotations.Component;
 
 /**
@@ -28,9 +28,9 @@ public class CommonEditpartManager extends
 		if (element instanceof EObject) {
 			String uriString = ((EObject) element).eClass().getEPackage()
 					.getNsURI();
-			return uriString.equals(UimodelPackage.eNS_URI);
+			return uriString.equals(UiModelPackage.eNS_URI);
 		} else if (element instanceof String) {
-			return element.equals(UimodelPackage.eNS_URI);
+			return element.equals(UiModelPackage.eNS_URI);
 		}
 		return false;
 	}

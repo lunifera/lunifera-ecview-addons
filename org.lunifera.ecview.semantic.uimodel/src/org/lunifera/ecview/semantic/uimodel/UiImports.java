@@ -2,7 +2,6 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,22 +15,22 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiImports()
+ * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiImports()
  * @model
  * @generated
  */
-public interface UiImports extends EObject {
+public interface UiImports extends UiNamedElement {
 	/**
 	 * Returns the value of the '<em><b>Imported Namespace</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Imported Namespace</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Imported Namespace</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Imported Namespace</em>' attribute.
 	 * @see #setImportedNamespace(String)
-	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiImports_ImportedNamespace()
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiImports_ImportedNamespace()
 	 * @model required="true"
 	 * @generated
 	 */

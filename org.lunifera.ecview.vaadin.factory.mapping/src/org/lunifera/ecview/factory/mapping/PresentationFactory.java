@@ -13,7 +13,7 @@ package org.lunifera.ecview.factory.mapping;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.presentation.IPresentationFactory;
-import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
+import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionPackage;
 import org.lunifera.runtime.web.ecview.presentation.vaadin.internal.PresenterFactory;
 import org.osgi.service.component.annotations.Component;
@@ -33,7 +33,7 @@ public class PresentationFactory extends PresenterFactory {
 	public boolean isFor(IViewContext uiContext, IElementEditpart editpart) {
 		String presentationURI = uiContext.getPresentationURI();
 		return presentationURI != null
-				&& (presentationURI.equals(UimodelPackage.eNS_URI) || presentationURI
+				&& (presentationURI.equals(UiModelPackage.eNS_URI) || presentationURI
 						.equals(UiextensionPackage.eNS_URI));
 	}
 }

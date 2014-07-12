@@ -14,4 +14,5 @@ package org.lunifera.ecview.semantic.uimodel.validation;
 public interface UiMinLengthValidatorValidator {
 	boolean validate();
 
+	boolean validateMinLength(int value);
 }

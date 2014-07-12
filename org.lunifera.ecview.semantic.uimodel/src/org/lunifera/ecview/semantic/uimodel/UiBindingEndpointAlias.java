@@ -16,11 +16,11 @@ package org.lunifera.ecview.semantic.uimodel;
  * </ul>
  * </p>
  *
- * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiBindingEndpointAlias()
+ * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiBindingEndpointAlias()
  * @model
  * @generated
  */
-public interface UiBindingEndpointAlias extends UiModelElement {
+public interface UiBindingEndpointAlias extends UiTypedBindable {
 	/**
 	 * Returns the value of the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -31,7 +31,7 @@ public interface UiBindingEndpointAlias extends UiModelElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Alias</em>' attribute.
 	 * @see #setAlias(String)
-	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiBindingEndpointAlias_Alias()
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiBindingEndpointAlias_Alias()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -56,12 +56,12 @@ public interface UiBindingEndpointAlias extends UiModelElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Endpoint</em>' containment reference.
-	 * @see #setEndpoint(UiBindingEndpointDef)
-	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiBindingEndpointAlias_Endpoint()
+	 * @see #setEndpoint(UiBindingExpression)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiBindingEndpointAlias_Endpoint()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	UiBindingEndpointDef getEndpoint();
+	UiBindingExpression getEndpoint();
 
 	/**
 	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias#getEndpoint <em>Endpoint</em>}' containment reference.
@@ -71,6 +71,6 @@ public interface UiBindingEndpointAlias extends UiModelElement {
 	 * @see #getEndpoint()
 	 * @generated
 	 */
-	void setEndpoint(UiBindingEndpointDef value);
+	void setEndpoint(UiBindingExpression value);
 
 } // UiBindingEndpointAlias

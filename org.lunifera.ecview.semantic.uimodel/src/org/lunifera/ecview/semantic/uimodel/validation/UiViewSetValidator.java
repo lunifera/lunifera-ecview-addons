@@ -4,9 +4,6 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
-import org.eclipse.emf.common.util.EList;
-
-import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiViewSet}.
@@ -17,5 +14,4 @@ import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 public interface UiViewSetValidator {
 	boolean validate();
 
-	boolean validateBindingEndpointAlias(EList<UiBindingEndpointAlias> value);
 }

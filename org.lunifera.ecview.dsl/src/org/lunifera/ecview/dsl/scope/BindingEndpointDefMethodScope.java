@@ -4,23 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.xtext.resource.EObjectDescription;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractScope;
-import org.lunifera.ecview.semantic.uimodel.UiBindable;
-import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef;
+import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 
 public class BindingEndpointDefMethodScope extends AbstractScope {
 
-	private UiBindingEndpointDef bindingEndpointDef;
+	private UiTypedBindableDef bindingEndpointDef;
 	private IScope parent;
 
 	protected BindingEndpointDefMethodScope(IScope parent,
-			UiBindingEndpointDef context) {
+			UiTypedBindableDef context) {
 		super(IScope.NULLSCOPE, true);
 		this.parent = parent;
 		bindingEndpointDef = context;
@@ -28,14 +27,13 @@ public class BindingEndpointDefMethodScope extends AbstractScope {
 
 	@Override
 	protected Iterable<IEObjectDescription> getAllLocalElements() {
-		UiBindable yEmb = bindingEndpointDef.getBindable();
+		UiRawBindable yEmb = bindingEndpointDef.getRawBindable();
 
 		List<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 		for (IEObjectDescription des : parent.getAllElements()) {
-			UxEndpointDef binding = (UxEndpointDef) des
-					.getEObjectOrProxy();
-			binding = (UxEndpointDef) EcoreUtil
-					.resolve(binding, bindingEndpointDef);
+			UxEndpointDef binding = (UxEndpointDef) des.getEObjectOrProxy();
+			binding = (UxEndpointDef) EcoreUtil.resolve(binding,
+					bindingEndpointDef);
 			UxElementDefinition elementDef = (UxElementDefinition) binding
 					.eContainer().eContainer();
 

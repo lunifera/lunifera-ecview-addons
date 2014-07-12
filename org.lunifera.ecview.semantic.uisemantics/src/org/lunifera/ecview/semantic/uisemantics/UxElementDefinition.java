@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxElementDefinition#getUri <em>Uri</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxElementDefinition#getBindingContainer <em>Binding Container</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxElementDefinition#getVisibilityContainer <em>Visibility Container</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxElementDefinition#getValidatorContainer <em>Validator Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -127,5 +128,31 @@ public interface UxElementDefinition extends EObject {
 	 * @generated
 	 */
 	void setVisibilityContainer(UxAvailableVisibilityOptions value);
+
+	/**
+	 * Returns the value of the '<em><b>Validator Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Validator Container</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Validator Container</em>' containment reference.
+	 * @see #setValidatorContainer(UxAvailableValidatorProperties)
+	 * @see org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage#getUxElementDefinition_ValidatorContainer()
+	 * @model containment="true"
+	 * @generated
+	 */
+	UxAvailableValidatorProperties getValidatorContainer();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uisemantics.UxElementDefinition#getValidatorContainer <em>Validator Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Validator Container</em>' containment reference.
+	 * @see #getValidatorContainer()
+	 * @generated
+	 */
+	void setValidatorContainer(UxAvailableValidatorProperties value);
 
 } // UxElementDefinition

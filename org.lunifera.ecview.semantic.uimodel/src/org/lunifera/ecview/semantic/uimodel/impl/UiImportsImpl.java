@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.lunifera.ecview.semantic.uimodel.UiImports;
-import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
+import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +19,8 @@ import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiImportsImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiImportsImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiImportsImpl#getImportedNamespace <em>Imported Namespace</em>}</li>
  * </ul>
  * </p>
@@ -26,6 +28,46 @@ import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
  * @generated
  */
 public class UiImportsImpl extends MinimalEObjectImpl.Container implements UiImports {
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getImportedNamespace() <em>Imported Namespace</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -62,7 +104,49 @@ public class UiImportsImpl extends MinimalEObjectImpl.Container implements UiImp
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return UimodelPackage.Literals.UI_IMPORTS;
+		return UiModelPackage.Literals.UI_IMPORTS;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_IMPORTS__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_IMPORTS__NAME, oldName, name));
 	}
 
 	/**
@@ -83,7 +167,7 @@ public class UiImportsImpl extends MinimalEObjectImpl.Container implements UiImp
 		String oldImportedNamespace = importedNamespace;
 		importedNamespace = newImportedNamespace;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_IMPORTS__IMPORTED_NAMESPACE, oldImportedNamespace, importedNamespace));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_IMPORTS__IMPORTED_NAMESPACE, oldImportedNamespace, importedNamespace));
 	}
 
 	/**
@@ -94,7 +178,11 @@ public class UiImportsImpl extends MinimalEObjectImpl.Container implements UiImp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UimodelPackage.UI_IMPORTS__IMPORTED_NAMESPACE:
+			case UiModelPackage.UI_IMPORTS__ID:
+				return getId();
+			case UiModelPackage.UI_IMPORTS__NAME:
+				return getName();
+			case UiModelPackage.UI_IMPORTS__IMPORTED_NAMESPACE:
 				return getImportedNamespace();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -108,7 +196,13 @@ public class UiImportsImpl extends MinimalEObjectImpl.Container implements UiImp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UimodelPackage.UI_IMPORTS__IMPORTED_NAMESPACE:
+			case UiModelPackage.UI_IMPORTS__ID:
+				setId((String)newValue);
+				return;
+			case UiModelPackage.UI_IMPORTS__NAME:
+				setName((String)newValue);
+				return;
+			case UiModelPackage.UI_IMPORTS__IMPORTED_NAMESPACE:
 				setImportedNamespace((String)newValue);
 				return;
 		}
@@ -123,7 +217,13 @@ public class UiImportsImpl extends MinimalEObjectImpl.Container implements UiImp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UimodelPackage.UI_IMPORTS__IMPORTED_NAMESPACE:
+			case UiModelPackage.UI_IMPORTS__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case UiModelPackage.UI_IMPORTS__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case UiModelPackage.UI_IMPORTS__IMPORTED_NAMESPACE:
 				setImportedNamespace(IMPORTED_NAMESPACE_EDEFAULT);
 				return;
 		}
@@ -138,7 +238,11 @@ public class UiImportsImpl extends MinimalEObjectImpl.Container implements UiImp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UimodelPackage.UI_IMPORTS__IMPORTED_NAMESPACE:
+			case UiModelPackage.UI_IMPORTS__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case UiModelPackage.UI_IMPORTS__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiModelPackage.UI_IMPORTS__IMPORTED_NAMESPACE:
 				return IMPORTED_NAMESPACE_EDEFAULT == null ? importedNamespace != null : !IMPORTED_NAMESPACE_EDEFAULT.equals(importedNamespace);
 		}
 		return super.eIsSet(featureID);
@@ -154,7 +258,11 @@ public class UiImportsImpl extends MinimalEObjectImpl.Container implements UiImp
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (importedNamespace: ");
+		result.append(" (id: ");
+		result.append(id);
+		result.append(", name: ");
+		result.append(name);
+		result.append(", importedNamespace: ");
 		result.append(importedNamespace);
 		result.append(')');
 		return result.toString();

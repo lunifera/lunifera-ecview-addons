@@ -9,7 +9,7 @@ package org.lunifera.ecview.semantic.uimodel;
  * <!-- end-user-doc -->
  *
  *
- * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiLayout()
+ * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiLayout()
  * @model interface="true" abstract="true"
  * @generated
  */

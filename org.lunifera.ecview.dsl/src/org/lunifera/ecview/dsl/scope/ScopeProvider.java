@@ -7,11 +7,11 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.common.types.util.TypeReferences;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider;
-import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
-import org.lunifera.ecview.semantic.uimodel.UiBindable;
-import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointDef;
+import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
-import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
+import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
 import org.lunifera.ecview.semantic.uimodel.impl.UiPathSegmentImpl;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 
@@ -23,20 +23,23 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 	@Inject
 	private TypeReferences types;
 
+	@Inject
+	private BindableTypeProvider typeProvider;
+
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
-		if (reference == UimodelPackage.Literals.UI_BINDING_ENDPOINT_DEF__SEMANTIC_ENDPOINT) {
+		if (reference == UiModelPackage.Literals.UI_TYPED_BINDABLE_DEF__METHOD) {
 			return new BindingEndpointDefMethodScope(super.getScope(context,
-					reference), (UiBindingEndpointDef) context);
+					reference), (UiTypedBindableDef) context);
 			// } else if (reference ==
-			// UimodelPackage.Literals.UI_BINDING__SOURCE_ALIAS
-			// || reference == UimodelPackage.Literals.UI_BINDING__TARGET_ALIAS)
+			// UiModelPackage.Literals.UI_BINDING__SOURCE_ALIAS
+			// || reference == UiModelPackage.Literals.UI_BINDING__TARGET_ALIAS)
 			// {
 			// return new BindingAliasScope(super.getScope(context, reference),
 			// (UiBinding) context, reference);
-		} else if (reference == UimodelPackage.Literals.UI_BINDING_ENDPOINT_DEF__PATH) {
+		} else if (reference == UiModelPackage.Literals.UI_BINDING_ENDPOINT_ASSIGNMENT__PATH) {
 			return createBindingEndpointDefPathScope(context);
-		} else if (reference == UimodelPackage.Literals.UI_PATH_SEGMENT__JVM_FIELD) {
+		} else if (reference == UiModelPackage.Literals.UI_PATH_SEGMENT__JVM_FIELD) {
 			return createPathSegmentJvmFieldScope(context);
 		}
 		return super.getScope(context, reference);
@@ -51,26 +54,14 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 	 */
 	private IScope createPathSegmentJvmFieldScope(EObject context) {
 		UiPathSegmentImpl segment = (UiPathSegmentImpl) context;
-		if (segment.eContainer() instanceof UiBindingEndpointDef) {
-			UiBindingEndpointDef parent = (UiBindingEndpointDef) segment
+		if (segment.eContainer() instanceof UiBindingEndpointAssignment) {
+			UiBindingEndpointAssignment parent = (UiBindingEndpointAssignment) segment
 					.eContainer();
-			UxEndpointDef uxEndpointDef = (UxEndpointDef) parent.getSemanticEndpoint();
-			UiBindable bindable = parent.getBindable();
+			JvmTypeReference expectedType = typeProvider
+					.getTypeReference(parent);
 
-			JvmTypeReference expectedType = uxEndpointDef.getJvmType();
 			if (expectedType == null) {
 				return IScope.NULLSCOPE;
-			} else if (expectedType.getQualifiedName().equals(
-					Void.class.getName())) {
-				if (bindable instanceof UiBeanSlot) {
-					UiBeanSlot slot = (UiBeanSlot) bindable;
-					if(slot.getName() == null || slot.getJvmType() == null){
-						return IScope.NULLSCOPE;
-					}
-					return new BindingPathScope(types.findDeclaredType(slot
-							.getJvmType().getQualifiedName(), context));
-				}
-				throw new IllegalStateException("Not a valid input! " + context);
 			} else {
 				return new BindingPathScope(expectedType.getType());
 			}
@@ -91,9 +82,12 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 	 * @return
 	 */
 	private IScope createBindingEndpointDefPathScope(EObject context) {
-		UiBindingEndpointDef parent = (UiBindingEndpointDef) context;
-		UxEndpointDef uxEndpointDef = (UxEndpointDef) parent.getSemanticEndpoint();
-		UiBindable bindable = parent.getBindable();
+		UiBindingEndpointAssignment parent = (UiBindingEndpointAssignment) context;
+		UiTypedBindableDef typedBindableDef = (UiTypedBindableDef) parent
+				.getTypedBindableDef();
+		UxEndpointDef uxEndpointDef = (UxEndpointDef) typedBindableDef
+				.getMethod();
+		UiRawBindable bindable = typedBindableDef.getRawBindable();
 
 		JvmTypeReference expectedType = uxEndpointDef.getJvmType();
 		if (expectedType.getQualifiedName().equals(Void.class.getName())) {

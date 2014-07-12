@@ -4,7 +4,6 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiImports}.
@@ -16,6 +15,4 @@ public interface UiImportsValidator {
 	boolean validate();
 
 	boolean validateImportedNamespace(String value);
-
-	boolean validateImportedNamespace(EList<String> value);
 }

@@ -4,13 +4,17 @@ package org.lunifera.ecview.semantic.uimodel.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.xtext.common.types.JvmTypeReference;
+
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
-import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
+import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,13 +23,51 @@ import org.lunifera.ecview.semantic.uimodel.UimodelPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanSlotImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanSlotImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanSlotImpl#getJvmType <em>Jvm Type</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class UiBeanSlotImpl extends YBeanSlotImpl implements UiBeanSlot {
+public class UiBeanSlotImpl extends MinimalEObjectImpl.Container implements UiBeanSlot {
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getJvmType() <em>Jvm Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -52,7 +94,49 @@ public class UiBeanSlotImpl extends YBeanSlotImpl implements UiBeanSlot {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return UimodelPackage.Literals.UI_BEAN_SLOT;
+		return UiModelPackage.Literals.UI_BEAN_SLOT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BEAN_SLOT__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BEAN_SLOT__NAME, oldName, name));
 	}
 
 	/**
@@ -73,7 +157,7 @@ public class UiBeanSlotImpl extends YBeanSlotImpl implements UiBeanSlot {
 		JvmTypeReference oldJvmType = jvmType;
 		jvmType = newJvmType;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_BEAN_SLOT__JVM_TYPE, oldJvmType, newJvmType);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BEAN_SLOT__JVM_TYPE, oldJvmType, newJvmType);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -88,14 +172,14 @@ public class UiBeanSlotImpl extends YBeanSlotImpl implements UiBeanSlot {
 		if (newJvmType != jvmType) {
 			NotificationChain msgs = null;
 			if (jvmType != null)
-				msgs = ((InternalEObject)jvmType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BEAN_SLOT__JVM_TYPE, null, msgs);
+				msgs = ((InternalEObject)jvmType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BEAN_SLOT__JVM_TYPE, null, msgs);
 			if (newJvmType != null)
-				msgs = ((InternalEObject)newJvmType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UimodelPackage.UI_BEAN_SLOT__JVM_TYPE, null, msgs);
+				msgs = ((InternalEObject)newJvmType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BEAN_SLOT__JVM_TYPE, null, msgs);
 			msgs = basicSetJvmType(newJvmType, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelPackage.UI_BEAN_SLOT__JVM_TYPE, newJvmType, newJvmType));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BEAN_SLOT__JVM_TYPE, newJvmType, newJvmType));
 	}
 
 	/**
@@ -106,7 +190,7 @@ public class UiBeanSlotImpl extends YBeanSlotImpl implements UiBeanSlot {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case UimodelPackage.UI_BEAN_SLOT__JVM_TYPE:
+			case UiModelPackage.UI_BEAN_SLOT__JVM_TYPE:
 				return basicSetJvmType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -120,7 +204,11 @@ public class UiBeanSlotImpl extends YBeanSlotImpl implements UiBeanSlot {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UimodelPackage.UI_BEAN_SLOT__JVM_TYPE:
+			case UiModelPackage.UI_BEAN_SLOT__ID:
+				return getId();
+			case UiModelPackage.UI_BEAN_SLOT__NAME:
+				return getName();
+			case UiModelPackage.UI_BEAN_SLOT__JVM_TYPE:
 				return getJvmType();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -134,7 +222,13 @@ public class UiBeanSlotImpl extends YBeanSlotImpl implements UiBeanSlot {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UimodelPackage.UI_BEAN_SLOT__JVM_TYPE:
+			case UiModelPackage.UI_BEAN_SLOT__ID:
+				setId((String)newValue);
+				return;
+			case UiModelPackage.UI_BEAN_SLOT__NAME:
+				setName((String)newValue);
+				return;
+			case UiModelPackage.UI_BEAN_SLOT__JVM_TYPE:
 				setJvmType((JvmTypeReference)newValue);
 				return;
 		}
@@ -149,7 +243,13 @@ public class UiBeanSlotImpl extends YBeanSlotImpl implements UiBeanSlot {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UimodelPackage.UI_BEAN_SLOT__JVM_TYPE:
+			case UiModelPackage.UI_BEAN_SLOT__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case UiModelPackage.UI_BEAN_SLOT__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case UiModelPackage.UI_BEAN_SLOT__JVM_TYPE:
 				setJvmType((JvmTypeReference)null);
 				return;
 		}
@@ -164,10 +264,32 @@ public class UiBeanSlotImpl extends YBeanSlotImpl implements UiBeanSlot {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UimodelPackage.UI_BEAN_SLOT__JVM_TYPE:
+			case UiModelPackage.UI_BEAN_SLOT__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case UiModelPackage.UI_BEAN_SLOT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiModelPackage.UI_BEAN_SLOT__JVM_TYPE:
 				return jvmType != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (id: ");
+		result.append(id);
+		result.append(", name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //UiBeanSlotImpl

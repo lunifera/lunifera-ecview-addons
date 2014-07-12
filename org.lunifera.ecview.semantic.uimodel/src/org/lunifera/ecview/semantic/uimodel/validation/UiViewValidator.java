@@ -4,6 +4,10 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
+import org.eclipse.emf.common.util.EList;
+import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiValidatorAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiViewSet;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiView}.
@@ -14,4 +18,8 @@ package org.lunifera.ecview.semantic.uimodel.validation;
 public interface UiViewValidator {
 	boolean validate();
 
+	boolean validateViewSet(UiViewSet value);
+	boolean validateContent(UiEmbeddable value);
+
+	boolean validateValidatorAssignments(EList<UiValidatorAssignment> value);
 }

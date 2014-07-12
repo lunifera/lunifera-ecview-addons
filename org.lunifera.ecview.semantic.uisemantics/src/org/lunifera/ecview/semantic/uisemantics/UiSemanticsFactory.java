@@ -121,6 +121,24 @@ public interface UiSemanticsFactory extends EFactory {
 	UxVisibilityOption createUxVisibilityOption();
 
 	/**
+	 * Returns a new object of class '<em>Ux Available Validator Properties</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ux Available Validator Properties</em>'.
+	 * @generated
+	 */
+	UxAvailableValidatorProperties createUxAvailableValidatorProperties();
+
+	/**
+	 * Returns a new object of class '<em>Ux Validator Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ux Validator Property</em>'.
+	 * @generated
+	 */
+	UxValidatorProperty createUxValidatorProperty();
+
+	/**
 	 * Returns a new object of class '<em>Ux Import Section Declaration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -6,7 +6,6 @@ package org.lunifera.ecview.semantic.uimodel.validation;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.xtext.xtype.XImportSection;
 import org.lunifera.ecview.semantic.uimodel.UiImports;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
 
@@ -20,12 +19,6 @@ public interface UiModelValidator {
 	boolean validate();
 
 	boolean validatePackageName(String value);
-
 	boolean validateRoots(EList<UiRootElements> value);
-
 	boolean validateImports(EList<UiImports> value);
-
-	boolean validateImports(UiImports value);
-
-	boolean validateImportSection(XImportSection value);
 }

@@ -18,11 +18,11 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiModel()
+ * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiModel()
  * @model
  * @generated
  */
-public interface UiModel extends UiModelElement {
+public interface UiModel extends UiNamedElement {
 	/**
 	 * Returns the value of the '<em><b>Package Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -33,7 +33,7 @@ public interface UiModel extends UiModelElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Package Name</em>' attribute.
 	 * @see #setPackageName(String)
-	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiModel_PackageName()
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiModel_PackageName()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -59,7 +59,7 @@ public interface UiModel extends UiModelElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Roots</em>' containment reference list.
-	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiModel_Roots()
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiModel_Roots()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -70,12 +70,12 @@ public interface UiModel extends UiModelElement {
 	 * The list contents are of type {@link org.lunifera.ecview.semantic.uimodel.UiImports}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Imports</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Imports</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Imports</em>' containment reference list.
-	 * @see org.lunifera.ecview.semantic.uimodel.UimodelPackage#getUiModel_Imports()
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiModel_Imports()
 	 * @model containment="true"
 	 * @generated
 	 */

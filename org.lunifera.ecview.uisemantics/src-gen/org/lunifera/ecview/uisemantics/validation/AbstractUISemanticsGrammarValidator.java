@@ -12,7 +12,7 @@ public class AbstractUISemanticsGrammarValidator extends org.eclipse.xtext.xbase
 	@Override
 	protected List<EPackage> getEPackages() {
 	    List<EPackage> result = new ArrayList<EPackage>();
-	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.lunifera.org/ecview/uisemantics/uisemantics"));
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.lunifera.org/ecview/dsl/uimodel/semantics"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/xtext/xbase/Xbase"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/xtext/common/JavaVMTypes"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/xtext/xbase/Xtype"));

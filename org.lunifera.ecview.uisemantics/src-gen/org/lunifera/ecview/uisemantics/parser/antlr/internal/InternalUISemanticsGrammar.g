@@ -466,9 +466,39 @@ ruleUxElementDefinition returns [EObject current=null]
     {
     	newLeafNode(otherlv_11, grammarAccess.getUxElementDefinitionAccess().getRightCurlyBracketKeyword_5_3());
     }
-)?	otherlv_12='}' 
+)?(	otherlv_12='validator' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getUxElementDefinitionAccess().getRightCurlyBracketKeyword_6());
+    	newLeafNode(otherlv_12, grammarAccess.getUxElementDefinitionAccess().getValidatorKeyword_6_0());
+    }
+	otherlv_13='{' 
+    {
+    	newLeafNode(otherlv_13, grammarAccess.getUxElementDefinitionAccess().getLeftCurlyBracketKeyword_6_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUxElementDefinitionAccess().getValidatorContainerUxAvailableValidatorPropertiesParserRuleCall_6_2_0()); 
+	    }
+		lv_validatorContainer_14_0=ruleUxAvailableValidatorProperties		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUxElementDefinitionRule());
+	        }
+       		set(
+       			$current, 
+       			"validatorContainer",
+        		lv_validatorContainer_14_0, 
+        		"UxAvailableValidatorProperties");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_15='}' 
+    {
+    	newLeafNode(otherlv_15, grammarAccess.getUxElementDefinitionAccess().getRightCurlyBracketKeyword_6_3());
+    }
+)?	otherlv_16='}' 
+    {
+    	newLeafNode(otherlv_16, grammarAccess.getUxElementDefinitionAccess().getRightCurlyBracketKeyword_7());
     }
 )
 ;
@@ -573,6 +603,94 @@ ruleUxVisibilityOption returns [EObject current=null]
         		lv_jvmType_2_0, 
         		"JvmTypeReference");
 	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleUxAvailableValidatorProperties
+entryRuleUxAvailableValidatorProperties returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUxAvailableValidatorPropertiesRule()); }
+	 iv_ruleUxAvailableValidatorProperties=ruleUxAvailableValidatorProperties 
+	 { $current=$iv_ruleUxAvailableValidatorProperties.current; } 
+	 EOF 
+;
+
+// Rule UxAvailableValidatorProperties
+ruleUxAvailableValidatorProperties returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUxAvailableValidatorPropertiesAccess().getUxAvailableValidatorPropertiesAction_0(),
+            $current);
+    }
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUxAvailableValidatorPropertiesAccess().getPropertiesUxValidatorPropertyParserRuleCall_1_0()); 
+	    }
+		lv_properties_1_0=ruleUxValidatorProperty		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUxAvailableValidatorPropertiesRule());
+	        }
+       		add(
+       			$current, 
+       			"properties",
+        		lv_properties_1_0, 
+        		"UxValidatorProperty");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*)
+;
+
+
+
+
+
+// Entry rule entryRuleUxValidatorProperty
+entryRuleUxValidatorProperty returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUxValidatorPropertyRule()); }
+	 iv_ruleUxValidatorProperty=ruleUxValidatorProperty 
+	 { $current=$iv_ruleUxValidatorProperty.current; } 
+	 EOF 
+;
+
+// Rule UxValidatorProperty
+ruleUxValidatorProperty returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='property' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getUxValidatorPropertyAccess().getPropertyKeyword_0());
+    }
+(
+(
+		lv_name_1_0=RULE_ID
+		{
+			newLeafNode(lv_name_1_0, grammarAccess.getUxValidatorPropertyAccess().getNameIDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUxValidatorPropertyRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"ID");
 	    }
 
 )
@@ -697,9 +815,9 @@ ruleUxEndpointDef returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(
+
     { 
-        newCompositeNode(grammarAccess.getUxEndpointDefAccess().getUxValueBindingEndpointDefParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getUxEndpointDefAccess().getUxValueBindingEndpointDefParserRuleCall()); 
     }
     this_UxValueBindingEndpointDef_0=ruleUxValueBindingEndpointDef
     { 
@@ -707,26 +825,6 @@ ruleUxEndpointDef returns [EObject current=null]
         afterParserOrEnumRuleCall();
     }
 
-    |
-    { 
-        newCompositeNode(grammarAccess.getUxEndpointDefAccess().getUxListBindingEndpointDefParserRuleCall_1()); 
-    }
-    this_UxListBindingEndpointDef_1=ruleUxListBindingEndpointDef
-    { 
-        $current = $this_UxListBindingEndpointDef_1.current; 
-        afterParserOrEnumRuleCall();
-    }
-
-    |
-    { 
-        newCompositeNode(grammarAccess.getUxEndpointDefAccess().getUxSetBindingEndpointDefParserRuleCall_2()); 
-    }
-    this_UxSetBindingEndpointDef_2=ruleUxSetBindingEndpointDef
-    { 
-        $current = $this_UxSetBindingEndpointDef_2.current; 
-        afterParserOrEnumRuleCall();
-    }
-)
 ;
 
 
@@ -762,9 +860,9 @@ ruleUxValueBindingEndpointDef returns [EObject current=null]
 	    }
 
 )
-)?	otherlv_1='valueEndpoint' 
+)?	otherlv_1='endpoint' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getUxValueBindingEndpointDefAccess().getValueEndpointKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getUxValueBindingEndpointDefAccess().getEndpointKeyword_1());
     }
 (
 (
@@ -797,128 +895,6 @@ ruleUxValueBindingEndpointDef returns [EObject current=null]
        			$current, 
        			"jvmType",
         		lv_jvmType_3_0, 
-        		"JvmTypeReference");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))
-;
-
-
-
-
-
-// Entry rule entryRuleUxListBindingEndpointDef
-entryRuleUxListBindingEndpointDef returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getUxListBindingEndpointDefRule()); }
-	 iv_ruleUxListBindingEndpointDef=ruleUxListBindingEndpointDef 
-	 { $current=$iv_ruleUxListBindingEndpointDef.current; } 
-	 EOF 
-;
-
-// Rule UxListBindingEndpointDef
-ruleUxListBindingEndpointDef returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-(	otherlv_0='listEndpoint' 
-    {
-    	newLeafNode(otherlv_0, grammarAccess.getUxListBindingEndpointDefAccess().getListEndpointKeyword_0());
-    }
-(
-(
-		lv_name_1_0=RULE_ID
-		{
-			newLeafNode(lv_name_1_0, grammarAccess.getUxListBindingEndpointDefAccess().getNameIDTerminalRuleCall_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getUxListBindingEndpointDefRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"name",
-        		lv_name_1_0, 
-        		"ID");
-	    }
-
-)
-)(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getUxListBindingEndpointDefAccess().getJvmTypeJvmTypeReferenceParserRuleCall_2_0()); 
-	    }
-		lv_jvmType_2_0=ruleJvmTypeReference		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getUxListBindingEndpointDefRule());
-	        }
-       		set(
-       			$current, 
-       			"jvmType",
-        		lv_jvmType_2_0, 
-        		"JvmTypeReference");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))
-;
-
-
-
-
-
-// Entry rule entryRuleUxSetBindingEndpointDef
-entryRuleUxSetBindingEndpointDef returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getUxSetBindingEndpointDefRule()); }
-	 iv_ruleUxSetBindingEndpointDef=ruleUxSetBindingEndpointDef 
-	 { $current=$iv_ruleUxSetBindingEndpointDef.current; } 
-	 EOF 
-;
-
-// Rule UxSetBindingEndpointDef
-ruleUxSetBindingEndpointDef returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-(	otherlv_0='setEndpoint' 
-    {
-    	newLeafNode(otherlv_0, grammarAccess.getUxSetBindingEndpointDefAccess().getSetEndpointKeyword_0());
-    }
-(
-(
-		lv_name_1_0=RULE_ID
-		{
-			newLeafNode(lv_name_1_0, grammarAccess.getUxSetBindingEndpointDefAccess().getNameIDTerminalRuleCall_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getUxSetBindingEndpointDefRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"name",
-        		lv_name_1_0, 
-        		"ID");
-	    }
-
-)
-)(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getUxSetBindingEndpointDefAccess().getJvmTypeJvmTypeReferenceParserRuleCall_2_0()); 
-	    }
-		lv_jvmType_2_0=ruleJvmTypeReference		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getUxSetBindingEndpointDefRule());
-	        }
-       		set(
-       			$current, 
-       			"jvmType",
-        		lv_jvmType_2_0, 
         		"JvmTypeReference");
 	        afterParserOrEnumRuleCall();
 	    }

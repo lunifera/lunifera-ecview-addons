@@ -3,16 +3,8 @@
  */
 package org.lunifera.ecview.dsl;
 
-import org.eclipse.xtext.scoping.IScopeProvider;
-import org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider;
 import org.lunifera.dsl.xtext.types.bundles.BundleSpaceTypeProviderFactory;
 import org.lunifera.dsl.xtext.types.bundles.BundleSpaceTypeScopeProvider;
-import org.lunifera.ecview.dsl.scope.BatchScopeProvider;
-import org.lunifera.ecview.dsl.scope.ScopeProvider;
-import org.lunifera.ecview.dsl.scope.UiImportedNamespaceAwareLocalScopeProvider;
-
-import com.google.inject.Binder;
-import com.google.inject.name.Names;
 
 /**
  * Use this class to register components to be used at runtime / without the

@@ -141,6 +141,18 @@ public class UiSemanticsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiSemanticsPackage.UX_AVAILABLE_VALIDATOR_PROPERTIES: {
+				UxAvailableValidatorProperties uxAvailableValidatorProperties = (UxAvailableValidatorProperties)theEObject;
+				T result = caseUxAvailableValidatorProperties(uxAvailableValidatorProperties);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiSemanticsPackage.UX_VALIDATOR_PROPERTY: {
+				UxValidatorProperty uxValidatorProperty = (UxValidatorProperty)theEObject;
+				T result = caseUxValidatorProperty(uxValidatorProperty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -307,6 +319,36 @@ public class UiSemanticsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUxVisibilityOption(UxVisibilityOption object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ux Available Validator Properties</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ux Available Validator Properties</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUxAvailableValidatorProperties(UxAvailableValidatorProperties object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ux Validator Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ux Validator Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUxValidatorProperty(UxValidatorProperty object) {
 		return null;
 	}
 

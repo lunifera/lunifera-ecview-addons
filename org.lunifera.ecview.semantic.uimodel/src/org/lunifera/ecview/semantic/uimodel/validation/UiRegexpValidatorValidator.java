@@ -14,4 +14,5 @@ package org.lunifera.ecview.semantic.uimodel.validation;
 public interface UiRegexpValidatorValidator {
 	boolean validate();
 
+	boolean validateRegExpression(String value);
 }

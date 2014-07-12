@@ -9,8 +9,9 @@ import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiValidator;
-import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProcessor;
-import org.lunifera.ecview.semantic.uimodel.uiextension.UiVisibilityProperties;
+import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperties;
 
 import com.google.inject.Inject;
 
@@ -38,17 +39,32 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 						getPackage(uiBindingEndpoint),
 						uiBindingEndpoint.getAlias()));
 			}
+		} else if (obj instanceof UiValidatorAlias) {
+			UiValidatorAlias validatorAlias = (UiValidatorAlias) obj;
+			if (validatorAlias.getAlias() == null) {
+				return QualifiedName.create("under construction");
+			} else {
+				return converter.toQualifiedName(String.format("%s.%s",
+						getPackage(validatorAlias), validatorAlias.getAlias()));
+			}
+		} else if (obj instanceof UiValidator) {
+			UiValidator validatorAlias = (UiValidator) obj;
+			if (validatorAlias.getName() == null) {
+				return QualifiedName.create("under construction");
+			} else {
+				return converter.toQualifiedName(String.format("%s.%s",
+						getPackage(validatorAlias), validatorAlias.getName()));
+			}
 		} else if (obj instanceof UiBeanSlot) {
 			UiBeanSlot uiBeanSlot = (UiBeanSlot) obj;
 			if (uiBeanSlot.getName() == null) {
 				return QualifiedName.create("under construction");
 			} else {
 				return converter.toQualifiedName(String.format("%s.%s",
-						getPackage(uiBeanSlot),
-						uiBeanSlot.getName()));
+						getPackage(uiBeanSlot), uiBeanSlot.getName()));
 			}
-		} else if (obj instanceof UiValidator) {
-			UiValidator uiValidator = (UiValidator) obj;
+		} else if (obj instanceof UiValidatorAlias) {
+			UiValidatorAlias uiValidator = (UiValidatorAlias) obj;
 			if (uiValidator.getName() == null) {
 				return QualifiedName.create("under construction");
 			} else {

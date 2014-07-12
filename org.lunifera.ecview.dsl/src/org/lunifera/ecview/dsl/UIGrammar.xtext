@@ -1,189 +1,200 @@
 grammar org.lunifera.ecview.dsl.UIGrammar with org.eclipse.xtext.xbase.Xbase
 
-import "http://eclipse.org/emf/ecp/ecview/core/view" as core
-import "http://eclipse.org/emf/ecp/ecview/core/validation" as coreVal
-import "http://eclipse.org/emf/ecp/ecview/extension/view" as ext
-import "http://www.lunifera.org/ecview/uisemantics/uisemantics" as cfg
-import "http://www.lunifera.org/ecview/dsl/uimodel/core" as grammarCore
-import "http://www.lunifera.org/ecview/dsl/uimodel/extension" as ext
+import "http://www.lunifera.org/ecview/dsl/uimodel/semantics" as cfg
+import "http://www.lunifera.org/ecview/dsl/uimodel/core"
 import "http://www.eclipse.org/xtext/common/JavaVMTypes"
 import "http://www.eclipse.org/xtext/xbase/Xbase"
 import "http://www.eclipse.org/xtext/xbase/Xtype"
 
-UiModel returns grammarCore::UiModel:
+UiModel returns UiModel:
 	'package' packageName=QualifiedName
-	 
 	imports+=UiImports*
 	roots+=UiRootElements*;
 
-UiImports returns grammarCore::UiImports:
+UiImports returns UiImports:
 	'import' importedNamespace=QualifiedNameWithWildcard (';')?;
 
-UiRootElements returns grammarCore::UiRootElements:
-	UiView | UiViewSet | UiVisibilityProcessorDef | UiVisibilityPropertiesDef;
- 
-UiVisibilityProcessor returns ext::UiVisibilityProcessor:
-	{ext::UiVisibilityProcessor}
-	name=ID '{'
-	bindingAlias+=UiBindingEndpointAlias*
-	changeTrigger+=UiChangeTrigger*
-	rule=UiVisibilityRule
-	propertiesAssignment=UiVisibilityPropertiesAssignment
-	'}';
-	
-UiVisibilityProcessorDef returns ext::UiVisibilityProcessorDef:
-	'visibilityProcessor' processor=UiVisibilityProcessor;
+UiRootElements returns UiRootElements:
+	UiView | UiViewSet | UiValidatorAlias;
 
-UiVisibilityProcessorAssignment returns ext::UiVisibilityProcessorAssignment:
-	'visibilityProcessor' (processor=UiVisibilityProcessor | processorAlias=[ext::UiVisibilityProcessor|QualifiedName] ';');
+	//UiVisibilityProcessor returns UiVisibilityProcessor:
+//	{UiVisibilityProcessor}
+//	name=ID '{'
+//	bindingAlias+=UiBindingEndpointAlias*
+//	changeTrigger+=UiChangeTrigger*
+//	rule=UiVisibilityRule
+//	propertiesAssignment=UiVisibilityPropertiesAssignment
+//	'}';
 
-UiVisibilityProperties returns ext::UiVisibilityProperties:
-	{ext::UiVisibilityProperties}
-	(name=ID)? '{'
-	'}';
+//UiVisibilityProcessorDef returns UiVisibilityProcessorDef:
+//	'visibilityProcessor' processor=UiVisibilityProcessor;
+//
+//UiVisibilityProcessorAssignment returns UiVisibilityProcessorAssignment:
+//	'visibilityProcessor' (processor=UiVisibilityProcessor | processorAlias=[UiVisibilityProcessor|QualifiedName] ';');
+//
+//UiVisibilityProperties returns UiVisibilityProperties:
+//	{UiVisibilityProperties}
+//	(name=ID)? '{'
+//	'}';
+//
+//UiVisibilityPropertiesDef returns UiVisibilityPropertiesDef:
+//	'visibilityProps' properties=UiVisibilityProperties;
+//
+//UiVisibilityPropertiesAssignment returns UiVisibilityPropertiesAssignment:
+//	'visibilityProps' (properties=UiVisibilityProperties | propertyAlias=[UiVisibilityProperties|QualifiedName] ';');
+//
+//UiChangeTrigger returns UiChangeTrigger:
+//	'trigger' (endpoint=UiBindingEndpointAssignment | endpointAlias=[UiBindingEndpointAlias]);
+//
+//UiVisibilityRule returns UiVisibilityRule:
+//	UiXbaseVisibilityRule;
+//
+//UiXbaseVisibilityRule returns UiXbaseVisibilityRule:
+//	{UiXbaseVisibilityRule}
+//	'rule'
+//	expression=XBlockExpression;
+UiValidatorAlias returns UiValidatorAlias:
+	'validatorAlias' validator=UiValidator 'as' alias=ID;
 
-UiVisibilityPropertiesDef returns ext::UiVisibilityPropertiesDef:
-	'visibilityProps' properties=UiVisibilityProperties;
+UiValidatorAssignment returns UiValidatorAssignment:
+	'fieldValidation' field=[UiField] '+=' (validatorDef=UiValidatorDef | validatorAlias=[UiValidatorAlias|QualifiedName]
+	';');
 
-UiVisibilityPropertiesAssignment returns ext::UiVisibilityPropertiesAssignment:
-	'visibilityProps' (properties=UiVisibilityProperties | propertyAlias=[ext::UiVisibilityProperties|QualifiedName] ';');
+UiValidatorDef returns UiValidatorDef:
+	validator=UiValidator;
 
-UiChangeTrigger returns ext::UiChangeTrigger:
-	'trigger' (endpoint=UiBindingEndpointDef | endpointAlias=[grammarCore::UiBindingEndpointAlias]);
-
-UiVisibilityRule returns ext::UiVisibilityRule:
-	UiXbaseVisibilityRule;
-
-UiXbaseVisibilityRule returns ext::UiXbaseVisibilityRule:
-	{ext::UiXbaseVisibilityRule}
-	'rule'
-	expression=XBlockExpression;
-
-UiViewSet returns grammarCore::UiViewSet:
+UiViewSet returns UiViewSet:
 	'viewset' name=ID '{'
-	(('beanslots' '{' (beanSlots+=UiBeanSlot)* '}')?
-	(bindingEndpointAlias+=UiBindingEndpointAlias)*)
+	(beanSlots+=UiBeanSlot)*
+	(bindingEndpointAlias+=UiBindingEndpointAlias)*
 	'}';
 
-UiBindingEndpointAlias returns grammarCore::UiBindingEndpointAlias:
-	'bindingAlias' endpoint=UiBindingEndpointDef 'as' alias=ID;
+UiBindingEndpointAlias returns UiBindingEndpointAlias:
+	'dataAlias' endpoint=UiBindingEndpointAssignment 'as' alias=ID;
 
-UiBeanSlot returns grammarCore::UiBeanSlot:
-	'slot' name=ID ':' jvmType=JvmTypeReference;
+UiBeanSlot returns UiBeanSlot:
+	'datasource' name=ID ':' jvmType=JvmTypeReference;
 
-UiBinding returns grammarCore::UiBinding:
-	'bind' (source=UiBindingEndpointDef | sourceAlias=[grammarCore::UiBindingEndpointAlias]) ((targetToSource?='<')? '--'
-	(sourceToTarget?='>')?)
-	(target=UiBindingEndpointDef | targetAlias=[grammarCore::UiBindingEndpointAlias]);
+UiBinding returns UiBinding:
+	'bind' source=UiBindingEndpointAssignment ((targetToSource?='<')? '--'
+	(sourceToTarget?='>')?) target=UiBindingEndpointAssignment;
 
-UiBindingEndpointDef returns grammarCore::UiBindingEndpointDef:
-	bindable=[grammarCore::UiBindable|ID] ':' semanticEndpoint=[cfg::UxEndpointDef] (path=UiPathSegment)?;
+UiBindingEndpointAssignment returns UiBindingExpression:
+	((UiTypedBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} path=(UiPathSegment)?) |
+	({UiBindingEndpointAssignment}
+	typedBindableAlias=[UiTypedBindable] path=(UiPathSegment)?));
 
-UiPathSegment returns grammarCore::UiPathSegment:
+UiPathSegment returns UiPathSegment:
 	'.' jvmField=[JvmField] path=(UiPathSegment)?;
 
-UiView returns grammarCore::UiView:
+UiTypedBindableDef returns UiBindingExpression:
+	{UiTypedBindableDef}
+	(rawBindable=[UiRawBindable|ID] ':' method=[cfg::UxEndpointDef]);
+
+UiView returns UiView:
 	UiIDEView;
 
-UiIDEView returns grammarCore::UiIDEView:
+UiIDEView returns UiIDEView:
 	'ideview' name=ID
 	'{'
-	('viewset' root=[grammarCore::UiViewSet])?
-	('beanslots' '{' (beanSlots+=UiBeanSlot)* '}')?
-	(content=UiLayout)?
+	('viewset' viewSet=[UiViewSet])?
+	(beanSlots+=UiBeanSlot)*
+	(content=UiEmbeddable)?
 	// TODO make unordered group
-	('bindingAlias' '{' (bindingEndpointAlias+=UiBindingEndpointAlias)* '}')?
+	(bindingEndpointAlias+=UiBindingEndpointAlias)*
 	(bindings+=UiBinding)*
+	(validatorAssignments+=UiValidatorAssignment)*
 	'}';
 
-UiGridLayout returns ext::UiGridLayout:
-	{ext::UiGridLayout}
+UiGridLayout returns UiGridLayout:
+	{UiGridLayout}
 	'gridlayout'
 	('('
-	(('columns=' columns=INT)?)
+	//	(('columns=' columns=INT)?)
 	')')?
 	name=ID?
 	'{'
 	(contents+=UiGridLayoutAssigment)*
-	(processorAssignment=UiVisibilityProcessorAssignment)?
+	//	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}';
 
-UiGridLayoutAssigment returns ext::UiGridLayoutAssigment:
-	element=UiEmbeddable (('align' alignment=UiAlignment)? & ('span' from=UiPoint 'to' to=UiPoint)?);
+UiGridLayoutAssigment returns UiGridLayoutAssigment:
+	element=UiEmbeddable;
 
-UiPoint returns grammarCore::UiPoint:
+UiPoint returns UiPoint:
 	x=INT '/' y=INT;
 
-enum UiAlignment returns ext::YAlignment:
-	BOTTOM_LEFT="bottom left" | BOTTOM_CENTER="bottom center" | BOTTOM_RIGHT="bottom right" | BOTTOM_FILL="bottom fill" |
-	MIDDLE_LEFT="middle left" | MIDDLE_CENTER="middle center" | MIDDLE_RIGHT="middle right" | BOTTOM_FILL="middle fill" |
-	TOP_LEFT="top left" | TOP_CENTER="top center" | TOP_RIGHT="top right" | TOP_FILL="top fill" |
-	FILL_LEFT="fill left" | FILL_CENTER="fill center" | FILL_RIGHT="fill RIGHT" | FILL_FILL="fill fill" |
-	UNDEFINED="undefined";
+	//enum UiAlignment returns YAlignment:
+//	BOTTOM_LEFT="bottom left" | BOTTOM_CENTER="bottom center" | BOTTOM_RIGHT="bottom right" | BOTTOM_FILL="bottom fill" |
+//	MIDDLE_LEFT="middle left" | MIDDLE_CENTER="middle center" | MIDDLE_RIGHT="middle right" | BOTTOM_FILL="middle fill" |
+//	TOP_LEFT="top left" | TOP_CENTER="top center" | TOP_RIGHT="top right" | TOP_FILL="top fill" |
+//	FILL_LEFT="fill left" | FILL_CENTER="fill center" | FILL_RIGHT="fill RIGHT" | FILL_FILL="fill fill" |
+//	UNDEFINED="undefined";
 
-UiSpanInfo returns ext::YSpanInfo:
-	{ext::YSpanInfo}
-	((('columnFrom' columnFrom=INT)
-	&
-	('columnTo' columnTo=INT))?
-	&
-	(('rowFrom' rowFrom=INT)
-	&
-	('rowTo' rowTo=INT))?);
-
-UiTextField returns ext::UiTextField:
-	{ext::UiTextField}
+//UiSpanInfo returns YSpanInfo:
+//	{YSpanInfo}
+//	((('columnFrom' columnFrom=INT)
+//	&
+//	('columnTo' columnTo=INT))?
+//	&
+//	(('rowFrom' rowFrom=INT)
+//	&
+//	('rowTo' rowTo=INT))?);
+UiTextField returns UiTextField:
+	{UiTextField}
 	'textfield' name=ID?
 	('{'
 	(validators+=UiValidator)*
-	(processorAssignment=UiVisibilityProcessorAssignment)?
-	
+	//	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
 
-UiList returns ext::UiList:
-	{ext::UiList}
+UiList returns UiList:
+	{UiList}
 	'list' name=ID?;
 
-enum SelectionType returns ext::YSelectionType:
-	SINGLE="SINGLE" | MULTI="MULTI";
-
-UiEmbeddable returns core::YEmbeddable:
+	//enum SelectionType returns YSelectionType:
+//	SINGLE="SINGLE" | MULTI="MULTI";
+UiEmbeddable:
 	UiLayout | UiField;
 
-UiLayout returns core::YLayout:
+UiLayout:
 	UiGridLayout;
 
-UiField returns core::YField:
+UiField:
 	UiTextField | UiList | UiNumericField | UiCheckBox;
 
-UiNumericField returns ext::UiNumericField:
-	{ext::UiNumericField}
+UiNumericField:
+	{UiNumericField}
 	'numericField' name=ID?
 	('{'
 	(validators+=UiValidator)*
-	(processorAssignment=UiVisibilityProcessorAssignment)?
+	//	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
 
-UiCheckBox returns ext::UiCheckBox:
-	{ext::UiCheckBox}
+UiCheckBox:
+	{UiCheckBox}
 	'checkbox' name=ID?
 	('{'
 	(validators+=UiValidator)*
-	(processorAssignment=UiVisibilityProcessorAssignment)?
+	//	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
 
-UiValidator returns coreVal::YValidator:
-	UiMaxLengthValidator | UiMinLengthValidator | UiRegexpValidator;
+UiValidator:
+	UiMaxLengthValidator | UiMinLengthValidator | UiRegexpValidator | UiXbaseValidator;
 
-UiMaxLengthValidator returns grammarCore::UiMaxLengthValidator:
-	{grammarCore::UiMaxLengthValidator}
-	'maxLengthValidator' name=ID ('maxLength' maxLength=INT)?;
+UiMaxLengthValidator returns UiMaxLengthValidator:
+	{UiMaxLengthValidator}
+	'MaxLengthValidator' (name=ID)? '(' maxLength=INT ')'?;
 
-UiMinLengthValidator returns grammarCore::UiMinLengthValidator:
-	{grammarCore::UiMinLengthValidator}
-	'minLengthValidator' name=ID ('minLength' minLength=INT)?;
+UiMinLengthValidator returns UiMinLengthValidator:
+	{UiMinLengthValidator}
+	'MinLengthValidator' (name=ID)? '(' minLength=INT ')'?;
 
-UiRegexpValidator returns grammarCore::UiRegexpValidator:
-	{grammarCore::UiRegexpValidator}
-	'regexValidator' name=ID ('regex' regExpression=STRING)?;
+UiRegexpValidator returns UiRegexpValidator:
+	{UiRegexpValidator}
+	'RegexValidator' (name=ID)? '(' regExpression=STRING ')'?;
+
+UiXbaseValidator returns UiXbaseValidator:
+	{UiXbaseValidator}
+	'ExpressionValidator' (name=ID)? expression=XBlockExpression?;	
 

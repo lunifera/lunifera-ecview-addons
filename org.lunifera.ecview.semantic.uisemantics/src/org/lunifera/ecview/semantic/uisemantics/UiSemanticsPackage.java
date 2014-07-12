@@ -38,7 +38,7 @@ public interface UiSemanticsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.lunifera.org/ecview/uisemantics/uisemantics";
+	String eNS_URI = "http://www.lunifera.org/ecview/dsl/uimodel/semantics";
 
 	/**
 	 * The package namespace name.
@@ -339,13 +339,22 @@ public interface UiSemanticsPackage extends EPackage {
 	int UX_ELEMENT_DEFINITION__VISIBILITY_CONTAINER = 3;
 
 	/**
+	 * The feature id for the '<em><b>Validator Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_ELEMENT_DEFINITION__VALIDATOR_CONTAINER = 4;
+
+	/**
 	 * The number of structural features of the '<em>Ux Element Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UX_ELEMENT_DEFINITION_FEATURE_COUNT = 4;
+	int UX_ELEMENT_DEFINITION_FEATURE_COUNT = 5;
 
 	/**
 	 * The feature id for the '<em><b>EPackage</b></em>' reference.
@@ -583,6 +592,63 @@ public interface UiSemanticsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableValidatorPropertiesImpl <em>Ux Available Validator Properties</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableValidatorPropertiesImpl
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxAvailableValidatorProperties()
+	 * @generated
+	 */
+	int UX_AVAILABLE_VALIDATOR_PROPERTIES = 12;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_AVAILABLE_VALIDATOR_PROPERTIES__PROPERTIES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Ux Available Validator Properties</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_AVAILABLE_VALIDATOR_PROPERTIES_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxValidatorPropertyImpl <em>Ux Validator Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxValidatorPropertyImpl
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxValidatorProperty()
+	 * @generated
+	 */
+	int UX_VALIDATOR_PROPERTY = 13;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_VALIDATOR_PROPERTY__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Ux Validator Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_VALIDATOR_PROPERTY_FEATURE_COUNT = 1;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxModel <em>Ux Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -699,6 +765,17 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUxElementDefinition_VisibilityContainer();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uisemantics.UxElementDefinition#getValidatorContainer <em>Validator Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Validator Container</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxElementDefinition#getValidatorContainer()
+	 * @see #getUxElementDefinition()
+	 * @generated
+	 */
+	EReference getUxElementDefinition_ValidatorContainer();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxElementURI <em>Ux Element URI</em>}'.
@@ -880,6 +957,48 @@ public interface UiSemanticsPackage extends EPackage {
 	EReference getUxVisibilityOption_JvmType();
 
 	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxAvailableValidatorProperties <em>Ux Available Validator Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ux Available Validator Properties</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxAvailableValidatorProperties
+	 * @generated
+	 */
+	EClass getUxAvailableValidatorProperties();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uisemantics.UxAvailableValidatorProperties#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Properties</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxAvailableValidatorProperties#getProperties()
+	 * @see #getUxAvailableValidatorProperties()
+	 * @generated
+	 */
+	EReference getUxAvailableValidatorProperties_Properties();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxValidatorProperty <em>Ux Validator Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ux Validator Property</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxValidatorProperty
+	 * @generated
+	 */
+	EClass getUxValidatorProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uisemantics.UxValidatorProperty#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxValidatorProperty#getName()
+	 * @see #getUxValidatorProperty()
+	 * @generated
+	 */
+	EAttribute getUxValidatorProperty_Name();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxImportSectionDeclaration <em>Ux Import Section Declaration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1015,6 +1134,14 @@ public interface UiSemanticsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UX_ELEMENT_DEFINITION__VISIBILITY_CONTAINER = eINSTANCE.getUxElementDefinition_VisibilityContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Validator Container</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UX_ELEMENT_DEFINITION__VALIDATOR_CONTAINER = eINSTANCE.getUxElementDefinition_ValidatorContainer();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxElementURIImpl <em>Ux Element URI</em>}' class.
@@ -1167,6 +1294,42 @@ public interface UiSemanticsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UX_VISIBILITY_OPTION__JVM_TYPE = eINSTANCE.getUxVisibilityOption_JvmType();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableValidatorPropertiesImpl <em>Ux Available Validator Properties</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableValidatorPropertiesImpl
+		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxAvailableValidatorProperties()
+		 * @generated
+		 */
+		EClass UX_AVAILABLE_VALIDATOR_PROPERTIES = eINSTANCE.getUxAvailableValidatorProperties();
+
+		/**
+		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UX_AVAILABLE_VALIDATOR_PROPERTIES__PROPERTIES = eINSTANCE.getUxAvailableValidatorProperties_Properties();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxValidatorPropertyImpl <em>Ux Validator Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxValidatorPropertyImpl
+		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxValidatorProperty()
+		 * @generated
+		 */
+		EClass UX_VALIDATOR_PROPERTY = eINSTANCE.getUxValidatorProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UX_VALIDATOR_PROPERTY__NAME = eINSTANCE.getUxValidatorProperty_Name();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxImportSectionDeclarationImpl <em>Ux Import Section Declaration</em>}' class.

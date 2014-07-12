@@ -5,21 +5,11 @@
 -->
 
 <plugin>
-
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated UIGrammarCore -->
       <package
-            uri="http://www.lunifera.org/ecview/dsl/uimodel/extension"
-            class="org.lunifera.ecview.semantic.uimodel.uiextension.UiextensionPackage"
+            uri="http://www.lunifera.org/ecview/dsl/uimodel/core"
+            class="org.lunifera.ecview.semantic.uimodel.UiModelPackage"
             genModel="model/UIGrammarCore.genmodel"/>
    </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated UIGrammar -->
-      <package
-            uri="http://www.lunifera.org/ecview/dsl/UIModel"
-            class="org.lunifera.ecview.semantic.uimodel.UimodelPackage"
-            genModel="model/UIGrammar.genmodel"/>
-   </extension>
-
 </plugin>
