@@ -37,7 +37,7 @@ public interface UiBinding extends EObject {
 	 * @return the value of the '<em>Source</em>' containment reference.
 	 * @see #setSource(UiBindingExpression)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiBinding_Source()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	UiBindingExpression getSource();
@@ -141,7 +141,7 @@ public interface UiBinding extends EObject {
 	 * @return the value of the '<em>Target</em>' containment reference.
 	 * @see #setTarget(UiBindingExpression)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiBinding_Target()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	UiBindingExpression getTarget();

@@ -1961,9 +1961,9 @@ ruleUiXbaseValidator returns [EObject current=null]
             grammarAccess.getUiXbaseValidatorAccess().getUiXbaseValidatorAction_0(),
             $current);
     }
-)	otherlv_1='ExpressionValidator' 
+)	otherlv_1='Expression' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getUiXbaseValidatorAccess().getExpressionValidatorKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getUiXbaseValidatorAccess().getExpressionKeyword_1());
     }
 (
 (
@@ -1983,19 +1983,45 @@ ruleUiXbaseValidator returns [EObject current=null]
 	    }
 
 )
-)?(
+)?	otherlv_3='(' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getUiXbaseValidatorAccess().getLeftParenthesisKeyword_3());
+    }
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiXbaseValidatorAccess().getExpressionXBlockExpressionParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getUiXbaseValidatorAccess().getJvmTypeJvmTypeReferenceParserRuleCall_4_0()); 
 	    }
-		lv_expression_3_0=ruleXBlockExpression		{
+		lv_jvmType_4_0=ruleJvmTypeReference		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiXbaseValidatorRule());
+	        }
+       		set(
+       			$current, 
+       			"jvmType",
+        		lv_jvmType_4_0, 
+        		"JvmTypeReference");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_5=')' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getUiXbaseValidatorAccess().getRightParenthesisKeyword_5());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiXbaseValidatorAccess().getExpressionXBlockExpressionParserRuleCall_6_0()); 
+	    }
+		lv_expression_6_0=ruleXBlockExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiXbaseValidatorRule());
 	        }
        		set(
        			$current, 
        			"expression",
-        		lv_expression_3_0, 
+        		lv_expression_6_0, 
         		"XBlockExpression");
 	        afterParserOrEnumRuleCall();
 	    }

@@ -32,7 +32,7 @@ public interface UiGridLayout extends UiLayout {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Contents</em>' containment reference list.
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiGridLayout_Contents()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<UiGridLayoutAssigment> getContents();

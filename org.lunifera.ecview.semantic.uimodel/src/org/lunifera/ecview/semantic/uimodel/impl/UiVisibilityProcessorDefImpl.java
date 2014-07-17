@@ -144,6 +144,29 @@ public class UiVisibilityProcessorDefImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 */
 	public UiVisibilityProcessor getProcessor() {
+		if (processor != null && processor.eIsProxy()) {
+			InternalEObject oldProcessor = (InternalEObject)processor;
+			processor = (UiVisibilityProcessor)eResolveProxy(oldProcessor);
+			if (processor != oldProcessor) {
+				InternalEObject newProcessor = (InternalEObject)processor;
+				NotificationChain msgs = oldProcessor.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROCESSOR_DEF__PROCESSOR, null, null);
+				if (newProcessor.eInternalContainer() == null) {
+					msgs = newProcessor.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROCESSOR_DEF__PROCESSOR, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_VISIBILITY_PROCESSOR_DEF__PROCESSOR, oldProcessor, processor));
+			}
+		}
+		return processor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiVisibilityProcessor basicGetProcessor() {
 		return processor;
 	}
 
@@ -208,7 +231,8 @@ public class UiVisibilityProcessorDefImpl extends MinimalEObjectImpl.Container i
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR_DEF__NAME:
 				return getName();
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR_DEF__PROCESSOR:
-				return getProcessor();
+				if (resolve) return getProcessor();
+				return basicGetProcessor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

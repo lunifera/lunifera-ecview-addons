@@ -145,6 +145,29 @@ public class UiBeanSlotImpl extends MinimalEObjectImpl.Container implements UiBe
 	 * @generated
 	 */
 	public JvmTypeReference getJvmType() {
+		if (jvmType != null && jvmType.eIsProxy()) {
+			InternalEObject oldJvmType = (InternalEObject)jvmType;
+			jvmType = (JvmTypeReference)eResolveProxy(oldJvmType);
+			if (jvmType != oldJvmType) {
+				InternalEObject newJvmType = (InternalEObject)jvmType;
+				NotificationChain msgs = oldJvmType.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BEAN_SLOT__JVM_TYPE, null, null);
+				if (newJvmType.eInternalContainer() == null) {
+					msgs = newJvmType.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BEAN_SLOT__JVM_TYPE, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_BEAN_SLOT__JVM_TYPE, oldJvmType, jvmType));
+			}
+		}
+		return jvmType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JvmTypeReference basicGetJvmType() {
 		return jvmType;
 	}
 
@@ -209,7 +232,8 @@ public class UiBeanSlotImpl extends MinimalEObjectImpl.Container implements UiBe
 			case UiModelPackage.UI_BEAN_SLOT__NAME:
 				return getName();
 			case UiModelPackage.UI_BEAN_SLOT__JVM_TYPE:
-				return getJvmType();
+				if (resolve) return getJvmType();
+				return basicGetJvmType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

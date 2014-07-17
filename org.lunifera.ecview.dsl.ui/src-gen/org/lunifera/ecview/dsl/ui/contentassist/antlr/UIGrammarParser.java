@@ -338,7 +338,8 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiRegexpValidatorAccess().getNameAssignment_2(), "rule__UiRegexpValidator__NameAssignment_2");
 					put(grammarAccess.getUiRegexpValidatorAccess().getRegExpressionAssignment_4(), "rule__UiRegexpValidator__RegExpressionAssignment_4");
 					put(grammarAccess.getUiXbaseValidatorAccess().getNameAssignment_2(), "rule__UiXbaseValidator__NameAssignment_2");
-					put(grammarAccess.getUiXbaseValidatorAccess().getExpressionAssignment_3(), "rule__UiXbaseValidator__ExpressionAssignment_3");
+					put(grammarAccess.getUiXbaseValidatorAccess().getJvmTypeAssignment_4(), "rule__UiXbaseValidator__JvmTypeAssignment_4");
+					put(grammarAccess.getUiXbaseValidatorAccess().getExpressionAssignment_6(), "rule__UiXbaseValidator__ExpressionAssignment_6");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_0_1(), "rule__XAssignment__FeatureAssignment_0_1");
 					put(grammarAccess.getXAssignmentAccess().getValueAssignment_0_3(), "rule__XAssignment__ValueAssignment_0_3");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_1_1_0_0_1(), "rule__XAssignment__FeatureAssignment_1_1_0_0_1");

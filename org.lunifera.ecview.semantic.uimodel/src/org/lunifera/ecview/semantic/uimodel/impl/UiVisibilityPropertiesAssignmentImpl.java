@@ -75,6 +75,29 @@ public class UiVisibilityPropertiesAssignmentImpl extends MinimalEObjectImpl.Con
 	 * @generated
 	 */
 	public UiVisibilityProperties getProperties() {
+		if (properties != null && properties.eIsProxy()) {
+			InternalEObject oldProperties = (InternalEObject)properties;
+			properties = (UiVisibilityProperties)eResolveProxy(oldProperties);
+			if (properties != oldProperties) {
+				InternalEObject newProperties = (InternalEObject)properties;
+				NotificationChain msgs = oldProperties.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROPERTIES_ASSIGNMENT__PROPERTIES, null, null);
+				if (newProperties.eInternalContainer() == null) {
+					msgs = newProperties.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROPERTIES_ASSIGNMENT__PROPERTIES, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_VISIBILITY_PROPERTIES_ASSIGNMENT__PROPERTIES, oldProperties, properties));
+			}
+		}
+		return properties;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiVisibilityProperties basicGetProperties() {
 		return properties;
 	}
 
@@ -173,7 +196,8 @@ public class UiVisibilityPropertiesAssignmentImpl extends MinimalEObjectImpl.Con
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UiModelPackage.UI_VISIBILITY_PROPERTIES_ASSIGNMENT__PROPERTIES:
-				return getProperties();
+				if (resolve) return getProperties();
+				return basicGetProperties();
 			case UiModelPackage.UI_VISIBILITY_PROPERTIES_ASSIGNMENT__PROPERTY_ALIAS:
 				if (resolve) return getPropertyAlias();
 				return basicGetPropertyAlias();

@@ -75,6 +75,29 @@ public class UiVisibilityProcessorAssignmentImpl extends MinimalEObjectImpl.Cont
 	 * @generated
 	 */
 	public UiVisibilityProcessor getProcessor() {
+		if (processor != null && processor.eIsProxy()) {
+			InternalEObject oldProcessor = (InternalEObject)processor;
+			processor = (UiVisibilityProcessor)eResolveProxy(oldProcessor);
+			if (processor != oldProcessor) {
+				InternalEObject newProcessor = (InternalEObject)processor;
+				NotificationChain msgs = oldProcessor.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROCESSOR_ASSIGNMENT__PROCESSOR, null, null);
+				if (newProcessor.eInternalContainer() == null) {
+					msgs = newProcessor.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROCESSOR_ASSIGNMENT__PROCESSOR, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_VISIBILITY_PROCESSOR_ASSIGNMENT__PROCESSOR, oldProcessor, processor));
+			}
+		}
+		return processor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiVisibilityProcessor basicGetProcessor() {
 		return processor;
 	}
 
@@ -173,7 +196,8 @@ public class UiVisibilityProcessorAssignmentImpl extends MinimalEObjectImpl.Cont
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR_ASSIGNMENT__PROCESSOR:
-				return getProcessor();
+				if (resolve) return getProcessor();
+				return basicGetProcessor();
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR_ASSIGNMENT__PROCESSOR_ALIAS:
 				if (resolve) return getProcessorAlias();
 				return basicGetProcessorAlias();

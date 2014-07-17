@@ -4,6 +4,7 @@ package org.lunifera.ecview.semantic.uimodel;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmType;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -63,7 +64,7 @@ public interface UiPathSegment extends EObject {
 	 * @return the value of the '<em>Path</em>' containment reference.
 	 * @see #setPath(UiPathSegment)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiPathSegment_Path()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	UiPathSegment getPath();
@@ -84,5 +85,13 @@ public interface UiPathSegment extends EObject {
 	 * @return
 	 */
 	public String toPathString();
+	
+	
+	/**
+	 * Returns the type of the last segment.
+	 * 
+	 * @return
+	 */
+	public JvmType getTypeofLastSegment();
 
 } // UiPathSegment

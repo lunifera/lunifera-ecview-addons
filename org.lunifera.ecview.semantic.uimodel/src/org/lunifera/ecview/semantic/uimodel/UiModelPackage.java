@@ -2114,13 +2114,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_XBASE_VALIDATOR__EXPRESSION = UI_VALIDATOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_XBASE_VALIDATOR__JVM_TYPE = UI_VALIDATOR_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Ui Xbase Validator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_XBASE_VALIDATOR_FEATURE_COUNT = UI_VALIDATOR_FEATURE_COUNT + 1;
+	int UI_XBASE_VALIDATOR_FEATURE_COUNT = UI_VALIDATOR_FEATURE_COUNT + 2;
 
 
 	/**
@@ -2829,6 +2838,17 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUiXbaseValidator_Expression();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiXbaseValidator#getJvmType <em>Jvm Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Jvm Type</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiXbaseValidator#getJvmType()
+	 * @see #getUiXbaseValidator()
+	 * @generated
+	 */
+	EReference getUiXbaseValidator_JvmType();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiBindingExpression <em>Ui Binding Expression</em>}'.
@@ -3865,6 +3885,14 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_XBASE_VALIDATOR__EXPRESSION = eINSTANCE.getUiXbaseValidator_Expression();
+
+		/**
+		 * The meta object literal for the '<em><b>Jvm Type</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_XBASE_VALIDATOR__JVM_TYPE = eINSTANCE.getUiXbaseValidator_JvmType();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiBindingExpression <em>Ui Binding Expression</em>}' class.

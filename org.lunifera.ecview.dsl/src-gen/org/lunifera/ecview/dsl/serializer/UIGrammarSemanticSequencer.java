@@ -1582,7 +1582,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? expression=XBlockExpression?)
+	 *     (name=ID? jvmType=JvmTypeReference expression=XBlockExpression?)
 	 */
 	protected void sequence_UiXbaseValidator(EObject context, UiXbaseValidator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

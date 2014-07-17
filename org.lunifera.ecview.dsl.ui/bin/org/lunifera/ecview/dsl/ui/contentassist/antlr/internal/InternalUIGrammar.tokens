@@ -115,6 +115,7 @@ RULE_WS=11
 '==='=23
 '<>'=32
 'for'=85
+'Expression'=75
 'list'=69
 '?.'=100
 '+'=34
@@ -160,7 +161,6 @@ RULE_WS=11
 'new'=88
 'val'=45
 'null'=89
-'ExpressionValidator'=75
 'checkbox'=71
 'MaxLengthValidator'=72
 'typeof'=90

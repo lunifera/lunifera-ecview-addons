@@ -10,6 +10,7 @@
 package org.lunifera.ecview.vaadin.ide.preview.parts;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
@@ -62,6 +63,7 @@ public class ECViewVaadinSynchronizer implements IPartListener,
 				if (lastActiveDocument != null) {
 					lastActiveDocument.removeModelListener(this);
 				}
+				
 				lastActiveDocument = xtextDocument;
 				lastActiveEditor = xtextEditor;
 				lastActiveDocument.addModelListener(this);
@@ -89,14 +91,14 @@ public class ECViewVaadinSynchronizer implements IPartListener,
 
 	public void partOpened(IWorkbenchPart part) {
 	}
-
+    
 	public void modelChanged(XtextResource resource) {
 		if (resource.getContents().size() < 2) {
 			return;
 		}
 		for (EObject e : resource.getContents()) {
 			if (e instanceof YView) {
-				Activator.getDefault().setActiveView((YView) e);
+				Activator.getDefault().setActiveView((YView) EcoreUtil.copy(e));
 				break;
 			}
 		}

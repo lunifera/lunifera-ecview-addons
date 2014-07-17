@@ -4,15 +4,11 @@ package org.lunifera.ecview.semantic.uimodel.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.xtext.common.types.JvmTypeReference;
-
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiValidator;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorDef;
@@ -161,6 +157,29 @@ public class UiValidatorDefImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	public UiValidator getValidator() {
+		if (validator != null && validator.eIsProxy()) {
+			InternalEObject oldValidator = (InternalEObject)validator;
+			validator = (UiValidator)eResolveProxy(oldValidator);
+			if (validator != oldValidator) {
+				InternalEObject newValidator = (InternalEObject)validator;
+				NotificationChain msgs = oldValidator.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VALIDATOR_DEF__VALIDATOR, null, null);
+				if (newValidator.eInternalContainer() == null) {
+					msgs = newValidator.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VALIDATOR_DEF__VALIDATOR, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_VALIDATOR_DEF__VALIDATOR, oldValidator, validator));
+			}
+		}
+		return validator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiValidator basicGetValidator() {
 		return validator;
 	}
 
@@ -263,7 +282,8 @@ public class UiValidatorDefImpl extends MinimalEObjectImpl.Container implements 
 			case UiModelPackage.UI_VALIDATOR_DEF__NAME:
 				return getName();
 			case UiModelPackage.UI_VALIDATOR_DEF__VALIDATOR:
-				return getValidator();
+				if (resolve) return getValidator();
+				return basicGetValidator();
 			case UiModelPackage.UI_VALIDATOR_DEF__JVM_TYPE:
 				if (resolve) return getJvmType();
 				return basicGetJvmType();

@@ -192,7 +192,7 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 	 */
 	public EList<UiBindingEndpointAlias> getBindingAlias() {
 		if (bindingAlias == null) {
-			bindingAlias = new EObjectContainmentEList<UiBindingEndpointAlias>(UiBindingEndpointAlias.class, this, UiModelPackage.UI_VISIBILITY_PROCESSOR__BINDING_ALIAS);
+			bindingAlias = new EObjectContainmentEList.Resolving<UiBindingEndpointAlias>(UiBindingEndpointAlias.class, this, UiModelPackage.UI_VISIBILITY_PROCESSOR__BINDING_ALIAS);
 		}
 		return bindingAlias;
 	}
@@ -204,7 +204,7 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 	 */
 	public EList<UiChangeTrigger> getChangeTrigger() {
 		if (changeTrigger == null) {
-			changeTrigger = new EObjectContainmentEList<UiChangeTrigger>(UiChangeTrigger.class, this, UiModelPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER);
+			changeTrigger = new EObjectContainmentEList.Resolving<UiChangeTrigger>(UiChangeTrigger.class, this, UiModelPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER);
 		}
 		return changeTrigger;
 	}
@@ -215,6 +215,29 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 	 * @generated
 	 */
 	public UiVisibilityRule getRule() {
+		if (rule != null && rule.eIsProxy()) {
+			InternalEObject oldRule = (InternalEObject)rule;
+			rule = (UiVisibilityRule)eResolveProxy(oldRule);
+			if (rule != oldRule) {
+				InternalEObject newRule = (InternalEObject)rule;
+				NotificationChain msgs = oldRule.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROCESSOR__RULE, null, null);
+				if (newRule.eInternalContainer() == null) {
+					msgs = newRule.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROCESSOR__RULE, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_VISIBILITY_PROCESSOR__RULE, oldRule, rule));
+			}
+		}
+		return rule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiVisibilityRule basicGetRule() {
 		return rule;
 	}
 
@@ -258,6 +281,29 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 	 * @generated
 	 */
 	public UiVisibilityPropertiesAssignment getPropertiesAssignment() {
+		if (propertiesAssignment != null && propertiesAssignment.eIsProxy()) {
+			InternalEObject oldPropertiesAssignment = (InternalEObject)propertiesAssignment;
+			propertiesAssignment = (UiVisibilityPropertiesAssignment)eResolveProxy(oldPropertiesAssignment);
+			if (propertiesAssignment != oldPropertiesAssignment) {
+				InternalEObject newPropertiesAssignment = (InternalEObject)propertiesAssignment;
+				NotificationChain msgs = oldPropertiesAssignment.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT, null, null);
+				if (newPropertiesAssignment.eInternalContainer() == null) {
+					msgs = newPropertiesAssignment.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT, oldPropertiesAssignment, propertiesAssignment));
+			}
+		}
+		return propertiesAssignment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiVisibilityPropertiesAssignment basicGetPropertiesAssignment() {
 		return propertiesAssignment;
 	}
 
@@ -332,9 +378,11 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER:
 				return getChangeTrigger();
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR__RULE:
-				return getRule();
+				if (resolve) return getRule();
+				return basicGetRule();
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT:
-				return getPropertiesAssignment();
+				if (resolve) return getPropertiesAssignment();
+				return basicGetPropertiesAssignment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

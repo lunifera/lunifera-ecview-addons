@@ -33,7 +33,7 @@ public interface UiChangeTrigger extends EObject {
 	 * @return the value of the '<em>Endpoint</em>' containment reference.
 	 * @see #setEndpoint(UiBindingExpression)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiChangeTrigger_Endpoint()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	UiBindingExpression getEndpoint();

@@ -34,7 +34,7 @@ public interface UiGridLayoutAssigment extends EObject {
 	 * @return the value of the '<em>Element</em>' containment reference.
 	 * @see #setElement(UiEmbeddable)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiGridLayoutAssigment_Element()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	UiEmbeddable getElement();
@@ -60,7 +60,7 @@ public interface UiGridLayoutAssigment extends EObject {
 	 * @return the value of the '<em>From</em>' containment reference.
 	 * @see #setFrom(UiPoint)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiGridLayoutAssigment_From()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	UiPoint getFrom();
@@ -86,7 +86,7 @@ public interface UiGridLayoutAssigment extends EObject {
 	 * @return the value of the '<em>To</em>' containment reference.
 	 * @see #setTo(UiPoint)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiGridLayoutAssigment_To()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	UiPoint getTo();

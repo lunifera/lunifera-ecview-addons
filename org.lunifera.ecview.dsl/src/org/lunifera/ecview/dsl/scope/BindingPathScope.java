@@ -13,19 +13,23 @@ import org.eclipse.xtext.scoping.impl.AbstractScope;
 
 public class BindingPathScope extends AbstractScope {
 
-	private JvmDeclaredType type;
+	private JvmType type;
 
 	protected BindingPathScope(JvmType type) {
 		super(IScope.NULLSCOPE, true);
-		this.type = (JvmDeclaredType) type;
+		this.type = (JvmType) type;
 	}
 
 	@Override
 	protected Iterable<IEObjectDescription> getAllLocalElements() {
 
 		List<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
-		for (JvmField field : type.getDeclaredFields()) {
-			result.add(EObjectDescription.create(field.getSimpleName(), field));
+
+		if (type instanceof JvmDeclaredType) {
+			for (JvmField field : ((JvmDeclaredType) type).getDeclaredFields()) {
+				result.add(EObjectDescription.create(field.getSimpleName(),
+						field));
+			}
 		}
 		return result;
 	}

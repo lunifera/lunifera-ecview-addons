@@ -143,6 +143,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiXbaseValidator -> UiValidator
     Reference expression : XExpression
+    Reference jvmType : JvmTypeReference
 
   Class UiValidatorAlias -> UiRootElements
     Attribute alias : EString<<1..1>>

@@ -60,7 +60,7 @@ public interface UiModel extends UiNamedElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Roots</em>' containment reference list.
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiModel_Roots()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<UiRootElements> getRoots();
@@ -76,7 +76,7 @@ public interface UiModel extends UiNamedElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Imports</em>' containment reference list.
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiModel_Imports()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<UiImports> getImports();

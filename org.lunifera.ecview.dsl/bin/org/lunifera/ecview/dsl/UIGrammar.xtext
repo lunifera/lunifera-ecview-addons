@@ -196,5 +196,5 @@ UiRegexpValidator returns UiRegexpValidator:
 
 UiXbaseValidator returns UiXbaseValidator:
 	{UiXbaseValidator}
-	'ExpressionValidator' (name=ID)? expression=XBlockExpression?;	
+	'Expression' name=ID? '('jvmType=JvmTypeReference')' expression=XBlockExpression?;	
 

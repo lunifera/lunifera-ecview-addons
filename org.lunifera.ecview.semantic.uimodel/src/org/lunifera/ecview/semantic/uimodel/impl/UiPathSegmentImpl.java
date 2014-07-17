@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmType;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 
@@ -102,6 +103,29 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public UiPathSegment getPath() {
+		if (path != null && path.eIsProxy()) {
+			InternalEObject oldPath = (InternalEObject)path;
+			path = (UiPathSegment)eResolveProxy(oldPath);
+			if (path != oldPath) {
+				InternalEObject newPath = (InternalEObject)path;
+				NotificationChain msgs = oldPath.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_PATH_SEGMENT__PATH, null, null);
+				if (newPath.eInternalContainer() == null) {
+					msgs = newPath.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_PATH_SEGMENT__PATH, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_PATH_SEGMENT__PATH, oldPath, path));
+			}
+		}
+		return path;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiPathSegment basicGetPath() {
 		return path;
 	}
 
@@ -163,7 +187,8 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 				if (resolve) return getJvmField();
 				return basicGetJvmField();
 			case UiModelPackage.UI_PATH_SEGMENT__PATH:
-				return getPath();
+				if (resolve) return getPath();
+				return basicGetPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -217,7 +242,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 		return super.eIsSet(featureID);
 	}
 
-	@Override 
+	@Override
 	public String toPathString() {
 		String result = "";
 		UiPathSegment child = getPath();
@@ -233,6 +258,21 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 		}
 
 		return result;
+	}
+
+	@Override
+	public JvmType getTypeofLastSegment() {
+		UiPathSegment child = getPath();
+		if (child != null) {
+			return child.getTypeofLastSegment();
+		} else {
+			return getJvmField() != null && getJvmField().getType() != null ? getJvmField().getType().getType()
+					: null;
+		}
+	}
+
+	public String toString() {
+		return toPathString();
 	}
 
 } // UiPathSegmentImpl

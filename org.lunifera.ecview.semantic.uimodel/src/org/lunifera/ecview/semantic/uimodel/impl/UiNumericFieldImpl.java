@@ -148,7 +148,7 @@ public class UiNumericFieldImpl extends UiVisibilityProcessableImpl implements U
 	 */
 	public EList<UiValidator> getValidators() {
 		if (validators == null) {
-			validators = new EObjectContainmentEList<UiValidator>(UiValidator.class, this, UiModelPackage.UI_NUMERIC_FIELD__VALIDATORS);
+			validators = new EObjectContainmentEList.Resolving<UiValidator>(UiValidator.class, this, UiModelPackage.UI_NUMERIC_FIELD__VALIDATORS);
 		}
 		return validators;
 	}

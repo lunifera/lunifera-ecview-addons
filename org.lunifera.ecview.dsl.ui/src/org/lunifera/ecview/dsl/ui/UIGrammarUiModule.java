@@ -4,10 +4,10 @@
 package org.lunifera.ecview.dsl.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.lunifera.ecview.dsl.IJdtTypeLoaderFactory;
-import org.lunifera.ecview.dsl.IJdtTypeLoaderProvider;
-import org.lunifera.ecview.dsl.ui.quickfix.typesloader.JdtTypeLoaderFactory;
-import org.lunifera.ecview.dsl.ui.quickfix.typesloader.JdtTypeLoaderProvider;
+import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderFactory;
+import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderProvider;
+import org.lunifera.xtext.builder.ui.access.jdt.impl.JdtTypeLoaderFactory;
+import org.lunifera.xtext.builder.ui.access.jdt.impl.JdtTypeLoaderProvider;
 
 /**
  * Use this class to register components to be used within the IDE.

@@ -1,10 +1,12 @@
 package org.lunifera.ecview.dsl.scope;
 
 import com.google.common.base.Objects;
+import com.google.inject.Singleton;
 import java.util.Arrays;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeReference;
+import org.eclipse.xtext.common.types.TypesFactory;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
@@ -13,6 +15,7 @@ import org.lunifera.ecview.semantic.uimodel.UiTypedBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 
+@Singleton
 @SuppressWarnings("all")
 public class BindableTypeProvider {
   public JvmTypeReference getTypeReference(final UiBindingExpression expression) {
@@ -65,8 +68,20 @@ public class BindableTypeProvider {
   }
   
   protected JvmTypeReference _doGetTypeReference(final UiTypedBindableDef tbDef) {
-    UxEndpointDef _method = tbDef.getMethod();
-    return _method.getJvmType();
+    boolean _or = false;
+    boolean _equals = Objects.equal(tbDef, null);
+    if (_equals) {
+      _or = true;
+    } else {
+      UxEndpointDef _method = tbDef.getMethod();
+      boolean _equals_1 = Objects.equal(_method, null);
+      _or = _equals_1;
+    }
+    if (_or) {
+      return TypesFactory.eINSTANCE.createJvmUnknownTypeReference();
+    }
+    UxEndpointDef _method_1 = tbDef.getMethod();
+    return _method_1.getJvmType();
   }
   
   protected JvmTypeReference _doGetTypeReference(final UiBindingExpression tbDef) {

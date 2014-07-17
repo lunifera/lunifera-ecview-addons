@@ -32,7 +32,7 @@ public interface UiBeanSlot extends UiTypedBindable {
 	 * @return the value of the '<em>Jvm Type</em>' containment reference.
 	 * @see #setJvmType(JvmTypeReference)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiBeanSlot_JvmType()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	JvmTypeReference getJvmType();

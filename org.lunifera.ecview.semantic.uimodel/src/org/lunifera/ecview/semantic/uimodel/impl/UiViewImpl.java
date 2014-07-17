@@ -123,6 +123,29 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	 * @generated
 	 */
 	public UiEmbeddable getContent() {
+		if (content != null && content.eIsProxy()) {
+			InternalEObject oldContent = (InternalEObject)content;
+			content = (UiEmbeddable)eResolveProxy(oldContent);
+			if (content != oldContent) {
+				InternalEObject newContent = (InternalEObject)content;
+				NotificationChain msgs = oldContent.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VIEW__CONTENT, null, null);
+				if (newContent.eInternalContainer() == null) {
+					msgs = newContent.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VIEW__CONTENT, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_VIEW__CONTENT, oldContent, content));
+			}
+		}
+		return content;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiEmbeddable basicGetContent() {
 		return content;
 	}
 
@@ -167,7 +190,7 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	 */
 	public EList<UiValidatorAssignment> getValidatorAssignments() {
 		if (validatorAssignments == null) {
-			validatorAssignments = new EObjectContainmentEList<UiValidatorAssignment>(UiValidatorAssignment.class, this, UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS);
+			validatorAssignments = new EObjectContainmentEList.Resolving<UiValidatorAssignment>(UiValidatorAssignment.class, this, UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS);
 		}
 		return validatorAssignments;
 	}
@@ -200,7 +223,8 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 				if (resolve) return getViewSet();
 				return basicGetViewSet();
 			case UiModelPackage.UI_VIEW__CONTENT:
-				return getContent();
+				if (resolve) return getContent();
+				return basicGetContent();
 			case UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS:
 				return getValidatorAssignments();
 		}

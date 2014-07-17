@@ -12,4 +12,5 @@
             class="org.lunifera.ecview.semantic.uimodel.UiModelPackage"
             genModel="model/UIGrammarCore.genmodel"/>
    </extension>
+
 </plugin>

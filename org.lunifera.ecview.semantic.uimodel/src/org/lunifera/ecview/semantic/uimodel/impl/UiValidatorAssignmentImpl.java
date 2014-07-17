@@ -207,6 +207,29 @@ public class UiValidatorAssignmentImpl extends MinimalEObjectImpl.Container impl
 	 * @generated
 	 */
 	public UiValidatorDef getValidatorDef() {
+		if (validatorDef != null && validatorDef.eIsProxy()) {
+			InternalEObject oldValidatorDef = (InternalEObject)validatorDef;
+			validatorDef = (UiValidatorDef)eResolveProxy(oldValidatorDef);
+			if (validatorDef != oldValidatorDef) {
+				InternalEObject newValidatorDef = (InternalEObject)validatorDef;
+				NotificationChain msgs = oldValidatorDef.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VALIDATOR_ASSIGNMENT__VALIDATOR_DEF, null, null);
+				if (newValidatorDef.eInternalContainer() == null) {
+					msgs = newValidatorDef.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VALIDATOR_ASSIGNMENT__VALIDATOR_DEF, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_VALIDATOR_ASSIGNMENT__VALIDATOR_DEF, oldValidatorDef, validatorDef));
+			}
+		}
+		return validatorDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiValidatorDef basicGetValidatorDef() {
 		return validatorDef;
 	}
 
@@ -312,7 +335,8 @@ public class UiValidatorAssignmentImpl extends MinimalEObjectImpl.Container impl
 				if (resolve) return getField();
 				return basicGetField();
 			case UiModelPackage.UI_VALIDATOR_ASSIGNMENT__VALIDATOR_DEF:
-				return getValidatorDef();
+				if (resolve) return getValidatorDef();
+				return basicGetValidatorDef();
 			case UiModelPackage.UI_VALIDATOR_ASSIGNMENT__VALIDATOR_ALIAS:
 				if (resolve) return getValidatorAlias();
 				return basicGetValidatorAlias();

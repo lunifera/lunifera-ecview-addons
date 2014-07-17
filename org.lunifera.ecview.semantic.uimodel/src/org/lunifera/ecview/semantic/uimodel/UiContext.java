@@ -34,7 +34,7 @@ public interface UiContext extends UiRootElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bean Slots</em>' containment reference list.
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiContext_BeanSlots()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<UiBeanSlot> getBeanSlots();
@@ -50,7 +50,7 @@ public interface UiContext extends UiRootElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Binding Endpoint Alias</em>' containment reference list.
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiContext_BindingEndpointAlias()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<UiBindingEndpointAlias> getBindingEndpointAlias();
@@ -66,7 +66,7 @@ public interface UiContext extends UiRootElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bindings</em>' containment reference list.
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiContext_Bindings()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<UiBinding> getBindings();

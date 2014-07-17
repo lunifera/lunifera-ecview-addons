@@ -33,7 +33,7 @@ public interface UiVisibilityPropertiesAssignment extends EObject {
 	 * @return the value of the '<em>Properties</em>' containment reference.
 	 * @see #setProperties(UiVisibilityProperties)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiVisibilityPropertiesAssignment_Properties()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	UiVisibilityProperties getProperties();

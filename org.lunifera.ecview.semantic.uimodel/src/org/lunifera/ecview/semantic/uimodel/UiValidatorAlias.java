@@ -58,7 +58,7 @@ public interface UiValidatorAlias extends UiRootElements {
 	 * @return the value of the '<em>Validator</em>' containment reference.
 	 * @see #setValidator(UiValidator)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiValidatorAlias_Validator()
-	 * @model containment="true" required="true"
+	 * @model containment="true" resolveProxies="true" required="true"
 	 * @generated
 	 */
 	UiValidator getValidator();

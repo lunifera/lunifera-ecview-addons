@@ -64,6 +64,29 @@ public class UiXbaseVisibilityRuleImpl extends UiVisibilityRuleImpl implements U
 	 * @generated
 	 */
 	public XExpression getExpression() {
+		if (expression != null && expression.eIsProxy()) {
+			InternalEObject oldExpression = (InternalEObject)expression;
+			expression = (XExpression)eResolveProxy(oldExpression);
+			if (expression != oldExpression) {
+				InternalEObject newExpression = (InternalEObject)expression;
+				NotificationChain msgs = oldExpression.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_XBASE_VISIBILITY_RULE__EXPRESSION, null, null);
+				if (newExpression.eInternalContainer() == null) {
+					msgs = newExpression.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_XBASE_VISIBILITY_RULE__EXPRESSION, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_XBASE_VISIBILITY_RULE__EXPRESSION, oldExpression, expression));
+			}
+		}
+		return expression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public XExpression basicGetExpression() {
 		return expression;
 	}
 
@@ -124,7 +147,8 @@ public class UiXbaseVisibilityRuleImpl extends UiVisibilityRuleImpl implements U
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UiModelPackage.UI_XBASE_VISIBILITY_RULE__EXPRESSION:
-				return getExpression();
+				if (resolve) return getExpression();
+				return basicGetExpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

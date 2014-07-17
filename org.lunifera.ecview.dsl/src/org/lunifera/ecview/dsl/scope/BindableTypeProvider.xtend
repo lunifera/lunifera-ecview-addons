@@ -7,7 +7,11 @@ import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef
+import com.google.inject.Singleton
+import org.eclipse.xtext.common.types.TypesPackage
+import org.eclipse.xtext.common.types.TypesFactory
 
+@Singleton
 class BindableTypeProvider {
 
 	def JvmTypeReference getTypeReference(UiBindingExpression expression) {
@@ -35,6 +39,9 @@ class BindableTypeProvider {
 	}
 
 	def dispatch JvmTypeReference doGetTypeReference(UiTypedBindableDef tbDef) {
+		if(tbDef == null || tbDef.method == null){
+			return TypesFactory.eINSTANCE.createJvmUnknownTypeReference
+		}
 		return tbDef.method.jvmType
 	}
 

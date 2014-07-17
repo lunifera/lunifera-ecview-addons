@@ -148,7 +148,7 @@ public class UiCheckBoxImpl extends UiVisibilityProcessableImpl implements UiChe
 	 */
 	public EList<UiValidator> getValidators() {
 		if (validators == null) {
-			validators = new EObjectContainmentEList<UiValidator>(UiValidator.class, this, UiModelPackage.UI_CHECK_BOX__VALIDATORS);
+			validators = new EObjectContainmentEList.Resolving<UiValidator>(UiValidator.class, this, UiModelPackage.UI_CHECK_BOX__VALIDATORS);
 		}
 		return validators;
 	}

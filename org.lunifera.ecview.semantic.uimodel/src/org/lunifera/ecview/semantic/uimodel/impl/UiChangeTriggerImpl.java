@@ -73,6 +73,29 @@ public class UiChangeTriggerImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public UiBindingExpression getEndpoint() {
+		if (endpoint != null && endpoint.eIsProxy()) {
+			InternalEObject oldEndpoint = (InternalEObject)endpoint;
+			endpoint = (UiBindingExpression)eResolveProxy(oldEndpoint);
+			if (endpoint != oldEndpoint) {
+				InternalEObject newEndpoint = (InternalEObject)endpoint;
+				NotificationChain msgs = oldEndpoint.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_CHANGE_TRIGGER__ENDPOINT, null, null);
+				if (newEndpoint.eInternalContainer() == null) {
+					msgs = newEndpoint.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_CHANGE_TRIGGER__ENDPOINT, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_CHANGE_TRIGGER__ENDPOINT, oldEndpoint, endpoint));
+			}
+		}
+		return endpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiBindingExpression basicGetEndpoint() {
 		return endpoint;
 	}
 
@@ -171,7 +194,8 @@ public class UiChangeTriggerImpl extends MinimalEObjectImpl.Container implements
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UiModelPackage.UI_CHANGE_TRIGGER__ENDPOINT:
-				return getEndpoint();
+				if (resolve) return getEndpoint();
+				return basicGetEndpoint();
 			case UiModelPackage.UI_CHANGE_TRIGGER__ENDPOINT_ALIAS:
 				if (resolve) return getEndpointAlias();
 				return basicGetEndpointAlias();

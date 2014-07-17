@@ -210,7 +210,7 @@ public class UiModelImpl extends MinimalEObjectImpl.Container implements UiModel
 	 */
 	public EList<UiRootElements> getRoots() {
 		if (roots == null) {
-			roots = new EObjectContainmentEList<UiRootElements>(UiRootElements.class, this, UiModelPackage.UI_MODEL__ROOTS);
+			roots = new EObjectContainmentEList.Resolving<UiRootElements>(UiRootElements.class, this, UiModelPackage.UI_MODEL__ROOTS);
 		}
 		return roots;
 	}
@@ -222,7 +222,7 @@ public class UiModelImpl extends MinimalEObjectImpl.Container implements UiModel
 	 */
 	public EList<UiImports> getImports() {
 		if (imports == null) {
-			imports = new EObjectContainmentEList<UiImports>(UiImports.class, this, UiModelPackage.UI_MODEL__IMPORTS);
+			imports = new EObjectContainmentEList.Resolving<UiImports>(UiImports.class, this, UiModelPackage.UI_MODEL__IMPORTS);
 		}
 		return imports;
 	}

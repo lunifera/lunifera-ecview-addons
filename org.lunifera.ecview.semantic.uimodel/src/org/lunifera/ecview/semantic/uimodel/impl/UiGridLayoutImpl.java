@@ -147,7 +147,7 @@ public class UiGridLayoutImpl extends UiVisibilityProcessableImpl implements UiG
 	 */
 	public EList<UiGridLayoutAssigment> getContents() {
 		if (contents == null) {
-			contents = new EObjectContainmentEList<UiGridLayoutAssigment>(UiGridLayoutAssigment.class, this, UiModelPackage.UI_GRID_LAYOUT__CONTENTS);
+			contents = new EObjectContainmentEList.Resolving<UiGridLayoutAssigment>(UiGridLayoutAssigment.class, this, UiModelPackage.UI_GRID_LAYOUT__CONTENTS);
 		}
 		return contents;
 	}

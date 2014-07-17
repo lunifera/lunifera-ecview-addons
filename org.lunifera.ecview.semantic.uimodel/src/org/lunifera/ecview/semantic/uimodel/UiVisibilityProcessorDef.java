@@ -31,7 +31,7 @@ public interface UiVisibilityProcessorDef extends UiRootElements {
 	 * @return the value of the '<em>Processor</em>' containment reference.
 	 * @see #setProcessor(UiVisibilityProcessor)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiVisibilityProcessorDef_Processor()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	UiVisibilityProcessor getProcessor();

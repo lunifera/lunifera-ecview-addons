@@ -34,7 +34,7 @@ public interface UiField extends UiEmbeddable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Validators</em>' containment reference list.
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiField_Validators()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<UiValidator> getValidators();

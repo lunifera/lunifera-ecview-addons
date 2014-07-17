@@ -35,7 +35,7 @@ public interface UiVisibilityProcessor extends UiNamedElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Binding Alias</em>' containment reference list.
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiVisibilityProcessor_BindingAlias()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<UiBindingEndpointAlias> getBindingAlias();
@@ -51,7 +51,7 @@ public interface UiVisibilityProcessor extends UiNamedElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Change Trigger</em>' containment reference list.
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiVisibilityProcessor_ChangeTrigger()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<UiChangeTrigger> getChangeTrigger();
@@ -67,7 +67,7 @@ public interface UiVisibilityProcessor extends UiNamedElement {
 	 * @return the value of the '<em>Rule</em>' containment reference.
 	 * @see #setRule(UiVisibilityRule)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiVisibilityProcessor_Rule()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	UiVisibilityRule getRule();
@@ -93,7 +93,7 @@ public interface UiVisibilityProcessor extends UiNamedElement {
 	 * @return the value of the '<em>Properties Assignment</em>' containment reference.
 	 * @see #setPropertiesAssignment(UiVisibilityPropertiesAssignment)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiVisibilityProcessor_PropertiesAssignment()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	UiVisibilityPropertiesAssignment getPropertiesAssignment();

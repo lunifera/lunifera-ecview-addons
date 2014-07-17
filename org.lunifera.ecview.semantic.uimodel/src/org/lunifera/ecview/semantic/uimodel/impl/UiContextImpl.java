@@ -180,7 +180,7 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 	 */
 	public EList<UiBeanSlot> getBeanSlots() {
 		if (beanSlots == null) {
-			beanSlots = new EObjectContainmentEList<UiBeanSlot>(UiBeanSlot.class, this, UiModelPackage.UI_CONTEXT__BEAN_SLOTS);
+			beanSlots = new EObjectContainmentEList.Resolving<UiBeanSlot>(UiBeanSlot.class, this, UiModelPackage.UI_CONTEXT__BEAN_SLOTS);
 		}
 		return beanSlots;
 	}
@@ -192,7 +192,7 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 	 */
 	public EList<UiBindingEndpointAlias> getBindingEndpointAlias() {
 		if (bindingEndpointAlias == null) {
-			bindingEndpointAlias = new EObjectContainmentEList<UiBindingEndpointAlias>(UiBindingEndpointAlias.class, this, UiModelPackage.UI_CONTEXT__BINDING_ENDPOINT_ALIAS);
+			bindingEndpointAlias = new EObjectContainmentEList.Resolving<UiBindingEndpointAlias>(UiBindingEndpointAlias.class, this, UiModelPackage.UI_CONTEXT__BINDING_ENDPOINT_ALIAS);
 		}
 		return bindingEndpointAlias;
 	}
@@ -204,7 +204,7 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 	 */
 	public EList<UiBinding> getBindings() {
 		if (bindings == null) {
-			bindings = new EObjectContainmentEList<UiBinding>(UiBinding.class, this, UiModelPackage.UI_CONTEXT__BINDINGS);
+			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_CONTEXT__BINDINGS);
 		}
 		return bindings;
 	}

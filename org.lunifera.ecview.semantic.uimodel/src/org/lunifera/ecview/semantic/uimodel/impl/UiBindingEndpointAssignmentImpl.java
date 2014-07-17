@@ -172,6 +172,29 @@ public class UiBindingEndpointAssignmentImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 */
 	public UiBindingExpression getTypedBindableDef() {
+		if (typedBindableDef != null && typedBindableDef.eIsProxy()) {
+			InternalEObject oldTypedBindableDef = (InternalEObject)typedBindableDef;
+			typedBindableDef = (UiBindingExpression)eResolveProxy(oldTypedBindableDef);
+			if (typedBindableDef != oldTypedBindableDef) {
+				InternalEObject newTypedBindableDef = (InternalEObject)typedBindableDef;
+				NotificationChain msgs = oldTypedBindableDef.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BINDING_ENDPOINT_ASSIGNMENT__TYPED_BINDABLE_DEF, null, null);
+				if (newTypedBindableDef.eInternalContainer() == null) {
+					msgs = newTypedBindableDef.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BINDING_ENDPOINT_ASSIGNMENT__TYPED_BINDABLE_DEF, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_BINDING_ENDPOINT_ASSIGNMENT__TYPED_BINDABLE_DEF, oldTypedBindableDef, typedBindableDef));
+			}
+		}
+		return typedBindableDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiBindingExpression basicGetTypedBindableDef() {
 		return typedBindableDef;
 	}
 
@@ -215,6 +238,29 @@ public class UiBindingEndpointAssignmentImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 */
 	public UiPathSegment getPath() {
+		if (path != null && path.eIsProxy()) {
+			InternalEObject oldPath = (InternalEObject)path;
+			path = (UiPathSegment)eResolveProxy(oldPath);
+			if (path != oldPath) {
+				InternalEObject newPath = (InternalEObject)path;
+				NotificationChain msgs = oldPath.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BINDING_ENDPOINT_ASSIGNMENT__PATH, null, null);
+				if (newPath.eInternalContainer() == null) {
+					msgs = newPath.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BINDING_ENDPOINT_ASSIGNMENT__PATH, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_BINDING_ENDPOINT_ASSIGNMENT__PATH, oldPath, path));
+			}
+		}
+		return path;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiPathSegment basicGetPath() {
 		return path;
 	}
 
@@ -319,9 +365,11 @@ public class UiBindingEndpointAssignmentImpl extends MinimalEObjectImpl.Containe
 			case UiModelPackage.UI_BINDING_ENDPOINT_ASSIGNMENT__NAME:
 				return getName();
 			case UiModelPackage.UI_BINDING_ENDPOINT_ASSIGNMENT__TYPED_BINDABLE_DEF:
-				return getTypedBindableDef();
+				if (resolve) return getTypedBindableDef();
+				return basicGetTypedBindableDef();
 			case UiModelPackage.UI_BINDING_ENDPOINT_ASSIGNMENT__PATH:
-				return getPath();
+				if (resolve) return getPath();
+				return basicGetPath();
 			case UiModelPackage.UI_BINDING_ENDPOINT_ASSIGNMENT__TYPED_BINDABLE_ALIAS:
 				if (resolve) return getTypedBindableAlias();
 				return basicGetTypedBindableAlias();

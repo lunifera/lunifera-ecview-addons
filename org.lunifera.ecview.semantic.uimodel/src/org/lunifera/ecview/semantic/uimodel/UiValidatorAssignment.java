@@ -59,7 +59,7 @@ public interface UiValidatorAssignment extends UiNamedElement {
 	 * @return the value of the '<em>Validator Def</em>' containment reference.
 	 * @see #setValidatorDef(UiValidatorDef)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiValidatorAssignment_ValidatorDef()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	UiValidatorDef getValidatorDef();

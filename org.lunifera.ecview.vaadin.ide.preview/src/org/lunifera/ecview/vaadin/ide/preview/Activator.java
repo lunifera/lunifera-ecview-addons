@@ -2,6 +2,8 @@ package org.lunifera.ecview.vaadin.ide.preview;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.servlet.ServletException;
 
@@ -9,10 +11,12 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.xtext.ui.shared.SharedStateModule;
 import org.lunifera.ecview.vaadin.ide.preview.web.EcviewPreviewVaadinServlet;
 import org.lunifera.ecview.vaadin.ide.preview.web.ResourceProvider;
+import org.lunifera.xtext.builder.ui.access.IXtextUtilService;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleEvent;
+import org.osgi.framework.BundleException;
 import org.osgi.framework.BundleListener;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.http.HttpService;
@@ -42,11 +46,18 @@ public class Activator implements BundleActivator,
 
 	// used to track the HttpService
 	private ServiceTracker<HttpService, HttpService> tracker;
+	// track the XtextUtilService
+	private ServiceTracker<IXtextUtilService, IXtextUtilService> xtextUtilServiceTracker;
+
 	// used to register servlets
 	private HttpService httpService;
 	private ResourceProvider resourceProvider;
-	private Injector injector;
 	private YView yView;
+
+	private ExecutorService service = Executors.newSingleThreadExecutor();
+	private IXtextUtilService xtextUtilService;
+
+	private Injector injector;
 
 	//
 	// Helper methods to get an instance of the http service
@@ -84,21 +95,31 @@ public class Activator implements BundleActivator,
 	public void start(BundleContext bundleContext) throws Exception {
 		Activator.context = bundleContext;
 		plugin = this;
-		listeners = new HashSet<IModelChangedListener>();
 
-		injector = Guice.createInjector(new SharedStateModule());
+		// Starts the jetty server
+		startJetty();
+
+		listeners = new HashSet<IModelChangedListener>();
 
 		resourceProvider = new ResourceProvider();
 
 		handleStartedBundles(context);
 
+		injector = Guice.createInjector(new SharedStateModule());
+
 		// register this instance as a bundle listener to an reference to all
 		// vaadin bundles. Used to find the static resources.
 		bundleContext.addBundleListener(this);
 
+		xtextUtilServiceTracker = new ServiceTracker<>(bundleContext,
+				IXtextUtilService.class, null);
+		xtextUtilServiceTracker.open();
+		xtextUtilService = xtextUtilServiceTracker.waitForService(5000);
+
 		// Start a HttpService-Tracker to get an instance of HttpService
 		tracker = new ServiceTracker<>(bundleContext, HttpService.class, this);
 		tracker.open();
+
 	}
 
 	public void stop(BundleContext bundleContext) throws Exception {
@@ -127,6 +148,29 @@ public class Activator implements BundleActivator,
 			if (bundle.getState() == Bundle.RESOLVED
 					&& name.startsWith("com.vaadin")) {
 				resourceProvider.add(bundle);
+			} else if (bundle.getState() == Bundle.RESOLVED
+					&& name.equals("org.eclipse.equinox.http.jetty")) {
+				try {
+					bundle.start();
+				} catch (BundleException e) {
+				}
+			}
+		}
+	}
+
+	/**
+	 * Starts the jetty server.
+	 * 
+	 * @param context
+	 */
+	private void startJetty() {
+		for (Bundle bundle : context.getBundles()) {
+			String name = bundle.getSymbolicName();
+			if (name.equals("org.eclipse.equinox.http.jetty")) {
+				try {
+					bundle.start();
+				} catch (BundleException e) {
+				}
 			}
 		}
 	}
@@ -149,6 +193,10 @@ public class Activator implements BundleActivator,
 		return plugin;
 	}
 
+	public IXtextUtilService getXtextUtilService() {
+		return xtextUtilService;
+	}
+
 	public Injector getInjector() {
 		return injector;
 	}
@@ -163,7 +211,14 @@ public class Activator implements BundleActivator,
 
 	public void setActiveView(YView yView) {
 		this.yView = yView;
-		notifyModelChanged();
+
+		service.execute(new Runnable() {
+			@Override
+			public void run() {
+				notifyModelChanged();
+			}
+		});
+
 	}
 
 	public boolean addModelChangedListener(IModelChangedListener e) {

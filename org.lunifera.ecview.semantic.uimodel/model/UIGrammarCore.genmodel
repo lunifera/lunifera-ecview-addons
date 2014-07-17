@@ -2,8 +2,8 @@
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.lunifera.ecview.semantic.uimodel/src" modelPluginID="org.lunifera.ecview.semantic.uimodel"
     modelName="UIGrammar" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    usedGenPackages="../../org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types ../../org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.genmodel#//uisemantics ../../org.eclipse.xtext.xbase/model/Xbase.genmodel#//xtype ../../org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase"
+    importerID="org.eclipse.emf.importer.ecore" containmentProxies="true" complianceLevel="7.0"
+    copyrightFields="false" usedGenPackages="../../org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types ../../org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.genmodel#//uisemantics ../../org.eclipse.xtext.xbase/model/Xbase.genmodel#//xtype ../../org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase"
     importOrganizing="true">
   <foreignModel>UIGrammarCore.ecore</foreignModel>
   <genPackages prefix="UiModel" basePackage="org.lunifera.ecview.semantic" disposableProviderFactory="true"
@@ -29,20 +29,26 @@
     <genClasses ecoreClass="UIGrammarCore.ecore#//UiView">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiView/viewSet"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiView/content"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiView/validatorAssignments"/>
     </genClasses>
     <genClasses ecoreClass="UIGrammarCore.ecore#//UiIDEView"/>
     <genClasses ecoreClass="UIGrammarCore.ecore#//UiPoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UIGrammarCore.ecore#//UiPoint/x"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UIGrammarCore.ecore#//UiPoint/y"/>
     </genClasses>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiBeanSlot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBeanSlot/jvmType"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="UIGrammarCore.ecore#//UiRootElements"/>
+    <genClasses image="false" ecoreClass="UIGrammarCore.ecore#//UiBindingExpression"/>
     <genClasses ecoreClass="UIGrammarCore.ecore#//UiBindingEndpointAlias">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UIGrammarCore.ecore#//UiBindingEndpointAlias/alias"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBindingEndpointAlias/endpoint"/>
     </genClasses>
-    <genClasses ecoreClass="UIGrammarCore.ecore#//UiBindingEndpointDef">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBindingEndpointDef/bindable"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBindingEndpointDef/semanticEndpoint"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBindingEndpointDef/path"/>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiBindingEndpointAssignment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBindingEndpointAssignment/typedBindableDef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBindingEndpointAssignment/path"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBindingEndpointAssignment/typedBindableAlias"/>
     </genClasses>
     <genClasses ecoreClass="UIGrammarCore.ecore#//UiBinding">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBinding/source"/>
@@ -56,26 +62,17 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiPathSegment/jvmField"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiPathSegment/path"/>
     </genClasses>
-    <genClasses ecoreClass="UIGrammarCore.ecore#//UiBeanSlot">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiBeanSlot/jvmType"/>
+    <genClasses image="false" ecoreClass="UIGrammarCore.ecore#//UiRawBindable"/>
+    <genClasses image="false" ecoreClass="UIGrammarCore.ecore#//UiTypedBindable"/>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiTypedBindableDef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiTypedBindableDef/rawBindable"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiTypedBindableDef/method"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="UIGrammarCore.ecore#//UiRootElements"/>
-    <genClasses ecoreClass="UIGrammarCore.ecore#//UiMaxLengthValidator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UIGrammarCore.ecore#//UiMaxLengthValidator/maxLength"/>
-    </genClasses>
-    <genClasses ecoreClass="UIGrammarCore.ecore#//UiMinLengthValidator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UIGrammarCore.ecore#//UiMinLengthValidator/minLength"/>
-    </genClasses>
-    <genClasses ecoreClass="UIGrammarCore.ecore#//UiRegexpValidator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UIGrammarCore.ecore#//UiRegexpValidator/regExpression"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="UIGrammarCore.ecore#//UiBindable"/>
     <genClasses image="false" ecoreClass="UIGrammarCore.ecore#//UiEmbeddable"/>
     <genClasses image="false" ecoreClass="UIGrammarCore.ecore#//UiField">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiField/validators"/>
     </genClasses>
     <genClasses image="false" ecoreClass="UIGrammarCore.ecore#//UiLayout"/>
-    <genClasses image="false" ecoreClass="UIGrammarCore.ecore#//UiValidator"/>
     <genClasses ecoreClass="UIGrammarCore.ecore#//UiGridLayoutAssigment">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiGridLayoutAssigment/element"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiGridLayoutAssigment/from"/>
@@ -119,6 +116,33 @@
     <genClasses ecoreClass="UIGrammarCore.ecore#//UiVisibilityPropertiesAssignment">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiVisibilityPropertiesAssignment/properties"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiVisibilityPropertiesAssignment/propertyAlias"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="UIGrammarCore.ecore#//UiValidator"/>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiMaxLengthValidator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UIGrammarCore.ecore#//UiMaxLengthValidator/maxLength"/>
+    </genClasses>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiMinLengthValidator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UIGrammarCore.ecore#//UiMinLengthValidator/minLength"/>
+    </genClasses>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiRegexpValidator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UIGrammarCore.ecore#//UiRegexpValidator/regExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiXbaseValidator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiXbaseValidator/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiXbaseValidator/jvmType"/>
+    </genClasses>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiValidatorAlias">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UIGrammarCore.ecore#//UiValidatorAlias/alias"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiValidatorAlias/validator"/>
+    </genClasses>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiValidatorAssignment">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiValidatorAssignment/field"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiValidatorAssignment/validatorDef"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiValidatorAssignment/validatorAlias"/>
+    </genClasses>
+    <genClasses ecoreClass="UIGrammarCore.ecore#//UiValidatorDef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiValidatorDef/validator"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UIGrammarCore.ecore#//UiValidatorDef/jvmType"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

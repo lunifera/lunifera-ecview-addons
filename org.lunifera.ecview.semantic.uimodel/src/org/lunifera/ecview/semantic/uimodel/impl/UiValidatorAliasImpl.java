@@ -187,6 +187,29 @@ public class UiValidatorAliasImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	public UiValidator getValidator() {
+		if (validator != null && validator.eIsProxy()) {
+			InternalEObject oldValidator = (InternalEObject)validator;
+			validator = (UiValidator)eResolveProxy(oldValidator);
+			if (validator != oldValidator) {
+				InternalEObject newValidator = (InternalEObject)validator;
+				NotificationChain msgs = oldValidator.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VALIDATOR_ALIAS__VALIDATOR, null, null);
+				if (newValidator.eInternalContainer() == null) {
+					msgs = newValidator.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VALIDATOR_ALIAS__VALIDATOR, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_VALIDATOR_ALIAS__VALIDATOR, oldValidator, validator));
+			}
+		}
+		return validator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiValidator basicGetValidator() {
 		return validator;
 	}
 
@@ -253,7 +276,8 @@ public class UiValidatorAliasImpl extends MinimalEObjectImpl.Container implement
 			case UiModelPackage.UI_VALIDATOR_ALIAS__ALIAS:
 				return getAlias();
 			case UiModelPackage.UI_VALIDATOR_ALIAS__VALIDATOR:
-				return getValidator();
+				if (resolve) return getValidator();
+				return basicGetValidator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

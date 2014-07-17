@@ -33,7 +33,7 @@ public interface UiBindingEndpointAssignment extends UiTypedBindable, UiBindingE
 	 * @return the value of the '<em>Typed Bindable Def</em>' containment reference.
 	 * @see #setTypedBindableDef(UiBindingExpression)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiBindingEndpointAssignment_TypedBindableDef()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	UiBindingExpression getTypedBindableDef();
@@ -59,7 +59,7 @@ public interface UiBindingEndpointAssignment extends UiTypedBindable, UiBindingE
 	 * @return the value of the '<em>Path</em>' containment reference.
 	 * @see #setPath(UiPathSegment)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiBindingEndpointAssignment_Path()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	UiPathSegment getPath();

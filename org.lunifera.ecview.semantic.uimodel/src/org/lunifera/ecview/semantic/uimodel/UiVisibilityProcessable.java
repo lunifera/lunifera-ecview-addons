@@ -32,7 +32,7 @@ public interface UiVisibilityProcessable extends EObject {
 	 * @return the value of the '<em>Processor Assignment</em>' containment reference.
 	 * @see #setProcessorAssignment(UiVisibilityProcessorAssignment)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiVisibilityProcessable_ProcessorAssignment()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	UiVisibilityProcessorAssignment getProcessorAssignment();

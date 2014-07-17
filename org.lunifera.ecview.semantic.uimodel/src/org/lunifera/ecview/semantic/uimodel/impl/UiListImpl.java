@@ -148,7 +148,7 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 	 */
 	public EList<UiValidator> getValidators() {
 		if (validators == null) {
-			validators = new EObjectContainmentEList<UiValidator>(UiValidator.class, this, UiModelPackage.UI_LIST__VALIDATORS);
+			validators = new EObjectContainmentEList.Resolving<UiValidator>(UiValidator.class, this, UiModelPackage.UI_LIST__VALIDATORS);
 		}
 		return validators;
 	}

@@ -148,7 +148,7 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 	 */
 	public EList<UiValidator> getValidators() {
 		if (validators == null) {
-			validators = new EObjectContainmentEList<UiValidator>(UiValidator.class, this, UiModelPackage.UI_TEXT_FIELD__VALIDATORS);
+			validators = new EObjectContainmentEList.Resolving<UiValidator>(UiValidator.class, this, UiModelPackage.UI_TEXT_FIELD__VALIDATORS);
 		}
 		return validators;
 	}

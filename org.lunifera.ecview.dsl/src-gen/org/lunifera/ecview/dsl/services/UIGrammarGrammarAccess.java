@@ -1230,24 +1230,28 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiXbaseValidator");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cUiXbaseValidatorAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cExpressionValidatorKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cExpressionKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Assignment cExpressionAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cExpressionXBlockExpressionParserRuleCall_3_0 = (RuleCall)cExpressionAssignment_3.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cJvmTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_4_0 = (RuleCall)cJvmTypeAssignment_4.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cExpressionAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cExpressionXBlockExpressionParserRuleCall_6_0 = (RuleCall)cExpressionAssignment_6.eContents().get(0);
 		
 		//UiXbaseValidator:
-		//	{UiXbaseValidator} "ExpressionValidator" name=ID? expression=XBlockExpression?;
+		//	{UiXbaseValidator} "Expression" name=ID? "(" jvmType=JvmTypeReference ")" expression=XBlockExpression?;
 		public ParserRule getRule() { return rule; }
 
-		//{UiXbaseValidator} "ExpressionValidator" name=ID? expression=XBlockExpression?
+		//{UiXbaseValidator} "Expression" name=ID? "(" jvmType=JvmTypeReference ")" expression=XBlockExpression?
 		public Group getGroup() { return cGroup; }
 
 		//{UiXbaseValidator}
 		public Action getUiXbaseValidatorAction_0() { return cUiXbaseValidatorAction_0; }
 
-		//"ExpressionValidator"
-		public Keyword getExpressionValidatorKeyword_1() { return cExpressionValidatorKeyword_1; }
+		//"Expression"
+		public Keyword getExpressionKeyword_1() { return cExpressionKeyword_1; }
 
 		//name=ID?
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
@@ -1255,11 +1259,23 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
+		//"("
+		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
+
+		//jvmType=JvmTypeReference
+		public Assignment getJvmTypeAssignment_4() { return cJvmTypeAssignment_4; }
+
+		//JvmTypeReference
+		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_4_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_4_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+
 		//expression=XBlockExpression?
-		public Assignment getExpressionAssignment_3() { return cExpressionAssignment_3; }
+		public Assignment getExpressionAssignment_6() { return cExpressionAssignment_6; }
 
 		//XBlockExpression
-		public RuleCall getExpressionXBlockExpressionParserRuleCall_3_0() { return cExpressionXBlockExpressionParserRuleCall_3_0; }
+		public RuleCall getExpressionXBlockExpressionParserRuleCall_6_0() { return cExpressionXBlockExpressionParserRuleCall_6_0; }
 	}
 	
 	
@@ -1684,7 +1700,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiXbaseValidator:
-	//	{UiXbaseValidator} "ExpressionValidator" name=ID? expression=XBlockExpression?;
+	//	{UiXbaseValidator} "Expression" name=ID? "(" jvmType=JvmTypeReference ")" expression=XBlockExpression?;
 	public UiXbaseValidatorElements getUiXbaseValidatorAccess() {
 		return (pUiXbaseValidator != null) ? pUiXbaseValidator : (pUiXbaseValidator = new UiXbaseValidatorElements());
 	}

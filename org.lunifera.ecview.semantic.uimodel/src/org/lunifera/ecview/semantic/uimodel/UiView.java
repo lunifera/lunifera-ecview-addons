@@ -63,7 +63,7 @@ public interface UiView extends UiContext {
 	 * @return the value of the '<em>Content</em>' containment reference.
 	 * @see #setContent(UiEmbeddable)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiView_Content()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	UiEmbeddable getContent();
@@ -89,7 +89,7 @@ public interface UiView extends UiContext {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Validator Assignments</em>' containment reference list.
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiView_ValidatorAssignments()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<UiValidatorAssignment> getValidatorAssignments();

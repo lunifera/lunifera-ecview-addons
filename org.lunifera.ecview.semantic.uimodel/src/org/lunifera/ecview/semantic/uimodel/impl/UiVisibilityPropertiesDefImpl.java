@@ -144,6 +144,29 @@ public class UiVisibilityPropertiesDefImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 */
 	public UiVisibilityProperties getProperties() {
+		if (properties != null && properties.eIsProxy()) {
+			InternalEObject oldProperties = (InternalEObject)properties;
+			properties = (UiVisibilityProperties)eResolveProxy(oldProperties);
+			if (properties != oldProperties) {
+				InternalEObject newProperties = (InternalEObject)properties;
+				NotificationChain msgs = oldProperties.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROPERTIES_DEF__PROPERTIES, null, null);
+				if (newProperties.eInternalContainer() == null) {
+					msgs = newProperties.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROPERTIES_DEF__PROPERTIES, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_VISIBILITY_PROPERTIES_DEF__PROPERTIES, oldProperties, properties));
+			}
+		}
+		return properties;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiVisibilityProperties basicGetProperties() {
 		return properties;
 	}
 
@@ -208,7 +231,8 @@ public class UiVisibilityPropertiesDefImpl extends MinimalEObjectImpl.Container 
 			case UiModelPackage.UI_VISIBILITY_PROPERTIES_DEF__NAME:
 				return getName();
 			case UiModelPackage.UI_VISIBILITY_PROPERTIES_DEF__PROPERTIES:
-				return getProperties();
+				if (resolve) return getProperties();
+				return basicGetProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
