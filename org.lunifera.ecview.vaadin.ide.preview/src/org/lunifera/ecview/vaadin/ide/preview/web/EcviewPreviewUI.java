@@ -29,7 +29,6 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
 import org.eclipse.emf.ecp.ecview.common.types.ITypeProviderService;
-import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.vaadin.ide.preview.Activator;
 import org.lunifera.ecview.vaadin.ide.preview.IModelChangedListener;
 import org.lunifera.runtime.web.ecview.presentation.vaadin.VaadinRenderer;
@@ -160,12 +159,8 @@ public class EcviewPreviewUI extends UI implements IModelChangedListener {
 			if (clazz instanceof EClass) {
 
 				if (clazz == ValidationPackage.Literals.YCLASS_DELEGATE_VALIDATOR) {
-					return Activator
-							.getDefault()
-							.getXtextUtilService()
-							.reloadClass(
-									UiModelPackage.Literals.UI_XBASE_VALIDATOR,
-									qualifiedName);
+					return Activator.getDefault().getXtextUtilService()
+							.reloadClass(qualifiedName);
 				}
 			}
 			return null;
