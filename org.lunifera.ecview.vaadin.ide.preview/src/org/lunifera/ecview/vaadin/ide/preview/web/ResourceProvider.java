@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.lunifera.ecview.vaadin.ide.preview.Activator;
 import org.osgi.framework.Bundle;
 import org.osgi.service.http.HttpContext;
 
@@ -21,7 +22,11 @@ public class ResourceProvider implements HttpContext {
 
 	@Override
 	public URL getResource(String uri) {
-		URL resource = null;
+		URL resource = Activator.getDefault().findResource(uri);
+		if (resource != null) {
+			return resource;
+		}
+
 		// iterate over the vaadin bundles and try to find the requested
 		// resource
 		for (Bundle bundle : resources) {

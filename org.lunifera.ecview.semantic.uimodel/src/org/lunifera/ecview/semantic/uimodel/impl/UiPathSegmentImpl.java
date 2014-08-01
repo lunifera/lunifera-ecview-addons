@@ -270,6 +270,32 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 					: null;
 		}
 	}
+	
+	@Override
+	public JvmType getTypeofSecondLastSegment() {
+		UiPathSegment child = getPath();
+		if (child != null) {
+			JvmType type = child.getTypeofSecondLastSegment();
+			if(type == null){
+				return getJvmField().getType().getType();
+			} else{
+				return type;
+			}
+		} else {
+			// return null to tell the caller, that the current segment is the last.
+			return null;
+		}
+	}
+	
+	@Override
+	public JvmField getFieldofLastSegment() {
+		UiPathSegment child = getPath();
+		if (child != null) {
+			return child.getFieldofLastSegment();
+		} else {
+			return getJvmField();
+		}
+	}
 
 	public String toString() {
 		return toPathString();

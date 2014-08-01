@@ -11,6 +11,8 @@ import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
+import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
+import org.lunifera.ecview.semantic.uimodel.UiTypeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
@@ -18,7 +20,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 @Singleton
 @SuppressWarnings("all")
 public class BindableTypeProvider {
-  public JvmTypeReference getTypeReference(final UiBindingExpression expression) {
+  public JvmTypeReference getTypeReference(final EObject expression) {
     JvmTypeReference _xifexpression = null;
     boolean _notEquals = (!Objects.equal(expression, null));
     if (_notEquals) {
@@ -27,7 +29,7 @@ public class BindableTypeProvider {
     return _xifexpression;
   }
   
-  public JvmType getType(final UiBindingExpression expression) {
+  public JvmType getType(final EObject expression) {
     JvmType _xifexpression = null;
     boolean _notEquals = (!Objects.equal(expression, null));
     if (_notEquals) {
@@ -81,11 +83,37 @@ public class BindableTypeProvider {
       return TypesFactory.eINSTANCE.createJvmUnknownTypeReference();
     }
     UxEndpointDef _method_1 = tbDef.getMethod();
-    return _method_1.getJvmType();
+    JvmTypeReference type = _method_1.getJvmType();
+    boolean _equals_2 = Objects.equal(type, null);
+    if (_equals_2) {
+      return null;
+    }
+    final String fqn = type.getQualifiedName();
+    boolean _and = false;
+    boolean _notEquals = (!Objects.equal(fqn, null));
+    if (!_notEquals) {
+      _and = false;
+    } else {
+      String _name = Object.class.getName();
+      boolean _equals_3 = fqn.equals(_name);
+      _and = _equals_3;
+    }
+    if (_and) {
+      final UiRawBindable rawBindable = tbDef.getRawBindable();
+      if ((rawBindable instanceof UiTypeProvider)) {
+        JvmTypeReference _doGetTypeReference = this.doGetTypeReference(rawBindable);
+        type = _doGetTypeReference;
+      }
+    }
+    return type;
   }
   
   protected JvmTypeReference _doGetTypeReference(final UiBindingExpression tbDef) {
     throw new UnsupportedOperationException();
+  }
+  
+  protected JvmTypeReference _doGetTypeReference(final UiTypeProvider table) {
+    return table.getJvmType();
   }
   
   public JvmTypeReference doGetTypeReference(final EObject beanSlot) {
@@ -99,6 +127,8 @@ public class BindableTypeProvider {
       return _doGetTypeReference((UiTypedBindableDef)beanSlot);
     } else if (beanSlot instanceof UiBindingExpression) {
       return _doGetTypeReference((UiBindingExpression)beanSlot);
+    } else if (beanSlot instanceof UiTypeProvider) {
+      return _doGetTypeReference((UiTypeProvider)beanSlot);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(beanSlot).toString());

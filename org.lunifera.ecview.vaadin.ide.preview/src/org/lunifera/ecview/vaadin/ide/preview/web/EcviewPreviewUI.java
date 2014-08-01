@@ -22,38 +22,58 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecp.ecview.common.context.ContextException;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
+import org.eclipse.emf.ecp.ecview.common.services.IWidgetAssocationsService;
+import org.eclipse.emf.ecp.ecview.common.tooling.IWidgetMouseClickService;
 import org.eclipse.emf.ecp.ecview.common.types.ITypeProviderService;
 import org.lunifera.ecview.vaadin.ide.preview.Activator;
-import org.lunifera.ecview.vaadin.ide.preview.IModelChangedListener;
 import org.lunifera.runtime.web.ecview.presentation.vaadin.VaadinRenderer;
 import org.lunifera.runtime.web.vaadin.databinding.VaadinObservables;
 
 import com.vaadin.annotations.Push;
 import com.vaadin.annotations.Theme;
+import com.vaadin.server.ErrorHandler;
 import com.vaadin.server.VaadinRequest;
+import com.vaadin.ui.Component;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.themes.Reindeer;
 
 @SuppressWarnings("serial")
 @Theme(Reindeer.THEME_NAME)
 @Push
-public class EcviewPreviewUI extends UI implements IModelChangedListener {
+public class EcviewPreviewUI extends UI {
 
 	private IViewContext context;
 	private CssLayout layout;
 
 	private ECViewTypeProviderAdapter classLoadingHelper = new ECViewTypeProviderAdapter();
+	private Component selectedComponent;
 
 	@Override
 	protected void init(VaadinRequest request) {
+		setErrorHandler(new ErrorHandler() {
+			@Override
+			public void error(com.vaadin.server.ErrorEvent event) {
+				if (EcviewPreviewUI.this.isClosing()
+						|| !EcviewPreviewUI.this.isAttached()) {
+					return;
+				}
+				UI.setCurrent(EcviewPreviewUI.this);
+				disconnectAndClose(event.getThrowable());
+			}
+		});
+
+		if (!Activator.getDefault().setPreviewUI(this)) {
+			close();
+			return;
+		}
 
 		setStyleName(Reindeer.LAYOUT_BLUE);
 		VaadinObservables.getRealm(getUI());
@@ -62,29 +82,21 @@ public class EcviewPreviewUI extends UI implements IModelChangedListener {
 		layout.setSizeFull();
 		setContent(layout);
 
-		Activator.getDefault().addModelChangedListener(this);
+		modelChanged();
 	}
 
-	@Override
 	public void modelChanged() {
-		if (!isAttached()) {
-			Activator.getDefault().removeModelChangedListener(this);
-			return;
-		}
-
 		access(new Runnable() {
 			@Override
 			public void run() {
-
 				VaadinObservables.activateRealm(getUI());
-
 				try {
+					selectedComponent = null;
 					if (context != null) {
-						context.dispose();
-						context = null;
-						layout.removeAllComponents();
+						disposeContext();
 					}
-				} catch (Exception e1) {
+				} catch (Exception e) {
+					// nothing to do
 				}
 
 				if (Activator.getDefault().getActiveView() != null) {
@@ -98,13 +110,16 @@ public class EcviewPreviewUI extends UI implements IModelChangedListener {
 								classLoadingHelper);
 
 						YView view = Activator.getDefault().getActiveView();
-						context = renderer.render(layout, EcoreUtil.copy(view),
-								params);
+						context = renderer.render(layout, view, params);
 
 						registerBeans(view);
 
-					} catch (ContextException e) {
-						layout.addComponent(new Label(e.toString()));
+						if (Activator.getDefault().isLinkedWithEditor()) {
+							installSourceViewSelectionSupport();
+						}
+
+					} catch (Exception e) {
+						// nothing to do
 					}
 				} else {
 					layout.addComponent(new Label("No viewmodel available yet!"));
@@ -144,13 +159,84 @@ public class EcviewPreviewUI extends UI implements IModelChangedListener {
 						} catch (IllegalArgumentException e) {
 						} catch (InvocationTargetException e) {
 						}
-
 					}
 				}
 			}
 		});
 	}
 
+	/**
+	 * Disconnect the current UI and close it.
+	 * 
+	 * @param e
+	 */
+	private void disconnectAndClose(Throwable e) {
+		disposeContext();
+
+		error(e.toString());
+		Activator.getDefault().setPreviewUI(null);
+		EcviewPreviewUI.this.close();
+	}
+
+	/**
+	 * Installs the selection support that updates the xtext editor with the
+	 * current selected widget.
+	 */
+	private void installSourceViewSelectionSupport() {
+		IWidgetMouseClickService clickService = context
+				.getService(IWidgetMouseClickService.ID);
+		clickService.addListener(new IWidgetMouseClickService.Listener() {
+			@Override
+			public void clicked(Object modelElement) {
+				Activator.getDefault().selectInXtextEditor(
+						(EObject) modelElement);
+			}
+		});
+	}
+
+	public void selectedObject(final EObject element) {
+		if (context == null) {
+			return;
+		}
+
+		context.exec(new Runnable() {
+			@Override
+			public void run() {
+				if (selectedComponent != null) {
+					selectedComponent.removeStyleName("lun-tooling-selected");
+					selectedComponent = null;
+				}
+
+				IWidgetAssocationsService service = context
+						.getService(IWidgetAssocationsService.ID);
+				selectedComponent = (Component) service.getWidget(element);
+				if (selectedComponent != null) {
+					selectedComponent.addStyleName("lun-tooling-selected");
+				}
+			}
+		});
+	}
+
+	public void error(String value) {
+		Notification.show(value, Notification.Type.ERROR_MESSAGE);
+	}
+
+	/**
+	 * Disposes the current context.
+	 */
+	private void disposeContext() {
+		if (context == null) {
+			return;
+		}
+
+		context.dispose();
+		context = null;
+		layout.removeAllComponents();
+	}
+
+	/**
+	 * Loads classes from the workspace.
+	 */
 	private static class ECViewTypeProviderAdapter implements
 			ITypeProviderService {
 
@@ -165,7 +251,5 @@ public class EcviewPreviewUI extends UI implements IModelChangedListener {
 			}
 			return null;
 		}
-
 	}
-
 }

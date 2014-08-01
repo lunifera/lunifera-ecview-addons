@@ -93,5 +93,19 @@ public interface UiPathSegment extends EObject {
 	 * @return
 	 */
 	public JvmType getTypeofLastSegment();
-
+	
+	/**
+	 * Returns the type of the second last segment.
+	 * 
+	 * @return
+	 */
+	public JvmType getTypeofSecondLastSegment();
+	
+	/**
+	 * Returns the field of the last segment.
+	 * 
+	 * @return
+	 */
+	public JvmField getFieldofLastSegment();
+	
 } // UiPathSegment

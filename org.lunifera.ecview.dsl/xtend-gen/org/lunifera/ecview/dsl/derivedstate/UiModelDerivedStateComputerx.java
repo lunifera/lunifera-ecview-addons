@@ -2,6 +2,7 @@ package org.lunifera.ecview.dsl.derivedstate;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -13,13 +14,14 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
@@ -32,10 +34,18 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YColumn;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YFlatAlignment;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
+import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmGenericType;
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeReference;
@@ -48,6 +58,7 @@ import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
+import org.lunifera.ecview.dsl.derivedstate.UiGrammarElementAdapter;
 import org.lunifera.ecview.dsl.scope.BindableTypeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
@@ -55,10 +66,17 @@ import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
+import org.lunifera.ecview.semantic.uimodel.UiColumn;
+import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiField;
+import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
+import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
+import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiGridLayout;
 import org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment;
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout;
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
@@ -69,6 +87,8 @@ import org.lunifera.ecview.semantic.uimodel.UiPoint;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
+import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
+import org.lunifera.ecview.semantic.uimodel.UiTable;
 import org.lunifera.ecview.semantic.uimodel.UiTextField;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
@@ -76,32 +96,73 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorDef;
+import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout;
+import org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoader;
-import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderProvider;
+import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderFactory;
 
+@Singleton
 @SuppressWarnings("all")
 public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   public static class BindingInfo {
     /**
-     * The type of the binding. For nested bindings it is the last element available
+     * The type of the bound property. For nested bindings it is the last element available
      */
-    private JvmType _bindingType;
+    private JvmType _typeOfBoundProperty;
     
     /**
-     * The type of the binding. For nested bindings it is the last element available
+     * The type of the bound property. For nested bindings it is the last element available
      */
-    public JvmType getBindingType() {
-      return this._bindingType;
+    public JvmType getTypeOfBoundProperty() {
+      return this._typeOfBoundProperty;
     }
     
     /**
-     * The type of the binding. For nested bindings it is the last element available
+     * The type of the bound property. For nested bindings it is the last element available
      */
-    public void setBindingType(final JvmType bindingType) {
-      this._bindingType = bindingType;
+    public void setTypeOfBoundProperty(final JvmType typeOfBoundProperty) {
+      this._typeOfBoundProperty = typeOfBoundProperty;
+    }
+    
+    /**
+     * The type of the binding. For nested bindings it is the element before the bound property
+     */
+    private JvmType _typeForBinding;
+    
+    /**
+     * The type of the binding. For nested bindings it is the element before the bound property
+     */
+    public JvmType getTypeForBinding() {
+      return this._typeForBinding;
+    }
+    
+    /**
+     * The type of the binding. For nested bindings it is the element before the bound property
+     */
+    public void setTypeForBinding(final JvmType typeForBinding) {
+      this._typeForBinding = typeForBinding;
+    }
+    
+    /**
+     * The deepest JvmField in the hierarchy. This field is used to bind.
+     */
+    private JvmField _deepestJvmField;
+    
+    /**
+     * The deepest JvmField in the hierarchy. This field is used to bind.
+     */
+    public JvmField getDeepestJvmField() {
+      return this._deepestJvmField;
+    }
+    
+    /**
+     * The deepest JvmField in the hierarchy. This field is used to bind.
+     */
+    public void setDeepestJvmField(final JvmField deepestJvmField) {
+      this._deepestJvmField = deepestJvmField;
     }
     
     /**
@@ -163,16 +224,20 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   @Inject
-  private IJdtTypeLoaderProvider typeLoaderProvider;
+  private IJdtTypeLoaderFactory typeLoaderFactory;
+  
+  private IJdtTypeLoader typeLoader;
   
   @Inject
-  private BindableTypeProvider bindingTypeProvider;
+  private BindableTypeProvider typeOfBoundPropertyProvider;
   
   private final Stack<EObject> viewContext = new Stack<EObject>();
   
   private final List<YView> views = CollectionLiterals.<YView>newArrayList();
   
-  private final Map<EObject, EObject> associations = CollectionLiterals.<EObject, EObject>newHashMap();
+  private final Map<EObject, EObject> grammarToUiAssociations = CollectionLiterals.<EObject, EObject>newHashMap();
+  
+  private final Map<EObject, EObject> uiToGrammarAssociations = CollectionLiterals.<EObject, EObject>newHashMap();
   
   private final SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
   
@@ -181,23 +246,37 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   private DerivedStateAwareResource resource;
   
   public void associateUi(final EObject grammarElement, final EObject uiElement) {
-    this.associations.put(grammarElement, uiElement);
+    this.grammarToUiAssociations.put(grammarElement, uiElement);
+    this.uiToGrammarAssociations.put(uiElement, grammarElement);
+    EList<org.eclipse.emf.common.notify.Adapter> _eAdapters = uiElement.eAdapters();
+    UiGrammarElementAdapter _uiGrammarElementAdapter = new UiGrammarElementAdapter(grammarElement);
+    _eAdapters.add(_uiGrammarElementAdapter);
   }
   
   public <A extends Object> A associatedUi(final EObject grammarElement) {
-    EObject _get = this.associations.get(grammarElement);
+    EObject _get = this.grammarToUiAssociations.get(grammarElement);
+    return ((A) _get);
+  }
+  
+  public <A extends Object> A associatedGrammar(final EObject uiElement) {
+    EObject _get = this.uiToGrammarAssociations.get(uiElement);
     return ((A) _get);
   }
   
   public void installDerivedState(final DerivedStateAwareResource resource, final boolean preLinkingPhase) {
     super.installDerivedState(resource, preLinkingPhase);
     this.resource = resource;
+    ResourceSet _resourceSet = resource.getResourceSet();
+    IJdtTypeLoader _createJdtTypeLoader = this.typeLoaderFactory.createJdtTypeLoader(_resourceSet);
+    this.typeLoader = _createJdtTypeLoader;
     EList<EObject> _contents = resource.getContents();
     boolean _isEmpty = _contents.isEmpty();
     if (_isEmpty) {
       return;
     }
     if ((!preLinkingPhase)) {
+      this.grammarToUiAssociations.clear();
+      this.uiToGrammarAssociations.clear();
       EList<EObject> _contents_1 = resource.getContents();
       final EObject eObject = _contents_1.get(0);
       EList<EObject> _eContents = eObject.eContents();
@@ -216,8 +295,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
       this.views.clear();
       this.viewContext.clear();
-      this.associations.clear();
     }
+    this.typeLoader.dispose();
+    this.typeLoader = null;
   }
   
   public <A extends Object> A peek() {
@@ -312,6 +392,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final YEmbeddable newField = this.create(element);
     layout.addElement(newField);
     if ((element instanceof UiField)) {
+      this.map(element);
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
@@ -323,6 +404,183 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       IterableExtensions.<UiValidator>forEach(_validators, _function);
       this.<Object>pop();
     }
+  }
+  
+  protected void _map(final UiVerticalLayout eObject) {
+    final YVerticalLayout layout = this.factory.createVerticalLayout();
+    String _name = eObject.getName();
+    layout.setName(_name);
+    this.addToParent(layout);
+    this.associateUi(eObject, layout);
+    this.push(layout);
+    EList<UiVerticalLayoutAssigment> _contents = eObject.getContents();
+    final Procedure1<UiVerticalLayoutAssigment> _function = new Procedure1<UiVerticalLayoutAssigment>() {
+      public void apply(final UiVerticalLayoutAssigment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVerticalLayoutAssigment>forEach(_contents, _function);
+    this.<Object>pop();
+  }
+  
+  protected void _map(final UiVerticalLayoutAssigment eObject) {
+    final YVerticalLayout layout = this.<YVerticalLayout>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    if ((element instanceof UiField)) {
+      this.map(element);
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
+  }
+  
+  protected void _map(final UiHorizontalLayout eObject) {
+    final YHorizontalLayout layout = this.factory.createHorizontalLayout();
+    String _name = eObject.getName();
+    layout.setName(_name);
+    this.addToParent(layout);
+    this.associateUi(eObject, layout);
+    this.push(layout);
+    EList<UiHorizontalLayoutAssigment> _contents = eObject.getContents();
+    final Procedure1<UiHorizontalLayoutAssigment> _function = new Procedure1<UiHorizontalLayoutAssigment>() {
+      public void apply(final UiHorizontalLayoutAssigment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiHorizontalLayoutAssigment>forEach(_contents, _function);
+    this.<Object>pop();
+  }
+  
+  protected void _map(final UiHorizontalLayoutAssigment eObject) {
+    final YHorizontalLayout layout = this.<YHorizontalLayout>peek();
+    final UiEmbeddable element = eObject.getElement();
+    if ((element instanceof UiField)) {
+      final YEmbeddable newField = this.create(element);
+      layout.addElement(newField);
+      if ((element instanceof UiField)) {
+        this.map(element);
+        this.push(newField);
+        final UiField yField = ((UiField) element);
+        EList<UiValidator> _validators = yField.getValidators();
+        final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+          public void apply(final UiValidator it) {
+            UiModelDerivedStateComputerx.this.map(it);
+          }
+        };
+        IterableExtensions.<UiValidator>forEach(_validators, _function);
+        this.<Object>pop();
+      }
+    } else {
+      this.map(element);
+    }
+  }
+  
+  protected void _map(final UiFormLayout eObject) {
+    final YFormLayout layout = this.factory.createFormLayout();
+    String _name = eObject.getName();
+    layout.setName(_name);
+    this.addToParent(layout);
+    this.associateUi(eObject, layout);
+    this.push(layout);
+    EList<UiFormLayoutAssigment> _contents = eObject.getContents();
+    final Procedure1<UiFormLayoutAssigment> _function = new Procedure1<UiFormLayoutAssigment>() {
+      public void apply(final UiFormLayoutAssigment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiFormLayoutAssigment>forEach(_contents, _function);
+    this.<Object>pop();
+  }
+  
+  protected void _map(final UiFormLayoutAssigment eObject) {
+    final YFormLayout layout = this.<YFormLayout>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    if ((element instanceof UiField)) {
+      this.map(element);
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
+  }
+  
+  protected void _map(final UiTable eObject) {
+    final YTable yField = this.<YTable>associatedUi(eObject);
+    this.push(yField);
+    UiColumnAssignments _columnAssignment = eObject.getColumnAssignment();
+    boolean _notEquals = (!Objects.equal(_columnAssignment, null));
+    if (_notEquals) {
+      UiColumnAssignments _columnAssignment_1 = eObject.getColumnAssignment();
+      EList<UiColumn> _columns = _columnAssignment_1.getColumns();
+      final Procedure1<UiColumn> _function = new Procedure1<UiColumn>() {
+        public void apply(final UiColumn it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiColumn>forEach(_columns, _function);
+    }
+    this.<Object>pop();
+  }
+  
+  protected void _map(final UiColumn eObject) {
+    final YTable yField = this.<YTable>peek();
+    final YColumn yColumn = this.factory.createColumn();
+    UiFlatAlignment _alignment = eObject.getAlignment();
+    YFlatAlignment _yFlatAlignment = this.toYFlatAlignment(_alignment);
+    yColumn.setAlignment(_yFlatAlignment);
+    boolean _isCollapsed = eObject.isCollapsed();
+    yColumn.setCollapsed(_isCollapsed);
+    boolean _isCollapsible = eObject.isCollapsible();
+    yColumn.setCollapsible(_isCollapsible);
+    float _expandRatio = eObject.getExpandRatio();
+    yColumn.setExpandRatio(_expandRatio);
+    String _iconName = eObject.getIconName();
+    yColumn.setIcon(_iconName);
+    JvmField _jvmField = eObject.getJvmField();
+    String _simpleName = null;
+    if (_jvmField!=null) {
+      _simpleName=_jvmField.getSimpleName();
+    }
+    yColumn.setName(_simpleName);
+    boolean _isOrderable = eObject.isOrderable();
+    yColumn.setOrderable(_isOrderable);
+    boolean _isVisible = eObject.isVisible();
+    yColumn.setVisible(_isVisible);
+    EList<YColumn> _columns = yField.getColumns();
+    _columns.add(yColumn);
+  }
+  
+  public YFlatAlignment toYFlatAlignment(final UiFlatAlignment uiAlign) {
+    if (uiAlign != null) {
+      switch (uiAlign) {
+        case LEFT:
+          return YFlatAlignment.LEFT;
+        case CENTER:
+          return YFlatAlignment.CENTER;
+        case RIGHT:
+          return YFlatAlignment.RIGHT;
+        default:
+          break;
+      }
+    }
+    return null;
   }
   
   protected void _map(final UiValidatorAssignment eObject) {
@@ -356,8 +614,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     if (_equals) {
       return;
     }
-    UiValidator _validator = eObject.getValidator();
-    this.map(_validator);
   }
   
   protected void _map(final UiMaxLengthValidator eObject) {
@@ -429,7 +685,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     }
   }
   
-  protected YEmbeddable _create(final YEmbeddable object) {
+  protected YEmbeddable _create(final UiEmbeddable object) {
     return null;
   }
   
@@ -441,6 +697,48 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     textField.setLabel(_name_1);
     this.associateUi(object, textField);
     return textField;
+  }
+  
+  protected YEmbeddable _create(final UiTable object) {
+    final YTable table = this.factory.createTable();
+    String _name = object.getName();
+    table.setName(_name);
+    String _name_1 = object.getName();
+    table.setLabel(_name_1);
+    UiSelectionType _selectionType = object.getSelectionType();
+    YSelectionType _convert = this.convert(_selectionType);
+    table.setSelectionType(_convert);
+    JvmTypeReference _jvmType = object.getJvmType();
+    boolean _notEquals = (!Objects.equal(_jvmType, null));
+    if (_notEquals) {
+      JvmTypeReference _jvmType_1 = object.getJvmType();
+      String _qualifiedName = _jvmType_1.getQualifiedName();
+      table.setTypeQualifiedName(_qualifiedName);
+      Resource _eResource = object.eResource();
+      ResourceSet _resourceSet = _eResource.getResourceSet();
+      JvmTypeReference _jvmType_2 = object.getJvmType();
+      String _qualifiedName_1 = _jvmType_2.getQualifiedName();
+      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+      table.setType(_loadClass);
+    }
+    this.associateUi(object, table);
+    return table;
+  }
+  
+  public YSelectionType convert(final UiSelectionType type) {
+    if (type != null) {
+      switch (type) {
+        case NONE:
+          return YSelectionType.SINGLE;
+        case SINGLE:
+          return YSelectionType.SINGLE;
+        case MULTI:
+          return YSelectionType.MULTI;
+        default:
+          break;
+      }
+    }
+    return null;
   }
   
   protected YEmbeddable _create(final UiNumericField object) {
@@ -504,66 +802,51 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       UiBindingExpression _endpoint_1 = targetAlias.getEndpoint();
       targetEndpoint = ((UiBindingEndpointAssignment) _endpoint_1);
     }
-    final YBindingEndpoint sourceResult = this.createBindingEndpoint(sourceEndpoint);
-    final YBindingEndpoint targetResult = this.createBindingEndpoint(targetEndpoint);
-    YBindingUpdateStrategy sourceToTargetStrategy = YBindingUpdateStrategy.UPDATE;
-    boolean _isSourceToTarget = object.isSourceToTarget();
-    boolean _not = (!_isSourceToTarget);
+    boolean _isListBinding = object.isListBinding();
+    boolean _not = (!_isListBinding);
     if (_not) {
-      sourceToTargetStrategy = YBindingUpdateStrategy.ON_REQUEST;
-    }
-    YBindingUpdateStrategy targetToSourceStrategy = YBindingUpdateStrategy.UPDATE;
-    boolean _isTargetToSource = object.isTargetToSource();
-    boolean _not_1 = (!_isTargetToSource);
-    if (_not_1) {
-      targetToSourceStrategy = YBindingUpdateStrategy.ON_REQUEST;
-    }
-    boolean _and = false;
-    if (!(sourceResult instanceof YValueBindingEndpoint)) {
-      _and = false;
-    } else {
-      _and = (targetResult instanceof YValueBindingEndpoint);
-    }
-    if (_and) {
+      final YValueBindingEndpoint sourceResult = this.createValueBindingEndpoint(sourceEndpoint);
+      final YValueBindingEndpoint targetResult = this.createValueBindingEndpoint(targetEndpoint);
+      YBindingUpdateStrategy sourceToTargetStrategy = YBindingUpdateStrategy.UPDATE;
+      boolean _isSourceToTarget = object.isSourceToTarget();
+      boolean _not_1 = (!_isSourceToTarget);
+      if (_not_1) {
+        sourceToTargetStrategy = YBindingUpdateStrategy.ON_REQUEST;
+      }
+      YBindingUpdateStrategy targetToSourceStrategy = YBindingUpdateStrategy.UPDATE;
+      boolean _isTargetToSource = object.isTargetToSource();
+      boolean _not_2 = (!_isTargetToSource);
+      if (_not_2) {
+        targetToSourceStrategy = YBindingUpdateStrategy.ON_REQUEST;
+      }
       YBindingSet _orCreateBindingSet = this.currentView.getOrCreateBindingSet();
-      _orCreateBindingSet.addBinding(((YValueBindingEndpoint) targetResult), 
-        ((YValueBindingEndpoint) sourceResult), targetToSourceStrategy, sourceToTargetStrategy);
+      _orCreateBindingSet.addBinding(targetResult, sourceResult, targetToSourceStrategy, sourceToTargetStrategy);
     } else {
-      boolean _and_1 = false;
-      if (!(sourceResult instanceof YListBindingEndpoint)) {
-        _and_1 = false;
-      } else {
-        _and_1 = (targetResult instanceof YListBindingEndpoint);
+      final YListBindingEndpoint sourceResult_1 = this.createListBindingEndpoint(sourceEndpoint);
+      final YListBindingEndpoint targetResult_1 = this.createListBindingEndpoint(targetEndpoint);
+      YBindingUpdateStrategy sourceToTargetStrategy_1 = YBindingUpdateStrategy.UPDATE;
+      boolean _isSourceToTarget_1 = object.isSourceToTarget();
+      boolean _not_3 = (!_isSourceToTarget_1);
+      if (_not_3) {
+        sourceToTargetStrategy_1 = YBindingUpdateStrategy.ON_REQUEST;
       }
-      if (_and_1) {
-        YBindingSet _orCreateBindingSet_1 = this.currentView.getOrCreateBindingSet();
-        _orCreateBindingSet_1.addBinding(((YListBindingEndpoint) targetResult), 
-          ((YListBindingEndpoint) sourceResult), targetToSourceStrategy, sourceToTargetStrategy);
-      } else {
-        boolean _or = false;
-        boolean _equals = Objects.equal(sourceResult, null);
-        if (_equals) {
-          _or = true;
-        } else {
-          boolean _equals_1 = Objects.equal(targetResult, null);
-          _or = _equals_1;
-        }
-        if (_or) {
-        } else {
-          String _plus = (sourceResult + " is not bindable to ");
-          String _plus_1 = (_plus + targetResult);
-          throw new IllegalArgumentException(_plus_1);
-        }
+      YBindingUpdateStrategy targetToSourceStrategy_1 = YBindingUpdateStrategy.UPDATE;
+      boolean _isTargetToSource_1 = object.isTargetToSource();
+      boolean _not_4 = (!_isTargetToSource_1);
+      if (_not_4) {
+        targetToSourceStrategy_1 = YBindingUpdateStrategy.ON_REQUEST;
       }
+      YBindingSet _orCreateBindingSet_1 = this.currentView.getOrCreateBindingSet();
+      _orCreateBindingSet_1.addBinding(targetResult_1, sourceResult_1, targetToSourceStrategy_1, sourceToTargetStrategy_1);
     }
   }
   
-  public YBindingEndpoint createBindingEndpoint(final UiBindingEndpointAssignment epDef) {
+  public YValueBindingEndpoint createValueBindingEndpoint(final UiBindingEndpointAssignment epDef) {
     boolean _equals = Objects.equal(epDef, null);
     if (_equals) {
       return null;
     }
-    YBindingEndpoint result = null;
+    YValueBindingEndpoint result = null;
     final UiModelDerivedStateComputerx.BindingInfo info = new UiModelDerivedStateComputerx.BindingInfo();
     this.collectBindingInfo(epDef, info);
     EObject _bindingRoot = info.getBindingRoot();
@@ -587,11 +870,65 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
         StringBuilder _path_1 = info.getPath();
         String _string_1 = _path_1.toString();
         ep_1.setPropertyPath(_string_1);
-        JvmType _bindingType = info.getBindingType();
-        boolean _notEquals = (!Objects.equal(_bindingType, null));
+        JvmType _typeForBinding = info.getTypeForBinding();
+        boolean _notEquals = (!Objects.equal(_typeForBinding, null));
         if (_notEquals) {
-          JvmType _bindingType_1 = info.getBindingType();
-          String _qualifiedName = _bindingType_1.getQualifiedName();
+          JvmType _typeForBinding_1 = info.getTypeForBinding();
+          String _qualifiedName = _typeForBinding_1.getQualifiedName();
+          ep_1.setTypeQualifiedName(_qualifiedName);
+          Resource _eResource = epDef.eResource();
+          ResourceSet _resourceSet = _eResource.getResourceSet();
+          String _typeQualifiedName = ep_1.getTypeQualifiedName();
+          Class<?> _loadClass = this.loadClass(_resourceSet, _typeQualifiedName);
+          ep_1.setType(_loadClass);
+        }
+        boolean _notEquals_1 = (!Objects.equal(yElement, null));
+        if (_notEquals_1) {
+          EClass _eClass = yElement.eClass();
+          EPackage _ePackage = _eClass.getEPackage();
+          String _nsURI = _ePackage.getNsURI();
+          ep_1.setEmfNsURI(_nsURI);
+        }
+        result = ep_1;
+      }
+    }
+    return result;
+  }
+  
+  public YListBindingEndpoint createListBindingEndpoint(final UiBindingEndpointAssignment epDef) {
+    boolean _equals = Objects.equal(epDef, null);
+    if (_equals) {
+      return null;
+    }
+    YListBindingEndpoint result = null;
+    final UiModelDerivedStateComputerx.BindingInfo info = new UiModelDerivedStateComputerx.BindingInfo();
+    this.collectBindingInfo(epDef, info);
+    EObject _bindingRoot = info.getBindingRoot();
+    if ((_bindingRoot instanceof UiBeanSlot)) {
+      EObject _bindingRoot_1 = info.getBindingRoot();
+      final UiBeanSlot uiBeanSlot = ((UiBeanSlot) _bindingRoot_1);
+      final YBeanSlot yBeanSlot = this.<YBeanSlot>associatedUi(uiBeanSlot);
+      final YBeanSlotListBindingEndpoint ep = this.factory.createBeanSlotListBindingEndpoint();
+      ep.setBeanSlot(yBeanSlot);
+      StringBuilder _path = info.getPath();
+      String _string = _path.toString();
+      ep.setAttributePath(_string);
+      result = ep;
+    } else {
+      EObject _bindingRoot_2 = info.getBindingRoot();
+      if ((_bindingRoot_2 instanceof UiEmbeddable)) {
+        EObject _bindingRoot_3 = info.getBindingRoot();
+        final YEmbeddable yElement = this.<YEmbeddable>associatedUi(_bindingRoot_3);
+        final YECViewModelListBindingEndpoint ep_1 = this.factory.createECViewModelListBindingEndpoint();
+        ep_1.setElement(yElement);
+        StringBuilder _path_1 = info.getPath();
+        String _string_1 = _path_1.toString();
+        ep_1.setPropertyPath(_string_1);
+        JvmType _typeForBinding = info.getTypeForBinding();
+        boolean _notEquals = (!Objects.equal(_typeForBinding, null));
+        if (_notEquals) {
+          JvmType _typeForBinding_1 = info.getTypeForBinding();
+          String _qualifiedName = _typeForBinding_1.getQualifiedName();
           ep_1.setTypeQualifiedName(_qualifiedName);
           Resource _eResource = epDef.eResource();
           ResourceSet _resourceSet = _eResource.getResourceSet();
@@ -638,7 +975,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       info.appendPath(_pathString);
       UiPathSegment _path_2 = assignment.getPath();
       JvmType _typeofLastSegment = _path_2.getTypeofLastSegment();
-      info.setBindingType(_typeofLastSegment);
+      info.setTypeOfBoundProperty(_typeofLastSegment);
+      UiPathSegment _path_3 = assignment.getPath();
+      JvmField _fieldofLastSegment = _path_3.getFieldofLastSegment();
+      info.setDeepestJvmField(_fieldofLastSegment);
+      UiPathSegment _path_4 = assignment.getPath();
+      final JvmType pathType = _path_4.getTypeofSecondLastSegment();
+      boolean _notEquals_3 = (!Objects.equal(pathType, null));
+      if (_notEquals_3) {
+        info.setTypeForBinding(pathType);
+      }
     }
   }
   
@@ -649,7 +995,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     if (_jvmType!=null) {
       _type=_jvmType.getType();
     }
-    info.setBindingType(_type);
+    info.setTypeForBinding(_type);
   }
   
   protected void _collectBindingInfo(final UiBindingEndpointAlias alias, final UiModelDerivedStateComputerx.BindingInfo info) {
@@ -658,8 +1004,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _collectBindingInfo(final UiTypedBindableDef definition, final UiModelDerivedStateComputerx.BindingInfo info) {
-    JvmType _type = this.bindingTypeProvider.getType(definition);
-    info.setBindingType(_type);
+    JvmType _type = this.typeOfBoundPropertyProvider.getType(definition);
+    info.setTypeForBinding(_type);
     UiRawBindable _rawBindable = definition.getRawBindable();
     info.setBindingRoot(_rawBindable);
     final UxEndpointDef bindingMethod = definition.getMethod();
@@ -707,12 +1053,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   public Class<?> loadClass(final ResourceSet resourceSet, final String qualifiedName) {
-    final IJdtTypeLoader loader = this.typeLoaderProvider.get(resourceSet);
-    boolean _equals = Objects.equal(loader, null);
-    if (_equals) {
-      return null;
-    }
-    return loader.findTypeByName(qualifiedName);
+    return this.typeLoader.findTypeByName(qualifiedName);
   }
   
   protected void _map(final UiPathSegment object) {
@@ -763,11 +1104,26 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   public void map(final EObject eObject) {
-    if (eObject instanceof UiGridLayout) {
+    if (eObject instanceof UiColumn) {
+      _map((UiColumn)eObject);
+      return;
+    } else if (eObject instanceof UiFormLayout) {
+      _map((UiFormLayout)eObject);
+      return;
+    } else if (eObject instanceof UiGridLayout) {
       _map((UiGridLayout)eObject);
+      return;
+    } else if (eObject instanceof UiHorizontalLayout) {
+      _map((UiHorizontalLayout)eObject);
       return;
     } else if (eObject instanceof UiIDEView) {
       _map((UiIDEView)eObject);
+      return;
+    } else if (eObject instanceof UiTable) {
+      _map((UiTable)eObject);
+      return;
+    } else if (eObject instanceof UiVerticalLayout) {
+      _map((UiVerticalLayout)eObject);
       return;
     } else if (eObject instanceof UiMaxLengthValidator) {
       _map((UiMaxLengthValidator)eObject);
@@ -808,14 +1164,23 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     } else if (eObject instanceof UiBinding) {
       _map((UiBinding)eObject);
       return;
+    } else if (eObject instanceof UiFormLayoutAssigment) {
+      _map((UiFormLayoutAssigment)eObject);
+      return;
     } else if (eObject instanceof UiGridLayoutAssigment) {
       _map((UiGridLayoutAssigment)eObject);
+      return;
+    } else if (eObject instanceof UiHorizontalLayoutAssigment) {
+      _map((UiHorizontalLayoutAssigment)eObject);
       return;
     } else if (eObject instanceof UiPathSegment) {
       _map((UiPathSegment)eObject);
       return;
     } else if (eObject instanceof UiPoint) {
       _map((UiPoint)eObject);
+      return;
+    } else if (eObject instanceof UiVerticalLayoutAssigment) {
+      _map((UiVerticalLayoutAssigment)eObject);
       return;
     } else if (eObject != null) {
       _map(eObject);
@@ -829,15 +1194,17 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     }
   }
   
-  public YEmbeddable create(final EObject object) {
+  public YEmbeddable create(final UiEmbeddable object) {
     if (object instanceof UiCheckBox) {
       return _create((UiCheckBox)object);
     } else if (object instanceof UiNumericField) {
       return _create((UiNumericField)object);
+    } else if (object instanceof UiTable) {
+      return _create((UiTable)object);
     } else if (object instanceof UiTextField) {
       return _create((UiTextField)object);
-    } else if (object instanceof YEmbeddable) {
-      return _create((YEmbeddable)object);
+    } else if (object != null) {
+      return _create(object);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(object).toString());

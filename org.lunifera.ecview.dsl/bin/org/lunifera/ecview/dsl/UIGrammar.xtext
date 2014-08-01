@@ -76,7 +76,7 @@ UiBeanSlot returns UiBeanSlot:
 	'datasource' name=ID ':' jvmType=JvmTypeReference;
 
 UiBinding returns UiBinding:
-	'bind' source=UiBindingEndpointAssignment ((targetToSource?='<')? '--'
+	'bind' (listBinding?='list')? source=UiBindingEndpointAssignment ((targetToSource?='<')? '--'
 	(sourceToTarget?='>')?) target=UiBindingEndpointAssignment;
 
 UiBindingEndpointAssignment returns UiBindingExpression:
@@ -121,6 +121,39 @@ UiGridLayout returns UiGridLayout:
 UiGridLayoutAssigment returns UiGridLayoutAssigment:
 	element=UiEmbeddable;
 
+UiFormLayout:
+	{UiFormLayout}
+	'form'
+	name=ID?
+	'{'
+	(contents+=UiFormLayoutAssigment)*
+	'}';
+
+UiFormLayoutAssigment:
+	element=UiEmbeddable;
+
+UiVerticalLayout:
+	{UiVerticalLayout}
+	'verticalLayout'
+	name=ID?
+	'{'
+	(contents+=UiVerticalLayoutAssigment)*
+	'}';
+
+UiVerticalLayoutAssigment:
+	element=UiEmbeddable;
+
+UiHorizontalLayout:
+	{UiHorizontalLayout}
+	'horizontalLayout'
+	name=ID?
+	'{'
+	(contents+=UiHorizontalLayoutAssigment)*
+	'}';
+
+UiHorizontalLayoutAssigment:
+	element=UiEmbeddable;
+
 UiPoint returns UiPoint:
 	x=INT '/' y=INT;
 
@@ -152,16 +185,36 @@ UiList returns UiList:
 	{UiList}
 	'list' name=ID?;
 
-	//enum SelectionType returns YSelectionType:
-//	SINGLE="SINGLE" | MULTI="MULTI";
+UiTable returns UiTable:
+	{UiTable}
+	'table' name=ID?
+	('{'
+	('type' jvmType=JvmTypeReference ';')?
+	('selectionType' selectionType=UiSelectionType)?
+	columnAssignment=UiColumnAssignments?
+	'}')?;
+
+enum UiSelectionType:
+	SINGLE='single' | MULTI='multi' | NONE='none';
+
+UiColumnAssignments:
+	{UiColumnAssignments}
+	'columns' '{'
+	columns+=UiColumn*
+	'}';
+
+UiColumn returns UiColumn:
+	{UiColumn}
+	'column' jvmField=[JvmField] ('icon' iconName=STRING)? ';';
+
 UiEmbeddable:
 	UiLayout | UiField;
 
 UiLayout:
-	UiGridLayout;
+	UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout;
 
 UiField:
-	UiTextField | UiList | UiNumericField | UiCheckBox;
+	UiTextField | UiList | UiNumericField | UiCheckBox | UiTable;
 
 UiNumericField:
 	{UiNumericField}
@@ -196,5 +249,5 @@ UiRegexpValidator returns UiRegexpValidator:
 
 UiXbaseValidator returns UiXbaseValidator:
 	{UiXbaseValidator}
-	'Expression' name=ID? '('jvmType=JvmTypeReference')' expression=XBlockExpression?;	
+	'Expression' name=ID? '(' jvmType=JvmTypeReference ')' expression=XBlockExpression?;	
 

@@ -60,10 +60,10 @@ UxEndpointDef returns semantic::UxEndpointDef:
 	UxValueBindingEndpointDef;
 
 UxValueBindingEndpointDef returns semantic::UxValueBindingEndpointDef:
-	(final?='final')? 'endpoint' name=ID jvmType=JvmTypeReference;
+	(final?='final')? (listbinding?='list')? 'endpoint' name=ID jvmType=JvmTypeReference;
 
 //UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
-//	'listEndpoint' name=ID jvmType=JvmTypeReference;
-//
+//	(final?='final')? 'listEndpoint' name=ID jvmType=JvmTypeReference;
+
 //UxSetBindingEndpointDef returns semantic::UxSetBindingEndpointDef:
-//	'setEndpoint' name=ID jvmType=JvmTypeReference;
+//	(final?='final')? 'setEndpoint' name=ID jvmType=JvmTypeReference;

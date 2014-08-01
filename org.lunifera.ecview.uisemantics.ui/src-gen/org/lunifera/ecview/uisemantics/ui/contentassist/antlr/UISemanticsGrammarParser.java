@@ -290,8 +290,9 @@ public class UISemanticsGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUxElementURIAccess().getEClassAssignment_3(), "rule__UxElementURI__EClassAssignment_3");
 					put(grammarAccess.getUxAvailableBindingsAccess().getBindingsAssignment_1(), "rule__UxAvailableBindings__BindingsAssignment_1");
 					put(grammarAccess.getUxValueBindingEndpointDefAccess().getFinalAssignment_0(), "rule__UxValueBindingEndpointDef__FinalAssignment_0");
-					put(grammarAccess.getUxValueBindingEndpointDefAccess().getNameAssignment_2(), "rule__UxValueBindingEndpointDef__NameAssignment_2");
-					put(grammarAccess.getUxValueBindingEndpointDefAccess().getJvmTypeAssignment_3(), "rule__UxValueBindingEndpointDef__JvmTypeAssignment_3");
+					put(grammarAccess.getUxValueBindingEndpointDefAccess().getListbindingAssignment_1(), "rule__UxValueBindingEndpointDef__ListbindingAssignment_1");
+					put(grammarAccess.getUxValueBindingEndpointDefAccess().getNameAssignment_3(), "rule__UxValueBindingEndpointDef__NameAssignment_3");
+					put(grammarAccess.getUxValueBindingEndpointDefAccess().getJvmTypeAssignment_4(), "rule__UxValueBindingEndpointDef__JvmTypeAssignment_4");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_0_1(), "rule__XAssignment__FeatureAssignment_0_1");
 					put(grammarAccess.getXAssignmentAccess().getValueAssignment_0_3(), "rule__XAssignment__ValueAssignment_0_3");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_1_1_0_0_1(), "rule__XAssignment__FeatureAssignment_1_1_0_0_1");

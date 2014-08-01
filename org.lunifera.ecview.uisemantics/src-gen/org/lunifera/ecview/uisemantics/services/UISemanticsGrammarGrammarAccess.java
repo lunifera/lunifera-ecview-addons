@@ -528,26 +528,26 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cFinalAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cFinalFinalKeyword_0_0 = (Keyword)cFinalAssignment_0.eContents().get(0);
-		private final Keyword cEndpointKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Assignment cJvmTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_3_0 = (RuleCall)cJvmTypeAssignment_3.eContents().get(0);
+		private final Assignment cListbindingAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cListbindingListKeyword_1_0 = (Keyword)cListbindingAssignment_1.eContents().get(0);
+		private final Keyword cEndpointKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Assignment cJvmTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_4_0 = (RuleCall)cJvmTypeAssignment_4.eContents().get(0);
 		
 		////UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
-		////	'listEndpoint' name=ID jvmType=JvmTypeReference;
-		////
+		////	(final?='final')? 'listEndpoint' name=ID jvmType=JvmTypeReference;
 		////UxSetBindingEndpointDef returns semantic::UxSetBindingEndpointDef:
-		////	'setEndpoint' name=ID jvmType=JvmTypeReference;
+		////	(final?='final')? 'setEndpoint' name=ID jvmType=JvmTypeReference;
 		//UxValueBindingEndpointDef returns semantic::UxValueBindingEndpointDef:
-		//	final?="final"? "endpoint" name=ID jvmType=JvmTypeReference;
+		//	final?="final"? listbinding?="list"? "endpoint" name=ID jvmType=JvmTypeReference;
 		public ParserRule getRule() { return rule; }
 
-		//final?="final"? "endpoint" name=ID jvmType=JvmTypeReference //UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
-		////	'listEndpoint' name=ID jvmType=JvmTypeReference;
-		////
+		//final?="final"? listbinding?="list"? "endpoint" name=ID jvmType=JvmTypeReference //UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
+		////	(final?='final')? 'listEndpoint' name=ID jvmType=JvmTypeReference;
 		////UxSetBindingEndpointDef returns semantic::UxSetBindingEndpointDef:
-		////	'setEndpoint' name=ID jvmType=JvmTypeReference;
+		////	(final?='final')? 'setEndpoint' name=ID jvmType=JvmTypeReference;
 		public Group getGroup() { return cGroup; }
 
 		//final?="final"?
@@ -556,30 +556,34 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		//"final"
 		public Keyword getFinalFinalKeyword_0_0() { return cFinalFinalKeyword_0_0; }
 
+		//listbinding?="list"?
+		public Assignment getListbindingAssignment_1() { return cListbindingAssignment_1; }
+
+		//"list"
+		public Keyword getListbindingListKeyword_1_0() { return cListbindingListKeyword_1_0; }
+
 		//"endpoint"
-		public Keyword getEndpointKeyword_1() { return cEndpointKeyword_1; }
+		public Keyword getEndpointKeyword_2() { return cEndpointKeyword_2; }
 
 		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 
 		////UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
-		////	'listEndpoint' name=ID jvmType=JvmTypeReference;
-		////
+		////	(final?='final')? 'listEndpoint' name=ID jvmType=JvmTypeReference;
 		////UxSetBindingEndpointDef returns semantic::UxSetBindingEndpointDef:
-		////	'setEndpoint' name=ID jvmType=JvmTypeReference;
+		////	(final?='final')? 'setEndpoint' name=ID jvmType=JvmTypeReference;
 		//jvmType=JvmTypeReference
-		public Assignment getJvmTypeAssignment_3() { return cJvmTypeAssignment_3; }
+		public Assignment getJvmTypeAssignment_4() { return cJvmTypeAssignment_4; }
 
 		////UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
-		////	'listEndpoint' name=ID jvmType=JvmTypeReference;
-		////
+		////	(final?='final')? 'listEndpoint' name=ID jvmType=JvmTypeReference;
 		////UxSetBindingEndpointDef returns semantic::UxSetBindingEndpointDef:
-		////	'setEndpoint' name=ID jvmType=JvmTypeReference;
+		////	(final?='final')? 'setEndpoint' name=ID jvmType=JvmTypeReference;
 		//JvmTypeReference
-		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_3_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_3_0; }
+		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_4_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_4_0; }
 	}
 	
 	
@@ -750,12 +754,11 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	}
 
 	////UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
-	////	'listEndpoint' name=ID jvmType=JvmTypeReference;
-	////
+	////	(final?='final')? 'listEndpoint' name=ID jvmType=JvmTypeReference;
 	////UxSetBindingEndpointDef returns semantic::UxSetBindingEndpointDef:
-	////	'setEndpoint' name=ID jvmType=JvmTypeReference;
+	////	(final?='final')? 'setEndpoint' name=ID jvmType=JvmTypeReference;
 	//UxValueBindingEndpointDef returns semantic::UxValueBindingEndpointDef:
-	//	final?="final"? "endpoint" name=ID jvmType=JvmTypeReference;
+	//	final?="final"? listbinding?="list"? "endpoint" name=ID jvmType=JvmTypeReference;
 	public UxValueBindingEndpointDefElements getUxValueBindingEndpointDefAccess() {
 		return (pUxValueBindingEndpointDef != null) ? pUxValueBindingEndpointDef : (pUxValueBindingEndpointDef = new UxValueBindingEndpointDefElements());
 	}

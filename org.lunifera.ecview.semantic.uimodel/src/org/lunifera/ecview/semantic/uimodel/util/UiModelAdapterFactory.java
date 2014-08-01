@@ -160,12 +160,52 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiGridLayoutAdapter();
 			}
 			@Override
+			public Adapter caseUiHorizontalLayoutAssigment(UiHorizontalLayoutAssigment object) {
+				return createUiHorizontalLayoutAssigmentAdapter();
+			}
+			@Override
+			public Adapter caseUiHorizontalLayout(UiHorizontalLayout object) {
+				return createUiHorizontalLayoutAdapter();
+			}
+			@Override
+			public Adapter caseUiVerticalLayoutAssigment(UiVerticalLayoutAssigment object) {
+				return createUiVerticalLayoutAssigmentAdapter();
+			}
+			@Override
+			public Adapter caseUiVerticalLayout(UiVerticalLayout object) {
+				return createUiVerticalLayoutAdapter();
+			}
+			@Override
+			public Adapter caseUiFormLayoutAssigment(UiFormLayoutAssigment object) {
+				return createUiFormLayoutAssigmentAdapter();
+			}
+			@Override
+			public Adapter caseUiFormLayout(UiFormLayout object) {
+				return createUiFormLayoutAdapter();
+			}
+			@Override
 			public Adapter caseUiTextField(UiTextField object) {
 				return createUiTextFieldAdapter();
 			}
 			@Override
 			public Adapter caseUiList(UiList object) {
 				return createUiListAdapter();
+			}
+			@Override
+			public Adapter caseUiTable(UiTable object) {
+				return createUiTableAdapter();
+			}
+			@Override
+			public Adapter caseUiTypeProvider(UiTypeProvider object) {
+				return createUiTypeProviderAdapter();
+			}
+			@Override
+			public Adapter caseUiColumn(UiColumn object) {
+				return createUiColumnAdapter();
+			}
+			@Override
+			public Adapter caseUiColumnAssignments(UiColumnAssignments object) {
+				return createUiColumnAssignmentsAdapter();
 			}
 			@Override
 			public Adapter caseUiNumericField(UiNumericField object) {
@@ -660,6 +700,90 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment <em>Ui Horizontal Layout Assigment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment
+	 * @generated
+	 */
+	public Adapter createUiHorizontalLayoutAssigmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout <em>Ui Horizontal Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout
+	 * @generated
+	 */
+	public Adapter createUiHorizontalLayoutAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment <em>Ui Vertical Layout Assigment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment
+	 * @generated
+	 */
+	public Adapter createUiVerticalLayoutAssigmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiVerticalLayout <em>Ui Vertical Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiVerticalLayout
+	 * @generated
+	 */
+	public Adapter createUiVerticalLayoutAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment <em>Ui Form Layout Assigment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment
+	 * @generated
+	 */
+	public Adapter createUiFormLayoutAssigmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiFormLayout <em>Ui Form Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiFormLayout
+	 * @generated
+	 */
+	public Adapter createUiFormLayoutAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiTextField <em>Ui Text Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -684,6 +808,62 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiListAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiTable <em>Ui Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTable
+	 * @generated
+	 */
+	public Adapter createUiTableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiTypeProvider <em>Ui Type Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTypeProvider
+	 * @generated
+	 */
+	public Adapter createUiTypeProviderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiColumn <em>Ui Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiColumn
+	 * @generated
+	 */
+	public Adapter createUiColumnAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiColumnAssignments <em>Ui Column Assignments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiColumnAssignments
+	 * @generated
+	 */
+	public Adapter createUiColumnAssignmentsAdapter() {
 		return null;
 	}
 

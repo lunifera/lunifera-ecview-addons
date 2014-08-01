@@ -43,6 +43,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UiFlatAlignment">
+    <eLiterals name="LEFT" literal="LEFT"/>
+    <eLiterals name="CENTER" value="1" literal="CENTER"/>
+    <eLiterals name="RIGHT" value="2" literal="RIGHT"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiRootElements" abstract="true" interface="true"
       eSuperTypes="#//UiNamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiBindingExpression" abstract="true"
@@ -68,6 +73,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//UiBindingExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetAlias" eType="#//UiTypedBindable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="listBinding" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiPathSegment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="jvmField" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmField"/>
@@ -103,8 +109,70 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
         eType="#//UiGridLayoutAssigment" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiHorizontalLayoutAssigment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiHorizontalLayout" eSuperTypes="#//UiLayout">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
+        eType="#//UiHorizontalLayoutAssigment" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiVerticalLayoutAssigment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiVerticalLayout" eSuperTypes="#//UiLayout">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
+        eType="#//UiVerticalLayoutAssigment" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiFormLayoutAssigment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiFormLayout" eSuperTypes="#//UiLayout">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
+        eType="#//UiFormLayoutAssigment" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiTextField" eSuperTypes="#//UiField"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiList" eSuperTypes="#//UiField"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="UiSelectionType">
+    <eLiterals name="NONE" literal="NONE"/>
+    <eLiterals name="SINGLE" value="1" literal="SINGLE"/>
+    <eLiterals name="MULTI" value="2" literal="MULTI"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiList" eSuperTypes="#//UiField #//UiTypeProvider">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionType" lowerBound="1"
+        eType="#//UiSelectionType" defaultValueLiteral="SINGLE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiTable" eSuperTypes="#//UiField #//UiTypeProvider">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="columnAssignment" eType="#//UiColumnAssignments"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionType" lowerBound="1"
+        eType="#//UiSelectionType" defaultValueLiteral="SINGLE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiTypeProvider" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiColumn" eSuperTypes="#//UiField">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jvmField" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmField"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iconName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="orderable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="collapsed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="collapsible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="#//UiFlatAlignment"
+        defaultValueLiteral="LEFT"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expandRatio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        defaultValueLiteral="-1.0f"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiColumnAssignments" eSuperTypes="#//UiField">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
+        eType="#//UiColumn" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiNumericField" eSuperTypes="#//UiField"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiCheckBox" eSuperTypes="#//UiField"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiVisibilityProcessable" abstract="true">

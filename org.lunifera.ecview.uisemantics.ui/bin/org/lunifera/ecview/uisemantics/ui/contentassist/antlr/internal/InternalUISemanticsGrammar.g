@@ -5412,11 +5412,9 @@ rule__UxValueBindingEndpointDef__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getUxValueBindingEndpointDefAccess().getEndpointKeyword_1()); }
-
-	'endpoint' 
-
-{ after(grammarAccess.getUxValueBindingEndpointDefAccess().getEndpointKeyword_1()); }
+{ before(grammarAccess.getUxValueBindingEndpointDefAccess().getListbindingAssignment_1()); }
+(rule__UxValueBindingEndpointDef__ListbindingAssignment_1)?
+{ after(grammarAccess.getUxValueBindingEndpointDefAccess().getListbindingAssignment_1()); }
 )
 
 ;
@@ -5443,9 +5441,11 @@ rule__UxValueBindingEndpointDef__Group__2__Impl
     }
 :
 (
-{ before(grammarAccess.getUxValueBindingEndpointDefAccess().getNameAssignment_2()); }
-(rule__UxValueBindingEndpointDef__NameAssignment_2)
-{ after(grammarAccess.getUxValueBindingEndpointDefAccess().getNameAssignment_2()); }
+{ before(grammarAccess.getUxValueBindingEndpointDefAccess().getEndpointKeyword_2()); }
+
+	'endpoint' 
+
+{ after(grammarAccess.getUxValueBindingEndpointDefAccess().getEndpointKeyword_2()); }
 )
 
 ;
@@ -5460,6 +5460,7 @@ rule__UxValueBindingEndpointDef__Group__3
     }
 :
 	rule__UxValueBindingEndpointDef__Group__3__Impl
+	rule__UxValueBindingEndpointDef__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -5471,15 +5472,45 @@ rule__UxValueBindingEndpointDef__Group__3__Impl
     }
 :
 (
-{ before(grammarAccess.getUxValueBindingEndpointDefAccess().getJvmTypeAssignment_3()); }
-(rule__UxValueBindingEndpointDef__JvmTypeAssignment_3)
-{ after(grammarAccess.getUxValueBindingEndpointDefAccess().getJvmTypeAssignment_3()); }
+{ before(grammarAccess.getUxValueBindingEndpointDefAccess().getNameAssignment_3()); }
+(rule__UxValueBindingEndpointDef__NameAssignment_3)
+{ after(grammarAccess.getUxValueBindingEndpointDefAccess().getNameAssignment_3()); }
 )
 
 ;
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__UxValueBindingEndpointDef__Group__4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UxValueBindingEndpointDef__Group__4__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UxValueBindingEndpointDef__Group__4__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUxValueBindingEndpointDefAccess().getJvmTypeAssignment_4()); }
+(rule__UxValueBindingEndpointDef__JvmTypeAssignment_4)
+{ after(grammarAccess.getUxValueBindingEndpointDefAccess().getJvmTypeAssignment_4()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 
@@ -18654,14 +18685,22 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__UxValueBindingEndpointDef__NameAssignment_2
+rule__UxValueBindingEndpointDef__ListbindingAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getUxValueBindingEndpointDefAccess().getNameIDTerminalRuleCall_2_0()); }
-	RULE_ID{ after(grammarAccess.getUxValueBindingEndpointDefAccess().getNameIDTerminalRuleCall_2_0()); }
+{ before(grammarAccess.getUxValueBindingEndpointDefAccess().getListbindingListKeyword_1_0()); }
+(
+{ before(grammarAccess.getUxValueBindingEndpointDefAccess().getListbindingListKeyword_1_0()); }
+
+	'list' 
+
+{ after(grammarAccess.getUxValueBindingEndpointDefAccess().getListbindingListKeyword_1_0()); }
+)
+
+{ after(grammarAccess.getUxValueBindingEndpointDefAccess().getListbindingListKeyword_1_0()); }
 )
 
 ;
@@ -18669,14 +18708,29 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__UxValueBindingEndpointDef__JvmTypeAssignment_3
+rule__UxValueBindingEndpointDef__NameAssignment_3
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getUxValueBindingEndpointDefAccess().getJvmTypeJvmTypeReferenceParserRuleCall_3_0()); }
-	ruleJvmTypeReference{ after(grammarAccess.getUxValueBindingEndpointDefAccess().getJvmTypeJvmTypeReferenceParserRuleCall_3_0()); }
+{ before(grammarAccess.getUxValueBindingEndpointDefAccess().getNameIDTerminalRuleCall_3_0()); }
+	RULE_ID{ after(grammarAccess.getUxValueBindingEndpointDefAccess().getNameIDTerminalRuleCall_3_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UxValueBindingEndpointDef__JvmTypeAssignment_4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUxValueBindingEndpointDefAccess().getJvmTypeJvmTypeReferenceParserRuleCall_4_0()); }
+	ruleJvmTypeReference{ after(grammarAccess.getUxValueBindingEndpointDefAccess().getJvmTypeJvmTypeReferenceParserRuleCall_4_0()); }
 )
 
 ;

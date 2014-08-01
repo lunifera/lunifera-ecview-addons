@@ -3,6 +3,7 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -71,8 +72,17 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_TYPED_BINDABLE_DEF: return createUiTypedBindableDef();
 			case UiModelPackage.UI_GRID_LAYOUT_ASSIGMENT: return createUiGridLayoutAssigment();
 			case UiModelPackage.UI_GRID_LAYOUT: return createUiGridLayout();
+			case UiModelPackage.UI_HORIZONTAL_LAYOUT_ASSIGMENT: return createUiHorizontalLayoutAssigment();
+			case UiModelPackage.UI_HORIZONTAL_LAYOUT: return createUiHorizontalLayout();
+			case UiModelPackage.UI_VERTICAL_LAYOUT_ASSIGMENT: return createUiVerticalLayoutAssigment();
+			case UiModelPackage.UI_VERTICAL_LAYOUT: return createUiVerticalLayout();
+			case UiModelPackage.UI_FORM_LAYOUT_ASSIGMENT: return createUiFormLayoutAssigment();
+			case UiModelPackage.UI_FORM_LAYOUT: return createUiFormLayout();
 			case UiModelPackage.UI_TEXT_FIELD: return createUiTextField();
 			case UiModelPackage.UI_LIST: return createUiList();
+			case UiModelPackage.UI_TABLE: return createUiTable();
+			case UiModelPackage.UI_COLUMN: return createUiColumn();
+			case UiModelPackage.UI_COLUMN_ASSIGNMENTS: return createUiColumnAssignments();
 			case UiModelPackage.UI_NUMERIC_FIELD: return createUiNumericField();
 			case UiModelPackage.UI_CHECK_BOX: return createUiCheckBox();
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR: return createUiVisibilityProcessor();
@@ -92,6 +102,40 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_VALIDATOR_DEF: return createUiValidatorDef();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case UiModelPackage.UI_FLAT_ALIGNMENT:
+				return createUiFlatAlignmentFromString(eDataType, initialValue);
+			case UiModelPackage.UI_SELECTION_TYPE:
+				return createUiSelectionTypeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case UiModelPackage.UI_FLAT_ALIGNMENT:
+				return convertUiFlatAlignmentToString(eDataType, instanceValue);
+			case UiModelPackage.UI_SELECTION_TYPE:
+				return convertUiSelectionTypeToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -290,6 +334,66 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiHorizontalLayoutAssigment createUiHorizontalLayoutAssigment() {
+		UiHorizontalLayoutAssigmentImpl uiHorizontalLayoutAssigment = new UiHorizontalLayoutAssigmentImpl();
+		return uiHorizontalLayoutAssigment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiHorizontalLayout createUiHorizontalLayout() {
+		UiHorizontalLayoutImpl uiHorizontalLayout = new UiHorizontalLayoutImpl();
+		return uiHorizontalLayout;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiVerticalLayoutAssigment createUiVerticalLayoutAssigment() {
+		UiVerticalLayoutAssigmentImpl uiVerticalLayoutAssigment = new UiVerticalLayoutAssigmentImpl();
+		return uiVerticalLayoutAssigment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiVerticalLayout createUiVerticalLayout() {
+		UiVerticalLayoutImpl uiVerticalLayout = new UiVerticalLayoutImpl();
+		return uiVerticalLayout;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiFormLayoutAssigment createUiFormLayoutAssigment() {
+		UiFormLayoutAssigmentImpl uiFormLayoutAssigment = new UiFormLayoutAssigmentImpl();
+		return uiFormLayoutAssigment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiFormLayout createUiFormLayout() {
+		UiFormLayoutImpl uiFormLayout = new UiFormLayoutImpl();
+		return uiFormLayout;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiTextField createUiTextField() {
 		UiTextFieldImpl uiTextField = new UiTextFieldImpl();
 		return uiTextField;
@@ -303,6 +407,36 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiList createUiList() {
 		UiListImpl uiList = new UiListImpl();
 		return uiList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiTable createUiTable() {
+		UiTableImpl uiTable = new UiTableImpl();
+		return uiTable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiColumn createUiColumn() {
+		UiColumnImpl uiColumn = new UiColumnImpl();
+		return uiColumn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiColumnAssignments createUiColumnAssignments() {
+		UiColumnAssignmentsImpl uiColumnAssignments = new UiColumnAssignmentsImpl();
+		return uiColumnAssignments;
 	}
 
 	/**
@@ -433,6 +567,46 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiValidatorDef createUiValidatorDef() {
 		UiValidatorDefImpl uiValidatorDef = new UiValidatorDefImpl();
 		return uiValidatorDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiFlatAlignment createUiFlatAlignmentFromString(EDataType eDataType, String initialValue) {
+		UiFlatAlignment result = UiFlatAlignment.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertUiFlatAlignmentToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiSelectionType createUiSelectionTypeFromString(EDataType eDataType, String initialValue) {
+		UiSelectionType result = UiSelectionType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertUiSelectionTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

@@ -11,10 +11,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.lunifera.ecview.semantic.uimodel.UiList;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
+import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
+import org.lunifera.ecview.semantic.uimodel.UiTypeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiValidator;
 
 /**
@@ -27,6 +30,8 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getValidators <em>Validators</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getJvmType <em>Jvm Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getSelectionType <em>Selection Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,6 +84,35 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 	 * @ordered
 	 */
 	protected EList<UiValidator> validators;
+
+	/**
+	 * The cached value of the '{@link #getJvmType() <em>Jvm Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJvmType()
+	 * @generated
+	 * @ordered
+	 */
+	protected JvmTypeReference jvmType;
+
+	/**
+	 * The default value of the '{@link #getSelectionType() <em>Selection Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelectionType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final UiSelectionType SELECTION_TYPE_EDEFAULT = UiSelectionType.SINGLE;
+	/**
+	 * The cached value of the '{@link #getSelectionType() <em>Selection Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelectionType()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiSelectionType selectionType = SELECTION_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,11 +192,100 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public JvmTypeReference getJvmType() {
+		if (jvmType != null && jvmType.eIsProxy()) {
+			InternalEObject oldJvmType = (InternalEObject)jvmType;
+			jvmType = (JvmTypeReference)eResolveProxy(oldJvmType);
+			if (jvmType != oldJvmType) {
+				InternalEObject newJvmType = (InternalEObject)jvmType;
+				NotificationChain msgs = oldJvmType.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_LIST__JVM_TYPE, null, null);
+				if (newJvmType.eInternalContainer() == null) {
+					msgs = newJvmType.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_LIST__JVM_TYPE, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_LIST__JVM_TYPE, oldJvmType, jvmType));
+			}
+		}
+		return jvmType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JvmTypeReference basicGetJvmType() {
+		return jvmType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetJvmType(JvmTypeReference newJvmType, NotificationChain msgs) {
+		JvmTypeReference oldJvmType = jvmType;
+		jvmType = newJvmType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_LIST__JVM_TYPE, oldJvmType, newJvmType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJvmType(JvmTypeReference newJvmType) {
+		if (newJvmType != jvmType) {
+			NotificationChain msgs = null;
+			if (jvmType != null)
+				msgs = ((InternalEObject)jvmType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_LIST__JVM_TYPE, null, msgs);
+			if (newJvmType != null)
+				msgs = ((InternalEObject)newJvmType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_LIST__JVM_TYPE, null, msgs);
+			msgs = basicSetJvmType(newJvmType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_LIST__JVM_TYPE, newJvmType, newJvmType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiSelectionType getSelectionType() {
+		return selectionType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSelectionType(UiSelectionType newSelectionType) {
+		UiSelectionType oldSelectionType = selectionType;
+		selectionType = newSelectionType == null ? SELECTION_TYPE_EDEFAULT : newSelectionType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_LIST__SELECTION_TYPE, oldSelectionType, selectionType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case UiModelPackage.UI_LIST__VALIDATORS:
 				return ((InternalEList<?>)getValidators()).basicRemove(otherEnd, msgs);
+			case UiModelPackage.UI_LIST__JVM_TYPE:
+				return basicSetJvmType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -181,6 +304,11 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 				return getName();
 			case UiModelPackage.UI_LIST__VALIDATORS:
 				return getValidators();
+			case UiModelPackage.UI_LIST__JVM_TYPE:
+				if (resolve) return getJvmType();
+				return basicGetJvmType();
+			case UiModelPackage.UI_LIST__SELECTION_TYPE:
+				return getSelectionType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -204,6 +332,12 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 				getValidators().clear();
 				getValidators().addAll((Collection<? extends UiValidator>)newValue);
 				return;
+			case UiModelPackage.UI_LIST__JVM_TYPE:
+				setJvmType((JvmTypeReference)newValue);
+				return;
+			case UiModelPackage.UI_LIST__SELECTION_TYPE:
+				setSelectionType((UiSelectionType)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -225,6 +359,12 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 			case UiModelPackage.UI_LIST__VALIDATORS:
 				getValidators().clear();
 				return;
+			case UiModelPackage.UI_LIST__JVM_TYPE:
+				setJvmType((JvmTypeReference)null);
+				return;
+			case UiModelPackage.UI_LIST__SELECTION_TYPE:
+				setSelectionType(SELECTION_TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -243,6 +383,10 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case UiModelPackage.UI_LIST__VALIDATORS:
 				return validators != null && !validators.isEmpty();
+			case UiModelPackage.UI_LIST__JVM_TYPE:
+				return jvmType != null;
+			case UiModelPackage.UI_LIST__SELECTION_TYPE:
+				return selectionType != SELECTION_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -263,6 +407,12 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 		}
 		if (baseClass == UiRawBindable.class) {
 			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiTypeProvider.class) {
+			switch (derivedFeatureID) {
+				case UiModelPackage.UI_LIST__JVM_TYPE: return UiModelPackage.UI_TYPE_PROVIDER__JVM_TYPE;
 				default: return -1;
 			}
 		}
@@ -288,6 +438,12 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 				default: return -1;
 			}
 		}
+		if (baseClass == UiTypeProvider.class) {
+			switch (baseFeatureID) {
+				case UiModelPackage.UI_TYPE_PROVIDER__JVM_TYPE: return UiModelPackage.UI_LIST__JVM_TYPE;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -305,6 +461,8 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", selectionType: ");
+		result.append(selectionType);
 		result.append(')');
 		return result.toString();
 	}

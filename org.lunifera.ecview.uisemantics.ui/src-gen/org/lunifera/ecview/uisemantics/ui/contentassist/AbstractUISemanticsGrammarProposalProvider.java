@@ -91,6 +91,9 @@ public class AbstractUISemanticsGrammarProposalProvider extends org.eclipse.xtex
 	public void completeUxValueBindingEndpointDef_Final(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 	}
+	public void completeUxValueBindingEndpointDef_Listbinding(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		// subclasses may override
+	}
 	public void completeUxValueBindingEndpointDef_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}

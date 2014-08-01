@@ -26,6 +26,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxEndpointDefImpl#isFinal <em>Final</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxEndpointDefImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxEndpointDefImpl#getJvmType <em>Jvm Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxEndpointDefImpl#isListbinding <em>Listbinding</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,6 +82,26 @@ public class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements U
 	 * @ordered
 	 */
 	protected JvmTypeReference jvmType;
+
+	/**
+	 * The default value of the '{@link #isListbinding() <em>Listbinding</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isListbinding()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean LISTBINDING_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isListbinding() <em>Listbinding</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isListbinding()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean listbinding = LISTBINDING_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -191,6 +212,27 @@ public class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements U
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isListbinding() {
+		return listbinding;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setListbinding(boolean newListbinding) {
+		boolean oldListbinding = listbinding;
+		listbinding = newListbinding;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiSemanticsPackage.UX_ENDPOINT_DEF__LISTBINDING, oldListbinding, listbinding));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -214,6 +256,8 @@ public class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements U
 				return getName();
 			case UiSemanticsPackage.UX_ENDPOINT_DEF__JVM_TYPE:
 				return getJvmType();
+			case UiSemanticsPackage.UX_ENDPOINT_DEF__LISTBINDING:
+				return isListbinding();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -234,6 +278,9 @@ public class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements U
 				return;
 			case UiSemanticsPackage.UX_ENDPOINT_DEF__JVM_TYPE:
 				setJvmType((JvmTypeReference)newValue);
+				return;
+			case UiSemanticsPackage.UX_ENDPOINT_DEF__LISTBINDING:
+				setListbinding((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -256,6 +303,9 @@ public class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements U
 			case UiSemanticsPackage.UX_ENDPOINT_DEF__JVM_TYPE:
 				setJvmType((JvmTypeReference)null);
 				return;
+			case UiSemanticsPackage.UX_ENDPOINT_DEF__LISTBINDING:
+				setListbinding(LISTBINDING_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -274,6 +324,8 @@ public class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements U
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case UiSemanticsPackage.UX_ENDPOINT_DEF__JVM_TYPE:
 				return jvmType != null;
+			case UiSemanticsPackage.UX_ENDPOINT_DEF__LISTBINDING:
+				return listbinding != LISTBINDING_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -292,6 +344,8 @@ public class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements U
 		result.append(final_);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", listbinding: ");
+		result.append(listbinding);
 		result.append(')');
 		return result.toString();
 	}

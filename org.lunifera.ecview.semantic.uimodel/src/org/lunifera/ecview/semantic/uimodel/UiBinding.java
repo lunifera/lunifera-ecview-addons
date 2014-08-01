@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBinding#isSourceToTarget <em>Source To Target</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBinding#getTarget <em>Target</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBinding#getTargetAlias <em>Target Alias</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBinding#isListBinding <em>List Binding</em>}</li>
  * </ul>
  * </p>
  *
@@ -181,5 +182,31 @@ public interface UiBinding extends EObject {
 	 * @generated
 	 */
 	void setTargetAlias(UiTypedBindable value);
+
+	/**
+	 * Returns the value of the '<em><b>List Binding</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>List Binding</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>List Binding</em>' attribute.
+	 * @see #setListBinding(boolean)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiBinding_ListBinding()
+	 * @model
+	 * @generated
+	 */
+	boolean isListBinding();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiBinding#isListBinding <em>List Binding</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>List Binding</em>' attribute.
+	 * @see #isListBinding()
+	 * @generated
+	 */
+	void setListBinding(boolean value);
 
 } // UiBinding

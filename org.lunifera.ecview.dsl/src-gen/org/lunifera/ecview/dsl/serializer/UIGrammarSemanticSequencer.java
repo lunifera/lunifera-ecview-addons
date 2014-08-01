@@ -63,8 +63,14 @@ import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
+import org.lunifera.ecview.semantic.uimodel.UiColumn;
+import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments;
+import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
+import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiGridLayout;
 import org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment;
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout;
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
 import org.lunifera.ecview.semantic.uimodel.UiImports;
 import org.lunifera.ecview.semantic.uimodel.UiList;
@@ -76,11 +82,14 @@ import org.lunifera.ecview.semantic.uimodel.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
+import org.lunifera.ecview.semantic.uimodel.UiTable;
 import org.lunifera.ecview.semantic.uimodel.UiTextField;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorDef;
+import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout;
+import org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiViewSet;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 
@@ -182,6 +191,32 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 					return; 
 				}
 				else break;
+			case UiModelPackage.UI_COLUMN:
+				if(context == grammarAccess.getUiColumnRule()) {
+					sequence_UiColumn(context, (UiColumn) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_COLUMN_ASSIGNMENTS:
+				if(context == grammarAccess.getUiColumnAssignmentsRule()) {
+					sequence_UiColumnAssignments(context, (UiColumnAssignments) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_FORM_LAYOUT:
+				if(context == grammarAccess.getUiEmbeddableRule() ||
+				   context == grammarAccess.getUiFormLayoutRule() ||
+				   context == grammarAccess.getUiLayoutRule()) {
+					sequence_UiFormLayout(context, (UiFormLayout) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_FORM_LAYOUT_ASSIGMENT:
+				if(context == grammarAccess.getUiFormLayoutAssigmentRule()) {
+					sequence_UiFormLayoutAssigment(context, (UiFormLayoutAssigment) semanticObject); 
+					return; 
+				}
+				else break;
 			case UiModelPackage.UI_GRID_LAYOUT:
 				if(context == grammarAccess.getUiEmbeddableRule() ||
 				   context == grammarAccess.getUiGridLayoutRule() ||
@@ -193,6 +228,20 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 			case UiModelPackage.UI_GRID_LAYOUT_ASSIGMENT:
 				if(context == grammarAccess.getUiGridLayoutAssigmentRule()) {
 					sequence_UiGridLayoutAssigment(context, (UiGridLayoutAssigment) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_HORIZONTAL_LAYOUT:
+				if(context == grammarAccess.getUiEmbeddableRule() ||
+				   context == grammarAccess.getUiHorizontalLayoutRule() ||
+				   context == grammarAccess.getUiLayoutRule()) {
+					sequence_UiHorizontalLayout(context, (UiHorizontalLayout) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_HORIZONTAL_LAYOUT_ASSIGMENT:
+				if(context == grammarAccess.getUiHorizontalLayoutAssigmentRule()) {
+					sequence_UiHorizontalLayoutAssigment(context, (UiHorizontalLayoutAssigment) semanticObject); 
 					return; 
 				}
 				else break;
@@ -265,6 +314,14 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 					return; 
 				}
 				else break;
+			case UiModelPackage.UI_TABLE:
+				if(context == grammarAccess.getUiEmbeddableRule() ||
+				   context == grammarAccess.getUiFieldRule() ||
+				   context == grammarAccess.getUiTableRule()) {
+					sequence_UiTable(context, (UiTable) semanticObject); 
+					return; 
+				}
+				else break;
 			case UiModelPackage.UI_TEXT_FIELD:
 				if(context == grammarAccess.getUiEmbeddableRule() ||
 				   context == grammarAccess.getUiFieldRule() ||
@@ -296,6 +353,20 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 			case UiModelPackage.UI_VALIDATOR_DEF:
 				if(context == grammarAccess.getUiValidatorDefRule()) {
 					sequence_UiValidatorDef(context, (UiValidatorDef) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_VERTICAL_LAYOUT:
+				if(context == grammarAccess.getUiEmbeddableRule() ||
+				   context == grammarAccess.getUiLayoutRule() ||
+				   context == grammarAccess.getUiVerticalLayoutRule()) {
+					sequence_UiVerticalLayout(context, (UiVerticalLayout) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_VERTICAL_LAYOUT_ASSIGMENT:
+				if(context == grammarAccess.getUiVerticalLayoutAssigmentRule()) {
+					sequence_UiVerticalLayoutAssigment(context, (UiVerticalLayoutAssigment) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1384,7 +1455,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (source=UiBindingEndpointAssignment targetToSource?='<'? sourceToTarget?='>'? target=UiBindingEndpointAssignment)
+	 *     (listBinding?='list'? source=UiBindingEndpointAssignment targetToSource?='<'? sourceToTarget?='>'? target=UiBindingEndpointAssignment)
 	 */
 	protected void sequence_UiBinding(EObject context, UiBinding semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1396,6 +1467,49 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *     (name=ID? validators+=UiValidator*)
 	 */
 	protected void sequence_UiCheckBox(EObject context, UiCheckBox semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (columns+=UiColumn*)
+	 */
+	protected void sequence_UiColumnAssignments(EObject context, UiColumnAssignments semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (jvmField=[JvmField|ID] iconName=STRING?)
+	 */
+	protected void sequence_UiColumn(EObject context, UiColumn semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     element=UiEmbeddable
+	 */
+	protected void sequence_UiFormLayoutAssigment(EObject context, UiFormLayoutAssigment semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, UiModelPackage.Literals.UI_FORM_LAYOUT_ASSIGMENT__ELEMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiModelPackage.Literals.UI_FORM_LAYOUT_ASSIGMENT__ELEMENT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUiFormLayoutAssigmentAccess().getElementUiEmbeddableParserRuleCall_0(), semanticObject.getElement());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID? contents+=UiFormLayoutAssigment*)
+	 */
+	protected void sequence_UiFormLayout(EObject context, UiFormLayout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1414,6 +1528,31 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *     (name=ID? contents+=UiGridLayoutAssigment*)
 	 */
 	protected void sequence_UiGridLayout(EObject context, UiGridLayout semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     element=UiEmbeddable
+	 */
+	protected void sequence_UiHorizontalLayoutAssigment(EObject context, UiHorizontalLayoutAssigment semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, UiModelPackage.Literals.UI_HORIZONTAL_LAYOUT_ASSIGMENT__ELEMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiModelPackage.Literals.UI_HORIZONTAL_LAYOUT_ASSIGMENT__ELEMENT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUiHorizontalLayoutAssigmentAccess().getElementUiEmbeddableParserRuleCall_0(), semanticObject.getElement());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID? contents+=UiHorizontalLayoutAssigment*)
+	 */
+	protected void sequence_UiHorizontalLayout(EObject context, UiHorizontalLayout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1528,6 +1667,15 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (name=ID? (jvmType=JvmTypeReference? selectionType=UiSelectionType? columnAssignment=UiColumnAssignments?)?)
+	 */
+	protected void sequence_UiTable(EObject context, UiTable semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID? validators+=UiValidator*)
 	 */
 	protected void sequence_UiTextField(EObject context, UiTextField semanticObject) {
@@ -1567,6 +1715,31 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *     validator=UiValidator
 	 */
 	protected void sequence_UiValidatorDef(EObject context, UiValidatorDef semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     element=UiEmbeddable
+	 */
+	protected void sequence_UiVerticalLayoutAssigment(EObject context, UiVerticalLayoutAssigment semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, UiModelPackage.Literals.UI_VERTICAL_LAYOUT_ASSIGMENT__ELEMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiModelPackage.Literals.UI_VERTICAL_LAYOUT_ASSIGMENT__ELEMENT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUiVerticalLayoutAssigmentAccess().getElementUiEmbeddableParserRuleCall_0(), semanticObject.getElement());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID? contents+=UiVerticalLayoutAssigment*)
+	 */
+	protected void sequence_UiVerticalLayout(EObject context, UiVerticalLayout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

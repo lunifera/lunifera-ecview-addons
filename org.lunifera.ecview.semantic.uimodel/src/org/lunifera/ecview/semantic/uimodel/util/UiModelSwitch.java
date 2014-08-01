@@ -247,6 +247,57 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_HORIZONTAL_LAYOUT_ASSIGMENT: {
+				UiHorizontalLayoutAssigment uiHorizontalLayoutAssigment = (UiHorizontalLayoutAssigment)theEObject;
+				T result = caseUiHorizontalLayoutAssigment(uiHorizontalLayoutAssigment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_HORIZONTAL_LAYOUT: {
+				UiHorizontalLayout uiHorizontalLayout = (UiHorizontalLayout)theEObject;
+				T result = caseUiHorizontalLayout(uiHorizontalLayout);
+				if (result == null) result = caseUiLayout(uiHorizontalLayout);
+				if (result == null) result = caseUiEmbeddable(uiHorizontalLayout);
+				if (result == null) result = caseUiVisibilityProcessable(uiHorizontalLayout);
+				if (result == null) result = caseUiRawBindable(uiHorizontalLayout);
+				if (result == null) result = caseUiNamedElement(uiHorizontalLayout);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_VERTICAL_LAYOUT_ASSIGMENT: {
+				UiVerticalLayoutAssigment uiVerticalLayoutAssigment = (UiVerticalLayoutAssigment)theEObject;
+				T result = caseUiVerticalLayoutAssigment(uiVerticalLayoutAssigment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_VERTICAL_LAYOUT: {
+				UiVerticalLayout uiVerticalLayout = (UiVerticalLayout)theEObject;
+				T result = caseUiVerticalLayout(uiVerticalLayout);
+				if (result == null) result = caseUiLayout(uiVerticalLayout);
+				if (result == null) result = caseUiEmbeddable(uiVerticalLayout);
+				if (result == null) result = caseUiVisibilityProcessable(uiVerticalLayout);
+				if (result == null) result = caseUiRawBindable(uiVerticalLayout);
+				if (result == null) result = caseUiNamedElement(uiVerticalLayout);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_FORM_LAYOUT_ASSIGMENT: {
+				UiFormLayoutAssigment uiFormLayoutAssigment = (UiFormLayoutAssigment)theEObject;
+				T result = caseUiFormLayoutAssigment(uiFormLayoutAssigment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_FORM_LAYOUT: {
+				UiFormLayout uiFormLayout = (UiFormLayout)theEObject;
+				T result = caseUiFormLayout(uiFormLayout);
+				if (result == null) result = caseUiLayout(uiFormLayout);
+				if (result == null) result = caseUiEmbeddable(uiFormLayout);
+				if (result == null) result = caseUiVisibilityProcessable(uiFormLayout);
+				if (result == null) result = caseUiRawBindable(uiFormLayout);
+				if (result == null) result = caseUiNamedElement(uiFormLayout);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case UiModelPackage.UI_TEXT_FIELD: {
 				UiTextField uiTextField = (UiTextField)theEObject;
 				T result = caseUiTextField(uiTextField);
@@ -262,10 +313,51 @@ public class UiModelSwitch<T> extends Switch<T> {
 				UiList uiList = (UiList)theEObject;
 				T result = caseUiList(uiList);
 				if (result == null) result = caseUiField(uiList);
+				if (result == null) result = caseUiTypeProvider(uiList);
 				if (result == null) result = caseUiEmbeddable(uiList);
 				if (result == null) result = caseUiVisibilityProcessable(uiList);
 				if (result == null) result = caseUiRawBindable(uiList);
 				if (result == null) result = caseUiNamedElement(uiList);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_TABLE: {
+				UiTable uiTable = (UiTable)theEObject;
+				T result = caseUiTable(uiTable);
+				if (result == null) result = caseUiField(uiTable);
+				if (result == null) result = caseUiTypeProvider(uiTable);
+				if (result == null) result = caseUiEmbeddable(uiTable);
+				if (result == null) result = caseUiVisibilityProcessable(uiTable);
+				if (result == null) result = caseUiRawBindable(uiTable);
+				if (result == null) result = caseUiNamedElement(uiTable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_TYPE_PROVIDER: {
+				UiTypeProvider uiTypeProvider = (UiTypeProvider)theEObject;
+				T result = caseUiTypeProvider(uiTypeProvider);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_COLUMN: {
+				UiColumn uiColumn = (UiColumn)theEObject;
+				T result = caseUiColumn(uiColumn);
+				if (result == null) result = caseUiField(uiColumn);
+				if (result == null) result = caseUiEmbeddable(uiColumn);
+				if (result == null) result = caseUiVisibilityProcessable(uiColumn);
+				if (result == null) result = caseUiRawBindable(uiColumn);
+				if (result == null) result = caseUiNamedElement(uiColumn);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_COLUMN_ASSIGNMENTS: {
+				UiColumnAssignments uiColumnAssignments = (UiColumnAssignments)theEObject;
+				T result = caseUiColumnAssignments(uiColumnAssignments);
+				if (result == null) result = caseUiField(uiColumnAssignments);
+				if (result == null) result = caseUiEmbeddable(uiColumnAssignments);
+				if (result == null) result = caseUiVisibilityProcessable(uiColumnAssignments);
+				if (result == null) result = caseUiRawBindable(uiColumnAssignments);
+				if (result == null) result = caseUiNamedElement(uiColumnAssignments);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -851,6 +943,96 @@ public class UiModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Horizontal Layout Assigment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Horizontal Layout Assigment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiHorizontalLayoutAssigment(UiHorizontalLayoutAssigment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Horizontal Layout</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Horizontal Layout</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiHorizontalLayout(UiHorizontalLayout object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Vertical Layout Assigment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Vertical Layout Assigment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiVerticalLayoutAssigment(UiVerticalLayoutAssigment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Vertical Layout</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Vertical Layout</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiVerticalLayout(UiVerticalLayout object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Form Layout Assigment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Form Layout Assigment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiFormLayoutAssigment(UiFormLayoutAssigment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Form Layout</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Form Layout</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiFormLayout(UiFormLayout object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Ui Text Field</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -877,6 +1059,66 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiList(UiList object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Table</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Table</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiTable(UiTable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Type Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Type Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiTypeProvider(UiTypeProvider object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Column</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Column</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiColumn(UiColumn object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Column Assignments</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Column Assignments</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiColumnAssignments(UiColumnAssignments object) {
 		return null;
 	}
 

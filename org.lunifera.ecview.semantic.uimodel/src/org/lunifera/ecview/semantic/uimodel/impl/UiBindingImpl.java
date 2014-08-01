@@ -26,6 +26,7 @@ import org.lunifera.ecview.semantic.uimodel.UiTypedBindable;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingImpl#isSourceToTarget <em>Source To Target</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingImpl#getTargetAlias <em>Target Alias</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingImpl#isListBinding <em>List Binding</em>}</li>
  * </ul>
  * </p>
  *
@@ -111,6 +112,26 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements UiBin
 	 * @ordered
 	 */
 	protected UiTypedBindable targetAlias;
+
+	/**
+	 * The default value of the '{@link #isListBinding() <em>List Binding</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isListBinding()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean LIST_BINDING_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isListBinding() <em>List Binding</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isListBinding()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean listBinding = LIST_BINDING_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -386,6 +407,27 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements UiBin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isListBinding() {
+		return listBinding;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setListBinding(boolean newListBinding) {
+		boolean oldListBinding = listBinding;
+		listBinding = newListBinding;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BINDING__LIST_BINDING, oldListBinding, listBinding));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -421,6 +463,8 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements UiBin
 			case UiModelPackage.UI_BINDING__TARGET_ALIAS:
 				if (resolve) return getTargetAlias();
 				return basicGetTargetAlias();
+			case UiModelPackage.UI_BINDING__LIST_BINDING:
+				return isListBinding();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -450,6 +494,9 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements UiBin
 				return;
 			case UiModelPackage.UI_BINDING__TARGET_ALIAS:
 				setTargetAlias((UiTypedBindable)newValue);
+				return;
+			case UiModelPackage.UI_BINDING__LIST_BINDING:
+				setListBinding((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -481,6 +528,9 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements UiBin
 			case UiModelPackage.UI_BINDING__TARGET_ALIAS:
 				setTargetAlias((UiTypedBindable)null);
 				return;
+			case UiModelPackage.UI_BINDING__LIST_BINDING:
+				setListBinding(LIST_BINDING_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -505,6 +555,8 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements UiBin
 				return target != null;
 			case UiModelPackage.UI_BINDING__TARGET_ALIAS:
 				return targetAlias != null;
+			case UiModelPackage.UI_BINDING__LIST_BINDING:
+				return listBinding != LIST_BINDING_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -523,6 +575,8 @@ public class UiBindingImpl extends MinimalEObjectImpl.Container implements UiBin
 		result.append(targetToSource);
 		result.append(", sourceToTarget: ");
 		result.append(sourceToTarget);
+		result.append(", listBinding: ");
+		result.append(listBinding);
 		result.append(')');
 		return result.toString();
 	}

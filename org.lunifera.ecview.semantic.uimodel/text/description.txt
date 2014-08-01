@@ -60,6 +60,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Attribute sourceToTarget : EBoolean
     Reference target : UiBindingExpression
     Reference targetAlias : UiTypedBindable
+    Attribute listBinding : EBoolean
 
   Class UiPathSegment
     Reference jvmField : JvmField
@@ -88,9 +89,48 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiGridLayout -> UiLayout
     Reference contents : UiGridLayoutAssigment<<0..*>>
 
+  Class UiHorizontalLayoutAssigment
+    Reference element : UiEmbeddable
+
+  Class UiHorizontalLayout -> UiLayout
+    Reference contents : UiHorizontalLayoutAssigment<<0..*>>
+
+  Class UiVerticalLayoutAssigment
+    Reference element : UiEmbeddable
+
+  Class UiVerticalLayout -> UiLayout
+    Reference contents : UiVerticalLayoutAssigment<<0..*>>
+
+  Class UiFormLayoutAssigment
+    Reference element : UiEmbeddable
+
+  Class UiFormLayout -> UiLayout
+    Reference contents : UiFormLayoutAssigment<<0..*>>
+
   Class UiTextField -> UiField
 
-  Class UiList -> UiField
+  Class UiList -> UiField, UiTypeProvider
+    Attribute selectionType : UiSelectionType<<1..1>>
+
+  Class UiTable -> UiField, UiTypeProvider
+    Reference columnAssignment : UiColumnAssignments
+    Attribute selectionType : UiSelectionType<<1..1>>
+
+  Class UiTypeProvider
+    Reference jvmType : JvmTypeReference
+
+  Class UiColumn -> UiField
+    Reference jvmField : JvmField
+    Attribute iconName : EString
+    Attribute visible : EBoolean
+    Attribute orderable : EBoolean
+    Attribute collapsed : EBoolean
+    Attribute collapsible : EBoolean
+    Attribute alignment : UiFlatAlignment
+    Attribute expandRatio : EFloat
+
+  Class UiColumnAssignments -> UiField
+    Reference columns : UiColumn<<0..*>>
 
   Class UiNumericField -> UiField
 
@@ -157,3 +197,13 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiValidatorDef -> UiNamedElement
     Reference validator : UiValidator
     Reference jvmType : JvmTypeReference
+
+  Enum UiFlatAlignment
+    Literal LEFT = 0
+    Literal CENTER = 1
+    Literal RIGHT = 2
+
+  Enum UiSelectionType
+    Literal NONE = 0
+    Literal SINGLE = 1
+    Literal MULTI = 2

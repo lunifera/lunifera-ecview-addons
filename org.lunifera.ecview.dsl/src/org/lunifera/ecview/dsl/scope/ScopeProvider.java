@@ -11,6 +11,7 @@ import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
+import org.lunifera.ecview.semantic.uimodel.UiTable;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
 import org.lunifera.ecview.semantic.uimodel.impl.UiPathSegmentImpl;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
@@ -41,6 +42,8 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 			return createBindingEndpointDefPathScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_PATH_SEGMENT__JVM_FIELD) {
 			return createPathSegmentJvmFieldScope(context);
+		} else if (reference == UiModelPackage.Literals.UI_COLUMN__JVM_FIELD) {
+			return createUiColumnJvmFieldScope(context);
 		}
 		return super.getScope(context, reference);
 	}
@@ -72,6 +75,23 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 			}
 			return new BindingPathScope(parent.getJvmField().getType()
 					.getType());
+		}
+	}
+
+	/**
+	 * Creates a scope that returns the jvm fields available for the current
+	 * state.
+	 * 
+	 * @param context
+	 * @return
+	 */
+	private IScope createUiColumnJvmFieldScope(EObject context) {
+		UiTable table = (UiTable) context.eContainer().eContainer();
+		JvmTypeReference expectedType = typeProvider.getTypeReference(table);
+		if (expectedType == null) {
+			return IScope.NULLSCOPE;
+		} else {
+			return new BindingPathScope(expectedType.getType());
 		}
 	}
 

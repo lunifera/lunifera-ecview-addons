@@ -429,13 +429,22 @@ public interface UiSemanticsPackage extends EPackage {
 	int UX_ENDPOINT_DEF__JVM_TYPE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Listbinding</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_ENDPOINT_DEF__LISTBINDING = 3;
+
+	/**
 	 * The number of structural features of the '<em>Ux Endpoint Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UX_ENDPOINT_DEF_FEATURE_COUNT = 3;
+	int UX_ENDPOINT_DEF_FEATURE_COUNT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Final</b></em>' attribute.
@@ -463,6 +472,15 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @ordered
 	 */
 	int UX_VALUE_BINDING_ENDPOINT_DEF__JVM_TYPE = UX_ENDPOINT_DEF__JVM_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Listbinding</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_VALUE_BINDING_ENDPOINT_DEF__LISTBINDING = UX_ENDPOINT_DEF__LISTBINDING;
 
 	/**
 	 * The number of structural features of the '<em>Ux Value Binding Endpoint Def</em>' class.
@@ -501,6 +519,15 @@ public interface UiSemanticsPackage extends EPackage {
 	int UX_LIST_BINDING_ENDPOINT_DEF__JVM_TYPE = UX_ENDPOINT_DEF__JVM_TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Listbinding</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_LIST_BINDING_ENDPOINT_DEF__LISTBINDING = UX_ENDPOINT_DEF__LISTBINDING;
+
+	/**
 	 * The number of structural features of the '<em>Ux List Binding Endpoint Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -535,6 +562,15 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @ordered
 	 */
 	int UX_SET_BINDING_ENDPOINT_DEF__JVM_TYPE = UX_ENDPOINT_DEF__JVM_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Listbinding</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_SET_BINDING_ENDPOINT_DEF__LISTBINDING = UX_ENDPOINT_DEF__LISTBINDING;
 
 	/**
 	 * The number of structural features of the '<em>Ux Set Binding Endpoint Def</em>' class.
@@ -872,6 +908,17 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUxEndpointDef_JvmType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uisemantics.UxEndpointDef#isListbinding <em>Listbinding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Listbinding</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxEndpointDef#isListbinding()
+	 * @see #getUxEndpointDef()
+	 * @generated
+	 */
+	EAttribute getUxEndpointDef_Listbinding();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxValueBindingEndpointDef <em>Ux Value Binding Endpoint Def</em>}'.
@@ -1220,6 +1267,14 @@ public interface UiSemanticsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UX_ENDPOINT_DEF__JVM_TYPE = eINSTANCE.getUxEndpointDef_JvmType();
+
+		/**
+		 * The meta object literal for the '<em><b>Listbinding</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UX_ENDPOINT_DEF__LISTBINDING = eINSTANCE.getUxEndpointDef_Listbinding();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxValueBindingEndpointDefImpl <em>Ux Value Binding Endpoint Def</em>}' class.

@@ -17,6 +17,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxEndpointDef#isFinal <em>Final</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxEndpointDef#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxEndpointDef#getJvmType <em>Jvm Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxEndpointDef#isListbinding <em>Listbinding</em>}</li>
  * </ul>
  * </p>
  *
@@ -102,5 +103,31 @@ public interface UxEndpointDef extends EObject {
 	 * @generated
 	 */
 	void setJvmType(JvmTypeReference value);
+
+	/**
+	 * Returns the value of the '<em><b>Listbinding</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Listbinding</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Listbinding</em>' attribute.
+	 * @see #setListbinding(boolean)
+	 * @see org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage#getUxEndpointDef_Listbinding()
+	 * @model
+	 * @generated
+	 */
+	boolean isListbinding();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uisemantics.UxEndpointDef#isListbinding <em>Listbinding</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Listbinding</em>' attribute.
+	 * @see #isListbinding()
+	 * @generated
+	 */
+	void setListbinding(boolean value);
 
 } // UxEndpointDef

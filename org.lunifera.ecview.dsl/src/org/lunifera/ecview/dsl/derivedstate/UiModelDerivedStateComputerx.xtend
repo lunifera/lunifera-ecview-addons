@@ -1,17 +1,19 @@
 package org.lunifera.ecview.dsl.derivedstate
 
 import com.google.inject.Inject
+import com.google.inject.Singleton
 import java.util.List
 import java.util.Map
 import java.util.Stack
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.ResourceSet
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy
+import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEndpoint
 import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelValueBindingEndpoint
 import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable
 import org.eclipse.emf.ecp.ecview.common.model.core.YField
@@ -23,10 +25,18 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator
 import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YCheckBox
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YColumn
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YFlatAlignment
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YFormLayout
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YGridLayout
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YHorizontalLayout
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YNumericField
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YSelectionType
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTable
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTextField
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YVerticalLayout
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.util.SimpleExtensionModelFactory
+import org.eclipse.xtext.common.types.JvmField
 import org.eclipse.xtext.common.types.JvmGenericType
 import org.eclipse.xtext.common.types.JvmType
 import org.eclipse.xtext.resource.DerivedStateAwareResource
@@ -38,10 +48,15 @@ import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox
+import org.lunifera.ecview.semantic.uimodel.UiColumn
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable
 import org.lunifera.ecview.semantic.uimodel.UiField
+import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment
+import org.lunifera.ecview.semantic.uimodel.UiFormLayout
 import org.lunifera.ecview.semantic.uimodel.UiGridLayout
 import org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment
 import org.lunifera.ecview.semantic.uimodel.UiIDEView
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator
@@ -50,24 +65,36 @@ import org.lunifera.ecview.semantic.uimodel.UiNumericField
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment
 import org.lunifera.ecview.semantic.uimodel.UiPoint
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator
+import org.lunifera.ecview.semantic.uimodel.UiSelectionType
+import org.lunifera.ecview.semantic.uimodel.UiTable
 import org.lunifera.ecview.semantic.uimodel.UiTextField
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAssignment
 import org.lunifera.ecview.semantic.uimodel.UiValidatorDef
+import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout
+import org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment
 import org.lunifera.ecview.semantic.uimodel.UiView
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator
-import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderProvider
+import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoader
+import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderFactory
 
+import static org.lunifera.ecview.semantic.uimodel.UiFlatAlignment.*
+import static org.lunifera.ecview.semantic.uimodel.UiSelectionType.*
+import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment
+
+@Singleton
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	@Inject
-	IJdtTypeLoaderProvider typeLoaderProvider;
+	IJdtTypeLoaderFactory typeLoaderFactory;
+	private IJdtTypeLoader typeLoader
 	@Inject
-	BindableTypeProvider bindingTypeProvider;
+	BindableTypeProvider typeOfBoundPropertyProvider;
 	final Stack<EObject> viewContext = new Stack
 	final List<YView> views = newArrayList()
-	final Map<EObject, EObject> associations = newHashMap();
+	final Map<EObject, EObject> grammarToUiAssociations = newHashMap();
+	final Map<EObject, EObject> uiToGrammarAssociations = newHashMap();
 	final SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory
 
 	YView currentView;
@@ -75,27 +102,39 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	DerivedStateAwareResource resource
 
 	def void associateUi(EObject grammarElement, EObject uiElement) {
-		associations.put(grammarElement, uiElement)
+		grammarToUiAssociations.put(grammarElement, uiElement)
+		uiToGrammarAssociations.put(uiElement, grammarElement)
+
+		uiElement.eAdapters += new UiGrammarElementAdapter(grammarElement)
 	}
 
 	def <A> A associatedUi(EObject grammarElement) {
-		return associations.get(grammarElement) as A
+		return grammarToUiAssociations.get(grammarElement) as A
+	}
+
+	def <A> A associatedGrammar(EObject uiElement) {
+		return uiToGrammarAssociations.get(uiElement) as A
 	}
 
 	override void installDerivedState(DerivedStateAwareResource resource, boolean preLinkingPhase) {
-		
+
 		super.installDerivedState(resource, preLinkingPhase)
 		this.resource = resource;
+		this.typeLoader = typeLoaderFactory.createJdtTypeLoader(resource.resourceSet)
 
 		if (resource.getContents().isEmpty()) {
 			return;
 		}
 
 		if (!preLinkingPhase) {
-			
+
+			grammarToUiAssociations.clear
+			uiToGrammarAssociations.clear
+
 			val EObject eObject = resource.getContents().get(0);
+
 			// complete all elements
-			eObject.eContents.forEach[
+			eObject.eContents.forEach [
 				it.map
 			]
 
@@ -104,8 +143,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			}
 			views.clear
 			viewContext.clear
-			associations.clear
 		}
+
+		this.typeLoader.dispose
+		this.typeLoader = null;
 	}
 
 	def <A> A peek() {
@@ -144,12 +185,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		pop
 		currentView = null
 	}
-	
-	
-	def push(EObject eObject){
+
+	def push(EObject eObject) {
 		viewContext.push(eObject)
 	}
-	
 
 	def dispatch void map(UiGridLayout eObject) {
 		val YGridLayout layout = factory.createGridLayout
@@ -177,12 +216,167 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.addElement(newField)
 
 		if (element instanceof UiField) {
+			element.map
+
 			newField.push
 			val UiField yField = element as UiField
 			yField.validators.forEach [
 				it.map
 			]
 			pop
+		}
+	}
+
+	def dispatch void map(UiVerticalLayout eObject) {
+		val YVerticalLayout layout = factory.createVerticalLayout
+		layout.name = eObject.name
+
+		//		layout.columns = eObject.columns
+		layout.addToParent
+		eObject.associateUi(layout)
+
+		layout.push
+
+		eObject.contents.forEach [
+			it.map
+		]
+
+		pop
+	}
+
+	def dispatch void map(UiVerticalLayoutAssigment eObject) {
+
+		val YVerticalLayout layout = peek
+
+		val element = eObject.element
+		val newField = element.create
+		layout.addElement(newField)
+
+		if (element instanceof UiField) {
+			element.map
+
+			newField.push
+			val UiField yField = element as UiField
+			yField.validators.forEach [
+				it.map
+			]
+			pop
+		}
+	}
+
+	def dispatch void map(UiHorizontalLayout eObject) {
+		val YHorizontalLayout layout = factory.createHorizontalLayout
+		layout.name = eObject.name
+
+		//		layout.columns = eObject.columns
+		layout.addToParent
+		eObject.associateUi(layout)
+
+		layout.push
+
+		eObject.contents.forEach [
+			it.map
+		]
+
+		pop
+	}
+
+	def dispatch void map(UiHorizontalLayoutAssigment eObject) {
+
+		val YHorizontalLayout layout = peek
+		val element = eObject.element
+		if (element instanceof UiField) {
+			val newField = element.create
+			layout.addElement(newField)
+
+			if (element instanceof UiField) {
+				element.map
+
+				newField.push
+				val UiField yField = element as UiField
+				yField.validators.forEach [
+					it.map
+				]
+				pop
+			}
+		} else {
+			element.map
+		}
+
+	}
+
+	def dispatch void map(UiFormLayout eObject) {
+		val YFormLayout layout = factory.createFormLayout
+		layout.name = eObject.name
+
+		//		layout.columns = eObject.columns
+		layout.addToParent
+		eObject.associateUi(layout)
+
+		layout.push
+
+		eObject.contents.forEach [
+			it.map
+		]
+
+		pop
+	}
+
+	def dispatch void map(UiFormLayoutAssigment eObject) {
+		val YFormLayout layout = peek
+
+		val element = eObject.element
+		val newField = element.create
+		layout.addElement(newField)
+
+		if (element instanceof UiField) {
+			element.map
+
+			newField.push
+			val UiField yField = element as UiField
+			yField.validators.forEach [
+				it.map
+			]
+			pop
+		}
+	}
+
+	def dispatch void map(UiTable eObject) {
+		val YTable yField = eObject.associatedUi
+		yField.push
+
+		if (eObject.columnAssignment != null) {
+			eObject.columnAssignment.columns.forEach [
+				it.map
+			]
+		}
+		pop
+	}
+
+	def dispatch void map(UiColumn eObject) {
+		val YTable yField = peek
+
+		val YColumn yColumn = factory.createColumn
+		yColumn.alignment = eObject.alignment.toYFlatAlignment
+		yColumn.collapsed = eObject.collapsed
+		yColumn.collapsible = eObject.collapsible
+		yColumn.expandRatio = eObject.expandRatio
+		yColumn.icon = eObject.iconName
+		yColumn.name = eObject.jvmField?.simpleName
+		yColumn.orderable = eObject.orderable
+		yColumn.visible = eObject.visible
+
+		yField.columns += yColumn
+	}
+
+	def YFlatAlignment toYFlatAlignment(UiFlatAlignment uiAlign) {
+		switch (uiAlign) {
+			case LEFT:
+				return YFlatAlignment.LEFT
+			case CENTER:
+				return YFlatAlignment.CENTER
+			case RIGHT:
+				return YFlatAlignment.RIGHT
 		}
 	}
 
@@ -208,7 +402,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			return
 		}
 
-		eObject.validator.map
+	//		eObject.validator.map
 	}
 
 	def dispatch void map(UiMaxLengthValidator eObject) {
@@ -261,7 +455,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		}
 	}
 
-	def dispatch YEmbeddable create(YEmbeddable object) {
+	def dispatch YEmbeddable create(UiEmbeddable object) {
 	}
 
 	def dispatch YEmbeddable create(UiTextField object) {
@@ -272,6 +466,33 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		object.associateUi(textField)
 
 		return textField
+	}
+
+	def dispatch YEmbeddable create(UiTable object) {
+		val YTable table = factory.createTable
+		table.name = object.name
+		table.label = object.name
+		table.selectionType = object.selectionType.convert
+
+		if (object.jvmType != null) {
+			table.typeQualifiedName = object.jvmType.qualifiedName
+			table.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
+		}
+
+		object.associateUi(table)
+
+		return table
+	}
+
+	def YSelectionType convert(UiSelectionType type) {
+		switch (type) {
+			case NONE:
+				return YSelectionType.SINGLE
+			case SINGLE:
+				return YSelectionType.SINGLE
+			case MULTI:
+				return YSelectionType.MULTI
+		}
 	}
 
 	def dispatch YEmbeddable create(UiNumericField object) {
@@ -329,43 +550,52 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			targetEndpoint = targetAlias.endpoint  as UiBindingEndpointAssignment
 		}
 
-		val sourceResult = sourceEndpoint.createBindingEndpoint
-		val targetResult = targetEndpoint.createBindingEndpoint
+		if (!object.listBinding) {
+			val sourceResult = sourceEndpoint.createValueBindingEndpoint
+			val targetResult = targetEndpoint.createValueBindingEndpoint
 
-		var YBindingUpdateStrategy sourceToTargetStrategy = YBindingUpdateStrategy::UPDATE;
-		if (!object.sourceToTarget) {
-			sourceToTargetStrategy = YBindingUpdateStrategy::ON_REQUEST
-		}
+			var YBindingUpdateStrategy sourceToTargetStrategy = YBindingUpdateStrategy::UPDATE;
+			if (!object.sourceToTarget) {
+				sourceToTargetStrategy = YBindingUpdateStrategy::ON_REQUEST
+			}
 
-		var YBindingUpdateStrategy targetToSourceStrategy = YBindingUpdateStrategy::UPDATE;
-		if (!object.targetToSource) {
-			targetToSourceStrategy = YBindingUpdateStrategy::ON_REQUEST
-		}
+			var YBindingUpdateStrategy targetToSourceStrategy = YBindingUpdateStrategy::UPDATE;
+			if (!object.targetToSource) {
+				targetToSourceStrategy = YBindingUpdateStrategy::ON_REQUEST
+			}
 
-		if (sourceResult instanceof YValueBindingEndpoint && targetResult instanceof YValueBindingEndpoint) {
-			currentView.orCreateBindingSet.addBinding(targetResult as YValueBindingEndpoint,
-				sourceResult as YValueBindingEndpoint, targetToSourceStrategy, sourceToTargetStrategy)
-		} else if (sourceResult instanceof YListBindingEndpoint && targetResult instanceof YListBindingEndpoint) {
-			currentView.orCreateBindingSet.addBinding(targetResult as YListBindingEndpoint,
-				sourceResult as YListBindingEndpoint, targetToSourceStrategy, sourceToTargetStrategy)
-		} else if (sourceResult == null || targetResult == null) {
-			// nothing to do 
+			currentView.orCreateBindingSet.addBinding(targetResult, sourceResult, targetToSourceStrategy,
+				sourceToTargetStrategy)
 		} else {
-			throw new IllegalArgumentException(sourceResult + " is not bindable to " + targetResult)
-		}
+			val sourceResult = sourceEndpoint.createListBindingEndpoint
+			val targetResult = targetEndpoint.createListBindingEndpoint
 
+			var YBindingUpdateStrategy sourceToTargetStrategy = YBindingUpdateStrategy::UPDATE;
+			if (!object.sourceToTarget) {
+				sourceToTargetStrategy = YBindingUpdateStrategy::ON_REQUEST
+			}
+
+			var YBindingUpdateStrategy targetToSourceStrategy = YBindingUpdateStrategy::UPDATE;
+			if (!object.targetToSource) {
+				targetToSourceStrategy = YBindingUpdateStrategy::ON_REQUEST
+			}
+
+			currentView.orCreateBindingSet.addBinding(targetResult, sourceResult, targetToSourceStrategy,
+				sourceToTargetStrategy)
+		}
 	}
 
-	def YBindingEndpoint createBindingEndpoint(UiBindingEndpointAssignment epDef) {
+	def YValueBindingEndpoint createValueBindingEndpoint(UiBindingEndpointAssignment epDef) {
 		if (epDef == null) {
 			return null
 		}
-		var YBindingEndpoint result = null;
+		var YValueBindingEndpoint result = null;
 		val UiModelDerivedStateComputerx.BindingInfo info = new UiModelDerivedStateComputerx.BindingInfo
 		collectBindingInfo(epDef, info);
 
 		if (info.bindingRoot instanceof UiBeanSlot) {
 			val uiBeanSlot = info.bindingRoot as UiBeanSlot
+
 			val YBeanSlot yBeanSlot = uiBeanSlot.associatedUi
 			val YBeanSlotValueBindingEndpoint ep = factory.createBeanSlotValueBindingEndpoint
 			ep.beanSlot = yBeanSlot
@@ -376,8 +606,42 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			val YECViewModelValueBindingEndpoint ep = factory.createECViewModelValueBindingEndpoint
 			ep.element = yElement
 			ep.propertyPath = info.path.toString
-			if (info.bindingType != null) {
-				ep.typeQualifiedName = info.bindingType.qualifiedName
+			if (info.typeForBinding != null) {
+				ep.typeQualifiedName = info.typeForBinding.qualifiedName
+				ep.type = loadClass(epDef.eResource.resourceSet, ep.typeQualifiedName)
+			}
+			if (yElement != null) {
+				ep.emfNsURI = yElement.eClass.EPackage.nsURI
+			}
+			result = ep
+		}
+
+		return result
+	}
+
+	def YListBindingEndpoint createListBindingEndpoint(UiBindingEndpointAssignment epDef) {
+		if (epDef == null) {
+			return null
+		}
+		var YListBindingEndpoint result = null;
+		val UiModelDerivedStateComputerx.BindingInfo info = new UiModelDerivedStateComputerx.BindingInfo
+		collectBindingInfo(epDef, info);
+
+		if (info.bindingRoot instanceof UiBeanSlot) {
+			val uiBeanSlot = info.bindingRoot as UiBeanSlot
+
+			val YBeanSlot yBeanSlot = uiBeanSlot.associatedUi
+			val YBeanSlotListBindingEndpoint ep = factory.createBeanSlotListBindingEndpoint
+			ep.beanSlot = yBeanSlot
+			ep.attributePath = info.path.toString
+			result = ep
+		} else if (info.bindingRoot instanceof UiEmbeddable) {
+			val YEmbeddable yElement = info.bindingRoot.associatedUi
+			val YECViewModelListBindingEndpoint ep = factory.createECViewModelListBindingEndpoint
+			ep.element = yElement
+			ep.propertyPath = info.path.toString
+			if (info.typeForBinding != null) {
+				ep.typeQualifiedName = info.typeForBinding.qualifiedName
 				ep.type = loadClass(epDef.eResource.resourceSet, ep.typeQualifiedName)
 			}
 			if (yElement != null) {
@@ -401,13 +665,19 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		// on the way back up the structure, collect the path
 		if (assignment.path != null) {
 			info.appendPath(assignment.path.toPathString)
-			info.bindingType = assignment.path.typeofLastSegment
+			info.typeOfBoundProperty = assignment.path.typeofLastSegment
+			info.deepestJvmField = assignment.path.fieldofLastSegment
+
+			val pathType = assignment.path.typeofSecondLastSegment
+			if (pathType != null) {
+				info.typeForBinding = pathType
+			}
 		}
 	}
 
 	def dispatch void collectBindingInfo(UiBeanSlot slot, UiModelDerivedStateComputerx.BindingInfo info) {
 		info.bindingRoot = slot
-		info.bindingType = slot.jvmType?.type
+		info.typeForBinding = slot.jvmType?.type
 	}
 
 	def dispatch void collectBindingInfo(UiBindingEndpointAlias alias, UiModelDerivedStateComputerx.BindingInfo info) {
@@ -417,7 +687,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	def dispatch void collectBindingInfo(UiTypedBindableDef definition, UiModelDerivedStateComputerx.BindingInfo info) {
 
 		// must be the last element
-		info.bindingType = bindingTypeProvider.getType(definition)
+		info.typeForBinding = typeOfBoundPropertyProvider.getType(definition)
 		info.bindingRoot = definition.rawBindable
 		val bindingMethod = definition.method
 		if (bindingMethod != null) {
@@ -440,11 +710,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	}
 
 	def loadClass(ResourceSet resourceSet, String qualifiedName) {
-		val loader = typeLoaderProvider.get(resourceSet)
-		if (loader == null) {
-			return null;
-		}
-		return loader.findTypeByName(qualifiedName)
+		return typeLoader.findTypeByName(qualifiedName)
 	}
 
 	def dispatch void map(UiPathSegment object) {
@@ -519,10 +785,22 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	static class BindingInfo {
 
 		/**
-		 * The type of the binding. For nested bindings it is the last element available
+		 * The type of the bound property. For nested bindings it is the last element available
 		 */
 		@Property
-		private JvmType bindingType
+		private JvmType typeOfBoundProperty
+
+		/**
+		 * The type of the binding. For nested bindings it is the element before the bound property
+		 */
+		@Property
+		private JvmType typeForBinding
+
+		/**
+		 * The deepest JvmField in the hierarchy. This field is used to bind.
+		 */
+		@Property
+		private JvmField deepestJvmField
 
 		/**
 		 * The nested path using dot notation.
@@ -543,6 +821,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			if (segment.nullOrEmpty) {
 				return
 			}
+
 			if (path.length > 0) {
 				path.append(".")
 			}

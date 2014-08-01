@@ -193,6 +193,60 @@ public interface UiModelFactory extends EFactory {
 	UiGridLayout createUiGridLayout();
 
 	/**
+	 * Returns a new object of class '<em>Ui Horizontal Layout Assigment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Horizontal Layout Assigment</em>'.
+	 * @generated
+	 */
+	UiHorizontalLayoutAssigment createUiHorizontalLayoutAssigment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Horizontal Layout</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Horizontal Layout</em>'.
+	 * @generated
+	 */
+	UiHorizontalLayout createUiHorizontalLayout();
+
+	/**
+	 * Returns a new object of class '<em>Ui Vertical Layout Assigment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Vertical Layout Assigment</em>'.
+	 * @generated
+	 */
+	UiVerticalLayoutAssigment createUiVerticalLayoutAssigment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Vertical Layout</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Vertical Layout</em>'.
+	 * @generated
+	 */
+	UiVerticalLayout createUiVerticalLayout();
+
+	/**
+	 * Returns a new object of class '<em>Ui Form Layout Assigment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Form Layout Assigment</em>'.
+	 * @generated
+	 */
+	UiFormLayoutAssigment createUiFormLayoutAssigment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Form Layout</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Form Layout</em>'.
+	 * @generated
+	 */
+	UiFormLayout createUiFormLayout();
+
+	/**
 	 * Returns a new object of class '<em>Ui Text Field</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,6 +263,33 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiList createUiList();
+
+	/**
+	 * Returns a new object of class '<em>Ui Table</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Table</em>'.
+	 * @generated
+	 */
+	UiTable createUiTable();
+
+	/**
+	 * Returns a new object of class '<em>Ui Column</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Column</em>'.
+	 * @generated
+	 */
+	UiColumn createUiColumn();
+
+	/**
+	 * Returns a new object of class '<em>Ui Column Assignments</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Column Assignments</em>'.
+	 * @generated
+	 */
+	UiColumnAssignments createUiColumnAssignments();
 
 	/**
 	 * Returns a new object of class '<em>Ui Numeric Field</em>'.
