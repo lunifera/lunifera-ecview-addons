@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target includeMode="feature" name="org.lunifera.xtext.builder.target.luna" sequenceNumber="91">
+<?pde version="3.8"?><target includeMode="feature" name="org.lunifera.xtext.builder.target.luna" sequenceNumber="92">
 <locations>
 <location path="${eclipse_home}" type="Profile"/>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
@@ -35,6 +35,10 @@
 <unit id="org.lunifera.xtext.builder.feature.service.jvmtypes.source.feature.group" version="0.8.2.201407071549"/>
 <unit id="org.lunifera.runtime.web.feature.vaadin.components.source.feature.group" version="0.0.1.201407071556"/>
 <unit id="org.lunifera.xtext.builder.feature.types.source.feature.group" version="0.8.2.201407071549"/>
+<repository location="http://lun.lunifera.org/downloads/p2/lunifera/luna/latest/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.lunifera.dependencies.feature.assert-utilities.feature.group" version="1.2.2.2"/>
 <repository location="http://lun.lunifera.org/downloads/p2/lunifera/luna/latest/"/>
 </location>
 </locations>
