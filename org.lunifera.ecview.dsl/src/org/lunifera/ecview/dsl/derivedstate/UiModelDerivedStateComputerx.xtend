@@ -24,6 +24,7 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidato
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator
 import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YButton
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YCheckBox
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YColumn
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YFlatAlignment
@@ -32,6 +33,8 @@ import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YGridLayout
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YHorizontalLayout
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YNumericField
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YSelectionType
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTab
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTabSheet
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTable
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTextField
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YVerticalLayout
@@ -47,43 +50,64 @@ import org.lunifera.ecview.semantic.uimodel.UiBinding
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression
+import org.lunifera.ecview.semantic.uimodel.UiButton
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox
 import org.lunifera.ecview.semantic.uimodel.UiColumn
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable
 import org.lunifera.ecview.semantic.uimodel.UiField
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment
 import org.lunifera.ecview.semantic.uimodel.UiFormLayout
+import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment
 import org.lunifera.ecview.semantic.uimodel.UiGridLayout
 import org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroupAssigment
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment
 import org.lunifera.ecview.semantic.uimodel.UiIDEView
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment
+import org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment
+import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet
+import org.lunifera.ecview.semantic.uimodel.UiMobileView
 import org.lunifera.ecview.semantic.uimodel.UiModel
 import org.lunifera.ecview.semantic.uimodel.UiNumericField
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment
 import org.lunifera.ecview.semantic.uimodel.UiPoint
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType
+import org.lunifera.ecview.semantic.uimodel.UiSwitch
+import org.lunifera.ecview.semantic.uimodel.UiTabAssignment
+import org.lunifera.ecview.semantic.uimodel.UiTabSheet
 import org.lunifera.ecview.semantic.uimodel.UiTable
 import org.lunifera.ecview.semantic.uimodel.UiTextField
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAssignment
 import org.lunifera.ecview.semantic.uimodel.UiValidatorDef
+import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup
+import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroupAssigment
 import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout
 import org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment
 import org.lunifera.ecview.semantic.uimodel.UiView
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator
+import org.lunifera.mobile.vaadin.ecview.model.VMHorizontalButtonGroup
+import org.lunifera.mobile.vaadin.ecview.model.VMNavigationButton
+import org.lunifera.mobile.vaadin.ecview.model.VMNavigationPage
+import org.lunifera.mobile.vaadin.ecview.model.VMSwitch
+import org.lunifera.mobile.vaadin.ecview.model.VMTab
+import org.lunifera.mobile.vaadin.ecview.model.VMTabSheet
+import org.lunifera.mobile.vaadin.ecview.model.VMVerticalComponentGroup
+import org.lunifera.mobile.vaadin.ecview.model.VaadinMobileFactory
 import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoader
 import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderFactory
 
 import static org.lunifera.ecview.semantic.uimodel.UiFlatAlignment.*
 import static org.lunifera.ecview.semantic.uimodel.UiSelectionType.*
-import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment
 
-@Singleton
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	@Inject
@@ -186,6 +210,24 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		currentView = null
 	}
 
+	def dispatch void map(UiMobileView object) {
+
+		// create a view instance
+		val YView yView = factory.createView
+		views += yView
+		currentView = yView
+		yView.push;
+
+		object.beanSlots.forEach[it.map]
+		object.content.map
+		object.bindings.forEach[it.map]
+
+		object.validatorAssignments.forEach[it.map]
+
+		pop
+		currentView = null
+	}
+
 	def push(EObject eObject) {
 		viewContext.push(eObject)
 	}
@@ -212,18 +254,22 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val YGridLayout layout = peek
 
 		val element = eObject.element
-		val newField = element.create
-		layout.addElement(newField)
-
 		if (element instanceof UiField) {
-			element.map
+			val newField = element.create
+			layout.addElement(newField)
 
-			newField.push
-			val UiField yField = element as UiField
-			yField.validators.forEach [
-				it.map
-			]
-			pop
+			if (element instanceof UiField) {
+				element.map
+
+				newField.push
+				val UiField yField = element as UiField
+				yField.validators.forEach [
+					it.map
+				]
+				pop
+			}
+		} else {
+			element.map
 		}
 	}
 
@@ -249,18 +295,22 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val YVerticalLayout layout = peek
 
 		val element = eObject.element
-		val newField = element.create
-		layout.addElement(newField)
-
 		if (element instanceof UiField) {
-			element.map
+			val newField = element.create
+			layout.addElement(newField)
 
-			newField.push
-			val UiField yField = element as UiField
-			yField.validators.forEach [
-				it.map
-			]
-			pop
+			if (element instanceof UiField) {
+				element.map
+
+				newField.push
+				val UiField yField = element as UiField
+				yField.validators.forEach [
+					it.map
+				]
+				pop
+			}
+		} else {
+			element.map
 		}
 	}
 
@@ -305,6 +355,223 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	}
 
+	def dispatch void map(UiTabSheet eObject) {
+		val YTabSheet layout = factory.createTabSheet
+		layout.name = eObject.name
+
+		//		layout.columns = eObject.columns
+		layout.addToParent
+		eObject.associateUi(layout)
+
+		layout.push
+
+		eObject.tabs.forEach [
+			it.map
+		]
+
+		pop
+	}
+
+	def dispatch void map(UiTabAssignment eObject) {
+
+		val YTabSheet layout = peek
+		val YTab tab = factory.createTab
+		tab.label = eObject.name
+		layout.tabs += tab
+
+		tab.push
+
+		val element = eObject.element
+		if (element instanceof UiField) {
+			val newField = element.create
+			tab.embeddable = newField
+
+			if (element instanceof UiField) {
+				element.map
+
+				newField.push
+				val UiField yField = element as UiField
+				yField.validators.forEach [
+					it.map
+				]
+				pop
+			}
+		} else {
+			element.map
+		}
+
+		pop
+
+	}
+
+	def dispatch void map(UiMobileTabSheet eObject) {
+		val VMTabSheet layout = VaadinMobileFactory.eINSTANCE.createVMTabSheet
+		layout.name = eObject.name
+
+		//		layout.columns = eObject.columns
+		layout.addToParent
+		eObject.associateUi(layout)
+
+		layout.push
+
+		eObject.tabs.forEach [
+			it.map
+		]
+
+		pop
+	}
+
+	def dispatch void map(UiMobileTabAssignment eObject) {
+
+		val VMTabSheet layout = peek
+		val VMTab tab = VaadinMobileFactory.eINSTANCE.createVMTab
+		tab.label = eObject.name
+		layout.tabs += tab
+
+		tab.push
+
+		val element = eObject.element
+		if (element instanceof UiField) {
+			val newField = element.create
+			tab.embeddable = newField
+
+			if (element instanceof UiField) {
+				element.map
+
+				newField.push
+				val UiField yField = element as UiField
+				yField.validators.forEach [
+					it.map
+				]
+				pop
+			}
+		} else {
+			element.map
+		}
+
+		pop
+
+	}
+
+	def dispatch void map(UiHorizontalButtonGroup eObject) {
+		val VMHorizontalButtonGroup layout = VaadinMobileFactory.eINSTANCE.createVMHorizontalButtonGroup
+		layout.name = eObject.name
+
+		//		layout.columns = eObject.columns
+		layout.addToParent
+		eObject.associateUi(layout)
+
+		layout.push
+
+		eObject.contents.forEach [
+			it.map
+		]
+
+		pop
+	}
+
+	def dispatch void map(UiHorizontalButtonGroupAssigment eObject) {
+
+		val VMHorizontalButtonGroup layout = peek
+		val element = eObject.element
+		if (element instanceof UiField) {
+			val newField = element.create
+			layout.addElement(newField)
+
+			if (element instanceof UiField) {
+				element.map
+
+				newField.push
+				val UiField yField = element as UiField
+				yField.validators.forEach [
+					it.map
+				]
+				pop
+			}
+		} else {
+			element.map
+		}
+
+	}
+
+	def dispatch void map(UiVerticalComponentGroup eObject) {
+		val VMVerticalComponentGroup layout = VaadinMobileFactory.eINSTANCE.createVMVerticalComponentGroup
+		layout.name = eObject.name
+
+		//		layout.columns = eObject.columns
+		layout.addToParent
+		eObject.associateUi(layout)
+
+		layout.push
+
+		eObject.contents.forEach [
+			it.map
+		]
+
+		pop
+	}
+
+	def dispatch void map(UiVerticalComponentGroupAssigment eObject) {
+
+		val VMVerticalComponentGroup layout = peek
+		val element = eObject.element
+		if (element instanceof UiField) {
+			val newField = element.create
+			layout.addElement(newField)
+
+			if (element instanceof UiField) {
+				element.map
+
+				newField.push
+				val UiField yField = element as UiField
+				yField.validators.forEach [
+					it.map
+				]
+				pop
+			}
+		} else {
+			element.map
+		}
+
+	}
+
+	def dispatch void map(UiMobileNavigationPage eObject) {
+		val VMNavigationPage layout = VaadinMobileFactory.eINSTANCE.createVMNavigationPage
+		layout.name = eObject.name
+
+		layout.addToParent
+		eObject.associateUi(layout)
+
+		layout.push
+
+		eObject.contents.forEach [
+			it.map
+		]
+
+		pop
+	}
+
+	def dispatch void map(UiMobileNavigationPageAssignment eObject) {
+		val VMNavigationPage layout = peek
+		val element = eObject.element
+		if (element instanceof UiField) {
+			val newField = element.create
+			layout.addElement(newField)
+
+			element.map
+
+			newField.push
+			val UiField yField = element as UiField
+			yField.validators.forEach [
+				it.map
+			]
+			pop
+		} else {
+			element.map
+		}
+
+	}
+
 	def dispatch void map(UiFormLayout eObject) {
 		val YFormLayout layout = factory.createFormLayout
 		layout.name = eObject.name
@@ -324,20 +591,23 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch void map(UiFormLayoutAssigment eObject) {
 		val YFormLayout layout = peek
-
 		val element = eObject.element
-		val newField = element.create
-		layout.addElement(newField)
-
 		if (element instanceof UiField) {
-			element.map
+			val newField = element.create
+			layout.addElement(newField)
 
-			newField.push
-			val UiField yField = element as UiField
-			yField.validators.forEach [
-				it.map
-			]
-			pop
+			if (element instanceof UiField) {
+				element.map
+
+				newField.push
+				val UiField yField = element as UiField
+				yField.validators.forEach [
+					it.map
+				]
+				pop
+			}
+		} else {
+			element.map
 		}
 	}
 
@@ -351,6 +621,31 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			]
 		}
 		pop
+	}
+
+	def dispatch void map(UiButton object) {
+		val YButton button = factory.createButton
+		button.name = object.name
+		button.label = object.name
+		button.addToParent
+		object.associateUi(button)
+	}
+
+	def dispatch void map(UiMobileNavigationButton object) {
+		val VMNavigationButton button = VaadinMobileFactory.eINSTANCE.createVMNavigationButton
+		button.name = object.name
+		button.label = object.name
+		button.addToParent
+		object.associateUi(button)
+
+		button.push
+		if (object.targetPage != null) {
+			object.targetPage.map
+		} else if (object.targetPageAlias != null) {
+			object.targetPageAlias.map
+		}
+		pop
+
 	}
 
 	def dispatch void map(UiColumn eObject) {
@@ -506,13 +801,23 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	}
 
 	def dispatch YEmbeddable create(UiCheckBox object) {
-		val YCheckBox textField = factory.createCheckBox
-		textField.name = object.name
-		textField.label = object.name
+		val YCheckBox field = factory.createCheckBox
+		field.name = object.name
+		field.label = object.name
 
-		object.associateUi(textField)
+		object.associateUi(field)
 
-		return textField
+		return field
+	}
+
+	def dispatch YEmbeddable create(UiSwitch object) {
+		val VMSwitch field = VaadinMobileFactory.eINSTANCE.createVMSwitch
+		field.name = object.name
+		field.label = object.name
+
+		object.associateUi(field)
+
+		return field
 	}
 
 	def void addToParent(YEmbeddable embeddable) {
@@ -523,6 +828,15 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		} else if (context instanceof YView) {
 			val YView yView = context as YView
 			yView.content = embeddable
+		} else if (context instanceof YTab) {
+			val YTab yTab = context as YTab
+			yTab.embeddable = embeddable
+		} else if (context instanceof VMTab) {
+			val VMTab yTab = context as VMTab
+			yTab.embeddable = embeddable
+		} else if (context instanceof VMNavigationButton) {
+			val VMNavigationButton yButton = context as VMNavigationButton
+			yButton.page = embeddable as VMNavigationPage
 		}
 	}
 
@@ -662,7 +976,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			assignment.typedBindableDef.collectBindingInfo(result)
 		}
 
-		// on the way back up the structure, collect the path
+		// on the way back up the structure, collect( the path
 		if (assignment.path != null) {
 			info.appendPath(assignment.path.toPathString)
 			info.typeOfBoundProperty = assignment.path.typeofLastSegment
@@ -736,42 +1050,6 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	def dispatch void map(EObject object) {
 	}
 
-	//	def dispatch void complete(EObject eObject) {
-	//	}
-	//
-	//	def dispatch void complete(UiIDEView eObject) {
-	//	}
-	//
-	//	def dispatch void complete(UiTextField eObject) {
-	//		eObject.label = eObject.name
-	//	}
-	//
-	//	def dispatch void complete(YBeanSlot yBeanSlot) {
-	//		val gSlot = yBeanSlot as UiBeanSlot
-	//		val typeReference = gSlot.getJvmType
-	//		if(typeReference != null){
-	//			yBeanSlot.valueTypeQualifiedName = typeReference.qualifiedName
-	//			yBeanSlot.valueType = loadClass(gSlot.eResource.resourceSet, yBeanSlot.valueTypeQualifiedName)
-	//		} 
-	//	}
-	//
-	//	def dispatch void finish(EObject eObject) {
-	//	}
-	//
-	//	def dispatch void finish(UiIDEView eObject) {
-	//	}
-	//
-	//	def dispatch void finish(UiTextField eObject) {
-	//	}
-	//
-	//	def dispatch void finish(UiGridLayout eObject) {
-	//		for (assignment : eObject.contents) {
-	//			eObject.addElement(assignment.element)
-	//		}
-	//	}
-	//
-	//	def dispatch void finish(YBeanSlot yBeanSlot) {
-	//	}
 	override void discardDerivedState(DerivedStateAwareResource resource) {
 		super.discardDerivedState(resource)
 

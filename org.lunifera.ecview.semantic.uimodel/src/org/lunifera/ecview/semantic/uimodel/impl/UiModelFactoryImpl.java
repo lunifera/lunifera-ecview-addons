@@ -63,6 +63,7 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_VIEW_SET: return createUiViewSet();
 			case UiModelPackage.UI_VIEW: return createUiView();
 			case UiModelPackage.UI_IDE_VIEW: return createUiIDEView();
+			case UiModelPackage.UI_MOBILE_VIEW: return createUiMobileView();
 			case UiModelPackage.UI_POINT: return createUiPoint();
 			case UiModelPackage.UI_BEAN_SLOT: return createUiBeanSlot();
 			case UiModelPackage.UI_BINDING_ENDPOINT_ALIAS: return createUiBindingEndpointAlias();
@@ -70,6 +71,8 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_BINDING: return createUiBinding();
 			case UiModelPackage.UI_PATH_SEGMENT: return createUiPathSegment();
 			case UiModelPackage.UI_TYPED_BINDABLE_DEF: return createUiTypedBindableDef();
+			case UiModelPackage.UI_ACTION: return createUiAction();
+			case UiModelPackage.UI_MOBILE_ACTION: return createUiMobileAction();
 			case UiModelPackage.UI_GRID_LAYOUT_ASSIGMENT: return createUiGridLayoutAssigment();
 			case UiModelPackage.UI_GRID_LAYOUT: return createUiGridLayout();
 			case UiModelPackage.UI_HORIZONTAL_LAYOUT_ASSIGMENT: return createUiHorizontalLayoutAssigment();
@@ -100,6 +103,19 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_VALIDATOR_ALIAS: return createUiValidatorAlias();
 			case UiModelPackage.UI_VALIDATOR_ASSIGNMENT: return createUiValidatorAssignment();
 			case UiModelPackage.UI_VALIDATOR_DEF: return createUiValidatorDef();
+			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP_ASSIGMENT: return createUiHorizontalButtonGroupAssigment();
+			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP: return createUiHorizontalButtonGroup();
+			case UiModelPackage.UI_BUTTON: return createUiButton();
+			case UiModelPackage.UI_SWITCH: return createUiSwitch();
+			case UiModelPackage.UI_VERTICAL_COMPONENT_GROUP_ASSIGMENT: return createUiVerticalComponentGroupAssigment();
+			case UiModelPackage.UI_VERTICAL_COMPONENT_GROUP: return createUiVerticalComponentGroup();
+			case UiModelPackage.UI_MOBILE_TAB_SHEET: return createUiMobileTabSheet();
+			case UiModelPackage.UI_MOBILE_TAB_ASSIGNMENT: return createUiMobileTabAssignment();
+			case UiModelPackage.UI_TAB_SHEET: return createUiTabSheet();
+			case UiModelPackage.UI_TAB_ASSIGNMENT: return createUiTabAssignment();
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE: return createUiMobileNavigationPage();
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT: return createUiMobileNavigationPageAssignment();
+			case UiModelPackage.UI_MOBILE_NAVIGATION_BUTTON: return createUiMobileNavigationButton();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -187,6 +203,16 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiIDEView createUiIDEView() {
 		UiIDEViewImpl uiIDEView = new UiIDEViewImpl();
 		return uiIDEView;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiMobileView createUiMobileView() {
+		UiMobileViewImpl uiMobileView = new UiMobileViewImpl();
+		return uiMobileView;
 	}
 
 	/**
@@ -567,6 +593,156 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiValidatorDef createUiValidatorDef() {
 		UiValidatorDefImpl uiValidatorDef = new UiValidatorDefImpl();
 		return uiValidatorDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiHorizontalButtonGroupAssigment createUiHorizontalButtonGroupAssigment() {
+		UiHorizontalButtonGroupAssigmentImpl uiHorizontalButtonGroupAssigment = new UiHorizontalButtonGroupAssigmentImpl();
+		return uiHorizontalButtonGroupAssigment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiHorizontalButtonGroup createUiHorizontalButtonGroup() {
+		UiHorizontalButtonGroupImpl uiHorizontalButtonGroup = new UiHorizontalButtonGroupImpl();
+		return uiHorizontalButtonGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiAction createUiAction() {
+		UiActionImpl uiAction = new UiActionImpl();
+		return uiAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiMobileAction createUiMobileAction() {
+		UiMobileActionImpl uiMobileAction = new UiMobileActionImpl();
+		return uiMobileAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiButton createUiButton() {
+		UiButtonImpl uiButton = new UiButtonImpl();
+		return uiButton;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiSwitch createUiSwitch() {
+		UiSwitchImpl uiSwitch = new UiSwitchImpl();
+		return uiSwitch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiVerticalComponentGroupAssigment createUiVerticalComponentGroupAssigment() {
+		UiVerticalComponentGroupAssigmentImpl uiVerticalComponentGroupAssigment = new UiVerticalComponentGroupAssigmentImpl();
+		return uiVerticalComponentGroupAssigment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiVerticalComponentGroup createUiVerticalComponentGroup() {
+		UiVerticalComponentGroupImpl uiVerticalComponentGroup = new UiVerticalComponentGroupImpl();
+		return uiVerticalComponentGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiMobileTabSheet createUiMobileTabSheet() {
+		UiMobileTabSheetImpl uiMobileTabSheet = new UiMobileTabSheetImpl();
+		return uiMobileTabSheet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiMobileTabAssignment createUiMobileTabAssignment() {
+		UiMobileTabAssignmentImpl uiMobileTabAssignment = new UiMobileTabAssignmentImpl();
+		return uiMobileTabAssignment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiTabSheet createUiTabSheet() {
+		UiTabSheetImpl uiTabSheet = new UiTabSheetImpl();
+		return uiTabSheet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiTabAssignment createUiTabAssignment() {
+		UiTabAssignmentImpl uiTabAssignment = new UiTabAssignmentImpl();
+		return uiTabAssignment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiMobileNavigationPage createUiMobileNavigationPage() {
+		UiMobileNavigationPageImpl uiMobileNavigationPage = new UiMobileNavigationPageImpl();
+		return uiMobileNavigationPage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiMobileNavigationPageAssignment createUiMobileNavigationPageAssignment() {
+		UiMobileNavigationPageAssignmentImpl uiMobileNavigationPageAssignment = new UiMobileNavigationPageAssignmentImpl();
+		return uiMobileNavigationPageAssignment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiMobileNavigationButton createUiMobileNavigationButton() {
+		UiMobileNavigationButtonImpl uiMobileNavigationButton = new UiMobileNavigationButtonImpl();
+		return uiMobileNavigationButton;
 	}
 
 	/**

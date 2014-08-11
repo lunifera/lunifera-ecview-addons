@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="org.lunifera.ecview"
+            name="Lunifera">
+      </category>
+      <view
+            allowMultiple="false"
+            category="org.lunifera.ecview"
+            class="org.lunifera.ecview.vaadin.ide.mobile.preview.parts.ECViewMobileVaadinViewExecutableExtensionRegistry:org.lunifera.ecview.vaadin.ide.mobile.preview.parts.ECViewMobileVaadinPreviewPart"
+            id="org.lunifera.ecview.ide.mobile.preview.vaadin"
+            name="Vaadin Mobile Preview View">
+      </view>
+   </extension>
+</plugin>

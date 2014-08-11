@@ -33,6 +33,8 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiIDEView -> UiView
 
+  Class UiMobileView -> UiView
+
   Class UiPoint
     Attribute x : EInt
     Attribute y : EInt
@@ -80,6 +82,16 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference validators : UiValidator<<0..*>>
 
   Class UiLayout -> UiEmbeddable
+
+  Class UiAction -> UiEmbeddable
+
+  Class UiMobileEmbeddable -> UiEmbeddable
+
+  Class UiMobileField -> UiMobileEmbeddable, UiField
+
+  Class UiMobileLayout -> UiMobileEmbeddable, UiLayout
+
+  Class UiMobileAction -> UiMobileEmbeddable, UiAction
 
   Class UiGridLayoutAssigment
     Reference element : UiEmbeddable
@@ -197,6 +209,44 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiValidatorDef -> UiNamedElement
     Reference validator : UiValidator
     Reference jvmType : JvmTypeReference
+
+  Class UiHorizontalButtonGroupAssigment
+    Reference element : UiEmbeddable
+
+  Class UiHorizontalButtonGroup -> UiMobileLayout
+    Reference contents : UiHorizontalButtonGroupAssigment<<0..*>>
+
+  Class UiButton -> UiAction
+
+  Class UiSwitch -> UiMobileField
+
+  Class UiVerticalComponentGroupAssigment
+    Reference element : UiEmbeddable
+
+  Class UiVerticalComponentGroup -> UiMobileLayout
+    Reference contents : UiVerticalComponentGroupAssigment<<0..*>>
+
+  Class UiMobileTabSheet -> UiMobileEmbeddable
+    Reference tabs : UiMobileTabAssignment<<0..*>>
+
+  Class UiMobileTabAssignment -> UiMobileEmbeddable
+    Reference element : UiEmbeddable
+
+  Class UiTabSheet -> UiEmbeddable
+    Reference tabs : UiTabAssignment<<0..*>>
+
+  Class UiTabAssignment -> UiEmbeddable
+    Reference element : UiEmbeddable
+
+  Class UiMobileNavigationPage -> UiMobileLayout
+    Reference contents : UiMobileNavigationPageAssignment<<0..*>>
+
+  Class UiMobileNavigationPageAssignment -> UiMobileAction
+    Reference element : UiEmbeddable
+
+  Class UiMobileNavigationButton -> UiMobileAction
+    Reference targetPage : UiMobileNavigationPage
+    Reference targetPageAlias : UiMobileNavigationPage
 
   Enum UiFlatAlignment
     Literal LEFT = 0

@@ -122,6 +122,16 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_MOBILE_VIEW: {
+				UiMobileView uiMobileView = (UiMobileView)theEObject;
+				T result = caseUiMobileView(uiMobileView);
+				if (result == null) result = caseUiView(uiMobileView);
+				if (result == null) result = caseUiContext(uiMobileView);
+				if (result == null) result = caseUiRootElements(uiMobileView);
+				if (result == null) result = caseUiNamedElement(uiMobileView);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case UiModelPackage.UI_POINT: {
 				UiPoint uiPoint = (UiPoint)theEObject;
 				T result = caseUiPoint(uiPoint);
@@ -227,6 +237,62 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiVisibilityProcessable(uiLayout);
 				if (result == null) result = caseUiRawBindable(uiLayout);
 				if (result == null) result = caseUiNamedElement(uiLayout);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_ACTION: {
+				UiAction uiAction = (UiAction)theEObject;
+				T result = caseUiAction(uiAction);
+				if (result == null) result = caseUiEmbeddable(uiAction);
+				if (result == null) result = caseUiVisibilityProcessable(uiAction);
+				if (result == null) result = caseUiRawBindable(uiAction);
+				if (result == null) result = caseUiNamedElement(uiAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_MOBILE_EMBEDDABLE: {
+				UiMobileEmbeddable uiMobileEmbeddable = (UiMobileEmbeddable)theEObject;
+				T result = caseUiMobileEmbeddable(uiMobileEmbeddable);
+				if (result == null) result = caseUiEmbeddable(uiMobileEmbeddable);
+				if (result == null) result = caseUiVisibilityProcessable(uiMobileEmbeddable);
+				if (result == null) result = caseUiRawBindable(uiMobileEmbeddable);
+				if (result == null) result = caseUiNamedElement(uiMobileEmbeddable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_MOBILE_FIELD: {
+				UiMobileField uiMobileField = (UiMobileField)theEObject;
+				T result = caseUiMobileField(uiMobileField);
+				if (result == null) result = caseUiMobileEmbeddable(uiMobileField);
+				if (result == null) result = caseUiField(uiMobileField);
+				if (result == null) result = caseUiEmbeddable(uiMobileField);
+				if (result == null) result = caseUiVisibilityProcessable(uiMobileField);
+				if (result == null) result = caseUiRawBindable(uiMobileField);
+				if (result == null) result = caseUiNamedElement(uiMobileField);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_MOBILE_LAYOUT: {
+				UiMobileLayout uiMobileLayout = (UiMobileLayout)theEObject;
+				T result = caseUiMobileLayout(uiMobileLayout);
+				if (result == null) result = caseUiMobileEmbeddable(uiMobileLayout);
+				if (result == null) result = caseUiLayout(uiMobileLayout);
+				if (result == null) result = caseUiEmbeddable(uiMobileLayout);
+				if (result == null) result = caseUiVisibilityProcessable(uiMobileLayout);
+				if (result == null) result = caseUiRawBindable(uiMobileLayout);
+				if (result == null) result = caseUiNamedElement(uiMobileLayout);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_MOBILE_ACTION: {
+				UiMobileAction uiMobileAction = (UiMobileAction)theEObject;
+				T result = caseUiMobileAction(uiMobileAction);
+				if (result == null) result = caseUiMobileEmbeddable(uiMobileAction);
+				if (result == null) result = caseUiAction(uiMobileAction);
+				if (result == null) result = caseUiEmbeddable(uiMobileAction);
+				if (result == null) result = caseUiVisibilityProcessable(uiMobileAction);
+				if (result == null) result = caseUiRawBindable(uiMobileAction);
+				if (result == null) result = caseUiNamedElement(uiMobileAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -518,6 +584,149 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP_ASSIGMENT: {
+				UiHorizontalButtonGroupAssigment uiHorizontalButtonGroupAssigment = (UiHorizontalButtonGroupAssigment)theEObject;
+				T result = caseUiHorizontalButtonGroupAssigment(uiHorizontalButtonGroupAssigment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP: {
+				UiHorizontalButtonGroup uiHorizontalButtonGroup = (UiHorizontalButtonGroup)theEObject;
+				T result = caseUiHorizontalButtonGroup(uiHorizontalButtonGroup);
+				if (result == null) result = caseUiMobileLayout(uiHorizontalButtonGroup);
+				if (result == null) result = caseUiMobileEmbeddable(uiHorizontalButtonGroup);
+				if (result == null) result = caseUiLayout(uiHorizontalButtonGroup);
+				if (result == null) result = caseUiEmbeddable(uiHorizontalButtonGroup);
+				if (result == null) result = caseUiVisibilityProcessable(uiHorizontalButtonGroup);
+				if (result == null) result = caseUiRawBindable(uiHorizontalButtonGroup);
+				if (result == null) result = caseUiNamedElement(uiHorizontalButtonGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_BUTTON: {
+				UiButton uiButton = (UiButton)theEObject;
+				T result = caseUiButton(uiButton);
+				if (result == null) result = caseUiAction(uiButton);
+				if (result == null) result = caseUiEmbeddable(uiButton);
+				if (result == null) result = caseUiVisibilityProcessable(uiButton);
+				if (result == null) result = caseUiRawBindable(uiButton);
+				if (result == null) result = caseUiNamedElement(uiButton);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_SWITCH: {
+				UiSwitch uiSwitch = (UiSwitch)theEObject;
+				T result = caseUiSwitch(uiSwitch);
+				if (result == null) result = caseUiMobileField(uiSwitch);
+				if (result == null) result = caseUiMobileEmbeddable(uiSwitch);
+				if (result == null) result = caseUiField(uiSwitch);
+				if (result == null) result = caseUiEmbeddable(uiSwitch);
+				if (result == null) result = caseUiVisibilityProcessable(uiSwitch);
+				if (result == null) result = caseUiRawBindable(uiSwitch);
+				if (result == null) result = caseUiNamedElement(uiSwitch);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_VERTICAL_COMPONENT_GROUP_ASSIGMENT: {
+				UiVerticalComponentGroupAssigment uiVerticalComponentGroupAssigment = (UiVerticalComponentGroupAssigment)theEObject;
+				T result = caseUiVerticalComponentGroupAssigment(uiVerticalComponentGroupAssigment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_VERTICAL_COMPONENT_GROUP: {
+				UiVerticalComponentGroup uiVerticalComponentGroup = (UiVerticalComponentGroup)theEObject;
+				T result = caseUiVerticalComponentGroup(uiVerticalComponentGroup);
+				if (result == null) result = caseUiMobileLayout(uiVerticalComponentGroup);
+				if (result == null) result = caseUiMobileEmbeddable(uiVerticalComponentGroup);
+				if (result == null) result = caseUiLayout(uiVerticalComponentGroup);
+				if (result == null) result = caseUiEmbeddable(uiVerticalComponentGroup);
+				if (result == null) result = caseUiVisibilityProcessable(uiVerticalComponentGroup);
+				if (result == null) result = caseUiRawBindable(uiVerticalComponentGroup);
+				if (result == null) result = caseUiNamedElement(uiVerticalComponentGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_MOBILE_TAB_SHEET: {
+				UiMobileTabSheet uiMobileTabSheet = (UiMobileTabSheet)theEObject;
+				T result = caseUiMobileTabSheet(uiMobileTabSheet);
+				if (result == null) result = caseUiMobileEmbeddable(uiMobileTabSheet);
+				if (result == null) result = caseUiEmbeddable(uiMobileTabSheet);
+				if (result == null) result = caseUiVisibilityProcessable(uiMobileTabSheet);
+				if (result == null) result = caseUiRawBindable(uiMobileTabSheet);
+				if (result == null) result = caseUiNamedElement(uiMobileTabSheet);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_MOBILE_TAB_ASSIGNMENT: {
+				UiMobileTabAssignment uiMobileTabAssignment = (UiMobileTabAssignment)theEObject;
+				T result = caseUiMobileTabAssignment(uiMobileTabAssignment);
+				if (result == null) result = caseUiMobileEmbeddable(uiMobileTabAssignment);
+				if (result == null) result = caseUiEmbeddable(uiMobileTabAssignment);
+				if (result == null) result = caseUiVisibilityProcessable(uiMobileTabAssignment);
+				if (result == null) result = caseUiRawBindable(uiMobileTabAssignment);
+				if (result == null) result = caseUiNamedElement(uiMobileTabAssignment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_TAB_SHEET: {
+				UiTabSheet uiTabSheet = (UiTabSheet)theEObject;
+				T result = caseUiTabSheet(uiTabSheet);
+				if (result == null) result = caseUiEmbeddable(uiTabSheet);
+				if (result == null) result = caseUiVisibilityProcessable(uiTabSheet);
+				if (result == null) result = caseUiRawBindable(uiTabSheet);
+				if (result == null) result = caseUiNamedElement(uiTabSheet);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_TAB_ASSIGNMENT: {
+				UiTabAssignment uiTabAssignment = (UiTabAssignment)theEObject;
+				T result = caseUiTabAssignment(uiTabAssignment);
+				if (result == null) result = caseUiEmbeddable(uiTabAssignment);
+				if (result == null) result = caseUiVisibilityProcessable(uiTabAssignment);
+				if (result == null) result = caseUiRawBindable(uiTabAssignment);
+				if (result == null) result = caseUiNamedElement(uiTabAssignment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE: {
+				UiMobileNavigationPage uiMobileNavigationPage = (UiMobileNavigationPage)theEObject;
+				T result = caseUiMobileNavigationPage(uiMobileNavigationPage);
+				if (result == null) result = caseUiMobileLayout(uiMobileNavigationPage);
+				if (result == null) result = caseUiMobileEmbeddable(uiMobileNavigationPage);
+				if (result == null) result = caseUiLayout(uiMobileNavigationPage);
+				if (result == null) result = caseUiEmbeddable(uiMobileNavigationPage);
+				if (result == null) result = caseUiVisibilityProcessable(uiMobileNavigationPage);
+				if (result == null) result = caseUiRawBindable(uiMobileNavigationPage);
+				if (result == null) result = caseUiNamedElement(uiMobileNavigationPage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT: {
+				UiMobileNavigationPageAssignment uiMobileNavigationPageAssignment = (UiMobileNavigationPageAssignment)theEObject;
+				T result = caseUiMobileNavigationPageAssignment(uiMobileNavigationPageAssignment);
+				if (result == null) result = caseUiMobileAction(uiMobileNavigationPageAssignment);
+				if (result == null) result = caseUiMobileEmbeddable(uiMobileNavigationPageAssignment);
+				if (result == null) result = caseUiAction(uiMobileNavigationPageAssignment);
+				if (result == null) result = caseUiEmbeddable(uiMobileNavigationPageAssignment);
+				if (result == null) result = caseUiVisibilityProcessable(uiMobileNavigationPageAssignment);
+				if (result == null) result = caseUiRawBindable(uiMobileNavigationPageAssignment);
+				if (result == null) result = caseUiNamedElement(uiMobileNavigationPageAssignment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_MOBILE_NAVIGATION_BUTTON: {
+				UiMobileNavigationButton uiMobileNavigationButton = (UiMobileNavigationButton)theEObject;
+				T result = caseUiMobileNavigationButton(uiMobileNavigationButton);
+				if (result == null) result = caseUiMobileAction(uiMobileNavigationButton);
+				if (result == null) result = caseUiMobileEmbeddable(uiMobileNavigationButton);
+				if (result == null) result = caseUiAction(uiMobileNavigationButton);
+				if (result == null) result = caseUiEmbeddable(uiMobileNavigationButton);
+				if (result == null) result = caseUiVisibilityProcessable(uiMobileNavigationButton);
+				if (result == null) result = caseUiRawBindable(uiMobileNavigationButton);
+				if (result == null) result = caseUiNamedElement(uiMobileNavigationButton);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -609,6 +818,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiIDEView(UiIDEView object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile View</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Mobile View</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMobileView(UiMobileView object) {
 		return null;
 	}
 
@@ -894,6 +1118,66 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiLayout(UiLayout object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile Embeddable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Mobile Embeddable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMobileEmbeddable(UiMobileEmbeddable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Mobile Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMobileField(UiMobileField object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile Layout</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Mobile Layout</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMobileLayout(UiMobileLayout object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Mobile Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMobileAction(UiMobileAction object) {
 		return null;
 	}
 
@@ -1344,6 +1628,216 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiValidatorDef(UiValidatorDef object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Horizontal Button Group Assigment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Horizontal Button Group Assigment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiHorizontalButtonGroupAssigment(UiHorizontalButtonGroupAssigment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Horizontal Button Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Horizontal Button Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiHorizontalButtonGroup(UiHorizontalButtonGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiAction(UiAction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Button</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Button</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiButton(UiButton object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Switch</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Switch</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiSwitch(UiSwitch object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Vertical Component Group Assigment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Vertical Component Group Assigment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiVerticalComponentGroupAssigment(UiVerticalComponentGroupAssigment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Vertical Component Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Vertical Component Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiVerticalComponentGroup(UiVerticalComponentGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile Tab Sheet</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Mobile Tab Sheet</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMobileTabSheet(UiMobileTabSheet object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile Tab Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Mobile Tab Assignment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMobileTabAssignment(UiMobileTabAssignment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Tab Sheet</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Tab Sheet</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiTabSheet(UiTabSheet object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Tab Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Tab Assignment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiTabAssignment(UiTabAssignment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile Navigation Page</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Mobile Navigation Page</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMobileNavigationPage(UiMobileNavigationPage object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile Navigation Page Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Mobile Navigation Page Assignment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMobileNavigationPageAssignment(UiMobileNavigationPageAssignment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile Navigation Button</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Mobile Navigation Button</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMobileNavigationButton(UiMobileNavigationButton object) {
 		return null;
 	}
 

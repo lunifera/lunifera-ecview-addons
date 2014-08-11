@@ -96,6 +96,10 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiIDEViewAdapter();
 			}
 			@Override
+			public Adapter caseUiMobileView(UiMobileView object) {
+				return createUiMobileViewAdapter();
+			}
+			@Override
 			public Adapter caseUiPoint(UiPoint object) {
 				return createUiPointAdapter();
 			}
@@ -150,6 +154,26 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUiLayout(UiLayout object) {
 				return createUiLayoutAdapter();
+			}
+			@Override
+			public Adapter caseUiAction(UiAction object) {
+				return createUiActionAdapter();
+			}
+			@Override
+			public Adapter caseUiMobileEmbeddable(UiMobileEmbeddable object) {
+				return createUiMobileEmbeddableAdapter();
+			}
+			@Override
+			public Adapter caseUiMobileField(UiMobileField object) {
+				return createUiMobileFieldAdapter();
+			}
+			@Override
+			public Adapter caseUiMobileLayout(UiMobileLayout object) {
+				return createUiMobileLayoutAdapter();
+			}
+			@Override
+			public Adapter caseUiMobileAction(UiMobileAction object) {
+				return createUiMobileActionAdapter();
 			}
 			@Override
 			public Adapter caseUiGridLayoutAssigment(UiGridLayoutAssigment object) {
@@ -288,6 +312,58 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiValidatorDefAdapter();
 			}
 			@Override
+			public Adapter caseUiHorizontalButtonGroupAssigment(UiHorizontalButtonGroupAssigment object) {
+				return createUiHorizontalButtonGroupAssigmentAdapter();
+			}
+			@Override
+			public Adapter caseUiHorizontalButtonGroup(UiHorizontalButtonGroup object) {
+				return createUiHorizontalButtonGroupAdapter();
+			}
+			@Override
+			public Adapter caseUiButton(UiButton object) {
+				return createUiButtonAdapter();
+			}
+			@Override
+			public Adapter caseUiSwitch(UiSwitch object) {
+				return createUiSwitchAdapter();
+			}
+			@Override
+			public Adapter caseUiVerticalComponentGroupAssigment(UiVerticalComponentGroupAssigment object) {
+				return createUiVerticalComponentGroupAssigmentAdapter();
+			}
+			@Override
+			public Adapter caseUiVerticalComponentGroup(UiVerticalComponentGroup object) {
+				return createUiVerticalComponentGroupAdapter();
+			}
+			@Override
+			public Adapter caseUiMobileTabSheet(UiMobileTabSheet object) {
+				return createUiMobileTabSheetAdapter();
+			}
+			@Override
+			public Adapter caseUiMobileTabAssignment(UiMobileTabAssignment object) {
+				return createUiMobileTabAssignmentAdapter();
+			}
+			@Override
+			public Adapter caseUiTabSheet(UiTabSheet object) {
+				return createUiTabSheetAdapter();
+			}
+			@Override
+			public Adapter caseUiTabAssignment(UiTabAssignment object) {
+				return createUiTabAssignmentAdapter();
+			}
+			@Override
+			public Adapter caseUiMobileNavigationPage(UiMobileNavigationPage object) {
+				return createUiMobileNavigationPageAdapter();
+			}
+			@Override
+			public Adapter caseUiMobileNavigationPageAssignment(UiMobileNavigationPageAssignment object) {
+				return createUiMobileNavigationPageAssignmentAdapter();
+			}
+			@Override
+			public Adapter caseUiMobileNavigationButton(UiMobileNavigationButton object) {
+				return createUiMobileNavigationButtonAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -388,6 +464,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiIDEViewAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileView <em>Ui Mobile View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileView
+	 * @generated
+	 */
+	public Adapter createUiMobileViewAdapter() {
 		return null;
 	}
 
@@ -654,6 +744,62 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiLayoutAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable <em>Ui Mobile Embeddable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable
+	 * @generated
+	 */
+	public Adapter createUiMobileEmbeddableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileField <em>Ui Mobile Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileField
+	 * @generated
+	 */
+	public Adapter createUiMobileFieldAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileLayout <em>Ui Mobile Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileLayout
+	 * @generated
+	 */
+	public Adapter createUiMobileLayoutAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileAction <em>Ui Mobile Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileAction
+	 * @generated
+	 */
+	public Adapter createUiMobileActionAdapter() {
 		return null;
 	}
 
@@ -1074,6 +1220,202 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiValidatorDefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroupAssigment <em>Ui Horizontal Button Group Assigment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroupAssigment
+	 * @generated
+	 */
+	public Adapter createUiHorizontalButtonGroupAssigmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup <em>Ui Horizontal Button Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup
+	 * @generated
+	 */
+	public Adapter createUiHorizontalButtonGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiAction <em>Ui Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiAction
+	 * @generated
+	 */
+	public Adapter createUiActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiButton <em>Ui Button</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiButton
+	 * @generated
+	 */
+	public Adapter createUiButtonAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiSwitch <em>Ui Switch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSwitch
+	 * @generated
+	 */
+	public Adapter createUiSwitchAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroupAssigment <em>Ui Vertical Component Group Assigment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroupAssigment
+	 * @generated
+	 */
+	public Adapter createUiVerticalComponentGroupAssigmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup <em>Ui Vertical Component Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup
+	 * @generated
+	 */
+	public Adapter createUiVerticalComponentGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet <em>Ui Mobile Tab Sheet</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet
+	 * @generated
+	 */
+	public Adapter createUiMobileTabSheetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment <em>Ui Mobile Tab Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment
+	 * @generated
+	 */
+	public Adapter createUiMobileTabAssignmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiTabSheet <em>Ui Tab Sheet</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTabSheet
+	 * @generated
+	 */
+	public Adapter createUiTabSheetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiTabAssignment <em>Ui Tab Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTabAssignment
+	 * @generated
+	 */
+	public Adapter createUiTabAssignmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage <em>Ui Mobile Navigation Page</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage
+	 * @generated
+	 */
+	public Adapter createUiMobileNavigationPageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment <em>Ui Mobile Navigation Page Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment
+	 * @generated
+	 */
+	public Adapter createUiMobileNavigationPageAssignmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton <em>Ui Mobile Navigation Button</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton
+	 * @generated
+	 */
+	public Adapter createUiMobileNavigationButtonAdapter() {
 		return null;
 	}
 

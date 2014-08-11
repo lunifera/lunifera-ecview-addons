@@ -15,44 +15,8 @@ UiImports returns UiImports:
 	'import' importedNamespace=QualifiedNameWithWildcard (';')?;
 
 UiRootElements returns UiRootElements:
-	UiView | UiViewSet | UiValidatorAlias;
+	UiView | UiViewSet | UiValidatorAlias | UiMobileView;
 
-	//UiVisibilityProcessor returns UiVisibilityProcessor:
-//	{UiVisibilityProcessor}
-//	name=ID '{'
-//	bindingAlias+=UiBindingEndpointAlias*
-//	changeTrigger+=UiChangeTrigger*
-//	rule=UiVisibilityRule
-//	propertiesAssignment=UiVisibilityPropertiesAssignment
-//	'}';
-
-//UiVisibilityProcessorDef returns UiVisibilityProcessorDef:
-//	'visibilityProcessor' processor=UiVisibilityProcessor;
-//
-//UiVisibilityProcessorAssignment returns UiVisibilityProcessorAssignment:
-//	'visibilityProcessor' (processor=UiVisibilityProcessor | processorAlias=[UiVisibilityProcessor|QualifiedName] ';');
-//
-//UiVisibilityProperties returns UiVisibilityProperties:
-//	{UiVisibilityProperties}
-//	(name=ID)? '{'
-//	'}';
-//
-//UiVisibilityPropertiesDef returns UiVisibilityPropertiesDef:
-//	'visibilityProps' properties=UiVisibilityProperties;
-//
-//UiVisibilityPropertiesAssignment returns UiVisibilityPropertiesAssignment:
-//	'visibilityProps' (properties=UiVisibilityProperties | propertyAlias=[UiVisibilityProperties|QualifiedName] ';');
-//
-//UiChangeTrigger returns UiChangeTrigger:
-//	'trigger' (endpoint=UiBindingEndpointAssignment | endpointAlias=[UiBindingEndpointAlias]);
-//
-//UiVisibilityRule returns UiVisibilityRule:
-//	UiXbaseVisibilityRule;
-//
-//UiXbaseVisibilityRule returns UiXbaseVisibilityRule:
-//	{UiXbaseVisibilityRule}
-//	'rule'
-//	expression=XBlockExpression;
 UiValidatorAlias returns UiValidatorAlias:
 	'validatorAlias' validator=UiValidator 'as' alias=ID;
 
@@ -96,6 +60,18 @@ UiView returns UiView:
 
 UiIDEView returns UiIDEView:
 	'ideview' name=ID
+	'{'
+	('viewset' viewSet=[UiViewSet])?
+	(beanSlots+=UiBeanSlot)*
+	(content=UiEmbeddable)?
+	// TODO make unordered group
+	(bindingEndpointAlias+=UiBindingEndpointAlias)*
+	(bindings+=UiBinding)*
+	(validatorAssignments+=UiValidatorAssignment)*
+	'}';
+
+UiMobileView returns UiMobileView:
+	'mobile' name=ID
 	'{'
 	('viewset' viewSet=[UiViewSet])?
 	(beanSlots+=UiBeanSlot)*
@@ -151,28 +127,68 @@ UiHorizontalLayout:
 	(contents+=UiHorizontalLayoutAssigment)*
 	'}';
 
-UiHorizontalLayoutAssigment:
+UiHorizontalLayoutAssigment returns UiHorizontalLayoutAssigment:
+	element=UiEmbeddable;
+
+UiMobileHorizontalButtonGroup returns UiHorizontalButtonGroup:
+	{UiHorizontalButtonGroup}
+	'horizontalButtonGroup'
+	name=ID?
+	'{'
+	(contents+=UiMobileHorizontalButtonGroupAssigment)*
+	'}';
+
+UiMobileHorizontalButtonGroupAssigment returns UiHorizontalButtonGroupAssigment:
+	element=UiEmbeddable;
+	
+UiMobileVerticalComponentGroup returns UiVerticalComponentGroup:
+	{UiVerticalComponentGroup}
+	'verticalGroup'
+	name=ID?
+	'{'
+	(contents+=UiMobileVerticalComponentGroupAssigment)*
+	'}';
+
+UiMobileVerticalComponentGroupAssigment returns UiVerticalComponentGroupAssigment:
+	element=UiEmbeddable;
+	
+UiMobileTabSheet: 
+	{UiMobileTabSheet}
+	'mobileTab'
+	name=ID?
+	'{'
+	(tabs+=UiMobileTabAssignment)*
+	'}';
+
+UiMobileTabAssignment:
+	'tab' (name=ID)? element=UiEmbeddable;
+	
+UiTabSheet: 
+	{UiTabSheet}
+	'tabsheet'
+	name=ID?
+	'{'
+	(tabs+=UiTabAssignment)*
+	'}';
+
+UiTabAssignment:
+	'tab' (name=ID)? element=UiEmbeddable;
+
+
+UiMobileNavigationPage: 
+	{UiMobileNavigationPage}
+	'navPage'
+	name=ID?
+	'{'
+	(contents+=UiMobileNavigationPageAssignment)*
+	'}';
+
+UiMobileNavigationPageAssignment: 
 	element=UiEmbeddable;
 
 UiPoint returns UiPoint:
 	x=INT '/' y=INT;
 
-	//enum UiAlignment returns YAlignment:
-//	BOTTOM_LEFT="bottom left" | BOTTOM_CENTER="bottom center" | BOTTOM_RIGHT="bottom right" | BOTTOM_FILL="bottom fill" |
-//	MIDDLE_LEFT="middle left" | MIDDLE_CENTER="middle center" | MIDDLE_RIGHT="middle right" | BOTTOM_FILL="middle fill" |
-//	TOP_LEFT="top left" | TOP_CENTER="top center" | TOP_RIGHT="top right" | TOP_FILL="top fill" |
-//	FILL_LEFT="fill left" | FILL_CENTER="fill center" | FILL_RIGHT="fill RIGHT" | FILL_FILL="fill fill" |
-//	UNDEFINED="undefined";
-
-//UiSpanInfo returns YSpanInfo:
-//	{YSpanInfo}
-//	((('columnFrom' columnFrom=INT)
-//	&
-//	('columnTo' columnTo=INT))?
-//	&
-//	(('rowFrom' rowFrom=INT)
-//	&
-//	('rowTo' rowTo=INT))?);
 UiTextField returns UiTextField:
 	{UiTextField}
 	'textfield' name=ID?
@@ -194,6 +210,19 @@ UiTable returns UiTable:
 	columnAssignment=UiColumnAssignments?
 	'}')?;
 
+UiButton:
+	{UiButton}
+	'button' name=ID?;
+	
+UiMobileNavigationButton: 
+	{UiMobileNavigationButton}
+	'navigate' name=ID? (targetPage=UiMobileNavigationPage | 'alias' targetPageAlias=[UiMobileNavigationPage]);
+
+UiMobileSwitch returns UiSwitch:
+	{UiSwitch}
+	'switchIt' name=ID?
+; 	
+
 enum UiSelectionType:
 	SINGLE='single' | MULTI='multi' | NONE='none';
 
@@ -208,13 +237,29 @@ UiColumn returns UiColumn:
 	'column' jvmField=[JvmField] ('icon' iconName=STRING)? ';';
 
 UiEmbeddable:
-	UiLayout | UiField;
+	UiLayout | UiField | UiAction | UiTabSheet | UiMobileEmbeddable;
 
+UiMobileEmbeddable:
+	UiMobileLayout | UiMobileField | UiMobileTabSheet | UiMobileAction;
+
+UiMobileLayout:
+	UiMobileHorizontalButtonGroup | UiMobileVerticalComponentGroup | UiMobileNavigationPage;
+	
+UiMobileField:
+	UiMobileSwitch;
+	
 UiLayout:
 	UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout;
 
 UiField:
 	UiTextField | UiList | UiNumericField | UiCheckBox | UiTable;
+	
+UiAction:
+	UiButton;
+	
+UiMobileAction:
+	UiMobileNavigationButton
+;
 
 UiNumericField:
 	{UiNumericField}

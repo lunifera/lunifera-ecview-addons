@@ -67,6 +67,15 @@ public interface UiModelFactory extends EFactory {
 	UiIDEView createUiIDEView();
 
 	/**
+	 * Returns a new object of class '<em>Ui Mobile View</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Mobile View</em>'.
+	 * @generated
+	 */
+	UiMobileView createUiMobileView();
+
+	/**
 	 * Returns a new object of class '<em>Ui Point</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -407,6 +416,141 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiValidatorDef createUiValidatorDef();
+
+	/**
+	 * Returns a new object of class '<em>Ui Horizontal Button Group Assigment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Horizontal Button Group Assigment</em>'.
+	 * @generated
+	 */
+	UiHorizontalButtonGroupAssigment createUiHorizontalButtonGroupAssigment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Horizontal Button Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Horizontal Button Group</em>'.
+	 * @generated
+	 */
+	UiHorizontalButtonGroup createUiHorizontalButtonGroup();
+
+	/**
+	 * Returns a new object of class '<em>Ui Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Action</em>'.
+	 * @generated
+	 */
+	UiAction createUiAction();
+
+	/**
+	 * Returns a new object of class '<em>Ui Mobile Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Mobile Action</em>'.
+	 * @generated
+	 */
+	UiMobileAction createUiMobileAction();
+
+	/**
+	 * Returns a new object of class '<em>Ui Button</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Button</em>'.
+	 * @generated
+	 */
+	UiButton createUiButton();
+
+	/**
+	 * Returns a new object of class '<em>Ui Switch</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Switch</em>'.
+	 * @generated
+	 */
+	UiSwitch createUiSwitch();
+
+	/**
+	 * Returns a new object of class '<em>Ui Vertical Component Group Assigment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Vertical Component Group Assigment</em>'.
+	 * @generated
+	 */
+	UiVerticalComponentGroupAssigment createUiVerticalComponentGroupAssigment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Vertical Component Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Vertical Component Group</em>'.
+	 * @generated
+	 */
+	UiVerticalComponentGroup createUiVerticalComponentGroup();
+
+	/**
+	 * Returns a new object of class '<em>Ui Mobile Tab Sheet</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Mobile Tab Sheet</em>'.
+	 * @generated
+	 */
+	UiMobileTabSheet createUiMobileTabSheet();
+
+	/**
+	 * Returns a new object of class '<em>Ui Mobile Tab Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Mobile Tab Assignment</em>'.
+	 * @generated
+	 */
+	UiMobileTabAssignment createUiMobileTabAssignment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Tab Sheet</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Tab Sheet</em>'.
+	 * @generated
+	 */
+	UiTabSheet createUiTabSheet();
+
+	/**
+	 * Returns a new object of class '<em>Ui Tab Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Tab Assignment</em>'.
+	 * @generated
+	 */
+	UiTabAssignment createUiTabAssignment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Mobile Navigation Page</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Mobile Navigation Page</em>'.
+	 * @generated
+	 */
+	UiMobileNavigationPage createUiMobileNavigationPage();
+
+	/**
+	 * Returns a new object of class '<em>Ui Mobile Navigation Page Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Mobile Navigation Page Assignment</em>'.
+	 * @generated
+	 */
+	UiMobileNavigationPageAssignment createUiMobileNavigationPageAssignment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Mobile Navigation Button</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Mobile Navigation Button</em>'.
+	 * @generated
+	 */
+	UiMobileNavigationButton createUiMobileNavigationButton();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -6,7 +6,6 @@ package org.lunifera.ecview.semantic.uimodel.validation;
 
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
 
-
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiList}.
  * This doesn't really do anything, and it's not a real EMF artifact.
@@ -17,5 +16,4 @@ public interface UiListValidator {
 	boolean validate();
 
 	boolean validateSelectionType(UiSelectionType value);
-
 }

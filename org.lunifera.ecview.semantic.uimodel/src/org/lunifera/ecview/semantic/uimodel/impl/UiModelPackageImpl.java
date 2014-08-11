@@ -10,11 +10,13 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.xtext.common.types.TypesPackage;
 import org.eclipse.xtext.xbase.XbasePackage;
+import org.lunifera.ecview.semantic.uimodel.UiAction;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
+import org.lunifera.ecview.semantic.uimodel.UiButton;
 import org.lunifera.ecview.semantic.uimodel.UiChangeTrigger;
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.UiColumn;
@@ -27,6 +29,8 @@ import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiGridLayout;
 import org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment;
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup;
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroupAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
@@ -35,6 +39,16 @@ import org.lunifera.ecview.semantic.uimodel.UiLayout;
 import org.lunifera.ecview.semantic.uimodel.UiList;
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
+import org.lunifera.ecview.semantic.uimodel.UiMobileAction;
+import org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiMobileField;
+import org.lunifera.ecview.semantic.uimodel.UiMobileLayout;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet;
+import org.lunifera.ecview.semantic.uimodel.UiMobileView;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiModelFactory;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
@@ -46,6 +60,9 @@ import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
+import org.lunifera.ecview.semantic.uimodel.UiSwitch;
+import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiTabSheet;
 import org.lunifera.ecview.semantic.uimodel.UiTable;
 import org.lunifera.ecview.semantic.uimodel.UiTextField;
 import org.lunifera.ecview.semantic.uimodel.UiTypeProvider;
@@ -55,6 +72,8 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorDef;
+import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup;
+import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroupAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout;
 import org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiView;
@@ -119,6 +138,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiIDEViewEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMobileViewEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -252,6 +278,34 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiLayoutEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMobileEmbeddableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMobileFieldEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMobileLayoutEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMobileActionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -462,6 +516,104 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiValidatorDefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiHorizontalButtonGroupAssigmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiHorizontalButtonGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiActionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiButtonEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiSwitchEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiVerticalComponentGroupAssigmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiVerticalComponentGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMobileTabSheetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMobileTabAssignmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiTabSheetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiTabAssignmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMobileNavigationPageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMobileNavigationPageAssignmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMobileNavigationButtonEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -702,6 +854,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EClass getUiIDEView() {
 		return uiIDEViewEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMobileView() {
+		return uiMobileViewEClass;
 	}
 
 	/**
@@ -1098,6 +1259,42 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EClass getUiLayout() {
 		return uiLayoutEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMobileEmbeddable() {
+		return uiMobileEmbeddableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMobileField() {
+		return uiMobileFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMobileLayout() {
+		return uiMobileLayoutEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMobileAction() {
+		return uiMobileActionEClass;
 	}
 
 	/**
@@ -1771,6 +1968,240 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiHorizontalButtonGroupAssigment() {
+		return uiHorizontalButtonGroupAssigmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiHorizontalButtonGroupAssigment_Element() {
+		return (EReference)uiHorizontalButtonGroupAssigmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiHorizontalButtonGroup() {
+		return uiHorizontalButtonGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiHorizontalButtonGroup_Contents() {
+		return (EReference)uiHorizontalButtonGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiAction() {
+		return uiActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiButton() {
+		return uiButtonEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiSwitch() {
+		return uiSwitchEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiVerticalComponentGroupAssigment() {
+		return uiVerticalComponentGroupAssigmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiVerticalComponentGroupAssigment_Element() {
+		return (EReference)uiVerticalComponentGroupAssigmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiVerticalComponentGroup() {
+		return uiVerticalComponentGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiVerticalComponentGroup_Contents() {
+		return (EReference)uiVerticalComponentGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMobileTabSheet() {
+		return uiMobileTabSheetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiMobileTabSheet_Tabs() {
+		return (EReference)uiMobileTabSheetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMobileTabAssignment() {
+		return uiMobileTabAssignmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiMobileTabAssignment_Element() {
+		return (EReference)uiMobileTabAssignmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiTabSheet() {
+		return uiTabSheetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiTabSheet_Tabs() {
+		return (EReference)uiTabSheetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiTabAssignment() {
+		return uiTabAssignmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiTabAssignment_Element() {
+		return (EReference)uiTabAssignmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMobileNavigationPage() {
+		return uiMobileNavigationPageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiMobileNavigationPage_Contents() {
+		return (EReference)uiMobileNavigationPageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMobileNavigationPageAssignment() {
+		return uiMobileNavigationPageAssignmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiMobileNavigationPageAssignment_Element() {
+		return (EReference)uiMobileNavigationPageAssignmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMobileNavigationButton() {
+		return uiMobileNavigationButtonEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiMobileNavigationButton_TargetPage() {
+		return (EReference)uiMobileNavigationButtonEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiMobileNavigationButton_TargetPageAlias() {
+		return (EReference)uiMobileNavigationButtonEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getUiFlatAlignment() {
 		return uiFlatAlignmentEEnum;
 	}
@@ -1838,6 +2269,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiIDEViewEClass = createEClass(UI_IDE_VIEW);
 
+		uiMobileViewEClass = createEClass(UI_MOBILE_VIEW);
+
 		uiPointEClass = createEClass(UI_POINT);
 		createEAttribute(uiPointEClass, UI_POINT__X);
 		createEAttribute(uiPointEClass, UI_POINT__Y);
@@ -1885,6 +2318,16 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiFieldEClass, UI_FIELD__VALIDATORS);
 
 		uiLayoutEClass = createEClass(UI_LAYOUT);
+
+		uiActionEClass = createEClass(UI_ACTION);
+
+		uiMobileEmbeddableEClass = createEClass(UI_MOBILE_EMBEDDABLE);
+
+		uiMobileFieldEClass = createEClass(UI_MOBILE_FIELD);
+
+		uiMobileLayoutEClass = createEClass(UI_MOBILE_LAYOUT);
+
+		uiMobileActionEClass = createEClass(UI_MOBILE_ACTION);
 
 		uiGridLayoutAssigmentEClass = createEClass(UI_GRID_LAYOUT_ASSIGMENT);
 		createEReference(uiGridLayoutAssigmentEClass, UI_GRID_LAYOUT_ASSIGMENT__ELEMENT);
@@ -2003,6 +2446,44 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiValidatorDefEClass, UI_VALIDATOR_DEF__VALIDATOR);
 		createEReference(uiValidatorDefEClass, UI_VALIDATOR_DEF__JVM_TYPE);
 
+		uiHorizontalButtonGroupAssigmentEClass = createEClass(UI_HORIZONTAL_BUTTON_GROUP_ASSIGMENT);
+		createEReference(uiHorizontalButtonGroupAssigmentEClass, UI_HORIZONTAL_BUTTON_GROUP_ASSIGMENT__ELEMENT);
+
+		uiHorizontalButtonGroupEClass = createEClass(UI_HORIZONTAL_BUTTON_GROUP);
+		createEReference(uiHorizontalButtonGroupEClass, UI_HORIZONTAL_BUTTON_GROUP__CONTENTS);
+
+		uiButtonEClass = createEClass(UI_BUTTON);
+
+		uiSwitchEClass = createEClass(UI_SWITCH);
+
+		uiVerticalComponentGroupAssigmentEClass = createEClass(UI_VERTICAL_COMPONENT_GROUP_ASSIGMENT);
+		createEReference(uiVerticalComponentGroupAssigmentEClass, UI_VERTICAL_COMPONENT_GROUP_ASSIGMENT__ELEMENT);
+
+		uiVerticalComponentGroupEClass = createEClass(UI_VERTICAL_COMPONENT_GROUP);
+		createEReference(uiVerticalComponentGroupEClass, UI_VERTICAL_COMPONENT_GROUP__CONTENTS);
+
+		uiMobileTabSheetEClass = createEClass(UI_MOBILE_TAB_SHEET);
+		createEReference(uiMobileTabSheetEClass, UI_MOBILE_TAB_SHEET__TABS);
+
+		uiMobileTabAssignmentEClass = createEClass(UI_MOBILE_TAB_ASSIGNMENT);
+		createEReference(uiMobileTabAssignmentEClass, UI_MOBILE_TAB_ASSIGNMENT__ELEMENT);
+
+		uiTabSheetEClass = createEClass(UI_TAB_SHEET);
+		createEReference(uiTabSheetEClass, UI_TAB_SHEET__TABS);
+
+		uiTabAssignmentEClass = createEClass(UI_TAB_ASSIGNMENT);
+		createEReference(uiTabAssignmentEClass, UI_TAB_ASSIGNMENT__ELEMENT);
+
+		uiMobileNavigationPageEClass = createEClass(UI_MOBILE_NAVIGATION_PAGE);
+		createEReference(uiMobileNavigationPageEClass, UI_MOBILE_NAVIGATION_PAGE__CONTENTS);
+
+		uiMobileNavigationPageAssignmentEClass = createEClass(UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT);
+		createEReference(uiMobileNavigationPageAssignmentEClass, UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT__ELEMENT);
+
+		uiMobileNavigationButtonEClass = createEClass(UI_MOBILE_NAVIGATION_BUTTON);
+		createEReference(uiMobileNavigationButtonEClass, UI_MOBILE_NAVIGATION_BUTTON__TARGET_PAGE);
+		createEReference(uiMobileNavigationButtonEClass, UI_MOBILE_NAVIGATION_BUTTON__TARGET_PAGE_ALIAS);
+
 		// Create enums
 		uiFlatAlignmentEEnum = createEEnum(UI_FLAT_ALIGNMENT);
 		uiSelectionTypeEEnum = createEEnum(UI_SELECTION_TYPE);
@@ -2047,6 +2528,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiViewSetEClass.getESuperTypes().add(this.getUiContext());
 		uiViewEClass.getESuperTypes().add(this.getUiContext());
 		uiIDEViewEClass.getESuperTypes().add(this.getUiView());
+		uiMobileViewEClass.getESuperTypes().add(this.getUiView());
 		uiBeanSlotEClass.getESuperTypes().add(this.getUiTypedBindable());
 		uiRootElementsEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiBindingEndpointAliasEClass.getESuperTypes().add(this.getUiTypedBindable());
@@ -2060,6 +2542,14 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiEmbeddableEClass.getESuperTypes().add(this.getUiRawBindable());
 		uiFieldEClass.getESuperTypes().add(this.getUiEmbeddable());
 		uiLayoutEClass.getESuperTypes().add(this.getUiEmbeddable());
+		uiActionEClass.getESuperTypes().add(this.getUiEmbeddable());
+		uiMobileEmbeddableEClass.getESuperTypes().add(this.getUiEmbeddable());
+		uiMobileFieldEClass.getESuperTypes().add(this.getUiMobileEmbeddable());
+		uiMobileFieldEClass.getESuperTypes().add(this.getUiField());
+		uiMobileLayoutEClass.getESuperTypes().add(this.getUiMobileEmbeddable());
+		uiMobileLayoutEClass.getESuperTypes().add(this.getUiLayout());
+		uiMobileActionEClass.getESuperTypes().add(this.getUiMobileEmbeddable());
+		uiMobileActionEClass.getESuperTypes().add(this.getUiAction());
 		uiGridLayoutEClass.getESuperTypes().add(this.getUiLayout());
 		uiHorizontalLayoutEClass.getESuperTypes().add(this.getUiLayout());
 		uiVerticalLayoutEClass.getESuperTypes().add(this.getUiLayout());
@@ -2087,6 +2577,17 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiValidatorAliasEClass.getESuperTypes().add(this.getUiRootElements());
 		uiValidatorAssignmentEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiValidatorDefEClass.getESuperTypes().add(this.getUiNamedElement());
+		uiHorizontalButtonGroupEClass.getESuperTypes().add(this.getUiMobileLayout());
+		uiButtonEClass.getESuperTypes().add(this.getUiAction());
+		uiSwitchEClass.getESuperTypes().add(this.getUiMobileField());
+		uiVerticalComponentGroupEClass.getESuperTypes().add(this.getUiMobileLayout());
+		uiMobileTabSheetEClass.getESuperTypes().add(this.getUiMobileEmbeddable());
+		uiMobileTabAssignmentEClass.getESuperTypes().add(this.getUiMobileEmbeddable());
+		uiTabSheetEClass.getESuperTypes().add(this.getUiEmbeddable());
+		uiTabAssignmentEClass.getESuperTypes().add(this.getUiEmbeddable());
+		uiMobileNavigationPageEClass.getESuperTypes().add(this.getUiMobileLayout());
+		uiMobileNavigationPageAssignmentEClass.getESuperTypes().add(this.getUiMobileAction());
+		uiMobileNavigationButtonEClass.getESuperTypes().add(this.getUiMobileAction());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(uiNamedElementEClass, UiNamedElement.class, "UiNamedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2114,6 +2615,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiView_ValidatorAssignments(), this.getUiValidatorAssignment(), null, "validatorAssignments", null, 0, -1, UiView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiIDEViewEClass, UiIDEView.class, "UiIDEView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiMobileViewEClass, UiMobileView.class, "UiMobileView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(uiPointEClass, UiPoint.class, "UiPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiPoint_X(), ecorePackage.getEInt(), "x", null, 0, 1, UiPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2162,6 +2665,16 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiField_Validators(), this.getUiValidator(), null, "validators", null, 0, -1, UiField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiLayoutEClass, UiLayout.class, "UiLayout", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiActionEClass, UiAction.class, "UiAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiMobileEmbeddableEClass, UiMobileEmbeddable.class, "UiMobileEmbeddable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiMobileFieldEClass, UiMobileField.class, "UiMobileField", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiMobileLayoutEClass, UiMobileLayout.class, "UiMobileLayout", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiMobileActionEClass, UiMobileAction.class, "UiMobileAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(uiGridLayoutAssigmentEClass, UiGridLayoutAssigment.class, "UiGridLayoutAssigment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiGridLayoutAssigment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiGridLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2279,6 +2792,44 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiValidatorDefEClass, UiValidatorDef.class, "UiValidatorDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiValidatorDef_Validator(), this.getUiValidator(), null, "validator", null, 0, 1, UiValidatorDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiValidatorDef_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, UiValidatorDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiHorizontalButtonGroupAssigmentEClass, UiHorizontalButtonGroupAssigment.class, "UiHorizontalButtonGroupAssigment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiHorizontalButtonGroupAssigment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiHorizontalButtonGroupAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiHorizontalButtonGroupEClass, UiHorizontalButtonGroup.class, "UiHorizontalButtonGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiHorizontalButtonGroup_Contents(), this.getUiHorizontalButtonGroupAssigment(), null, "contents", null, 0, -1, UiHorizontalButtonGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiButtonEClass, UiButton.class, "UiButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiSwitchEClass, UiSwitch.class, "UiSwitch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiVerticalComponentGroupAssigmentEClass, UiVerticalComponentGroupAssigment.class, "UiVerticalComponentGroupAssigment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiVerticalComponentGroupAssigment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiVerticalComponentGroupAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiVerticalComponentGroupEClass, UiVerticalComponentGroup.class, "UiVerticalComponentGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiVerticalComponentGroup_Contents(), this.getUiVerticalComponentGroupAssigment(), null, "contents", null, 0, -1, UiVerticalComponentGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiMobileTabSheetEClass, UiMobileTabSheet.class, "UiMobileTabSheet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiMobileTabSheet_Tabs(), this.getUiMobileTabAssignment(), null, "tabs", null, 0, -1, UiMobileTabSheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiMobileTabAssignmentEClass, UiMobileTabAssignment.class, "UiMobileTabAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiMobileTabAssignment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiMobileTabAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiTabSheetEClass, UiTabSheet.class, "UiTabSheet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiTabSheet_Tabs(), this.getUiTabAssignment(), null, "tabs", null, 0, -1, UiTabSheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiTabAssignmentEClass, UiTabAssignment.class, "UiTabAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiTabAssignment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiTabAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiMobileNavigationPageEClass, UiMobileNavigationPage.class, "UiMobileNavigationPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiMobileNavigationPage_Contents(), this.getUiMobileNavigationPageAssignment(), null, "contents", null, 0, -1, UiMobileNavigationPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiMobileNavigationPageAssignmentEClass, UiMobileNavigationPageAssignment.class, "UiMobileNavigationPageAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiMobileNavigationPageAssignment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiMobileNavigationPageAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiMobileNavigationButtonEClass, UiMobileNavigationButton.class, "UiMobileNavigationButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiMobileNavigationButton_TargetPage(), this.getUiMobileNavigationPage(), null, "targetPage", null, 0, 1, UiMobileNavigationButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiMobileNavigationButton_TargetPageAlias(), this.getUiMobileNavigationPage(), null, "targetPageAlias", null, 0, 1, UiMobileNavigationButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(uiFlatAlignmentEEnum, UiFlatAlignment.class, "UiFlatAlignment");

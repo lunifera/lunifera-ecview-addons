@@ -211,7 +211,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiRootElements()
 	 * @generated
 	 */
-	int UI_ROOT_ELEMENTS = 9;
+	int UI_ROOT_ELEMENTS = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -332,7 +332,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiPoint()
 	 * @generated
 	 */
-	int UI_POINT = 7;
+	int UI_POINT = 8;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingEndpointAliasImpl <em>Ui Binding Endpoint Alias</em>}' class.
@@ -342,7 +342,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiBindingEndpointAlias()
 	 * @generated
 	 */
-	int UI_BINDING_ENDPOINT_ALIAS = 11;
+	int UI_BINDING_ENDPOINT_ALIAS = 12;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBindingImpl <em>Ui Binding</em>}' class.
@@ -352,7 +352,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiBinding()
 	 * @generated
 	 */
-	int UI_BINDING = 13;
+	int UI_BINDING = 14;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiPathSegmentImpl <em>Ui Path Segment</em>}' class.
@@ -362,7 +362,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiPathSegment()
 	 * @generated
 	 */
-	int UI_PATH_SEGMENT = 14;
+	int UI_PATH_SEGMENT = 15;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanSlotImpl <em>Ui Bean Slot</em>}' class.
@@ -372,7 +372,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiBeanSlot()
 	 * @generated
 	 */
-	int UI_BEAN_SLOT = 8;
+	int UI_BEAN_SLOT = 9;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewSetImpl <em>Ui View Set</em>}' class.
@@ -601,6 +601,97 @@ public interface UiModelPackage extends EPackage {
 	int UI_IDE_VIEW_FEATURE_COUNT = UI_VIEW_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileViewImpl <em>Ui Mobile View</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileViewImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileView()
+	 * @generated
+	 */
+	int UI_MOBILE_VIEW = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_VIEW__ID = UI_VIEW__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_VIEW__NAME = UI_VIEW__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Bean Slots</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_VIEW__BEAN_SLOTS = UI_VIEW__BEAN_SLOTS;
+
+	/**
+	 * The feature id for the '<em><b>Binding Endpoint Alias</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_VIEW__BINDING_ENDPOINT_ALIAS = UI_VIEW__BINDING_ENDPOINT_ALIAS;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_VIEW__BINDINGS = UI_VIEW__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>View Set</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_VIEW__VIEW_SET = UI_VIEW__VIEW_SET;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_VIEW__CONTENT = UI_VIEW__CONTENT;
+
+	/**
+	 * The feature id for the '<em><b>Validator Assignments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_VIEW__VALIDATOR_ASSIGNMENTS = UI_VIEW__VALIDATOR_ASSIGNMENTS;
+
+	/**
+	 * The number of structural features of the '<em>Ui Mobile View</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_VIEW_FEATURE_COUNT = UI_VIEW_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -635,7 +726,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiTypedBindable()
 	 * @generated
 	 */
-	int UI_TYPED_BINDABLE = 16;
+	int UI_TYPED_BINDABLE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -708,7 +799,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiRawBindable()
 	 * @generated
 	 */
-	int UI_RAW_BINDABLE = 15;
+	int UI_RAW_BINDABLE = 16;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiValidator <em>Ui Validator</em>}' class.
@@ -718,7 +809,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiValidator()
 	 * @generated
 	 */
-	int UI_VALIDATOR = 47;
+	int UI_VALIDATOR = 53;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMaxLengthValidatorImpl <em>Ui Max Length Validator</em>}' class.
@@ -728,7 +819,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMaxLengthValidator()
 	 * @generated
 	 */
-	int UI_MAX_LENGTH_VALIDATOR = 48;
+	int UI_MAX_LENGTH_VALIDATOR = 54;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMinLengthValidatorImpl <em>Ui Min Length Validator</em>}' class.
@@ -738,7 +829,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMinLengthValidator()
 	 * @generated
 	 */
-	int UI_MIN_LENGTH_VALIDATOR = 49;
+	int UI_MIN_LENGTH_VALIDATOR = 55;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiRegexpValidatorImpl <em>Ui Regexp Validator</em>}' class.
@@ -748,7 +839,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiRegexpValidator()
 	 * @generated
 	 */
-	int UI_REGEXP_VALIDATOR = 50;
+	int UI_REGEXP_VALIDATOR = 56;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiXbaseValidatorImpl <em>Ui Xbase Validator</em>}' class.
@@ -758,7 +849,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiXbaseValidator()
 	 * @generated
 	 */
-	int UI_XBASE_VALIDATOR = 51;
+	int UI_XBASE_VALIDATOR = 57;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiBindingExpression <em>Ui Binding Expression</em>}' class.
@@ -768,7 +859,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiBindingExpression()
 	 * @generated
 	 */
-	int UI_BINDING_EXPRESSION = 10;
+	int UI_BINDING_EXPRESSION = 11;
 
 	/**
 	 * The number of structural features of the '<em>Ui Binding Expression</em>' class.
@@ -832,7 +923,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiBindingEndpointAssignment()
 	 * @generated
 	 */
-	int UI_BINDING_ENDPOINT_ASSIGNMENT = 12;
+	int UI_BINDING_ENDPOINT_ASSIGNMENT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1022,7 +1113,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiTypedBindableDef()
 	 * @generated
 	 */
-	int UI_TYPED_BINDABLE_DEF = 17;
+	int UI_TYPED_BINDABLE_DEF = 18;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1077,7 +1168,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVisibilityProcessable()
 	 * @generated
 	 */
-	int UI_VISIBILITY_PROCESSABLE = 37;
+	int UI_VISIBILITY_PROCESSABLE = 43;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -1105,7 +1196,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiEmbeddable()
 	 * @generated
 	 */
-	int UI_EMBEDDABLE = 18;
+	int UI_EMBEDDABLE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -1151,7 +1242,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiField()
 	 * @generated
 	 */
-	int UI_FIELD = 19;
+	int UI_FIELD = 20;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -1206,7 +1297,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiLayout()
 	 * @generated
 	 */
-	int UI_LAYOUT = 20;
+	int UI_LAYOUT = 21;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -1245,6 +1336,46 @@ public interface UiModelPackage extends EPackage {
 	int UI_LAYOUT_FEATURE_COUNT = UI_EMBEDDABLE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable <em>Ui Mobile Embeddable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileEmbeddable()
+	 * @generated
+	 */
+	int UI_MOBILE_EMBEDDABLE = 23;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiMobileField <em>Ui Mobile Field</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileField
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileField()
+	 * @generated
+	 */
+	int UI_MOBILE_FIELD = 24;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiMobileLayout <em>Ui Mobile Layout</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileLayout
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileLayout()
+	 * @generated
+	 */
+	int UI_MOBILE_LAYOUT = 25;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileActionImpl <em>Ui Mobile Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileActionImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileAction()
+	 * @generated
+	 */
+	int UI_MOBILE_ACTION = 26;
+
+	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutAssigmentImpl <em>Ui Grid Layout Assigment</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1252,7 +1383,496 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiGridLayoutAssigment()
 	 * @generated
 	 */
-	int UI_GRID_LAYOUT_ASSIGMENT = 21;
+	int UI_GRID_LAYOUT_ASSIGMENT = 27;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl <em>Ui Grid Layout</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiGridLayout()
+	 * @generated
+	 */
+	int UI_GRID_LAYOUT = 28;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalLayoutAssigmentImpl <em>Ui Horizontal Layout Assigment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalLayoutAssigmentImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiHorizontalLayoutAssigment()
+	 * @generated
+	 */
+	int UI_HORIZONTAL_LAYOUT_ASSIGMENT = 29;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalLayoutImpl <em>Ui Horizontal Layout</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalLayoutImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiHorizontalLayout()
+	 * @generated
+	 */
+	int UI_HORIZONTAL_LAYOUT = 30;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutAssigmentImpl <em>Ui Vertical Layout Assigment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutAssigmentImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVerticalLayoutAssigment()
+	 * @generated
+	 */
+	int UI_VERTICAL_LAYOUT_ASSIGMENT = 31;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutImpl <em>Ui Vertical Layout</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVerticalLayout()
+	 * @generated
+	 */
+	int UI_VERTICAL_LAYOUT = 32;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiFormLayoutAssigmentImpl <em>Ui Form Layout Assigment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiFormLayoutAssigmentImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiFormLayoutAssigment()
+	 * @generated
+	 */
+	int UI_FORM_LAYOUT_ASSIGMENT = 33;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiFormLayoutImpl <em>Ui Form Layout</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiFormLayoutImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiFormLayout()
+	 * @generated
+	 */
+	int UI_FORM_LAYOUT = 34;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl <em>Ui Text Field</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiTextField()
+	 * @generated
+	 */
+	int UI_TEXT_FIELD = 35;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl <em>Ui List</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiListImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiList()
+	 * @generated
+	 */
+	int UI_LIST = 36;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl <em>Ui Table</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiTable()
+	 * @generated
+	 */
+	int UI_TABLE = 37;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiTypeProvider <em>Ui Type Provider</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTypeProvider
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiTypeProvider()
+	 * @generated
+	 */
+	int UI_TYPE_PROVIDER = 38;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl <em>Ui Column</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiColumn()
+	 * @generated
+	 */
+	int UI_COLUMN = 39;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnAssignmentsImpl <em>Ui Column Assignments</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiColumnAssignmentsImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiColumnAssignments()
+	 * @generated
+	 */
+	int UI_COLUMN_ASSIGNMENTS = 40;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiNumericFieldImpl <em>Ui Numeric Field</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiNumericFieldImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiNumericField()
+	 * @generated
+	 */
+	int UI_NUMERIC_FIELD = 41;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiCheckBoxImpl <em>Ui Check Box</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiCheckBoxImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiCheckBox()
+	 * @generated
+	 */
+	int UI_CHECK_BOX = 42;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorImpl <em>Ui Visibility Processor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVisibilityProcessor()
+	 * @generated
+	 */
+	int UI_VISIBILITY_PROCESSOR = 44;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorDefImpl <em>Ui Visibility Processor Def</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorDefImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVisibilityProcessorDef()
+	 * @generated
+	 */
+	int UI_VISIBILITY_PROCESSOR_DEF = 45;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorAssignmentImpl <em>Ui Visibility Processor Assignment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorAssignmentImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVisibilityProcessorAssignment()
+	 * @generated
+	 */
+	int UI_VISIBILITY_PROCESSOR_ASSIGNMENT = 46;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiChangeTriggerImpl <em>Ui Change Trigger</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiChangeTriggerImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiChangeTrigger()
+	 * @generated
+	 */
+	int UI_CHANGE_TRIGGER = 47;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityRuleImpl <em>Ui Visibility Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityRuleImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVisibilityRule()
+	 * @generated
+	 */
+	int UI_VISIBILITY_RULE = 48;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiXbaseVisibilityRuleImpl <em>Ui Xbase Visibility Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiXbaseVisibilityRuleImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiXbaseVisibilityRule()
+	 * @generated
+	 */
+	int UI_XBASE_VISIBILITY_RULE = 49;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityPropertiesImpl <em>Ui Visibility Properties</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityPropertiesImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVisibilityProperties()
+	 * @generated
+	 */
+	int UI_VISIBILITY_PROPERTIES = 50;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityPropertiesDefImpl <em>Ui Visibility Properties Def</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityPropertiesDefImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVisibilityPropertiesDef()
+	 * @generated
+	 */
+	int UI_VISIBILITY_PROPERTIES_DEF = 51;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityPropertiesAssignmentImpl <em>Ui Visibility Properties Assignment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityPropertiesAssignmentImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVisibilityPropertiesAssignment()
+	 * @generated
+	 */
+	int UI_VISIBILITY_PROPERTIES_ASSIGNMENT = 52;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiValidatorAliasImpl <em>Ui Validator Alias</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiValidatorAliasImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiValidatorAlias()
+	 * @generated
+	 */
+	int UI_VALIDATOR_ALIAS = 58;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiValidatorAssignmentImpl <em>Ui Validator Assignment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiValidatorAssignmentImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiValidatorAssignment()
+	 * @generated
+	 */
+	int UI_VALIDATOR_ASSIGNMENT = 59;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiValidatorDefImpl <em>Ui Validator Def</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiValidatorDefImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiValidatorDef()
+	 * @generated
+	 */
+	int UI_VALIDATOR_DEF = 60;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalButtonGroupAssigmentImpl <em>Ui Horizontal Button Group Assigment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalButtonGroupAssigmentImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiHorizontalButtonGroupAssigment()
+	 * @generated
+	 */
+	int UI_HORIZONTAL_BUTTON_GROUP_ASSIGMENT = 61;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalButtonGroupImpl <em>Ui Horizontal Button Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalButtonGroupImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiHorizontalButtonGroup()
+	 * @generated
+	 */
+	int UI_HORIZONTAL_BUTTON_GROUP = 62;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiActionImpl <em>Ui Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiActionImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiAction()
+	 * @generated
+	 */
+	int UI_ACTION = 22;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_ACTION__PROCESSOR_ASSIGNMENT = UI_EMBEDDABLE__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_ACTION__ID = UI_EMBEDDABLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_ACTION__NAME = UI_EMBEDDABLE__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Ui Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_ACTION_FEATURE_COUNT = UI_EMBEDDABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_EMBEDDABLE__PROCESSOR_ASSIGNMENT = UI_EMBEDDABLE__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_EMBEDDABLE__ID = UI_EMBEDDABLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_EMBEDDABLE__NAME = UI_EMBEDDABLE__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Ui Mobile Embeddable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_EMBEDDABLE_FEATURE_COUNT = UI_EMBEDDABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_FIELD__PROCESSOR_ASSIGNMENT = UI_MOBILE_EMBEDDABLE__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_FIELD__ID = UI_MOBILE_EMBEDDABLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_FIELD__NAME = UI_MOBILE_EMBEDDABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_FIELD__VALIDATORS = UI_MOBILE_EMBEDDABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Mobile Field</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_FIELD_FEATURE_COUNT = UI_MOBILE_EMBEDDABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_LAYOUT__PROCESSOR_ASSIGNMENT = UI_MOBILE_EMBEDDABLE__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_LAYOUT__ID = UI_MOBILE_EMBEDDABLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_LAYOUT__NAME = UI_MOBILE_EMBEDDABLE__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Ui Mobile Layout</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_LAYOUT_FEATURE_COUNT = UI_MOBILE_EMBEDDABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_ACTION__PROCESSOR_ASSIGNMENT = UI_MOBILE_EMBEDDABLE__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_ACTION__ID = UI_MOBILE_EMBEDDABLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_ACTION__NAME = UI_MOBILE_EMBEDDABLE__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Ui Mobile Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_ACTION_FEATURE_COUNT = UI_MOBILE_EMBEDDABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' containment reference.
@@ -1289,16 +1909,6 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_GRID_LAYOUT_ASSIGMENT_FEATURE_COUNT = 3;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl <em>Ui Grid Layout</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiGridLayout()
-	 * @generated
-	 */
-	int UI_GRID_LAYOUT = 22;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -1346,16 +1956,6 @@ public interface UiModelPackage extends EPackage {
 	int UI_GRID_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalLayoutAssigmentImpl <em>Ui Horizontal Layout Assigment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalLayoutAssigmentImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiHorizontalLayoutAssigment()
-	 * @generated
-	 */
-	int UI_HORIZONTAL_LAYOUT_ASSIGMENT = 23;
-
-	/**
 	 * The feature id for the '<em><b>Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1372,16 +1972,6 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_HORIZONTAL_LAYOUT_ASSIGMENT_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalLayoutImpl <em>Ui Horizontal Layout</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalLayoutImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiHorizontalLayout()
-	 * @generated
-	 */
-	int UI_HORIZONTAL_LAYOUT = 24;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -1429,16 +2019,6 @@ public interface UiModelPackage extends EPackage {
 	int UI_HORIZONTAL_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutAssigmentImpl <em>Ui Vertical Layout Assigment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutAssigmentImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVerticalLayoutAssigment()
-	 * @generated
-	 */
-	int UI_VERTICAL_LAYOUT_ASSIGMENT = 25;
-
-	/**
 	 * The feature id for the '<em><b>Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1455,16 +2035,6 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_VERTICAL_LAYOUT_ASSIGMENT_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutImpl <em>Ui Vertical Layout</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVerticalLayout()
-	 * @generated
-	 */
-	int UI_VERTICAL_LAYOUT = 26;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -1512,16 +2082,6 @@ public interface UiModelPackage extends EPackage {
 	int UI_VERTICAL_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiFormLayoutAssigmentImpl <em>Ui Form Layout Assigment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiFormLayoutAssigmentImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiFormLayoutAssigment()
-	 * @generated
-	 */
-	int UI_FORM_LAYOUT_ASSIGMENT = 27;
-
-	/**
 	 * The feature id for the '<em><b>Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1538,16 +2098,6 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_FORM_LAYOUT_ASSIGMENT_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiFormLayoutImpl <em>Ui Form Layout</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiFormLayoutImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiFormLayout()
-	 * @generated
-	 */
-	int UI_FORM_LAYOUT = 28;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -1595,16 +2145,6 @@ public interface UiModelPackage extends EPackage {
 	int UI_FORM_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl <em>Ui Text Field</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiTextField()
-	 * @generated
-	 */
-	int UI_TEXT_FIELD = 29;
-
-	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1648,16 +2188,6 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_TEXT_FIELD_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl <em>Ui List</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiListImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiList()
-	 * @generated
-	 */
-	int UI_LIST = 30;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -1721,16 +2251,6 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_LIST_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl <em>Ui Table</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiTable()
-	 * @generated
-	 */
-	int UI_TABLE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -1805,16 +2325,6 @@ public interface UiModelPackage extends EPackage {
 	int UI_TABLE_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiTypeProvider <em>Ui Type Provider</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.UiTypeProvider
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiTypeProvider()
-	 * @generated
-	 */
-	int UI_TYPE_PROVIDER = 32;
-
-	/**
 	 * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1831,16 +2341,6 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_TYPE_PROVIDER_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl <em>Ui Column</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiColumn()
-	 * @generated
-	 */
-	int UI_COLUMN = 33;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -1960,16 +2460,6 @@ public interface UiModelPackage extends EPackage {
 	int UI_COLUMN_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 8;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnAssignmentsImpl <em>Ui Column Assignments</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiColumnAssignmentsImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiColumnAssignments()
-	 * @generated
-	 */
-	int UI_COLUMN_ASSIGNMENTS = 34;
-
-	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2024,16 +2514,6 @@ public interface UiModelPackage extends EPackage {
 	int UI_COLUMN_ASSIGNMENTS_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiNumericFieldImpl <em>Ui Numeric Field</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiNumericFieldImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiNumericField()
-	 * @generated
-	 */
-	int UI_NUMERIC_FIELD = 35;
-
-	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2079,16 +2559,6 @@ public interface UiModelPackage extends EPackage {
 	int UI_NUMERIC_FIELD_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiCheckBoxImpl <em>Ui Check Box</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiCheckBoxImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiCheckBox()
-	 * @generated
-	 */
-	int UI_CHECK_BOX = 36;
-
-	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2132,16 +2602,6 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_CHECK_BOX_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorImpl <em>Ui Visibility Processor</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVisibilityProcessor()
-	 * @generated
-	 */
-	int UI_VISIBILITY_PROCESSOR = 38;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2207,16 +2667,6 @@ public interface UiModelPackage extends EPackage {
 	int UI_VISIBILITY_PROCESSOR_FEATURE_COUNT = UI_NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorDefImpl <em>Ui Visibility Processor Def</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorDefImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVisibilityProcessorDef()
-	 * @generated
-	 */
-	int UI_VISIBILITY_PROCESSOR_DEF = 39;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2253,16 +2703,6 @@ public interface UiModelPackage extends EPackage {
 	int UI_VISIBILITY_PROCESSOR_DEF_FEATURE_COUNT = UI_ROOT_ELEMENTS_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorAssignmentImpl <em>Ui Visibility Processor Assignment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorAssignmentImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVisibilityProcessorAssignment()
-	 * @generated
-	 */
-	int UI_VISIBILITY_PROCESSOR_ASSIGNMENT = 40;
-
-	/**
 	 * The feature id for the '<em><b>Processor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2288,16 +2728,6 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_VISIBILITY_PROCESSOR_ASSIGNMENT_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiChangeTriggerImpl <em>Ui Change Trigger</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiChangeTriggerImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiChangeTrigger()
-	 * @generated
-	 */
-	int UI_CHANGE_TRIGGER = 41;
 
 	/**
 	 * The feature id for the '<em><b>Endpoint</b></em>' containment reference.
@@ -2327,16 +2757,6 @@ public interface UiModelPackage extends EPackage {
 	int UI_CHANGE_TRIGGER_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityRuleImpl <em>Ui Visibility Rule</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityRuleImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVisibilityRule()
-	 * @generated
-	 */
-	int UI_VISIBILITY_RULE = 42;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2362,16 +2782,6 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_VISIBILITY_RULE_FEATURE_COUNT = UI_NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiXbaseVisibilityRuleImpl <em>Ui Xbase Visibility Rule</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiXbaseVisibilityRuleImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiXbaseVisibilityRule()
-	 * @generated
-	 */
-	int UI_XBASE_VISIBILITY_RULE = 43;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2410,16 +2820,6 @@ public interface UiModelPackage extends EPackage {
 	int UI_XBASE_VISIBILITY_RULE_FEATURE_COUNT = UI_VISIBILITY_RULE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityPropertiesImpl <em>Ui Visibility Properties</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityPropertiesImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVisibilityProperties()
-	 * @generated
-	 */
-	int UI_VISIBILITY_PROPERTIES = 44;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2445,16 +2845,6 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_VISIBILITY_PROPERTIES_FEATURE_COUNT = UI_NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityPropertiesDefImpl <em>Ui Visibility Properties Def</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityPropertiesDefImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVisibilityPropertiesDef()
-	 * @generated
-	 */
-	int UI_VISIBILITY_PROPERTIES_DEF = 45;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2491,16 +2881,6 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_VISIBILITY_PROPERTIES_DEF_FEATURE_COUNT = UI_ROOT_ELEMENTS_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityPropertiesAssignmentImpl <em>Ui Visibility Properties Assignment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityPropertiesAssignmentImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVisibilityPropertiesAssignment()
-	 * @generated
-	 */
-	int UI_VISIBILITY_PROPERTIES_ASSIGNMENT = 46;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference.
@@ -2709,17 +3089,6 @@ public interface UiModelPackage extends EPackage {
 	 */
 	int UI_XBASE_VALIDATOR_FEATURE_COUNT = UI_VALIDATOR_FEATURE_COUNT + 2;
 
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiValidatorAliasImpl <em>Ui Validator Alias</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiValidatorAliasImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiValidatorAlias()
-	 * @generated
-	 */
-	int UI_VALIDATOR_ALIAS = 52;
-
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -2764,16 +3133,6 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_VALIDATOR_ALIAS_FEATURE_COUNT = UI_ROOT_ELEMENTS_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiValidatorAssignmentImpl <em>Ui Validator Assignment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiValidatorAssignmentImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiValidatorAssignment()
-	 * @generated
-	 */
-	int UI_VALIDATOR_ASSIGNMENT = 53;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2830,16 +3189,6 @@ public interface UiModelPackage extends EPackage {
 	int UI_VALIDATOR_ASSIGNMENT_FEATURE_COUNT = UI_NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiValidatorDefImpl <em>Ui Validator Def</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiValidatorDefImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiValidatorDef()
-	 * @generated
-	 */
-	int UI_VALIDATOR_DEF = 54;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2884,6 +3233,646 @@ public interface UiModelPackage extends EPackage {
 	 */
 	int UI_VALIDATOR_DEF_FEATURE_COUNT = UI_NAMED_ELEMENT_FEATURE_COUNT + 2;
 
+	/**
+	 * The feature id for the '<em><b>Element</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_HORIZONTAL_BUTTON_GROUP_ASSIGMENT__ELEMENT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Horizontal Button Group Assigment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_HORIZONTAL_BUTTON_GROUP_ASSIGMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_HORIZONTAL_BUTTON_GROUP__PROCESSOR_ASSIGNMENT = UI_MOBILE_LAYOUT__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_HORIZONTAL_BUTTON_GROUP__ID = UI_MOBILE_LAYOUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_HORIZONTAL_BUTTON_GROUP__NAME = UI_MOBILE_LAYOUT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_HORIZONTAL_BUTTON_GROUP__CONTENTS = UI_MOBILE_LAYOUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Horizontal Button Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_HORIZONTAL_BUTTON_GROUP_FEATURE_COUNT = UI_MOBILE_LAYOUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiButtonImpl <em>Ui Button</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiButtonImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiButton()
+	 * @generated
+	 */
+	int UI_BUTTON = 63;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BUTTON__PROCESSOR_ASSIGNMENT = UI_ACTION__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BUTTON__ID = UI_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BUTTON__NAME = UI_ACTION__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Ui Button</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BUTTON_FEATURE_COUNT = UI_ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiSwitchImpl <em>Ui Switch</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiSwitchImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSwitch()
+	 * @generated
+	 */
+	int UI_SWITCH = 64;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SWITCH__PROCESSOR_ASSIGNMENT = UI_MOBILE_FIELD__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SWITCH__ID = UI_MOBILE_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SWITCH__NAME = UI_MOBILE_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SWITCH__VALIDATORS = UI_MOBILE_FIELD__VALIDATORS;
+
+	/**
+	 * The number of structural features of the '<em>Ui Switch</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SWITCH_FEATURE_COUNT = UI_MOBILE_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalComponentGroupAssigmentImpl <em>Ui Vertical Component Group Assigment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVerticalComponentGroupAssigmentImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVerticalComponentGroupAssigment()
+	 * @generated
+	 */
+	int UI_VERTICAL_COMPONENT_GROUP_ASSIGMENT = 65;
+
+	/**
+	 * The feature id for the '<em><b>Element</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VERTICAL_COMPONENT_GROUP_ASSIGMENT__ELEMENT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Vertical Component Group Assigment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VERTICAL_COMPONENT_GROUP_ASSIGMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalComponentGroupImpl <em>Ui Vertical Component Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVerticalComponentGroupImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVerticalComponentGroup()
+	 * @generated
+	 */
+	int UI_VERTICAL_COMPONENT_GROUP = 66;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VERTICAL_COMPONENT_GROUP__PROCESSOR_ASSIGNMENT = UI_MOBILE_LAYOUT__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VERTICAL_COMPONENT_GROUP__ID = UI_MOBILE_LAYOUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VERTICAL_COMPONENT_GROUP__NAME = UI_MOBILE_LAYOUT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VERTICAL_COMPONENT_GROUP__CONTENTS = UI_MOBILE_LAYOUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Vertical Component Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VERTICAL_COMPONENT_GROUP_FEATURE_COUNT = UI_MOBILE_LAYOUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileTabSheetImpl <em>Ui Mobile Tab Sheet</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileTabSheetImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileTabSheet()
+	 * @generated
+	 */
+	int UI_MOBILE_TAB_SHEET = 67;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_TAB_SHEET__PROCESSOR_ASSIGNMENT = UI_MOBILE_EMBEDDABLE__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_TAB_SHEET__ID = UI_MOBILE_EMBEDDABLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_TAB_SHEET__NAME = UI_MOBILE_EMBEDDABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Tabs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_TAB_SHEET__TABS = UI_MOBILE_EMBEDDABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Mobile Tab Sheet</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_TAB_SHEET_FEATURE_COUNT = UI_MOBILE_EMBEDDABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileTabAssignmentImpl <em>Ui Mobile Tab Assignment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileTabAssignmentImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileTabAssignment()
+	 * @generated
+	 */
+	int UI_MOBILE_TAB_ASSIGNMENT = 68;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_TAB_ASSIGNMENT__PROCESSOR_ASSIGNMENT = UI_MOBILE_EMBEDDABLE__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_TAB_ASSIGNMENT__ID = UI_MOBILE_EMBEDDABLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_TAB_ASSIGNMENT__NAME = UI_MOBILE_EMBEDDABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Element</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_TAB_ASSIGNMENT__ELEMENT = UI_MOBILE_EMBEDDABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Mobile Tab Assignment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_TAB_ASSIGNMENT_FEATURE_COUNT = UI_MOBILE_EMBEDDABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTabSheetImpl <em>Ui Tab Sheet</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiTabSheetImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiTabSheet()
+	 * @generated
+	 */
+	int UI_TAB_SHEET = 69;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TAB_SHEET__PROCESSOR_ASSIGNMENT = UI_EMBEDDABLE__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TAB_SHEET__ID = UI_EMBEDDABLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TAB_SHEET__NAME = UI_EMBEDDABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Tabs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TAB_SHEET__TABS = UI_EMBEDDABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Tab Sheet</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TAB_SHEET_FEATURE_COUNT = UI_EMBEDDABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTabAssignmentImpl <em>Ui Tab Assignment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiTabAssignmentImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiTabAssignment()
+	 * @generated
+	 */
+	int UI_TAB_ASSIGNMENT = 70;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TAB_ASSIGNMENT__PROCESSOR_ASSIGNMENT = UI_EMBEDDABLE__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TAB_ASSIGNMENT__ID = UI_EMBEDDABLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TAB_ASSIGNMENT__NAME = UI_EMBEDDABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Element</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TAB_ASSIGNMENT__ELEMENT = UI_EMBEDDABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Tab Assignment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TAB_ASSIGNMENT_FEATURE_COUNT = UI_EMBEDDABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageImpl <em>Ui Mobile Navigation Page</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileNavigationPage()
+	 * @generated
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE = 71;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE__PROCESSOR_ASSIGNMENT = UI_MOBILE_LAYOUT__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE__ID = UI_MOBILE_LAYOUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE__NAME = UI_MOBILE_LAYOUT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE__CONTENTS = UI_MOBILE_LAYOUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Mobile Navigation Page</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE_FEATURE_COUNT = UI_MOBILE_LAYOUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageAssignmentImpl <em>Ui Mobile Navigation Page Assignment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageAssignmentImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileNavigationPageAssignment()
+	 * @generated
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT = 72;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT__PROCESSOR_ASSIGNMENT = UI_MOBILE_ACTION__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT__ID = UI_MOBILE_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT__NAME = UI_MOBILE_ACTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Element</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT__ELEMENT = UI_MOBILE_ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Mobile Navigation Page Assignment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT_FEATURE_COUNT = UI_MOBILE_ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationButtonImpl <em>Ui Mobile Navigation Button</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationButtonImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileNavigationButton()
+	 * @generated
+	 */
+	int UI_MOBILE_NAVIGATION_BUTTON = 73;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_BUTTON__PROCESSOR_ASSIGNMENT = UI_MOBILE_ACTION__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_BUTTON__ID = UI_MOBILE_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_BUTTON__NAME = UI_MOBILE_ACTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Target Page</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_BUTTON__TARGET_PAGE = UI_MOBILE_ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Target Page Alias</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_BUTTON__TARGET_PAGE_ALIAS = UI_MOBILE_ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Ui Mobile Navigation Button</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_BUTTON_FEATURE_COUNT = UI_MOBILE_ACTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.
@@ -2893,7 +3882,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiFlatAlignment()
 	 * @generated
 	 */
-	int UI_FLAT_ALIGNMENT = 55;
+	int UI_FLAT_ALIGNMENT = 74;
 
 
 	/**
@@ -2904,7 +3893,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSelectionType()
 	 * @generated
 	 */
-	int UI_SELECTION_TYPE = 56;
+	int UI_SELECTION_TYPE = 75;
 
 
 	/**
@@ -3098,6 +4087,16 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUiIDEView();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileView <em>Ui Mobile View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Mobile View</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileView
+	 * @generated
+	 */
+	EClass getUiMobileView();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiPoint <em>Ui Point</em>}'.
@@ -3563,6 +4562,46 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUiLayout();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable <em>Ui Mobile Embeddable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Mobile Embeddable</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable
+	 * @generated
+	 */
+	EClass getUiMobileEmbeddable();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileField <em>Ui Mobile Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Mobile Field</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileField
+	 * @generated
+	 */
+	EClass getUiMobileField();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileLayout <em>Ui Mobile Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Mobile Layout</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileLayout
+	 * @generated
+	 */
+	EClass getUiMobileLayout();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileAction <em>Ui Mobile Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Mobile Action</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileAction
+	 * @generated
+	 */
+	EClass getUiMobileAction();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiValidator <em>Ui Validator</em>}'.
@@ -4349,6 +5388,278 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiValidatorDef_JvmType();
 
 	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroupAssigment <em>Ui Horizontal Button Group Assigment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Horizontal Button Group Assigment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroupAssigment
+	 * @generated
+	 */
+	EClass getUiHorizontalButtonGroupAssigment();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroupAssigment#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Element</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroupAssigment#getElement()
+	 * @see #getUiHorizontalButtonGroupAssigment()
+	 * @generated
+	 */
+	EReference getUiHorizontalButtonGroupAssigment_Element();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup <em>Ui Horizontal Button Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Horizontal Button Group</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup
+	 * @generated
+	 */
+	EClass getUiHorizontalButtonGroup();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup#getContents <em>Contents</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Contents</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup#getContents()
+	 * @see #getUiHorizontalButtonGroup()
+	 * @generated
+	 */
+	EReference getUiHorizontalButtonGroup_Contents();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiAction <em>Ui Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Action</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiAction
+	 * @generated
+	 */
+	EClass getUiAction();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiButton <em>Ui Button</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Button</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiButton
+	 * @generated
+	 */
+	EClass getUiButton();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiSwitch <em>Ui Switch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Switch</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSwitch
+	 * @generated
+	 */
+	EClass getUiSwitch();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroupAssigment <em>Ui Vertical Component Group Assigment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Vertical Component Group Assigment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroupAssigment
+	 * @generated
+	 */
+	EClass getUiVerticalComponentGroupAssigment();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroupAssigment#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Element</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroupAssigment#getElement()
+	 * @see #getUiVerticalComponentGroupAssigment()
+	 * @generated
+	 */
+	EReference getUiVerticalComponentGroupAssigment_Element();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup <em>Ui Vertical Component Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Vertical Component Group</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup
+	 * @generated
+	 */
+	EClass getUiVerticalComponentGroup();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup#getContents <em>Contents</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Contents</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup#getContents()
+	 * @see #getUiVerticalComponentGroup()
+	 * @generated
+	 */
+	EReference getUiVerticalComponentGroup_Contents();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet <em>Ui Mobile Tab Sheet</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Mobile Tab Sheet</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet
+	 * @generated
+	 */
+	EClass getUiMobileTabSheet();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet#getTabs <em>Tabs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tabs</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet#getTabs()
+	 * @see #getUiMobileTabSheet()
+	 * @generated
+	 */
+	EReference getUiMobileTabSheet_Tabs();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment <em>Ui Mobile Tab Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Mobile Tab Assignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment
+	 * @generated
+	 */
+	EClass getUiMobileTabAssignment();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Element</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment#getElement()
+	 * @see #getUiMobileTabAssignment()
+	 * @generated
+	 */
+	EReference getUiMobileTabAssignment_Element();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiTabSheet <em>Ui Tab Sheet</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Tab Sheet</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTabSheet
+	 * @generated
+	 */
+	EClass getUiTabSheet();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiTabSheet#getTabs <em>Tabs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tabs</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTabSheet#getTabs()
+	 * @see #getUiTabSheet()
+	 * @generated
+	 */
+	EReference getUiTabSheet_Tabs();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiTabAssignment <em>Ui Tab Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Tab Assignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTabAssignment
+	 * @generated
+	 */
+	EClass getUiTabAssignment();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiTabAssignment#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Element</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTabAssignment#getElement()
+	 * @see #getUiTabAssignment()
+	 * @generated
+	 */
+	EReference getUiTabAssignment_Element();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage <em>Ui Mobile Navigation Page</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Mobile Navigation Page</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage
+	 * @generated
+	 */
+	EClass getUiMobileNavigationPage();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage#getContents <em>Contents</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Contents</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage#getContents()
+	 * @see #getUiMobileNavigationPage()
+	 * @generated
+	 */
+	EReference getUiMobileNavigationPage_Contents();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment <em>Ui Mobile Navigation Page Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Mobile Navigation Page Assignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment
+	 * @generated
+	 */
+	EClass getUiMobileNavigationPageAssignment();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Element</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment#getElement()
+	 * @see #getUiMobileNavigationPageAssignment()
+	 * @generated
+	 */
+	EReference getUiMobileNavigationPageAssignment_Element();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton <em>Ui Mobile Navigation Button</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Mobile Navigation Button</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton
+	 * @generated
+	 */
+	EClass getUiMobileNavigationButton();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton#getTargetPage <em>Target Page</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Target Page</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton#getTargetPage()
+	 * @see #getUiMobileNavigationButton()
+	 * @generated
+	 */
+	EReference getUiMobileNavigationButton_TargetPage();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton#getTargetPageAlias <em>Target Page Alias</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target Page Alias</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton#getTargetPageAlias()
+	 * @see #getUiMobileNavigationButton()
+	 * @generated
+	 */
+	EReference getUiMobileNavigationButton_TargetPageAlias();
+
+	/**
 	 * Returns the meta object for enum '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4545,6 +5856,16 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UI_IDE_VIEW = eINSTANCE.getUiIDEView();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileViewImpl <em>Ui Mobile View</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileViewImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileView()
+		 * @generated
+		 */
+		EClass UI_MOBILE_VIEW = eINSTANCE.getUiMobileView();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiPointImpl <em>Ui Point</em>}' class.
@@ -4935,6 +6256,46 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UI_LAYOUT = eINSTANCE.getUiLayout();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable <em>Ui Mobile Embeddable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileEmbeddable()
+		 * @generated
+		 */
+		EClass UI_MOBILE_EMBEDDABLE = eINSTANCE.getUiMobileEmbeddable();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiMobileField <em>Ui Mobile Field</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.UiMobileField
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileField()
+		 * @generated
+		 */
+		EClass UI_MOBILE_FIELD = eINSTANCE.getUiMobileField();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiMobileLayout <em>Ui Mobile Layout</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.UiMobileLayout
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileLayout()
+		 * @generated
+		 */
+		EClass UI_MOBILE_LAYOUT = eINSTANCE.getUiMobileLayout();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileActionImpl <em>Ui Mobile Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileActionImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileAction()
+		 * @generated
+		 */
+		EClass UI_MOBILE_ACTION = eINSTANCE.getUiMobileAction();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiValidator <em>Ui Validator</em>}' class.
@@ -5587,6 +6948,242 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_VALIDATOR_DEF__JVM_TYPE = eINSTANCE.getUiValidatorDef_JvmType();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalButtonGroupAssigmentImpl <em>Ui Horizontal Button Group Assigment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalButtonGroupAssigmentImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiHorizontalButtonGroupAssigment()
+		 * @generated
+		 */
+		EClass UI_HORIZONTAL_BUTTON_GROUP_ASSIGMENT = eINSTANCE.getUiHorizontalButtonGroupAssigment();
+
+		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_HORIZONTAL_BUTTON_GROUP_ASSIGMENT__ELEMENT = eINSTANCE.getUiHorizontalButtonGroupAssigment_Element();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalButtonGroupImpl <em>Ui Horizontal Button Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalButtonGroupImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiHorizontalButtonGroup()
+		 * @generated
+		 */
+		EClass UI_HORIZONTAL_BUTTON_GROUP = eINSTANCE.getUiHorizontalButtonGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Contents</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_HORIZONTAL_BUTTON_GROUP__CONTENTS = eINSTANCE.getUiHorizontalButtonGroup_Contents();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiActionImpl <em>Ui Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiActionImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiAction()
+		 * @generated
+		 */
+		EClass UI_ACTION = eINSTANCE.getUiAction();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiButtonImpl <em>Ui Button</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiButtonImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiButton()
+		 * @generated
+		 */
+		EClass UI_BUTTON = eINSTANCE.getUiButton();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiSwitchImpl <em>Ui Switch</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiSwitchImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSwitch()
+		 * @generated
+		 */
+		EClass UI_SWITCH = eINSTANCE.getUiSwitch();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalComponentGroupAssigmentImpl <em>Ui Vertical Component Group Assigment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVerticalComponentGroupAssigmentImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVerticalComponentGroupAssigment()
+		 * @generated
+		 */
+		EClass UI_VERTICAL_COMPONENT_GROUP_ASSIGMENT = eINSTANCE.getUiVerticalComponentGroupAssigment();
+
+		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_VERTICAL_COMPONENT_GROUP_ASSIGMENT__ELEMENT = eINSTANCE.getUiVerticalComponentGroupAssigment_Element();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalComponentGroupImpl <em>Ui Vertical Component Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiVerticalComponentGroupImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiVerticalComponentGroup()
+		 * @generated
+		 */
+		EClass UI_VERTICAL_COMPONENT_GROUP = eINSTANCE.getUiVerticalComponentGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Contents</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_VERTICAL_COMPONENT_GROUP__CONTENTS = eINSTANCE.getUiVerticalComponentGroup_Contents();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileTabSheetImpl <em>Ui Mobile Tab Sheet</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileTabSheetImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileTabSheet()
+		 * @generated
+		 */
+		EClass UI_MOBILE_TAB_SHEET = eINSTANCE.getUiMobileTabSheet();
+
+		/**
+		 * The meta object literal for the '<em><b>Tabs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_MOBILE_TAB_SHEET__TABS = eINSTANCE.getUiMobileTabSheet_Tabs();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileTabAssignmentImpl <em>Ui Mobile Tab Assignment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileTabAssignmentImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileTabAssignment()
+		 * @generated
+		 */
+		EClass UI_MOBILE_TAB_ASSIGNMENT = eINSTANCE.getUiMobileTabAssignment();
+
+		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_MOBILE_TAB_ASSIGNMENT__ELEMENT = eINSTANCE.getUiMobileTabAssignment_Element();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTabSheetImpl <em>Ui Tab Sheet</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiTabSheetImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiTabSheet()
+		 * @generated
+		 */
+		EClass UI_TAB_SHEET = eINSTANCE.getUiTabSheet();
+
+		/**
+		 * The meta object literal for the '<em><b>Tabs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_TAB_SHEET__TABS = eINSTANCE.getUiTabSheet_Tabs();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTabAssignmentImpl <em>Ui Tab Assignment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiTabAssignmentImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiTabAssignment()
+		 * @generated
+		 */
+		EClass UI_TAB_ASSIGNMENT = eINSTANCE.getUiTabAssignment();
+
+		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_TAB_ASSIGNMENT__ELEMENT = eINSTANCE.getUiTabAssignment_Element();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageImpl <em>Ui Mobile Navigation Page</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileNavigationPage()
+		 * @generated
+		 */
+		EClass UI_MOBILE_NAVIGATION_PAGE = eINSTANCE.getUiMobileNavigationPage();
+
+		/**
+		 * The meta object literal for the '<em><b>Contents</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_MOBILE_NAVIGATION_PAGE__CONTENTS = eINSTANCE.getUiMobileNavigationPage_Contents();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageAssignmentImpl <em>Ui Mobile Navigation Page Assignment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageAssignmentImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileNavigationPageAssignment()
+		 * @generated
+		 */
+		EClass UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT = eINSTANCE.getUiMobileNavigationPageAssignment();
+
+		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT__ELEMENT = eINSTANCE.getUiMobileNavigationPageAssignment_Element();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationButtonImpl <em>Ui Mobile Navigation Button</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationButtonImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileNavigationButton()
+		 * @generated
+		 */
+		EClass UI_MOBILE_NAVIGATION_BUTTON = eINSTANCE.getUiMobileNavigationButton();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Page</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_MOBILE_NAVIGATION_BUTTON__TARGET_PAGE = eINSTANCE.getUiMobileNavigationButton_TargetPage();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Page Alias</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_MOBILE_NAVIGATION_BUTTON__TARGET_PAGE_ALIAS = eINSTANCE.getUiMobileNavigationButton_TargetPageAlias();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.

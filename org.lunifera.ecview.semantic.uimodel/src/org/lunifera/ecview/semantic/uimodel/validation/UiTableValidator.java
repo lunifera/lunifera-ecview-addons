@@ -4,8 +4,6 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
-import org.eclipse.xtext.common.types.JvmTypeReference;
-
 import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments;
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
 
@@ -20,6 +18,4 @@ public interface UiTableValidator {
 
 	boolean validateColumnAssignment(UiColumnAssignments value);
 	boolean validateSelectionType(UiSelectionType value);
-
-	boolean validateJvmType(JvmTypeReference value);
 }
