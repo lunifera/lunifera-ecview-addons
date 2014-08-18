@@ -21,6 +21,9 @@ import org.lunifera.ecview.semantic.uimodel.UiChangeTrigger;
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.UiColumn;
 import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments;
+import org.lunifera.ecview.semantic.uimodel.UiComboBox;
+import org.lunifera.ecview.semantic.uimodel.UiCommand;
+import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
 import org.lunifera.ecview.semantic.uimodel.UiContext;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiField;
@@ -34,8 +37,10 @@ import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroupAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
+import org.lunifera.ecview.semantic.uimodel.UiImage;
 import org.lunifera.ecview.semantic.uimodel.UiImports;
 import org.lunifera.ecview.semantic.uimodel.UiLayout;
+import org.lunifera.ecview.semantic.uimodel.UiLayoutAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiList;
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
@@ -44,6 +49,8 @@ import org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiMobileField;
 import org.lunifera.ecview.semantic.uimodel.UiMobileLayout;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationCommand;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationHandler;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment;
@@ -256,6 +263,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass uiCommandBindableDefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass uiRawBindableEClass = null;
 
 	/**
@@ -278,6 +292,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiLayoutEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiLayoutAssignmentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -382,6 +403,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass uiImageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass uiListEClass = null;
 
 	/**
@@ -390,6 +418,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiTableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiComboBoxEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -599,6 +634,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass uiMobileNavigationHandlerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass uiMobileNavigationPageEClass = null;
 
 	/**
@@ -614,6 +656,20 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiMobileNavigationButtonEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiCommandEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMobileNavigationCommandEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1221,6 +1277,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiCommandBindableDef() {
+		return uiCommandBindableDefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiCommandBindableDef_Command() {
+		return (EReference)uiCommandBindableDefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiRawBindable() {
 		return uiRawBindableEClass;
 	}
@@ -1232,6 +1306,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EClass getUiEmbeddable() {
 		return uiEmbeddableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiEmbeddable_Bindings() {
+		return (EReference)uiEmbeddableEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1259,6 +1342,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EClass getUiLayout() {
 		return uiLayoutEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiLayoutAssignment() {
+		return uiLayoutAssignmentEClass;
 	}
 
 	/**
@@ -1482,6 +1574,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiImage() {
+		return uiImageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiImage_Value() {
+		return (EAttribute)uiImageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiList() {
 		return uiListEClass;
 	}
@@ -1493,6 +1603,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EAttribute getUiList_SelectionType() {
 		return (EAttribute)uiListEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiList_ItemImageProperty() {
+		return (EReference)uiListEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1520,6 +1639,42 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EAttribute getUiTable_SelectionType() {
 		return (EAttribute)uiTableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiTable_ItemImageProperty() {
+		return (EReference)uiTableEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiComboBox() {
+		return uiComboBoxEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiComboBox_ItemCaptionProperty() {
+		return (EReference)uiComboBoxEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiComboBox_ItemImageProperty() {
+		return (EReference)uiComboBoxEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2139,6 +2294,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiMobileNavigationHandler() {
+		return uiMobileNavigationHandlerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiMobileNavigationPage() {
 		return uiMobileNavigationPageEClass;
 	}
@@ -2195,6 +2359,42 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiMobileNavigationButton_TargetPageAlias() {
 		return (EReference)uiMobileNavigationButtonEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiCommand() {
+		return uiCommandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMobileNavigationCommand() {
+		return uiMobileNavigationCommandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiMobileNavigationCommand_TargetPage() {
+		return (EReference)uiMobileNavigationCommandEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiMobileNavigationCommand_TargetPageAlias() {
+		return (EReference)uiMobileNavigationCommandEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2312,12 +2512,18 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiTypedBindableDefEClass, UI_TYPED_BINDABLE_DEF__RAW_BINDABLE);
 		createEReference(uiTypedBindableDefEClass, UI_TYPED_BINDABLE_DEF__METHOD);
 
+		uiCommandBindableDefEClass = createEClass(UI_COMMAND_BINDABLE_DEF);
+		createEReference(uiCommandBindableDefEClass, UI_COMMAND_BINDABLE_DEF__COMMAND);
+
 		uiEmbeddableEClass = createEClass(UI_EMBEDDABLE);
+		createEReference(uiEmbeddableEClass, UI_EMBEDDABLE__BINDINGS);
 
 		uiFieldEClass = createEClass(UI_FIELD);
 		createEReference(uiFieldEClass, UI_FIELD__VALIDATORS);
 
 		uiLayoutEClass = createEClass(UI_LAYOUT);
+
+		uiLayoutAssignmentEClass = createEClass(UI_LAYOUT_ASSIGNMENT);
 
 		uiActionEClass = createEClass(UI_ACTION);
 
@@ -2357,12 +2563,21 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiTextFieldEClass = createEClass(UI_TEXT_FIELD);
 
+		uiImageEClass = createEClass(UI_IMAGE);
+		createEAttribute(uiImageEClass, UI_IMAGE__VALUE);
+
 		uiListEClass = createEClass(UI_LIST);
 		createEAttribute(uiListEClass, UI_LIST__SELECTION_TYPE);
+		createEReference(uiListEClass, UI_LIST__ITEM_IMAGE_PROPERTY);
 
 		uiTableEClass = createEClass(UI_TABLE);
 		createEReference(uiTableEClass, UI_TABLE__COLUMN_ASSIGNMENT);
 		createEAttribute(uiTableEClass, UI_TABLE__SELECTION_TYPE);
+		createEReference(uiTableEClass, UI_TABLE__ITEM_IMAGE_PROPERTY);
+
+		uiComboBoxEClass = createEClass(UI_COMBO_BOX);
+		createEReference(uiComboBoxEClass, UI_COMBO_BOX__ITEM_CAPTION_PROPERTY);
+		createEReference(uiComboBoxEClass, UI_COMBO_BOX__ITEM_IMAGE_PROPERTY);
 
 		uiTypeProviderEClass = createEClass(UI_TYPE_PROVIDER);
 		createEReference(uiTypeProviderEClass, UI_TYPE_PROVIDER__JVM_TYPE);
@@ -2474,6 +2689,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiTabAssignmentEClass = createEClass(UI_TAB_ASSIGNMENT);
 		createEReference(uiTabAssignmentEClass, UI_TAB_ASSIGNMENT__ELEMENT);
 
+		uiMobileNavigationHandlerEClass = createEClass(UI_MOBILE_NAVIGATION_HANDLER);
+
 		uiMobileNavigationPageEClass = createEClass(UI_MOBILE_NAVIGATION_PAGE);
 		createEReference(uiMobileNavigationPageEClass, UI_MOBILE_NAVIGATION_PAGE__CONTENTS);
 
@@ -2483,6 +2700,12 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiMobileNavigationButtonEClass = createEClass(UI_MOBILE_NAVIGATION_BUTTON);
 		createEReference(uiMobileNavigationButtonEClass, UI_MOBILE_NAVIGATION_BUTTON__TARGET_PAGE);
 		createEReference(uiMobileNavigationButtonEClass, UI_MOBILE_NAVIGATION_BUTTON__TARGET_PAGE_ALIAS);
+
+		uiCommandEClass = createEClass(UI_COMMAND);
+
+		uiMobileNavigationCommandEClass = createEClass(UI_MOBILE_NAVIGATION_COMMAND);
+		createEReference(uiMobileNavigationCommandEClass, UI_MOBILE_NAVIGATION_COMMAND__TARGET_PAGE);
+		createEReference(uiMobileNavigationCommandEClass, UI_MOBILE_NAVIGATION_COMMAND__TARGET_PAGE_ALIAS);
 
 		// Create enums
 		uiFlatAlignmentEEnum = createEEnum(UI_FLAT_ALIGNMENT);
@@ -2538,10 +2761,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiTypedBindableEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiTypedBindableDefEClass.getESuperTypes().add(this.getUiTypedBindable());
 		uiTypedBindableDefEClass.getESuperTypes().add(this.getUiBindingExpression());
+		uiCommandBindableDefEClass.getESuperTypes().add(this.getUiTypedBindable());
+		uiCommandBindableDefEClass.getESuperTypes().add(this.getUiBindingExpression());
 		uiEmbeddableEClass.getESuperTypes().add(this.getUiVisibilityProcessable());
 		uiEmbeddableEClass.getESuperTypes().add(this.getUiRawBindable());
 		uiFieldEClass.getESuperTypes().add(this.getUiEmbeddable());
 		uiLayoutEClass.getESuperTypes().add(this.getUiEmbeddable());
+		uiLayoutAssignmentEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiActionEClass.getESuperTypes().add(this.getUiEmbeddable());
 		uiMobileEmbeddableEClass.getESuperTypes().add(this.getUiEmbeddable());
 		uiMobileFieldEClass.getESuperTypes().add(this.getUiMobileEmbeddable());
@@ -2550,15 +2776,22 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiMobileLayoutEClass.getESuperTypes().add(this.getUiLayout());
 		uiMobileActionEClass.getESuperTypes().add(this.getUiMobileEmbeddable());
 		uiMobileActionEClass.getESuperTypes().add(this.getUiAction());
+		uiGridLayoutAssigmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
 		uiGridLayoutEClass.getESuperTypes().add(this.getUiLayout());
+		uiHorizontalLayoutAssigmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
 		uiHorizontalLayoutEClass.getESuperTypes().add(this.getUiLayout());
+		uiVerticalLayoutAssigmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
 		uiVerticalLayoutEClass.getESuperTypes().add(this.getUiLayout());
+		uiFormLayoutAssigmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
 		uiFormLayoutEClass.getESuperTypes().add(this.getUiLayout());
 		uiTextFieldEClass.getESuperTypes().add(this.getUiField());
+		uiImageEClass.getESuperTypes().add(this.getUiField());
 		uiListEClass.getESuperTypes().add(this.getUiField());
 		uiListEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiTableEClass.getESuperTypes().add(this.getUiField());
 		uiTableEClass.getESuperTypes().add(this.getUiTypeProvider());
+		uiComboBoxEClass.getESuperTypes().add(this.getUiField());
+		uiComboBoxEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiColumnEClass.getESuperTypes().add(this.getUiField());
 		uiColumnAssignmentsEClass.getESuperTypes().add(this.getUiField());
 		uiNumericFieldEClass.getESuperTypes().add(this.getUiField());
@@ -2577,17 +2810,23 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiValidatorAliasEClass.getESuperTypes().add(this.getUiRootElements());
 		uiValidatorAssignmentEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiValidatorDefEClass.getESuperTypes().add(this.getUiNamedElement());
+		uiHorizontalButtonGroupAssigmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
 		uiHorizontalButtonGroupEClass.getESuperTypes().add(this.getUiMobileLayout());
 		uiButtonEClass.getESuperTypes().add(this.getUiAction());
 		uiSwitchEClass.getESuperTypes().add(this.getUiMobileField());
+		uiVerticalComponentGroupAssigmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
 		uiVerticalComponentGroupEClass.getESuperTypes().add(this.getUiMobileLayout());
 		uiMobileTabSheetEClass.getESuperTypes().add(this.getUiMobileEmbeddable());
 		uiMobileTabAssignmentEClass.getESuperTypes().add(this.getUiMobileEmbeddable());
 		uiTabSheetEClass.getESuperTypes().add(this.getUiEmbeddable());
-		uiTabAssignmentEClass.getESuperTypes().add(this.getUiEmbeddable());
+		uiTabAssignmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
 		uiMobileNavigationPageEClass.getESuperTypes().add(this.getUiMobileLayout());
-		uiMobileNavigationPageAssignmentEClass.getESuperTypes().add(this.getUiMobileAction());
+		uiMobileNavigationPageEClass.getESuperTypes().add(this.getUiTypeProvider());
+		uiMobileNavigationPageEClass.getESuperTypes().add(this.getUiMobileNavigationHandler());
+		uiMobileNavigationPageAssignmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
 		uiMobileNavigationButtonEClass.getESuperTypes().add(this.getUiMobileAction());
+		uiCommandEClass.getESuperTypes().add(this.getUiNamedElement());
+		uiMobileNavigationCommandEClass.getESuperTypes().add(this.getUiCommand());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(uiNamedElementEClass, UiNamedElement.class, "UiNamedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2659,12 +2898,18 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiTypedBindableDef_RawBindable(), this.getUiRawBindable(), null, "rawBindable", null, 0, 1, UiTypedBindableDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiTypedBindableDef_Method(), theUiSemanticsPackage.getUxEndpointDef(), null, "method", null, 0, 1, UiTypedBindableDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(uiCommandBindableDefEClass, UiCommandBindableDef.class, "UiCommandBindableDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiCommandBindableDef_Command(), this.getUiCommand(), null, "command", null, 0, 1, UiCommandBindableDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(uiEmbeddableEClass, UiEmbeddable.class, "UiEmbeddable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiEmbeddable_Bindings(), this.getUiBinding(), null, "bindings", null, 0, -1, UiEmbeddable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiFieldEClass, UiField.class, "UiField", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiField_Validators(), this.getUiValidator(), null, "validators", null, 0, -1, UiField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiLayoutEClass, UiLayout.class, "UiLayout", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiLayoutAssignmentEClass, UiLayoutAssignment.class, "UiLayoutAssignment", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(uiActionEClass, UiAction.class, "UiAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2704,12 +2949,21 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiTextFieldEClass, UiTextField.class, "UiTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(uiImageEClass, UiImage.class, "UiImage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUiImage_Value(), ecorePackage.getEString(), "value", null, 0, 1, UiImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(uiListEClass, UiList.class, "UiList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiList_SelectionType(), this.getUiSelectionType(), "selectionType", "SINGLE", 1, 1, UiList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiList_ItemImageProperty(), theTypesPackage.getJvmField(), null, "itemImageProperty", null, 0, 1, UiList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiTableEClass, UiTable.class, "UiTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiTable_ColumnAssignment(), this.getUiColumnAssignments(), null, "columnAssignment", null, 0, 1, UiTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiTable_SelectionType(), this.getUiSelectionType(), "selectionType", "SINGLE", 1, 1, UiTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiTable_ItemImageProperty(), theTypesPackage.getJvmField(), null, "itemImageProperty", null, 0, 1, UiTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiComboBoxEClass, UiComboBox.class, "UiComboBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiComboBox_ItemCaptionProperty(), theTypesPackage.getJvmField(), null, "itemCaptionProperty", null, 0, 1, UiComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiComboBox_ItemImageProperty(), theTypesPackage.getJvmField(), null, "itemImageProperty", null, 0, 1, UiComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiTypeProviderEClass, UiTypeProvider.class, "UiTypeProvider", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiTypeProvider_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, UiTypeProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2821,6 +3075,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiTabAssignmentEClass, UiTabAssignment.class, "UiTabAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiTabAssignment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiTabAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(uiMobileNavigationHandlerEClass, UiMobileNavigationHandler.class, "UiMobileNavigationHandler", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(uiMobileNavigationPageEClass, UiMobileNavigationPage.class, "UiMobileNavigationPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiMobileNavigationPage_Contents(), this.getUiMobileNavigationPageAssignment(), null, "contents", null, 0, -1, UiMobileNavigationPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2830,6 +3086,12 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiMobileNavigationButtonEClass, UiMobileNavigationButton.class, "UiMobileNavigationButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiMobileNavigationButton_TargetPage(), this.getUiMobileNavigationPage(), null, "targetPage", null, 0, 1, UiMobileNavigationButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiMobileNavigationButton_TargetPageAlias(), this.getUiMobileNavigationPage(), null, "targetPageAlias", null, 0, 1, UiMobileNavigationButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiCommandEClass, UiCommand.class, "UiCommand", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiMobileNavigationCommandEClass, UiMobileNavigationCommand.class, "UiMobileNavigationCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiMobileNavigationCommand_TargetPage(), this.getUiMobileNavigationPage(), null, "targetPage", null, 0, 1, UiMobileNavigationCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiMobileNavigationCommand_TargetPageAlias(), this.getUiMobileNavigationPage(), null, "targetPageAlias", null, 0, 1, UiMobileNavigationCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(uiFlatAlignmentEEnum, UiFlatAlignment.class, "UiFlatAlignment");

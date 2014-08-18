@@ -3,11 +3,16 @@ package org.lunifera.ecview.dsl.scope;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.common.types.TypesPackage;
 import org.eclipse.xtext.naming.IQualifiedNameConverter;
+import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.ImportNormalizer;
 import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
+import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 
 import com.google.inject.Inject;
 
@@ -43,6 +48,19 @@ public class UiImportedNamespaceAwareLocalScopeProvider extends
 		}
 
 		return result;
+	}
+
+	@Override
+	public IScope getScope(EObject context, EReference reference) {
+		EClass referenceType = reference.getEReferenceType();
+		if (TypesPackage.Literals.JVM_TYPE.isSuperTypeOf(referenceType)) {
+			IScope result = getResourceScope(context.eResource(), reference);
+			return getLocalElementsScope(result, context, reference);
+		} else if (UiModelPackage.Literals.UI_RAW_BINDABLE.isSuperTypeOf(referenceType)) {
+			IScope result = getResourceScope(context.eResource(), reference);
+			return getLocalElementsScope(result, context, reference);
+		}
+		return super.getScope(context, reference);
 	}
 
 	/**

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroupAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiLayout;
@@ -33,6 +34,7 @@ import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalButtonGroupImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalButtonGroupImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalButtonGroupImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalButtonGroupImpl#getContents <em>Contents</em>}</li>
  * </ul>
  * </p>
@@ -79,6 +81,16 @@ public class UiHorizontalButtonGroupImpl extends UiVisibilityProcessableImpl imp
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBindings()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UiBinding> bindings;
 
 	/**
 	 * The cached value of the '{@link #getContents() <em>Contents</em>}' containment reference list.
@@ -156,6 +168,18 @@ public class UiHorizontalButtonGroupImpl extends UiVisibilityProcessableImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<UiBinding> getBindings() {
+		if (bindings == null) {
+			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP__BINDINGS);
+		}
+		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<UiHorizontalButtonGroupAssigment> getContents() {
 		if (contents == null) {
 			contents = new EObjectContainmentEList.Resolving<UiHorizontalButtonGroupAssigment>(UiHorizontalButtonGroupAssigment.class, this, UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP__CONTENTS);
@@ -171,6 +195,8 @@ public class UiHorizontalButtonGroupImpl extends UiVisibilityProcessableImpl imp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP__BINDINGS:
+				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP__CONTENTS:
 				return ((InternalEList<?>)getContents()).basicRemove(otherEnd, msgs);
 		}
@@ -189,6 +215,8 @@ public class UiHorizontalButtonGroupImpl extends UiVisibilityProcessableImpl imp
 				return getId();
 			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP__NAME:
 				return getName();
+			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP__BINDINGS:
+				return getBindings();
 			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP__CONTENTS:
 				return getContents();
 		}
@@ -209,6 +237,10 @@ public class UiHorizontalButtonGroupImpl extends UiVisibilityProcessableImpl imp
 				return;
 			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP__NAME:
 				setName((String)newValue);
+				return;
+			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP__BINDINGS:
+				getBindings().clear();
+				getBindings().addAll((Collection<? extends UiBinding>)newValue);
 				return;
 			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP__CONTENTS:
 				getContents().clear();
@@ -232,6 +264,9 @@ public class UiHorizontalButtonGroupImpl extends UiVisibilityProcessableImpl imp
 			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP__BINDINGS:
+				getBindings().clear();
+				return;
 			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP__CONTENTS:
 				getContents().clear();
 				return;
@@ -251,6 +286,8 @@ public class UiHorizontalButtonGroupImpl extends UiVisibilityProcessableImpl imp
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP__BINDINGS:
+				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP__CONTENTS:
 				return contents != null && !contents.isEmpty();
 		}

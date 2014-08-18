@@ -71,6 +71,7 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_BINDING: return createUiBinding();
 			case UiModelPackage.UI_PATH_SEGMENT: return createUiPathSegment();
 			case UiModelPackage.UI_TYPED_BINDABLE_DEF: return createUiTypedBindableDef();
+			case UiModelPackage.UI_COMMAND_BINDABLE_DEF: return createUiCommandBindableDef();
 			case UiModelPackage.UI_ACTION: return createUiAction();
 			case UiModelPackage.UI_MOBILE_ACTION: return createUiMobileAction();
 			case UiModelPackage.UI_GRID_LAYOUT_ASSIGMENT: return createUiGridLayoutAssigment();
@@ -82,8 +83,10 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_FORM_LAYOUT_ASSIGMENT: return createUiFormLayoutAssigment();
 			case UiModelPackage.UI_FORM_LAYOUT: return createUiFormLayout();
 			case UiModelPackage.UI_TEXT_FIELD: return createUiTextField();
+			case UiModelPackage.UI_IMAGE: return createUiImage();
 			case UiModelPackage.UI_LIST: return createUiList();
 			case UiModelPackage.UI_TABLE: return createUiTable();
+			case UiModelPackage.UI_COMBO_BOX: return createUiComboBox();
 			case UiModelPackage.UI_COLUMN: return createUiColumn();
 			case UiModelPackage.UI_COLUMN_ASSIGNMENTS: return createUiColumnAssignments();
 			case UiModelPackage.UI_NUMERIC_FIELD: return createUiNumericField();
@@ -116,6 +119,7 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE: return createUiMobileNavigationPage();
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT: return createUiMobileNavigationPageAssignment();
 			case UiModelPackage.UI_MOBILE_NAVIGATION_BUTTON: return createUiMobileNavigationButton();
+			case UiModelPackage.UI_MOBILE_NAVIGATION_COMMAND: return createUiMobileNavigationCommand();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -340,6 +344,16 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiCommandBindableDef createUiCommandBindableDef() {
+		UiCommandBindableDefImpl uiCommandBindableDef = new UiCommandBindableDefImpl();
+		return uiCommandBindableDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiGridLayoutAssigment createUiGridLayoutAssigment() {
 		UiGridLayoutAssigmentImpl uiGridLayoutAssigment = new UiGridLayoutAssigmentImpl();
 		return uiGridLayoutAssigment;
@@ -430,6 +444,16 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiImage createUiImage() {
+		UiImageImpl uiImage = new UiImageImpl();
+		return uiImage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiList createUiList() {
 		UiListImpl uiList = new UiListImpl();
 		return uiList;
@@ -443,6 +467,16 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiTable createUiTable() {
 		UiTableImpl uiTable = new UiTableImpl();
 		return uiTable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiComboBox createUiComboBox() {
+		UiComboBoxImpl uiComboBox = new UiComboBoxImpl();
+		return uiComboBox;
 	}
 
 	/**
@@ -743,6 +777,16 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiMobileNavigationButton createUiMobileNavigationButton() {
 		UiMobileNavigationButtonImpl uiMobileNavigationButton = new UiMobileNavigationButtonImpl();
 		return uiMobileNavigationButton;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiMobileNavigationCommand createUiMobileNavigationCommand() {
+		UiMobileNavigationCommandImpl uiMobileNavigationCommand = new UiMobileNavigationCommandImpl();
+		return uiMobileNavigationCommand;
 	}
 
 	/**

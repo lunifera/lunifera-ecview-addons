@@ -11,6 +11,7 @@ import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
+import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTypeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindable;
@@ -69,6 +70,10 @@ public class BindableTypeProvider {
     return null;
   }
   
+  protected JvmTypeReference _doGetTypeReference(final UiCommandBindableDef epDef) {
+    return TypesFactory.eINSTANCE.createJvmUnknownTypeReference();
+  }
+  
   protected JvmTypeReference _doGetTypeReference(final UiTypedBindableDef tbDef) {
     boolean _or = false;
     boolean _equals = Objects.equal(tbDef, null);
@@ -112,8 +117,8 @@ public class BindableTypeProvider {
     throw new UnsupportedOperationException();
   }
   
-  protected JvmTypeReference _doGetTypeReference(final UiTypeProvider table) {
-    return table.getJvmType();
+  protected JvmTypeReference _doGetTypeReference(final UiTypeProvider provider) {
+    return provider.getJvmType();
   }
   
   public JvmTypeReference doGetTypeReference(final EObject beanSlot) {
@@ -123,6 +128,8 @@ public class BindableTypeProvider {
       return _doGetTypeReference((UiBindingEndpointAlias)beanSlot);
     } else if (beanSlot instanceof UiBindingEndpointAssignment) {
       return _doGetTypeReference((UiBindingEndpointAssignment)beanSlot);
+    } else if (beanSlot instanceof UiCommandBindableDef) {
+      return _doGetTypeReference((UiCommandBindableDef)beanSlot);
     } else if (beanSlot instanceof UiTypedBindableDef) {
       return _doGetTypeReference((UiTypedBindableDef)beanSlot);
     } else if (beanSlot instanceof UiBindingExpression) {

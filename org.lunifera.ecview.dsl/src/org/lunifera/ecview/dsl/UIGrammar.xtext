@@ -44,9 +44,9 @@ UiBinding returns UiBinding:
 	(sourceToTarget?='>')?) target=UiBindingEndpointAssignment;
 
 UiBindingEndpointAssignment returns UiBindingExpression:
-	((UiTypedBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} path=(UiPathSegment)?) |
-	({UiBindingEndpointAssignment}
-	typedBindableAlias=[UiTypedBindable] path=(UiPathSegment)?));
+	((UiTypedBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} path=(UiPathSegment)?) 
+		| (UiNavigationCommandBindableDef {UiBindingEndpointAssignment.typedBindableDef=current}) 
+		| ({UiBindingEndpointAssignment} typedBindableAlias=[UiTypedBindable] path=(UiPathSegment)?));
 
 UiPathSegment returns UiPathSegment:
 	'.' jvmField=[JvmField] path=(UiPathSegment)?;
@@ -54,6 +54,21 @@ UiPathSegment returns UiPathSegment:
 UiTypedBindableDef returns UiBindingExpression:
 	{UiTypedBindableDef}
 	(rawBindable=[UiRawBindable|ID] ':' method=[cfg::UxEndpointDef]);
+
+UiNavigationCommandBindableDef returns UiCommandBindableDef:
+	{UiCommandBindableDef}
+	command=UiCommand
+;
+
+UiCommand returns UiCommand:
+	UiMobileNavigationCommand
+;
+
+UiMobileNavigationCommand:
+	{UiMobileNavigationCommand}
+	'navigateTo' targetPage=UiMobileNavigationPage
+;
+
 
 UiView returns UiView:
 	UiIDEView;
@@ -147,6 +162,7 @@ UiMobileVerticalComponentGroup returns UiVerticalComponentGroup:
 	name=ID?
 	'{'
 	(contents+=UiMobileVerticalComponentGroupAssigment)*
+	(bindings+=UiBinding)*
 	'}';
 
 UiMobileVerticalComponentGroupAssigment returns UiVerticalComponentGroupAssigment:
@@ -174,13 +190,14 @@ UiTabSheet:
 UiTabAssignment:
 	'tab' (name=ID)? element=UiEmbeddable;
 
-
 UiMobileNavigationPage: 
 	{UiMobileNavigationPage}
 	'navPage'
 	name=ID?
 	'{'
+	('type' jvmType=JvmTypeReference ';')?
 	(contents+=UiMobileNavigationPageAssignment)*
+	(bindings+=UiBinding)*
 	'}';
 
 UiMobileNavigationPageAssignment: 
@@ -196,10 +213,18 @@ UiTextField returns UiTextField:
 	(validators+=UiValidator)*
 	//	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
+	
+UiImage returns UiImage:
+	{UiImage}
+	'image' name=ID?
+	('{'
+		('iconPath' value=STRING)?
+		(bindings+=UiBinding)*
+	'}')?;
 
 UiList returns UiList:
 	{UiList}
-	'list' name=ID?;
+	'listSelect' name=ID?;
 
 UiTable returns UiTable:
 	{UiTable}
@@ -207,7 +232,19 @@ UiTable returns UiTable:
 	('{'
 	('type' jvmType=JvmTypeReference ';')?
 	('selectionType' selectionType=UiSelectionType)?
+	('imageField' itemImageProperty=[JvmField])?
 	columnAssignment=UiColumnAssignments?
+	(bindings+=UiBinding)*
+	'}')?;
+	 
+UiComboBox returns UiComboBox:
+	{UiComboBox}
+	'combo' name=ID?
+	('{'
+	('type' jvmType=JvmTypeReference ';')?
+		('captionField' itemCaptionProperty=[JvmField])?
+		('imageField' itemImageProperty=[JvmField])?
+		(bindings+=UiBinding)*
 	'}')?;
 
 UiButton:
@@ -216,7 +253,7 @@ UiButton:
 	
 UiMobileNavigationButton: 
 	{UiMobileNavigationButton}
-	'navigate' name=ID? (targetPage=UiMobileNavigationPage | 'alias' targetPageAlias=[UiMobileNavigationPage]);
+	'navButton' name=ID? (targetPage=UiMobileNavigationPage | 'alias' targetPageAlias=[UiMobileNavigationPage]);
 
 UiMobileSwitch returns UiSwitch:
 	{UiSwitch}
@@ -247,16 +284,16 @@ UiMobileLayout:
 	
 UiMobileField:
 	UiMobileSwitch;
-	
+
 UiLayout:
 	UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout;
 
 UiField:
-	UiTextField | UiList | UiNumericField | UiCheckBox | UiTable;
-	
+	UiTextField | UiList | UiNumericField | UiCheckBox | UiTable | UiComboBox | UiImage;
+
 UiAction:
 	UiButton;
-	
+
 UiMobileAction:
 	UiMobileNavigationButton
 ;
@@ -274,7 +311,6 @@ UiCheckBox:
 	'checkbox' name=ID?
 	('{'
 	(validators+=UiValidator)*
-	//	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
 
 UiValidator:
@@ -294,5 +330,5 @@ UiRegexpValidator returns UiRegexpValidator:
 
 UiXbaseValidator returns UiXbaseValidator:
 	{UiXbaseValidator}
-	'Expression' name=ID? '(' jvmType=JvmTypeReference ')' expression=XBlockExpression?;	
+	'Expression' name=ID? '(' jvmType=JvmTypeReference ')' expression=XBlockExpression?;
 

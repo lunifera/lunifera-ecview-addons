@@ -107,6 +107,18 @@ import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderFactory
 
 import static org.lunifera.ecview.semantic.uimodel.UiFlatAlignment.*
 import static org.lunifera.ecview.semantic.uimodel.UiSelectionType.*
+import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationCommand
+import org.lunifera.ecview.semantic.uimodel.UiCommand
+import org.lunifera.mobile.vaadin.ecview.model.VMNavigationCommand
+import org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener.Event
+import org.lunifera.mobile.vaadin.ecview.model.VMNavigationHandler
+import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiNavigationCommandBindableDefElements
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationHandler
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YComboBox
+import org.lunifera.ecview.semantic.uimodel.UiComboBox
+import org.lunifera.ecview.semantic.uimodel.UiImage
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YImage
 
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
@@ -547,8 +559,37 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		eObject.contents.forEach [
 			it.map
 		]
+		
+		if (eObject.bindings != null) {
+			eObject.bindings.forEach [
+				it.map
+			]
+		}
 
-		pop
+		pop 
+	}
+	
+	def void createTransient(UiMobileNavigationPage eObject) {
+		val VMNavigationPage layout = VaadinMobileFactory.eINSTANCE.createVMNavigationPage
+		layout.name = eObject.name
+
+		// do NOT add to parent!
+
+		eObject.associateUi(layout)
+
+		layout.push
+
+		eObject.contents.forEach [
+			it.map
+		]
+		
+		if (eObject.bindings != null) {
+			eObject.bindings.forEach [
+				it.map
+			]
+		}
+
+		pop 
 	}
 
 	def dispatch void map(UiMobileNavigationPageAssignment eObject) {
@@ -620,6 +661,39 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 				it.map
 			]
 		}
+		
+		if (eObject.bindings != null) {
+			eObject.bindings.forEach [
+				it.map
+			]
+		}
+		
+		pop
+	}
+	
+	def dispatch void map(UiImage eObject) {
+		val YImage yField = eObject.associatedUi
+		yField.push
+
+		if (eObject.bindings != null) {
+			eObject.bindings.forEach [
+				it.map
+			]
+		}
+		
+		pop
+	}
+	
+	def dispatch void map(UiComboBox eObject) {
+		val YComboBox yField = eObject.associatedUi
+		yField.push
+ 
+		if (eObject.bindings != null) {
+			eObject.bindings.forEach [
+				it.map
+			]
+		}
+		
 		pop
 	}
 
@@ -762,12 +836,26 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		return textField
 	}
+	
+	def dispatch YEmbeddable create(UiImage object) {
+		val YImage image = factory.createImage
+		image.name = object.name
+		image.label = object.name
+
+		image.value = object.value
+
+		object.associateUi(image)
+
+		return image
+	}
 
 	def dispatch YEmbeddable create(UiTable object) {
 		val YTable table = factory.createTable
 		table.name = object.name
 		table.label = object.name
 		table.selectionType = object.selectionType.convert
+
+		table.itemImageProperty = object.itemImageProperty?.simpleName
 
 		if (object.jvmType != null) {
 			table.typeQualifiedName = object.jvmType.qualifiedName
@@ -799,7 +887,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		return field
 	}
-
+ 
 	def dispatch YEmbeddable create(UiCheckBox object) {
 		val YCheckBox field = factory.createCheckBox
 		field.name = object.name
@@ -809,6 +897,25 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		return field
 	}
+
+	def dispatch YEmbeddable create(UiComboBox object) {
+		val YComboBox field = factory.createComboBox
+		field.name = object.name
+		field.label = object.name
+		
+		field.itemCaptionProperty = object.itemCaptionProperty?.simpleName
+		field.itemImageProperty = object.itemImageProperty?.simpleName
+
+		if (object.jvmType != null) {
+			field.typeQualifiedName = object.jvmType.qualifiedName
+			field.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
+		}
+
+		object.associateUi(field)
+
+		return field
+	}
+
 
 	def dispatch YEmbeddable create(UiSwitch object) {
 		val VMSwitch field = VaadinMobileFactory.eINSTANCE.createVMSwitch
@@ -837,6 +944,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		} else if (context instanceof VMNavigationButton) {
 			val VMNavigationButton yButton = context as VMNavigationButton
 			yButton.page = embeddable as VMNavigationPage
+		} else if (context instanceof VMNavigationCommand) {
+			val VMNavigationCommand yCommand = context as VMNavigationCommand
+			yCommand.targetPage = embeddable as VMNavigationPage
 		}
 	}
 
@@ -928,10 +1038,41 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 				ep.emfNsURI = yElement.eClass.EPackage.nsURI
 			}
 			result = ep
+		} else if (info.bindingRoot instanceof UiMobileNavigationCommand) {
+			val UiMobileNavigationCommand command = info.bindingRoot as UiMobileNavigationCommand
+			
+			// Create the command and register it at the current view
+			val VMNavigationCommand yCommand = VaadinMobileFactory.eINSTANCE.createVMNavigationCommand
+			
+			currentView.commandSet.addCommand(yCommand)
+			
+			// create the target page and add it to the command
+			yCommand.push
+			command.targetPage.map
+
+			// since navHandler is parent, it must be created yet
+			val UiMobileNavigationHandler navHandler = epDef.findNavHandler
+			yCommand.navigationHandler = (navHandler as EObject).associatedUi
+
+			pop
+
+			result = yCommand.createNavigationValueEndpoint
 		}
 
 		return result
 	}
+	
+	def UiMobileNavigationHandler findNavHandler(UiBindingEndpointAssignment assignment){
+		var EObject temp = assignment;
+		while(temp.eContainer != null){
+			temp = temp.eContainer
+			if(temp instanceof UiMobileNavigationHandler){
+				return temp as UiMobileNavigationHandler
+			}
+		}
+		return null
+	}
+	
 
 	def YListBindingEndpoint createListBindingEndpoint(UiBindingEndpointAssignment epDef) {
 		if (epDef == null) {
@@ -1008,7 +1149,13 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			info.appendPath(bindingMethod.name)
 		}
 	}
-
+	
+	def dispatch void collectBindingInfo(UiCommandBindableDef definition, UiModelDerivedStateComputerx.BindingInfo info) {
+		// must be the last element
+		info.typeForBinding = typeOfBoundPropertyProvider.getType(definition)
+		info.bindingRoot = definition.command
+	}
+	
 	def dispatch void collectBindingInfo(UiBindingExpression definition, UiModelDerivedStateComputerx.BindingInfo info) {
 		throw new UnsupportedOperationException
 	}

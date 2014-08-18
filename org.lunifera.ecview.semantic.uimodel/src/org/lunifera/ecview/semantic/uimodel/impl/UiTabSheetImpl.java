@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
@@ -26,6 +27,7 @@ import org.lunifera.ecview.semantic.uimodel.UiTabSheet;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTabSheetImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTabSheetImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTabSheetImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTabSheetImpl#getTabs <em>Tabs</em>}</li>
  * </ul>
  * </p>
@@ -72,6 +74,16 @@ public class UiTabSheetImpl extends UiVisibilityProcessableImpl implements UiTab
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBindings()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UiBinding> bindings;
 
 	/**
 	 * The cached value of the '{@link #getTabs() <em>Tabs</em>}' containment reference list.
@@ -149,6 +161,18 @@ public class UiTabSheetImpl extends UiVisibilityProcessableImpl implements UiTab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<UiBinding> getBindings() {
+		if (bindings == null) {
+			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_TAB_SHEET__BINDINGS);
+		}
+		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<UiTabAssignment> getTabs() {
 		if (tabs == null) {
 			tabs = new EObjectContainmentEList.Resolving<UiTabAssignment>(UiTabAssignment.class, this, UiModelPackage.UI_TAB_SHEET__TABS);
@@ -164,6 +188,8 @@ public class UiTabSheetImpl extends UiVisibilityProcessableImpl implements UiTab
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case UiModelPackage.UI_TAB_SHEET__BINDINGS:
+				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_TAB_SHEET__TABS:
 				return ((InternalEList<?>)getTabs()).basicRemove(otherEnd, msgs);
 		}
@@ -182,6 +208,8 @@ public class UiTabSheetImpl extends UiVisibilityProcessableImpl implements UiTab
 				return getId();
 			case UiModelPackage.UI_TAB_SHEET__NAME:
 				return getName();
+			case UiModelPackage.UI_TAB_SHEET__BINDINGS:
+				return getBindings();
 			case UiModelPackage.UI_TAB_SHEET__TABS:
 				return getTabs();
 		}
@@ -202,6 +230,10 @@ public class UiTabSheetImpl extends UiVisibilityProcessableImpl implements UiTab
 				return;
 			case UiModelPackage.UI_TAB_SHEET__NAME:
 				setName((String)newValue);
+				return;
+			case UiModelPackage.UI_TAB_SHEET__BINDINGS:
+				getBindings().clear();
+				getBindings().addAll((Collection<? extends UiBinding>)newValue);
 				return;
 			case UiModelPackage.UI_TAB_SHEET__TABS:
 				getTabs().clear();
@@ -225,6 +257,9 @@ public class UiTabSheetImpl extends UiVisibilityProcessableImpl implements UiTab
 			case UiModelPackage.UI_TAB_SHEET__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case UiModelPackage.UI_TAB_SHEET__BINDINGS:
+				getBindings().clear();
+				return;
 			case UiModelPackage.UI_TAB_SHEET__TABS:
 				getTabs().clear();
 				return;
@@ -244,6 +279,8 @@ public class UiTabSheetImpl extends UiVisibilityProcessableImpl implements UiTab
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case UiModelPackage.UI_TAB_SHEET__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiModelPackage.UI_TAB_SHEET__BINDINGS:
+				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_TAB_SHEET__TABS:
 				return tabs != null && !tabs.isEmpty();
 		}

@@ -5,9 +5,12 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.common.types.util.TypeReferences;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiComboBox;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
@@ -27,23 +30,35 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 	@Inject
 	private BindableTypeProvider typeProvider;
 
+	@Inject
+	private ResourceDescriptionsProvider provider;
+
+	@Inject
+	private IQualifiedNameProvider nameProvider;
+
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
 		if (reference == UiModelPackage.Literals.UI_TYPED_BINDABLE_DEF__METHOD) {
-			return new BindingEndpointDefMethodScope(super.getScope(context,
-					reference), (UiTypedBindableDef) context);
-			// } else if (reference ==
-			// UiModelPackage.Literals.UI_BINDING__SOURCE_ALIAS
-			// || reference == UiModelPackage.Literals.UI_BINDING__TARGET_ALIAS)
-			// {
-			// return new BindingAliasScope(super.getScope(context, reference),
-			// (UiBinding) context, reference);
+			return new BindingEndpointDefMethodScope(
+					provider.getResourceDescriptions(context.eResource()),
+					(UiTypedBindableDef) context);
+		} else if (reference == UiModelPackage.Literals.UI_TYPED_BINDABLE_DEF__RAW_BINDABLE) {
+			return new BindingEndpointDefRawBindableScope(super.getScope(
+					context, reference), context, nameProvider);
 		} else if (reference == UiModelPackage.Literals.UI_BINDING_ENDPOINT_ASSIGNMENT__PATH) {
 			return createBindingEndpointDefPathScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_PATH_SEGMENT__JVM_FIELD) {
 			return createPathSegmentJvmFieldScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_COLUMN__JVM_FIELD) {
 			return createUiColumnJvmFieldScope(context);
+		} else if (reference == UiModelPackage.Literals.UI_COMBO_BOX__ITEM_CAPTION_PROPERTY) {
+			return createJvmFieldScope(context);
+		} else if (reference == UiModelPackage.Literals.UI_COMBO_BOX__ITEM_IMAGE_PROPERTY) {
+			return createJvmFieldScope(context);
+		} else if (reference == UiModelPackage.Literals.UI_TABLE__ITEM_IMAGE_PROPERTY) {
+			return createJvmFieldScope(context);
+		} else if (reference == UiModelPackage.Literals.UI_LIST__ITEM_IMAGE_PROPERTY) {
+			return createJvmFieldScope(context);
 		}
 		return super.getScope(context, reference);
 	}
@@ -88,6 +103,22 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 	private IScope createUiColumnJvmFieldScope(EObject context) {
 		UiTable table = (UiTable) context.eContainer().eContainer();
 		JvmTypeReference expectedType = typeProvider.getTypeReference(table);
+		if (expectedType == null) {
+			return IScope.NULLSCOPE;
+		} else {
+			return new BindingPathScope(expectedType.getType());
+		}
+	}
+
+	/**
+	 * Creates a scope that returns the jvm fields available for the current
+	 * state.
+	 * 
+	 * @param context
+	 * @return
+	 */
+	private IScope createJvmFieldScope(EObject context) {
+		JvmTypeReference expectedType = typeProvider.getTypeReference(context);
 		if (expectedType == null) {
 			return IScope.NULLSCOPE;
 		} else {

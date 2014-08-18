@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
@@ -32,6 +33,7 @@ import org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutImpl#getContents <em>Contents</em>}</li>
  * </ul>
  * </p>
@@ -78,6 +80,16 @@ public class UiVerticalLayoutImpl extends UiVisibilityProcessableImpl implements
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBindings()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UiBinding> bindings;
 
 	/**
 	 * The cached value of the '{@link #getContents() <em>Contents</em>}' containment reference list.
@@ -155,6 +167,18 @@ public class UiVerticalLayoutImpl extends UiVisibilityProcessableImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<UiBinding> getBindings() {
+		if (bindings == null) {
+			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_VERTICAL_LAYOUT__BINDINGS);
+		}
+		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<UiVerticalLayoutAssigment> getContents() {
 		if (contents == null) {
 			contents = new EObjectContainmentEList.Resolving<UiVerticalLayoutAssigment>(UiVerticalLayoutAssigment.class, this, UiModelPackage.UI_VERTICAL_LAYOUT__CONTENTS);
@@ -170,6 +194,8 @@ public class UiVerticalLayoutImpl extends UiVisibilityProcessableImpl implements
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case UiModelPackage.UI_VERTICAL_LAYOUT__BINDINGS:
+				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_VERTICAL_LAYOUT__CONTENTS:
 				return ((InternalEList<?>)getContents()).basicRemove(otherEnd, msgs);
 		}
@@ -188,6 +214,8 @@ public class UiVerticalLayoutImpl extends UiVisibilityProcessableImpl implements
 				return getId();
 			case UiModelPackage.UI_VERTICAL_LAYOUT__NAME:
 				return getName();
+			case UiModelPackage.UI_VERTICAL_LAYOUT__BINDINGS:
+				return getBindings();
 			case UiModelPackage.UI_VERTICAL_LAYOUT__CONTENTS:
 				return getContents();
 		}
@@ -208,6 +236,10 @@ public class UiVerticalLayoutImpl extends UiVisibilityProcessableImpl implements
 				return;
 			case UiModelPackage.UI_VERTICAL_LAYOUT__NAME:
 				setName((String)newValue);
+				return;
+			case UiModelPackage.UI_VERTICAL_LAYOUT__BINDINGS:
+				getBindings().clear();
+				getBindings().addAll((Collection<? extends UiBinding>)newValue);
 				return;
 			case UiModelPackage.UI_VERTICAL_LAYOUT__CONTENTS:
 				getContents().clear();
@@ -231,6 +263,9 @@ public class UiVerticalLayoutImpl extends UiVisibilityProcessableImpl implements
 			case UiModelPackage.UI_VERTICAL_LAYOUT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case UiModelPackage.UI_VERTICAL_LAYOUT__BINDINGS:
+				getBindings().clear();
+				return;
 			case UiModelPackage.UI_VERTICAL_LAYOUT__CONTENTS:
 				getContents().clear();
 				return;
@@ -250,6 +285,8 @@ public class UiVerticalLayoutImpl extends UiVisibilityProcessableImpl implements
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case UiModelPackage.UI_VERTICAL_LAYOUT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiModelPackage.UI_VERTICAL_LAYOUT__BINDINGS:
+				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_VERTICAL_LAYOUT__CONTENTS:
 				return contents != null && !contents.isEmpty();
 		}

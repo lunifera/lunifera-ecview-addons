@@ -6,22 +6,24 @@ import java.util.List;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.resource.EObjectDescription;
 import org.eclipse.xtext.resource.IEObjectDescription;
+import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractScope;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
+import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 
 public class BindingEndpointDefMethodScope extends AbstractScope {
 
 	private UiTypedBindableDef bindingEndpointDef;
-	private IScope parent;
+	private IResourceDescriptions desc;
 
-	protected BindingEndpointDefMethodScope(IScope parent,
+	protected BindingEndpointDefMethodScope(IResourceDescriptions desc,
 			UiTypedBindableDef context) {
 		super(IScope.NULLSCOPE, true);
-		this.parent = parent;
+		this.desc = desc;
 		bindingEndpointDef = context;
 	}
 
@@ -30,7 +32,8 @@ public class BindingEndpointDefMethodScope extends AbstractScope {
 		UiRawBindable yEmb = bindingEndpointDef.getRawBindable();
 
 		List<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
-		for (IEObjectDescription des : parent.getAllElements()) {
+		for (IEObjectDescription des : desc
+				.getExportedObjectsByType(UiSemanticsPackage.Literals.UX_ENDPOINT_DEF)) {
 			UxEndpointDef binding = (UxEndpointDef) des.getEObjectOrProxy();
 			binding = (UxEndpointDef) EcoreUtil.resolve(binding,
 					bindingEndpointDef);

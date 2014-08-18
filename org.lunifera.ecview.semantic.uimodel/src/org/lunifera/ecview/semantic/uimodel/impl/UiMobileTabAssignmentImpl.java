@@ -2,14 +2,19 @@
  */
 package org.lunifera.ecview.semantic.uimodel.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
@@ -25,6 +30,7 @@ import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileTabAssignmentImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileTabAssignmentImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileTabAssignmentImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileTabAssignmentImpl#getElement <em>Element</em>}</li>
  * </ul>
  * </p>
@@ -71,6 +77,16 @@ public class UiMobileTabAssignmentImpl extends UiVisibilityProcessableImpl imple
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBindings()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UiBinding> bindings;
 
 	/**
 	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference.
@@ -148,6 +164,18 @@ public class UiMobileTabAssignmentImpl extends UiVisibilityProcessableImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<UiBinding> getBindings() {
+		if (bindings == null) {
+			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_MOBILE_TAB_ASSIGNMENT__BINDINGS);
+		}
+		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiEmbeddable getElement() {
 		if (element != null && element.eIsProxy()) {
 			InternalEObject oldElement = (InternalEObject)element;
@@ -217,6 +245,8 @@ public class UiMobileTabAssignmentImpl extends UiVisibilityProcessableImpl imple
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case UiModelPackage.UI_MOBILE_TAB_ASSIGNMENT__BINDINGS:
+				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_MOBILE_TAB_ASSIGNMENT__ELEMENT:
 				return basicSetElement(null, msgs);
 		}
@@ -235,6 +265,8 @@ public class UiMobileTabAssignmentImpl extends UiVisibilityProcessableImpl imple
 				return getId();
 			case UiModelPackage.UI_MOBILE_TAB_ASSIGNMENT__NAME:
 				return getName();
+			case UiModelPackage.UI_MOBILE_TAB_ASSIGNMENT__BINDINGS:
+				return getBindings();
 			case UiModelPackage.UI_MOBILE_TAB_ASSIGNMENT__ELEMENT:
 				if (resolve) return getElement();
 				return basicGetElement();
@@ -247,6 +279,7 @@ public class UiMobileTabAssignmentImpl extends UiVisibilityProcessableImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -255,6 +288,10 @@ public class UiMobileTabAssignmentImpl extends UiVisibilityProcessableImpl imple
 				return;
 			case UiModelPackage.UI_MOBILE_TAB_ASSIGNMENT__NAME:
 				setName((String)newValue);
+				return;
+			case UiModelPackage.UI_MOBILE_TAB_ASSIGNMENT__BINDINGS:
+				getBindings().clear();
+				getBindings().addAll((Collection<? extends UiBinding>)newValue);
 				return;
 			case UiModelPackage.UI_MOBILE_TAB_ASSIGNMENT__ELEMENT:
 				setElement((UiEmbeddable)newValue);
@@ -277,6 +314,9 @@ public class UiMobileTabAssignmentImpl extends UiVisibilityProcessableImpl imple
 			case UiModelPackage.UI_MOBILE_TAB_ASSIGNMENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case UiModelPackage.UI_MOBILE_TAB_ASSIGNMENT__BINDINGS:
+				getBindings().clear();
+				return;
 			case UiModelPackage.UI_MOBILE_TAB_ASSIGNMENT__ELEMENT:
 				setElement((UiEmbeddable)null);
 				return;
@@ -296,6 +336,8 @@ public class UiMobileTabAssignmentImpl extends UiVisibilityProcessableImpl imple
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case UiModelPackage.UI_MOBILE_TAB_ASSIGNMENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiModelPackage.UI_MOBILE_TAB_ASSIGNMENT__BINDINGS:
+				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_MOBILE_TAB_ASSIGNMENT__ELEMENT:
 				return element != null;
 		}

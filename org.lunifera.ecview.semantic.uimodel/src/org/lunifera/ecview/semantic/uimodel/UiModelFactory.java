@@ -184,6 +184,15 @@ public interface UiModelFactory extends EFactory {
 	UiTypedBindableDef createUiTypedBindableDef();
 
 	/**
+	 * Returns a new object of class '<em>Ui Command Bindable Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Command Bindable Def</em>'.
+	 * @generated
+	 */
+	UiCommandBindableDef createUiCommandBindableDef();
+
+	/**
 	 * Returns a new object of class '<em>Ui Grid Layout Assigment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -265,6 +274,15 @@ public interface UiModelFactory extends EFactory {
 	UiTextField createUiTextField();
 
 	/**
+	 * Returns a new object of class '<em>Ui Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Image</em>'.
+	 * @generated
+	 */
+	UiImage createUiImage();
+
+	/**
 	 * Returns a new object of class '<em>Ui List</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -281,6 +299,15 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiTable createUiTable();
+
+	/**
+	 * Returns a new object of class '<em>Ui Combo Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Combo Box</em>'.
+	 * @generated
+	 */
+	UiComboBox createUiComboBox();
 
 	/**
 	 * Returns a new object of class '<em>Ui Column</em>'.
@@ -551,6 +578,15 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiMobileNavigationButton createUiMobileNavigationButton();
+
+	/**
+	 * Returns a new object of class '<em>Ui Mobile Navigation Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Mobile Navigation Command</em>'.
+	 * @generated
+	 */
+	UiMobileNavigationCommand createUiMobileNavigationCommand();
 
 	/**
 	 * Returns the package supported by this factory.

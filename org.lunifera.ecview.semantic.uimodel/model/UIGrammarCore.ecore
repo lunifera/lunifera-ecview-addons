@@ -89,8 +89,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rawBindable" eType="#//UiRawBindable"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="ecore:EClass ../../org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore#//UxEndpointDef"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiCommandBindableDef" eSuperTypes="#//UiTypedBindable #//UiBindingExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="command" eType="#//UiCommand"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiEmbeddable" abstract="true" interface="true"
-      eSuperTypes="#//UiVisibilityProcessable #//UiRawBindable"/>
+      eSuperTypes="#//UiVisibilityProcessable #//UiRawBindable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
+        eType="#//UiBinding" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiField" abstract="true" interface="true"
       eSuperTypes="#//UiEmbeddable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="validators" upperBound="-1"
@@ -98,6 +105,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiLayout" abstract="true" interface="true"
       eSuperTypes="#//UiEmbeddable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiLayoutAssignment" abstract="true"
+      interface="true" eSuperTypes="#//UiNamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiAction" eSuperTypes="#//UiEmbeddable"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiMobileEmbeddable" abstract="true"
       interface="true" eSuperTypes="#//UiEmbeddable"/>
@@ -106,7 +115,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="UiMobileLayout" abstract="true" interface="true"
       eSuperTypes="#//UiMobileEmbeddable #//UiLayout"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiMobileAction" eSuperTypes="#//UiMobileEmbeddable #//UiAction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiGridLayoutAssigment">
+  <eClassifiers xsi:type="ecore:EClass" name="UiGridLayoutAssigment" eSuperTypes="#//UiLayoutAssignment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//UiPoint"
@@ -118,7 +127,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
         eType="#//UiGridLayoutAssigment" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiHorizontalLayoutAssigment">
+  <eClassifiers xsi:type="ecore:EClass" name="UiHorizontalLayoutAssigment" eSuperTypes="#//UiLayoutAssignment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
         containment="true"/>
   </eClassifiers>
@@ -126,7 +135,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
         eType="#//UiHorizontalLayoutAssigment" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiVerticalLayoutAssigment">
+  <eClassifiers xsi:type="ecore:EClass" name="UiVerticalLayoutAssigment" eSuperTypes="#//UiLayoutAssignment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
         containment="true"/>
   </eClassifiers>
@@ -134,7 +143,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
         eType="#//UiVerticalLayoutAssigment" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiFormLayoutAssigment">
+  <eClassifiers xsi:type="ecore:EClass" name="UiFormLayoutAssigment" eSuperTypes="#//UiLayoutAssignment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
         containment="true"/>
   </eClassifiers>
@@ -143,6 +152,9 @@
         eType="#//UiFormLayoutAssigment" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiTextField" eSuperTypes="#//UiField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiImage" eSuperTypes="#//UiField">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="UiSelectionType">
     <eLiterals name="NONE" literal="NONE"/>
     <eLiterals name="SINGLE" value="1" literal="SINGLE"/>
@@ -151,12 +163,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="UiList" eSuperTypes="#//UiField #//UiTypeProvider">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionType" lowerBound="1"
         eType="#//UiSelectionType" defaultValueLiteral="SINGLE"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemImageProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmField"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiTable" eSuperTypes="#//UiField #//UiTypeProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="columnAssignment" eType="#//UiColumnAssignments"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionType" lowerBound="1"
         eType="#//UiSelectionType" defaultValueLiteral="SINGLE"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemImageProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmField"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiComboBox" eSuperTypes="#//UiField #//UiTypeProvider">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemCaptionProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmField"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemImageProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmField"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiTypeProvider" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
@@ -260,7 +278,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiHorizontalButtonGroupAssigment">
+  <eClassifiers xsi:type="ecore:EClass" name="UiHorizontalButtonGroupAssigment" eSuperTypes="#//UiLayoutAssignment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
         containment="true"/>
   </eClassifiers>
@@ -270,7 +288,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiButton" eSuperTypes="#//UiAction"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiSwitch" eSuperTypes="#//UiMobileField"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiVerticalComponentGroupAssigment">
+  <eClassifiers xsi:type="ecore:EClass" name="UiVerticalComponentGroupAssigment" eSuperTypes="#//UiLayoutAssignment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
         containment="true"/>
   </eClassifiers>
@@ -290,19 +308,28 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="tabs" upperBound="-1" eType="#//UiTabAssignment"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiTabAssignment" eSuperTypes="#//UiEmbeddable">
+  <eClassifiers xsi:type="ecore:EClass" name="UiTabAssignment" eSuperTypes="#//UiLayoutAssignment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiMobileNavigationPage" eSuperTypes="#//UiMobileLayout">
+  <eClassifiers xsi:type="ecore:EClass" name="UiMobileNavigationHandler" abstract="true"
+      interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiMobileNavigationPage" eSuperTypes="#//UiMobileLayout #//UiTypeProvider #//UiMobileNavigationHandler">
     <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
         eType="#//UiMobileNavigationPageAssignment" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiMobileNavigationPageAssignment" eSuperTypes="#//UiMobileAction">
+  <eClassifiers xsi:type="ecore:EClass" name="UiMobileNavigationPageAssignment" eSuperTypes="#//UiLayoutAssignment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiMobileNavigationButton" eSuperTypes="#//UiMobileAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetPage" eType="#//UiMobileNavigationPage"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetPageAlias" eType="#//UiMobileNavigationPage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiCommand" abstract="true" interface="true"
+      eSuperTypes="#//UiNamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiMobileNavigationCommand" eSuperTypes="#//UiCommand">
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetPage" eType="#//UiMobileNavigationPage"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetPageAlias" eType="#//UiMobileNavigationPage"/>

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
@@ -26,6 +27,7 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiCheckBoxImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiCheckBoxImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiCheckBoxImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiCheckBoxImpl#getValidators <em>Validators</em>}</li>
  * </ul>
  * </p>
@@ -70,6 +72,15 @@ public class UiCheckBoxImpl extends UiVisibilityProcessableImpl implements UiChe
 	 */
 	protected String name = NAME_EDEFAULT;
 
+	/**
+	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBindings()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UiBinding> bindings;
 	/**
 	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -146,6 +157,18 @@ public class UiCheckBoxImpl extends UiVisibilityProcessableImpl implements UiChe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<UiBinding> getBindings() {
+		if (bindings == null) {
+			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_CHECK_BOX__BINDINGS);
+		}
+		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<UiValidator> getValidators() {
 		if (validators == null) {
 			validators = new EObjectContainmentEList.Resolving<UiValidator>(UiValidator.class, this, UiModelPackage.UI_CHECK_BOX__VALIDATORS);
@@ -161,6 +184,8 @@ public class UiCheckBoxImpl extends UiVisibilityProcessableImpl implements UiChe
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case UiModelPackage.UI_CHECK_BOX__BINDINGS:
+				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_CHECK_BOX__VALIDATORS:
 				return ((InternalEList<?>)getValidators()).basicRemove(otherEnd, msgs);
 		}
@@ -179,6 +204,8 @@ public class UiCheckBoxImpl extends UiVisibilityProcessableImpl implements UiChe
 				return getId();
 			case UiModelPackage.UI_CHECK_BOX__NAME:
 				return getName();
+			case UiModelPackage.UI_CHECK_BOX__BINDINGS:
+				return getBindings();
 			case UiModelPackage.UI_CHECK_BOX__VALIDATORS:
 				return getValidators();
 		}
@@ -199,6 +226,10 @@ public class UiCheckBoxImpl extends UiVisibilityProcessableImpl implements UiChe
 				return;
 			case UiModelPackage.UI_CHECK_BOX__NAME:
 				setName((String)newValue);
+				return;
+			case UiModelPackage.UI_CHECK_BOX__BINDINGS:
+				getBindings().clear();
+				getBindings().addAll((Collection<? extends UiBinding>)newValue);
 				return;
 			case UiModelPackage.UI_CHECK_BOX__VALIDATORS:
 				getValidators().clear();
@@ -222,6 +253,9 @@ public class UiCheckBoxImpl extends UiVisibilityProcessableImpl implements UiChe
 			case UiModelPackage.UI_CHECK_BOX__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case UiModelPackage.UI_CHECK_BOX__BINDINGS:
+				getBindings().clear();
+				return;
 			case UiModelPackage.UI_CHECK_BOX__VALIDATORS:
 				getValidators().clear();
 				return;
@@ -241,6 +275,8 @@ public class UiCheckBoxImpl extends UiVisibilityProcessableImpl implements UiChe
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case UiModelPackage.UI_CHECK_BOX__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiModelPackage.UI_CHECK_BOX__BINDINGS:
+				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_CHECK_BOX__VALIDATORS:
 				return validators != null && !validators.isEmpty();
 		}

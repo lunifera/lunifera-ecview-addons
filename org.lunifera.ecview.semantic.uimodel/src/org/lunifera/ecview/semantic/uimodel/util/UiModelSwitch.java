@@ -211,6 +211,15 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_COMMAND_BINDABLE_DEF: {
+				UiCommandBindableDef uiCommandBindableDef = (UiCommandBindableDef)theEObject;
+				T result = caseUiCommandBindableDef(uiCommandBindableDef);
+				if (result == null) result = caseUiTypedBindable(uiCommandBindableDef);
+				if (result == null) result = caseUiBindingExpression(uiCommandBindableDef);
+				if (result == null) result = caseUiNamedElement(uiCommandBindableDef);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case UiModelPackage.UI_EMBEDDABLE: {
 				UiEmbeddable uiEmbeddable = (UiEmbeddable)theEObject;
 				T result = caseUiEmbeddable(uiEmbeddable);
@@ -237,6 +246,13 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiVisibilityProcessable(uiLayout);
 				if (result == null) result = caseUiRawBindable(uiLayout);
 				if (result == null) result = caseUiNamedElement(uiLayout);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_LAYOUT_ASSIGNMENT: {
+				UiLayoutAssignment uiLayoutAssignment = (UiLayoutAssignment)theEObject;
+				T result = caseUiLayoutAssignment(uiLayoutAssignment);
+				if (result == null) result = caseUiNamedElement(uiLayoutAssignment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -299,6 +315,8 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_GRID_LAYOUT_ASSIGMENT: {
 				UiGridLayoutAssigment uiGridLayoutAssigment = (UiGridLayoutAssigment)theEObject;
 				T result = caseUiGridLayoutAssigment(uiGridLayoutAssigment);
+				if (result == null) result = caseUiLayoutAssignment(uiGridLayoutAssigment);
+				if (result == null) result = caseUiNamedElement(uiGridLayoutAssigment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -316,6 +334,8 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_HORIZONTAL_LAYOUT_ASSIGMENT: {
 				UiHorizontalLayoutAssigment uiHorizontalLayoutAssigment = (UiHorizontalLayoutAssigment)theEObject;
 				T result = caseUiHorizontalLayoutAssigment(uiHorizontalLayoutAssigment);
+				if (result == null) result = caseUiLayoutAssignment(uiHorizontalLayoutAssigment);
+				if (result == null) result = caseUiNamedElement(uiHorizontalLayoutAssigment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -333,6 +353,8 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_VERTICAL_LAYOUT_ASSIGMENT: {
 				UiVerticalLayoutAssigment uiVerticalLayoutAssigment = (UiVerticalLayoutAssigment)theEObject;
 				T result = caseUiVerticalLayoutAssigment(uiVerticalLayoutAssigment);
+				if (result == null) result = caseUiLayoutAssignment(uiVerticalLayoutAssigment);
+				if (result == null) result = caseUiNamedElement(uiVerticalLayoutAssigment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -350,6 +372,8 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_FORM_LAYOUT_ASSIGMENT: {
 				UiFormLayoutAssigment uiFormLayoutAssigment = (UiFormLayoutAssigment)theEObject;
 				T result = caseUiFormLayoutAssigment(uiFormLayoutAssigment);
+				if (result == null) result = caseUiLayoutAssignment(uiFormLayoutAssigment);
+				if (result == null) result = caseUiNamedElement(uiFormLayoutAssigment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -375,6 +399,17 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_IMAGE: {
+				UiImage uiImage = (UiImage)theEObject;
+				T result = caseUiImage(uiImage);
+				if (result == null) result = caseUiField(uiImage);
+				if (result == null) result = caseUiEmbeddable(uiImage);
+				if (result == null) result = caseUiVisibilityProcessable(uiImage);
+				if (result == null) result = caseUiRawBindable(uiImage);
+				if (result == null) result = caseUiNamedElement(uiImage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case UiModelPackage.UI_LIST: {
 				UiList uiList = (UiList)theEObject;
 				T result = caseUiList(uiList);
@@ -396,6 +431,18 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiVisibilityProcessable(uiTable);
 				if (result == null) result = caseUiRawBindable(uiTable);
 				if (result == null) result = caseUiNamedElement(uiTable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_COMBO_BOX: {
+				UiComboBox uiComboBox = (UiComboBox)theEObject;
+				T result = caseUiComboBox(uiComboBox);
+				if (result == null) result = caseUiField(uiComboBox);
+				if (result == null) result = caseUiTypeProvider(uiComboBox);
+				if (result == null) result = caseUiEmbeddable(uiComboBox);
+				if (result == null) result = caseUiVisibilityProcessable(uiComboBox);
+				if (result == null) result = caseUiRawBindable(uiComboBox);
+				if (result == null) result = caseUiNamedElement(uiComboBox);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -587,6 +634,8 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_HORIZONTAL_BUTTON_GROUP_ASSIGMENT: {
 				UiHorizontalButtonGroupAssigment uiHorizontalButtonGroupAssigment = (UiHorizontalButtonGroupAssigment)theEObject;
 				T result = caseUiHorizontalButtonGroupAssigment(uiHorizontalButtonGroupAssigment);
+				if (result == null) result = caseUiLayoutAssignment(uiHorizontalButtonGroupAssigment);
+				if (result == null) result = caseUiNamedElement(uiHorizontalButtonGroupAssigment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -630,6 +679,8 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_VERTICAL_COMPONENT_GROUP_ASSIGMENT: {
 				UiVerticalComponentGroupAssigment uiVerticalComponentGroupAssigment = (UiVerticalComponentGroupAssigment)theEObject;
 				T result = caseUiVerticalComponentGroupAssigment(uiVerticalComponentGroupAssigment);
+				if (result == null) result = caseUiLayoutAssignment(uiVerticalComponentGroupAssigment);
+				if (result == null) result = caseUiNamedElement(uiVerticalComponentGroupAssigment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -681,10 +732,14 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_TAB_ASSIGNMENT: {
 				UiTabAssignment uiTabAssignment = (UiTabAssignment)theEObject;
 				T result = caseUiTabAssignment(uiTabAssignment);
-				if (result == null) result = caseUiEmbeddable(uiTabAssignment);
-				if (result == null) result = caseUiVisibilityProcessable(uiTabAssignment);
-				if (result == null) result = caseUiRawBindable(uiTabAssignment);
+				if (result == null) result = caseUiLayoutAssignment(uiTabAssignment);
 				if (result == null) result = caseUiNamedElement(uiTabAssignment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_MOBILE_NAVIGATION_HANDLER: {
+				UiMobileNavigationHandler uiMobileNavigationHandler = (UiMobileNavigationHandler)theEObject;
+				T result = caseUiMobileNavigationHandler(uiMobileNavigationHandler);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -692,6 +747,8 @@ public class UiModelSwitch<T> extends Switch<T> {
 				UiMobileNavigationPage uiMobileNavigationPage = (UiMobileNavigationPage)theEObject;
 				T result = caseUiMobileNavigationPage(uiMobileNavigationPage);
 				if (result == null) result = caseUiMobileLayout(uiMobileNavigationPage);
+				if (result == null) result = caseUiTypeProvider(uiMobileNavigationPage);
+				if (result == null) result = caseUiMobileNavigationHandler(uiMobileNavigationPage);
 				if (result == null) result = caseUiMobileEmbeddable(uiMobileNavigationPage);
 				if (result == null) result = caseUiLayout(uiMobileNavigationPage);
 				if (result == null) result = caseUiEmbeddable(uiMobileNavigationPage);
@@ -704,12 +761,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT: {
 				UiMobileNavigationPageAssignment uiMobileNavigationPageAssignment = (UiMobileNavigationPageAssignment)theEObject;
 				T result = caseUiMobileNavigationPageAssignment(uiMobileNavigationPageAssignment);
-				if (result == null) result = caseUiMobileAction(uiMobileNavigationPageAssignment);
-				if (result == null) result = caseUiMobileEmbeddable(uiMobileNavigationPageAssignment);
-				if (result == null) result = caseUiAction(uiMobileNavigationPageAssignment);
-				if (result == null) result = caseUiEmbeddable(uiMobileNavigationPageAssignment);
-				if (result == null) result = caseUiVisibilityProcessable(uiMobileNavigationPageAssignment);
-				if (result == null) result = caseUiRawBindable(uiMobileNavigationPageAssignment);
+				if (result == null) result = caseUiLayoutAssignment(uiMobileNavigationPageAssignment);
 				if (result == null) result = caseUiNamedElement(uiMobileNavigationPageAssignment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -724,6 +776,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiVisibilityProcessable(uiMobileNavigationButton);
 				if (result == null) result = caseUiRawBindable(uiMobileNavigationButton);
 				if (result == null) result = caseUiNamedElement(uiMobileNavigationButton);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_COMMAND: {
+				UiCommand uiCommand = (UiCommand)theEObject;
+				T result = caseUiCommand(uiCommand);
+				if (result == null) result = caseUiNamedElement(uiCommand);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_MOBILE_NAVIGATION_COMMAND: {
+				UiMobileNavigationCommand uiMobileNavigationCommand = (UiMobileNavigationCommand)theEObject;
+				T result = caseUiMobileNavigationCommand(uiMobileNavigationCommand);
+				if (result == null) result = caseUiCommand(uiMobileNavigationCommand);
+				if (result == null) result = caseUiNamedElement(uiMobileNavigationCommand);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1062,6 +1129,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Command Bindable Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Command Bindable Def</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiCommandBindableDef(UiCommandBindableDef object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Ui Raw Bindable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1118,6 +1200,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiLayout(UiLayout object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Layout Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Layout Assignment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiLayoutAssignment(UiLayoutAssignment object) {
 		return null;
 	}
 
@@ -1332,6 +1429,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Image</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiImage(UiImage object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Ui List</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1358,6 +1470,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiTable(UiTable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Combo Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Combo Box</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiComboBox(UiComboBox object) {
 		return null;
 	}
 
@@ -1797,6 +1924,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile Navigation Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Mobile Navigation Handler</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMobileNavigationHandler(UiMobileNavigationHandler object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile Navigation Page</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1838,6 +1980,36 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiMobileNavigationButton(UiMobileNavigationButton object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Command</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiCommand(UiCommand object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile Navigation Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Mobile Navigation Command</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMobileNavigationCommand(UiMobileNavigationCommand object) {
 		return null;
 	}
 

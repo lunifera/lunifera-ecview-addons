@@ -22,6 +22,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YCommandSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
@@ -35,10 +36,12 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YColumn;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YFlatAlignment;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YImage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTab;
@@ -71,6 +74,9 @@ import org.lunifera.ecview.semantic.uimodel.UiButton;
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.UiColumn;
 import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments;
+import org.lunifera.ecview.semantic.uimodel.UiComboBox;
+import org.lunifera.ecview.semantic.uimodel.UiCommand;
+import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiField;
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
@@ -83,9 +89,12 @@ import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroupAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
+import org.lunifera.ecview.semantic.uimodel.UiImage;
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationCommand;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationHandler;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment;
@@ -119,6 +128,8 @@ import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 import org.lunifera.mobile.vaadin.ecview.model.VMHorizontalButtonGroup;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationButton;
+import org.lunifera.mobile.vaadin.ecview.model.VMNavigationCommand;
+import org.lunifera.mobile.vaadin.ecview.model.VMNavigationHandler;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationPage;
 import org.lunifera.mobile.vaadin.ecview.model.VMSwitch;
 import org.lunifera.mobile.vaadin.ecview.model.VMTab;
@@ -739,6 +750,44 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiMobileNavigationPageAssignment>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    boolean _notEquals = (!Objects.equal(_bindings, null));
+    if (_notEquals) {
+      EList<UiBinding> _bindings_1 = eObject.getBindings();
+      final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(_bindings_1, _function_1);
+    }
+    this.<Object>pop();
+  }
+  
+  public void createTransient(final UiMobileNavigationPage eObject) {
+    final VMNavigationPage layout = VaadinMobileFactory.eINSTANCE.createVMNavigationPage();
+    String _name = eObject.getName();
+    layout.setName(_name);
+    this.associateUi(eObject, layout);
+    this.push(layout);
+    EList<UiMobileNavigationPageAssignment> _contents = eObject.getContents();
+    final Procedure1<UiMobileNavigationPageAssignment> _function = new Procedure1<UiMobileNavigationPageAssignment>() {
+      public void apply(final UiMobileNavigationPageAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiMobileNavigationPageAssignment>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    boolean _notEquals = (!Objects.equal(_bindings, null));
+    if (_notEquals) {
+      EList<UiBinding> _bindings_1 = eObject.getBindings();
+      final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(_bindings_1, _function_1);
+    }
     this.<Object>pop();
   }
   
@@ -819,6 +868,51 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
         }
       };
       IterableExtensions.<UiColumn>forEach(_columns, _function);
+    }
+    EList<UiBinding> _bindings = eObject.getBindings();
+    boolean _notEquals_1 = (!Objects.equal(_bindings, null));
+    if (_notEquals_1) {
+      EList<UiBinding> _bindings_1 = eObject.getBindings();
+      final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(_bindings_1, _function_1);
+    }
+    this.<Object>pop();
+  }
+  
+  protected void _map(final UiImage eObject) {
+    final YImage yField = this.<YImage>associatedUi(eObject);
+    this.push(yField);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    boolean _notEquals = (!Objects.equal(_bindings, null));
+    if (_notEquals) {
+      EList<UiBinding> _bindings_1 = eObject.getBindings();
+      final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(_bindings_1, _function);
+    }
+    this.<Object>pop();
+  }
+  
+  protected void _map(final UiComboBox eObject) {
+    final YComboBox yField = this.<YComboBox>associatedUi(eObject);
+    this.push(yField);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    boolean _notEquals = (!Objects.equal(_bindings, null));
+    if (_notEquals) {
+      EList<UiBinding> _bindings_1 = eObject.getBindings();
+      final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(_bindings_1, _function);
     }
     this.<Object>pop();
   }
@@ -1018,6 +1112,18 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return textField;
   }
   
+  protected YEmbeddable _create(final UiImage object) {
+    final YImage image = this.factory.createImage();
+    String _name = object.getName();
+    image.setName(_name);
+    String _name_1 = object.getName();
+    image.setLabel(_name_1);
+    String _value = object.getValue();
+    image.setValue(_value);
+    this.associateUi(object, image);
+    return image;
+  }
+  
   protected YEmbeddable _create(final UiTable object) {
     final YTable table = this.factory.createTable();
     String _name = object.getName();
@@ -1027,6 +1133,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     UiSelectionType _selectionType = object.getSelectionType();
     YSelectionType _convert = this.convert(_selectionType);
     table.setSelectionType(_convert);
+    JvmField _itemImageProperty = object.getItemImageProperty();
+    String _simpleName = null;
+    if (_itemImageProperty!=null) {
+      _simpleName=_itemImageProperty.getSimpleName();
+    }
+    table.setItemImageProperty(_simpleName);
     JvmTypeReference _jvmType = object.getJvmType();
     boolean _notEquals = (!Objects.equal(_jvmType, null));
     if (_notEquals) {
@@ -1080,6 +1192,41 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return field;
   }
   
+  protected YEmbeddable _create(final UiComboBox object) {
+    final YComboBox field = this.factory.createComboBox();
+    String _name = object.getName();
+    field.setName(_name);
+    String _name_1 = object.getName();
+    field.setLabel(_name_1);
+    JvmField _itemCaptionProperty = object.getItemCaptionProperty();
+    String _simpleName = null;
+    if (_itemCaptionProperty!=null) {
+      _simpleName=_itemCaptionProperty.getSimpleName();
+    }
+    field.setItemCaptionProperty(_simpleName);
+    JvmField _itemImageProperty = object.getItemImageProperty();
+    String _simpleName_1 = null;
+    if (_itemImageProperty!=null) {
+      _simpleName_1=_itemImageProperty.getSimpleName();
+    }
+    field.setItemImageProperty(_simpleName_1);
+    JvmTypeReference _jvmType = object.getJvmType();
+    boolean _notEquals = (!Objects.equal(_jvmType, null));
+    if (_notEquals) {
+      JvmTypeReference _jvmType_1 = object.getJvmType();
+      String _qualifiedName = _jvmType_1.getQualifiedName();
+      field.setTypeQualifiedName(_qualifiedName);
+      Resource _eResource = object.eResource();
+      ResourceSet _resourceSet = _eResource.getResourceSet();
+      JvmTypeReference _jvmType_2 = object.getJvmType();
+      String _qualifiedName_1 = _jvmType_2.getQualifiedName();
+      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+      field.setType(_loadClass);
+    }
+    this.associateUi(object, field);
+    return field;
+  }
+  
   protected YEmbeddable _create(final UiSwitch object) {
     final VMSwitch field = VaadinMobileFactory.eINSTANCE.createVMSwitch();
     String _name = object.getName();
@@ -1111,6 +1258,11 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
             if ((context instanceof VMNavigationButton)) {
               final VMNavigationButton yButton = ((VMNavigationButton) context);
               yButton.setPage(((VMNavigationPage) embeddable));
+            } else {
+              if ((context instanceof VMNavigationCommand)) {
+                final VMNavigationCommand yCommand = ((VMNavigationCommand) context);
+                yCommand.setTargetPage(((VMNavigationPage) embeddable));
+              }
             }
           }
         }
@@ -1234,9 +1386,47 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
           ep_1.setEmfNsURI(_nsURI);
         }
         result = ep_1;
+      } else {
+        EObject _bindingRoot_4 = info.getBindingRoot();
+        if ((_bindingRoot_4 instanceof UiMobileNavigationCommand)) {
+          EObject _bindingRoot_5 = info.getBindingRoot();
+          final UiMobileNavigationCommand command = ((UiMobileNavigationCommand) _bindingRoot_5);
+          final VMNavigationCommand yCommand = VaadinMobileFactory.eINSTANCE.createVMNavigationCommand();
+          YCommandSet _commandSet = this.currentView.getCommandSet();
+          _commandSet.addCommand(yCommand);
+          this.push(yCommand);
+          UiMobileNavigationPage _targetPage = command.getTargetPage();
+          this.map(_targetPage);
+          final UiMobileNavigationHandler navHandler = this.findNavHandler(epDef);
+          VMNavigationHandler _associatedUi = this.<VMNavigationHandler>associatedUi(((EObject) navHandler));
+          yCommand.setNavigationHandler(_associatedUi);
+          this.<Object>pop();
+          YECViewModelValueBindingEndpoint _createNavigationValueEndpoint = yCommand.createNavigationValueEndpoint();
+          result = _createNavigationValueEndpoint;
+        }
       }
     }
     return result;
+  }
+  
+  public UiMobileNavigationHandler findNavHandler(final UiBindingEndpointAssignment assignment) {
+    EObject temp = assignment;
+    EObject _eContainer = temp.eContainer();
+    boolean _notEquals = (!Objects.equal(_eContainer, null));
+    boolean _while = _notEquals;
+    while (_while) {
+      {
+        EObject _eContainer_1 = temp.eContainer();
+        temp = _eContainer_1;
+        if ((temp instanceof UiMobileNavigationHandler)) {
+          return ((UiMobileNavigationHandler) temp);
+        }
+      }
+      EObject _eContainer_1 = temp.eContainer();
+      boolean _notEquals_1 = (!Objects.equal(_eContainer_1, null));
+      _while = _notEquals_1;
+    }
+    return null;
   }
   
   public YListBindingEndpoint createListBindingEndpoint(final UiBindingEndpointAssignment epDef) {
@@ -1360,6 +1550,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     }
   }
   
+  protected void _collectBindingInfo(final UiCommandBindableDef definition, final UiModelDerivedStateComputerx.BindingInfo info) {
+    JvmType _type = this.typeOfBoundPropertyProvider.getType(definition);
+    info.setTypeForBinding(_type);
+    UiCommand _command = definition.getCommand();
+    info.setBindingRoot(_command);
+  }
+  
   protected void _collectBindingInfo(final UiBindingExpression definition, final UiModelDerivedStateComputerx.BindingInfo info) {
     throw new UnsupportedOperationException();
   }
@@ -1457,9 +1654,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     } else if (eObject instanceof UiMobileNavigationPage) {
       _map((UiMobileNavigationPage)eObject);
       return;
-    } else if (eObject instanceof UiMobileNavigationPageAssignment) {
-      _map((UiMobileNavigationPageAssignment)eObject);
-      return;
     } else if (eObject instanceof UiVerticalComponentGroup) {
       _map((UiVerticalComponentGroup)eObject);
       return;
@@ -1468,6 +1662,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return;
     } else if (eObject instanceof UiColumn) {
       _map((UiColumn)eObject);
+      return;
+    } else if (eObject instanceof UiComboBox) {
+      _map((UiComboBox)eObject);
       return;
     } else if (eObject instanceof UiFormLayout) {
       _map((UiFormLayout)eObject);
@@ -1480,6 +1677,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return;
     } else if (eObject instanceof UiIDEView) {
       _map((UiIDEView)eObject);
+      return;
+    } else if (eObject instanceof UiImage) {
+      _map((UiImage)eObject);
       return;
     } else if (eObject instanceof UiMobileTabAssignment) {
       _map((UiMobileTabAssignment)eObject);
@@ -1505,9 +1705,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     } else if (eObject instanceof UiRegexpValidator) {
       _map((UiRegexpValidator)eObject);
       return;
-    } else if (eObject instanceof UiTabAssignment) {
-      _map((UiTabAssignment)eObject);
-      return;
     } else if (eObject instanceof UiTabSheet) {
       _map((UiTabSheet)eObject);
       return;
@@ -1526,8 +1723,32 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     } else if (eObject instanceof UiBindingEndpointAssignment) {
       _map((UiBindingEndpointAssignment)eObject);
       return;
+    } else if (eObject instanceof UiFormLayoutAssigment) {
+      _map((UiFormLayoutAssigment)eObject);
+      return;
+    } else if (eObject instanceof UiGridLayoutAssigment) {
+      _map((UiGridLayoutAssigment)eObject);
+      return;
+    } else if (eObject instanceof UiHorizontalButtonGroupAssigment) {
+      _map((UiHorizontalButtonGroupAssigment)eObject);
+      return;
+    } else if (eObject instanceof UiHorizontalLayoutAssigment) {
+      _map((UiHorizontalLayoutAssigment)eObject);
+      return;
+    } else if (eObject instanceof UiMobileNavigationPageAssignment) {
+      _map((UiMobileNavigationPageAssignment)eObject);
+      return;
+    } else if (eObject instanceof UiTabAssignment) {
+      _map((UiTabAssignment)eObject);
+      return;
     } else if (eObject instanceof UiValidatorAlias) {
       _map((UiValidatorAlias)eObject);
+      return;
+    } else if (eObject instanceof UiVerticalComponentGroupAssigment) {
+      _map((UiVerticalComponentGroupAssigment)eObject);
+      return;
+    } else if (eObject instanceof UiVerticalLayoutAssigment) {
+      _map((UiVerticalLayoutAssigment)eObject);
       return;
     } else if (eObject instanceof UiModel) {
       _map((UiModel)eObject);
@@ -1541,29 +1762,11 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     } else if (eObject instanceof UiBinding) {
       _map((UiBinding)eObject);
       return;
-    } else if (eObject instanceof UiFormLayoutAssigment) {
-      _map((UiFormLayoutAssigment)eObject);
-      return;
-    } else if (eObject instanceof UiGridLayoutAssigment) {
-      _map((UiGridLayoutAssigment)eObject);
-      return;
-    } else if (eObject instanceof UiHorizontalButtonGroupAssigment) {
-      _map((UiHorizontalButtonGroupAssigment)eObject);
-      return;
-    } else if (eObject instanceof UiHorizontalLayoutAssigment) {
-      _map((UiHorizontalLayoutAssigment)eObject);
-      return;
     } else if (eObject instanceof UiPathSegment) {
       _map((UiPathSegment)eObject);
       return;
     } else if (eObject instanceof UiPoint) {
       _map((UiPoint)eObject);
-      return;
-    } else if (eObject instanceof UiVerticalComponentGroupAssigment) {
-      _map((UiVerticalComponentGroupAssigment)eObject);
-      return;
-    } else if (eObject instanceof UiVerticalLayoutAssigment) {
-      _map((UiVerticalLayoutAssigment)eObject);
       return;
     } else if (eObject != null) {
       _map(eObject);
@@ -1582,6 +1785,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return _create((UiSwitch)object);
     } else if (object instanceof UiCheckBox) {
       return _create((UiCheckBox)object);
+    } else if (object instanceof UiComboBox) {
+      return _create((UiComboBox)object);
+    } else if (object instanceof UiImage) {
+      return _create((UiImage)object);
     } else if (object instanceof UiNumericField) {
       return _create((UiNumericField)object);
     } else if (object instanceof UiTable) {
@@ -1605,6 +1812,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return;
     } else if (slot instanceof UiBindingEndpointAssignment) {
       _collectBindingInfo((UiBindingEndpointAssignment)slot, info);
+      return;
+    } else if (slot instanceof UiCommandBindableDef) {
+      _collectBindingInfo((UiCommandBindableDef)slot, info);
       return;
     } else if (slot instanceof UiTypedBindableDef) {
       _collectBindingInfo((UiTypedBindableDef)slot, info);

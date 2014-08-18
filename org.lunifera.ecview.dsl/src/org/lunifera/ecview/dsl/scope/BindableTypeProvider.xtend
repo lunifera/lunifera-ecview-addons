@@ -13,6 +13,7 @@ import org.eclipse.xtext.common.types.TypesFactory
 import org.eclipse.emf.ecore.EObject
 import org.lunifera.ecview.semantic.uimodel.UiTable
 import org.lunifera.ecview.semantic.uimodel.UiTypeProvider
+import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef
 
 @Singleton
 class BindableTypeProvider {
@@ -40,6 +41,10 @@ class BindableTypeProvider {
 			return epDef.typedBindableDef.doGetTypeReference
 		}
 	}
+	
+	def dispatch JvmTypeReference doGetTypeReference(UiCommandBindableDef epDef) {
+		TypesFactory.eINSTANCE.createJvmUnknownTypeReference
+	}
 
 	def dispatch JvmTypeReference doGetTypeReference(UiTypedBindableDef tbDef) {
 		if(tbDef == null || tbDef.method == null){
@@ -64,7 +69,7 @@ class BindableTypeProvider {
 		throw new UnsupportedOperationException
 	}
 	
-	def dispatch JvmTypeReference doGetTypeReference(UiTypeProvider table) {
-		return table.jvmType
+	def dispatch JvmTypeReference doGetTypeReference(UiTypeProvider provider) {
+		return provider.jvmType
 	}
 }

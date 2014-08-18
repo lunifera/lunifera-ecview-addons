@@ -4,16 +4,12 @@ package org.lunifera.ecview.semantic.uimodel.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
-import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
-import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
 
 /**
@@ -31,7 +27,7 @@ import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
  *
  * @generated
  */
-public class UiTabAssignmentImpl extends UiVisibilityProcessableImpl implements UiTabAssignment {
+public class UiTabAssignmentImpl extends MinimalEObjectImpl.Container implements UiTabAssignment {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -247,6 +243,7 @@ public class UiTabAssignmentImpl extends UiVisibilityProcessableImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -300,50 +297,6 @@ public class UiTabAssignmentImpl extends UiVisibilityProcessableImpl implements 
 				return element != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == UiNamedElement.class) {
-			switch (derivedFeatureID) {
-				case UiModelPackage.UI_TAB_ASSIGNMENT__ID: return UiModelPackage.UI_NAMED_ELEMENT__ID;
-				case UiModelPackage.UI_TAB_ASSIGNMENT__NAME: return UiModelPackage.UI_NAMED_ELEMENT__NAME;
-				default: return -1;
-			}
-		}
-		if (baseClass == UiRawBindable.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == UiNamedElement.class) {
-			switch (baseFeatureID) {
-				case UiModelPackage.UI_NAMED_ELEMENT__ID: return UiModelPackage.UI_TAB_ASSIGNMENT__ID;
-				case UiModelPackage.UI_NAMED_ELEMENT__NAME: return UiModelPackage.UI_TAB_ASSIGNMENT__NAME;
-				default: return -1;
-			}
-		}
-		if (baseClass == UiRawBindable.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

@@ -11,7 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmTypeReference;
+import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
@@ -30,10 +32,12 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#getValidators <em>Validators</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#getJvmType <em>Jvm Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#getColumnAssignment <em>Column Assignment</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#getSelectionType <em>Selection Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#getItemImageProperty <em>Item Image Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,6 +83,16 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBindings()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UiBinding> bindings;
 
 	/**
 	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' containment reference list.
@@ -129,6 +143,16 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 	 * @ordered
 	 */
 	protected UiSelectionType selectionType = SELECTION_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getItemImageProperty() <em>Item Image Property</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItemImageProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected JvmField itemImageProperty;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,6 +213,18 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_TABLE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<UiBinding> getBindings() {
+		if (bindings == null) {
+			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_TABLE__BINDINGS);
+		}
+		return bindings;
 	}
 
 	/**
@@ -295,6 +331,44 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public JvmField getItemImageProperty() {
+		if (itemImageProperty != null && itemImageProperty.eIsProxy()) {
+			InternalEObject oldItemImageProperty = (InternalEObject)itemImageProperty;
+			itemImageProperty = (JvmField)eResolveProxy(oldItemImageProperty);
+			if (itemImageProperty != oldItemImageProperty) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_TABLE__ITEM_IMAGE_PROPERTY, oldItemImageProperty, itemImageProperty));
+			}
+		}
+		return itemImageProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JvmField basicGetItemImageProperty() {
+		return itemImageProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setItemImageProperty(JvmField newItemImageProperty) {
+		JvmField oldItemImageProperty = itemImageProperty;
+		itemImageProperty = newItemImageProperty;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_TABLE__ITEM_IMAGE_PROPERTY, oldItemImageProperty, itemImageProperty));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JvmTypeReference getJvmType() {
 		if (jvmType != null && jvmType.eIsProxy()) {
 			InternalEObject oldJvmType = (InternalEObject)jvmType;
@@ -364,6 +438,8 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case UiModelPackage.UI_TABLE__BINDINGS:
+				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_TABLE__VALIDATORS:
 				return ((InternalEList<?>)getValidators()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_TABLE__JVM_TYPE:
@@ -386,6 +462,8 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 				return getId();
 			case UiModelPackage.UI_TABLE__NAME:
 				return getName();
+			case UiModelPackage.UI_TABLE__BINDINGS:
+				return getBindings();
 			case UiModelPackage.UI_TABLE__VALIDATORS:
 				return getValidators();
 			case UiModelPackage.UI_TABLE__JVM_TYPE:
@@ -396,6 +474,9 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 				return basicGetColumnAssignment();
 			case UiModelPackage.UI_TABLE__SELECTION_TYPE:
 				return getSelectionType();
+			case UiModelPackage.UI_TABLE__ITEM_IMAGE_PROPERTY:
+				if (resolve) return getItemImageProperty();
+				return basicGetItemImageProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -415,6 +496,10 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 			case UiModelPackage.UI_TABLE__NAME:
 				setName((String)newValue);
 				return;
+			case UiModelPackage.UI_TABLE__BINDINGS:
+				getBindings().clear();
+				getBindings().addAll((Collection<? extends UiBinding>)newValue);
+				return;
 			case UiModelPackage.UI_TABLE__VALIDATORS:
 				getValidators().clear();
 				getValidators().addAll((Collection<? extends UiValidator>)newValue);
@@ -427,6 +512,9 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 				return;
 			case UiModelPackage.UI_TABLE__SELECTION_TYPE:
 				setSelectionType((UiSelectionType)newValue);
+				return;
+			case UiModelPackage.UI_TABLE__ITEM_IMAGE_PROPERTY:
+				setItemImageProperty((JvmField)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -446,6 +534,9 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 			case UiModelPackage.UI_TABLE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case UiModelPackage.UI_TABLE__BINDINGS:
+				getBindings().clear();
+				return;
 			case UiModelPackage.UI_TABLE__VALIDATORS:
 				getValidators().clear();
 				return;
@@ -457,6 +548,9 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 				return;
 			case UiModelPackage.UI_TABLE__SELECTION_TYPE:
 				setSelectionType(SELECTION_TYPE_EDEFAULT);
+				return;
+			case UiModelPackage.UI_TABLE__ITEM_IMAGE_PROPERTY:
+				setItemImageProperty((JvmField)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -474,6 +568,8 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case UiModelPackage.UI_TABLE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiModelPackage.UI_TABLE__BINDINGS:
+				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_TABLE__VALIDATORS:
 				return validators != null && !validators.isEmpty();
 			case UiModelPackage.UI_TABLE__JVM_TYPE:
@@ -482,6 +578,8 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 				return columnAssignment != null;
 			case UiModelPackage.UI_TABLE__SELECTION_TYPE:
 				return selectionType != SELECTION_TYPE_EDEFAULT;
+			case UiModelPackage.UI_TABLE__ITEM_IMAGE_PROPERTY:
+				return itemImageProperty != null;
 		}
 		return super.eIsSet(featureID);
 	}

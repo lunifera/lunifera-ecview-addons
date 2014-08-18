@@ -144,6 +144,10 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiTypedBindableDefAdapter();
 			}
 			@Override
+			public Adapter caseUiCommandBindableDef(UiCommandBindableDef object) {
+				return createUiCommandBindableDefAdapter();
+			}
+			@Override
 			public Adapter caseUiEmbeddable(UiEmbeddable object) {
 				return createUiEmbeddableAdapter();
 			}
@@ -154,6 +158,10 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUiLayout(UiLayout object) {
 				return createUiLayoutAdapter();
+			}
+			@Override
+			public Adapter caseUiLayoutAssignment(UiLayoutAssignment object) {
+				return createUiLayoutAssignmentAdapter();
 			}
 			@Override
 			public Adapter caseUiAction(UiAction object) {
@@ -212,12 +220,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiTextFieldAdapter();
 			}
 			@Override
+			public Adapter caseUiImage(UiImage object) {
+				return createUiImageAdapter();
+			}
+			@Override
 			public Adapter caseUiList(UiList object) {
 				return createUiListAdapter();
 			}
 			@Override
 			public Adapter caseUiTable(UiTable object) {
 				return createUiTableAdapter();
+			}
+			@Override
+			public Adapter caseUiComboBox(UiComboBox object) {
+				return createUiComboBoxAdapter();
 			}
 			@Override
 			public Adapter caseUiTypeProvider(UiTypeProvider object) {
@@ -352,6 +368,10 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiTabAssignmentAdapter();
 			}
 			@Override
+			public Adapter caseUiMobileNavigationHandler(UiMobileNavigationHandler object) {
+				return createUiMobileNavigationHandlerAdapter();
+			}
+			@Override
 			public Adapter caseUiMobileNavigationPage(UiMobileNavigationPage object) {
 				return createUiMobileNavigationPageAdapter();
 			}
@@ -362,6 +382,14 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUiMobileNavigationButton(UiMobileNavigationButton object) {
 				return createUiMobileNavigationButtonAdapter();
+			}
+			@Override
+			public Adapter caseUiCommand(UiCommand object) {
+				return createUiCommandAdapter();
+			}
+			@Override
+			public Adapter caseUiMobileNavigationCommand(UiMobileNavigationCommand object) {
+				return createUiMobileNavigationCommandAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -692,6 +720,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef <em>Ui Command Bindable Def</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef
+	 * @generated
+	 */
+	public Adapter createUiCommandBindableDefAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiRawBindable <em>Ui Raw Bindable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -744,6 +786,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiLayoutAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiLayoutAssignment <em>Ui Layout Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiLayoutAssignment
+	 * @generated
+	 */
+	public Adapter createUiLayoutAssignmentAdapter() {
 		return null;
 	}
 
@@ -944,6 +1000,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiImage <em>Ui Image</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiImage
+	 * @generated
+	 */
+	public Adapter createUiImageAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiList <em>Ui List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -968,6 +1038,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiTableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiComboBox <em>Ui Combo Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiComboBox
+	 * @generated
+	 */
+	public Adapter createUiComboBoxAdapter() {
 		return null;
 	}
 
@@ -1378,6 +1462,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationHandler <em>Ui Mobile Navigation Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationHandler
+	 * @generated
+	 */
+	public Adapter createUiMobileNavigationHandlerAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage <em>Ui Mobile Navigation Page</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1416,6 +1514,34 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiMobileNavigationButtonAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiCommand <em>Ui Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiCommand
+	 * @generated
+	 */
+	public Adapter createUiCommandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationCommand <em>Ui Mobile Navigation Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationCommand
+	 * @generated
+	 */
+	public Adapter createUiMobileNavigationCommandAdapter() {
 		return null;
 	}
 
