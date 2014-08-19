@@ -31,6 +31,12 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference content : UiEmbeddable
     Reference validatorAssignments : UiValidatorAssignment<<0..*>>
 
+  Class UiDialog -> UiEmbeddable, UiTypeProvider
+    Reference content : UiDialogAssignment
+
+  Class UiDialogAssignment -> UiLayoutAssignment
+    Reference element : UiEmbeddable
+
   Class UiIDEView -> UiView
 
   Class UiMobileView -> UiView
@@ -270,6 +276,9 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiMobileNavigationCommand -> UiCommand
     Reference targetPage : UiMobileNavigationPage
     Reference targetPageAlias : UiMobileNavigationPage
+
+  Class UiOpenDialogCommand -> UiCommand
+    Reference dialog : UiDialog
 
   Enum UiFlatAlignment
     Literal LEFT = 0

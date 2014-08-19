@@ -54,8 +54,18 @@ public class UiImportedNamespaceAwareLocalScopeProvider extends
 	public IScope getScope(EObject context, EReference reference) {
 		EClass referenceType = reference.getEReferenceType();
 		if (TypesPackage.Literals.JVM_TYPE.isSuperTypeOf(referenceType)) {
+			UiModel model = null; 
+			EObject temp = context;
+			while(temp.eContainer() != null){
+				temp = temp.eContainer();
+				if(temp instanceof UiModel){
+					model = (UiModel) temp;
+					break;
+				}
+			}
+			
 			IScope result = getResourceScope(context.eResource(), reference);
-			return getLocalElementsScope(result, context, reference);
+			return getLocalElementsScope(result, model, reference);
 		} else if (UiModelPackage.Literals.UI_RAW_BINDABLE.isSuperTypeOf(referenceType)) {
 			IScope result = getResourceScope(context.eResource(), reference);
 			return getLocalElementsScope(result, context, reference);

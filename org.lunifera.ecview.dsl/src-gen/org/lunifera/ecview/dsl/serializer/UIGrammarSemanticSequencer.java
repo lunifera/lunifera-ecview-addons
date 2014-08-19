@@ -68,6 +68,8 @@ import org.lunifera.ecview.semantic.uimodel.UiColumn;
 import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments;
 import org.lunifera.ecview.semantic.uimodel.UiComboBox;
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
+import org.lunifera.ecview.semantic.uimodel.UiDialog;
+import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiGridLayout;
@@ -92,6 +94,7 @@ import org.lunifera.ecview.semantic.uimodel.UiMobileView;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNumericField;
+import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
@@ -239,8 +242,20 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 				else break;
 			case UiModelPackage.UI_COMMAND_BINDABLE_DEF:
 				if(context == grammarAccess.getUiBindingEndpointAssignmentAccess().getUiBindingEndpointAssignmentTypedBindableDefAction_1_1() ||
-				   context == grammarAccess.getUiNavigationCommandBindableDefRule()) {
-					sequence_UiNavigationCommandBindableDef(context, (UiCommandBindableDef) semanticObject); 
+				   context == grammarAccess.getUiCommandBindableDefRule()) {
+					sequence_UiCommandBindableDef(context, (UiCommandBindableDef) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_DIALOG:
+				if(context == grammarAccess.getUiDialogRule()) {
+					sequence_UiDialog(context, (UiDialog) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_DIALOG_ASSIGNMENT:
+				if(context == grammarAccess.getUiDialogAssignmentRule()) {
+					sequence_UiDialogAssignment(context, (UiDialogAssignment) semanticObject); 
 					return; 
 				}
 				else break;
@@ -408,6 +423,13 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 				   context == grammarAccess.getUiFieldRule() ||
 				   context == grammarAccess.getUiNumericFieldRule()) {
 					sequence_UiNumericField(context, (UiNumericField) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_OPEN_DIALOG_COMMAND:
+				if(context == grammarAccess.getUiCommandRule() ||
+				   context == grammarAccess.getUiOpenDialogCommandRule()) {
+					sequence_UiOpenDialogCommand(context, (UiOpenDialogCommand) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1663,6 +1685,33 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     command=UiCommand
+	 */
+	protected void sequence_UiCommandBindableDef(EObject context, UiCommandBindableDef semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     element=UiEmbeddable
+	 */
+	protected void sequence_UiDialogAssignment(EObject context, UiDialogAssignment semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID? jvmType=JvmTypeReference? content=UiDialogAssignment? bindings+=UiBinding*)
+	 */
+	protected void sequence_UiDialog(EObject context, UiDialog semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     element=UiEmbeddable
 	 */
 	protected void sequence_UiFormLayoutAssigment(EObject context, UiFormLayoutAssigment semanticObject) {
@@ -1904,18 +1953,18 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     command=UiCommand
+	 *     (name=ID? validators+=UiValidator*)
 	 */
-	protected void sequence_UiNavigationCommandBindableDef(EObject context, UiCommandBindableDef semanticObject) {
+	protected void sequence_UiNumericField(EObject context, UiNumericField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? validators+=UiValidator*)
+	 *     dialog=UiDialog
 	 */
-	protected void sequence_UiNumericField(EObject context, UiNumericField semanticObject) {
+	protected void sequence_UiOpenDialogCommand(EObject context, UiOpenDialogCommand semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

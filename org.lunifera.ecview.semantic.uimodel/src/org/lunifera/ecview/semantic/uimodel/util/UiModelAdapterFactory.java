@@ -92,6 +92,14 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiViewAdapter();
 			}
 			@Override
+			public Adapter caseUiDialog(UiDialog object) {
+				return createUiDialogAdapter();
+			}
+			@Override
+			public Adapter caseUiDialogAssignment(UiDialogAssignment object) {
+				return createUiDialogAssignmentAdapter();
+			}
+			@Override
 			public Adapter caseUiIDEView(UiIDEView object) {
 				return createUiIDEViewAdapter();
 			}
@@ -392,6 +400,10 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiMobileNavigationCommandAdapter();
 			}
 			@Override
+			public Adapter caseUiOpenDialogCommand(UiOpenDialogCommand object) {
+				return createUiOpenDialogCommandAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -478,6 +490,34 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiViewAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiDialog <em>Ui Dialog</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDialog
+	 * @generated
+	 */
+	public Adapter createUiDialogAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiDialogAssignment <em>Ui Dialog Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDialogAssignment
+	 * @generated
+	 */
+	public Adapter createUiDialogAssignmentAdapter() {
 		return null;
 	}
 
@@ -1542,6 +1582,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiMobileNavigationCommandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand <em>Ui Open Dialog Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand
+	 * @generated
+	 */
+	public Adapter createUiOpenDialogCommandAdapter() {
 		return null;
 	}
 

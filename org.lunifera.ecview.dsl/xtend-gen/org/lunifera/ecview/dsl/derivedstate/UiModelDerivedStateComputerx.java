@@ -19,13 +19,17 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEn
 import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCommandSet;
+import org.eclipse.emf.ecp.ecview.common.model.core.YDialog;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
+import org.eclipse.emf.ecp.ecview.common.model.core.YOpenDialogCommand;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidator;
@@ -77,6 +81,8 @@ import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments;
 import org.lunifera.ecview.semantic.uimodel.UiComboBox;
 import org.lunifera.ecview.semantic.uimodel.UiCommand;
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
+import org.lunifera.ecview.semantic.uimodel.UiDialog;
+import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiField;
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
@@ -102,6 +108,7 @@ import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet;
 import org.lunifera.ecview.semantic.uimodel.UiMobileView;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiNumericField;
+import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
@@ -764,6 +771,70 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.<Object>pop();
   }
   
+  protected void _map(final UiDialog eObject) {
+    final YDialog layout = CoreModelFactory.eINSTANCE.createYDialog();
+    String _name = eObject.getName();
+    layout.setName(_name);
+    String _name_1 = eObject.getName();
+    layout.setLabel(_name_1);
+    JvmTypeReference _jvmType = eObject.getJvmType();
+    boolean _notEquals = (!Objects.equal(_jvmType, null));
+    if (_notEquals) {
+      JvmTypeReference _jvmType_1 = eObject.getJvmType();
+      String _qualifiedName = _jvmType_1.getQualifiedName();
+      layout.setTypeQualifiedName(_qualifiedName);
+      Resource _eResource = eObject.eResource();
+      ResourceSet _resourceSet = _eResource.getResourceSet();
+      JvmTypeReference _jvmType_2 = eObject.getJvmType();
+      String _qualifiedName_1 = _jvmType_2.getQualifiedName();
+      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+      layout.setType(_loadClass);
+    }
+    this.addToParent(layout);
+    EList<YDialog> _dialogs = this.currentView.getDialogs();
+    _dialogs.add(layout);
+    this.associateUi(eObject, layout);
+    this.push(layout);
+    UiDialogAssignment _content = eObject.getContent();
+    if (_content!=null) {
+      this.map(_content);
+    }
+    EList<UiBinding> _bindings = eObject.getBindings();
+    boolean _notEquals_1 = (!Objects.equal(_bindings, null));
+    if (_notEquals_1) {
+      EList<UiBinding> _bindings_1 = eObject.getBindings();
+      final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(_bindings_1, _function);
+    }
+    this.<Object>pop();
+  }
+  
+  protected void _map(final UiDialogAssignment eObject) {
+    final YDialog layout = this.<YDialog>peek();
+    final UiEmbeddable element = eObject.getElement();
+    if ((element instanceof UiField)) {
+      final YEmbeddable newField = this.create(element);
+      layout.setContent(newField);
+      this.map(element);
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    } else {
+      this.map(element);
+    }
+  }
+  
   public void createTransient(final UiMobileNavigationPage eObject) {
     final VMNavigationPage layout = VaadinMobileFactory.eINSTANCE.createVMNavigationPage();
     String _name = eObject.getName();
@@ -1237,23 +1308,23 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return field;
   }
   
-  public void addToParent(final YEmbeddable embeddable) {
+  public void addToParent(final YElement embeddable) {
     final Object context = this.<Object>peek();
     if ((context instanceof YLayout)) {
       final YLayout layout = ((YLayout) context);
-      layout.addElement(embeddable);
+      layout.addElement(((YEmbeddable) embeddable));
     } else {
       if ((context instanceof YView)) {
         final YView yView = ((YView) context);
-        yView.setContent(embeddable);
+        yView.setContent(((YEmbeddable) embeddable));
       } else {
         if ((context instanceof YTab)) {
           final YTab yTab = ((YTab) context);
-          yTab.setEmbeddable(embeddable);
+          yTab.setEmbeddable(((YEmbeddable) embeddable));
         } else {
           if ((context instanceof VMTab)) {
             final VMTab yTab_1 = ((VMTab) context);
-            yTab_1.setEmbeddable(embeddable);
+            yTab_1.setEmbeddable(((YEmbeddable) embeddable));
           } else {
             if ((context instanceof VMNavigationButton)) {
               final VMNavigationButton yButton = ((VMNavigationButton) context);
@@ -1262,6 +1333,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
               if ((context instanceof VMNavigationCommand)) {
                 final VMNavigationCommand yCommand = ((VMNavigationCommand) context);
                 yCommand.setTargetPage(((VMNavigationPage) embeddable));
+              } else {
+                if ((context instanceof YOpenDialogCommand)) {
+                  final YOpenDialogCommand yCommand_1 = ((YOpenDialogCommand) context);
+                  yCommand_1.setDialog(((YDialog) embeddable));
+                } else {
+                  if ((context instanceof YDialog)) {
+                    final YDialog yDialog = ((YDialog) context);
+                    yDialog.setContent(((YEmbeddable) embeddable));
+                  }
+                }
               }
             }
           }
@@ -1360,7 +1441,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       EObject _bindingRoot_2 = info.getBindingRoot();
       if ((_bindingRoot_2 instanceof UiEmbeddable)) {
         EObject _bindingRoot_3 = info.getBindingRoot();
-        final YEmbeddable yElement = this.<YEmbeddable>associatedUi(_bindingRoot_3);
+        final YElement yElement = this.<YElement>associatedUi(_bindingRoot_3);
         final YECViewModelValueBindingEndpoint ep_1 = this.factory.createECViewModelValueBindingEndpoint();
         ep_1.setElement(yElement);
         StringBuilder _path_1 = info.getPath();
@@ -1403,6 +1484,21 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
           this.<Object>pop();
           YECViewModelValueBindingEndpoint _createNavigationValueEndpoint = yCommand.createNavigationValueEndpoint();
           result = _createNavigationValueEndpoint;
+        } else {
+          EObject _bindingRoot_6 = info.getBindingRoot();
+          if ((_bindingRoot_6 instanceof UiOpenDialogCommand)) {
+            EObject _bindingRoot_7 = info.getBindingRoot();
+            final UiOpenDialogCommand command_1 = ((UiOpenDialogCommand) _bindingRoot_7);
+            final YOpenDialogCommand yCommand_1 = CoreModelFactory.eINSTANCE.createYOpenDialogCommand();
+            YCommandSet _commandSet_1 = this.currentView.getCommandSet();
+            _commandSet_1.addCommand(yCommand_1);
+            this.push(yCommand_1);
+            UiDialog _dialog = command_1.getDialog();
+            this.map(_dialog);
+            this.<Object>pop();
+            YECViewModelValueBindingEndpoint _createTriggerDialogEndpoint = yCommand_1.createTriggerDialogEndpoint();
+            result = _createTriggerDialogEndpoint;
+          }
         }
       }
     }
@@ -1696,6 +1792,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     } else if (eObject instanceof UiVerticalLayout) {
       _map((UiVerticalLayout)eObject);
       return;
+    } else if (eObject instanceof UiDialog) {
+      _map((UiDialog)eObject);
+      return;
     } else if (eObject instanceof UiMaxLengthValidator) {
       _map((UiMaxLengthValidator)eObject);
       return;
@@ -1722,6 +1821,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return;
     } else if (eObject instanceof UiBindingEndpointAssignment) {
       _map((UiBindingEndpointAssignment)eObject);
+      return;
+    } else if (eObject instanceof UiDialogAssignment) {
+      _map((UiDialogAssignment)eObject);
       return;
     } else if (eObject instanceof UiFormLayoutAssigment) {
       _map((UiFormLayoutAssigment)eObject);

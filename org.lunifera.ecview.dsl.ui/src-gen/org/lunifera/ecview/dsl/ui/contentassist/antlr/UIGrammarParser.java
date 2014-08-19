@@ -40,6 +40,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiRootElementsAccess().getAlternatives(), "rule__UiRootElements__Alternatives");
 					put(grammarAccess.getUiValidatorAssignmentAccess().getAlternatives_3(), "rule__UiValidatorAssignment__Alternatives_3");
 					put(grammarAccess.getUiBindingEndpointAssignmentAccess().getAlternatives(), "rule__UiBindingEndpointAssignment__Alternatives");
+					put(grammarAccess.getUiCommandAccess().getAlternatives(), "rule__UiCommand__Alternatives");
 					put(grammarAccess.getUiMobileNavigationButtonAccess().getAlternatives_3(), "rule__UiMobileNavigationButton__Alternatives_3");
 					put(grammarAccess.getUiEmbeddableAccess().getAlternatives(), "rule__UiEmbeddable__Alternatives");
 					put(grammarAccess.getUiMobileEmbeddableAccess().getAlternatives(), "rule__UiMobileEmbeddable__Alternatives");
@@ -103,8 +104,9 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiPathSegmentAccess().getGroup(), "rule__UiPathSegment__Group__0");
 					put(grammarAccess.getUiTypedBindableDefAccess().getGroup(), "rule__UiTypedBindableDef__Group__0");
 					put(grammarAccess.getUiTypedBindableDefAccess().getGroup_1(), "rule__UiTypedBindableDef__Group_1__0");
-					put(grammarAccess.getUiNavigationCommandBindableDefAccess().getGroup(), "rule__UiNavigationCommandBindableDef__Group__0");
+					put(grammarAccess.getUiCommandBindableDefAccess().getGroup(), "rule__UiCommandBindableDef__Group__0");
 					put(grammarAccess.getUiMobileNavigationCommandAccess().getGroup(), "rule__UiMobileNavigationCommand__Group__0");
+					put(grammarAccess.getUiOpenDialogCommandAccess().getGroup(), "rule__UiOpenDialogCommand__Group__0");
 					put(grammarAccess.getUiIDEViewAccess().getGroup(), "rule__UiIDEView__Group__0");
 					put(grammarAccess.getUiIDEViewAccess().getGroup_3(), "rule__UiIDEView__Group_3__0");
 					put(grammarAccess.getUiMobileViewAccess().getGroup(), "rule__UiMobileView__Group__0");
@@ -120,6 +122,8 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiMobileTabAssignmentAccess().getGroup(), "rule__UiMobileTabAssignment__Group__0");
 					put(grammarAccess.getUiTabSheetAccess().getGroup(), "rule__UiTabSheet__Group__0");
 					put(grammarAccess.getUiTabAssignmentAccess().getGroup(), "rule__UiTabAssignment__Group__0");
+					put(grammarAccess.getUiDialogAccess().getGroup(), "rule__UiDialog__Group__0");
+					put(grammarAccess.getUiDialogAccess().getGroup_4(), "rule__UiDialog__Group_4__0");
 					put(grammarAccess.getUiMobileNavigationPageAccess().getGroup(), "rule__UiMobileNavigationPage__Group__0");
 					put(grammarAccess.getUiMobileNavigationPageAccess().getGroup_4(), "rule__UiMobileNavigationPage__Group_4__0");
 					put(grammarAccess.getUiPointAccess().getGroup(), "rule__UiPoint__Group__0");
@@ -354,8 +358,9 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiPathSegmentAccess().getPathAssignment_2(), "rule__UiPathSegment__PathAssignment_2");
 					put(grammarAccess.getUiTypedBindableDefAccess().getRawBindableAssignment_1_0(), "rule__UiTypedBindableDef__RawBindableAssignment_1_0");
 					put(grammarAccess.getUiTypedBindableDefAccess().getMethodAssignment_1_2(), "rule__UiTypedBindableDef__MethodAssignment_1_2");
-					put(grammarAccess.getUiNavigationCommandBindableDefAccess().getCommandAssignment_1(), "rule__UiNavigationCommandBindableDef__CommandAssignment_1");
+					put(grammarAccess.getUiCommandBindableDefAccess().getCommandAssignment_1(), "rule__UiCommandBindableDef__CommandAssignment_1");
 					put(grammarAccess.getUiMobileNavigationCommandAccess().getTargetPageAssignment_2(), "rule__UiMobileNavigationCommand__TargetPageAssignment_2");
+					put(grammarAccess.getUiOpenDialogCommandAccess().getDialogAssignment_2(), "rule__UiOpenDialogCommand__DialogAssignment_2");
 					put(grammarAccess.getUiIDEViewAccess().getNameAssignment_1(), "rule__UiIDEView__NameAssignment_1");
 					put(grammarAccess.getUiIDEViewAccess().getViewSetAssignment_3_1(), "rule__UiIDEView__ViewSetAssignment_3_1");
 					put(grammarAccess.getUiIDEViewAccess().getBeanSlotsAssignment_4(), "rule__UiIDEView__BeanSlotsAssignment_4");
@@ -397,6 +402,11 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiTabSheetAccess().getTabsAssignment_4(), "rule__UiTabSheet__TabsAssignment_4");
 					put(grammarAccess.getUiTabAssignmentAccess().getNameAssignment_1(), "rule__UiTabAssignment__NameAssignment_1");
 					put(grammarAccess.getUiTabAssignmentAccess().getElementAssignment_2(), "rule__UiTabAssignment__ElementAssignment_2");
+					put(grammarAccess.getUiDialogAccess().getNameAssignment_2(), "rule__UiDialog__NameAssignment_2");
+					put(grammarAccess.getUiDialogAccess().getJvmTypeAssignment_4_1(), "rule__UiDialog__JvmTypeAssignment_4_1");
+					put(grammarAccess.getUiDialogAccess().getContentAssignment_5(), "rule__UiDialog__ContentAssignment_5");
+					put(grammarAccess.getUiDialogAccess().getBindingsAssignment_6(), "rule__UiDialog__BindingsAssignment_6");
+					put(grammarAccess.getUiDialogAssignmentAccess().getElementAssignment(), "rule__UiDialogAssignment__ElementAssignment");
 					put(grammarAccess.getUiMobileNavigationPageAccess().getNameAssignment_2(), "rule__UiMobileNavigationPage__NameAssignment_2");
 					put(grammarAccess.getUiMobileNavigationPageAccess().getJvmTypeAssignment_4_1(), "rule__UiMobileNavigationPage__JvmTypeAssignment_4_1");
 					put(grammarAccess.getUiMobileNavigationPageAccess().getContentsAssignment_5(), "rule__UiMobileNavigationPage__ContentsAssignment_5");

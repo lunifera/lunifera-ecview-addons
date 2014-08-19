@@ -428,7 +428,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPathAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
 		private final RuleCall cPathUiPathSegmentParserRuleCall_0_2_0 = (RuleCall)cPathAssignment_0_2.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final RuleCall cUiNavigationCommandBindableDefParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final RuleCall cUiCommandBindableDefParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
 		private final Action cUiBindingEndpointAssignmentTypedBindableDefAction_1_1 = (Action)cGroup_1.eContents().get(1);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Action cUiBindingEndpointAssignmentAction_2_0 = (Action)cGroup_2.eContents().get(0);
@@ -439,13 +439,13 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPathUiPathSegmentParserRuleCall_2_2_0 = (RuleCall)cPathAssignment_2_2.eContents().get(0);
 		
 		//UiBindingEndpointAssignment returns UiBindingExpression:
-		//	UiTypedBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} path=UiPathSegment? |
-		//	UiNavigationCommandBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} | {UiBindingEndpointAssignment}
+		//	UiTypedBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} path=UiPathSegment? | UiCommandBindableDef
+		//	{UiBindingEndpointAssignment.typedBindableDef=current} | {UiBindingEndpointAssignment}
 		//	typedBindableAlias=[UiTypedBindable] path=UiPathSegment?;
 		public ParserRule getRule() { return rule; }
 
-		//UiTypedBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} path=UiPathSegment? |
-		//UiNavigationCommandBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} | {UiBindingEndpointAssignment}
+		//UiTypedBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} path=UiPathSegment? | UiCommandBindableDef
+		//{UiBindingEndpointAssignment.typedBindableDef=current} | {UiBindingEndpointAssignment}
 		//typedBindableAlias=[UiTypedBindable] path=UiPathSegment?
 		public Alternatives getAlternatives() { return cAlternatives; }
 
@@ -464,11 +464,11 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//UiPathSegment
 		public RuleCall getPathUiPathSegmentParserRuleCall_0_2_0() { return cPathUiPathSegmentParserRuleCall_0_2_0; }
 
-		//UiNavigationCommandBindableDef {UiBindingEndpointAssignment.typedBindableDef=current}
+		//UiCommandBindableDef {UiBindingEndpointAssignment.typedBindableDef=current}
 		public Group getGroup_1() { return cGroup_1; }
 
-		//UiNavigationCommandBindableDef
-		public RuleCall getUiNavigationCommandBindableDefParserRuleCall_1_0() { return cUiNavigationCommandBindableDefParserRuleCall_1_0; }
+		//UiCommandBindableDef
+		public RuleCall getUiCommandBindableDefParserRuleCall_1_0() { return cUiCommandBindableDefParserRuleCall_1_0; }
 
 		//{UiBindingEndpointAssignment.typedBindableDef=current}
 		public Action getUiBindingEndpointAssignmentTypedBindableDefAction_1_1() { return cUiBindingEndpointAssignmentTypedBindableDefAction_1_1; }
@@ -579,14 +579,14 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getMethodUxEndpointDefIDTerminalRuleCall_1_2_0_1() { return cMethodUxEndpointDefIDTerminalRuleCall_1_2_0_1; }
 	}
 
-	public class UiNavigationCommandBindableDefElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiNavigationCommandBindableDef");
+	public class UiCommandBindableDefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiCommandBindableDef");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cUiCommandBindableDefAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cCommandAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cCommandUiCommandParserRuleCall_1_0 = (RuleCall)cCommandAssignment_1.eContents().get(0);
 		
-		//UiNavigationCommandBindableDef returns UiCommandBindableDef:
+		//UiCommandBindableDef:
 		//	{UiCommandBindableDef} command=UiCommand;
 		public ParserRule getRule() { return rule; }
 
@@ -605,14 +605,22 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class UiCommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiCommand");
-		private final RuleCall cUiMobileNavigationCommandParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cUiMobileNavigationCommandParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cUiOpenDialogCommandParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//UiCommand:
-		//	UiMobileNavigationCommand;
+		//	UiMobileNavigationCommand | UiOpenDialogCommand;
 		public ParserRule getRule() { return rule; }
 
+		//UiMobileNavigationCommand | UiOpenDialogCommand
+		public Alternatives getAlternatives() { return cAlternatives; }
+
 		//UiMobileNavigationCommand
-		public RuleCall getUiMobileNavigationCommandParserRuleCall() { return cUiMobileNavigationCommandParserRuleCall; }
+		public RuleCall getUiMobileNavigationCommandParserRuleCall_0() { return cUiMobileNavigationCommandParserRuleCall_0; }
+
+		//UiOpenDialogCommand
+		public RuleCall getUiOpenDialogCommandParserRuleCall_1() { return cUiOpenDialogCommandParserRuleCall_1; }
 	}
 
 	public class UiMobileNavigationCommandElements extends AbstractParserRuleElementFinder {
@@ -641,6 +649,34 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 		//UiMobileNavigationPage
 		public RuleCall getTargetPageUiMobileNavigationPageParserRuleCall_2_0() { return cTargetPageUiMobileNavigationPageParserRuleCall_2_0; }
+	}
+
+	public class UiOpenDialogCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiOpenDialogCommand");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cUiOpenDialogCommandAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cOpenDialogKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cDialogAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDialogUiDialogParserRuleCall_2_0 = (RuleCall)cDialogAssignment_2.eContents().get(0);
+		
+		//UiOpenDialogCommand:
+		//	{UiOpenDialogCommand} "openDialog" dialog=UiDialog;
+		public ParserRule getRule() { return rule; }
+
+		//{UiOpenDialogCommand} "openDialog" dialog=UiDialog
+		public Group getGroup() { return cGroup; }
+
+		//{UiOpenDialogCommand}
+		public Action getUiOpenDialogCommandAction_0() { return cUiOpenDialogCommandAction_0; }
+
+		//"openDialog"
+		public Keyword getOpenDialogKeyword_1() { return cOpenDialogKeyword_1; }
+
+		//dialog=UiDialog
+		public Assignment getDialogAssignment_2() { return cDialogAssignment_2; }
+
+		//UiDialog
+		public RuleCall getDialogUiDialogParserRuleCall_2_0() { return cDialogUiDialogParserRuleCall_2_0; }
 	}
 
 	public class UiViewElements extends AbstractParserRuleElementFinder {
@@ -1382,6 +1418,96 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 		//UiEmbeddable
 		public RuleCall getElementUiEmbeddableParserRuleCall_2_0() { return cElementUiEmbeddableParserRuleCall_2_0; }
+	}
+
+	public class UiDialogElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiDialog");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cUiDialogAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cDialogKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cTypeKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cJvmTypeAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_4_1_0 = (RuleCall)cJvmTypeAssignment_4_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Assignment cContentAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cContentUiDialogAssignmentParserRuleCall_5_0 = (RuleCall)cContentAssignment_5.eContents().get(0);
+		private final Assignment cBindingsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cBindingsUiBindingParserRuleCall_6_0 = (RuleCall)cBindingsAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		
+		//UiDialog:
+		//	{UiDialog} "dialog" name=ID? "{" ("type" jvmType=JvmTypeReference ";")? content=UiDialogAssignment?
+		//	bindings+=UiBinding* "}";
+		public ParserRule getRule() { return rule; }
+
+		//{UiDialog} "dialog" name=ID? "{" ("type" jvmType=JvmTypeReference ";")? content=UiDialogAssignment? bindings+=UiBinding*
+		//"}"
+		public Group getGroup() { return cGroup; }
+
+		//{UiDialog}
+		public Action getUiDialogAction_0() { return cUiDialogAction_0; }
+
+		//"dialog"
+		public Keyword getDialogKeyword_1() { return cDialogKeyword_1; }
+
+		//name=ID?
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+
+		//("type" jvmType=JvmTypeReference ";")?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"type"
+		public Keyword getTypeKeyword_4_0() { return cTypeKeyword_4_0; }
+
+		//jvmType=JvmTypeReference
+		public Assignment getJvmTypeAssignment_4_1() { return cJvmTypeAssignment_4_1; }
+
+		//JvmTypeReference
+		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_4_1_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_4_1_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_4_2() { return cSemicolonKeyword_4_2; }
+
+		//content=UiDialogAssignment?
+		public Assignment getContentAssignment_5() { return cContentAssignment_5; }
+
+		//UiDialogAssignment
+		public RuleCall getContentUiDialogAssignmentParserRuleCall_5_0() { return cContentUiDialogAssignmentParserRuleCall_5_0; }
+
+		//bindings+=UiBinding*
+		public Assignment getBindingsAssignment_6() { return cBindingsAssignment_6; }
+
+		//UiBinding
+		public RuleCall getBindingsUiBindingParserRuleCall_6_0() { return cBindingsUiBindingParserRuleCall_6_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+	}
+
+	public class UiDialogAssignmentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiDialogAssignment");
+		private final Assignment cElementAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cElementUiEmbeddableParserRuleCall_0 = (RuleCall)cElementAssignment.eContents().get(0);
+		
+		//UiDialogAssignment:
+		//	element=UiEmbeddable;
+		public ParserRule getRule() { return rule; }
+
+		//element=UiEmbeddable
+		public Assignment getElementAssignment() { return cElementAssignment; }
+
+		//UiEmbeddable
+		public RuleCall getElementUiEmbeddableParserRuleCall_0() { return cElementUiEmbeddableParserRuleCall_0; }
 	}
 
 	public class UiMobileNavigationPageElements extends AbstractParserRuleElementFinder {
@@ -2633,9 +2759,10 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private UiBindingEndpointAssignmentElements pUiBindingEndpointAssignment;
 	private UiPathSegmentElements pUiPathSegment;
 	private UiTypedBindableDefElements pUiTypedBindableDef;
-	private UiNavigationCommandBindableDefElements pUiNavigationCommandBindableDef;
+	private UiCommandBindableDefElements pUiCommandBindableDef;
 	private UiCommandElements pUiCommand;
 	private UiMobileNavigationCommandElements pUiMobileNavigationCommand;
+	private UiOpenDialogCommandElements pUiOpenDialogCommand;
 	private UiViewElements pUiView;
 	private UiIDEViewElements pUiIDEView;
 	private UiMobileViewElements pUiMobileView;
@@ -2655,6 +2782,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private UiMobileTabAssignmentElements pUiMobileTabAssignment;
 	private UiTabSheetElements pUiTabSheet;
 	private UiTabAssignmentElements pUiTabAssignment;
+	private UiDialogElements pUiDialog;
+	private UiDialogAssignmentElements pUiDialogAssignment;
 	private UiMobileNavigationPageElements pUiMobileNavigationPage;
 	private UiMobileNavigationPageAssignmentElements pUiMobileNavigationPageAssignment;
 	private UiPointElements pUiPoint;
@@ -2826,8 +2955,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiBindingEndpointAssignment returns UiBindingExpression:
-	//	UiTypedBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} path=UiPathSegment? |
-	//	UiNavigationCommandBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} | {UiBindingEndpointAssignment}
+	//	UiTypedBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} path=UiPathSegment? | UiCommandBindableDef
+	//	{UiBindingEndpointAssignment.typedBindableDef=current} | {UiBindingEndpointAssignment}
 	//	typedBindableAlias=[UiTypedBindable] path=UiPathSegment?;
 	public UiBindingEndpointAssignmentElements getUiBindingEndpointAssignmentAccess() {
 		return (pUiBindingEndpointAssignment != null) ? pUiBindingEndpointAssignment : (pUiBindingEndpointAssignment = new UiBindingEndpointAssignmentElements());
@@ -2857,18 +2986,18 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getUiTypedBindableDefAccess().getRule();
 	}
 
-	//UiNavigationCommandBindableDef returns UiCommandBindableDef:
+	//UiCommandBindableDef:
 	//	{UiCommandBindableDef} command=UiCommand;
-	public UiNavigationCommandBindableDefElements getUiNavigationCommandBindableDefAccess() {
-		return (pUiNavigationCommandBindableDef != null) ? pUiNavigationCommandBindableDef : (pUiNavigationCommandBindableDef = new UiNavigationCommandBindableDefElements());
+	public UiCommandBindableDefElements getUiCommandBindableDefAccess() {
+		return (pUiCommandBindableDef != null) ? pUiCommandBindableDef : (pUiCommandBindableDef = new UiCommandBindableDefElements());
 	}
 	
-	public ParserRule getUiNavigationCommandBindableDefRule() {
-		return getUiNavigationCommandBindableDefAccess().getRule();
+	public ParserRule getUiCommandBindableDefRule() {
+		return getUiCommandBindableDefAccess().getRule();
 	}
 
 	//UiCommand:
-	//	UiMobileNavigationCommand;
+	//	UiMobileNavigationCommand | UiOpenDialogCommand;
 	public UiCommandElements getUiCommandAccess() {
 		return (pUiCommand != null) ? pUiCommand : (pUiCommand = new UiCommandElements());
 	}
@@ -2885,6 +3014,16 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getUiMobileNavigationCommandRule() {
 		return getUiMobileNavigationCommandAccess().getRule();
+	}
+
+	//UiOpenDialogCommand:
+	//	{UiOpenDialogCommand} "openDialog" dialog=UiDialog;
+	public UiOpenDialogCommandElements getUiOpenDialogCommandAccess() {
+		return (pUiOpenDialogCommand != null) ? pUiOpenDialogCommand : (pUiOpenDialogCommand = new UiOpenDialogCommandElements());
+	}
+	
+	public ParserRule getUiOpenDialogCommandRule() {
+		return getUiOpenDialogCommandAccess().getRule();
 	}
 
 	//UiView:
@@ -3080,6 +3219,27 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getUiTabAssignmentRule() {
 		return getUiTabAssignmentAccess().getRule();
+	}
+
+	//UiDialog:
+	//	{UiDialog} "dialog" name=ID? "{" ("type" jvmType=JvmTypeReference ";")? content=UiDialogAssignment?
+	//	bindings+=UiBinding* "}";
+	public UiDialogElements getUiDialogAccess() {
+		return (pUiDialog != null) ? pUiDialog : (pUiDialog = new UiDialogElements());
+	}
+	
+	public ParserRule getUiDialogRule() {
+		return getUiDialogAccess().getRule();
+	}
+
+	//UiDialogAssignment:
+	//	element=UiEmbeddable;
+	public UiDialogAssignmentElements getUiDialogAssignmentAccess() {
+		return (pUiDialogAssignment != null) ? pUiDialogAssignment : (pUiDialogAssignment = new UiDialogAssignmentElements());
+	}
+	
+	public ParserRule getUiDialogAssignmentRule() {
+		return getUiDialogAssignmentAccess().getRule();
 	}
 
 	//UiMobileNavigationPage:

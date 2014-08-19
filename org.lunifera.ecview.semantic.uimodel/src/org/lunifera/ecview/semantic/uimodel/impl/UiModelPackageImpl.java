@@ -25,6 +25,8 @@ import org.lunifera.ecview.semantic.uimodel.UiComboBox;
 import org.lunifera.ecview.semantic.uimodel.UiCommand;
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
 import org.lunifera.ecview.semantic.uimodel.UiContext;
+import org.lunifera.ecview.semantic.uimodel.UiDialog;
+import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiField;
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
@@ -61,6 +63,7 @@ import org.lunifera.ecview.semantic.uimodel.UiModelFactory;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiNumericField;
+import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
@@ -138,6 +141,20 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiViewEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiDialogEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiDialogAssignmentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -676,6 +693,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass uiOpenDialogCommandEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum uiFlatAlignmentEEnum = null;
 
 	/**
@@ -901,6 +925,42 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiView_ValidatorAssignments() {
 		return (EReference)uiViewEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiDialog() {
+		return uiDialogEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiDialog_Content() {
+		return (EReference)uiDialogEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiDialogAssignment() {
+		return uiDialogAssignmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiDialogAssignment_Element() {
+		return (EReference)uiDialogAssignmentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2402,6 +2462,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiOpenDialogCommand() {
+		return uiOpenDialogCommandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiOpenDialogCommand_Dialog() {
+		return (EReference)uiOpenDialogCommandEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getUiFlatAlignment() {
 		return uiFlatAlignmentEEnum;
 	}
@@ -2466,6 +2544,12 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiViewEClass, UI_VIEW__VIEW_SET);
 		createEReference(uiViewEClass, UI_VIEW__CONTENT);
 		createEReference(uiViewEClass, UI_VIEW__VALIDATOR_ASSIGNMENTS);
+
+		uiDialogEClass = createEClass(UI_DIALOG);
+		createEReference(uiDialogEClass, UI_DIALOG__CONTENT);
+
+		uiDialogAssignmentEClass = createEClass(UI_DIALOG_ASSIGNMENT);
+		createEReference(uiDialogAssignmentEClass, UI_DIALOG_ASSIGNMENT__ELEMENT);
 
 		uiIDEViewEClass = createEClass(UI_IDE_VIEW);
 
@@ -2707,6 +2791,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiMobileNavigationCommandEClass, UI_MOBILE_NAVIGATION_COMMAND__TARGET_PAGE);
 		createEReference(uiMobileNavigationCommandEClass, UI_MOBILE_NAVIGATION_COMMAND__TARGET_PAGE_ALIAS);
 
+		uiOpenDialogCommandEClass = createEClass(UI_OPEN_DIALOG_COMMAND);
+		createEReference(uiOpenDialogCommandEClass, UI_OPEN_DIALOG_COMMAND__DIALOG);
+
 		// Create enums
 		uiFlatAlignmentEEnum = createEEnum(UI_FLAT_ALIGNMENT);
 		uiSelectionTypeEEnum = createEEnum(UI_SELECTION_TYPE);
@@ -2750,6 +2837,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiContextEClass.getESuperTypes().add(this.getUiRootElements());
 		uiViewSetEClass.getESuperTypes().add(this.getUiContext());
 		uiViewEClass.getESuperTypes().add(this.getUiContext());
+		uiDialogEClass.getESuperTypes().add(this.getUiEmbeddable());
+		uiDialogEClass.getESuperTypes().add(this.getUiTypeProvider());
+		uiDialogAssignmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
 		uiIDEViewEClass.getESuperTypes().add(this.getUiView());
 		uiMobileViewEClass.getESuperTypes().add(this.getUiView());
 		uiBeanSlotEClass.getESuperTypes().add(this.getUiTypedBindable());
@@ -2827,6 +2917,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiMobileNavigationButtonEClass.getESuperTypes().add(this.getUiMobileAction());
 		uiCommandEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiMobileNavigationCommandEClass.getESuperTypes().add(this.getUiCommand());
+		uiOpenDialogCommandEClass.getESuperTypes().add(this.getUiCommand());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(uiNamedElementEClass, UiNamedElement.class, "UiNamedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2852,6 +2943,12 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiView_ViewSet(), this.getUiViewSet(), null, "viewSet", null, 0, 1, UiView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiView_Content(), this.getUiEmbeddable(), null, "content", null, 0, 1, UiView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiView_ValidatorAssignments(), this.getUiValidatorAssignment(), null, "validatorAssignments", null, 0, -1, UiView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiDialogEClass, UiDialog.class, "UiDialog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiDialog_Content(), this.getUiDialogAssignment(), null, "content", null, 0, 1, UiDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiDialogAssignmentEClass, UiDialogAssignment.class, "UiDialogAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiDialogAssignment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiDialogAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiIDEViewEClass, UiIDEView.class, "UiIDEView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3092,6 +3189,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiMobileNavigationCommandEClass, UiMobileNavigationCommand.class, "UiMobileNavigationCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiMobileNavigationCommand_TargetPage(), this.getUiMobileNavigationPage(), null, "targetPage", null, 0, 1, UiMobileNavigationCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiMobileNavigationCommand_TargetPageAlias(), this.getUiMobileNavigationPage(), null, "targetPageAlias", null, 0, 1, UiMobileNavigationCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiOpenDialogCommandEClass, UiOpenDialogCommand.class, "UiOpenDialogCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiOpenDialogCommand_Dialog(), this.getUiDialog(), null, "dialog", null, 0, 1, UiOpenDialogCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(uiFlatAlignmentEEnum, UiFlatAlignment.class, "UiFlatAlignment");

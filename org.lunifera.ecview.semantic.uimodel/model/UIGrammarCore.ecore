@@ -34,6 +34,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="validatorAssignments" upperBound="-1"
         eType="#//UiValidatorAssignment" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiDialog" eSuperTypes="#//UiEmbeddable #//UiTypeProvider">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//UiDialogAssignment"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiDialogAssignment" eSuperTypes="#//UiLayoutAssignment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiIDEView" eSuperTypes="#//UiView"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiMobileView" eSuperTypes="#//UiView"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiPoint">
@@ -333,5 +341,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetPage" eType="#//UiMobileNavigationPage"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetPageAlias" eType="#//UiMobileNavigationPage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiOpenDialogCommand" eSuperTypes="#//UiCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dialog" eType="#//UiDialog"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

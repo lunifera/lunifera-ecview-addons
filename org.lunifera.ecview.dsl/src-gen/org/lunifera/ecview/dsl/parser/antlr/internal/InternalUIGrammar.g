@@ -811,11 +811,11 @@ ruleUiBindingEndpointAssignment returns [EObject current=null]
 )?)
     |(
     { 
-        newCompositeNode(grammarAccess.getUiBindingEndpointAssignmentAccess().getUiNavigationCommandBindableDefParserRuleCall_1_0()); 
+        newCompositeNode(grammarAccess.getUiBindingEndpointAssignmentAccess().getUiCommandBindableDefParserRuleCall_1_0()); 
     }
-    this_UiNavigationCommandBindableDef_3=ruleUiNavigationCommandBindableDef
+    this_UiCommandBindableDef_3=ruleUiCommandBindableDef
     { 
-        $current = $this_UiNavigationCommandBindableDef_3.current; 
+        $current = $this_UiCommandBindableDef_3.current; 
         afterParserOrEnumRuleCall();
     }
 (
@@ -982,34 +982,34 @@ ruleUiTypedBindableDef returns [EObject current=null]
 
 
 
-// Entry rule entryRuleUiNavigationCommandBindableDef
-entryRuleUiNavigationCommandBindableDef returns [EObject current=null] 
+// Entry rule entryRuleUiCommandBindableDef
+entryRuleUiCommandBindableDef returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getUiNavigationCommandBindableDefRule()); }
-	 iv_ruleUiNavigationCommandBindableDef=ruleUiNavigationCommandBindableDef 
-	 { $current=$iv_ruleUiNavigationCommandBindableDef.current; } 
+	{ newCompositeNode(grammarAccess.getUiCommandBindableDefRule()); }
+	 iv_ruleUiCommandBindableDef=ruleUiCommandBindableDef 
+	 { $current=$iv_ruleUiCommandBindableDef.current; } 
 	 EOF 
 ;
 
-// Rule UiNavigationCommandBindableDef
-ruleUiNavigationCommandBindableDef returns [EObject current=null] 
+// Rule UiCommandBindableDef
+ruleUiCommandBindableDef returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 ((
     {
         $current = forceCreateModelElement(
-            grammarAccess.getUiNavigationCommandBindableDefAccess().getUiCommandBindableDefAction_0(),
+            grammarAccess.getUiCommandBindableDefAccess().getUiCommandBindableDefAction_0(),
             $current);
     }
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiNavigationCommandBindableDefAccess().getCommandUiCommandParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getUiCommandBindableDefAccess().getCommandUiCommandParserRuleCall_1_0()); 
 	    }
 		lv_command_1_0=ruleUiCommand		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getUiNavigationCommandBindableDefRule());
+	            $current = createModelElementForParent(grammarAccess.getUiCommandBindableDefRule());
 	        }
        		set(
        			$current, 
@@ -1041,9 +1041,9 @@ ruleUiCommand returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-
+(
     { 
-        newCompositeNode(grammarAccess.getUiCommandAccess().getUiMobileNavigationCommandParserRuleCall()); 
+        newCompositeNode(grammarAccess.getUiCommandAccess().getUiMobileNavigationCommandParserRuleCall_0()); 
     }
     this_UiMobileNavigationCommand_0=ruleUiMobileNavigationCommand
     { 
@@ -1051,6 +1051,16 @@ ruleUiCommand returns [EObject current=null]
         afterParserOrEnumRuleCall();
     }
 
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiCommandAccess().getUiOpenDialogCommandParserRuleCall_1()); 
+    }
+    this_UiOpenDialogCommand_1=ruleUiOpenDialogCommand
+    { 
+        $current = $this_UiOpenDialogCommand_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
 ;
 
 
@@ -1095,6 +1105,55 @@ ruleUiMobileNavigationCommand returns [EObject current=null]
        			"targetPage",
         		lv_targetPage_2_0, 
         		"UiMobileNavigationPage");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleUiOpenDialogCommand
+entryRuleUiOpenDialogCommand returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiOpenDialogCommandRule()); }
+	 iv_ruleUiOpenDialogCommand=ruleUiOpenDialogCommand 
+	 { $current=$iv_ruleUiOpenDialogCommand.current; } 
+	 EOF 
+;
+
+// Rule UiOpenDialogCommand
+ruleUiOpenDialogCommand returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUiOpenDialogCommandAccess().getUiOpenDialogCommandAction_0(),
+            $current);
+    }
+)	otherlv_1='openDialog' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiOpenDialogCommandAccess().getOpenDialogKeyword_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiOpenDialogCommandAccess().getDialogUiDialogParserRuleCall_2_0()); 
+	    }
+		lv_dialog_2_0=ruleUiDialog		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiOpenDialogCommandRule());
+	        }
+       		set(
+       			$current, 
+       			"dialog",
+        		lv_dialog_2_0, 
+        		"UiDialog");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2428,6 +2487,164 @@ ruleUiTabAssignment returns [EObject current=null]
 
 )
 ))
+;
+
+
+
+
+
+// Entry rule entryRuleUiDialog
+entryRuleUiDialog returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiDialogRule()); }
+	 iv_ruleUiDialog=ruleUiDialog 
+	 { $current=$iv_ruleUiDialog.current; } 
+	 EOF 
+;
+
+// Rule UiDialog
+ruleUiDialog returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUiDialogAccess().getUiDialogAction_0(),
+            $current);
+    }
+)	otherlv_1='dialog' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiDialogAccess().getDialogKeyword_1());
+    }
+(
+(
+		lv_name_2_0=RULE_ID
+		{
+			newLeafNode(lv_name_2_0, grammarAccess.getUiDialogAccess().getNameIDTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiDialogRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_2_0, 
+        		"ID");
+	    }
+
+)
+)?	otherlv_3='{' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getUiDialogAccess().getLeftCurlyBracketKeyword_3());
+    }
+(	otherlv_4='type' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getUiDialogAccess().getTypeKeyword_4_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiDialogAccess().getJvmTypeJvmTypeReferenceParserRuleCall_4_1_0()); 
+	    }
+		lv_jvmType_5_0=ruleJvmTypeReference		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiDialogRule());
+	        }
+       		set(
+       			$current, 
+       			"jvmType",
+        		lv_jvmType_5_0, 
+        		"JvmTypeReference");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_6=';' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getUiDialogAccess().getSemicolonKeyword_4_2());
+    }
+)?(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiDialogAccess().getContentUiDialogAssignmentParserRuleCall_5_0()); 
+	    }
+		lv_content_7_0=ruleUiDialogAssignment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiDialogRule());
+	        }
+       		set(
+       			$current, 
+       			"content",
+        		lv_content_7_0, 
+        		"UiDialogAssignment");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiDialogAccess().getBindingsUiBindingParserRuleCall_6_0()); 
+	    }
+		lv_bindings_8_0=ruleUiBinding		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiDialogRule());
+	        }
+       		add(
+       			$current, 
+       			"bindings",
+        		lv_bindings_8_0, 
+        		"UiBinding");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_9='}' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getUiDialogAccess().getRightCurlyBracketKeyword_7());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleUiDialogAssignment
+entryRuleUiDialogAssignment returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiDialogAssignmentRule()); }
+	 iv_ruleUiDialogAssignment=ruleUiDialogAssignment 
+	 { $current=$iv_ruleUiDialogAssignment.current; } 
+	 EOF 
+;
+
+// Rule UiDialogAssignment
+ruleUiDialogAssignment returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiDialogAssignmentAccess().getElementUiEmbeddableParserRuleCall_0()); 
+	    }
+		lv_element_0_0=ruleUiEmbeddable		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiDialogAssignmentRule());
+	        }
+       		set(
+       			$current, 
+       			"element",
+        		lv_element_0_0, 
+        		"UiEmbeddable");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
 ;
 
 

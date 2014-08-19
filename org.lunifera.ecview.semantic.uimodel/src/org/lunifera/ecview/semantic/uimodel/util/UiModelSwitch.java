@@ -112,6 +112,25 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_DIALOG: {
+				UiDialog uiDialog = (UiDialog)theEObject;
+				T result = caseUiDialog(uiDialog);
+				if (result == null) result = caseUiEmbeddable(uiDialog);
+				if (result == null) result = caseUiTypeProvider(uiDialog);
+				if (result == null) result = caseUiVisibilityProcessable(uiDialog);
+				if (result == null) result = caseUiRawBindable(uiDialog);
+				if (result == null) result = caseUiNamedElement(uiDialog);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_DIALOG_ASSIGNMENT: {
+				UiDialogAssignment uiDialogAssignment = (UiDialogAssignment)theEObject;
+				T result = caseUiDialogAssignment(uiDialogAssignment);
+				if (result == null) result = caseUiLayoutAssignment(uiDialogAssignment);
+				if (result == null) result = caseUiNamedElement(uiDialogAssignment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case UiModelPackage.UI_IDE_VIEW: {
 				UiIDEView uiIDEView = (UiIDEView)theEObject;
 				T result = caseUiIDEView(uiIDEView);
@@ -794,6 +813,14 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_OPEN_DIALOG_COMMAND: {
+				UiOpenDialogCommand uiOpenDialogCommand = (UiOpenDialogCommand)theEObject;
+				T result = caseUiOpenDialogCommand(uiOpenDialogCommand);
+				if (result == null) result = caseUiCommand(uiOpenDialogCommand);
+				if (result == null) result = caseUiNamedElement(uiOpenDialogCommand);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -870,6 +897,36 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiView(UiView object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Dialog</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Dialog</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiDialog(UiDialog object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Dialog Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Dialog Assignment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiDialogAssignment(UiDialogAssignment object) {
 		return null;
 	}
 
@@ -2010,6 +2067,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiMobileNavigationCommand(UiMobileNavigationCommand object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Open Dialog Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Open Dialog Command</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiOpenDialogCommand(UiOpenDialogCommand object) {
 		return null;
 	}
 

@@ -58,6 +58,24 @@ public interface UiModelFactory extends EFactory {
 	UiView createUiView();
 
 	/**
+	 * Returns a new object of class '<em>Ui Dialog</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Dialog</em>'.
+	 * @generated
+	 */
+	UiDialog createUiDialog();
+
+	/**
+	 * Returns a new object of class '<em>Ui Dialog Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Dialog Assignment</em>'.
+	 * @generated
+	 */
+	UiDialogAssignment createUiDialogAssignment();
+
+	/**
 	 * Returns a new object of class '<em>Ui IDE View</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -587,6 +605,15 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiMobileNavigationCommand createUiMobileNavigationCommand();
+
+	/**
+	 * Returns a new object of class '<em>Ui Open Dialog Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Open Dialog Command</em>'.
+	 * @generated
+	 */
+	UiOpenDialogCommand createUiOpenDialogCommand();
 
 	/**
 	 * Returns the package supported by this factory.

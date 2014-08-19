@@ -62,6 +62,8 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_CONTEXT: return createUiContext();
 			case UiModelPackage.UI_VIEW_SET: return createUiViewSet();
 			case UiModelPackage.UI_VIEW: return createUiView();
+			case UiModelPackage.UI_DIALOG: return createUiDialog();
+			case UiModelPackage.UI_DIALOG_ASSIGNMENT: return createUiDialogAssignment();
 			case UiModelPackage.UI_IDE_VIEW: return createUiIDEView();
 			case UiModelPackage.UI_MOBILE_VIEW: return createUiMobileView();
 			case UiModelPackage.UI_POINT: return createUiPoint();
@@ -120,6 +122,7 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT: return createUiMobileNavigationPageAssignment();
 			case UiModelPackage.UI_MOBILE_NAVIGATION_BUTTON: return createUiMobileNavigationButton();
 			case UiModelPackage.UI_MOBILE_NAVIGATION_COMMAND: return createUiMobileNavigationCommand();
+			case UiModelPackage.UI_OPEN_DIALOG_COMMAND: return createUiOpenDialogCommand();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -197,6 +200,26 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiView createUiView() {
 		UiViewImpl uiView = new UiViewImpl();
 		return uiView;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiDialog createUiDialog() {
+		UiDialogImpl uiDialog = new UiDialogImpl();
+		return uiDialog;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiDialogAssignment createUiDialogAssignment() {
+		UiDialogAssignmentImpl uiDialogAssignment = new UiDialogAssignmentImpl();
+		return uiDialogAssignment;
 	}
 
 	/**
@@ -787,6 +810,16 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiMobileNavigationCommand createUiMobileNavigationCommand() {
 		UiMobileNavigationCommandImpl uiMobileNavigationCommand = new UiMobileNavigationCommandImpl();
 		return uiMobileNavigationCommand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiOpenDialogCommand createUiOpenDialogCommand() {
+		UiOpenDialogCommandImpl uiOpenDialogCommand = new UiOpenDialogCommandImpl();
+		return uiOpenDialogCommand;
 	}
 
 	/**

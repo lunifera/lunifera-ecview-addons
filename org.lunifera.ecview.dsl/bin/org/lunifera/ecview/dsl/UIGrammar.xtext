@@ -45,7 +45,7 @@ UiBinding returns UiBinding:
 
 UiBindingEndpointAssignment returns UiBindingExpression:
 	((UiTypedBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} path=(UiPathSegment)?) 
-		| (UiNavigationCommandBindableDef {UiBindingEndpointAssignment.typedBindableDef=current}) 
+		| (UiCommandBindableDef {UiBindingEndpointAssignment.typedBindableDef=current}) 
 		| ({UiBindingEndpointAssignment} typedBindableAlias=[UiTypedBindable] path=(UiPathSegment)?));
 
 UiPathSegment returns UiPathSegment:
@@ -55,18 +55,23 @@ UiTypedBindableDef returns UiBindingExpression:
 	{UiTypedBindableDef}
 	(rawBindable=[UiRawBindable|ID] ':' method=[cfg::UxEndpointDef]);
 
-UiNavigationCommandBindableDef returns UiCommandBindableDef:
+UiCommandBindableDef returns UiCommandBindableDef:
 	{UiCommandBindableDef}
 	command=UiCommand
 ;
 
 UiCommand returns UiCommand:
-	UiMobileNavigationCommand
+	UiMobileNavigationCommand | UiOpenDialogCommand
 ;
 
 UiMobileNavigationCommand:
 	{UiMobileNavigationCommand}
 	'navigateTo' targetPage=UiMobileNavigationPage
+;
+
+UiOpenDialogCommand:
+	{UiOpenDialogCommand}
+	'openDialog' dialog=UiDialog
 ;
 
 
@@ -190,14 +195,23 @@ UiTabSheet:
 UiTabAssignment:
 	'tab' (name=ID)? element=UiEmbeddable;
 
+UiDialog:
+	{UiDialog}
+	'dialog' name=ID? '{'
+		('type' jvmType=JvmTypeReference ';')?
+		(content=UiDialogAssignment)?
+		(bindings+=UiBinding)*
+	'}';
+
+UiDialogAssignment: 
+	element=UiEmbeddable;
+
 UiMobileNavigationPage: 
 	{UiMobileNavigationPage}
-	'navPage'
-	name=ID?
-	'{'
-	('type' jvmType=JvmTypeReference ';')?
-	(contents+=UiMobileNavigationPageAssignment)*
-	(bindings+=UiBinding)*
+	'navPage' name=ID? '{'
+		('type' jvmType=JvmTypeReference ';')?
+		(contents+=UiMobileNavigationPageAssignment)*
+		(bindings+=UiBinding)*
 	'}';
 
 UiMobileNavigationPageAssignment: 
