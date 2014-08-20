@@ -2,14 +2,8 @@ package org.lunifera.ecview.uisemantics.jvmmodel;
 
 import com.google.inject.Inject;
 import java.util.Arrays;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.common.types.JvmDeclaredType;
-import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer;
-import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor;
-import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor.IPostIndexingInitializing;
-import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.lunifera.ecview.semantic.uisemantics.UxModel;
 
 /**
  * <p>Infers a JVM model from the source model.</p>
@@ -18,13 +12,13 @@ import org.lunifera.ecview.semantic.uisemantics.UxModel;
  * which is generated from the source model. Other models link against the JVM model rather than the source model.</p>
  */
 @SuppressWarnings("all")
-public class UISemanticsGrammarJvmModelInferrer extends AbstractModelInferrer {
+public class UISemanticsGrammarJvmModelInferrer /* implements AbstractModelInferrer  */{
   /**
    * convenience API to build and initialize JVM types and their members.
    */
   @Inject
   @Extension
-  private JvmTypesBuilder _jvmTypesBuilder;
+  private /* JvmTypesBuilder */Object _jvmTypesBuilder;
   
   /**
    * The dispatch method {@code infer} is called for each instance of the
@@ -51,19 +45,17 @@ public class UISemanticsGrammarJvmModelInferrer extends AbstractModelInferrer {
    *            rely on linking using the index if isPreIndexingPhase is
    *            <code>true</code>.
    */
-  protected void _infer(final UxModel element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+  protected void _infer(final /* UxModel */Object element, final /* IJvmDeclaredTypeAcceptor */Object acceptor, final boolean isPreIndexingPhase) {
   }
   
-  public void infer(final EObject element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
-    if (element instanceof UxModel) {
-      _infer((UxModel)element, acceptor, isPreIndexingPhase);
-      return;
-    } else if (element != null) {
+  public void infer(final UxModel element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+    if (element != null
+         && acceptor != null) {
       _infer(element, acceptor, isPreIndexingPhase);
-      return;
-    } else {
-      throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(element, acceptor, isPreIndexingPhase).toString());
+      return; else {
+        throw new IllegalArgumentException("Unhandled parameter types: " +
+          Arrays.<Object>asList(element, acceptor, isPreIndexingPhase).toString());
+      }
     }
   }
-}
+  

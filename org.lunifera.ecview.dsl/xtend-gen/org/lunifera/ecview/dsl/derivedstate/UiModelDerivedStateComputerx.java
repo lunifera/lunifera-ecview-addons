@@ -24,7 +24,6 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
-import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidator;
@@ -117,16 +116,6 @@ import org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
-import org.lunifera.mobile.vaadin.ecview.model.VMHorizontalButtonGroup;
-import org.lunifera.mobile.vaadin.ecview.model.VMNavigationButton;
-import org.lunifera.mobile.vaadin.ecview.model.VMNavigationPage;
-import org.lunifera.mobile.vaadin.ecview.model.VMSwitch;
-import org.lunifera.mobile.vaadin.ecview.model.VMTab;
-import org.lunifera.mobile.vaadin.ecview.model.VMTabSheet;
-import org.lunifera.mobile.vaadin.ecview.model.VMVerticalComponentGroup;
-import org.lunifera.mobile.vaadin.ecview.model.VaadinMobileFactory;
-import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoader;
-import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderFactory;
 
 @SuppressWarnings("all")
 public class UiModelDerivedStateComputerx extends JvmModelAssociator {
@@ -247,9 +236,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   @Inject
-  private IJdtTypeLoaderFactory typeLoaderFactory;
+  private /* IJdtTypeLoaderFactory */Object typeLoaderFactory;
   
-  private IJdtTypeLoader typeLoader;
+  private /* IJdtTypeLoader */Object typeLoader;
   
   @Inject
   private BindableTypeProvider typeOfBoundPropertyProvider;
@@ -287,40 +276,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   public void installDerivedState(final DerivedStateAwareResource resource, final boolean preLinkingPhase) {
-    super.installDerivedState(resource, preLinkingPhase);
-    this.resource = resource;
-    ResourceSet _resourceSet = resource.getResourceSet();
-    IJdtTypeLoader _createJdtTypeLoader = this.typeLoaderFactory.createJdtTypeLoader(_resourceSet);
-    this.typeLoader = _createJdtTypeLoader;
-    EList<EObject> _contents = resource.getContents();
-    boolean _isEmpty = _contents.isEmpty();
-    if (_isEmpty) {
-      return;
-    }
-    if ((!preLinkingPhase)) {
-      this.grammarToUiAssociations.clear();
-      this.uiToGrammarAssociations.clear();
-      EList<EObject> _contents_1 = resource.getContents();
-      final EObject eObject = _contents_1.get(0);
-      EList<EObject> _eContents = eObject.eContents();
-      final Procedure1<EObject> _function = new Procedure1<EObject>() {
-        public void apply(final EObject it) {
-          UiModelDerivedStateComputerx.this.map(it);
-        }
-      };
-      IterableExtensions.<EObject>forEach(_eContents, _function);
-      int _size = this.views.size();
-      boolean _greaterThan = (_size > 0);
-      if (_greaterThan) {
-        EList<EObject> _contents_2 = resource.getContents();
-        YView _get = this.views.get(0);
-        _contents_2.add(_get);
-      }
-      this.views.clear();
-      this.viewContext.clear();
-    }
-    this.typeLoader.dispose();
-    this.typeLoader = null;
+    throw new Error("Unresolved compilation problems:"
+      + "\ncreateJdtTypeLoader cannot be resolved"
+      + "\ndispose cannot be resolved");
   }
   
   public <A extends Object> A peek() {
@@ -596,172 +554,79 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiMobileTabSheet eObject) {
-    final VMTabSheet layout = VaadinMobileFactory.eINSTANCE.createVMTabSheet();
-    String _name = eObject.getName();
-    layout.setName(_name);
-    this.addToParent(layout);
-    this.associateUi(eObject, layout);
-    this.push(layout);
-    EList<UiMobileTabAssignment> _tabs = eObject.getTabs();
-    final Procedure1<UiMobileTabAssignment> _function = new Procedure1<UiMobileTabAssignment>() {
-      public void apply(final UiMobileTabAssignment it) {
-        UiModelDerivedStateComputerx.this.map(it);
-      }
-    };
-    IterableExtensions.<UiMobileTabAssignment>forEach(_tabs, _function);
-    this.<Object>pop();
+    throw new Error("Unresolved compilation problems:"
+      + "\nVMTabSheet cannot be resolved to a type."
+      + "\nThe method or field VaadinMobileFactory is undefined for the type UiModelDerivedStateComputerx"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateVMTabSheet cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\naddToParent cannot be resolved"
+      + "\npush cannot be resolved");
   }
   
   protected void _map(final UiMobileTabAssignment eObject) {
-    final VMTabSheet layout = this.<VMTabSheet>peek();
-    final VMTab tab = VaadinMobileFactory.eINSTANCE.createVMTab();
-    String _name = eObject.getName();
-    tab.setLabel(_name);
-    EList<VMTab> _tabs = layout.getTabs();
-    _tabs.add(tab);
-    this.push(tab);
-    final UiEmbeddable element = eObject.getElement();
-    if ((element instanceof UiField)) {
-      final YEmbeddable newField = this.create(element);
-      tab.setEmbeddable(newField);
-      if ((element instanceof UiField)) {
-        this.map(element);
-        this.push(newField);
-        final UiField yField = ((UiField) element);
-        EList<UiValidator> _validators = yField.getValidators();
-        final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
-          public void apply(final UiValidator it) {
-            UiModelDerivedStateComputerx.this.map(it);
-          }
-        };
-        IterableExtensions.<UiValidator>forEach(_validators, _function);
-        this.<Object>pop();
-      }
-    } else {
-      this.map(element);
-    }
-    this.<Object>pop();
+    throw new Error("Unresolved compilation problems:"
+      + "\nVMTabSheet cannot be resolved to a type."
+      + "\nVMTab cannot be resolved to a type."
+      + "\nThe method or field VaadinMobileFactory is undefined for the type UiModelDerivedStateComputerx"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateVMTab cannot be resolved"
+      + "\nlabel cannot be resolved"
+      + "\ntabs cannot be resolved"
+      + "\n+= cannot be resolved"
+      + "\npush cannot be resolved"
+      + "\nembeddable cannot be resolved");
   }
   
   protected void _map(final UiHorizontalButtonGroup eObject) {
-    final VMHorizontalButtonGroup layout = VaadinMobileFactory.eINSTANCE.createVMHorizontalButtonGroup();
-    String _name = eObject.getName();
-    layout.setName(_name);
-    this.addToParent(layout);
-    this.associateUi(eObject, layout);
-    this.push(layout);
-    EList<UiHorizontalButtonGroupAssigment> _contents = eObject.getContents();
-    final Procedure1<UiHorizontalButtonGroupAssigment> _function = new Procedure1<UiHorizontalButtonGroupAssigment>() {
-      public void apply(final UiHorizontalButtonGroupAssigment it) {
-        UiModelDerivedStateComputerx.this.map(it);
-      }
-    };
-    IterableExtensions.<UiHorizontalButtonGroupAssigment>forEach(_contents, _function);
-    this.<Object>pop();
+    throw new Error("Unresolved compilation problems:"
+      + "\nVMHorizontalButtonGroup cannot be resolved to a type."
+      + "\nThe method or field VaadinMobileFactory is undefined for the type UiModelDerivedStateComputerx"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateVMHorizontalButtonGroup cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\naddToParent cannot be resolved"
+      + "\npush cannot be resolved");
   }
   
   protected void _map(final UiHorizontalButtonGroupAssigment eObject) {
-    final VMHorizontalButtonGroup layout = this.<VMHorizontalButtonGroup>peek();
-    final UiEmbeddable element = eObject.getElement();
-    if ((element instanceof UiField)) {
-      final YEmbeddable newField = this.create(element);
-      layout.addElement(newField);
-      if ((element instanceof UiField)) {
-        this.map(element);
-        this.push(newField);
-        final UiField yField = ((UiField) element);
-        EList<UiValidator> _validators = yField.getValidators();
-        final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
-          public void apply(final UiValidator it) {
-            UiModelDerivedStateComputerx.this.map(it);
-          }
-        };
-        IterableExtensions.<UiValidator>forEach(_validators, _function);
-        this.<Object>pop();
-      }
-    } else {
-      this.map(element);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nVMHorizontalButtonGroup cannot be resolved to a type."
+      + "\naddElement cannot be resolved");
   }
   
   protected void _map(final UiVerticalComponentGroup eObject) {
-    final VMVerticalComponentGroup layout = VaadinMobileFactory.eINSTANCE.createVMVerticalComponentGroup();
-    String _name = eObject.getName();
-    layout.setName(_name);
-    this.addToParent(layout);
-    this.associateUi(eObject, layout);
-    this.push(layout);
-    EList<UiVerticalComponentGroupAssigment> _contents = eObject.getContents();
-    final Procedure1<UiVerticalComponentGroupAssigment> _function = new Procedure1<UiVerticalComponentGroupAssigment>() {
-      public void apply(final UiVerticalComponentGroupAssigment it) {
-        UiModelDerivedStateComputerx.this.map(it);
-      }
-    };
-    IterableExtensions.<UiVerticalComponentGroupAssigment>forEach(_contents, _function);
-    this.<Object>pop();
+    throw new Error("Unresolved compilation problems:"
+      + "\nVMVerticalComponentGroup cannot be resolved to a type."
+      + "\nThe method or field VaadinMobileFactory is undefined for the type UiModelDerivedStateComputerx"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateVMVerticalComponentGroup cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\naddToParent cannot be resolved"
+      + "\npush cannot be resolved");
   }
   
   protected void _map(final UiVerticalComponentGroupAssigment eObject) {
-    final VMVerticalComponentGroup layout = this.<VMVerticalComponentGroup>peek();
-    final UiEmbeddable element = eObject.getElement();
-    if ((element instanceof UiField)) {
-      final YEmbeddable newField = this.create(element);
-      layout.addElement(newField);
-      if ((element instanceof UiField)) {
-        this.map(element);
-        this.push(newField);
-        final UiField yField = ((UiField) element);
-        EList<UiValidator> _validators = yField.getValidators();
-        final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
-          public void apply(final UiValidator it) {
-            UiModelDerivedStateComputerx.this.map(it);
-          }
-        };
-        IterableExtensions.<UiValidator>forEach(_validators, _function);
-        this.<Object>pop();
-      }
-    } else {
-      this.map(element);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nVMVerticalComponentGroup cannot be resolved to a type."
+      + "\naddElement cannot be resolved");
   }
   
   protected void _map(final UiMobileNavigationPage eObject) {
-    final VMNavigationPage layout = VaadinMobileFactory.eINSTANCE.createVMNavigationPage();
-    String _name = eObject.getName();
-    layout.setName(_name);
-    this.addToParent(layout);
-    this.associateUi(eObject, layout);
-    this.push(layout);
-    EList<UiMobileNavigationPageAssignment> _contents = eObject.getContents();
-    final Procedure1<UiMobileNavigationPageAssignment> _function = new Procedure1<UiMobileNavigationPageAssignment>() {
-      public void apply(final UiMobileNavigationPageAssignment it) {
-        UiModelDerivedStateComputerx.this.map(it);
-      }
-    };
-    IterableExtensions.<UiMobileNavigationPageAssignment>forEach(_contents, _function);
-    this.<Object>pop();
+    throw new Error("Unresolved compilation problems:"
+      + "\nVMNavigationPage cannot be resolved to a type."
+      + "\nThe method or field VaadinMobileFactory is undefined for the type UiModelDerivedStateComputerx"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateVMNavigationPage cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\naddToParent cannot be resolved"
+      + "\npush cannot be resolved");
   }
   
   protected void _map(final UiMobileNavigationPageAssignment eObject) {
-    final VMNavigationPage layout = this.<VMNavigationPage>peek();
-    final UiEmbeddable element = eObject.getElement();
-    if ((element instanceof UiField)) {
-      final YEmbeddable newField = this.create(element);
-      layout.addElement(newField);
-      this.map(element);
-      this.push(newField);
-      final UiField yField = ((UiField) element);
-      EList<UiValidator> _validators = yField.getValidators();
-      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
-        public void apply(final UiValidator it) {
-          UiModelDerivedStateComputerx.this.map(it);
-        }
-      };
-      IterableExtensions.<UiValidator>forEach(_validators, _function);
-      this.<Object>pop();
-    } else {
-      this.map(element);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nVMNavigationPage cannot be resolved to a type."
+      + "\naddElement cannot be resolved");
   }
   
   protected void _map(final UiFormLayout eObject) {
@@ -834,28 +699,15 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiMobileNavigationButton object) {
-    final VMNavigationButton button = VaadinMobileFactory.eINSTANCE.createVMNavigationButton();
-    String _name = object.getName();
-    button.setName(_name);
-    String _name_1 = object.getName();
-    button.setLabel(_name_1);
-    this.addToParent(button);
-    this.associateUi(object, button);
-    this.push(button);
-    UiMobileNavigationPage _targetPage = object.getTargetPage();
-    boolean _notEquals = (!Objects.equal(_targetPage, null));
-    if (_notEquals) {
-      UiMobileNavigationPage _targetPage_1 = object.getTargetPage();
-      this.map(_targetPage_1);
-    } else {
-      UiMobileNavigationPage _targetPageAlias = object.getTargetPageAlias();
-      boolean _notEquals_1 = (!Objects.equal(_targetPageAlias, null));
-      if (_notEquals_1) {
-        UiMobileNavigationPage _targetPageAlias_1 = object.getTargetPageAlias();
-        this.map(_targetPageAlias_1);
-      }
-    }
-    this.<Object>pop();
+    throw new Error("Unresolved compilation problems:"
+      + "\nVMNavigationButton cannot be resolved to a type."
+      + "\nThe method or field VaadinMobileFactory is undefined for the type UiModelDerivedStateComputerx"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateVMNavigationButton cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nlabel cannot be resolved"
+      + "\naddToParent cannot be resolved"
+      + "\npush cannot be resolved");
   }
   
   protected void _map(final UiColumn eObject) {
@@ -1037,7 +889,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       ResourceSet _resourceSet = _eResource.getResourceSet();
       JvmTypeReference _jvmType_2 = object.getJvmType();
       String _qualifiedName_1 = _jvmType_2.getQualifiedName();
-      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+      Object _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
       table.setType(_loadClass);
     }
     this.associateUi(object, table);
@@ -1081,41 +933,28 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected YEmbeddable _create(final UiSwitch object) {
-    final VMSwitch field = VaadinMobileFactory.eINSTANCE.createVMSwitch();
-    String _name = object.getName();
-    field.setName(_name);
-    String _name_1 = object.getName();
-    field.setLabel(_name_1);
-    this.associateUi(object, field);
-    return field;
+    throw new Error("Unresolved compilation problems:"
+      + "\nVMSwitch cannot be resolved to a type."
+      + "\nThe method or field VaadinMobileFactory is undefined for the type UiModelDerivedStateComputerx"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateVMSwitch cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nlabel cannot be resolved");
   }
   
   public void addToParent(final YEmbeddable embeddable) {
-    final Object context = this.<Object>peek();
-    if ((context instanceof YLayout)) {
-      final YLayout layout = ((YLayout) context);
-      layout.addElement(embeddable);
-    } else {
-      if ((context instanceof YView)) {
-        final YView yView = ((YView) context);
-        yView.setContent(embeddable);
-      } else {
-        if ((context instanceof YTab)) {
-          final YTab yTab = ((YTab) context);
-          yTab.setEmbeddable(embeddable);
-        } else {
-          if ((context instanceof VMTab)) {
-            final VMTab yTab_1 = ((VMTab) context);
-            yTab_1.setEmbeddable(embeddable);
-          } else {
-            if ((context instanceof VMNavigationButton)) {
-              final VMNavigationButton yButton = ((VMNavigationButton) context);
-              yButton.setPage(((VMNavigationPage) embeddable));
-            }
-          }
-        }
-      }
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nVMTab cannot be resolved to a type."
+      + "\nVMTab cannot be resolved to a type."
+      + "\nVMTab cannot be resolved to a type."
+      + "\nVMNavigationButton cannot be resolved to a type."
+      + "\nVMNavigationButton cannot be resolved to a type."
+      + "\nVMNavigationButton cannot be resolved to a type."
+      + "\nVMNavigationPage cannot be resolved to a type."
+      + "\nUnreachable code: The if condition can never match. It is already handled by a previous condition."
+      + "\nUnreachable code: The if condition can never match. It is already handled by a previous condition."
+      + "\nembeddable cannot be resolved"
+      + "\npage cannot be resolved");
   }
   
   protected void _map(final UiPoint object) {
@@ -1223,7 +1062,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
           Resource _eResource = epDef.eResource();
           ResourceSet _resourceSet = _eResource.getResourceSet();
           String _typeQualifiedName = ep_1.getTypeQualifiedName();
-          Class<?> _loadClass = this.loadClass(_resourceSet, _typeQualifiedName);
+          Object _loadClass = this.loadClass(_resourceSet, _typeQualifiedName);
           ep_1.setType(_loadClass);
         }
         boolean _notEquals_1 = (!Objects.equal(yElement, null));
@@ -1277,7 +1116,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
           Resource _eResource = epDef.eResource();
           ResourceSet _resourceSet = _eResource.getResourceSet();
           String _typeQualifiedName = ep_1.getTypeQualifiedName();
-          Class<?> _loadClass = this.loadClass(_resourceSet, _typeQualifiedName);
+          Object _loadClass = this.loadClass(_resourceSet, _typeQualifiedName);
           ep_1.setType(_loadClass);
         }
         boolean _notEquals_1 = (!Objects.equal(yElement, null));
@@ -1396,8 +1235,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return _xblockexpression;
   }
   
-  public Class<?> loadClass(final ResourceSet resourceSet, final String qualifiedName) {
-    return this.typeLoader.findTypeByName(qualifiedName);
+  public Object loadClass(final ResourceSet resourceSet, final String qualifiedName) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nfindTypeByName cannot be resolved");
   }
   
   protected void _map(final UiPathSegment object) {
@@ -1416,7 +1256,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     Resource _eResource = object.eResource();
     ResourceSet _resourceSet = _eResource.getResourceSet();
     String _valueTypeQualifiedName = yBeanSlot.getValueTypeQualifiedName();
-    Class<?> _loadClass = this.loadClass(_resourceSet, _valueTypeQualifiedName);
+    Object _loadClass = this.loadClass(_resourceSet, _valueTypeQualifiedName);
     yBeanSlot.setValueType(_loadClass);
     this.associateUi(object, yBeanSlot);
     final EObject lastElement = this.viewContext.peek();
@@ -1441,8 +1281,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _greaterThan = (_size > 1);
     if (_greaterThan) {
       for (int i = 1; (i < resource.getContents().size()); i++) {
-        EList<EObject> _contents_1 = resource.getContents();
-        _contents_1.remove(1);
+        EList<EObject> _contents = resource.getContents();
+        _contents.remove(1);
       }
     }
   }
