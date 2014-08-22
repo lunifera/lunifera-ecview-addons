@@ -3,26 +3,19 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
-import org.lunifera.ecview.semantic.uimodel.UiRadioButtonAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
@@ -41,9 +34,9 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonGroupImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonGroupImpl#getValidators <em>Validators</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonGroupImpl#getJvmType <em>Jvm Type</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonGroupImpl#getButtons <em>Buttons</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonGroupImpl#getSelectionType <em>Selection Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonGroupImpl#getItemImageProperty <em>Item Image Property</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonGroupImpl#getItemCaptionProperty <em>Item Caption Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -121,16 +114,6 @@ public class UiRadioButtonGroupImpl extends UiVisibilityProcessableImpl implemen
 	protected JvmTypeReference jvmType;
 
 	/**
-	 * The cached value of the '{@link #getButtons() <em>Buttons</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getButtons()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<UiRadioButtonAssignment> buttons;
-
-	/**
 	 * The default value of the '{@link #getSelectionType() <em>Selection Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,6 +142,16 @@ public class UiRadioButtonGroupImpl extends UiVisibilityProcessableImpl implemen
 	 * @ordered
 	 */
 	protected JvmField itemImageProperty;
+
+	/**
+	 * The cached value of the '{@link #getItemCaptionProperty() <em>Item Caption Property</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItemCaptionProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected JvmField itemCaptionProperty;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -316,18 +309,6 @@ public class UiRadioButtonGroupImpl extends UiVisibilityProcessableImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<UiRadioButtonAssignment> getButtons() {
-		if (buttons == null) {
-			buttons = new EObjectContainmentEList.Resolving<UiRadioButtonAssignment>(UiRadioButtonAssignment.class, this, UiModelPackage.UI_RADIO_BUTTON_GROUP__BUTTONS);
-		}
-		return buttons;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public UiSelectionType getSelectionType() {
 		return selectionType;
 	}
@@ -387,6 +368,44 @@ public class UiRadioButtonGroupImpl extends UiVisibilityProcessableImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public JvmField getItemCaptionProperty() {
+		if (itemCaptionProperty != null && itemCaptionProperty.eIsProxy()) {
+			InternalEObject oldItemCaptionProperty = (InternalEObject)itemCaptionProperty;
+			itemCaptionProperty = (JvmField)eResolveProxy(oldItemCaptionProperty);
+			if (itemCaptionProperty != oldItemCaptionProperty) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_RADIO_BUTTON_GROUP__ITEM_CAPTION_PROPERTY, oldItemCaptionProperty, itemCaptionProperty));
+			}
+		}
+		return itemCaptionProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JvmField basicGetItemCaptionProperty() {
+		return itemCaptionProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setItemCaptionProperty(JvmField newItemCaptionProperty) {
+		JvmField oldItemCaptionProperty = itemCaptionProperty;
+		itemCaptionProperty = newItemCaptionProperty;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_RADIO_BUTTON_GROUP__ITEM_CAPTION_PROPERTY, oldItemCaptionProperty, itemCaptionProperty));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -396,8 +415,6 @@ public class UiRadioButtonGroupImpl extends UiVisibilityProcessableImpl implemen
 				return ((InternalEList<?>)getValidators()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_RADIO_BUTTON_GROUP__JVM_TYPE:
 				return basicSetJvmType(null, msgs);
-			case UiModelPackage.UI_RADIO_BUTTON_GROUP__BUTTONS:
-				return ((InternalEList<?>)getButtons()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -421,13 +438,14 @@ public class UiRadioButtonGroupImpl extends UiVisibilityProcessableImpl implemen
 			case UiModelPackage.UI_RADIO_BUTTON_GROUP__JVM_TYPE:
 				if (resolve) return getJvmType();
 				return basicGetJvmType();
-			case UiModelPackage.UI_RADIO_BUTTON_GROUP__BUTTONS:
-				return getButtons();
 			case UiModelPackage.UI_RADIO_BUTTON_GROUP__SELECTION_TYPE:
 				return getSelectionType();
 			case UiModelPackage.UI_RADIO_BUTTON_GROUP__ITEM_IMAGE_PROPERTY:
 				if (resolve) return getItemImageProperty();
 				return basicGetItemImageProperty();
+			case UiModelPackage.UI_RADIO_BUTTON_GROUP__ITEM_CAPTION_PROPERTY:
+				if (resolve) return getItemCaptionProperty();
+				return basicGetItemCaptionProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -458,15 +476,14 @@ public class UiRadioButtonGroupImpl extends UiVisibilityProcessableImpl implemen
 			case UiModelPackage.UI_RADIO_BUTTON_GROUP__JVM_TYPE:
 				setJvmType((JvmTypeReference)newValue);
 				return;
-			case UiModelPackage.UI_RADIO_BUTTON_GROUP__BUTTONS:
-				getButtons().clear();
-				getButtons().addAll((Collection<? extends UiRadioButtonAssignment>)newValue);
-				return;
 			case UiModelPackage.UI_RADIO_BUTTON_GROUP__SELECTION_TYPE:
 				setSelectionType((UiSelectionType)newValue);
 				return;
 			case UiModelPackage.UI_RADIO_BUTTON_GROUP__ITEM_IMAGE_PROPERTY:
 				setItemImageProperty((JvmField)newValue);
+				return;
+			case UiModelPackage.UI_RADIO_BUTTON_GROUP__ITEM_CAPTION_PROPERTY:
+				setItemCaptionProperty((JvmField)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -495,14 +512,14 @@ public class UiRadioButtonGroupImpl extends UiVisibilityProcessableImpl implemen
 			case UiModelPackage.UI_RADIO_BUTTON_GROUP__JVM_TYPE:
 				setJvmType((JvmTypeReference)null);
 				return;
-			case UiModelPackage.UI_RADIO_BUTTON_GROUP__BUTTONS:
-				getButtons().clear();
-				return;
 			case UiModelPackage.UI_RADIO_BUTTON_GROUP__SELECTION_TYPE:
 				setSelectionType(SELECTION_TYPE_EDEFAULT);
 				return;
 			case UiModelPackage.UI_RADIO_BUTTON_GROUP__ITEM_IMAGE_PROPERTY:
 				setItemImageProperty((JvmField)null);
+				return;
+			case UiModelPackage.UI_RADIO_BUTTON_GROUP__ITEM_CAPTION_PROPERTY:
+				setItemCaptionProperty((JvmField)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -526,12 +543,12 @@ public class UiRadioButtonGroupImpl extends UiVisibilityProcessableImpl implemen
 				return validators != null && !validators.isEmpty();
 			case UiModelPackage.UI_RADIO_BUTTON_GROUP__JVM_TYPE:
 				return jvmType != null;
-			case UiModelPackage.UI_RADIO_BUTTON_GROUP__BUTTONS:
-				return buttons != null && !buttons.isEmpty();
 			case UiModelPackage.UI_RADIO_BUTTON_GROUP__SELECTION_TYPE:
 				return selectionType != SELECTION_TYPE_EDEFAULT;
 			case UiModelPackage.UI_RADIO_BUTTON_GROUP__ITEM_IMAGE_PROPERTY:
 				return itemImageProperty != null;
+			case UiModelPackage.UI_RADIO_BUTTON_GROUP__ITEM_CAPTION_PROPERTY:
+				return itemCaptionProperty != null;
 		}
 		return super.eIsSet(featureID);
 	}

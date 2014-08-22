@@ -35,6 +35,9 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiDecimalFieldImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiDecimalFieldImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiDecimalFieldImpl#getValidators <em>Validators</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiDecimalFieldImpl#getPrecision <em>Precision</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiDecimalFieldImpl#isGrouping <em>Grouping</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiDecimalFieldImpl#isMarkNegative <em>Mark Negative</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,6 +103,66 @@ public class UiDecimalFieldImpl extends UiVisibilityProcessableImpl implements U
 	 * @ordered
 	 */
 	protected EList<UiValidator> validators;
+
+	/**
+	 * The default value of the '{@link #getPrecision() <em>Precision</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrecision()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int PRECISION_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getPrecision() <em>Precision</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrecision()
+	 * @generated
+	 * @ordered
+	 */
+	protected int precision = PRECISION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isGrouping() <em>Grouping</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGrouping()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean GROUPING_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isGrouping() <em>Grouping</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGrouping()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean grouping = GROUPING_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isMarkNegative() <em>Mark Negative</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMarkNegative()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean MARK_NEGATIVE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isMarkNegative() <em>Mark Negative</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMarkNegative()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean markNegative = MARK_NEGATIVE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -191,6 +254,69 @@ public class UiDecimalFieldImpl extends UiVisibilityProcessableImpl implements U
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getPrecision() {
+		return precision;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPrecision(int newPrecision) {
+		int oldPrecision = precision;
+		precision = newPrecision;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_DECIMAL_FIELD__PRECISION, oldPrecision, precision));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isGrouping() {
+		return grouping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGrouping(boolean newGrouping) {
+		boolean oldGrouping = grouping;
+		grouping = newGrouping;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_DECIMAL_FIELD__GROUPING, oldGrouping, grouping));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isMarkNegative() {
+		return markNegative;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMarkNegative(boolean newMarkNegative) {
+		boolean oldMarkNegative = markNegative;
+		markNegative = newMarkNegative;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_DECIMAL_FIELD__MARK_NEGATIVE, oldMarkNegative, markNegative));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -218,6 +344,12 @@ public class UiDecimalFieldImpl extends UiVisibilityProcessableImpl implements U
 				return getBindings();
 			case UiModelPackage.UI_DECIMAL_FIELD__VALIDATORS:
 				return getValidators();
+			case UiModelPackage.UI_DECIMAL_FIELD__PRECISION:
+				return getPrecision();
+			case UiModelPackage.UI_DECIMAL_FIELD__GROUPING:
+				return isGrouping();
+			case UiModelPackage.UI_DECIMAL_FIELD__MARK_NEGATIVE:
+				return isMarkNegative();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -245,6 +377,15 @@ public class UiDecimalFieldImpl extends UiVisibilityProcessableImpl implements U
 				getValidators().clear();
 				getValidators().addAll((Collection<? extends UiValidator>)newValue);
 				return;
+			case UiModelPackage.UI_DECIMAL_FIELD__PRECISION:
+				setPrecision((Integer)newValue);
+				return;
+			case UiModelPackage.UI_DECIMAL_FIELD__GROUPING:
+				setGrouping((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_DECIMAL_FIELD__MARK_NEGATIVE:
+				setMarkNegative((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -269,6 +410,15 @@ public class UiDecimalFieldImpl extends UiVisibilityProcessableImpl implements U
 			case UiModelPackage.UI_DECIMAL_FIELD__VALIDATORS:
 				getValidators().clear();
 				return;
+			case UiModelPackage.UI_DECIMAL_FIELD__PRECISION:
+				setPrecision(PRECISION_EDEFAULT);
+				return;
+			case UiModelPackage.UI_DECIMAL_FIELD__GROUPING:
+				setGrouping(GROUPING_EDEFAULT);
+				return;
+			case UiModelPackage.UI_DECIMAL_FIELD__MARK_NEGATIVE:
+				setMarkNegative(MARK_NEGATIVE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -289,6 +439,12 @@ public class UiDecimalFieldImpl extends UiVisibilityProcessableImpl implements U
 				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_DECIMAL_FIELD__VALIDATORS:
 				return validators != null && !validators.isEmpty();
+			case UiModelPackage.UI_DECIMAL_FIELD__PRECISION:
+				return precision != PRECISION_EDEFAULT;
+			case UiModelPackage.UI_DECIMAL_FIELD__GROUPING:
+				return grouping != GROUPING_EDEFAULT;
+			case UiModelPackage.UI_DECIMAL_FIELD__MARK_NEGATIVE:
+				return markNegative != MARK_NEGATIVE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -351,6 +507,12 @@ public class UiDecimalFieldImpl extends UiVisibilityProcessableImpl implements U
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", precision: ");
+		result.append(precision);
+		result.append(", grouping: ");
+		result.append(grouping);
+		result.append(", markNegative: ");
+		result.append(markNegative);
 		result.append(')');
 		return result.toString();
 	}

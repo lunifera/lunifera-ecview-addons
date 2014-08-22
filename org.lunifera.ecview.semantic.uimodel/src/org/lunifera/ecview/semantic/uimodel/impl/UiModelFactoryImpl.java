@@ -90,7 +90,7 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_TABLE: return createUiTable();
 			case UiModelPackage.UI_COMBO_BOX: return createUiComboBox();
 			case UiModelPackage.UI_COLUMN: return createUiColumn();
-			case UiModelPackage.UI_COLUMN_ASSIGNMENTS: return createUiColumnAssignments();
+			case UiModelPackage.UI_COLUMNS_ASSIGNMENT: return createUiColumnsAssignment();
 			case UiModelPackage.UI_NUMERIC_FIELD: return createUiNumericField();
 			case UiModelPackage.UI_CHECK_BOX: return createUiCheckBox();
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR: return createUiVisibilityProcessor();
@@ -127,7 +127,6 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_DECIMAL_FIELD: return createUiDecimalField();
 			case UiModelPackage.UI_TEXT_AREA: return createUiTextArea();
 			case UiModelPackage.UI_RADIO_BUTTON_GROUP: return createUiRadioButtonGroup();
-			case UiModelPackage.UI_RADIO_BUTTON_ASSIGNMENT: return createUiRadioButtonAssignment();
 			case UiModelPackage.UI_DATE_FIELD: return createUiDateField();
 			case UiModelPackage.UI_BROWSER: return createUiBrowser();
 			case UiModelPackage.UI_PROGRESS_BAR: return createUiProgressBar();
@@ -525,9 +524,9 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UiColumnAssignments createUiColumnAssignments() {
-		UiColumnAssignmentsImpl uiColumnAssignments = new UiColumnAssignmentsImpl();
-		return uiColumnAssignments;
+	public UiColumnsAssignment createUiColumnsAssignment() {
+		UiColumnsAssignmentImpl uiColumnsAssignment = new UiColumnsAssignmentImpl();
+		return uiColumnsAssignment;
 	}
 
 	/**
@@ -868,16 +867,6 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiRadioButtonGroup createUiRadioButtonGroup() {
 		UiRadioButtonGroupImpl uiRadioButtonGroup = new UiRadioButtonGroupImpl();
 		return uiRadioButtonGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiRadioButtonAssignment createUiRadioButtonAssignment() {
-		UiRadioButtonAssignmentImpl uiRadioButtonAssignment = new UiRadioButtonAssignmentImpl();
-		return uiRadioButtonAssignment;
 	}
 
 	/**

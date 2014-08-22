@@ -85,7 +85,7 @@ import org.lunifera.ecview.semantic.uimodel.UiBrowser;
 import org.lunifera.ecview.semantic.uimodel.UiButton;
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.UiColumn;
-import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments;
+import org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiComboBox;
 import org.lunifera.ecview.semantic.uimodel.UiCommand;
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
@@ -460,6 +460,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final YGridLayout layout = this.factory.createGridLayout();
     String _name = eObject.getName();
     layout.setName(_name);
+    boolean _isFillHorizontal = eObject.isFillHorizontal();
+    layout.setFillHorizontal(_isFillHorizontal);
+    boolean _isFillVertical = eObject.isFillVertical();
+    layout.setFillVertical(_isFillVertical);
+    int _columns = eObject.getColumns();
+    layout.setColumns(_columns);
     this.addToParent(layout);
     this.associateUi(eObject, layout);
     this.push(layout);
@@ -501,6 +507,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final YVerticalLayout layout = this.factory.createVerticalLayout();
     String _name = eObject.getName();
     layout.setName(_name);
+    boolean _isFillVertical = eObject.isFillVertical();
+    layout.setFillVertical(_isFillVertical);
     this.addToParent(layout);
     this.associateUi(eObject, layout);
     this.push(layout);
@@ -542,6 +550,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final YHorizontalLayout layout = this.factory.createHorizontalLayout();
     String _name = eObject.getName();
     layout.setName(_name);
+    boolean _isFillHorizontal = eObject.isFillHorizontal();
+    layout.setFillHorizontal(_isFillHorizontal);
     this.addToParent(layout);
     this.associateUi(eObject, layout);
     this.push(layout);
@@ -925,16 +935,27 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiBinding>forEach(_bindings, _function);
+    EList<UiBinding> _bindings_1 = eObject.getBindings();
+    boolean _notEquals = (!Objects.equal(_bindings_1, null));
+    if (_notEquals) {
+      EList<UiBinding> _bindings_2 = eObject.getBindings();
+      final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(_bindings_2, _function_1);
+    }
     this.<Object>pop();
   }
   
   protected void _map(final UiTable eObject) {
     final YTable yField = this.<YTable>associatedUi(eObject);
     this.push(yField);
-    UiColumnAssignments _columnAssignment = eObject.getColumnAssignment();
+    UiColumnsAssignment _columnAssignment = eObject.getColumnAssignment();
     boolean _notEquals = (!Objects.equal(_columnAssignment, null));
     if (_notEquals) {
-      UiColumnAssignments _columnAssignment_1 = eObject.getColumnAssignment();
+      UiColumnsAssignment _columnAssignment_1 = eObject.getColumnAssignment();
       EList<UiColumn> _columns = _columnAssignment_1.getColumns();
       final Procedure1<UiColumn> _function = new Procedure1<UiColumn>() {
         public void apply(final UiColumn it) {
@@ -1202,6 +1223,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     decimalField.setName(_name);
     String _name_1 = object.getName();
     decimalField.setLabel(_name_1);
+    boolean _isGrouping = object.isGrouping();
+    decimalField.setGrouping(_isGrouping);
+    boolean _isMarkNegative = object.isMarkNegative();
+    decimalField.setMarkNegative(_isMarkNegative);
+    int _precision = object.getPrecision();
+    decimalField.setPrecision(_precision);
     this.associateUi(object, decimalField);
     return decimalField;
   }
@@ -1344,6 +1371,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     field.setName(_name);
     String _name_1 = object.getName();
     field.setLabel(_name_1);
+    boolean _isGrouping = object.isGrouping();
+    field.setGrouping(_isGrouping);
+    boolean _isMarkNegative = object.isMarkNegative();
+    field.setMarkNegative(_isMarkNegative);
     this.associateUi(object, field);
     return field;
   }

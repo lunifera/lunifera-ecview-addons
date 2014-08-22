@@ -66,7 +66,7 @@ import org.lunifera.ecview.semantic.uimodel.UiBrowser;
 import org.lunifera.ecview.semantic.uimodel.UiButton;
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.UiColumn;
-import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments;
+import org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiComboBox;
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
 import org.lunifera.ecview.semantic.uimodel.UiDateField;
@@ -102,7 +102,6 @@ import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
 import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
-import org.lunifera.ecview.semantic.uimodel.UiRadioButtonAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup;
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
 import org.lunifera.ecview.semantic.uimodel.UiSwitch;
@@ -242,9 +241,9 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 					return; 
 				}
 				else break;
-			case UiModelPackage.UI_COLUMN_ASSIGNMENTS:
-				if(context == grammarAccess.getUiColumnAssignmentsRule()) {
-					sequence_UiColumnAssignments(context, (UiColumnAssignments) semanticObject); 
+			case UiModelPackage.UI_COLUMNS_ASSIGNMENT:
+				if(context == grammarAccess.getUiColumnsAssignmentRule()) {
+					sequence_UiColumnsAssignment(context, (UiColumnsAssignment) semanticObject); 
 					return; 
 				}
 				else break;
@@ -490,12 +489,6 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 				   context == grammarAccess.getUiFieldRule() ||
 				   context == grammarAccess.getUiProgressBarRule()) {
 					sequence_UiProgressBar(context, (UiProgressBar) semanticObject); 
-					return; 
-				}
-				else break;
-			case UiModelPackage.UI_RADIO_BUTTON_ASSIGNMENT:
-				if(context == grammarAccess.getUiRadioButtonAssignmentRule()) {
-					sequence_UiRadioButtonAssignment(context, (UiRadioButtonAssignment) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1737,18 +1730,18 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (columns+=UiColumn*)
+	 *     (jvmField=[JvmField|ID] iconName=STRING?)
 	 */
-	protected void sequence_UiColumnAssignments(EObject context, UiColumnAssignments semanticObject) {
+	protected void sequence_UiColumn(EObject context, UiColumn semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (jvmField=[JvmField|ID] iconName=STRING?)
+	 *     (columns+=UiColumn*)
 	 */
-	protected void sequence_UiColumn(EObject context, UiColumn semanticObject) {
+	protected void sequence_UiColumnsAssignment(EObject context, UiColumnsAssignment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1782,7 +1775,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? validators+=UiValidator*)
+	 *     ((grouping?='grouping'? markNegative?='markNegative'? precision=INT?)? name=ID? validators+=UiValidator*)
 	 */
 	protected void sequence_UiDecimalField(EObject context, UiDecimalField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1836,7 +1829,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? contents+=UiGridLayoutAssigment*)
+	 *     ((columns=INT? fillHorizontal?='fill-h'? fillVertical?='fill-v'?)? name=ID? contents+=UiGridLayoutAssigment*)
 	 */
 	protected void sequence_UiGridLayout(EObject context, UiGridLayout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1854,7 +1847,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? contents+=UiHorizontalLayoutAssigment*)
+	 *     (fillHorizontal?='fill-h'? name=ID? contents+=UiHorizontalLayoutAssigment*)
 	 */
 	protected void sequence_UiHorizontalLayout(EObject context, UiHorizontalLayout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2055,7 +2048,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? validators+=UiValidator*)
+	 *     ((grouping?='grouping'? markNegative?='markNegative'?)? name=ID? validators+=UiValidator*)
 	 */
 	protected void sequence_UiNumericField(EObject context, UiNumericField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2110,16 +2103,16 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? element=UiEmbeddable)
-	 */
-	protected void sequence_UiRadioButtonAssignment(EObject context, UiRadioButtonAssignment semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID? buttons+=UiRadioButtonAssignment*)
+	 *     (
+	 *         name=ID? 
+	 *         (
+	 *             jvmType=JvmTypeReference? 
+	 *             selectionType=UiSelectionType? 
+	 *             itemCaptionProperty=[JvmField|ID]? 
+	 *             itemImageProperty=[JvmField|ID]? 
+	 *             bindings+=UiBinding*
+	 *         )?
+	 *     )
 	 */
 	protected void sequence_UiRadioButtonGroup(EObject context, UiRadioButtonGroup semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2161,7 +2154,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *             jvmType=JvmTypeReference? 
 	 *             selectionType=UiSelectionType? 
 	 *             itemImageProperty=[JvmField|ID]? 
-	 *             columnAssignment=UiColumnAssignments? 
+	 *             columnAssignment=UiColumnsAssignment? 
 	 *             bindings+=UiBinding*
 	 *         )?
 	 *     )
@@ -2236,7 +2229,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? contents+=UiVerticalLayoutAssigment*)
+	 *     (fillVertical?='fill-v'? name=ID? contents+=UiVerticalLayoutAssigment*)
 	 */
 	protected void sequence_UiVerticalLayout(EObject context, UiVerticalLayout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

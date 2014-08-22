@@ -76,7 +76,6 @@ import org.lunifera.ecview.semantic.uimodel.UiEmbeddable
 import org.lunifera.ecview.semantic.uimodel.UiField
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment
 import org.lunifera.ecview.semantic.uimodel.UiFormLayout
-import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment
 import org.lunifera.ecview.semantic.uimodel.UiGridLayout
 import org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup
@@ -135,7 +134,6 @@ import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderFactory
 
 import static org.lunifera.ecview.semantic.uimodel.UiFlatAlignment.*
 import static org.lunifera.ecview.semantic.uimodel.UiSelectionType.*
-import org.lunifera.ecview.semantic.uimodel.UiRadioButtonAssignment
 
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
@@ -264,6 +262,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	def dispatch void map(UiGridLayout eObject) {
 		val YGridLayout layout = factory.createGridLayout
 		layout.name = eObject.name
+		layout.fillHorizontal = eObject.fillHorizontal
+		layout.fillVertical = eObject.fillVertical
+		layout.columns = eObject.columns
 
 		//		layout.columns = eObject.columns
 		layout.addToParent
@@ -305,6 +306,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	def dispatch void map(UiVerticalLayout eObject) {
 		val YVerticalLayout layout = factory.createVerticalLayout
 		layout.name = eObject.name
+		layout.fillVertical = eObject.fillVertical
 
 		//		layout.columns = eObject.columns
 		layout.addToParent
@@ -346,6 +348,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	def dispatch void map(UiHorizontalLayout eObject) {
 		val YHorizontalLayout layout = factory.createHorizontalLayout
 		layout.name = eObject.name
+		layout.fillHorizontal = eObject.fillHorizontal
 
 		//		layout.columns = eObject.columns
 		layout.addToParent
@@ -703,6 +706,12 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			it.map
 		]
 
+		if (eObject.bindings != null) {
+			eObject.bindings.forEach [
+				it.map
+			]
+		}
+
 		pop
 	}
 
@@ -905,7 +914,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val YDecimalField decimalField = factory.createDecimalField
 		decimalField.name = object.name
 		decimalField.label = object.name
-
+		decimalField.grouping = object.grouping
+		decimalField.markNegative = object.markNegative
+		decimalField.precision = object.precision
 		object.associateUi(decimalField)
 
 		return decimalField
@@ -928,7 +939,6 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		optionsGroup.selectionType = object.selectionType.convert
 
 		optionsGroup.itemImageProperty = object.itemImageProperty?.simpleName
-
 		if (object.jvmType != null) {
 			optionsGroup.typeQualifiedName = object.jvmType.qualifiedName
 			optionsGroup.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
@@ -1014,6 +1024,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val YNumericField field = factory.createNumericField
 		field.name = object.name
 		field.label = object.name
+		field.grouping = object.grouping
+		field.markNegative = object.markNegative
 
 		object.associateUi(field)
 

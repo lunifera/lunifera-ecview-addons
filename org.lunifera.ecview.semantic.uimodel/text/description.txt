@@ -112,18 +112,23 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiGridLayout -> UiLayout
     Reference contents : UiGridLayoutAssigment<<0..*>>
+    Attribute columns : EInt
+    Attribute fillHorizontal : EBoolean
+    Attribute fillVertical : EBoolean
 
   Class UiHorizontalLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
 
   Class UiHorizontalLayout -> UiLayout
     Reference contents : UiHorizontalLayoutAssigment<<0..*>>
+    Attribute fillHorizontal : EBoolean
 
   Class UiVerticalLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
 
   Class UiVerticalLayout -> UiLayout
     Reference contents : UiVerticalLayoutAssigment<<0..*>>
+    Attribute fillVertical : EBoolean
 
   Class UiFormLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
@@ -141,7 +146,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference itemImageProperty : JvmField
 
   Class UiTable -> UiField, UiTypeProvider
-    Reference columnAssignment : UiColumnAssignments
+    Reference columnAssignment : UiColumnsAssignment
     Attribute selectionType : UiSelectionType<<1..1>>
     Reference itemImageProperty : JvmField
 
@@ -162,10 +167,12 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Attribute alignment : UiFlatAlignment
     Attribute expandRatio : EFloat
 
-  Class UiColumnAssignments -> UiField
+  Class UiColumnsAssignment -> UiField
     Reference columns : UiColumn<<0..*>>
 
   Class UiNumericField -> UiField
+    Attribute grouping : EBoolean
+    Attribute markNegative : EBoolean
 
   Class UiCheckBox -> UiField
 
@@ -283,16 +290,16 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiLabel -> UiField
 
   Class UiDecimalField -> UiField
+    Attribute precision : EInt
+    Attribute grouping : EBoolean
+    Attribute markNegative : EBoolean
 
   Class UiTextArea -> UiField
 
   Class UiRadioButtonGroup -> UiField, UiTypeProvider
-    Reference buttons : UiRadioButtonAssignment<<0..*>>
-    Attribute selectionType : UiSelectionType<<1..1>>
+    Attribute selectionType : UiSelectionType
     Reference itemImageProperty : JvmField
-
-  Class UiRadioButtonAssignment -> UiLayoutAssignment
-    Reference element : UiEmbeddable
+    Reference itemCaptionProperty : JvmField
 
   Class UiDateField -> UiField
 

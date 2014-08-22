@@ -16,7 +16,7 @@ Workflow {
 		uriMap = {
 			from = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel"
 			to =
-				"file:///home/klemens/git/lunifera-ecview/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel"
+			"file:///home/klemens/git/lunifera-ecview/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel"
 		}
 		uriMap = {
 			from = "platform:/plugin/"
@@ -40,7 +40,7 @@ Workflow {
 			from = "platform:/resource/org.lunifera.ecview.semantic.uimodel/"
 			to = "file:///home/klemens/git/lunifera-ecview-addons/org.lunifera.ecview.semantic.uimodel/"
 		}
-//		resourceSet = org.eclipse.xtext.resource.XtextResourceSet : theResourceSet {}
+		//		resourceSet = org.eclipse.xtext.resource.XtextResourceSet : theResourceSet {}
 		scanClassPath = true
 		platformUri = "${runtimeProject}/.."
 		registerGeneratedEPackage = "org.eclipse.xtext.xbase.XbasePackage"
@@ -48,10 +48,7 @@ Workflow {
 		registerGenModelFile = "platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel"
 		registerEcoreFile = "platform:/resource/org.eclipse.xtext.xbase/model/Xtype.ecore"
 		registerEcoreFile = "platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore"
-		
-		registerGenModelFile ="platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarCore.genmodel"
-		
-///*
+		registerGenModelFile = "platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarCore.genmodel"///*
 //		 * ECView 
 //		 */
 //		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage"
@@ -106,10 +103,9 @@ Workflow {
 		projectNameUi = "${projectName}.ui"
 		encoding = encoding
 		language = auto-inject {
-//			forcedResourceSet = theResourceSet
+		//			forcedResourceSet = theResourceSet
 			uri = grammarURI
-
-			fragment = ecore.EcoreGeneratorFragment auto-inject{}
+			fragment = ecore.EcoreGeneratorFragment auto-inject {}
 
 			// Java API to access grammar elements (required by several other fragments)
 			fragment = grammarAccess.GrammarAccessFragment auto-inject {}
@@ -130,9 +126,12 @@ Workflow {
 
 			// The antlr parser generator fragment.
 			fragment = parser.antlr.XtextAntlrGeneratorFragment auto-inject {
-			//  options = {
-			//      backtrack = true
-			//  }
+				options = {
+				//      backtrack = true
+					classSplitting = true
+//					fieldsPerClass = "80"
+//					methodsPerClass = "80"
+				}
 			}
 
 			// Xtend-based API for validation
@@ -170,7 +169,13 @@ Workflow {
 			fragment = contentAssist.ContentAssistFragment auto-inject {}
 
 			// generates a more lightweight Antlr parser and lexer tailored for content assist
-			fragment = parser.antlr.XtextAntlrUiGeneratorFragment auto-inject {}
+			fragment = parser.antlr.XtextAntlrUiGeneratorFragment auto-inject {
+				options = {
+					classSplitting = true
+//					fieldsPerClass = "80"
+//					methodsPerClass = "80"
+				}
+			}
 
 			// generates junit test support classes into Generator#pathTestProject
 			fragment = junit.Junit4Fragment auto-inject {}

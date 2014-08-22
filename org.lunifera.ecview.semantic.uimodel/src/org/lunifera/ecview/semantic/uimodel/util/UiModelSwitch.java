@@ -482,14 +482,14 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case UiModelPackage.UI_COLUMN_ASSIGNMENTS: {
-				UiColumnAssignments uiColumnAssignments = (UiColumnAssignments)theEObject;
-				T result = caseUiColumnAssignments(uiColumnAssignments);
-				if (result == null) result = caseUiField(uiColumnAssignments);
-				if (result == null) result = caseUiEmbeddable(uiColumnAssignments);
-				if (result == null) result = caseUiVisibilityProcessable(uiColumnAssignments);
-				if (result == null) result = caseUiRawBindable(uiColumnAssignments);
-				if (result == null) result = caseUiNamedElement(uiColumnAssignments);
+			case UiModelPackage.UI_COLUMNS_ASSIGNMENT: {
+				UiColumnsAssignment uiColumnsAssignment = (UiColumnsAssignment)theEObject;
+				T result = caseUiColumnsAssignment(uiColumnsAssignment);
+				if (result == null) result = caseUiField(uiColumnsAssignment);
+				if (result == null) result = caseUiEmbeddable(uiColumnsAssignment);
+				if (result == null) result = caseUiVisibilityProcessable(uiColumnsAssignment);
+				if (result == null) result = caseUiRawBindable(uiColumnsAssignment);
+				if (result == null) result = caseUiNamedElement(uiColumnsAssignment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -863,14 +863,6 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiVisibilityProcessable(uiRadioButtonGroup);
 				if (result == null) result = caseUiRawBindable(uiRadioButtonGroup);
 				if (result == null) result = caseUiNamedElement(uiRadioButtonGroup);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case UiModelPackage.UI_RADIO_BUTTON_ASSIGNMENT: {
-				UiRadioButtonAssignment uiRadioButtonAssignment = (UiRadioButtonAssignment)theEObject;
-				T result = caseUiRadioButtonAssignment(uiRadioButtonAssignment);
-				if (result == null) result = caseUiLayoutAssignment(uiRadioButtonAssignment);
-				if (result == null) result = caseUiNamedElement(uiRadioButtonAssignment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1662,17 +1654,17 @@ public class UiModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ui Column Assignments</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Columns Assignment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ui Column Assignments</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Columns Assignment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseUiColumnAssignments(UiColumnAssignments object) {
+	public T caseUiColumnsAssignment(UiColumnsAssignment object) {
 		return null;
 	}
 
@@ -2228,21 +2220,6 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiRadioButtonGroup(UiRadioButtonGroup object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ui Radio Button Assignment</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ui Radio Button Assignment</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUiRadioButtonAssignment(UiRadioButtonAssignment object) {
 		return null;
 	}
 

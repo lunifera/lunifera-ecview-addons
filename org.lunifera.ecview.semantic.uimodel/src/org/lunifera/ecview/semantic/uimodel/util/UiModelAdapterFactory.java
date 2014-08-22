@@ -252,8 +252,8 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiColumnAdapter();
 			}
 			@Override
-			public Adapter caseUiColumnAssignments(UiColumnAssignments object) {
-				return createUiColumnAssignmentsAdapter();
+			public Adapter caseUiColumnsAssignment(UiColumnsAssignment object) {
+				return createUiColumnsAssignmentAdapter();
 			}
 			@Override
 			public Adapter caseUiNumericField(UiNumericField object) {
@@ -418,10 +418,6 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUiRadioButtonGroup(UiRadioButtonGroup object) {
 				return createUiRadioButtonGroupAdapter();
-			}
-			@Override
-			public Adapter caseUiRadioButtonAssignment(UiRadioButtonAssignment object) {
-				return createUiRadioButtonAssignmentAdapter();
 			}
 			@Override
 			public Adapter caseUiDateField(UiDateField object) {
@@ -1156,16 +1152,16 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiColumnAssignments <em>Ui Column Assignments</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment <em>Ui Columns Assignment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiColumnAssignments
+	 * @see org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment
 	 * @generated
 	 */
-	public Adapter createUiColumnAssignmentsAdapter() {
+	public Adapter createUiColumnsAssignmentAdapter() {
 		return null;
 	}
 
@@ -1684,20 +1680,6 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiRadioButtonGroupAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonAssignment <em>Ui Radio Button Assignment</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiRadioButtonAssignment
-	 * @generated
-	 */
-	public Adapter createUiRadioButtonAssignmentAdapter() {
 		return null;
 	}
 

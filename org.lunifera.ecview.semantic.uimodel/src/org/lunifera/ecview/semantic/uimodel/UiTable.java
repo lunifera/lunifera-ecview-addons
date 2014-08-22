@@ -33,12 +33,12 @@ public interface UiTable extends UiField, UiTypeProvider {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Column Assignment</em>' containment reference.
-	 * @see #setColumnAssignment(UiColumnAssignments)
+	 * @see #setColumnAssignment(UiColumnsAssignment)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiTable_ColumnAssignment()
 	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
-	UiColumnAssignments getColumnAssignment();
+	UiColumnsAssignment getColumnAssignment();
 
 	/**
 	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiTable#getColumnAssignment <em>Column Assignment</em>}' containment reference.
@@ -48,7 +48,7 @@ public interface UiTable extends UiField, UiTypeProvider {
 	 * @see #getColumnAssignment()
 	 * @generated
 	 */
-	void setColumnAssignment(UiColumnAssignments value);
+	void setColumnAssignment(UiColumnsAssignment value);
 
 	/**
 	 * Returns the value of the '<em><b>Selection Type</b></em>' attribute.

@@ -337,13 +337,13 @@ public interface UiModelFactory extends EFactory {
 	UiColumn createUiColumn();
 
 	/**
-	 * Returns a new object of class '<em>Ui Column Assignments</em>'.
+	 * Returns a new object of class '<em>Ui Columns Assignment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui Column Assignments</em>'.
+	 * @return a new object of class '<em>Ui Columns Assignment</em>'.
 	 * @generated
 	 */
-	UiColumnAssignments createUiColumnAssignments();
+	UiColumnsAssignment createUiColumnsAssignment();
 
 	/**
 	 * Returns a new object of class '<em>Ui Numeric Field</em>'.
@@ -650,15 +650,6 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiRadioButtonGroup createUiRadioButtonGroup();
-
-	/**
-	 * Returns a new object of class '<em>Ui Radio Button Assignment</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui Radio Button Assignment</em>'.
-	 * @generated
-	 */
-	UiRadioButtonAssignment createUiRadioButtonAssignment();
 
 	/**
 	 * Returns a new object of class '<em>Ui Date Field</em>'.

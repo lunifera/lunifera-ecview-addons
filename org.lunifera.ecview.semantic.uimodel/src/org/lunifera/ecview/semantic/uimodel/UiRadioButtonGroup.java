@@ -2,7 +2,6 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.common.types.JvmField;
 
 
@@ -14,9 +13,9 @@ import org.eclipse.xtext.common.types.JvmField;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup#getButtons <em>Buttons</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup#getSelectionType <em>Selection Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup#getItemImageProperty <em>Item Image Property</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup#getItemCaptionProperty <em>Item Caption Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,22 +24,6 @@ import org.eclipse.xtext.common.types.JvmField;
  * @generated
  */
 public interface UiRadioButtonGroup extends UiField, UiTypeProvider {
-
-	/**
-	 * Returns the value of the '<em><b>Buttons</b></em>' containment reference list.
-	 * The list contents are of type {@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonAssignment}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Buttons</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Buttons</em>' containment reference list.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiRadioButtonGroup_Buttons()
-	 * @model containment="true" resolveProxies="true"
-	 * @generated
-	 */
-	EList<UiRadioButtonAssignment> getButtons();
 
 	/**
 	 * Returns the value of the '<em><b>Selection Type</b></em>' attribute.
@@ -56,7 +39,7 @@ public interface UiRadioButtonGroup extends UiField, UiTypeProvider {
 	 * @see org.lunifera.ecview.semantic.uimodel.UiSelectionType
 	 * @see #setSelectionType(UiSelectionType)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiRadioButtonGroup_SelectionType()
-	 * @model default="SINGLE" required="true"
+	 * @model default="SINGLE"
 	 * @generated
 	 */
 	UiSelectionType getSelectionType();
@@ -97,4 +80,30 @@ public interface UiRadioButtonGroup extends UiField, UiTypeProvider {
 	 * @generated
 	 */
 	void setItemImageProperty(JvmField value);
+
+	/**
+	 * Returns the value of the '<em><b>Item Caption Property</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Item Caption Property</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Item Caption Property</em>' reference.
+	 * @see #setItemCaptionProperty(JvmField)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiRadioButtonGroup_ItemCaptionProperty()
+	 * @model
+	 * @generated
+	 */
+	JvmField getItemCaptionProperty();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup#getItemCaptionProperty <em>Item Caption Property</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Item Caption Property</em>' reference.
+	 * @see #getItemCaptionProperty()
+	 * @generated
+	 */
+	void setItemCaptionProperty(JvmField value);
 } // UiRadioButtonGroup

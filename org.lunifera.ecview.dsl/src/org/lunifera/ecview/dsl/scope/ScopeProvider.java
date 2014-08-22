@@ -10,7 +10,6 @@ import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiComboBox;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
@@ -58,6 +57,10 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 		} else if (reference == UiModelPackage.Literals.UI_TABLE__ITEM_IMAGE_PROPERTY) {
 			return createJvmFieldScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_LIST__ITEM_IMAGE_PROPERTY) {
+			return createJvmFieldScope(context);
+		} else if (reference == UiModelPackage.Literals.UI_RADIO_BUTTON_GROUP__ITEM_CAPTION_PROPERTY) {
+			return createJvmFieldScope(context);
+		} else if (reference == UiModelPackage.Literals.UI_RADIO_BUTTON_GROUP__ITEM_IMAGE_PROPERTY) {
 			return createJvmFieldScope(context);
 		}
 		return super.getScope(context, reference);
