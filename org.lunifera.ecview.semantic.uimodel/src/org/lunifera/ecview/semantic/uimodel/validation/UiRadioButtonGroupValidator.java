@@ -5,7 +5,9 @@
 package org.lunifera.ecview.semantic.uimodel.validation;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.common.types.JvmField;
 import org.lunifera.ecview.semantic.uimodel.UiRadioButtonAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
 
 
 /**
@@ -18,5 +20,9 @@ public interface UiRadioButtonGroupValidator {
 	boolean validate();
 
 	boolean validateButtons(EList<UiRadioButtonAssignment> value);
+
+	boolean validateSelectionType(UiSelectionType value);
+
+	boolean validateItemImageProperty(JvmField value);
 
 }

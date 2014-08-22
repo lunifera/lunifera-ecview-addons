@@ -349,9 +349,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="UiLabel" eSuperTypes="#//UiField"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiDecimalField" eSuperTypes="#//UiField"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiTextArea" eSuperTypes="#//UiField"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiRadioButtonGroup" eSuperTypes="#//UiField">
+  <eClassifiers xsi:type="ecore:EClass" name="UiRadioButtonGroup" eSuperTypes="#//UiField #//UiTypeProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="buttons" upperBound="-1"
         eType="#//UiRadioButtonAssignment" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionType" lowerBound="1"
+        eType="#//UiSelectionType" defaultValueLiteral="SINGLE"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemImageProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmField"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiRadioButtonAssignment" eSuperTypes="#//UiLayoutAssignment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"

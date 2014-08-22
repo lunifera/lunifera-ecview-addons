@@ -5014,13 +5014,40 @@ public interface UiModelPackage extends EPackage {
 	int UI_RADIO_BUTTON_GROUP__VALIDATORS = UI_FIELD__VALIDATORS;
 
 	/**
+	 * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__JVM_TYPE = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Buttons</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_RADIO_BUTTON_GROUP__BUTTONS = UI_FIELD_FEATURE_COUNT + 0;
+	int UI_RADIO_BUTTON_GROUP__BUTTONS = UI_FIELD_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Selection Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__SELECTION_TYPE = UI_FIELD_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Item Image Property</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__ITEM_IMAGE_PROPERTY = UI_FIELD_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Ui Radio Button Group</em>' class.
@@ -5029,7 +5056,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_RADIO_BUTTON_GROUP_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 1;
+	int UI_RADIO_BUTTON_GROUP_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonAssignmentImpl <em>Ui Radio Button Assignment</em>}' class.
@@ -7338,6 +7365,28 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiRadioButtonGroup_Buttons();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup#getSelectionType <em>Selection Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selection Type</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup#getSelectionType()
+	 * @see #getUiRadioButtonGroup()
+	 * @generated
+	 */
+	EAttribute getUiRadioButtonGroup_SelectionType();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup#getItemImageProperty <em>Item Image Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Item Image Property</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup#getItemImageProperty()
+	 * @see #getUiRadioButtonGroup()
+	 * @generated
+	 */
+	EReference getUiRadioButtonGroup_ItemImageProperty();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonAssignment <em>Ui Radio Button Assignment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9157,6 +9206,22 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_RADIO_BUTTON_GROUP__BUTTONS = eINSTANCE.getUiRadioButtonGroup_Buttons();
+
+		/**
+		 * The meta object literal for the '<em><b>Selection Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_RADIO_BUTTON_GROUP__SELECTION_TYPE = eINSTANCE.getUiRadioButtonGroup_SelectionType();
+
+		/**
+		 * The meta object literal for the '<em><b>Item Image Property</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_RADIO_BUTTON_GROUP__ITEM_IMAGE_PROPERTY = eINSTANCE.getUiRadioButtonGroup_ItemImageProperty();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonAssignmentImpl <em>Ui Radio Button Assignment</em>}' class.

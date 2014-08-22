@@ -2589,6 +2589,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUiRadioButtonGroup_SelectionType() {
+		return (EAttribute)uiRadioButtonGroupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiRadioButtonGroup_ItemImageProperty() {
+		return (EReference)uiRadioButtonGroupEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiRadioButtonAssignment() {
 		return uiRadioButtonAssignmentEClass;
 	}
@@ -2956,6 +2974,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiRadioButtonGroupEClass = createEClass(UI_RADIO_BUTTON_GROUP);
 		createEReference(uiRadioButtonGroupEClass, UI_RADIO_BUTTON_GROUP__BUTTONS);
+		createEAttribute(uiRadioButtonGroupEClass, UI_RADIO_BUTTON_GROUP__SELECTION_TYPE);
+		createEReference(uiRadioButtonGroupEClass, UI_RADIO_BUTTON_GROUP__ITEM_IMAGE_PROPERTY);
 
 		uiRadioButtonAssignmentEClass = createEClass(UI_RADIO_BUTTON_ASSIGNMENT);
 		createEReference(uiRadioButtonAssignmentEClass, UI_RADIO_BUTTON_ASSIGNMENT__ELEMENT);
@@ -3094,6 +3114,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiDecimalFieldEClass.getESuperTypes().add(this.getUiField());
 		uiTextAreaEClass.getESuperTypes().add(this.getUiField());
 		uiRadioButtonGroupEClass.getESuperTypes().add(this.getUiField());
+		uiRadioButtonGroupEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiRadioButtonAssignmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
 		uiDateFieldEClass.getESuperTypes().add(this.getUiField());
 		uiBrowserEClass.getESuperTypes().add(this.getUiField());
@@ -3381,6 +3402,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiRadioButtonGroupEClass, UiRadioButtonGroup.class, "UiRadioButtonGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiRadioButtonGroup_Buttons(), this.getUiRadioButtonAssignment(), null, "buttons", null, 0, -1, UiRadioButtonGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiRadioButtonGroup_SelectionType(), this.getUiSelectionType(), "selectionType", "SINGLE", 1, 1, UiRadioButtonGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiRadioButtonGroup_ItemImageProperty(), theTypesPackage.getJvmField(), null, "itemImageProperty", null, 0, 1, UiRadioButtonGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiRadioButtonAssignmentEClass, UiRadioButtonAssignment.class, "UiRadioButtonAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiRadioButtonAssignment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiRadioButtonAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

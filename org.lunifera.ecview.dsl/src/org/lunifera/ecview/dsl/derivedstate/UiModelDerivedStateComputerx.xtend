@@ -27,20 +27,27 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidato
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator
 import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YBrowser
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YButton
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YCheckBox
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YColumn
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YComboBox
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YDateTime
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YDecimalField
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YFlatAlignment
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YFormLayout
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YGridLayout
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YHorizontalLayout
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YImage
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YLabel
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YNumericField
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YOptionsGroup
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YProgressBar
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YSelectionType
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTab
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTabSheet
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTable
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTextArea
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTextField
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YVerticalLayout
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.util.SimpleExtensionModelFactory
@@ -55,12 +62,16 @@ import org.lunifera.ecview.semantic.uimodel.UiBinding
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression
+import org.lunifera.ecview.semantic.uimodel.UiBrowser
 import org.lunifera.ecview.semantic.uimodel.UiButton
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox
 import org.lunifera.ecview.semantic.uimodel.UiColumn
 import org.lunifera.ecview.semantic.uimodel.UiComboBox
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef
+import org.lunifera.ecview.semantic.uimodel.UiDateField
+import org.lunifera.ecview.semantic.uimodel.UiDecimalField
 import org.lunifera.ecview.semantic.uimodel.UiDialog
+import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable
 import org.lunifera.ecview.semantic.uimodel.UiField
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment
@@ -74,6 +85,7 @@ import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment
 import org.lunifera.ecview.semantic.uimodel.UiIDEView
 import org.lunifera.ecview.semantic.uimodel.UiImage
+import org.lunifera.ecview.semantic.uimodel.UiLabel
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton
@@ -89,12 +101,15 @@ import org.lunifera.ecview.semantic.uimodel.UiNumericField
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment
 import org.lunifera.ecview.semantic.uimodel.UiPoint
+import org.lunifera.ecview.semantic.uimodel.UiProgressBar
+import org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType
 import org.lunifera.ecview.semantic.uimodel.UiSwitch
 import org.lunifera.ecview.semantic.uimodel.UiTabAssignment
 import org.lunifera.ecview.semantic.uimodel.UiTabSheet
 import org.lunifera.ecview.semantic.uimodel.UiTable
+import org.lunifera.ecview.semantic.uimodel.UiTextArea
 import org.lunifera.ecview.semantic.uimodel.UiTextField
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias
@@ -120,7 +135,7 @@ import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderFactory
 
 import static org.lunifera.ecview.semantic.uimodel.UiFlatAlignment.*
 import static org.lunifera.ecview.semantic.uimodel.UiSelectionType.*
-import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment
+import org.lunifera.ecview.semantic.uimodel.UiRadioButtonAssignment
 
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
@@ -599,14 +614,14 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		pop
 	}
-	
+
 	def dispatch void map(UiDialogAssignment eObject) {
 
 		val YDialog layout = peek
 		val element = eObject.element
 		if (element instanceof UiField) {
 			val newField = element.create
-			layout.content = newField 
+			layout.content = newField
 			element.map
 
 			newField.push
@@ -680,26 +695,15 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		pop
 	}
 
-	def dispatch void map(UiFormLayoutAssigment eObject) {
-		val YFormLayout layout = peek
-		val element = eObject.element
-		if (element instanceof UiField) {
-			val newField = element.create
-			layout.addElement(newField)
+	def dispatch void map(UiRadioButtonGroup eObject) {
+		val YOptionsGroup yOptionsGroup = eObject.associatedUi
+		yOptionsGroup.push
 
-			if (element instanceof UiField) {
-				element.map
+		eObject.bindings.forEach [
+			it.map
+		]
 
-				newField.push
-				val UiField yField = element as UiField
-				yField.validators.forEach [
-					it.map
-				]
-				pop
-			}
-		} else {
-			element.map
-		}
+		pop
 	}
 
 	def dispatch void map(UiTable eObject) {
@@ -887,6 +891,84 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		return textField
 	}
 
+	def dispatch YEmbeddable create(UiLabel object) {
+		val YLabel label = factory.createLabel
+		label.name = object.name
+		label.label = object.name
+
+		object.associateUi(label)
+
+		return label
+	}
+
+	def dispatch YEmbeddable create(UiDecimalField object) {
+		val YDecimalField decimalField = factory.createDecimalField
+		decimalField.name = object.name
+		decimalField.label = object.name
+
+		object.associateUi(decimalField)
+
+		return decimalField
+	}
+
+	def dispatch YEmbeddable create(UiTextArea object) {
+		val YTextArea textArea = factory.createTextArea
+		textArea.name = object.name
+		textArea.label = object.name
+
+		object.associateUi(textArea)
+
+		return textArea
+	}
+
+	def dispatch YEmbeddable create(UiRadioButtonGroup object) {
+		val YOptionsGroup optionsGroup = factory.createOptionsGroup
+		optionsGroup.name = object.name
+		optionsGroup.label = object.name
+		optionsGroup.selectionType = object.selectionType.convert
+
+		optionsGroup.itemImageProperty = object.itemImageProperty?.simpleName
+
+		if (object.jvmType != null) {
+			optionsGroup.typeQualifiedName = object.jvmType.qualifiedName
+			optionsGroup.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
+		}
+
+		object.associateUi(optionsGroup)
+
+		return optionsGroup
+	}
+
+	def dispatch YEmbeddable create(UiDateField object) {
+		val YDateTime dateTime = factory.createDateTime
+		dateTime.name = object.name
+		dateTime.label = object.name
+
+		object.associateUi(dateTime)
+
+		return dateTime
+	}
+
+	def dispatch YEmbeddable create(UiBrowser object) {
+		val YBrowser browser = factory.createBrowser
+		browser.name = object.name
+		browser.label = object.name
+
+		object.associateUi(browser)
+
+		return browser
+	}
+
+	def dispatch YEmbeddable create(UiProgressBar object) {
+		val YProgressBar progressBar = factory.createProgressBar
+		progressBar.name = object.name
+		progressBar.label = object.name
+
+		object.associateUi(progressBar)
+
+		return progressBar
+	}
+
 	def dispatch YEmbeddable create(UiImage object) {
 		val YImage image = factory.createImage
 		image.name = object.name
@@ -1003,7 +1085,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			val YDialog yDialog = context as YDialog
 			yDialog.content = embeddable as YEmbeddable
 		}
-	} 
+	}
 
 	def dispatch void map(UiPoint object) {
 	}
@@ -1176,8 +1258,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		return result
 	}
 
-	def dispatch void collectBindingInfo(UiBindingEndpointAssignment assignment,
-		UiModelDerivedStateComputerx.BindingInfo info) {
+	def dispatch void collectBindingInfo(
+		UiBindingEndpointAssignment assignment,
+		UiModelDerivedStateComputerx.BindingInfo info
+	) {
 		var result = if(info != null) info else new UiModelDerivedStateComputerx.BindingInfo
 		if (assignment.typedBindableAlias != null) {
 			assignment.typedBindableAlias.collectBindingInfo(result)

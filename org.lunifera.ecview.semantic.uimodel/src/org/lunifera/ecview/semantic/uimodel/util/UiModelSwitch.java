@@ -858,6 +858,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				UiRadioButtonGroup uiRadioButtonGroup = (UiRadioButtonGroup)theEObject;
 				T result = caseUiRadioButtonGroup(uiRadioButtonGroup);
 				if (result == null) result = caseUiField(uiRadioButtonGroup);
+				if (result == null) result = caseUiTypeProvider(uiRadioButtonGroup);
 				if (result == null) result = caseUiEmbeddable(uiRadioButtonGroup);
 				if (result == null) result = caseUiVisibilityProcessable(uiRadioButtonGroup);
 				if (result == null) result = caseUiRawBindable(uiRadioButtonGroup);

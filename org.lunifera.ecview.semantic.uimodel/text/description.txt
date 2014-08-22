@@ -286,8 +286,10 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiTextArea -> UiField
 
-  Class UiRadioButtonGroup -> UiField
+  Class UiRadioButtonGroup -> UiField, UiTypeProvider
     Reference buttons : UiRadioButtonAssignment<<0..*>>
+    Attribute selectionType : UiSelectionType<<1..1>>
+    Reference itemImageProperty : JvmField
 
   Class UiRadioButtonAssignment -> UiLayoutAssignment
     Reference element : UiEmbeddable
