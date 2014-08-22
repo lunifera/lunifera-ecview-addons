@@ -7,6 +7,38 @@ import com.google.inject.Inject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider;
+import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
+import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
+import org.lunifera.ecview.semantic.uimodel.UiButton;
+import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
+import org.lunifera.ecview.semantic.uimodel.UiColumn;
+import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments;
+import org.lunifera.ecview.semantic.uimodel.UiComboBox;
+import org.lunifera.ecview.semantic.uimodel.UiDialog;
+import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup;
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout;
+import org.lunifera.ecview.semantic.uimodel.UiIDEView;
+import org.lunifera.ecview.semantic.uimodel.UiImage;
+import org.lunifera.ecview.semantic.uimodel.UiImports;
+import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
+import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage;
+import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet;
+import org.lunifera.ecview.semantic.uimodel.UiMobileView;
+import org.lunifera.ecview.semantic.uimodel.UiModel;
+import org.lunifera.ecview.semantic.uimodel.UiNumericField;
+import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
+import org.lunifera.ecview.semantic.uimodel.UiSwitch;
+import org.lunifera.ecview.semantic.uimodel.UiTabSheet;
+import org.lunifera.ecview.semantic.uimodel.UiTable;
+import org.lunifera.ecview.semantic.uimodel.UiTextField;
+import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias;
+import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup;
+import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout;
+import org.lunifera.ecview.semantic.uimodel.UiViewSet;
+import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 
 /**
  * Provides labels for a EObjects.
@@ -22,5 +54,261 @@ public class UIGrammarLabelProvider extends XbaseLabelProvider {
   
   public Image getImage(final Object object) {
     return null;
+  }
+  
+  public String text(final UiModel ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiImports ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiIDEView ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiMobileView ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiValidatorAlias ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiBindingEndpointAlias ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiBeanSlot ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiViewSet ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiFormLayout ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiVerticalLayout ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiHorizontalLayout ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiVerticalComponentGroup ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiHorizontalButtonGroup ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiTabSheet ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiMobileTabSheet ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiImage ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiDialog ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiMobileNavigationPage ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiTextField ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiTable ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiComboBox ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiButton ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiMobileNavigationButton ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiSwitch ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiColumnAssignments ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiColumn ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiNumericField ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiCheckBox ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiMaxLengthValidator ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiMinLengthValidator ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiRegexpValidator ele) {
+    return ele.getName();
+  }
+  
+  public String text(final UiXbaseValidator ele) {
+    return ele.getName();
+  }
+  
+  public String image(final UiModel ele) {
+    return "UiModel.gif";
+  }
+  
+  public String image(final UiImports ele) {
+    return "UiImport.gif";
+  }
+  
+  public String image(final UiIDEView ele) {
+    return "UiIDEView.gif";
+  }
+  
+  public String image(final UiMobileView ele) {
+    return "UiMobileView.gif";
+  }
+  
+  public String image(final UiValidatorAlias ele) {
+    return "UiValidatorAlias.gif";
+  }
+  
+  public String image(final UiBindingEndpointAlias ele) {
+    return "UiDataBindingAlias.gif";
+  }
+  
+  public String image(final UiBeanSlot ele) {
+    return "UiDatasource.gif";
+  }
+  
+  public String image(final UiViewSet ele) {
+    return "UiViewSet.gif";
+  }
+  
+  public String image(final UiFormLayout ele) {
+    return "UiLayout.gif";
+  }
+  
+  public String image(final UiVerticalLayout ele) {
+    return "UiLayout.gif";
+  }
+  
+  public String image(final UiHorizontalLayout ele) {
+    return "UiLayout.gif";
+  }
+  
+  public String image(final UiVerticalComponentGroup ele) {
+    return "UiGroup.gif";
+  }
+  
+  public String image(final UiHorizontalButtonGroup ele) {
+    return "UiGroup.gif";
+  }
+  
+  public String image(final UiTabSheet ele) {
+    return "UiTabsheet.gif";
+  }
+  
+  public String image(final UiMobileTabSheet ele) {
+    return "UiTabsheet.gif";
+  }
+  
+  public String image(final UiImage ele) {
+    return "UiImage.gif";
+  }
+  
+  public String image(final UiDialog ele) {
+    return "UiDialog.gif";
+  }
+  
+  public String image(final UiMobileNavigationPage ele) {
+    return "UiMobileNavigationPage.gif";
+  }
+  
+  public String image(final UiTextField ele) {
+    return "UiTextField.gif";
+  }
+  
+  public String image(final UiTable ele) {
+    return "UiTable.gif";
+  }
+  
+  public String image(final UiComboBox ele) {
+    return "UiCombobox.gif";
+  }
+  
+  public String image(final UiButton ele) {
+    return "UiButton.gif";
+  }
+  
+  public String image(final UiMobileNavigationButton ele) {
+    return "UiMobileNavigationButton.gif";
+  }
+  
+  public String image(final UiSwitch ele) {
+    return "UiSwitch.gif";
+  }
+  
+  public String image(final UiColumnAssignments ele) {
+    return "UiColumnAssignments.gif";
+  }
+  
+  public String image(final UiColumn ele) {
+    return "UiColumn.gif";
+  }
+  
+  public String image(final UiNumericField ele) {
+    return "UiNumericField.gif";
+  }
+  
+  public String image(final UiCheckBox ele) {
+    return "UiCheckBox.gif";
+  }
+  
+  public String image(final UiMaxLengthValidator ele) {
+    return "UiValidator.gif";
+  }
+  
+  public String image(final UiMinLengthValidator ele) {
+    return "UiValidator.gif";
+  }
+  
+  public String image(final UiRegexpValidator ele) {
+    return "UiValidator.gif";
+  }
+  
+  public String image(final UiXbaseValidator ele) {
+    return "UiValidator.gif";
   }
 }

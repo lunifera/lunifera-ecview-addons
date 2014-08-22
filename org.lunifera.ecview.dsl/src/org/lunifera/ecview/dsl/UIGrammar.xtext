@@ -256,9 +256,9 @@ UiComboBox returns UiComboBox:
 	'combo' name=ID?
 	('{'
 	('type' jvmType=JvmTypeReference ';')?
-		('captionField' itemCaptionProperty=[JvmField])?
-		('imageField' itemImageProperty=[JvmField])?
-		(bindings+=UiBinding)*
+	('captionField' itemCaptionProperty=[JvmField])?
+	('imageField' itemImageProperty=[JvmField])?
+	(bindings+=UiBinding)*
 	'}')?;
 
 UiButton:
