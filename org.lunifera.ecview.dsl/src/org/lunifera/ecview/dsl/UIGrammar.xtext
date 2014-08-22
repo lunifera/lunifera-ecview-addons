@@ -44,9 +44,9 @@ UiBinding returns UiBinding:
 	(sourceToTarget?='>')?) target=UiBindingEndpointAssignment;
 
 UiBindingEndpointAssignment returns UiBindingExpression:
-	((UiTypedBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} path=(UiPathSegment)?) 
-		| (UiCommandBindableDef {UiBindingEndpointAssignment.typedBindableDef=current}) 
-		| ({UiBindingEndpointAssignment} typedBindableAlias=[UiTypedBindable] path=(UiPathSegment)?));
+	((UiTypedBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} path=(UiPathSegment)?)
+	| (UiCommandBindableDef {UiBindingEndpointAssignment.typedBindableDef=current})
+	| ({UiBindingEndpointAssignment} typedBindableAlias=[UiTypedBindable] path=(UiPathSegment)?));
 
 UiPathSegment returns UiPathSegment:
 	'.' jvmField=[JvmField] path=(UiPathSegment)?;
@@ -57,23 +57,18 @@ UiTypedBindableDef returns UiBindingExpression:
 
 UiCommandBindableDef returns UiCommandBindableDef:
 	{UiCommandBindableDef}
-	command=UiCommand
-;
+	command=UiCommand;
 
 UiCommand returns UiCommand:
-	UiMobileNavigationCommand | UiOpenDialogCommand
-;
+	UiMobileNavigationCommand | UiOpenDialogCommand;
 
 UiMobileNavigationCommand:
 	{UiMobileNavigationCommand}
-	'navigateTo' targetPage=UiMobileNavigationPage
-;
+	'navigateTo' targetPage=UiMobileNavigationPage;
 
 UiOpenDialogCommand:
 	{UiOpenDialogCommand}
-	'openDialog' dialog=UiDialog
-;
-
+	'openDialog' dialog=UiDialog;
 
 UiView returns UiView:
 	UiIDEView;
@@ -84,10 +79,11 @@ UiIDEView returns UiIDEView:
 	('viewset' viewSet=[UiViewSet])?
 	(beanSlots+=UiBeanSlot)*
 	(content=UiEmbeddable)?
-	// TODO make unordered group
-	(bindingEndpointAlias+=UiBindingEndpointAlias)*
-	(bindings+=UiBinding)*
-	(validatorAssignments+=UiValidatorAssignment)*
+	((bindingEndpointAlias+=UiBindingEndpointAlias)
+	|
+	(bindings+=UiBinding)
+	|
+	(validatorAssignments+=UiValidatorAssignment))*
 	'}';
 
 UiMobileView returns UiMobileView:
@@ -96,10 +92,11 @@ UiMobileView returns UiMobileView:
 	('viewset' viewSet=[UiViewSet])?
 	(beanSlots+=UiBeanSlot)*
 	(content=UiEmbeddable)?
-	// TODO make unordered group
-	(bindingEndpointAlias+=UiBindingEndpointAlias)*
-	(bindings+=UiBinding)*
-	(validatorAssignments+=UiValidatorAssignment)*
+	((bindingEndpointAlias+=UiBindingEndpointAlias)
+	|
+	(bindings+=UiBinding)
+	|
+	(validatorAssignments+=UiValidatorAssignment))*
 	'}';
 
 UiGridLayout returns UiGridLayout:
@@ -160,7 +157,7 @@ UiMobileHorizontalButtonGroup returns UiHorizontalButtonGroup:
 
 UiMobileHorizontalButtonGroupAssigment returns UiHorizontalButtonGroupAssigment:
 	element=UiEmbeddable;
-	
+
 UiMobileVerticalComponentGroup returns UiVerticalComponentGroup:
 	{UiVerticalComponentGroup}
 	'verticalGroup'
@@ -172,8 +169,8 @@ UiMobileVerticalComponentGroup returns UiVerticalComponentGroup:
 
 UiMobileVerticalComponentGroupAssigment returns UiVerticalComponentGroupAssigment:
 	element=UiEmbeddable;
-	
-UiMobileTabSheet: 
+
+UiMobileTabSheet:
 	{UiMobileTabSheet}
 	'mobileTab'
 	name=ID?
@@ -183,8 +180,8 @@ UiMobileTabSheet:
 
 UiMobileTabAssignment:
 	'tab' (name=ID)? element=UiEmbeddable;
-	
-UiTabSheet: 
+
+UiTabSheet:
 	{UiTabSheet}
 	'tabsheet'
 	name=ID?
@@ -198,23 +195,23 @@ UiTabAssignment:
 UiDialog:
 	{UiDialog}
 	'dialog' name=ID? '{'
-		('type' jvmType=JvmTypeReference ';')?
-		(content=UiDialogAssignment)?
-		(bindings+=UiBinding)*
+	('type' jvmType=JvmTypeReference ';')?
+	(content=UiDialogAssignment)?
+	(bindings+=UiBinding)*
 	'}';
 
-UiDialogAssignment: 
+UiDialogAssignment:
 	element=UiEmbeddable;
 
-UiMobileNavigationPage: 
+UiMobileNavigationPage:
 	{UiMobileNavigationPage}
 	'navPage' name=ID? '{'
-		('type' jvmType=JvmTypeReference ';')?
-		(contents+=UiMobileNavigationPageAssignment)*
-		(bindings+=UiBinding)*
+	('type' jvmType=JvmTypeReference ';')?
+	(contents+=UiMobileNavigationPageAssignment)*
+	(bindings+=UiBinding)*
 	'}';
 
-UiMobileNavigationPageAssignment: 
+UiMobileNavigationPageAssignment:
 	element=UiEmbeddable;
 
 UiPoint returns UiPoint:
@@ -228,12 +225,44 @@ UiTextField returns UiTextField:
 	//	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
 	
+UiTextArea returns UiTextArea:
+	{UiTextArea}
+	'textarea' name=ID?
+	('{'
+	(validators+=UiValidator)*
+	//	(processorAssignment=UiVisibilityProcessorAssignment)?
+	'}')?;
+	
+UiDateField returns UiDateField:
+	{UiDateField}
+	'datefield' name=ID?
+	('{'
+	(validators+=UiValidator)*
+	//	(processorAssignment=UiVisibilityProcessorAssignment)?
+	'}')?;
+	
+UiBrowser returns UiBrowser:
+	{UiBrowser}
+	'browser' name=ID?
+	('{'
+	(validators+=UiValidator)*
+	//	(processorAssignment=UiVisibilityProcessorAssignment)?
+	'}')?;
+	
+UiProgressBar returns UiProgressBar:
+	{UiProgressBar}
+	'progressbar' name=ID?
+	('{'
+	(validators+=UiValidator)*
+	//	(processorAssignment=UiVisibilityProcessorAssignment)?
+	'}')?;
+
 UiImage returns UiImage:
 	{UiImage}
 	'image' name=ID?
 	('{'
-		('iconPath' value=STRING)?
-		(bindings+=UiBinding)*
+	('iconPath' value=STRING)?
+	(bindings+=UiBinding)*
 	'}')?;
 
 UiList returns UiList:
@@ -250,29 +279,51 @@ UiTable returns UiTable:
 	columnAssignment=UiColumnAssignments?
 	(bindings+=UiBinding)*
 	'}')?;
-	 
+
 UiComboBox returns UiComboBox:
 	{UiComboBox}
 	'combo' name=ID?
 	('{'
 	('type' jvmType=JvmTypeReference ';')?
-		('captionField' itemCaptionProperty=[JvmField])?
-		('imageField' itemImageProperty=[JvmField])?
-		(bindings+=UiBinding)*
+	('captionField' itemCaptionProperty=[JvmField])?
+	('imageField' itemImageProperty=[JvmField])?
+	(bindings+=UiBinding)*
 	'}')?;
 
 UiButton:
 	{UiButton}
 	'button' name=ID?;
-	
-UiMobileNavigationButton: 
+
+UiMobileNavigationButton:
 	{UiMobileNavigationButton}
 	'navButton' name=ID? (targetPage=UiMobileNavigationPage | 'alias' targetPageAlias=[UiMobileNavigationPage]);
 
 UiMobileSwitch returns UiSwitch:
 	{UiSwitch}
-	'switchIt' name=ID?
-; 	
+	'switchIt' name=ID?;
+
+UiLabel:
+	{UiLabel}
+	'label' name=ID?;
+
+UiDecimalField returns UiDecimalField:
+	{UiDecimalField}
+	'decimalfield' name=ID?
+	('{'
+	(validators+=UiValidator)*
+	//	(processorAssignment=UiVisibilityProcessorAssignment)?
+	'}')?;
+	
+UiRadioButtonGroup:
+	{UiRadioButtonGroup}
+	'radiobuttons'
+	name=ID?
+	'{'
+	(buttons+=UiRadioButtonAssignment)*
+	'}';
+
+UiRadioButtonAssignment:
+	'button' (name=ID)? element=UiEmbeddable;
 
 enum UiSelectionType:
 	SINGLE='single' | MULTI='multi' | NONE='none';
@@ -295,7 +346,7 @@ UiMobileEmbeddable:
 
 UiMobileLayout:
 	UiMobileHorizontalButtonGroup | UiMobileVerticalComponentGroup | UiMobileNavigationPage;
-	
+
 UiMobileField:
 	UiMobileSwitch;
 
@@ -303,14 +354,14 @@ UiLayout:
 	UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout;
 
 UiField:
-	UiTextField | UiList | UiNumericField | UiCheckBox | UiTable | UiComboBox | UiImage;
+	UiTextField | UiList | UiNumericField | UiCheckBox | UiTable | UiComboBox | UiImage | UiLabel | UiDecimalField |
+	UiTextArea | UiDateField | UiBrowser | UiProgressBar | UiRadioButtonGroup;
 
 UiAction:
 	UiButton;
 
 UiMobileAction:
-	UiMobileNavigationButton
-;
+	UiMobileNavigationButton;
 
 UiNumericField:
 	{UiNumericField}

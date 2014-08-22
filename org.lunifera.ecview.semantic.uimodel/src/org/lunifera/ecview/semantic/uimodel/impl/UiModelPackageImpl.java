@@ -16,6 +16,7 @@ import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
+import org.lunifera.ecview.semantic.uimodel.UiBrowser;
 import org.lunifera.ecview.semantic.uimodel.UiButton;
 import org.lunifera.ecview.semantic.uimodel.UiChangeTrigger;
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
@@ -25,6 +26,8 @@ import org.lunifera.ecview.semantic.uimodel.UiComboBox;
 import org.lunifera.ecview.semantic.uimodel.UiCommand;
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
 import org.lunifera.ecview.semantic.uimodel.UiContext;
+import org.lunifera.ecview.semantic.uimodel.UiDateField;
+import org.lunifera.ecview.semantic.uimodel.UiDecimalField;
 import org.lunifera.ecview.semantic.uimodel.UiDialog;
 import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
@@ -41,6 +44,7 @@ import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
 import org.lunifera.ecview.semantic.uimodel.UiImage;
 import org.lunifera.ecview.semantic.uimodel.UiImports;
+import org.lunifera.ecview.semantic.uimodel.UiLabel;
 import org.lunifera.ecview.semantic.uimodel.UiLayout;
 import org.lunifera.ecview.semantic.uimodel.UiLayoutAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiList;
@@ -66,6 +70,9 @@ import org.lunifera.ecview.semantic.uimodel.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
+import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
+import org.lunifera.ecview.semantic.uimodel.UiRadioButtonAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
@@ -74,6 +81,7 @@ import org.lunifera.ecview.semantic.uimodel.UiSwitch;
 import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiTabSheet;
 import org.lunifera.ecview.semantic.uimodel.UiTable;
+import org.lunifera.ecview.semantic.uimodel.UiTextArea;
 import org.lunifera.ecview.semantic.uimodel.UiTextField;
 import org.lunifera.ecview.semantic.uimodel.UiTypeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindable;
@@ -694,6 +702,62 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiOpenDialogCommandEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiLabelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiDecimalFieldEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiTextAreaEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiRadioButtonGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiRadioButtonAssignmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiDateFieldEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiBrowserEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiProgressBarEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2480,6 +2544,96 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiLabel() {
+		return uiLabelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiDecimalField() {
+		return uiDecimalFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiTextArea() {
+		return uiTextAreaEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiRadioButtonGroup() {
+		return uiRadioButtonGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiRadioButtonGroup_Buttons() {
+		return (EReference)uiRadioButtonGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiRadioButtonAssignment() {
+		return uiRadioButtonAssignmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiRadioButtonAssignment_Element() {
+		return (EReference)uiRadioButtonAssignmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiDateField() {
+		return uiDateFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiBrowser() {
+		return uiBrowserEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiProgressBar() {
+		return uiProgressBarEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getUiFlatAlignment() {
 		return uiFlatAlignmentEEnum;
 	}
@@ -2794,6 +2948,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiOpenDialogCommandEClass = createEClass(UI_OPEN_DIALOG_COMMAND);
 		createEReference(uiOpenDialogCommandEClass, UI_OPEN_DIALOG_COMMAND__DIALOG);
 
+		uiLabelEClass = createEClass(UI_LABEL);
+
+		uiDecimalFieldEClass = createEClass(UI_DECIMAL_FIELD);
+
+		uiTextAreaEClass = createEClass(UI_TEXT_AREA);
+
+		uiRadioButtonGroupEClass = createEClass(UI_RADIO_BUTTON_GROUP);
+		createEReference(uiRadioButtonGroupEClass, UI_RADIO_BUTTON_GROUP__BUTTONS);
+
+		uiRadioButtonAssignmentEClass = createEClass(UI_RADIO_BUTTON_ASSIGNMENT);
+		createEReference(uiRadioButtonAssignmentEClass, UI_RADIO_BUTTON_ASSIGNMENT__ELEMENT);
+
+		uiDateFieldEClass = createEClass(UI_DATE_FIELD);
+
+		uiBrowserEClass = createEClass(UI_BROWSER);
+
+		uiProgressBarEClass = createEClass(UI_PROGRESS_BAR);
+
 		// Create enums
 		uiFlatAlignmentEEnum = createEEnum(UI_FLAT_ALIGNMENT);
 		uiSelectionTypeEEnum = createEEnum(UI_SELECTION_TYPE);
@@ -2918,6 +3090,14 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiCommandEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiMobileNavigationCommandEClass.getESuperTypes().add(this.getUiCommand());
 		uiOpenDialogCommandEClass.getESuperTypes().add(this.getUiCommand());
+		uiLabelEClass.getESuperTypes().add(this.getUiField());
+		uiDecimalFieldEClass.getESuperTypes().add(this.getUiField());
+		uiTextAreaEClass.getESuperTypes().add(this.getUiField());
+		uiRadioButtonGroupEClass.getESuperTypes().add(this.getUiField());
+		uiRadioButtonAssignmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
+		uiDateFieldEClass.getESuperTypes().add(this.getUiField());
+		uiBrowserEClass.getESuperTypes().add(this.getUiField());
+		uiProgressBarEClass.getESuperTypes().add(this.getUiField());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(uiNamedElementEClass, UiNamedElement.class, "UiNamedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3192,6 +3372,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiOpenDialogCommandEClass, UiOpenDialogCommand.class, "UiOpenDialogCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiOpenDialogCommand_Dialog(), this.getUiDialog(), null, "dialog", null, 0, 1, UiOpenDialogCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiLabelEClass, UiLabel.class, "UiLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiDecimalFieldEClass, UiDecimalField.class, "UiDecimalField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiTextAreaEClass, UiTextArea.class, "UiTextArea", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiRadioButtonGroupEClass, UiRadioButtonGroup.class, "UiRadioButtonGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiRadioButtonGroup_Buttons(), this.getUiRadioButtonAssignment(), null, "buttons", null, 0, -1, UiRadioButtonGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiRadioButtonAssignmentEClass, UiRadioButtonAssignment.class, "UiRadioButtonAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiRadioButtonAssignment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiRadioButtonAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiDateFieldEClass, UiDateField.class, "UiDateField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiBrowserEClass, UiBrowser.class, "UiBrowser", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiProgressBarEClass, UiProgressBar.class, "UiProgressBar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(uiFlatAlignmentEEnum, UiFlatAlignment.class, "UiFlatAlignment");

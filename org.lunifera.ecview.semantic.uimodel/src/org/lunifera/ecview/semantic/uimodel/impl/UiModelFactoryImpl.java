@@ -123,6 +123,14 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_MOBILE_NAVIGATION_BUTTON: return createUiMobileNavigationButton();
 			case UiModelPackage.UI_MOBILE_NAVIGATION_COMMAND: return createUiMobileNavigationCommand();
 			case UiModelPackage.UI_OPEN_DIALOG_COMMAND: return createUiOpenDialogCommand();
+			case UiModelPackage.UI_LABEL: return createUiLabel();
+			case UiModelPackage.UI_DECIMAL_FIELD: return createUiDecimalField();
+			case UiModelPackage.UI_TEXT_AREA: return createUiTextArea();
+			case UiModelPackage.UI_RADIO_BUTTON_GROUP: return createUiRadioButtonGroup();
+			case UiModelPackage.UI_RADIO_BUTTON_ASSIGNMENT: return createUiRadioButtonAssignment();
+			case UiModelPackage.UI_DATE_FIELD: return createUiDateField();
+			case UiModelPackage.UI_BROWSER: return createUiBrowser();
+			case UiModelPackage.UI_PROGRESS_BAR: return createUiProgressBar();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -820,6 +828,86 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiOpenDialogCommand createUiOpenDialogCommand() {
 		UiOpenDialogCommandImpl uiOpenDialogCommand = new UiOpenDialogCommandImpl();
 		return uiOpenDialogCommand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiLabel createUiLabel() {
+		UiLabelImpl uiLabel = new UiLabelImpl();
+		return uiLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiDecimalField createUiDecimalField() {
+		UiDecimalFieldImpl uiDecimalField = new UiDecimalFieldImpl();
+		return uiDecimalField;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiTextArea createUiTextArea() {
+		UiTextAreaImpl uiTextArea = new UiTextAreaImpl();
+		return uiTextArea;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiRadioButtonGroup createUiRadioButtonGroup() {
+		UiRadioButtonGroupImpl uiRadioButtonGroup = new UiRadioButtonGroupImpl();
+		return uiRadioButtonGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiRadioButtonAssignment createUiRadioButtonAssignment() {
+		UiRadioButtonAssignmentImpl uiRadioButtonAssignment = new UiRadioButtonAssignmentImpl();
+		return uiRadioButtonAssignment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiDateField createUiDateField() {
+		UiDateFieldImpl uiDateField = new UiDateFieldImpl();
+		return uiDateField;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiBrowser createUiBrowser() {
+		UiBrowserImpl uiBrowser = new UiBrowserImpl();
+		return uiBrowser;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiProgressBar createUiProgressBar() {
+		UiProgressBarImpl uiProgressBar = new UiProgressBarImpl();
+		return uiProgressBar;
 	}
 
 	/**

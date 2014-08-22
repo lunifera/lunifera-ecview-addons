@@ -16,7 +16,7 @@ Workflow {
 		uriMap = {
 			from = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel"
 			to =
-				"file://Users/admin/git/org.eclipse.emf.ecp.other/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel"
+				"file:///home/klemens/git/lunifera-ecview/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel"
 		}
 		uriMap = {
 			from = "platform:/plugin/"
@@ -25,20 +25,20 @@ Workflow {
 		uriMap = {
 			from = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/"
 			to =
-			"file://Users/admin/git/org.eclipse.emf.ecp.other/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.common.model/"
+			"file:///home/klemens/git/lunifera-ecview/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.common.model/"
 		}
 		uriMap = {
 			from = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/"
 			to =
-			"file://Users/admin/git/org.eclipse.emf.ecp.other/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.extension.model/"
+			"file:///home/klemens/git/lunifera-ecview/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.extension.model/"
 		}
 		uriMap = {
 			from = "platform:/resource/org.lunifera.ecview.semantic.uisemantics/"
-			to = "file://Users/admin/git/lunifera-ecview-addons/org.lunifera.ecview.semantic.uisemantics/"
+			to = "file:///home/klemens/git/lunifera-ecview-addons/org.lunifera.ecview.semantic.uisemantics/"
 		}
 		uriMap = {
 			from = "platform:/resource/org.lunifera.ecview.semantic.uimodel/"
-			to = "file://Users/admin/git/lunifera-ecview-addons/org.lunifera.ecview.semantic.uimodel/"
+			to = "file:///home/klemens/git/lunifera-ecview-addons/org.lunifera.ecview.semantic.uimodel/"
 		}
 //		resourceSet = org.eclipse.xtext.resource.XtextResourceSet : theResourceSet {}
 		scanClassPath = true

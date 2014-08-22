@@ -346,4 +346,18 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="dialog" eType="#//UiDialog"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiLabel" eSuperTypes="#//UiField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiDecimalField" eSuperTypes="#//UiField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiTextArea" eSuperTypes="#//UiField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiRadioButtonGroup" eSuperTypes="#//UiField">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buttons" upperBound="-1"
+        eType="#//UiRadioButtonAssignment" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiRadioButtonAssignment" eSuperTypes="#//UiLayoutAssignment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiDateField" eSuperTypes="#//UiField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiBrowser" eSuperTypes="#//UiField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiProgressBar" eSuperTypes="#//UiField"/>
 </ecore:EPackage>

@@ -616,6 +616,78 @@ public interface UiModelFactory extends EFactory {
 	UiOpenDialogCommand createUiOpenDialogCommand();
 
 	/**
+	 * Returns a new object of class '<em>Ui Label</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Label</em>'.
+	 * @generated
+	 */
+	UiLabel createUiLabel();
+
+	/**
+	 * Returns a new object of class '<em>Ui Decimal Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Decimal Field</em>'.
+	 * @generated
+	 */
+	UiDecimalField createUiDecimalField();
+
+	/**
+	 * Returns a new object of class '<em>Ui Text Area</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Text Area</em>'.
+	 * @generated
+	 */
+	UiTextArea createUiTextArea();
+
+	/**
+	 * Returns a new object of class '<em>Ui Radio Button Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Radio Button Group</em>'.
+	 * @generated
+	 */
+	UiRadioButtonGroup createUiRadioButtonGroup();
+
+	/**
+	 * Returns a new object of class '<em>Ui Radio Button Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Radio Button Assignment</em>'.
+	 * @generated
+	 */
+	UiRadioButtonAssignment createUiRadioButtonAssignment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Date Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Date Field</em>'.
+	 * @generated
+	 */
+	UiDateField createUiDateField();
+
+	/**
+	 * Returns a new object of class '<em>Ui Browser</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Browser</em>'.
+	 * @generated
+	 */
+	UiBrowser createUiBrowser();
+
+	/**
+	 * Returns a new object of class '<em>Ui Progress Bar</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Progress Bar</em>'.
+	 * @generated
+	 */
+	UiProgressBar createUiProgressBar();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -62,12 +62,15 @@ import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiBrowser;
 import org.lunifera.ecview.semantic.uimodel.UiButton;
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.UiColumn;
 import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments;
 import org.lunifera.ecview.semantic.uimodel.UiComboBox;
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
+import org.lunifera.ecview.semantic.uimodel.UiDateField;
+import org.lunifera.ecview.semantic.uimodel.UiDecimalField;
 import org.lunifera.ecview.semantic.uimodel.UiDialog;
 import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
@@ -81,6 +84,7 @@ import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
 import org.lunifera.ecview.semantic.uimodel.UiImage;
 import org.lunifera.ecview.semantic.uimodel.UiImports;
+import org.lunifera.ecview.semantic.uimodel.UiLabel;
 import org.lunifera.ecview.semantic.uimodel.UiList;
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
@@ -97,11 +101,15 @@ import org.lunifera.ecview.semantic.uimodel.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
+import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
+import org.lunifera.ecview.semantic.uimodel.UiRadioButtonAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup;
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
 import org.lunifera.ecview.semantic.uimodel.UiSwitch;
 import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiTabSheet;
 import org.lunifera.ecview.semantic.uimodel.UiTable;
+import org.lunifera.ecview.semantic.uimodel.UiTextArea;
 import org.lunifera.ecview.semantic.uimodel.UiTextField;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias;
@@ -204,6 +212,14 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 					return; 
 				}
 				else break;
+			case UiModelPackage.UI_BROWSER:
+				if(context == grammarAccess.getUiBrowserRule() ||
+				   context == grammarAccess.getUiEmbeddableRule() ||
+				   context == grammarAccess.getUiFieldRule()) {
+					sequence_UiBrowser(context, (UiBrowser) semanticObject); 
+					return; 
+				}
+				else break;
 			case UiModelPackage.UI_BUTTON:
 				if(context == grammarAccess.getUiActionRule() ||
 				   context == grammarAccess.getUiButtonRule() ||
@@ -244,6 +260,22 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 				if(context == grammarAccess.getUiBindingEndpointAssignmentAccess().getUiBindingEndpointAssignmentTypedBindableDefAction_1_1() ||
 				   context == grammarAccess.getUiCommandBindableDefRule()) {
 					sequence_UiCommandBindableDef(context, (UiCommandBindableDef) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_DATE_FIELD:
+				if(context == grammarAccess.getUiDateFieldRule() ||
+				   context == grammarAccess.getUiEmbeddableRule() ||
+				   context == grammarAccess.getUiFieldRule()) {
+					sequence_UiDateField(context, (UiDateField) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_DECIMAL_FIELD:
+				if(context == grammarAccess.getUiDecimalFieldRule() ||
+				   context == grammarAccess.getUiEmbeddableRule() ||
+				   context == grammarAccess.getUiFieldRule()) {
+					sequence_UiDecimalField(context, (UiDecimalField) semanticObject); 
 					return; 
 				}
 				else break;
@@ -335,6 +367,14 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 			case UiModelPackage.UI_IMPORTS:
 				if(context == grammarAccess.getUiImportsRule()) {
 					sequence_UiImports(context, (UiImports) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_LABEL:
+				if(context == grammarAccess.getUiEmbeddableRule() ||
+				   context == grammarAccess.getUiFieldRule() ||
+				   context == grammarAccess.getUiLabelRule()) {
+					sequence_UiLabel(context, (UiLabel) semanticObject); 
 					return; 
 				}
 				else break;
@@ -445,6 +485,28 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 					return; 
 				}
 				else break;
+			case UiModelPackage.UI_PROGRESS_BAR:
+				if(context == grammarAccess.getUiEmbeddableRule() ||
+				   context == grammarAccess.getUiFieldRule() ||
+				   context == grammarAccess.getUiProgressBarRule()) {
+					sequence_UiProgressBar(context, (UiProgressBar) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_RADIO_BUTTON_ASSIGNMENT:
+				if(context == grammarAccess.getUiRadioButtonAssignmentRule()) {
+					sequence_UiRadioButtonAssignment(context, (UiRadioButtonAssignment) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_RADIO_BUTTON_GROUP:
+				if(context == grammarAccess.getUiEmbeddableRule() ||
+				   context == grammarAccess.getUiFieldRule() ||
+				   context == grammarAccess.getUiRadioButtonGroupRule()) {
+					sequence_UiRadioButtonGroup(context, (UiRadioButtonGroup) semanticObject); 
+					return; 
+				}
+				else break;
 			case UiModelPackage.UI_REGEXP_VALIDATOR:
 				if(context == grammarAccess.getUiRegexpValidatorRule() ||
 				   context == grammarAccess.getUiValidatorRule()) {
@@ -479,6 +541,14 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 				   context == grammarAccess.getUiFieldRule() ||
 				   context == grammarAccess.getUiTableRule()) {
 					sequence_UiTable(context, (UiTable) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_TEXT_AREA:
+				if(context == grammarAccess.getUiEmbeddableRule() ||
+				   context == grammarAccess.getUiFieldRule() ||
+				   context == grammarAccess.getUiTextAreaRule()) {
+					sequence_UiTextArea(context, (UiTextArea) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1640,6 +1710,15 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (name=ID? validators+=UiValidator*)
+	 */
+	protected void sequence_UiBrowser(EObject context, UiBrowser semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID?)
 	 */
 	protected void sequence_UiButton(EObject context, UiButton semanticObject) {
@@ -1688,6 +1767,24 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *     command=UiCommand
 	 */
 	protected void sequence_UiCommandBindableDef(EObject context, UiCommandBindableDef semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID? validators+=UiValidator*)
+	 */
+	protected void sequence_UiDateField(EObject context, UiDateField semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID? validators+=UiValidator*)
+	 */
+	protected void sequence_UiDecimalField(EObject context, UiDecimalField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1771,9 +1868,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *         viewSet=[UiViewSet|ID]? 
 	 *         beanSlots+=UiBeanSlot* 
 	 *         content=UiEmbeddable? 
-	 *         bindingEndpointAlias+=UiBindingEndpointAlias* 
-	 *         bindings+=UiBinding* 
-	 *         validatorAssignments+=UiValidatorAssignment*
+	 *         (bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding | validatorAssignments+=UiValidatorAssignment)*
 	 *     )
 	 */
 	protected void sequence_UiIDEView(EObject context, UiIDEView semanticObject) {
@@ -1795,6 +1890,15 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *     importedNamespace=QualifiedNameWithWildcard
 	 */
 	protected void sequence_UiImports(EObject context, UiImports semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID?)
+	 */
+	protected void sequence_UiLabel(EObject context, UiLabel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1932,9 +2036,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *         viewSet=[UiViewSet|ID]? 
 	 *         beanSlots+=UiBeanSlot* 
 	 *         content=UiEmbeddable? 
-	 *         bindingEndpointAlias+=UiBindingEndpointAlias* 
-	 *         bindings+=UiBinding* 
-	 *         validatorAssignments+=UiValidatorAssignment*
+	 *         (bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding | validatorAssignments+=UiValidatorAssignment)*
 	 *     )
 	 */
 	protected void sequence_UiMobileView(EObject context, UiMobileView semanticObject) {
@@ -1999,6 +2101,33 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (name=ID? validators+=UiValidator*)
+	 */
+	protected void sequence_UiProgressBar(EObject context, UiProgressBar semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID? element=UiEmbeddable)
+	 */
+	protected void sequence_UiRadioButtonAssignment(EObject context, UiRadioButtonAssignment semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID? buttons+=UiRadioButtonAssignment*)
+	 */
+	protected void sequence_UiRadioButtonGroup(EObject context, UiRadioButtonGroup semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID? regExpression=STRING)
 	 */
 	protected void sequence_UiRegexpValidator(EObject context, UiRegexpValidator semanticObject) {
@@ -2038,6 +2167,15 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *     )
 	 */
 	protected void sequence_UiTable(EObject context, UiTable semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID? validators+=UiValidator*)
+	 */
+	protected void sequence_UiTextArea(EObject context, UiTextArea semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

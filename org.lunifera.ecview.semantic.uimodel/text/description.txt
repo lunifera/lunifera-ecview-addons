@@ -280,6 +280,24 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiOpenDialogCommand -> UiCommand
     Reference dialog : UiDialog
 
+  Class UiLabel -> UiField
+
+  Class UiDecimalField -> UiField
+
+  Class UiTextArea -> UiField
+
+  Class UiRadioButtonGroup -> UiField
+    Reference buttons : UiRadioButtonAssignment<<0..*>>
+
+  Class UiRadioButtonAssignment -> UiLayoutAssignment
+    Reference element : UiEmbeddable
+
+  Class UiDateField -> UiField
+
+  Class UiBrowser -> UiField
+
+  Class UiProgressBar -> UiField
+
   Enum UiFlatAlignment
     Literal LEFT = 0
     Literal CENTER = 1

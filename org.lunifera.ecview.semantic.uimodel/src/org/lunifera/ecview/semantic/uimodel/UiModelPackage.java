@@ -4767,6 +4767,509 @@ public interface UiModelPackage extends EPackage {
 	int UI_OPEN_DIALOG_COMMAND_FEATURE_COUNT = UI_COMMAND_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl <em>Ui Label</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiLabel()
+	 * @generated
+	 */
+	int UI_LABEL = 84;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LABEL__PROCESSOR_ASSIGNMENT = UI_FIELD__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LABEL__ID = UI_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LABEL__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LABEL__BINDINGS = UI_FIELD__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LABEL__VALIDATORS = UI_FIELD__VALIDATORS;
+
+	/**
+	 * The number of structural features of the '<em>Ui Label</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LABEL_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiDecimalFieldImpl <em>Ui Decimal Field</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiDecimalFieldImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDecimalField()
+	 * @generated
+	 */
+	int UI_DECIMAL_FIELD = 85;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DECIMAL_FIELD__PROCESSOR_ASSIGNMENT = UI_FIELD__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DECIMAL_FIELD__ID = UI_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DECIMAL_FIELD__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DECIMAL_FIELD__BINDINGS = UI_FIELD__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DECIMAL_FIELD__VALIDATORS = UI_FIELD__VALIDATORS;
+
+	/**
+	 * The number of structural features of the '<em>Ui Decimal Field</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DECIMAL_FIELD_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextAreaImpl <em>Ui Text Area</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiTextAreaImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiTextArea()
+	 * @generated
+	 */
+	int UI_TEXT_AREA = 86;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_AREA__PROCESSOR_ASSIGNMENT = UI_FIELD__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_AREA__ID = UI_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_AREA__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_AREA__BINDINGS = UI_FIELD__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_AREA__VALIDATORS = UI_FIELD__VALIDATORS;
+
+	/**
+	 * The number of structural features of the '<em>Ui Text Area</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_AREA_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonGroupImpl <em>Ui Radio Button Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonGroupImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiRadioButtonGroup()
+	 * @generated
+	 */
+	int UI_RADIO_BUTTON_GROUP = 87;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__PROCESSOR_ASSIGNMENT = UI_FIELD__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__ID = UI_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__BINDINGS = UI_FIELD__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__VALIDATORS = UI_FIELD__VALIDATORS;
+
+	/**
+	 * The feature id for the '<em><b>Buttons</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__BUTTONS = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Radio Button Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonAssignmentImpl <em>Ui Radio Button Assignment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonAssignmentImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiRadioButtonAssignment()
+	 * @generated
+	 */
+	int UI_RADIO_BUTTON_ASSIGNMENT = 88;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_ASSIGNMENT__ID = UI_LAYOUT_ASSIGNMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_ASSIGNMENT__NAME = UI_LAYOUT_ASSIGNMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Element</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_ASSIGNMENT__ELEMENT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Radio Button Assignment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_ASSIGNMENT_FEATURE_COUNT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiDateFieldImpl <em>Ui Date Field</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiDateFieldImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDateField()
+	 * @generated
+	 */
+	int UI_DATE_FIELD = 89;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DATE_FIELD__PROCESSOR_ASSIGNMENT = UI_FIELD__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DATE_FIELD__ID = UI_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DATE_FIELD__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DATE_FIELD__BINDINGS = UI_FIELD__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DATE_FIELD__VALIDATORS = UI_FIELD__VALIDATORS;
+
+	/**
+	 * The number of structural features of the '<em>Ui Date Field</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DATE_FIELD_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBrowserImpl <em>Ui Browser</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiBrowserImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiBrowser()
+	 * @generated
+	 */
+	int UI_BROWSER = 90;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BROWSER__PROCESSOR_ASSIGNMENT = UI_FIELD__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BROWSER__ID = UI_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BROWSER__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BROWSER__BINDINGS = UI_FIELD__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BROWSER__VALIDATORS = UI_FIELD__VALIDATORS;
+
+	/**
+	 * The number of structural features of the '<em>Ui Browser</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BROWSER_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiProgressBarImpl <em>Ui Progress Bar</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiProgressBarImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiProgressBar()
+	 * @generated
+	 */
+	int UI_PROGRESS_BAR = 91;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PROGRESS_BAR__PROCESSOR_ASSIGNMENT = UI_FIELD__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PROGRESS_BAR__ID = UI_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PROGRESS_BAR__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PROGRESS_BAR__BINDINGS = UI_FIELD__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PROGRESS_BAR__VALIDATORS = UI_FIELD__VALIDATORS;
+
+	/**
+	 * The number of structural features of the '<em>Ui Progress Bar</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PROGRESS_BAR_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4774,7 +5277,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiFlatAlignment()
 	 * @generated
 	 */
-	int UI_FLAT_ALIGNMENT = 84;
+	int UI_FLAT_ALIGNMENT = 92;
 
 
 	/**
@@ -4785,7 +5288,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSelectionType()
 	 * @generated
 	 */
-	int UI_SELECTION_TYPE = 85;
+	int UI_SELECTION_TYPE = 93;
 
 
 	/**
@@ -6784,6 +7287,108 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiOpenDialogCommand_Dialog();
 
 	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiLabel <em>Ui Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Label</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiLabel
+	 * @generated
+	 */
+	EClass getUiLabel();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiDecimalField <em>Ui Decimal Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Decimal Field</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDecimalField
+	 * @generated
+	 */
+	EClass getUiDecimalField();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiTextArea <em>Ui Text Area</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Text Area</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTextArea
+	 * @generated
+	 */
+	EClass getUiTextArea();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup <em>Ui Radio Button Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Radio Button Group</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup
+	 * @generated
+	 */
+	EClass getUiRadioButtonGroup();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup#getButtons <em>Buttons</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Buttons</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup#getButtons()
+	 * @see #getUiRadioButtonGroup()
+	 * @generated
+	 */
+	EReference getUiRadioButtonGroup_Buttons();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonAssignment <em>Ui Radio Button Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Radio Button Assignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRadioButtonAssignment
+	 * @generated
+	 */
+	EClass getUiRadioButtonAssignment();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonAssignment#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Element</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRadioButtonAssignment#getElement()
+	 * @see #getUiRadioButtonAssignment()
+	 * @generated
+	 */
+	EReference getUiRadioButtonAssignment_Element();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiDateField <em>Ui Date Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Date Field</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDateField
+	 * @generated
+	 */
+	EClass getUiDateField();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiBrowser <em>Ui Browser</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Browser</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBrowser
+	 * @generated
+	 */
+	EClass getUiBrowser();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiProgressBar <em>Ui Progress Bar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Progress Bar</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiProgressBar
+	 * @generated
+	 */
+	EClass getUiProgressBar();
+
+	/**
 	 * Returns the meta object for enum '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8504,6 +9109,102 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_OPEN_DIALOG_COMMAND__DIALOG = eINSTANCE.getUiOpenDialogCommand_Dialog();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl <em>Ui Label</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiLabel()
+		 * @generated
+		 */
+		EClass UI_LABEL = eINSTANCE.getUiLabel();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiDecimalFieldImpl <em>Ui Decimal Field</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiDecimalFieldImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDecimalField()
+		 * @generated
+		 */
+		EClass UI_DECIMAL_FIELD = eINSTANCE.getUiDecimalField();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextAreaImpl <em>Ui Text Area</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiTextAreaImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiTextArea()
+		 * @generated
+		 */
+		EClass UI_TEXT_AREA = eINSTANCE.getUiTextArea();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonGroupImpl <em>Ui Radio Button Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonGroupImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiRadioButtonGroup()
+		 * @generated
+		 */
+		EClass UI_RADIO_BUTTON_GROUP = eINSTANCE.getUiRadioButtonGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Buttons</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_RADIO_BUTTON_GROUP__BUTTONS = eINSTANCE.getUiRadioButtonGroup_Buttons();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonAssignmentImpl <em>Ui Radio Button Assignment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonAssignmentImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiRadioButtonAssignment()
+		 * @generated
+		 */
+		EClass UI_RADIO_BUTTON_ASSIGNMENT = eINSTANCE.getUiRadioButtonAssignment();
+
+		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_RADIO_BUTTON_ASSIGNMENT__ELEMENT = eINSTANCE.getUiRadioButtonAssignment_Element();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiDateFieldImpl <em>Ui Date Field</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiDateFieldImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDateField()
+		 * @generated
+		 */
+		EClass UI_DATE_FIELD = eINSTANCE.getUiDateField();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBrowserImpl <em>Ui Browser</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiBrowserImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiBrowser()
+		 * @generated
+		 */
+		EClass UI_BROWSER = eINSTANCE.getUiBrowser();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiProgressBarImpl <em>Ui Progress Bar</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiProgressBarImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiProgressBar()
+		 * @generated
+		 */
+		EClass UI_PROGRESS_BAR = eINSTANCE.getUiProgressBar();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.
