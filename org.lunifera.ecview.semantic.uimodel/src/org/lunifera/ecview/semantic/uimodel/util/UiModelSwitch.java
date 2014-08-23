@@ -503,14 +503,14 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case UiModelPackage.UI_COLUMN_ASSIGNMENTS: {
-				UiColumnAssignments uiColumnAssignments = (UiColumnAssignments)theEObject;
-				T result = caseUiColumnAssignments(uiColumnAssignments);
-				if (result == null) result = caseUiField(uiColumnAssignments);
-				if (result == null) result = caseUiEmbeddable(uiColumnAssignments);
-				if (result == null) result = caseUiVisibilityProcessable(uiColumnAssignments);
-				if (result == null) result = caseUiRawBindable(uiColumnAssignments);
-				if (result == null) result = caseUiNamedElement(uiColumnAssignments);
+			case UiModelPackage.UI_COLUMNS_ASSIGNMENT: {
+				UiColumnsAssignment uiColumnsAssignment = (UiColumnsAssignment)theEObject;
+				T result = caseUiColumnsAssignment(uiColumnsAssignment);
+				if (result == null) result = caseUiField(uiColumnsAssignment);
+				if (result == null) result = caseUiEmbeddable(uiColumnsAssignment);
+				if (result == null) result = caseUiVisibilityProcessable(uiColumnsAssignment);
+				if (result == null) result = caseUiRawBindable(uiColumnsAssignment);
+				if (result == null) result = caseUiNamedElement(uiColumnsAssignment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -885,6 +885,84 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_LABEL: {
+				UiLabel uiLabel = (UiLabel)theEObject;
+				T result = caseUiLabel(uiLabel);
+				if (result == null) result = caseUiField(uiLabel);
+				if (result == null) result = caseUiEmbeddable(uiLabel);
+				if (result == null) result = caseUiVisibilityProcessable(uiLabel);
+				if (result == null) result = caseUiRawBindable(uiLabel);
+				if (result == null) result = caseUiNamedElement(uiLabel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_DECIMAL_FIELD: {
+				UiDecimalField uiDecimalField = (UiDecimalField)theEObject;
+				T result = caseUiDecimalField(uiDecimalField);
+				if (result == null) result = caseUiField(uiDecimalField);
+				if (result == null) result = caseUiEmbeddable(uiDecimalField);
+				if (result == null) result = caseUiVisibilityProcessable(uiDecimalField);
+				if (result == null) result = caseUiRawBindable(uiDecimalField);
+				if (result == null) result = caseUiNamedElement(uiDecimalField);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_TEXT_AREA: {
+				UiTextArea uiTextArea = (UiTextArea)theEObject;
+				T result = caseUiTextArea(uiTextArea);
+				if (result == null) result = caseUiField(uiTextArea);
+				if (result == null) result = caseUiEmbeddable(uiTextArea);
+				if (result == null) result = caseUiVisibilityProcessable(uiTextArea);
+				if (result == null) result = caseUiRawBindable(uiTextArea);
+				if (result == null) result = caseUiNamedElement(uiTextArea);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_RADIO_BUTTON_GROUP: {
+				UiRadioButtonGroup uiRadioButtonGroup = (UiRadioButtonGroup)theEObject;
+				T result = caseUiRadioButtonGroup(uiRadioButtonGroup);
+				if (result == null) result = caseUiField(uiRadioButtonGroup);
+				if (result == null) result = caseUiTypeProvider(uiRadioButtonGroup);
+				if (result == null) result = caseUiEmbeddable(uiRadioButtonGroup);
+				if (result == null) result = caseUiVisibilityProcessable(uiRadioButtonGroup);
+				if (result == null) result = caseUiRawBindable(uiRadioButtonGroup);
+				if (result == null) result = caseUiNamedElement(uiRadioButtonGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_DATE_FIELD: {
+				UiDateField uiDateField = (UiDateField)theEObject;
+				T result = caseUiDateField(uiDateField);
+				if (result == null) result = caseUiField(uiDateField);
+				if (result == null) result = caseUiEmbeddable(uiDateField);
+				if (result == null) result = caseUiVisibilityProcessable(uiDateField);
+				if (result == null) result = caseUiRawBindable(uiDateField);
+				if (result == null) result = caseUiNamedElement(uiDateField);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_BROWSER: {
+				UiBrowser uiBrowser = (UiBrowser)theEObject;
+				T result = caseUiBrowser(uiBrowser);
+				if (result == null) result = caseUiField(uiBrowser);
+				if (result == null) result = caseUiEmbeddable(uiBrowser);
+				if (result == null) result = caseUiVisibilityProcessable(uiBrowser);
+				if (result == null) result = caseUiRawBindable(uiBrowser);
+				if (result == null) result = caseUiNamedElement(uiBrowser);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_PROGRESS_BAR: {
+				UiProgressBar uiProgressBar = (UiProgressBar)theEObject;
+				T result = caseUiProgressBar(uiProgressBar);
+				if (result == null) result = caseUiField(uiProgressBar);
+				if (result == null) result = caseUiEmbeddable(uiProgressBar);
+				if (result == null) result = caseUiVisibilityProcessable(uiProgressBar);
+				if (result == null) result = caseUiRawBindable(uiProgressBar);
+				if (result == null) result = caseUiNamedElement(uiProgressBar);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -946,6 +1024,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiContext(UiContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui View Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui View Set</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiViewSet(UiViewSet object) {
 		return null;
 	}
 
@@ -1040,6 +1133,51 @@ public class UiModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Bean Slot</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Bean Slot</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiBeanSlot(UiBeanSlot object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Root Elements</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Root Elements</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiRootElements(UiRootElements object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Binding Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Binding Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiBindingExpression(UiBindingExpression object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Ui Binding Endpoint Alias</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1100,122 +1238,47 @@ public class UiModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ui Bean Slot</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Raw Bindable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ui Bean Slot</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Raw Bindable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseUiBeanSlot(UiBeanSlot object) {
+	public T caseUiRawBindable(UiRawBindable object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ui View Set</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Raw Bindable Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ui View Set</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Raw Bindable Provider</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseUiViewSet(UiViewSet object) {
+	public T caseUiRawBindableProvider(UiRawBindableProvider object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ui Root Elements</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Raw Bindable Path Segment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ui Root Elements</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Raw Bindable Path Segment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseUiRootElements(UiRootElements object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ui Max Length Validator</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ui Max Length Validator</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUiMaxLengthValidator(UiMaxLengthValidator object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ui Min Length Validator</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ui Min Length Validator</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUiMinLengthValidator(UiMinLengthValidator object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ui Regexp Validator</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ui Regexp Validator</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUiRegexpValidator(UiRegexpValidator object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ui Xbase Validator</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ui Xbase Validator</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUiXbaseValidator(UiXbaseValidator object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ui Binding Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ui Binding Expression</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUiBindingExpression(UiBindingExpression object) {
+	public T caseUiRawBindablePathSegment(UiRawBindablePathSegment object) {
 		return null;
 	}
 
@@ -1261,51 +1324,6 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiCommandBindableDef(UiCommandBindableDef object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ui Raw Bindable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ui Raw Bindable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUiRawBindable(UiRawBindable object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ui Raw Bindable Provider</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ui Raw Bindable Provider</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUiRawBindableProvider(UiRawBindableProvider object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ui Raw Bindable Path Segment</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ui Raw Bindable Path Segment</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUiRawBindablePathSegment(UiRawBindablePathSegment object) {
 		return null;
 	}
 
@@ -1370,6 +1388,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiAction(UiAction object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile Embeddable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1426,21 +1459,6 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiMobileAction(UiMobileAction object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ui Validator</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ui Validator</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUiValidator(UiValidator object) {
 		return null;
 	}
 
@@ -1670,17 +1688,17 @@ public class UiModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ui Column Assignments</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Columns Assignment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ui Column Assignments</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Columns Assignment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseUiColumnAssignments(UiColumnAssignments object) {
+	public T caseUiColumnsAssignment(UiColumnsAssignment object) {
 		return null;
 	}
 
@@ -1865,6 +1883,81 @@ public class UiModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Validator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Validator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiValidator(UiValidator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Max Length Validator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Max Length Validator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMaxLengthValidator(UiMaxLengthValidator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Min Length Validator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Min Length Validator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMinLengthValidator(UiMinLengthValidator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Regexp Validator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Regexp Validator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiRegexpValidator(UiRegexpValidator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Xbase Validator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Xbase Validator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiXbaseValidator(UiXbaseValidator object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Ui Validator Alias</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1936,21 +2029,6 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiHorizontalButtonGroup(UiHorizontalButtonGroup object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ui Action</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ui Action</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUiAction(UiAction object) {
 		return null;
 	}
 
@@ -2236,6 +2314,111 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiSearchWithDialogCommand(UiSearchWithDialogCommand object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Label</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Label</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiLabel(UiLabel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Decimal Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Decimal Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiDecimalField(UiDecimalField object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Text Area</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Text Area</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiTextArea(UiTextArea object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Radio Button Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Radio Button Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiRadioButtonGroup(UiRadioButtonGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Date Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Date Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiDateField(UiDateField object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Browser</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Browser</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiBrowser(UiBrowser object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Progress Bar</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Progress Bar</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiProgressBar(UiProgressBar object) {
 		return null;
 	}
 

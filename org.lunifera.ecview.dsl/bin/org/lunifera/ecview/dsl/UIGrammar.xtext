@@ -87,10 +87,11 @@ UiIDEView returns UiIDEView:
 	('viewset' viewSet=[UiViewSet] (';')?)?
 	(beanSlots+=UiBeanSlot)*
 	(content=UiEmbeddable)?
-	// TODO make unordered group
-	(bindingEndpointAlias+=UiBindingEndpointAlias)*
-	(bindings+=UiBinding)*
-	(validatorAssignments+=UiValidatorAssignment)*
+	((bindingEndpointAlias+=UiBindingEndpointAlias)
+	|
+	(bindings+=UiBinding)
+	|
+	(validatorAssignments+=UiValidatorAssignment))*
 	'}';
 
 UiMobileView returns UiMobileView:
@@ -99,17 +100,20 @@ UiMobileView returns UiMobileView:
 	('viewset' viewSet=[UiViewSet] (';')?)?
 	(beanSlots+=UiBeanSlot)*
 	(content=UiEmbeddable)?
-	// TODO make unordered group
-	(bindingEndpointAlias+=UiBindingEndpointAlias)*
-	(bindings+=UiBinding)*
-	(validatorAssignments+=UiValidatorAssignment)*
+	((bindingEndpointAlias+=UiBindingEndpointAlias)
+	|
+	(bindings+=UiBinding)
+	|
+	(validatorAssignments+=UiValidatorAssignment))*
 	'}';
 
 UiGridLayout returns UiGridLayout:
 	{UiGridLayout}
 	'gridlayout'
 	('('
-	//	(('columns=' columns=INT)?)
+	(('columns=' columns=INT)?
+	& (fillHorizontal?='fill-h')?
+	& (fillVertical?='fill-v')?)
 	')')?
 	name=ID?
 	'{'
@@ -134,6 +138,9 @@ UiFormLayoutAssigment:
 UiVerticalLayout:
 	{UiVerticalLayout}
 	'verticalLayout'
+	('('
+	fillVertical?='fill-v'
+	')')?
 	name=ID?
 	'{'
 	(contents+=UiVerticalLayoutAssigment)*
@@ -145,6 +152,9 @@ UiVerticalLayoutAssigment:
 UiHorizontalLayout:
 	{UiHorizontalLayout}
 	'horizontalLayout'
+	('('
+	fillHorizontal?='fill-h'
+	')')?
 	name=ID?
 	'{'
 	(contents+=UiHorizontalLayoutAssigment)*
@@ -212,15 +222,13 @@ UiDialogAssignment:
 UiSearchDialog:
 	{UiSearchDialog}
 	'searchdialog' name=ID? '{'
-	('type' jvmType=JvmTypeReference (';')?)?
+	('type' jvmType=JvmTypeReference )?
 	('search' '{'
 	searchFields+=UiDialogSearchFieldAssignment*
 	'}')?
 	('content' '{'
 	content=UiDialogAssignment
-	'}')?
-	(bindings+=UiBinding)*
-	'}';
+	'}')?;
 
 UiDialogSearchFieldAssignment:
 	element=UiSearchField;
@@ -241,7 +249,13 @@ UiPoint returns UiPoint:
 
 UiTextField returns UiTextField:
 	{UiTextField}
-	'textfield' name=ID?
+	'textfield'
+	('('
+	(('maxLength=' maxLength=INT)?
+	& ('minLength=' minLength=INT)?
+	& ('regex=' regex=STRING)?)
+	')')?
+	name=ID?
 	('{'
 	(validators+=UiValidator)*
 	//	(processorAssignment=UiVisibilityProcessorAssignment)?
@@ -250,6 +264,38 @@ UiTextField returns UiTextField:
 UiSearchField:
 	{UiSearchField}
 	'searchfield' property=[JvmField];
+
+UiTextArea returns UiTextArea:
+	{UiTextArea}
+	'textarea' name=ID?
+	('{'
+	(validators+=UiValidator)*
+	//	(processorAssignment=UiVisibilityProcessorAssignment)?
+	'}')?;
+
+UiDateField returns UiDateField:
+	{UiDateField}
+	'datefield' name=ID?
+	('{'
+	(validators+=UiValidator)*
+	//	(processorAssignment=UiVisibilityProcessorAssignment)?
+	'}')?;
+
+UiBrowser returns UiBrowser:
+	{UiBrowser}
+	'browser' name=ID?
+	('{'
+	(validators+=UiValidator)*
+	//	(processorAssignment=UiVisibilityProcessorAssignment)?
+	'}')?;
+
+UiProgressBar returns UiProgressBar:
+	{UiProgressBar}
+	'progressbar' name=ID?
+	('{'
+	(validators+=UiValidator)*
+	//	(processorAssignment=UiVisibilityProcessorAssignment)?
+	'}')?;
 
 UiImage returns UiImage:
 	{UiImage}
@@ -267,10 +313,10 @@ UiTable returns UiTable:
 	{UiTable}
 	'table' name=ID?
 	('{'
-	('type' jvmType=JvmTypeReference (';')?)?
-	('selectionType' selectionType=UiSelectionType (';')?)?
-	('imageField' itemImageProperty=[JvmField] (';')?)?
-	columnAssignment=UiColumnAssignments?
+	(('type' jvmType=JvmTypeReference (';')?)?
+	& ('selectionType' selectionType=UiSelectionType (';')?)?
+	& ('imageField' itemImageProperty=[JvmField] (';')?)?)
+	columnAssignment=UiColumnsAssignment?
 	(bindings+=UiBinding)*
 	'}')?;
 
@@ -278,9 +324,9 @@ UiComboBox returns UiComboBox:
 	{UiComboBox}
 	'combo' name=ID?
 	('{'
-	('type' jvmType=JvmTypeReference (';')?)?
-	('captionField' itemCaptionProperty=[JvmField] (';')?)?
-	('imageField' itemImageProperty=[JvmField] (';')?)?
+	(('type' jvmType=JvmTypeReference (';')?)?
+	& ('captionField' itemCaptionProperty=[JvmField] (';')?)?
+	& ('imageField' itemImageProperty=[JvmField] (';')?)?)
 	(bindings+=UiBinding)*
 	'}')?;
 
@@ -296,11 +342,43 @@ UiMobileSwitch returns UiSwitch:
 	{UiSwitch}
 	'switchIt' name=ID?;
 
-enum UiSelectionType:
+UiLabel:
+	{UiLabel}
+	'label' name=ID?;
+
+UiDecimalField returns UiDecimalField:
+	{UiDecimalField}
+	'decimalField'
+	('('
+	((grouping?='grouping')?
+	&
+	(markNegative?='markNegative')?
+	&
+	('precision=' precision=INT)?)
+	')')?
+	name=ID?
+	('{'
+	(validators+=UiValidator)*
+	//	(processorAssignment=UiVisibilityProcessorAssignment)?
+	'}')?;
+
+UiRadioButtonGroup:
+	{UiRadioButtonGroup}
+	'radiobuttons'
+	name=ID?
+	('{'
+	(('type' jvmType=JvmTypeReference)?
+	& ('selectionType' selectionType=UiSelectionType)?
+	& ('captionField' itemCaptionProperty=[JvmField])?
+	& ('imageField' itemImageProperty=[JvmField])?)
+	(bindings+=UiBinding)*
+	'}')?;
+
+enum UiSelectionType returns UiSelectionType:
 	SINGLE='single' | MULTI='multi' | NONE='none';
 
-UiColumnAssignments:
-	{UiColumnAssignments}
+UiColumnsAssignment:
+	{UiColumnsAssignment}
 	'columns' '{'
 	columns+=UiColumn*
 	'}';
@@ -325,7 +403,9 @@ UiLayout:
 	UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout;
 
 UiField:
-	UiTextField | UiList | UiNumericField | UiCheckBox | UiTable | UiComboBox | UiImage | UiSearchField;
+	UiTextField | UiList | UiNumericField | UiCheckBox | UiTable | UiComboBox | UiImage | UiSearchField | UiLabel |
+	UiDecimalField |
+	UiTextArea | UiDateField | UiBrowser | UiProgressBar | UiRadioButtonGroup;
 
 UiAction:
 	UiButton;
@@ -335,7 +415,13 @@ UiMobileAction:
 
 UiNumericField:
 	{UiNumericField}
-	'numericField' name=ID?
+	'numericField'
+	('('
+	((grouping?='grouping')?
+	&
+	(markNegative?='markNegative')?)
+	')')?
+	name=ID?
 	('{'
 	(validators+=UiValidator)*
 	//	(processorAssignment=UiVisibilityProcessorAssignment)?

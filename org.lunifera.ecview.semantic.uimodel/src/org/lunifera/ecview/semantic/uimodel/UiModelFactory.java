@@ -3,7 +3,7 @@
 package org.lunifera.ecview.semantic.uimodel;
 
 import org.eclipse.emf.ecore.EFactory;
-
+ 
 /**
  * <!-- begin-user-doc -->
  * The <b>Factory</b> for the model.
@@ -346,13 +346,13 @@ public interface UiModelFactory extends EFactory {
 	UiColumn createUiColumn();
 
 	/**
-	 * Returns a new object of class '<em>Ui Column Assignments</em>'.
+	 * Returns a new object of class '<em>Ui Columns Assignment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui Column Assignments</em>'.
+	 * @return a new object of class '<em>Ui Columns Assignment</em>'.
 	 * @generated
 	 */
-	UiColumnAssignments createUiColumnAssignments();
+	UiColumnsAssignment createUiColumnsAssignment();
 
 	/**
 	 * Returns a new object of class '<em>Ui Numeric Field</em>'.
@@ -659,6 +659,69 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiSearchWithDialogCommand createUiSearchWithDialogCommand();
+
+	/**
+	 * Returns a new object of class '<em>Ui Label</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Label</em>'.
+	 * @generated
+	 */
+	UiLabel createUiLabel();
+
+	/**
+	 * Returns a new object of class '<em>Ui Decimal Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Decimal Field</em>'.
+	 * @generated
+	 */
+	UiDecimalField createUiDecimalField();
+
+	/**
+	 * Returns a new object of class '<em>Ui Text Area</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Text Area</em>'.
+	 * @generated
+	 */
+	UiTextArea createUiTextArea();
+
+	/**
+	 * Returns a new object of class '<em>Ui Radio Button Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Radio Button Group</em>'.
+	 * @generated
+	 */
+	UiRadioButtonGroup createUiRadioButtonGroup();
+
+	/**
+	 * Returns a new object of class '<em>Ui Date Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Date Field</em>'.
+	 * @generated
+	 */
+	UiDateField createUiDateField();
+
+	/**
+	 * Returns a new object of class '<em>Ui Browser</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Browser</em>'.
+	 * @generated
+	 */
+	UiBrowser createUiBrowser();
+
+	/**
+	 * Returns a new object of class '<em>Ui Progress Bar</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Progress Bar</em>'.
+	 * @generated
+	 */
+	UiProgressBar createUiProgressBar();
 
 	/**
 	 * Returns the package supported by this factory.

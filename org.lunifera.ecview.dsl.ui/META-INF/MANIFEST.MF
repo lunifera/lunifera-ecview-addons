@@ -22,7 +22,6 @@ Require-Bundle: org.eclipse.xtext.ui,
  org.eclipse.jdt.launching;bundle-version="3.7.100",
  org.eclipse.jdt.core;bundle-version="3.10.0",
  org.lunifera.ecview.dsl;bundle-version="1.0.0",
- org.lunifera.ecview.classloadcontext;bundle-version="1.0.0",
  org.lunifera.xtext.builder.ui.access;bundle-version="0.8.2"
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib

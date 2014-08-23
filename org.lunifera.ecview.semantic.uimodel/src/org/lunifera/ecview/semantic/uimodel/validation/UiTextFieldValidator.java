@@ -14,4 +14,10 @@ package org.lunifera.ecview.semantic.uimodel.validation;
 public interface UiTextFieldValidator {
 	boolean validate();
 
+	boolean validateMaxLength(int value);
+
+	boolean validateMinLength(int value);
+
+	boolean validateRegex(String value);
+
 }

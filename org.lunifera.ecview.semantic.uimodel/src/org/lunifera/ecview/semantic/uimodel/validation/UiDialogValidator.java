@@ -5,7 +5,6 @@
 package org.lunifera.ecview.semantic.uimodel.validation;
 
 import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiDialog}.
@@ -17,6 +16,4 @@ public interface UiDialogValidator {
 	boolean validate();
 
 	boolean validateContent(UiDialogAssignment value);
-
-	boolean validateContent(UiEmbeddable value);
 }

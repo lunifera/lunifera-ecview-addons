@@ -121,8 +121,7 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public UiPathSegment basicGetPath() {
@@ -266,27 +265,30 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 		if (child != null) {
 			return child.getTypeofLastSegment();
 		} else {
-			return getJvmField() != null && getJvmField().getType() != null ? getJvmField().getType().getType()
-					: null;
+			return getJvmField() != null && getJvmField().getType() != null ? getJvmField()
+					.getType().getType() : null;
 		}
 	}
-	
+
 	@Override
 	public JvmType getTypeofSecondLastSegment() {
 		UiPathSegment child = getPath();
 		if (child != null) {
 			JvmType type = child.getTypeofSecondLastSegment();
-			if(type == null){
-				return getJvmField().getType().getType();
-			} else{
+			if (type == null) {
+				JvmField field = getJvmField();
+				return (field != null && field.getType() != null) ? field
+						.getType().getType() : null;
+			} else {
 				return type;
 			}
 		} else {
-			// return null to tell the caller, that the current segment is the last.
+			// return null to tell the caller, that the current segment is the
+			// last.
 			return null;
 		}
 	}
-	
+
 	@Override
 	public JvmField getFieldofLastSegment() {
 		UiPathSegment child = getPath();

@@ -18,4 +18,10 @@ public interface UiGridLayoutValidator {
 	boolean validate();
 
 	boolean validateContents(EList<UiGridLayoutAssigment> value);
+
+	boolean validateColumns(int value);
+
+	boolean validateFillHorizontal(boolean value);
+
+	boolean validateFillVertical(boolean value);
 }

@@ -7,24 +7,31 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import org.eclipse.xtext.common.types.TypesPackage;
+
 import org.eclipse.xtext.xbase.XbasePackage;
+
 import org.lunifera.ecview.semantic.uimodel.UiAction;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
+import org.lunifera.ecview.semantic.uimodel.UiBrowser;
 import org.lunifera.ecview.semantic.uimodel.UiButton;
 import org.lunifera.ecview.semantic.uimodel.UiChangeTrigger;
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.UiColumn;
-import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments;
+import org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiComboBox;
 import org.lunifera.ecview.semantic.uimodel.UiCommand;
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
 import org.lunifera.ecview.semantic.uimodel.UiContext;
+import org.lunifera.ecview.semantic.uimodel.UiDateField;
+import org.lunifera.ecview.semantic.uimodel.UiDecimalField;
 import org.lunifera.ecview.semantic.uimodel.UiDialog;
 import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment;
@@ -42,6 +49,7 @@ import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
 import org.lunifera.ecview.semantic.uimodel.UiImage;
 import org.lunifera.ecview.semantic.uimodel.UiImports;
+import org.lunifera.ecview.semantic.uimodel.UiLabel;
 import org.lunifera.ecview.semantic.uimodel.UiLayout;
 import org.lunifera.ecview.semantic.uimodel.UiLayoutAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiList;
@@ -67,6 +75,8 @@ import org.lunifera.ecview.semantic.uimodel.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
+import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
+import org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindableProvider;
@@ -80,6 +90,7 @@ import org.lunifera.ecview.semantic.uimodel.UiSwitch;
 import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiTabSheet;
 import org.lunifera.ecview.semantic.uimodel.UiTable;
+import org.lunifera.ecview.semantic.uimodel.UiTextArea;
 import org.lunifera.ecview.semantic.uimodel.UiTextField;
 import org.lunifera.ecview.semantic.uimodel.UiTypeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindable;
@@ -104,6 +115,7 @@ import org.lunifera.ecview.semantic.uimodel.UiVisibilityPropertiesDef;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityRule;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseVisibilityRule;
+
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 
 /**
@@ -140,6 +152,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiContextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiViewSetEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -188,6 +207,27 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass uiBeanSlotEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiRootElementsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiBindingExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass uiBindingEndpointAliasEClass = null;
 
 	/**
@@ -216,56 +256,21 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass uiBeanSlotEClass = null;
+	private EClass uiRawBindableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass uiViewSetEClass = null;
+	private EClass uiRawBindableProviderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass uiRootElementsEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass uiMaxLengthValidatorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass uiMinLengthValidatorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass uiRegexpValidatorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass uiXbaseValidatorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass uiBindingExpressionEClass = null;
+	private EClass uiRawBindablePathSegmentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -287,27 +292,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiCommandBindableDefEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass uiRawBindableEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass uiRawBindableProviderEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass uiRawBindablePathSegmentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -342,6 +326,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass uiActionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass uiMobileEmbeddableEClass = null;
 
 	/**
@@ -364,13 +355,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiMobileActionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass uiValidatorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -482,7 +466,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass uiColumnAssignmentsEClass = null;
+	private EClass uiColumnsAssignmentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -573,6 +557,41 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass uiValidatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMaxLengthValidatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMinLengthValidatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiRegexpValidatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiXbaseValidatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass uiValidatorAliasEClass = null;
 
 	/**
@@ -602,13 +621,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiHorizontalButtonGroupEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass uiActionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -742,6 +754,55 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiSearchWithDialogCommandEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiLabelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiDecimalFieldEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiTextAreaEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiRadioButtonGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiDateFieldEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiBrowserEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiProgressBarEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -944,6 +1005,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiViewSet() {
+		return uiViewSetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiView() {
 		return uiViewEClass;
 	}
@@ -1054,6 +1124,42 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EAttribute getUiPoint_Y() {
 		return (EAttribute)uiPointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiBeanSlot() {
+		return uiBeanSlotEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiBeanSlot_JvmType() {
+		return (EReference)uiBeanSlotEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiRootElements() {
+		return uiRootElementsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiBindingExpression() {
+		return uiBindingExpressionEClass;
 	}
 
 	/**
@@ -1223,8 +1329,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUiBeanSlot() {
-		return uiBeanSlotEClass;
+	public EClass getUiRawBindable() {
+		return uiRawBindableEClass;
 	}
 
 	/**
@@ -1232,8 +1338,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUiBeanSlot_JvmType() {
-		return (EReference)uiBeanSlotEClass.getEStructuralFeatures().get(0);
+	public EClass getUiRawBindableProvider() {
+		return uiRawBindableProviderEClass;
 	}
 
 	/**
@@ -1241,8 +1347,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUiViewSet() {
-		return uiViewSetEClass;
+	public EClass getUiRawBindablePathSegment() {
+		return uiRawBindablePathSegmentEClass;
 	}
 
 	/**
@@ -1250,8 +1356,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUiRootElements() {
-		return uiRootElementsEClass;
+	public EReference getUiRawBindablePathSegment_RawBindable() {
+		return (EReference)uiRawBindablePathSegmentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1259,89 +1365,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUiMaxLengthValidator() {
-		return uiMaxLengthValidatorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUiMaxLengthValidator_MaxLength() {
-		return (EAttribute)uiMaxLengthValidatorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUiMinLengthValidator() {
-		return uiMinLengthValidatorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUiMinLengthValidator_MinLength() {
-		return (EAttribute)uiMinLengthValidatorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUiRegexpValidator() {
-		return uiRegexpValidatorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUiRegexpValidator_RegExpression() {
-		return (EAttribute)uiRegexpValidatorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUiXbaseValidator() {
-		return uiXbaseValidatorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUiXbaseValidator_Expression() {
-		return (EReference)uiXbaseValidatorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUiXbaseValidator_JvmType() {
-		return (EReference)uiXbaseValidatorEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUiBindingExpression() {
-		return uiBindingExpressionEClass;
+	public EReference getUiRawBindablePathSegment_Path() {
+		return (EReference)uiRawBindablePathSegmentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1412,51 +1437,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUiRawBindable() {
-		return uiRawBindableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUiRawBindableProvider() {
-		return uiRawBindableProviderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUiRawBindablePathSegment() {
-		return uiRawBindablePathSegmentEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUiRawBindablePathSegment_RawBindable() {
-		return (EReference)uiRawBindablePathSegmentEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUiRawBindablePathSegment_Path() {
-		return (EReference)uiRawBindablePathSegmentEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getUiEmbeddable() {
 		return uiEmbeddableEClass;
 	}
@@ -1511,6 +1491,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiAction() {
+		return uiActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiMobileEmbeddable() {
 		return uiMobileEmbeddableEClass;
 	}
@@ -1540,15 +1529,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EClass getUiMobileAction() {
 		return uiMobileActionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUiValidator() {
-		return uiValidatorEClass;
 	}
 
 	/**
@@ -1610,6 +1590,33 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUiGridLayout_Columns() {
+		return (EAttribute)uiGridLayoutEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiGridLayout_FillHorizontal() {
+		return (EAttribute)uiGridLayoutEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiGridLayout_FillVertical() {
+		return (EAttribute)uiGridLayoutEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiHorizontalLayoutAssigment() {
 		return uiHorizontalLayoutAssigmentEClass;
 	}
@@ -1646,6 +1653,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUiHorizontalLayout_FillHorizontal() {
+		return (EAttribute)uiHorizontalLayoutEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiVerticalLayoutAssigment() {
 		return uiVerticalLayoutAssigmentEClass;
 	}
@@ -1675,6 +1691,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiVerticalLayout_Contents() {
 		return (EReference)uiVerticalLayoutEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiVerticalLayout_FillVertical() {
+		return (EAttribute)uiVerticalLayoutEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1720,6 +1745,33 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EClass getUiTextField() {
 		return uiTextFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiTextField_MaxLength() {
+		return (EAttribute)uiTextFieldEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiTextField_MinLength() {
+		return (EAttribute)uiTextFieldEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiTextField_Regex() {
+		return (EAttribute)uiTextFieldEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1934,8 +1986,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUiColumnAssignments() {
-		return uiColumnAssignmentsEClass;
+	public EClass getUiColumnsAssignment() {
+		return uiColumnsAssignmentEClass;
 	}
 
 	/**
@@ -1943,8 +1995,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUiColumnAssignments_Columns() {
-		return (EReference)uiColumnAssignmentsEClass.getEStructuralFeatures().get(0);
+	public EReference getUiColumnsAssignment_Columns() {
+		return (EReference)uiColumnsAssignmentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1954,6 +2006,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EClass getUiNumericField() {
 		return uiNumericFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiNumericField_Grouping() {
+		return (EAttribute)uiNumericFieldEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiNumericField_MarkNegative() {
+		return (EAttribute)uiNumericFieldEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2186,6 +2256,96 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiValidator() {
+		return uiValidatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMaxLengthValidator() {
+		return uiMaxLengthValidatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiMaxLengthValidator_MaxLength() {
+		return (EAttribute)uiMaxLengthValidatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMinLengthValidator() {
+		return uiMinLengthValidatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiMinLengthValidator_MinLength() {
+		return (EAttribute)uiMinLengthValidatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiRegexpValidator() {
+		return uiRegexpValidatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiRegexpValidator_RegExpression() {
+		return (EAttribute)uiRegexpValidatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiXbaseValidator() {
+		return uiXbaseValidatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiXbaseValidator_Expression() {
+		return (EReference)uiXbaseValidatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiXbaseValidator_JvmType() {
+		return (EReference)uiXbaseValidatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiValidatorAlias() {
 		return uiValidatorAliasEClass;
 	}
@@ -2305,15 +2465,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiHorizontalButtonGroup_Contents() {
 		return (EReference)uiHorizontalButtonGroupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUiAction() {
-		return uiActionEClass;
 	}
 
 	/**
@@ -2654,6 +2805,123 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiLabel() {
+		return uiLabelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiDecimalField() {
+		return uiDecimalFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiDecimalField_Precision() {
+		return (EAttribute)uiDecimalFieldEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiDecimalField_Grouping() {
+		return (EAttribute)uiDecimalFieldEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiDecimalField_MarkNegative() {
+		return (EAttribute)uiDecimalFieldEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiTextArea() {
+		return uiTextAreaEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiRadioButtonGroup() {
+		return uiRadioButtonGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiRadioButtonGroup_SelectionType() {
+		return (EAttribute)uiRadioButtonGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiRadioButtonGroup_ItemImageProperty() {
+		return (EReference)uiRadioButtonGroupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiRadioButtonGroup_ItemCaptionProperty() {
+		return (EReference)uiRadioButtonGroupEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiDateField() {
+		return uiDateFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiBrowser() {
+		return uiBrowserEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiProgressBar() {
+		return uiProgressBarEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getUiFlatAlignment() {
 		return uiFlatAlignmentEEnum;
 	}
@@ -2807,18 +3075,23 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiGridLayoutEClass = createEClass(UI_GRID_LAYOUT);
 		createEReference(uiGridLayoutEClass, UI_GRID_LAYOUT__CONTENTS);
+		createEAttribute(uiGridLayoutEClass, UI_GRID_LAYOUT__COLUMNS);
+		createEAttribute(uiGridLayoutEClass, UI_GRID_LAYOUT__FILL_HORIZONTAL);
+		createEAttribute(uiGridLayoutEClass, UI_GRID_LAYOUT__FILL_VERTICAL);
 
 		uiHorizontalLayoutAssigmentEClass = createEClass(UI_HORIZONTAL_LAYOUT_ASSIGMENT);
 		createEReference(uiHorizontalLayoutAssigmentEClass, UI_HORIZONTAL_LAYOUT_ASSIGMENT__ELEMENT);
 
 		uiHorizontalLayoutEClass = createEClass(UI_HORIZONTAL_LAYOUT);
 		createEReference(uiHorizontalLayoutEClass, UI_HORIZONTAL_LAYOUT__CONTENTS);
+		createEAttribute(uiHorizontalLayoutEClass, UI_HORIZONTAL_LAYOUT__FILL_HORIZONTAL);
 
 		uiVerticalLayoutAssigmentEClass = createEClass(UI_VERTICAL_LAYOUT_ASSIGMENT);
 		createEReference(uiVerticalLayoutAssigmentEClass, UI_VERTICAL_LAYOUT_ASSIGMENT__ELEMENT);
 
 		uiVerticalLayoutEClass = createEClass(UI_VERTICAL_LAYOUT);
 		createEReference(uiVerticalLayoutEClass, UI_VERTICAL_LAYOUT__CONTENTS);
+		createEAttribute(uiVerticalLayoutEClass, UI_VERTICAL_LAYOUT__FILL_VERTICAL);
 
 		uiFormLayoutAssigmentEClass = createEClass(UI_FORM_LAYOUT_ASSIGMENT);
 		createEReference(uiFormLayoutAssigmentEClass, UI_FORM_LAYOUT_ASSIGMENT__ELEMENT);
@@ -2827,6 +3100,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiFormLayoutEClass, UI_FORM_LAYOUT__CONTENTS);
 
 		uiTextFieldEClass = createEClass(UI_TEXT_FIELD);
+		createEAttribute(uiTextFieldEClass, UI_TEXT_FIELD__MAX_LENGTH);
+		createEAttribute(uiTextFieldEClass, UI_TEXT_FIELD__MIN_LENGTH);
+		createEAttribute(uiTextFieldEClass, UI_TEXT_FIELD__REGEX);
 
 		uiImageEClass = createEClass(UI_IMAGE);
 		createEAttribute(uiImageEClass, UI_IMAGE__VALUE);
@@ -2857,10 +3133,12 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEAttribute(uiColumnEClass, UI_COLUMN__ALIGNMENT);
 		createEAttribute(uiColumnEClass, UI_COLUMN__EXPAND_RATIO);
 
-		uiColumnAssignmentsEClass = createEClass(UI_COLUMN_ASSIGNMENTS);
-		createEReference(uiColumnAssignmentsEClass, UI_COLUMN_ASSIGNMENTS__COLUMNS);
+		uiColumnsAssignmentEClass = createEClass(UI_COLUMNS_ASSIGNMENT);
+		createEReference(uiColumnsAssignmentEClass, UI_COLUMNS_ASSIGNMENT__COLUMNS);
 
 		uiNumericFieldEClass = createEClass(UI_NUMERIC_FIELD);
+		createEAttribute(uiNumericFieldEClass, UI_NUMERIC_FIELD__GROUPING);
+		createEAttribute(uiNumericFieldEClass, UI_NUMERIC_FIELD__MARK_NEGATIVE);
 
 		uiCheckBoxEClass = createEClass(UI_CHECK_BOX);
 
@@ -2988,6 +3266,26 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiSearchWithDialogCommandEClass = createEClass(UI_SEARCH_WITH_DIALOG_COMMAND);
 		createEReference(uiSearchWithDialogCommandEClass, UI_SEARCH_WITH_DIALOG_COMMAND__DIALOG);
 
+		uiLabelEClass = createEClass(UI_LABEL);
+
+		uiDecimalFieldEClass = createEClass(UI_DECIMAL_FIELD);
+		createEAttribute(uiDecimalFieldEClass, UI_DECIMAL_FIELD__PRECISION);
+		createEAttribute(uiDecimalFieldEClass, UI_DECIMAL_FIELD__GROUPING);
+		createEAttribute(uiDecimalFieldEClass, UI_DECIMAL_FIELD__MARK_NEGATIVE);
+
+		uiTextAreaEClass = createEClass(UI_TEXT_AREA);
+
+		uiRadioButtonGroupEClass = createEClass(UI_RADIO_BUTTON_GROUP);
+		createEAttribute(uiRadioButtonGroupEClass, UI_RADIO_BUTTON_GROUP__SELECTION_TYPE);
+		createEReference(uiRadioButtonGroupEClass, UI_RADIO_BUTTON_GROUP__ITEM_IMAGE_PROPERTY);
+		createEReference(uiRadioButtonGroupEClass, UI_RADIO_BUTTON_GROUP__ITEM_CAPTION_PROPERTY);
+
+		uiDateFieldEClass = createEClass(UI_DATE_FIELD);
+
+		uiBrowserEClass = createEClass(UI_BROWSER);
+
+		uiProgressBarEClass = createEClass(UI_PROGRESS_BAR);
+
 		// Create enums
 		uiFlatAlignmentEEnum = createEEnum(UI_FLAT_ALIGNMENT);
 		uiSelectionTypeEEnum = createEEnum(UI_SELECTION_TYPE);
@@ -3079,7 +3377,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiComboBoxEClass.getESuperTypes().add(this.getUiField());
 		uiComboBoxEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiColumnEClass.getESuperTypes().add(this.getUiField());
-		uiColumnAssignmentsEClass.getESuperTypes().add(this.getUiField());
+		uiColumnsAssignmentEClass.getESuperTypes().add(this.getUiField());
 		uiNumericFieldEClass.getESuperTypes().add(this.getUiField());
 		uiCheckBoxEClass.getESuperTypes().add(this.getUiField());
 		uiVisibilityProcessorEClass.getESuperTypes().add(this.getUiNamedElement());
@@ -3119,6 +3417,14 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiSearchDialogEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiDialogSearchFieldAssignmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
 		uiSearchWithDialogCommandEClass.getESuperTypes().add(this.getUiCommand());
+		uiLabelEClass.getESuperTypes().add(this.getUiField());
+		uiDecimalFieldEClass.getESuperTypes().add(this.getUiField());
+		uiTextAreaEClass.getESuperTypes().add(this.getUiField());
+		uiRadioButtonGroupEClass.getESuperTypes().add(this.getUiField());
+		uiRadioButtonGroupEClass.getESuperTypes().add(this.getUiTypeProvider());
+		uiDateFieldEClass.getESuperTypes().add(this.getUiField());
+		uiBrowserEClass.getESuperTypes().add(this.getUiField());
+		uiProgressBarEClass.getESuperTypes().add(this.getUiField());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(uiNamedElementEClass, UiNamedElement.class, "UiNamedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3233,18 +3539,23 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiGridLayoutEClass, UiGridLayout.class, "UiGridLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiGridLayout_Contents(), this.getUiGridLayoutAssigment(), null, "contents", null, 0, -1, UiGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiGridLayout_Columns(), ecorePackage.getEInt(), "columns", null, 0, 1, UiGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiGridLayout_FillHorizontal(), ecorePackage.getEBoolean(), "fillHorizontal", "false", 0, 1, UiGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiGridLayout_FillVertical(), ecorePackage.getEBoolean(), "fillVertical", "false", 0, 1, UiGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiHorizontalLayoutAssigmentEClass, UiHorizontalLayoutAssigment.class, "UiHorizontalLayoutAssigment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiHorizontalLayoutAssigment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiHorizontalLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiHorizontalLayoutEClass, UiHorizontalLayout.class, "UiHorizontalLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiHorizontalLayout_Contents(), this.getUiHorizontalLayoutAssigment(), null, "contents", null, 0, -1, UiHorizontalLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiHorizontalLayout_FillHorizontal(), ecorePackage.getEBoolean(), "fillHorizontal", "false", 0, 1, UiHorizontalLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiVerticalLayoutAssigmentEClass, UiVerticalLayoutAssigment.class, "UiVerticalLayoutAssigment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiVerticalLayoutAssigment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiVerticalLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiVerticalLayoutEClass, UiVerticalLayout.class, "UiVerticalLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiVerticalLayout_Contents(), this.getUiVerticalLayoutAssigment(), null, "contents", null, 0, -1, UiVerticalLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiVerticalLayout_FillVertical(), ecorePackage.getEBoolean(), "fillVertical", "false", 0, 1, UiVerticalLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiFormLayoutAssigmentEClass, UiFormLayoutAssigment.class, "UiFormLayoutAssigment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiFormLayoutAssigment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiFormLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3253,6 +3564,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiFormLayout_Contents(), this.getUiFormLayoutAssigment(), null, "contents", null, 0, -1, UiFormLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiTextFieldEClass, UiTextField.class, "UiTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUiTextField_MaxLength(), ecorePackage.getEInt(), "maxLength", "-1", 0, 1, UiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiTextField_MinLength(), ecorePackage.getEInt(), "minLength", "-1", 0, 1, UiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiTextField_Regex(), ecorePackage.getEString(), "regex", null, 0, 1, UiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiImageEClass, UiImage.class, "UiImage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiImage_Value(), ecorePackage.getEString(), "value", null, 0, 1, UiImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3262,7 +3576,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiList_ItemImageProperty(), theTypesPackage.getJvmField(), null, "itemImageProperty", null, 0, 1, UiList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiTableEClass, UiTable.class, "UiTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUiTable_ColumnAssignment(), this.getUiColumnAssignments(), null, "columnAssignment", null, 0, 1, UiTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiTable_ColumnAssignment(), this.getUiColumnsAssignment(), null, "columnAssignment", null, 0, 1, UiTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiTable_SelectionType(), this.getUiSelectionType(), "selectionType", "SINGLE", 1, 1, UiTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiTable_ItemImageProperty(), theTypesPackage.getJvmField(), null, "itemImageProperty", null, 0, 1, UiTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3283,10 +3597,12 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEAttribute(getUiColumn_Alignment(), this.getUiFlatAlignment(), "alignment", "LEFT", 0, 1, UiColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiColumn_ExpandRatio(), ecorePackage.getEFloat(), "expandRatio", "-1.0f", 0, 1, UiColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(uiColumnAssignmentsEClass, UiColumnAssignments.class, "UiColumnAssignments", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUiColumnAssignments_Columns(), this.getUiColumn(), null, "columns", null, 0, -1, UiColumnAssignments.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(uiColumnsAssignmentEClass, UiColumnsAssignment.class, "UiColumnsAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiColumnsAssignment_Columns(), this.getUiColumn(), null, "columns", null, 0, -1, UiColumnsAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiNumericFieldEClass, UiNumericField.class, "UiNumericField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUiNumericField_Grouping(), ecorePackage.getEBoolean(), "grouping", "false", 0, 1, UiNumericField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiNumericField_MarkNegative(), ecorePackage.getEBoolean(), "markNegative", "false", 0, 1, UiNumericField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiCheckBoxEClass, UiCheckBox.class, "UiCheckBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3413,6 +3729,26 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiSearchWithDialogCommandEClass, UiSearchWithDialogCommand.class, "UiSearchWithDialogCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiSearchWithDialogCommand_Dialog(), this.getUiSearchDialog(), null, "dialog", null, 0, 1, UiSearchWithDialogCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiLabelEClass, UiLabel.class, "UiLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiDecimalFieldEClass, UiDecimalField.class, "UiDecimalField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUiDecimalField_Precision(), ecorePackage.getEInt(), "precision", null, 0, 1, UiDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiDecimalField_Grouping(), ecorePackage.getEBoolean(), "grouping", "false", 0, 1, UiDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiDecimalField_MarkNegative(), ecorePackage.getEBoolean(), "markNegative", "false", 0, 1, UiDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiTextAreaEClass, UiTextArea.class, "UiTextArea", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiRadioButtonGroupEClass, UiRadioButtonGroup.class, "UiRadioButtonGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUiRadioButtonGroup_SelectionType(), this.getUiSelectionType(), "selectionType", "SINGLE", 0, 1, UiRadioButtonGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiRadioButtonGroup_ItemImageProperty(), theTypesPackage.getJvmField(), null, "itemImageProperty", null, 0, 1, UiRadioButtonGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiRadioButtonGroup_ItemCaptionProperty(), theTypesPackage.getJvmField(), null, "itemCaptionProperty", null, 0, 1, UiRadioButtonGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiDateFieldEClass, UiDateField.class, "UiDateField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiBrowserEClass, UiBrowser.class, "UiBrowser", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiProgressBarEClass, UiProgressBar.class, "UiProgressBar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(uiFlatAlignmentEEnum, UiFlatAlignment.class, "UiFlatAlignment");

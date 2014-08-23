@@ -61,6 +61,10 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 			return createJvmFieldScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_SEARCH_FIELD__PROPERTY) {
 			return createJvmFieldScope(context);
+		} else if (reference == UiModelPackage.Literals.UI_RADIO_BUTTON_GROUP__ITEM_CAPTION_PROPERTY) {
+			return createJvmFieldScope(context);
+		} else if (reference == UiModelPackage.Literals.UI_RADIO_BUTTON_GROUP__ITEM_IMAGE_PROPERTY) {
+			return createJvmFieldScope(context);
 		}
 		return super.getScope(context, reference);
 	}

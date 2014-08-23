@@ -1800,16 +1800,6 @@ public interface UiModelPackage extends EPackage {
 	int UI_COLUMN = 47;
 
 	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnAssignmentsImpl <em>Ui Column Assignments</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiColumnAssignmentsImpl
-	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiColumnAssignments()
-	 * @generated
-	 */
-	int UI_COLUMN_ASSIGNMENTS = 48;
-
-	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiNumericFieldImpl <em>Ui Numeric Field</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2313,13 +2303,40 @@ public interface UiModelPackage extends EPackage {
 	int UI_GRID_LAYOUT__CONTENTS = UI_LAYOUT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_GRID_LAYOUT__COLUMNS = UI_LAYOUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Fill Horizontal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_GRID_LAYOUT__FILL_HORIZONTAL = UI_LAYOUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Fill Vertical</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_GRID_LAYOUT__FILL_VERTICAL = UI_LAYOUT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Ui Grid Layout</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_GRID_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 1;
+	int UI_GRID_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2403,13 +2420,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_HORIZONTAL_LAYOUT__CONTENTS = UI_LAYOUT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Fill Horizontal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_HORIZONTAL_LAYOUT__FILL_HORIZONTAL = UI_LAYOUT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Ui Horizontal Layout</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_HORIZONTAL_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 1;
+	int UI_HORIZONTAL_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2493,13 +2519,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_VERTICAL_LAYOUT__CONTENTS = UI_LAYOUT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Fill Vertical</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VERTICAL_LAYOUT__FILL_VERTICAL = UI_LAYOUT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Ui Vertical Layout</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VERTICAL_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 1;
+	int UI_VERTICAL_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2637,13 +2672,40 @@ public interface UiModelPackage extends EPackage {
 	int UI_TEXT_FIELD__VALIDATORS = UI_FIELD__VALIDATORS;
 
 	/**
+	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_FIELD__MAX_LENGTH = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_FIELD__MIN_LENGTH = UI_FIELD_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Regex</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_FIELD__REGEX = UI_FIELD_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Ui Text Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_TEXT_FIELD_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
+	int UI_TEXT_FIELD_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiImageImpl <em>Ui Image</em>}' class.
@@ -3125,13 +3187,23 @@ public interface UiModelPackage extends EPackage {
 	int UI_COLUMN_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 8;
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnsAssignmentImpl <em>Ui Columns Assignment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiColumnsAssignmentImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiColumnsAssignment()
+	 * @generated
+	 */
+	int UI_COLUMNS_ASSIGNMENT = 48;
+
+	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_COLUMN_ASSIGNMENTS__PROCESSOR_ASSIGNMENT = UI_FIELD__PROCESSOR_ASSIGNMENT;
+	int UI_COLUMNS_ASSIGNMENT__PROCESSOR_ASSIGNMENT = UI_FIELD__PROCESSOR_ASSIGNMENT;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3140,7 +3212,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_COLUMN_ASSIGNMENTS__ID = UI_FIELD__ID;
+	int UI_COLUMNS_ASSIGNMENT__ID = UI_FIELD__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3149,7 +3221,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_COLUMN_ASSIGNMENTS__NAME = UI_FIELD__NAME;
+	int UI_COLUMNS_ASSIGNMENT__NAME = UI_FIELD__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -3158,7 +3230,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_COLUMN_ASSIGNMENTS__BINDINGS = UI_FIELD__BINDINGS;
+	int UI_COLUMNS_ASSIGNMENT__BINDINGS = UI_FIELD__BINDINGS;
 
 	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
@@ -3167,7 +3239,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_COLUMN_ASSIGNMENTS__VALIDATORS = UI_FIELD__VALIDATORS;
+	int UI_COLUMNS_ASSIGNMENT__VALIDATORS = UI_FIELD__VALIDATORS;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
@@ -3176,16 +3248,16 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_COLUMN_ASSIGNMENTS__COLUMNS = UI_FIELD_FEATURE_COUNT + 0;
+	int UI_COLUMNS_ASSIGNMENT__COLUMNS = UI_FIELD_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Ui Column Assignments</em>' class.
+	 * The number of structural features of the '<em>Ui Columns Assignment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_COLUMN_ASSIGNMENTS_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 1;
+	int UI_COLUMNS_ASSIGNMENT_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -3233,13 +3305,31 @@ public interface UiModelPackage extends EPackage {
 	int UI_NUMERIC_FIELD__VALIDATORS = UI_FIELD__VALIDATORS;
 
 	/**
+	 * The feature id for the '<em><b>Grouping</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_NUMERIC_FIELD__GROUPING = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Mark Negative</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_NUMERIC_FIELD__MARK_NEGATIVE = UI_FIELD_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Ui Numeric Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_NUMERIC_FIELD_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
+	int UI_NUMERIC_FIELD_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -5079,6 +5169,517 @@ public interface UiModelPackage extends EPackage {
 	int UI_SEARCH_WITH_DIALOG_COMMAND_FEATURE_COUNT = UI_COMMAND_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl <em>Ui Label</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiLabel()
+	 * @generated
+	 */
+	int UI_LABEL = 90;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LABEL__PROCESSOR_ASSIGNMENT = UI_FIELD__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LABEL__ID = UI_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LABEL__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LABEL__BINDINGS = UI_FIELD__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LABEL__VALIDATORS = UI_FIELD__VALIDATORS;
+
+	/**
+	 * The number of structural features of the '<em>Ui Label</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LABEL_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiDecimalFieldImpl <em>Ui Decimal Field</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiDecimalFieldImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDecimalField()
+	 * @generated
+	 */
+	int UI_DECIMAL_FIELD = 91;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DECIMAL_FIELD__PROCESSOR_ASSIGNMENT = UI_FIELD__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DECIMAL_FIELD__ID = UI_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DECIMAL_FIELD__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DECIMAL_FIELD__BINDINGS = UI_FIELD__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DECIMAL_FIELD__VALIDATORS = UI_FIELD__VALIDATORS;
+
+	/**
+	 * The feature id for the '<em><b>Precision</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DECIMAL_FIELD__PRECISION = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Grouping</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DECIMAL_FIELD__GROUPING = UI_FIELD_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Mark Negative</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DECIMAL_FIELD__MARK_NEGATIVE = UI_FIELD_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Ui Decimal Field</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DECIMAL_FIELD_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextAreaImpl <em>Ui Text Area</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiTextAreaImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiTextArea()
+	 * @generated
+	 */
+	int UI_TEXT_AREA = 92;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_AREA__PROCESSOR_ASSIGNMENT = UI_FIELD__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_AREA__ID = UI_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_AREA__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_AREA__BINDINGS = UI_FIELD__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_AREA__VALIDATORS = UI_FIELD__VALIDATORS;
+
+	/**
+	 * The number of structural features of the '<em>Ui Text Area</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_AREA_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonGroupImpl <em>Ui Radio Button Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonGroupImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiRadioButtonGroup()
+	 * @generated
+	 */
+	int UI_RADIO_BUTTON_GROUP = 93;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__PROCESSOR_ASSIGNMENT = UI_FIELD__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__ID = UI_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__BINDINGS = UI_FIELD__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__VALIDATORS = UI_FIELD__VALIDATORS;
+
+	/**
+	 * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__JVM_TYPE = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Selection Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__SELECTION_TYPE = UI_FIELD_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Item Image Property</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__ITEM_IMAGE_PROPERTY = UI_FIELD_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Item Caption Property</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP__ITEM_CAPTION_PROPERTY = UI_FIELD_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Ui Radio Button Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RADIO_BUTTON_GROUP_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiDateFieldImpl <em>Ui Date Field</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiDateFieldImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDateField()
+	 * @generated
+	 */
+	int UI_DATE_FIELD = 94;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DATE_FIELD__PROCESSOR_ASSIGNMENT = UI_FIELD__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DATE_FIELD__ID = UI_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DATE_FIELD__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DATE_FIELD__BINDINGS = UI_FIELD__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DATE_FIELD__VALIDATORS = UI_FIELD__VALIDATORS;
+
+	/**
+	 * The number of structural features of the '<em>Ui Date Field</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DATE_FIELD_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBrowserImpl <em>Ui Browser</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiBrowserImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiBrowser()
+	 * @generated
+	 */
+	int UI_BROWSER = 95;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BROWSER__PROCESSOR_ASSIGNMENT = UI_FIELD__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BROWSER__ID = UI_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BROWSER__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BROWSER__BINDINGS = UI_FIELD__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BROWSER__VALIDATORS = UI_FIELD__VALIDATORS;
+
+	/**
+	 * The number of structural features of the '<em>Ui Browser</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BROWSER_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiProgressBarImpl <em>Ui Progress Bar</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiProgressBarImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiProgressBar()
+	 * @generated
+	 */
+	int UI_PROGRESS_BAR = 96;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PROGRESS_BAR__PROCESSOR_ASSIGNMENT = UI_FIELD__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PROGRESS_BAR__ID = UI_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PROGRESS_BAR__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PROGRESS_BAR__BINDINGS = UI_FIELD__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PROGRESS_BAR__VALIDATORS = UI_FIELD__VALIDATORS;
+
+	/**
+	 * The number of structural features of the '<em>Ui Progress Bar</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PROGRESS_BAR_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5086,7 +5687,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiFlatAlignment()
 	 * @generated
 	 */
-	int UI_FLAT_ALIGNMENT = 90;
+	int UI_FLAT_ALIGNMENT = 97;
 
 
 	/**
@@ -5097,7 +5698,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSelectionType()
 	 * @generated
 	 */
-	int UI_SELECTION_TYPE = 91;
+	int UI_SELECTION_TYPE = 98;
 
 
 	/**
@@ -6019,6 +6620,39 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiGridLayout_Contents();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout#getColumns <em>Columns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Columns</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiGridLayout#getColumns()
+	 * @see #getUiGridLayout()
+	 * @generated
+	 */
+	EAttribute getUiGridLayout_Columns();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout#isFillHorizontal <em>Fill Horizontal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fill Horizontal</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiGridLayout#isFillHorizontal()
+	 * @see #getUiGridLayout()
+	 * @generated
+	 */
+	EAttribute getUiGridLayout_FillHorizontal();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout#isFillVertical <em>Fill Vertical</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fill Vertical</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiGridLayout#isFillVertical()
+	 * @see #getUiGridLayout()
+	 * @generated
+	 */
+	EAttribute getUiGridLayout_FillVertical();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment <em>Ui Horizontal Layout Assigment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6061,6 +6695,17 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiHorizontalLayout_Contents();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout#isFillHorizontal <em>Fill Horizontal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fill Horizontal</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout#isFillHorizontal()
+	 * @see #getUiHorizontalLayout()
+	 * @generated
+	 */
+	EAttribute getUiHorizontalLayout_FillHorizontal();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment <em>Ui Vertical Layout Assigment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6101,6 +6746,17 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUiVerticalLayout_Contents();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiVerticalLayout#isFillVertical <em>Fill Vertical</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fill Vertical</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiVerticalLayout#isFillVertical()
+	 * @see #getUiVerticalLayout()
+	 * @generated
+	 */
+	EAttribute getUiVerticalLayout_FillVertical();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment <em>Ui Form Layout Assigment</em>}'.
@@ -6153,6 +6809,39 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUiTextField();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiTextField#getMaxLength <em>Max Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Length</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTextField#getMaxLength()
+	 * @see #getUiTextField()
+	 * @generated
+	 */
+	EAttribute getUiTextField_MaxLength();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiTextField#getMinLength <em>Min Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min Length</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTextField#getMinLength()
+	 * @see #getUiTextField()
+	 * @generated
+	 */
+	EAttribute getUiTextField_MinLength();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiTextField#getRegex <em>Regex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Regex</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTextField#getRegex()
+	 * @see #getUiTextField()
+	 * @generated
+	 */
+	EAttribute getUiTextField_Regex();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiImage <em>Ui Image</em>}'.
@@ -6402,25 +7091,25 @@ public interface UiModelPackage extends EPackage {
 	EAttribute getUiColumn_ExpandRatio();
 
 	/**
-	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiColumnAssignments <em>Ui Column Assignments</em>}'.
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment <em>Ui Columns Assignment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ui Column Assignments</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiColumnAssignments
+	 * @return the meta object for class '<em>Ui Columns Assignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment
 	 * @generated
 	 */
-	EClass getUiColumnAssignments();
+	EClass getUiColumnsAssignment();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiColumnAssignments#getColumns <em>Columns</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Columns</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiColumnAssignments#getColumns()
-	 * @see #getUiColumnAssignments()
+	 * @see org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment#getColumns()
+	 * @see #getUiColumnsAssignment()
 	 * @generated
 	 */
-	EReference getUiColumnAssignments_Columns();
+	EReference getUiColumnsAssignment_Columns();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiNumericField <em>Ui Numeric Field</em>}'.
@@ -6431,6 +7120,28 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUiNumericField();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiNumericField#isGrouping <em>Grouping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Grouping</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiNumericField#isGrouping()
+	 * @see #getUiNumericField()
+	 * @generated
+	 */
+	EAttribute getUiNumericField_Grouping();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiNumericField#isMarkNegative <em>Mark Negative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mark Negative</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiNumericField#isMarkNegative()
+	 * @see #getUiNumericField()
+	 * @generated
+	 */
+	EAttribute getUiNumericField_MarkNegative();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiCheckBox <em>Ui Check Box</em>}'.
@@ -7147,6 +7858,142 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUiOpenDialogCommand_Dialog();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiLabel <em>Ui Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Label</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiLabel
+	 * @generated
+	 */
+	EClass getUiLabel();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiDecimalField <em>Ui Decimal Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Decimal Field</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDecimalField
+	 * @generated
+	 */
+	EClass getUiDecimalField();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiDecimalField#getPrecision <em>Precision</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Precision</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDecimalField#getPrecision()
+	 * @see #getUiDecimalField()
+	 * @generated
+	 */
+	EAttribute getUiDecimalField_Precision();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiDecimalField#isGrouping <em>Grouping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Grouping</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDecimalField#isGrouping()
+	 * @see #getUiDecimalField()
+	 * @generated
+	 */
+	EAttribute getUiDecimalField_Grouping();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiDecimalField#isMarkNegative <em>Mark Negative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mark Negative</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDecimalField#isMarkNegative()
+	 * @see #getUiDecimalField()
+	 * @generated
+	 */
+	EAttribute getUiDecimalField_MarkNegative();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiTextArea <em>Ui Text Area</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Text Area</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTextArea
+	 * @generated
+	 */
+	EClass getUiTextArea();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup <em>Ui Radio Button Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Radio Button Group</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup
+	 * @generated
+	 */
+	EClass getUiRadioButtonGroup();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup#getSelectionType <em>Selection Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selection Type</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup#getSelectionType()
+	 * @see #getUiRadioButtonGroup()
+	 * @generated
+	 */
+	EAttribute getUiRadioButtonGroup_SelectionType();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup#getItemImageProperty <em>Item Image Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Item Image Property</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup#getItemImageProperty()
+	 * @see #getUiRadioButtonGroup()
+	 * @generated
+	 */
+	EReference getUiRadioButtonGroup_ItemImageProperty();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup#getItemCaptionProperty <em>Item Caption Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Item Caption Property</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup#getItemCaptionProperty()
+	 * @see #getUiRadioButtonGroup()
+	 * @generated
+	 */
+	EReference getUiRadioButtonGroup_ItemCaptionProperty();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiDateField <em>Ui Date Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Date Field</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDateField
+	 * @generated
+	 */
+	EClass getUiDateField();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiBrowser <em>Ui Browser</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Browser</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBrowser
+	 * @generated
+	 */
+	EClass getUiBrowser();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiProgressBar <em>Ui Progress Bar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Progress Bar</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiProgressBar
+	 * @generated
+	 */
+	EClass getUiProgressBar();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiSearchField <em>Ui Search Field</em>}'.
@@ -8060,6 +8907,30 @@ public interface UiModelPackage extends EPackage {
 		EReference UI_GRID_LAYOUT__CONTENTS = eINSTANCE.getUiGridLayout_Contents();
 
 		/**
+		 * The meta object literal for the '<em><b>Columns</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_GRID_LAYOUT__COLUMNS = eINSTANCE.getUiGridLayout_Columns();
+
+		/**
+		 * The meta object literal for the '<em><b>Fill Horizontal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_GRID_LAYOUT__FILL_HORIZONTAL = eINSTANCE.getUiGridLayout_FillHorizontal();
+
+		/**
+		 * The meta object literal for the '<em><b>Fill Vertical</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_GRID_LAYOUT__FILL_VERTICAL = eINSTANCE.getUiGridLayout_FillVertical();
+
+		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalLayoutAssigmentImpl <em>Ui Horizontal Layout Assigment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8096,6 +8967,14 @@ public interface UiModelPackage extends EPackage {
 		EReference UI_HORIZONTAL_LAYOUT__CONTENTS = eINSTANCE.getUiHorizontalLayout_Contents();
 
 		/**
+		 * The meta object literal for the '<em><b>Fill Horizontal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_HORIZONTAL_LAYOUT__FILL_HORIZONTAL = eINSTANCE.getUiHorizontalLayout_FillHorizontal();
+
+		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutAssigmentImpl <em>Ui Vertical Layout Assigment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8130,6 +9009,14 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_VERTICAL_LAYOUT__CONTENTS = eINSTANCE.getUiVerticalLayout_Contents();
+
+		/**
+		 * The meta object literal for the '<em><b>Fill Vertical</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_VERTICAL_LAYOUT__FILL_VERTICAL = eINSTANCE.getUiVerticalLayout_FillVertical();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiFormLayoutAssigmentImpl <em>Ui Form Layout Assigment</em>}' class.
@@ -8176,6 +9063,30 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UI_TEXT_FIELD = eINSTANCE.getUiTextField();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Length</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_TEXT_FIELD__MAX_LENGTH = eINSTANCE.getUiTextField_MaxLength();
+
+		/**
+		 * The meta object literal for the '<em><b>Min Length</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_TEXT_FIELD__MIN_LENGTH = eINSTANCE.getUiTextField_MinLength();
+
+		/**
+		 * The meta object literal for the '<em><b>Regex</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_TEXT_FIELD__REGEX = eINSTANCE.getUiTextField_Regex();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiImageImpl <em>Ui Image</em>}' class.
@@ -8374,14 +9285,14 @@ public interface UiModelPackage extends EPackage {
 		EAttribute UI_COLUMN__EXPAND_RATIO = eINSTANCE.getUiColumn_ExpandRatio();
 
 		/**
-		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnAssignmentsImpl <em>Ui Column Assignments</em>}' class.
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnsAssignmentImpl <em>Ui Columns Assignment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiColumnAssignmentsImpl
-		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiColumnAssignments()
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiColumnsAssignmentImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiColumnsAssignment()
 		 * @generated
 		 */
-		EClass UI_COLUMN_ASSIGNMENTS = eINSTANCE.getUiColumnAssignments();
+		EClass UI_COLUMNS_ASSIGNMENT = eINSTANCE.getUiColumnsAssignment();
 
 		/**
 		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
@@ -8389,7 +9300,7 @@ public interface UiModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference UI_COLUMN_ASSIGNMENTS__COLUMNS = eINSTANCE.getUiColumnAssignments_Columns();
+		EReference UI_COLUMNS_ASSIGNMENT__COLUMNS = eINSTANCE.getUiColumnsAssignment_Columns();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiNumericFieldImpl <em>Ui Numeric Field</em>}' class.
@@ -8400,6 +9311,22 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UI_NUMERIC_FIELD = eINSTANCE.getUiNumericField();
+
+		/**
+		 * The meta object literal for the '<em><b>Grouping</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_NUMERIC_FIELD__GROUPING = eINSTANCE.getUiNumericField_Grouping();
+
+		/**
+		 * The meta object literal for the '<em><b>Mark Negative</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_NUMERIC_FIELD__MARK_NEGATIVE = eINSTANCE.getUiNumericField_MarkNegative();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiCheckBoxImpl <em>Ui Check Box</em>}' class.
@@ -9088,6 +10015,124 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_SEARCH_WITH_DIALOG_COMMAND__DIALOG = eINSTANCE.getUiSearchWithDialogCommand_Dialog();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl <em>Ui Label</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiLabel()
+		 * @generated
+		 */
+		EClass UI_LABEL = eINSTANCE.getUiLabel();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiDecimalFieldImpl <em>Ui Decimal Field</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiDecimalFieldImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDecimalField()
+		 * @generated
+		 */
+		EClass UI_DECIMAL_FIELD = eINSTANCE.getUiDecimalField();
+
+		/**
+		 * The meta object literal for the '<em><b>Precision</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_DECIMAL_FIELD__PRECISION = eINSTANCE.getUiDecimalField_Precision();
+
+		/**
+		 * The meta object literal for the '<em><b>Grouping</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_DECIMAL_FIELD__GROUPING = eINSTANCE.getUiDecimalField_Grouping();
+
+		/**
+		 * The meta object literal for the '<em><b>Mark Negative</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_DECIMAL_FIELD__MARK_NEGATIVE = eINSTANCE.getUiDecimalField_MarkNegative();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextAreaImpl <em>Ui Text Area</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiTextAreaImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiTextArea()
+		 * @generated
+		 */
+		EClass UI_TEXT_AREA = eINSTANCE.getUiTextArea();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonGroupImpl <em>Ui Radio Button Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiRadioButtonGroupImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiRadioButtonGroup()
+		 * @generated
+		 */
+		EClass UI_RADIO_BUTTON_GROUP = eINSTANCE.getUiRadioButtonGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Selection Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_RADIO_BUTTON_GROUP__SELECTION_TYPE = eINSTANCE.getUiRadioButtonGroup_SelectionType();
+
+		/**
+		 * The meta object literal for the '<em><b>Item Image Property</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_RADIO_BUTTON_GROUP__ITEM_IMAGE_PROPERTY = eINSTANCE.getUiRadioButtonGroup_ItemImageProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Item Caption Property</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_RADIO_BUTTON_GROUP__ITEM_CAPTION_PROPERTY = eINSTANCE.getUiRadioButtonGroup_ItemCaptionProperty();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiDateFieldImpl <em>Ui Date Field</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiDateFieldImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDateField()
+		 * @generated
+		 */
+		EClass UI_DATE_FIELD = eINSTANCE.getUiDateField();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBrowserImpl <em>Ui Browser</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiBrowserImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiBrowser()
+		 * @generated
+		 */
+		EClass UI_BROWSER = eINSTANCE.getUiBrowser();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiProgressBarImpl <em>Ui Progress Bar</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiProgressBarImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiProgressBar()
+		 * @generated
+		 */
+		EClass UI_PROGRESS_BAR = eINSTANCE.getUiProgressBar();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.

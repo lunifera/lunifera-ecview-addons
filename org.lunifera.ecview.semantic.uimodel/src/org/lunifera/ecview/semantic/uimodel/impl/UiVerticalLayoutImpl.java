@@ -35,6 +35,7 @@ import org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutImpl#getContents <em>Contents</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutImpl#isFillVertical <em>Fill Vertical</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,6 +101,26 @@ public class UiVerticalLayoutImpl extends UiVisibilityProcessableImpl implements
 	 * @ordered
 	 */
 	protected EList<UiVerticalLayoutAssigment> contents;
+
+	/**
+	 * The default value of the '{@link #isFillVertical() <em>Fill Vertical</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFillVertical()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FILL_VERTICAL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isFillVertical() <em>Fill Vertical</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFillVertical()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean fillVertical = FILL_VERTICAL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -191,6 +212,27 @@ public class UiVerticalLayoutImpl extends UiVisibilityProcessableImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isFillVertical() {
+		return fillVertical;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFillVertical(boolean newFillVertical) {
+		boolean oldFillVertical = fillVertical;
+		fillVertical = newFillVertical;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_VERTICAL_LAYOUT__FILL_VERTICAL, oldFillVertical, fillVertical));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -218,6 +260,8 @@ public class UiVerticalLayoutImpl extends UiVisibilityProcessableImpl implements
 				return getBindings();
 			case UiModelPackage.UI_VERTICAL_LAYOUT__CONTENTS:
 				return getContents();
+			case UiModelPackage.UI_VERTICAL_LAYOUT__FILL_VERTICAL:
+				return isFillVertical();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -245,6 +289,9 @@ public class UiVerticalLayoutImpl extends UiVisibilityProcessableImpl implements
 				getContents().clear();
 				getContents().addAll((Collection<? extends UiVerticalLayoutAssigment>)newValue);
 				return;
+			case UiModelPackage.UI_VERTICAL_LAYOUT__FILL_VERTICAL:
+				setFillVertical((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -269,6 +316,9 @@ public class UiVerticalLayoutImpl extends UiVisibilityProcessableImpl implements
 			case UiModelPackage.UI_VERTICAL_LAYOUT__CONTENTS:
 				getContents().clear();
 				return;
+			case UiModelPackage.UI_VERTICAL_LAYOUT__FILL_VERTICAL:
+				setFillVertical(FILL_VERTICAL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -289,6 +339,8 @@ public class UiVerticalLayoutImpl extends UiVisibilityProcessableImpl implements
 				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_VERTICAL_LAYOUT__CONTENTS:
 				return contents != null && !contents.isEmpty();
+			case UiModelPackage.UI_VERTICAL_LAYOUT__FILL_VERTICAL:
+				return fillVertical != FILL_VERTICAL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -351,6 +403,8 @@ public class UiVerticalLayoutImpl extends UiVisibilityProcessableImpl implements
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", fillVertical: ");
+		result.append(fillVertical);
 		result.append(')');
 		return result.toString();
 	}

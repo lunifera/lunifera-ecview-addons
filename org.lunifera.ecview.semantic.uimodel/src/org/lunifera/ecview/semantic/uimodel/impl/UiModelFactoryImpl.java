@@ -91,7 +91,7 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_TABLE: return createUiTable();
 			case UiModelPackage.UI_COMBO_BOX: return createUiComboBox();
 			case UiModelPackage.UI_COLUMN: return createUiColumn();
-			case UiModelPackage.UI_COLUMN_ASSIGNMENTS: return createUiColumnAssignments();
+			case UiModelPackage.UI_COLUMNS_ASSIGNMENT: return createUiColumnsAssignment();
 			case UiModelPackage.UI_NUMERIC_FIELD: return createUiNumericField();
 			case UiModelPackage.UI_CHECK_BOX: return createUiCheckBox();
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR: return createUiVisibilityProcessor();
@@ -128,6 +128,13 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_SEARCH_DIALOG: return createUiSearchDialog();
 			case UiModelPackage.UI_DIALOG_SEARCH_FIELD_ASSIGNMENT: return createUiDialogSearchFieldAssignment();
 			case UiModelPackage.UI_SEARCH_WITH_DIALOG_COMMAND: return createUiSearchWithDialogCommand();
+			case UiModelPackage.UI_LABEL: return createUiLabel();
+			case UiModelPackage.UI_DECIMAL_FIELD: return createUiDecimalField();
+			case UiModelPackage.UI_TEXT_AREA: return createUiTextArea();
+			case UiModelPackage.UI_RADIO_BUTTON_GROUP: return createUiRadioButtonGroup();
+			case UiModelPackage.UI_DATE_FIELD: return createUiDateField();
+			case UiModelPackage.UI_BROWSER: return createUiBrowser();
+			case UiModelPackage.UI_PROGRESS_BAR: return createUiProgressBar();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -202,6 +209,16 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiViewSet createUiViewSet() {
+		UiViewSetImpl uiViewSet = new UiViewSetImpl();
+		return uiViewSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiView createUiView() {
 		UiViewImpl uiView = new UiViewImpl();
 		return uiView;
@@ -262,6 +279,16 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiBeanSlot createUiBeanSlot() {
+		UiBeanSlotImpl uiBeanSlot = new UiBeanSlotImpl();
+		return uiBeanSlot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiBindingEndpointAlias createUiBindingEndpointAlias() {
 		UiBindingEndpointAliasImpl uiBindingEndpointAlias = new UiBindingEndpointAliasImpl();
 		return uiBindingEndpointAlias;
@@ -312,66 +339,6 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UiBeanSlot createUiBeanSlot() {
-		UiBeanSlotImpl uiBeanSlot = new UiBeanSlotImpl();
-		return uiBeanSlot;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiViewSet createUiViewSet() {
-		UiViewSetImpl uiViewSet = new UiViewSetImpl();
-		return uiViewSet;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiMaxLengthValidator createUiMaxLengthValidator() {
-		UiMaxLengthValidatorImpl uiMaxLengthValidator = new UiMaxLengthValidatorImpl();
-		return uiMaxLengthValidator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiMinLengthValidator createUiMinLengthValidator() {
-		UiMinLengthValidatorImpl uiMinLengthValidator = new UiMinLengthValidatorImpl();
-		return uiMinLengthValidator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiRegexpValidator createUiRegexpValidator() {
-		UiRegexpValidatorImpl uiRegexpValidator = new UiRegexpValidatorImpl();
-		return uiRegexpValidator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiXbaseValidator createUiXbaseValidator() {
-		UiXbaseValidatorImpl uiXbaseValidator = new UiXbaseValidatorImpl();
-		return uiXbaseValidator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public UiTypedBindableDef createUiTypedBindableDef() {
 		UiTypedBindableDefImpl uiTypedBindableDef = new UiTypedBindableDefImpl();
 		return uiTypedBindableDef;
@@ -385,6 +352,26 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiCommandBindableDef createUiCommandBindableDef() {
 		UiCommandBindableDefImpl uiCommandBindableDef = new UiCommandBindableDefImpl();
 		return uiCommandBindableDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiAction createUiAction() {
+		UiActionImpl uiAction = new UiActionImpl();
+		return uiAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiMobileAction createUiMobileAction() {
+		UiMobileActionImpl uiMobileAction = new UiMobileActionImpl();
+		return uiMobileAction;
 	}
 
 	/**
@@ -532,9 +519,9 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UiColumnAssignments createUiColumnAssignments() {
-		UiColumnAssignmentsImpl uiColumnAssignments = new UiColumnAssignmentsImpl();
-		return uiColumnAssignments;
+	public UiColumnsAssignment createUiColumnsAssignment() {
+		UiColumnsAssignmentImpl uiColumnsAssignment = new UiColumnsAssignmentImpl();
+		return uiColumnsAssignment;
 	}
 
 	/**
@@ -642,6 +629,46 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiMaxLengthValidator createUiMaxLengthValidator() {
+		UiMaxLengthValidatorImpl uiMaxLengthValidator = new UiMaxLengthValidatorImpl();
+		return uiMaxLengthValidator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiMinLengthValidator createUiMinLengthValidator() {
+		UiMinLengthValidatorImpl uiMinLengthValidator = new UiMinLengthValidatorImpl();
+		return uiMinLengthValidator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiRegexpValidator createUiRegexpValidator() {
+		UiRegexpValidatorImpl uiRegexpValidator = new UiRegexpValidatorImpl();
+		return uiRegexpValidator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiXbaseValidator createUiXbaseValidator() {
+		UiXbaseValidatorImpl uiXbaseValidator = new UiXbaseValidatorImpl();
+		return uiXbaseValidator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiValidatorAlias createUiValidatorAlias() {
 		UiValidatorAliasImpl uiValidatorAlias = new UiValidatorAliasImpl();
 		return uiValidatorAlias;
@@ -685,26 +712,6 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiHorizontalButtonGroup createUiHorizontalButtonGroup() {
 		UiHorizontalButtonGroupImpl uiHorizontalButtonGroup = new UiHorizontalButtonGroupImpl();
 		return uiHorizontalButtonGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiAction createUiAction() {
-		UiActionImpl uiAction = new UiActionImpl();
-		return uiAction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiMobileAction createUiMobileAction() {
-		UiMobileActionImpl uiMobileAction = new UiMobileActionImpl();
-		return uiMobileAction;
 	}
 
 	/**
@@ -875,6 +882,76 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiSearchWithDialogCommand createUiSearchWithDialogCommand() {
 		UiSearchWithDialogCommandImpl uiSearchWithDialogCommand = new UiSearchWithDialogCommandImpl();
 		return uiSearchWithDialogCommand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiLabel createUiLabel() {
+		UiLabelImpl uiLabel = new UiLabelImpl();
+		return uiLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiDecimalField createUiDecimalField() {
+		UiDecimalFieldImpl uiDecimalField = new UiDecimalFieldImpl();
+		return uiDecimalField;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiTextArea createUiTextArea() {
+		UiTextAreaImpl uiTextArea = new UiTextAreaImpl();
+		return uiTextArea;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiRadioButtonGroup createUiRadioButtonGroup() {
+		UiRadioButtonGroupImpl uiRadioButtonGroup = new UiRadioButtonGroupImpl();
+		return uiRadioButtonGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiDateField createUiDateField() {
+		UiDateFieldImpl uiDateField = new UiDateFieldImpl();
+		return uiDateField;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiBrowser createUiBrowser() {
+		UiBrowserImpl uiBrowser = new UiBrowserImpl();
+		return uiBrowser;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiProgressBar createUiProgressBar() {
+		UiProgressBarImpl uiProgressBar = new UiProgressBarImpl();
+		return uiProgressBar;
 	}
 
 	/**

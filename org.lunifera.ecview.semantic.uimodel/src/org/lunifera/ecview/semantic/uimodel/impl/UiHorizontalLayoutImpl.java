@@ -35,6 +35,7 @@ import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalLayoutImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalLayoutImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalLayoutImpl#getContents <em>Contents</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalLayoutImpl#isFillHorizontal <em>Fill Horizontal</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,6 +101,26 @@ public class UiHorizontalLayoutImpl extends UiVisibilityProcessableImpl implemen
 	 * @ordered
 	 */
 	protected EList<UiHorizontalLayoutAssigment> contents;
+
+	/**
+	 * The default value of the '{@link #isFillHorizontal() <em>Fill Horizontal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFillHorizontal()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FILL_HORIZONTAL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isFillHorizontal() <em>Fill Horizontal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFillHorizontal()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean fillHorizontal = FILL_HORIZONTAL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -191,6 +212,27 @@ public class UiHorizontalLayoutImpl extends UiVisibilityProcessableImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isFillHorizontal() {
+		return fillHorizontal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFillHorizontal(boolean newFillHorizontal) {
+		boolean oldFillHorizontal = fillHorizontal;
+		fillHorizontal = newFillHorizontal;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_HORIZONTAL_LAYOUT__FILL_HORIZONTAL, oldFillHorizontal, fillHorizontal));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -218,6 +260,8 @@ public class UiHorizontalLayoutImpl extends UiVisibilityProcessableImpl implemen
 				return getBindings();
 			case UiModelPackage.UI_HORIZONTAL_LAYOUT__CONTENTS:
 				return getContents();
+			case UiModelPackage.UI_HORIZONTAL_LAYOUT__FILL_HORIZONTAL:
+				return isFillHorizontal();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -245,6 +289,9 @@ public class UiHorizontalLayoutImpl extends UiVisibilityProcessableImpl implemen
 				getContents().clear();
 				getContents().addAll((Collection<? extends UiHorizontalLayoutAssigment>)newValue);
 				return;
+			case UiModelPackage.UI_HORIZONTAL_LAYOUT__FILL_HORIZONTAL:
+				setFillHorizontal((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -269,6 +316,9 @@ public class UiHorizontalLayoutImpl extends UiVisibilityProcessableImpl implemen
 			case UiModelPackage.UI_HORIZONTAL_LAYOUT__CONTENTS:
 				getContents().clear();
 				return;
+			case UiModelPackage.UI_HORIZONTAL_LAYOUT__FILL_HORIZONTAL:
+				setFillHorizontal(FILL_HORIZONTAL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -289,6 +339,8 @@ public class UiHorizontalLayoutImpl extends UiVisibilityProcessableImpl implemen
 				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_HORIZONTAL_LAYOUT__CONTENTS:
 				return contents != null && !contents.isEmpty();
+			case UiModelPackage.UI_HORIZONTAL_LAYOUT__FILL_HORIZONTAL:
+				return fillHorizontal != FILL_HORIZONTAL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -351,6 +403,8 @@ public class UiHorizontalLayoutImpl extends UiVisibilityProcessableImpl implemen
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", fillHorizontal: ");
+		result.append(fillHorizontal);
 		result.append(')');
 		return result.toString();
 	}
