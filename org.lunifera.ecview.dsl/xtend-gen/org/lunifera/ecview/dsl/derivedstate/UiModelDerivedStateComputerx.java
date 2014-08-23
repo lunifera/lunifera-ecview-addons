@@ -929,6 +929,30 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.<Object>pop();
   }
   
+  protected void _map(final UiFormLayoutAssigment eObject) {
+    final YFormLayout layout = this.<YFormLayout>peek();
+    final UiEmbeddable element = eObject.getElement();
+    if ((element instanceof UiField)) {
+      final YEmbeddable newField = this.create(element);
+      layout.addElement(newField);
+      if ((element instanceof UiField)) {
+        this.map(element);
+        this.push(newField);
+        final UiField yField = ((UiField) element);
+        EList<UiValidator> _validators = yField.getValidators();
+        final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+          public void apply(final UiValidator it) {
+            UiModelDerivedStateComputerx.this.map(it);
+          }
+        };
+        IterableExtensions.<UiValidator>forEach(_validators, _function);
+        this.<Object>pop();
+      }
+    } else {
+      this.map(element);
+    }
+  }
+  
   protected void _map(final UiRadioButtonGroup eObject) {
     final YOptionsGroup yOptionsGroup = this.<YOptionsGroup>associatedUi(eObject);
     this.push(yOptionsGroup);
@@ -1975,6 +1999,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return;
     } else if (eObject instanceof UiDialogAssignment) {
       _map((UiDialogAssignment)eObject);
+      return;
+    } else if (eObject instanceof UiFormLayoutAssigment) {
+      _map((UiFormLayoutAssigment)eObject);
       return;
     } else if (eObject instanceof UiGridLayoutAssigment) {
       _map((UiGridLayoutAssigment)eObject);

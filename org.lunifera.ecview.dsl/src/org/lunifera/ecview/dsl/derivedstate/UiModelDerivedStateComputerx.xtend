@@ -134,6 +134,7 @@ import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderFactory
 
 import static org.lunifera.ecview.semantic.uimodel.UiFlatAlignment.*
 import static org.lunifera.ecview.semantic.uimodel.UiSelectionType.*
+import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment
 
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
@@ -693,6 +694,30 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		]
 
 		pop
+	}
+	
+	def dispatch void map(UiFormLayoutAssigment eObject) {
+
+		val YFormLayout layout = peek
+		val element = eObject.element
+		if (element instanceof UiField) {
+			val newField = element.create
+			layout.addElement(newField)
+
+			if (element instanceof UiField) {
+				element.map
+
+				newField.push
+				val UiField yField = element as UiField
+				yField.validators.forEach [
+					it.map
+				]
+				pop
+			}
+		} else {
+			element.map
+		}
+
 	}
 
 	def dispatch void map(UiRadioButtonGroup eObject) {
