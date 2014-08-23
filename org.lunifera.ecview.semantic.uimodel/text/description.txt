@@ -137,6 +137,9 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference contents : UiFormLayoutAssigment<<0..*>>
 
   Class UiTextField -> UiField
+    Attribute maxLength : EInt
+    Attribute minLength : EInt
+    Attribute regex : EString
 
   Class UiImage -> UiField
     Attribute value : EString

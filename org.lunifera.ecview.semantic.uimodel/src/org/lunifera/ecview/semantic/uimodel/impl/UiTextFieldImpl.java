@@ -29,6 +29,9 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl#getValidators <em>Validators</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl#getMaxLength <em>Max Length</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl#getMinLength <em>Min Length</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl#getRegex <em>Regex</em>}</li>
  * </ul>
  * </p>
  *
@@ -90,6 +93,61 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 	 * @ordered
 	 */
 	protected EList<UiValidator> validators;
+
+	/**
+	 * The default value of the '{@link #getMaxLength() <em>Max Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MAX_LENGTH_EDEFAULT = -1;
+	/**
+	 * The cached value of the '{@link #getMaxLength() <em>Max Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected int maxLength = MAX_LENGTH_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getMinLength() <em>Min Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIN_LENGTH_EDEFAULT = -1;
+	/**
+	 * The cached value of the '{@link #getMinLength() <em>Min Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected int minLength = MIN_LENGTH_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getRegex() <em>Regex</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRegex()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REGEX_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getRegex() <em>Regex</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRegex()
+	 * @generated
+	 * @ordered
+	 */
+	protected String regex = REGEX_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -181,6 +239,69 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getMaxLength() {
+		return maxLength;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxLength(int newMaxLength) {
+		int oldMaxLength = maxLength;
+		maxLength = newMaxLength;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_TEXT_FIELD__MAX_LENGTH, oldMaxLength, maxLength));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMinLength() {
+		return minLength;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinLength(int newMinLength) {
+		int oldMinLength = minLength;
+		minLength = newMinLength;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_TEXT_FIELD__MIN_LENGTH, oldMinLength, minLength));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getRegex() {
+		return regex;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRegex(String newRegex) {
+		String oldRegex = regex;
+		regex = newRegex;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_TEXT_FIELD__REGEX, oldRegex, regex));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -208,6 +329,12 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 				return getBindings();
 			case UiModelPackage.UI_TEXT_FIELD__VALIDATORS:
 				return getValidators();
+			case UiModelPackage.UI_TEXT_FIELD__MAX_LENGTH:
+				return getMaxLength();
+			case UiModelPackage.UI_TEXT_FIELD__MIN_LENGTH:
+				return getMinLength();
+			case UiModelPackage.UI_TEXT_FIELD__REGEX:
+				return getRegex();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -235,6 +362,15 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 				getValidators().clear();
 				getValidators().addAll((Collection<? extends UiValidator>)newValue);
 				return;
+			case UiModelPackage.UI_TEXT_FIELD__MAX_LENGTH:
+				setMaxLength((Integer)newValue);
+				return;
+			case UiModelPackage.UI_TEXT_FIELD__MIN_LENGTH:
+				setMinLength((Integer)newValue);
+				return;
+			case UiModelPackage.UI_TEXT_FIELD__REGEX:
+				setRegex((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -259,6 +395,15 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 			case UiModelPackage.UI_TEXT_FIELD__VALIDATORS:
 				getValidators().clear();
 				return;
+			case UiModelPackage.UI_TEXT_FIELD__MAX_LENGTH:
+				setMaxLength(MAX_LENGTH_EDEFAULT);
+				return;
+			case UiModelPackage.UI_TEXT_FIELD__MIN_LENGTH:
+				setMinLength(MIN_LENGTH_EDEFAULT);
+				return;
+			case UiModelPackage.UI_TEXT_FIELD__REGEX:
+				setRegex(REGEX_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -279,6 +424,12 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_TEXT_FIELD__VALIDATORS:
 				return validators != null && !validators.isEmpty();
+			case UiModelPackage.UI_TEXT_FIELD__MAX_LENGTH:
+				return maxLength != MAX_LENGTH_EDEFAULT;
+			case UiModelPackage.UI_TEXT_FIELD__MIN_LENGTH:
+				return minLength != MIN_LENGTH_EDEFAULT;
+			case UiModelPackage.UI_TEXT_FIELD__REGEX:
+				return REGEX_EDEFAULT == null ? regex != null : !REGEX_EDEFAULT.equals(regex);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -341,6 +492,12 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", maxLength: ");
+		result.append(maxLength);
+		result.append(", minLength: ");
+		result.append(minLength);
+		result.append(", regex: ");
+		result.append(regex);
 		result.append(')');
 		return result.toString();
 	}

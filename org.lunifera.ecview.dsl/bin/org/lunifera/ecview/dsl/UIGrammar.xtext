@@ -233,7 +233,17 @@ UiPoint returns UiPoint:
 
 UiTextField returns UiTextField:
 	{UiTextField}
-	'textfield' name=ID?
+	'textfield' 
+	(
+	'('
+	(
+	('maxLength=' maxLength=INT)?
+	&('minLength=' minLength=INT)?
+	&('regex=' regex=STRING)?
+	)
+	')'	
+	)?
+	name=ID?
 	('{'
 	(validators+=UiValidator)*
 	//	(processorAssignment=UiVisibilityProcessorAssignment)?

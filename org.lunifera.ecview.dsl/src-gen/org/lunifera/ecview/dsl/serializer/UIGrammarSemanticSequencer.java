@@ -2175,7 +2175,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? validators+=UiValidator*)
+	 *     ((maxLength=INT? minLength=INT? regex=STRING?)? name=ID? validators+=UiValidator*)
 	 */
 	protected void sequence_UiTextField(EObject context, UiTextField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

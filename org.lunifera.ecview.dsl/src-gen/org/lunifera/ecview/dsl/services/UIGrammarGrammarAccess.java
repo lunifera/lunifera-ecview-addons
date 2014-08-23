@@ -1716,20 +1716,38 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cUiTextFieldAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cTextfieldKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cLeftCurlyBracketKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cValidatorsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cValidatorsUiValidatorParserRuleCall_3_1_0 = (RuleCall)cValidatorsAssignment_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final UnorderedGroup cUnorderedGroup_2_1 = (UnorderedGroup)cGroup_2.eContents().get(1);
+		private final Group cGroup_2_1_0 = (Group)cUnorderedGroup_2_1.eContents().get(0);
+		private final Keyword cMaxLengthKeyword_2_1_0_0 = (Keyword)cGroup_2_1_0.eContents().get(0);
+		private final Assignment cMaxLengthAssignment_2_1_0_1 = (Assignment)cGroup_2_1_0.eContents().get(1);
+		private final RuleCall cMaxLengthINTTerminalRuleCall_2_1_0_1_0 = (RuleCall)cMaxLengthAssignment_2_1_0_1.eContents().get(0);
+		private final Group cGroup_2_1_1 = (Group)cUnorderedGroup_2_1.eContents().get(1);
+		private final Keyword cMinLengthKeyword_2_1_1_0 = (Keyword)cGroup_2_1_1.eContents().get(0);
+		private final Assignment cMinLengthAssignment_2_1_1_1 = (Assignment)cGroup_2_1_1.eContents().get(1);
+		private final RuleCall cMinLengthINTTerminalRuleCall_2_1_1_1_0 = (RuleCall)cMinLengthAssignment_2_1_1_1.eContents().get(0);
+		private final Group cGroup_2_1_2 = (Group)cUnorderedGroup_2_1.eContents().get(2);
+		private final Keyword cRegexKeyword_2_1_2_0 = (Keyword)cGroup_2_1_2.eContents().get(0);
+		private final Assignment cRegexAssignment_2_1_2_1 = (Assignment)cGroup_2_1_2.eContents().get(1);
+		private final RuleCall cRegexSTRINGTerminalRuleCall_2_1_2_1_0 = (RuleCall)cRegexAssignment_2_1_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cLeftCurlyBracketKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cValidatorsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cValidatorsUiValidatorParserRuleCall_4_1_0 = (RuleCall)cValidatorsAssignment_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
 		
 		//UiTextField:
-		//	{UiTextField} "textfield" name=ID? ("{" validators+=UiValidator* //	(processorAssignment=UiVisibilityProcessorAssignment)?
+		//	{UiTextField} "textfield" ("(" (("maxLength=" maxLength=INT)? & ("minLength=" minLength=INT)? & ("regex="
+		//	regex=STRING)?) ")")? name=ID? ("{" validators+=UiValidator* //	(processorAssignment=UiVisibilityProcessorAssignment)?
 		//	"}")?;
 		public ParserRule getRule() { return rule; }
 
-		//{UiTextField} "textfield" name=ID? ("{" validators+=UiValidator* //	(processorAssignment=UiVisibilityProcessorAssignment)?
+		//{UiTextField} "textfield" ("(" (("maxLength=" maxLength=INT)? & ("minLength=" minLength=INT)? & ("regex="
+		//regex=STRING)?) ")")? name=ID? ("{" validators+=UiValidator* //	(processorAssignment=UiVisibilityProcessorAssignment)?
 		//"}")?
 		public Group getGroup() { return cGroup; }
 
@@ -1739,28 +1757,76 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"textfield"
 		public Keyword getTextfieldKeyword_1() { return cTextfieldKeyword_1; }
 
+		//("(" (("maxLength=" maxLength=INT)? & ("minLength=" minLength=INT)? & ("regex=" regex=STRING)?) ")")?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
+
+		//("maxLength=" maxLength=INT)? & ("minLength=" minLength=INT)? & ("regex=" regex=STRING)?
+		public UnorderedGroup getUnorderedGroup_2_1() { return cUnorderedGroup_2_1; }
+
+		//("maxLength=" maxLength=INT)?
+		public Group getGroup_2_1_0() { return cGroup_2_1_0; }
+
+		//"maxLength="
+		public Keyword getMaxLengthKeyword_2_1_0_0() { return cMaxLengthKeyword_2_1_0_0; }
+
+		//maxLength=INT
+		public Assignment getMaxLengthAssignment_2_1_0_1() { return cMaxLengthAssignment_2_1_0_1; }
+
+		//INT
+		public RuleCall getMaxLengthINTTerminalRuleCall_2_1_0_1_0() { return cMaxLengthINTTerminalRuleCall_2_1_0_1_0; }
+
+		//("minLength=" minLength=INT)?
+		public Group getGroup_2_1_1() { return cGroup_2_1_1; }
+
+		//"minLength="
+		public Keyword getMinLengthKeyword_2_1_1_0() { return cMinLengthKeyword_2_1_1_0; }
+
+		//minLength=INT
+		public Assignment getMinLengthAssignment_2_1_1_1() { return cMinLengthAssignment_2_1_1_1; }
+
+		//INT
+		public RuleCall getMinLengthINTTerminalRuleCall_2_1_1_1_0() { return cMinLengthINTTerminalRuleCall_2_1_1_1_0; }
+
+		//("regex=" regex=STRING)?
+		public Group getGroup_2_1_2() { return cGroup_2_1_2; }
+
+		//"regex="
+		public Keyword getRegexKeyword_2_1_2_0() { return cRegexKeyword_2_1_2_0; }
+
+		//regex=STRING
+		public Assignment getRegexAssignment_2_1_2_1() { return cRegexAssignment_2_1_2_1; }
+
+		//STRING
+		public RuleCall getRegexSTRINGTerminalRuleCall_2_1_2_1_0() { return cRegexSTRINGTerminalRuleCall_2_1_2_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_2_2() { return cRightParenthesisKeyword_2_2; }
+
 		//name=ID?
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 
 		//("{" validators+=UiValidator* //	(processorAssignment=UiVisibilityProcessorAssignment)?
 		//"}")?
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_4() { return cGroup_4; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_3_0() { return cLeftCurlyBracketKeyword_3_0; }
+		public Keyword getLeftCurlyBracketKeyword_4_0() { return cLeftCurlyBracketKeyword_4_0; }
 
 		//validators+=UiValidator*
-		public Assignment getValidatorsAssignment_3_1() { return cValidatorsAssignment_3_1; }
+		public Assignment getValidatorsAssignment_4_1() { return cValidatorsAssignment_4_1; }
 
 		//UiValidator
-		public RuleCall getValidatorsUiValidatorParserRuleCall_3_1_0() { return cValidatorsUiValidatorParserRuleCall_3_1_0; }
+		public RuleCall getValidatorsUiValidatorParserRuleCall_4_1_0() { return cValidatorsUiValidatorParserRuleCall_4_1_0; }
 
 		////	(processorAssignment=UiVisibilityProcessorAssignment)?
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_3_2() { return cRightCurlyBracketKeyword_3_2; }
+		public Keyword getRightCurlyBracketKeyword_4_2() { return cRightCurlyBracketKeyword_4_2; }
 	}
 
 	public class UiTextAreaElements extends AbstractParserRuleElementFinder {
@@ -3893,7 +3959,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiTextField:
-	//	{UiTextField} "textfield" name=ID? ("{" validators+=UiValidator* //	(processorAssignment=UiVisibilityProcessorAssignment)?
+	//	{UiTextField} "textfield" ("(" (("maxLength=" maxLength=INT)? & ("minLength=" minLength=INT)? & ("regex="
+	//	regex=STRING)?) ")")? name=ID? ("{" validators+=UiValidator* //	(processorAssignment=UiVisibilityProcessorAssignment)?
 	//	"}")?;
 	public UiTextFieldElements getUiTextFieldAccess() {
 		return (pUiTextField != null) ? pUiTextField : (pUiTextField = new UiTextFieldElements());

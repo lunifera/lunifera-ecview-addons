@@ -2607,13 +2607,40 @@ public interface UiModelPackage extends EPackage {
 	int UI_TEXT_FIELD__VALIDATORS = UI_FIELD__VALIDATORS;
 
 	/**
+	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_FIELD__MAX_LENGTH = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_FIELD__MIN_LENGTH = UI_FIELD_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Regex</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_FIELD__REGEX = UI_FIELD_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Ui Text Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_TEXT_FIELD_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
+	int UI_TEXT_FIELD_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiImageImpl <em>Ui Image</em>}' class.
@@ -6419,6 +6446,39 @@ public interface UiModelPackage extends EPackage {
 	EClass getUiTextField();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiTextField#getMaxLength <em>Max Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Length</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTextField#getMaxLength()
+	 * @see #getUiTextField()
+	 * @generated
+	 */
+	EAttribute getUiTextField_MaxLength();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiTextField#getMinLength <em>Min Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min Length</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTextField#getMinLength()
+	 * @see #getUiTextField()
+	 * @generated
+	 */
+	EAttribute getUiTextField_MinLength();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiTextField#getRegex <em>Regex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Regex</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTextField#getRegex()
+	 * @see #getUiTextField()
+	 * @generated
+	 */
+	EAttribute getUiTextField_Regex();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiImage <em>Ui Image</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8499,6 +8559,30 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UI_TEXT_FIELD = eINSTANCE.getUiTextField();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Length</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_TEXT_FIELD__MAX_LENGTH = eINSTANCE.getUiTextField_MaxLength();
+
+		/**
+		 * The meta object literal for the '<em><b>Min Length</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_TEXT_FIELD__MIN_LENGTH = eINSTANCE.getUiTextField_MinLength();
+
+		/**
+		 * The meta object literal for the '<em><b>Regex</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_TEXT_FIELD__REGEX = eINSTANCE.getUiTextField_Regex();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiImageImpl <em>Ui Image</em>}' class.

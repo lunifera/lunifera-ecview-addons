@@ -36,7 +36,8 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_UiRegexpValidator_RightParenthesisKeyword_5_q;
 	protected AbstractElementAlias match_UiTable___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_4__q;
 	protected AbstractElementAlias match_UiTextArea___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q;
-	protected AbstractElementAlias match_UiTextField___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q;
+	protected AbstractElementAlias match_UiTextField___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q;
+	protected AbstractElementAlias match_UiTextField___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
 	protected AbstractElementAlias match_UiValidatorAssignment_SemicolonKeyword_3_1_1_q;
 	protected AbstractElementAlias match_XBlockExpression_SemicolonKeyword_2_1_q;
 	protected AbstractElementAlias match_XExpressionInClosure_SemicolonKeyword_1_1_q;
@@ -66,7 +67,8 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_UiRegexpValidator_RightParenthesisKeyword_5_q = new TokenAlias(false, true, grammarAccess.getUiRegexpValidatorAccess().getRightParenthesisKeyword_5());
 		match_UiTable___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiTableAccess().getLeftCurlyBracketKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getUiTableAccess().getRightCurlyBracketKeyword_3_4()));
 		match_UiTextArea___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiTextAreaAccess().getLeftCurlyBracketKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getUiTextAreaAccess().getRightCurlyBracketKeyword_3_2()));
-		match_UiTextField___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiTextFieldAccess().getLeftCurlyBracketKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getUiTextFieldAccess().getRightCurlyBracketKeyword_3_2()));
+		match_UiTextField___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiTextFieldAccess().getLeftCurlyBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getUiTextFieldAccess().getRightCurlyBracketKeyword_4_2()));
+		match_UiTextField___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiTextFieldAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiTextFieldAccess().getRightParenthesisKeyword_2_2()));
 		match_UiValidatorAssignment_SemicolonKeyword_3_1_1_q = new TokenAlias(false, true, grammarAccess.getUiValidatorAssignmentAccess().getSemicolonKeyword_3_1_1());
 		match_XBlockExpression_SemicolonKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getXBlockExpressionAccess().getSemicolonKeyword_2_1());
 		match_XExpressionInClosure_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getXExpressionInClosureAccess().getSemicolonKeyword_1_1());
@@ -149,8 +151,10 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_UiTable___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiTextArea___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q.equals(syntax))
 				emit_UiTextArea___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_UiTextField___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q.equals(syntax))
-				emit_UiTextField___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UiTextField___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q.equals(syntax))
+				emit_UiTextField___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UiTextField___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q.equals(syntax))
+				emit_UiTextField___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiValidatorAssignment_SemicolonKeyword_3_1_1_q.equals(syntax))
 				emit_UiValidatorAssignment_SemicolonKeyword_3_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_XBlockExpression_SemicolonKeyword_2_1_q.equals(syntax))
@@ -317,7 +321,15 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Syntax:
 	 *     ('{' '}')?
 	 */
-	protected void emit_UiTextField___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_UiTextField___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     ('(' ')')?
+	 */
+	protected void emit_UiTextField___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

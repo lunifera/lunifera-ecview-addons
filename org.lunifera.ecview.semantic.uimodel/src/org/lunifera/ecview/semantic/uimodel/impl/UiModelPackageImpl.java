@@ -1735,6 +1735,33 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUiTextField_MaxLength() {
+		return (EAttribute)uiTextFieldEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiTextField_MinLength() {
+		return (EAttribute)uiTextFieldEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiTextField_Regex() {
+		return (EAttribute)uiTextFieldEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiImage() {
 		return uiImageEClass;
 	}
@@ -2887,6 +2914,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiFormLayoutEClass, UI_FORM_LAYOUT__CONTENTS);
 
 		uiTextFieldEClass = createEClass(UI_TEXT_FIELD);
+		createEAttribute(uiTextFieldEClass, UI_TEXT_FIELD__MAX_LENGTH);
+		createEAttribute(uiTextFieldEClass, UI_TEXT_FIELD__MIN_LENGTH);
+		createEAttribute(uiTextFieldEClass, UI_TEXT_FIELD__REGEX);
 
 		uiImageEClass = createEClass(UI_IMAGE);
 		createEAttribute(uiImageEClass, UI_IMAGE__VALUE);
@@ -3321,6 +3351,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiFormLayout_Contents(), this.getUiFormLayoutAssigment(), null, "contents", null, 0, -1, UiFormLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiTextFieldEClass, UiTextField.class, "UiTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUiTextField_MaxLength(), ecorePackage.getEInt(), "maxLength", "-1", 0, 1, UiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiTextField_MinLength(), ecorePackage.getEInt(), "minLength", "-1", 0, 1, UiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiTextField_Regex(), ecorePackage.getEString(), "regex", null, 0, 1, UiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiImageEClass, UiImage.class, "UiImage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiImage_Value(), ecorePackage.getEString(), "value", null, 0, 1, UiImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

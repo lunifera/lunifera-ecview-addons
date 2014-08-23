@@ -133,7 +133,11 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiMobileNavigationPageAccess().getGroup_4(), "rule__UiMobileNavigationPage__Group_4__0");
 					put(grammarAccess.getUiPointAccess().getGroup(), "rule__UiPoint__Group__0");
 					put(grammarAccess.getUiTextFieldAccess().getGroup(), "rule__UiTextField__Group__0");
-					put(grammarAccess.getUiTextFieldAccess().getGroup_3(), "rule__UiTextField__Group_3__0");
+					put(grammarAccess.getUiTextFieldAccess().getGroup_2(), "rule__UiTextField__Group_2__0");
+					put(grammarAccess.getUiTextFieldAccess().getGroup_2_1_0(), "rule__UiTextField__Group_2_1_0__0");
+					put(grammarAccess.getUiTextFieldAccess().getGroup_2_1_1(), "rule__UiTextField__Group_2_1_1__0");
+					put(grammarAccess.getUiTextFieldAccess().getGroup_2_1_2(), "rule__UiTextField__Group_2_1_2__0");
+					put(grammarAccess.getUiTextFieldAccess().getGroup_4(), "rule__UiTextField__Group_4__0");
 					put(grammarAccess.getUiTextAreaAccess().getGroup(), "rule__UiTextArea__Group__0");
 					put(grammarAccess.getUiTextAreaAccess().getGroup_3(), "rule__UiTextArea__Group_3__0");
 					put(grammarAccess.getUiDateFieldAccess().getGroup(), "rule__UiDateField__Group__0");
@@ -444,8 +448,11 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getElementAssignment(), "rule__UiMobileNavigationPageAssignment__ElementAssignment");
 					put(grammarAccess.getUiPointAccess().getXAssignment_0(), "rule__UiPoint__XAssignment_0");
 					put(grammarAccess.getUiPointAccess().getYAssignment_2(), "rule__UiPoint__YAssignment_2");
-					put(grammarAccess.getUiTextFieldAccess().getNameAssignment_2(), "rule__UiTextField__NameAssignment_2");
-					put(grammarAccess.getUiTextFieldAccess().getValidatorsAssignment_3_1(), "rule__UiTextField__ValidatorsAssignment_3_1");
+					put(grammarAccess.getUiTextFieldAccess().getMaxLengthAssignment_2_1_0_1(), "rule__UiTextField__MaxLengthAssignment_2_1_0_1");
+					put(grammarAccess.getUiTextFieldAccess().getMinLengthAssignment_2_1_1_1(), "rule__UiTextField__MinLengthAssignment_2_1_1_1");
+					put(grammarAccess.getUiTextFieldAccess().getRegexAssignment_2_1_2_1(), "rule__UiTextField__RegexAssignment_2_1_2_1");
+					put(grammarAccess.getUiTextFieldAccess().getNameAssignment_3(), "rule__UiTextField__NameAssignment_3");
+					put(grammarAccess.getUiTextFieldAccess().getValidatorsAssignment_4_1(), "rule__UiTextField__ValidatorsAssignment_4_1");
 					put(grammarAccess.getUiTextAreaAccess().getNameAssignment_2(), "rule__UiTextArea__NameAssignment_2");
 					put(grammarAccess.getUiTextAreaAccess().getValidatorsAssignment_3_1(), "rule__UiTextArea__ValidatorsAssignment_3_1");
 					put(grammarAccess.getUiDateFieldAccess().getNameAssignment_2(), "rule__UiDateField__NameAssignment_2");
@@ -642,6 +649,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getXImportDeclarationAccess().getImportedTypeAssignment_1_1(), "rule__XImportDeclaration__ImportedTypeAssignment_1_1");
 					put(grammarAccess.getXImportDeclarationAccess().getImportedNamespaceAssignment_1_2(), "rule__XImportDeclaration__ImportedNamespaceAssignment_1_2");
 					put(grammarAccess.getUiGridLayoutAccess().getUnorderedGroup_2_1(), "rule__UiGridLayout__UnorderedGroup_2_1");
+					put(grammarAccess.getUiTextFieldAccess().getUnorderedGroup_2_1(), "rule__UiTextField__UnorderedGroup_2_1");
 					put(grammarAccess.getUiTableAccess().getUnorderedGroup_3_1(), "rule__UiTable__UnorderedGroup_3_1");
 					put(grammarAccess.getUiComboBoxAccess().getUnorderedGroup_3_1(), "rule__UiComboBox__UnorderedGroup_3_1");
 					put(grammarAccess.getUiDecimalFieldAccess().getUnorderedGroup_2_1(), "rule__UiDecimalField__UnorderedGroup_2_1");

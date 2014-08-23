@@ -40,6 +40,7 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDecimalDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YBrowser;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
@@ -1206,6 +1207,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     textField.setName(_name);
     String _name_1 = object.getName();
     textField.setLabel(_name_1);
+    final YTextDatatype dt = this.factory.createTextDatatype();
+    textField.setDatatype(dt);
+    EList<YDatatype> _orphanDatatypes = textField.getOrphanDatatypes();
+    _orphanDatatypes.add(dt);
+    int _maxLength = object.getMaxLength();
+    dt.setMaxLength(_maxLength);
+    int _minLength = object.getMinLength();
+    dt.setMinLength(_minLength);
+    String _regex = object.getRegex();
+    dt.setRegExpression(_regex);
     this.associateUi(object, textField);
     return textField;
   }

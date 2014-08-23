@@ -891,7 +891,14 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val YTextField textField = factory.createTextField
 		textField.name = object.name
 		textField.label = object.name
-
+		
+		val dt = factory.createTextDatatype
+		textField.datatype = dt
+		textField.orphanDatatypes += dt
+		
+		dt.maxLength = object.maxLength
+		dt.minLength = object.minLength
+		dt.regExpression = object.regex
 		object.associateUi(textField)
 
 		return textField
