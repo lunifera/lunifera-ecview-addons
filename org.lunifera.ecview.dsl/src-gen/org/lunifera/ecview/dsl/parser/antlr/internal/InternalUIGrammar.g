@@ -4861,9 +4861,9 @@ ruleUiRadioButtonGroup returns [EObject current=null]
             grammarAccess.getUiRadioButtonGroupAccess().getUiRadioButtonGroupAction_0(),
             $current);
     }
-)	otherlv_1='radiobuttons' 
+)	otherlv_1='optionsgroup' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getUiRadioButtonGroupAccess().getRadiobuttonsKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getUiRadioButtonGroupAccess().getOptionsgroupKeyword_1());
     }
 (
 (

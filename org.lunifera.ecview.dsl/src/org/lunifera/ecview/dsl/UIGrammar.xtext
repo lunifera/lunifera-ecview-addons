@@ -364,7 +364,7 @@ UiDecimalField returns UiDecimalField:
 
 UiRadioButtonGroup:
 	{UiRadioButtonGroup}
-	'radiobuttons'
+	'optionsgroup'
 	name=ID?
 	('{'
 	(('type' jvmType=JvmTypeReference)?

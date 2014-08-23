@@ -1391,12 +1391,18 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     UiSelectionType _selectionType = object.getSelectionType();
     YSelectionType _convert = this.convert(_selectionType);
     optionsGroup.setSelectionType(_convert);
-    JvmField _itemImageProperty = object.getItemImageProperty();
+    JvmField _itemCaptionProperty = object.getItemCaptionProperty();
     String _simpleName = null;
-    if (_itemImageProperty!=null) {
-      _simpleName=_itemImageProperty.getSimpleName();
+    if (_itemCaptionProperty!=null) {
+      _simpleName=_itemCaptionProperty.getSimpleName();
     }
-    optionsGroup.setItemImageProperty(_simpleName);
+    optionsGroup.setItemCaptionProperty(_simpleName);
+    JvmField _itemImageProperty = object.getItemImageProperty();
+    String _simpleName_1 = null;
+    if (_itemImageProperty!=null) {
+      _simpleName_1=_itemImageProperty.getSimpleName();
+    }
+    optionsGroup.setItemImageProperty(_simpleName_1);
     JvmTypeReference _jvmType = object.getJvmType();
     boolean _notEquals = (!Objects.equal(_jvmType, null));
     if (_notEquals) {

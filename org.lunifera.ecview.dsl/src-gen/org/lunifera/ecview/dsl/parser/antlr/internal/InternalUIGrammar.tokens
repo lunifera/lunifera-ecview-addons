@@ -292,6 +292,6 @@ RULE_WS=11
 'textfield'=59
 'verticalGroup'=49
 'browser'=66
+'optionsgroup'=85
 '*'=116
-'radiobuttons'=85
 'icon'=88

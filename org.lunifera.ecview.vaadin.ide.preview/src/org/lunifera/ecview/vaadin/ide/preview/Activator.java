@@ -171,9 +171,8 @@ public class Activator extends AbstractUIPlugin implements
 	protected void handleStartedBundles(BundleContext context) {
 		for (Bundle bundle : context.getBundles()) {
 			String name = bundle.getSymbolicName();
-			if (bundle.getState() != BundleEvent.STOPPED
-					&& (name.startsWith("com.vaadin") || name
-							.equals("org.lunifera.runtime.web.vaadin.widgetset"))) {
+			if (name.startsWith("com.vaadin")
+					|| name.equals("org.lunifera.runtime.web.vaadin.widgetset")) {
 				resourceProvider.add(bundle);
 			} else if (bundle.getState() == Bundle.RESOLVED
 					&& name.equals("org.eclipse.equinox.http.jetty")) {

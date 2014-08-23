@@ -16711,11 +16711,11 @@ rule__UiRadioButtonGroup__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getUiRadioButtonGroupAccess().getRadiobuttonsKeyword_1()); }
+{ before(grammarAccess.getUiRadioButtonGroupAccess().getOptionsgroupKeyword_1()); }
 
-	'radiobuttons' 
+	'optionsgroup' 
 
-{ after(grammarAccess.getUiRadioButtonGroupAccess().getRadiobuttonsKeyword_1()); }
+{ after(grammarAccess.getUiRadioButtonGroupAccess().getOptionsgroupKeyword_1()); }
 )
 
 ;

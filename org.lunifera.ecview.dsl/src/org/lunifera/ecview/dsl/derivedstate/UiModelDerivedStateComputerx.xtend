@@ -1038,7 +1038,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		optionsGroup.name = object.name
 		optionsGroup.label = object.name
 		optionsGroup.selectionType = object.selectionType.convert
-
+ 
+		optionsGroup.itemCaptionProperty = object.itemCaptionProperty?.simpleName
 		optionsGroup.itemImageProperty = object.itemImageProperty?.simpleName
 		if (object.jvmType != null) {
 			optionsGroup.typeQualifiedName = object.jvmType.qualifiedName

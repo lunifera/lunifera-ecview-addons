@@ -2916,7 +2916,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiRadioButtonGroup");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cUiRadioButtonGroupAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cRadiobuttonsKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cOptionsgroupKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
@@ -2945,12 +2945,12 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
 		
 		//UiRadioButtonGroup:
-		//	{UiRadioButtonGroup} "radiobuttons" name=ID? ("{" (("type" jvmType=JvmTypeReference)? & ("selectionType"
+		//	{UiRadioButtonGroup} "optionsgroup" name=ID? ("{" (("type" jvmType=JvmTypeReference)? & ("selectionType"
 		//	selectionType=UiSelectionType)? & ("captionField" itemCaptionProperty=[JvmField])? & ("imageField"
 		//	itemImageProperty=[JvmField])?) bindings+=UiBinding* "}")?;
 		public ParserRule getRule() { return rule; }
 
-		//{UiRadioButtonGroup} "radiobuttons" name=ID? ("{" (("type" jvmType=JvmTypeReference)? & ("selectionType"
+		//{UiRadioButtonGroup} "optionsgroup" name=ID? ("{" (("type" jvmType=JvmTypeReference)? & ("selectionType"
 		//selectionType=UiSelectionType)? & ("captionField" itemCaptionProperty=[JvmField])? & ("imageField"
 		//itemImageProperty=[JvmField])?) bindings+=UiBinding* "}")?
 		public Group getGroup() { return cGroup; }
@@ -2958,8 +2958,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//{UiRadioButtonGroup}
 		public Action getUiRadioButtonGroupAction_0() { return cUiRadioButtonGroupAction_0; }
 
-		//"radiobuttons"
-		public Keyword getRadiobuttonsKeyword_1() { return cRadiobuttonsKeyword_1; }
+		//"optionsgroup"
+		public Keyword getOptionsgroupKeyword_1() { return cOptionsgroupKeyword_1; }
 
 		//name=ID?
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
@@ -4483,7 +4483,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiRadioButtonGroup:
-	//	{UiRadioButtonGroup} "radiobuttons" name=ID? ("{" (("type" jvmType=JvmTypeReference)? & ("selectionType"
+	//	{UiRadioButtonGroup} "optionsgroup" name=ID? ("{" (("type" jvmType=JvmTypeReference)? & ("selectionType"
 	//	selectionType=UiSelectionType)? & ("captionField" itemCaptionProperty=[JvmField])? & ("imageField"
 	//	itemImageProperty=[JvmField])?) bindings+=UiBinding* "}")?;
 	public UiRadioButtonGroupElements getUiRadioButtonGroupAccess() {
