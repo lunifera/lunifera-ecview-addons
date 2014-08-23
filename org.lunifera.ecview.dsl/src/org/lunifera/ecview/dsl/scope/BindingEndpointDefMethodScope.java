@@ -1,6 +1,7 @@
 package org.lunifera.ecview.dsl.scope;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -29,8 +30,10 @@ public class BindingEndpointDefMethodScope extends AbstractScope {
 
 	@Override
 	protected Iterable<IEObjectDescription> getAllLocalElements() {
-		UiRawBindable yEmb = bindingEndpointDef.getRawBindable();
-
+		UiRawBindable yEmb = bindingEndpointDef.getRawBindableOfLastSegment();
+		if(yEmb == null){
+			return Collections.emptyList();
+		}
 		List<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 		for (IEObjectDescription des : desc
 				.getExportedObjectsByType(UiSemanticsPackage.Literals.UX_ENDPOINT_DEF)) {

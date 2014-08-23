@@ -72,6 +72,7 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_BINDING_ENDPOINT_ASSIGNMENT: return createUiBindingEndpointAssignment();
 			case UiModelPackage.UI_BINDING: return createUiBinding();
 			case UiModelPackage.UI_PATH_SEGMENT: return createUiPathSegment();
+			case UiModelPackage.UI_RAW_BINDABLE_PATH_SEGMENT: return createUiRawBindablePathSegment();
 			case UiModelPackage.UI_TYPED_BINDABLE_DEF: return createUiTypedBindableDef();
 			case UiModelPackage.UI_COMMAND_BINDABLE_DEF: return createUiCommandBindableDef();
 			case UiModelPackage.UI_ACTION: return createUiAction();
@@ -123,6 +124,10 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_MOBILE_NAVIGATION_BUTTON: return createUiMobileNavigationButton();
 			case UiModelPackage.UI_MOBILE_NAVIGATION_COMMAND: return createUiMobileNavigationCommand();
 			case UiModelPackage.UI_OPEN_DIALOG_COMMAND: return createUiOpenDialogCommand();
+			case UiModelPackage.UI_SEARCH_FIELD: return createUiSearchField();
+			case UiModelPackage.UI_SEARCH_DIALOG: return createUiSearchDialog();
+			case UiModelPackage.UI_DIALOG_SEARCH_FIELD_ASSIGNMENT: return createUiDialogSearchFieldAssignment();
+			case UiModelPackage.UI_SEARCH_WITH_DIALOG_COMMAND: return createUiSearchWithDialogCommand();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -290,6 +295,16 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiPathSegment createUiPathSegment() {
 		UiPathSegmentImpl uiPathSegment = new UiPathSegmentImpl();
 		return uiPathSegment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiRawBindablePathSegment createUiRawBindablePathSegment() {
+		UiRawBindablePathSegmentImpl uiRawBindablePathSegment = new UiRawBindablePathSegmentImpl();
+		return uiRawBindablePathSegment;
 	}
 
 	/**
@@ -820,6 +835,46 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiOpenDialogCommand createUiOpenDialogCommand() {
 		UiOpenDialogCommandImpl uiOpenDialogCommand = new UiOpenDialogCommandImpl();
 		return uiOpenDialogCommand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiSearchField createUiSearchField() {
+		UiSearchFieldImpl uiSearchField = new UiSearchFieldImpl();
+		return uiSearchField;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiSearchDialog createUiSearchDialog() {
+		UiSearchDialogImpl uiSearchDialog = new UiSearchDialogImpl();
+		return uiSearchDialog;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiDialogSearchFieldAssignment createUiDialogSearchFieldAssignment() {
+		UiDialogSearchFieldAssignmentImpl uiDialogSearchFieldAssignment = new UiDialogSearchFieldAssignmentImpl();
+		return uiDialogSearchFieldAssignment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiSearchWithDialogCommand createUiSearchWithDialogCommand() {
+		UiSearchWithDialogCommandImpl uiSearchWithDialogCommand = new UiSearchWithDialogCommandImpl();
+		return uiSearchWithDialogCommand;
 	}
 
 	/**

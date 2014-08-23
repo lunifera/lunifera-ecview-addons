@@ -18,11 +18,11 @@ UiRootElements returns UiRootElements:
 	UiView | UiViewSet | UiValidatorAlias | UiMobileView;
 
 UiValidatorAlias returns UiValidatorAlias:
-	'validatorAlias' validator=UiValidator 'as' alias=ID;
+	'validatorAlias' validator=UiValidator 'as' alias=ID (';')?;
 
 UiValidatorAssignment returns UiValidatorAssignment:
 	'fieldValidation' field=[UiField] '+=' (validatorDef=UiValidatorDef | validatorAlias=[UiValidatorAlias|QualifiedName]
-	';');
+	(';')?);
 
 UiValidatorDef returns UiValidatorDef:
 	validator=UiValidator;
@@ -34,46 +34,49 @@ UiViewSet returns UiViewSet:
 	'}';
 
 UiBindingEndpointAlias returns UiBindingEndpointAlias:
-	'dataAlias' endpoint=UiBindingEndpointAssignment 'as' alias=ID;
+	'dataAlias' endpoint=UiBindingEndpointAssignment 'as' alias=ID (';')?;
 
 UiBeanSlot returns UiBeanSlot:
-	'datasource' name=ID ':' jvmType=JvmTypeReference;
+	'datasource' name=ID ':' jvmType=JvmTypeReference (';')?;
 
 UiBinding returns UiBinding:
 	'bind' (listBinding?='list')? source=UiBindingEndpointAssignment ((targetToSource?='<')? '--'
-	(sourceToTarget?='>')?) target=UiBindingEndpointAssignment;
+	(sourceToTarget?='>')?) target=UiBindingEndpointAssignment (';')?;
 
 UiBindingEndpointAssignment returns UiBindingExpression:
-	((UiTypedBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} path=(UiPathSegment)?) 
-		| (UiCommandBindableDef {UiBindingEndpointAssignment.typedBindableDef=current}) 
-		| ({UiBindingEndpointAssignment} typedBindableAlias=[UiTypedBindable] path=(UiPathSegment)?));
+	((UiTypedBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} path=(UiPathSegment)?)
+	| (UiCommandBindableDef {UiBindingEndpointAssignment.typedBindableDef=current})
+	| ({UiBindingEndpointAssignment} typedBindableAlias=[UiTypedBindable] path=(UiPathSegment)?));
 
 UiPathSegment returns UiPathSegment:
 	'.' jvmField=[JvmField] path=(UiPathSegment)?;
 
 UiTypedBindableDef returns UiBindingExpression:
 	{UiTypedBindableDef}
-	(rawBindable=[UiRawBindable|ID] ':' method=[cfg::UxEndpointDef]);
+	('[' rawBindable=[UiRawBindable] (rawBindablePath=UiRawBindablePathSegment)? ']' '.' method=[cfg::UxEndpointDef]);
+
+UiRawBindablePathSegment:
+	{UiRawBindablePathSegment}
+	'.' rawBindable=[UiRawBindable] (path=UiRawBindablePathSegment)?;
 
 UiCommandBindableDef returns UiCommandBindableDef:
 	{UiCommandBindableDef}
-	command=UiCommand
-;
+	command=UiCommand;
 
 UiCommand returns UiCommand:
-	UiMobileNavigationCommand | UiOpenDialogCommand
-;
+	UiMobileNavigationCommand | UiOpenDialogCommand | UiSearchWithDialogCommand;
 
 UiMobileNavigationCommand:
 	{UiMobileNavigationCommand}
-	'navigateTo' targetPage=UiMobileNavigationPage
-;
+	'navigateTo' targetPage=UiMobileNavigationPage;
 
 UiOpenDialogCommand:
 	{UiOpenDialogCommand}
-	'openDialog' dialog=UiDialog
-;
+	'openDialog' dialog=UiDialog;
 
+UiSearchWithDialogCommand:
+	{UiSearchWithDialogCommand}
+	'searchWith' dialog=UiSearchDialog;
 
 UiView returns UiView:
 	UiIDEView;
@@ -81,7 +84,7 @@ UiView returns UiView:
 UiIDEView returns UiIDEView:
 	'ideview' name=ID
 	'{'
-	('viewset' viewSet=[UiViewSet])?
+	('viewset' viewSet=[UiViewSet] (';')?)?
 	(beanSlots+=UiBeanSlot)*
 	(content=UiEmbeddable)?
 	// TODO make unordered group
@@ -93,7 +96,7 @@ UiIDEView returns UiIDEView:
 UiMobileView returns UiMobileView:
 	'mobile' name=ID
 	'{'
-	('viewset' viewSet=[UiViewSet])?
+	('viewset' viewSet=[UiViewSet] (';')?)?
 	(beanSlots+=UiBeanSlot)*
 	(content=UiEmbeddable)?
 	// TODO make unordered group
@@ -160,7 +163,7 @@ UiMobileHorizontalButtonGroup returns UiHorizontalButtonGroup:
 
 UiMobileHorizontalButtonGroupAssigment returns UiHorizontalButtonGroupAssigment:
 	element=UiEmbeddable;
-	
+
 UiMobileVerticalComponentGroup returns UiVerticalComponentGroup:
 	{UiVerticalComponentGroup}
 	'verticalGroup'
@@ -172,8 +175,8 @@ UiMobileVerticalComponentGroup returns UiVerticalComponentGroup:
 
 UiMobileVerticalComponentGroupAssigment returns UiVerticalComponentGroupAssigment:
 	element=UiEmbeddable;
-	
-UiMobileTabSheet: 
+
+UiMobileTabSheet:
 	{UiMobileTabSheet}
 	'mobileTab'
 	name=ID?
@@ -183,8 +186,8 @@ UiMobileTabSheet:
 
 UiMobileTabAssignment:
 	'tab' (name=ID)? element=UiEmbeddable;
-	
-UiTabSheet: 
+
+UiTabSheet:
 	{UiTabSheet}
 	'tabsheet'
 	name=ID?
@@ -198,23 +201,39 @@ UiTabAssignment:
 UiDialog:
 	{UiDialog}
 	'dialog' name=ID? '{'
-		('type' jvmType=JvmTypeReference ';')?
-		(content=UiDialogAssignment)?
-		(bindings+=UiBinding)*
+	('type' jvmType=JvmTypeReference (';')?)?
+	(content=UiDialogAssignment (';')?)?
+	(bindings+=UiBinding)*
 	'}';
 
-UiDialogAssignment: 
+UiDialogAssignment:
 	element=UiEmbeddable;
 
-UiMobileNavigationPage: 
-	{UiMobileNavigationPage}
-	'navPage' name=ID? '{'
-		('type' jvmType=JvmTypeReference ';')?
-		(contents+=UiMobileNavigationPageAssignment)*
-		(bindings+=UiBinding)*
+UiSearchDialog:
+	{UiSearchDialog}
+	'searchdialog' name=ID? '{'
+	('type' jvmType=JvmTypeReference (';')?)?
+	('search' '{'
+	searchFields+=UiDialogSearchFieldAssignment*
+	'}')?
+	('content' '{'
+	content=UiDialogAssignment
+	'}')?
+	(bindings+=UiBinding)*
 	'}';
 
-UiMobileNavigationPageAssignment: 
+UiDialogSearchFieldAssignment:
+	element=UiSearchField;
+
+UiMobileNavigationPage:
+	{UiMobileNavigationPage}
+	'navPage' name=ID? '{'
+	('type' jvmType=JvmTypeReference (';')?)?
+	(contents+=UiMobileNavigationPageAssignment)*
+	(bindings+=UiBinding)*
+	'}';
+
+UiMobileNavigationPageAssignment:
 	element=UiEmbeddable;
 
 UiPoint returns UiPoint:
@@ -227,13 +246,17 @@ UiTextField returns UiTextField:
 	(validators+=UiValidator)*
 	//	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
-	
+
+UiSearchField:
+	{UiSearchField}
+	'searchfield' property=[JvmField];
+
 UiImage returns UiImage:
 	{UiImage}
 	'image' name=ID?
 	('{'
-		('iconPath' value=STRING)?
-		(bindings+=UiBinding)*
+	('iconPath' value=STRING (';')?)?
+	(bindings+=UiBinding)*
 	'}')?;
 
 UiList returns UiList:
@@ -244,35 +267,34 @@ UiTable returns UiTable:
 	{UiTable}
 	'table' name=ID?
 	('{'
-	('type' jvmType=JvmTypeReference ';')?
-	('selectionType' selectionType=UiSelectionType)?
-	('imageField' itemImageProperty=[JvmField])?
+	('type' jvmType=JvmTypeReference (';')?)?
+	('selectionType' selectionType=UiSelectionType (';')?)?
+	('imageField' itemImageProperty=[JvmField] (';')?)?
 	columnAssignment=UiColumnAssignments?
 	(bindings+=UiBinding)*
 	'}')?;
-	 
+
 UiComboBox returns UiComboBox:
 	{UiComboBox}
 	'combo' name=ID?
 	('{'
-	('type' jvmType=JvmTypeReference ';')?
-		('captionField' itemCaptionProperty=[JvmField])?
-		('imageField' itemImageProperty=[JvmField])?
-		(bindings+=UiBinding)*
+	('type' jvmType=JvmTypeReference (';')?)?
+	('captionField' itemCaptionProperty=[JvmField] (';')?)?
+	('imageField' itemImageProperty=[JvmField] (';')?)?
+	(bindings+=UiBinding)*
 	'}')?;
 
 UiButton:
 	{UiButton}
 	'button' name=ID?;
-	
-UiMobileNavigationButton: 
+
+UiMobileNavigationButton:
 	{UiMobileNavigationButton}
 	'navButton' name=ID? (targetPage=UiMobileNavigationPage | 'alias' targetPageAlias=[UiMobileNavigationPage]);
 
 UiMobileSwitch returns UiSwitch:
 	{UiSwitch}
-	'switchIt' name=ID?
-; 	
+	'switchIt' name=ID?;
 
 enum UiSelectionType:
 	SINGLE='single' | MULTI='multi' | NONE='none';
@@ -285,7 +307,7 @@ UiColumnAssignments:
 
 UiColumn returns UiColumn:
 	{UiColumn}
-	'column' jvmField=[JvmField] ('icon' iconName=STRING)? ';';
+	'column' jvmField=[JvmField] ('icon' iconName=STRING)? (';')?;
 
 UiEmbeddable:
 	UiLayout | UiField | UiAction | UiTabSheet | UiMobileEmbeddable;
@@ -295,7 +317,7 @@ UiMobileEmbeddable:
 
 UiMobileLayout:
 	UiMobileHorizontalButtonGroup | UiMobileVerticalComponentGroup | UiMobileNavigationPage;
-	
+
 UiMobileField:
 	UiMobileSwitch;
 
@@ -303,14 +325,13 @@ UiLayout:
 	UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout;
 
 UiField:
-	UiTextField | UiList | UiNumericField | UiCheckBox | UiTable | UiComboBox | UiImage;
+	UiTextField | UiList | UiNumericField | UiCheckBox | UiTable | UiComboBox | UiImage | UiSearchField;
 
 UiAction:
 	UiButton;
 
 UiMobileAction:
-	UiMobileNavigationButton
-;
+	UiMobileNavigationButton;
 
 UiNumericField:
 	{UiNumericField}

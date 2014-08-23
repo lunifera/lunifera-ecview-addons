@@ -1,89 +1,99 @@
 package org.lunifera.ecview.dsl.scope;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.resource.EObjectDescription;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractScope;
-import org.eclipse.xtext.xbase.typesystem.internal.ExpressionScope.Scope;
-import org.lunifera.ecview.semantic.uimodel.UiBinding;
-import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
-import org.lunifera.ecview.semantic.uimodel.UiLayoutAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
+import org.lunifera.ecview.semantic.uimodel.UiView;
 
 public class BindingEndpointDefRawBindableScope extends AbstractScope {
 
 	private EObject context;
-	private IScope parent;
 	private IQualifiedNameProvider nameProvider;
 
-	protected BindingEndpointDefRawBindableScope(IScope parent,
-			EObject context, IQualifiedNameProvider nameProvider) {
+	protected BindingEndpointDefRawBindableScope(EObject context,
+			IQualifiedNameProvider nameProvider) {
 		super(IScope.NULLSCOPE, true);
-		this.parent = parent;
 		this.context = context;
 		this.nameProvider = nameProvider;
 	}
 
 	@Override
 	protected Iterable<IEObjectDescription> getAllLocalElements() {
-		if (context instanceof UiBinding) {
-			UiBinding binding = (UiBinding) context;
-			return toScope(binding);
-		} else if (context instanceof UiTypedBindableDef) {
+		if (context instanceof UiTypedBindableDef) {
 			UiTypedBindableDef def = (UiTypedBindableDef) context;
-			UiBinding binding = findBinding(def);
-			if (binding != null) {
-				return toScope(binding);
-			}
-		}
-		return parent.getAllElements();
-	}
-
-	protected Iterable<IEObjectDescription> toScope(UiBinding binding) {
-		EObject container = binding.eContainer();
-		if (container instanceof UiEmbeddable) {
-//			EObject parentContainer = container.eContainer();
-//
-//			TreeIterator<EObject> iterator = parentContainer.eAllContents();
-//			while (iterator.hasNext()) {
-//				EObject element = iterator.next();
-//				if (!(element instanceof UiEmbeddable)
-//						&& !(element instanceof UiLayoutAssignment)) {
-//					iterator.prune();
-//				} else {
-//					if (element instanceof UiEmbeddable) {
-//						result.add(EObjectDescription.create(
-//								nameProvider.getFullyQualifiedName(element),
-//								element));
-//					}
-//				}
-//			}
-
 			List<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
-			// add "this" to the available list of bindables
-			result.add(EObjectDescription.create("this", container));
-			 for (IEObjectDescription des : parent.getAllElements()) {
-				 result.add(des);
-			 }
+			result.add(EObjectDescription.create("this",
+					findRawBindableParent(def)));
+			UiView view = findView(def);
+			if (view != null) {
+				result.add(EObjectDescription.create(view.getName(), view));
+			}
 
+			// result.addAll(collectRawBindables(def));
 			return result;
-		} else {
-			return parent.getAllElements();
 		}
+
+		return Collections.emptyList();
 	}
 
-	private UiBinding findBinding(EObject def) {
-		UiBinding result = null;
+	// protected List<IEObjectDescription> collectRawBindables(EObject
+	// container) {
+	// List<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+	// for (EObject object : container.eContents()) {
+	// if (object instanceof UiRawBindable
+	// && isValid(((UiRawBindable) object).getName())) {
+	// result.add(EObjectDescription.create(
+	// ((UiRawBindable) object).getName(), object));
+	// } else if (object instanceof UiRawBindableProvider) {
+	// // direct children may be of type UiRawBindable
+	// result.addAll(collectRawBindables(object));
+	// }
+	// }
+	// return result;
+	// }
+
+	// protected List<IEObjectDescription> collectRawBindables(
+	// UiTypedBindableDef def) {
+	// EObject rawBindableParent = findRawBindableParent(def);
+	// if (rawBindableParent == null) {
+	// rawBindableParent = findView(def);
+	// }
+	// List<IEObjectDescription> result =
+	// collectRawBindables(rawBindableParent);
+	// return result;
+	// }
+
+	// private boolean isValid(String value) {
+	// return value != null && !value.equals("");
+	// }
+
+	private UiRawBindable findRawBindableParent(EObject eObject) {
+		UiRawBindable result = null;
+		while (eObject != null && eObject.eContainer() != null) {
+			if (eObject instanceof UiRawBindable) {
+				result = (UiRawBindable) eObject;
+				break;
+			}
+			eObject = eObject.eContainer();
+		}
+		return result;
+	}
+
+	private UiView findView(EObject def) {
+		UiView result = null;
 		while (def.eContainer() != null) {
 			def = def.eContainer();
-			if (def instanceof UiBinding) {
-				result = (UiBinding) def;
+			if (def instanceof UiView) {
+				result = (UiView) def;
 				break;
 			}
 		}

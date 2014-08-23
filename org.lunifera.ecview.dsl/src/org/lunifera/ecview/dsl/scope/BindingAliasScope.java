@@ -40,7 +40,8 @@ public class BindingAliasScope extends AbstractScope {
 					.getSource();
 			UxEndpointDef uxSourceEndpointDef = (UxEndpointDef) sourceTypedBindableDef
 					.getMethod();
-			UiRawBindable bindable = sourceTypedBindableDef.getRawBindable();
+			UiRawBindable bindable = sourceTypedBindableDef
+					.getRawBindablePath().getRawBindableOfLastSegment();
 			if (uxSourceEndpointDef == null) {
 				return parent.getAllElements();
 			}

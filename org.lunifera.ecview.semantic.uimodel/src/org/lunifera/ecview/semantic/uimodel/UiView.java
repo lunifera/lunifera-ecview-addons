@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface UiView extends UiContext {
+public interface UiView extends UiContext, UiRawBindable {
 
 	/**
 	 * Returns the value of the '<em><b>View Set</b></em>' reference.

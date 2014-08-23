@@ -27,6 +27,7 @@ import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
 import org.lunifera.ecview.semantic.uimodel.UiContext;
 import org.lunifera.ecview.semantic.uimodel.UiDialog;
 import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiField;
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
@@ -67,8 +68,13 @@ import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
+import org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment;
+import org.lunifera.ecview.semantic.uimodel.UiRawBindableProvider;
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
+import org.lunifera.ecview.semantic.uimodel.UiSearchDialog;
+import org.lunifera.ecview.semantic.uimodel.UiSearchField;
+import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
 import org.lunifera.ecview.semantic.uimodel.UiSwitch;
 import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
@@ -288,6 +294,20 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiRawBindableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiRawBindableProviderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiRawBindablePathSegmentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -694,6 +714,34 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiOpenDialogCommandEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiSearchFieldEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiSearchDialogEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiDialogSearchFieldAssignmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiSearchWithDialogCommandEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1328,8 +1376,17 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUiTypedBindableDef_Method() {
+	public EReference getUiTypedBindableDef_RawBindablePath() {
 		return (EReference)uiTypedBindableDefEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiTypedBindableDef_Method() {
+		return (EReference)uiTypedBindableDefEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1357,6 +1414,42 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EClass getUiRawBindable() {
 		return uiRawBindableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiRawBindableProvider() {
+		return uiRawBindableProviderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiRawBindablePathSegment() {
+		return uiRawBindablePathSegmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiRawBindablePathSegment_RawBindable() {
+		return (EReference)uiRawBindablePathSegmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiRawBindablePathSegment_Path() {
+		return (EReference)uiRawBindablePathSegmentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2480,6 +2573,87 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiSearchField() {
+		return uiSearchFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiSearchField_Property() {
+		return (EReference)uiSearchFieldEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiSearchDialog() {
+		return uiSearchDialogEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiSearchDialog_SearchFields() {
+		return (EReference)uiSearchDialogEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiSearchDialog_Content() {
+		return (EReference)uiSearchDialogEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiDialogSearchFieldAssignment() {
+		return uiDialogSearchFieldAssignmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiDialogSearchFieldAssignment_Element() {
+		return (EReference)uiDialogSearchFieldAssignmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiSearchWithDialogCommand() {
+		return uiSearchWithDialogCommandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiSearchWithDialogCommand_Dialog() {
+		return (EReference)uiSearchWithDialogCommandEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getUiFlatAlignment() {
 		return uiFlatAlignmentEEnum;
 	}
@@ -2590,10 +2764,17 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiRawBindableEClass = createEClass(UI_RAW_BINDABLE);
 
+		uiRawBindableProviderEClass = createEClass(UI_RAW_BINDABLE_PROVIDER);
+
+		uiRawBindablePathSegmentEClass = createEClass(UI_RAW_BINDABLE_PATH_SEGMENT);
+		createEReference(uiRawBindablePathSegmentEClass, UI_RAW_BINDABLE_PATH_SEGMENT__RAW_BINDABLE);
+		createEReference(uiRawBindablePathSegmentEClass, UI_RAW_BINDABLE_PATH_SEGMENT__PATH);
+
 		uiTypedBindableEClass = createEClass(UI_TYPED_BINDABLE);
 
 		uiTypedBindableDefEClass = createEClass(UI_TYPED_BINDABLE_DEF);
 		createEReference(uiTypedBindableDefEClass, UI_TYPED_BINDABLE_DEF__RAW_BINDABLE);
+		createEReference(uiTypedBindableDefEClass, UI_TYPED_BINDABLE_DEF__RAW_BINDABLE_PATH);
 		createEReference(uiTypedBindableDefEClass, UI_TYPED_BINDABLE_DEF__METHOD);
 
 		uiCommandBindableDefEClass = createEClass(UI_COMMAND_BINDABLE_DEF);
@@ -2794,6 +2975,19 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiOpenDialogCommandEClass = createEClass(UI_OPEN_DIALOG_COMMAND);
 		createEReference(uiOpenDialogCommandEClass, UI_OPEN_DIALOG_COMMAND__DIALOG);
 
+		uiSearchFieldEClass = createEClass(UI_SEARCH_FIELD);
+		createEReference(uiSearchFieldEClass, UI_SEARCH_FIELD__PROPERTY);
+
+		uiSearchDialogEClass = createEClass(UI_SEARCH_DIALOG);
+		createEReference(uiSearchDialogEClass, UI_SEARCH_DIALOG__SEARCH_FIELDS);
+		createEReference(uiSearchDialogEClass, UI_SEARCH_DIALOG__CONTENT);
+
+		uiDialogSearchFieldAssignmentEClass = createEClass(UI_DIALOG_SEARCH_FIELD_ASSIGNMENT);
+		createEReference(uiDialogSearchFieldAssignmentEClass, UI_DIALOG_SEARCH_FIELD_ASSIGNMENT__ELEMENT);
+
+		uiSearchWithDialogCommandEClass = createEClass(UI_SEARCH_WITH_DIALOG_COMMAND);
+		createEReference(uiSearchWithDialogCommandEClass, UI_SEARCH_WITH_DIALOG_COMMAND__DIALOG);
+
 		// Create enums
 		uiFlatAlignmentEEnum = createEEnum(UI_FLAT_ALIGNMENT);
 		uiSelectionTypeEEnum = createEEnum(UI_SELECTION_TYPE);
@@ -2837,6 +3031,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiContextEClass.getESuperTypes().add(this.getUiRootElements());
 		uiViewSetEClass.getESuperTypes().add(this.getUiContext());
 		uiViewEClass.getESuperTypes().add(this.getUiContext());
+		uiViewEClass.getESuperTypes().add(this.getUiRawBindable());
 		uiDialogEClass.getESuperTypes().add(this.getUiEmbeddable());
 		uiDialogEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiDialogAssignmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
@@ -2858,6 +3053,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiFieldEClass.getESuperTypes().add(this.getUiEmbeddable());
 		uiLayoutEClass.getESuperTypes().add(this.getUiEmbeddable());
 		uiLayoutAssignmentEClass.getESuperTypes().add(this.getUiNamedElement());
+		uiLayoutAssignmentEClass.getESuperTypes().add(this.getUiRawBindableProvider());
 		uiActionEClass.getESuperTypes().add(this.getUiEmbeddable());
 		uiMobileEmbeddableEClass.getESuperTypes().add(this.getUiEmbeddable());
 		uiMobileFieldEClass.getESuperTypes().add(this.getUiMobileEmbeddable());
@@ -2918,6 +3114,11 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiCommandEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiMobileNavigationCommandEClass.getESuperTypes().add(this.getUiCommand());
 		uiOpenDialogCommandEClass.getESuperTypes().add(this.getUiCommand());
+		uiSearchFieldEClass.getESuperTypes().add(this.getUiField());
+		uiSearchDialogEClass.getESuperTypes().add(this.getUiEmbeddable());
+		uiSearchDialogEClass.getESuperTypes().add(this.getUiTypeProvider());
+		uiDialogSearchFieldAssignmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
+		uiSearchWithDialogCommandEClass.getESuperTypes().add(this.getUiCommand());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(uiNamedElementEClass, UiNamedElement.class, "UiNamedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2989,10 +3190,17 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiRawBindableEClass, UiRawBindable.class, "UiRawBindable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(uiRawBindableProviderEClass, UiRawBindableProvider.class, "UiRawBindableProvider", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiRawBindablePathSegmentEClass, UiRawBindablePathSegment.class, "UiRawBindablePathSegment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiRawBindablePathSegment_RawBindable(), this.getUiRawBindable(), null, "rawBindable", null, 0, 1, UiRawBindablePathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiRawBindablePathSegment_Path(), this.getUiRawBindablePathSegment(), null, "path", null, 0, 1, UiRawBindablePathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(uiTypedBindableEClass, UiTypedBindable.class, "UiTypedBindable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(uiTypedBindableDefEClass, UiTypedBindableDef.class, "UiTypedBindableDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiTypedBindableDef_RawBindable(), this.getUiRawBindable(), null, "rawBindable", null, 0, 1, UiTypedBindableDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiTypedBindableDef_RawBindablePath(), this.getUiRawBindablePathSegment(), null, "rawBindablePath", null, 0, 1, UiTypedBindableDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiTypedBindableDef_Method(), theUiSemanticsPackage.getUxEndpointDef(), null, "method", null, 0, 1, UiTypedBindableDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiCommandBindableDefEClass, UiCommandBindableDef.class, "UiCommandBindableDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3192,6 +3400,19 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiOpenDialogCommandEClass, UiOpenDialogCommand.class, "UiOpenDialogCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiOpenDialogCommand_Dialog(), this.getUiDialog(), null, "dialog", null, 0, 1, UiOpenDialogCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiSearchFieldEClass, UiSearchField.class, "UiSearchField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiSearchField_Property(), theTypesPackage.getJvmField(), null, "property", null, 0, 1, UiSearchField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiSearchDialogEClass, UiSearchDialog.class, "UiSearchDialog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiSearchDialog_SearchFields(), this.getUiDialogSearchFieldAssignment(), null, "searchFields", null, 0, -1, UiSearchDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiSearchDialog_Content(), this.getUiDialogAssignment(), null, "content", null, 0, 1, UiSearchDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiDialogSearchFieldAssignmentEClass, UiDialogSearchFieldAssignment.class, "UiDialogSearchFieldAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiDialogSearchFieldAssignment_Element(), this.getUiSearchField(), null, "element", null, 0, 1, UiDialogSearchFieldAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiSearchWithDialogCommandEClass, UiSearchWithDialogCommand.class, "UiSearchWithDialogCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiSearchWithDialogCommand_Dialog(), this.getUiSearchDialog(), null, "dialog", null, 0, 1, UiSearchWithDialogCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(uiFlatAlignmentEEnum, UiFlatAlignment.class, "UiFlatAlignment");

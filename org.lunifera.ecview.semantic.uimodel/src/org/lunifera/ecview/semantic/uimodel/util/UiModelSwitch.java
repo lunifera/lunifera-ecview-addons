@@ -107,6 +107,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				UiView uiView = (UiView)theEObject;
 				T result = caseUiView(uiView);
 				if (result == null) result = caseUiContext(uiView);
+				if (result == null) result = caseUiRawBindable(uiView);
 				if (result == null) result = caseUiRootElements(uiView);
 				if (result == null) result = caseUiNamedElement(uiView);
 				if (result == null) result = defaultCase(theEObject);
@@ -128,6 +129,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiDialogAssignment(uiDialogAssignment);
 				if (result == null) result = caseUiLayoutAssignment(uiDialogAssignment);
 				if (result == null) result = caseUiNamedElement(uiDialogAssignment);
+				if (result == null) result = caseUiRawBindableProvider(uiDialogAssignment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -136,6 +138,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiIDEView(uiIDEView);
 				if (result == null) result = caseUiView(uiIDEView);
 				if (result == null) result = caseUiContext(uiIDEView);
+				if (result == null) result = caseUiRawBindable(uiIDEView);
 				if (result == null) result = caseUiRootElements(uiIDEView);
 				if (result == null) result = caseUiNamedElement(uiIDEView);
 				if (result == null) result = defaultCase(theEObject);
@@ -146,6 +149,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiMobileView(uiMobileView);
 				if (result == null) result = caseUiView(uiMobileView);
 				if (result == null) result = caseUiContext(uiMobileView);
+				if (result == null) result = caseUiRawBindable(uiMobileView);
 				if (result == null) result = caseUiRootElements(uiMobileView);
 				if (result == null) result = caseUiNamedElement(uiMobileView);
 				if (result == null) result = defaultCase(theEObject);
@@ -214,6 +218,18 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_RAW_BINDABLE_PROVIDER: {
+				UiRawBindableProvider uiRawBindableProvider = (UiRawBindableProvider)theEObject;
+				T result = caseUiRawBindableProvider(uiRawBindableProvider);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_RAW_BINDABLE_PATH_SEGMENT: {
+				UiRawBindablePathSegment uiRawBindablePathSegment = (UiRawBindablePathSegment)theEObject;
+				T result = caseUiRawBindablePathSegment(uiRawBindablePathSegment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case UiModelPackage.UI_TYPED_BINDABLE: {
 				UiTypedBindable uiTypedBindable = (UiTypedBindable)theEObject;
 				T result = caseUiTypedBindable(uiTypedBindable);
@@ -272,6 +288,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				UiLayoutAssignment uiLayoutAssignment = (UiLayoutAssignment)theEObject;
 				T result = caseUiLayoutAssignment(uiLayoutAssignment);
 				if (result == null) result = caseUiNamedElement(uiLayoutAssignment);
+				if (result == null) result = caseUiRawBindableProvider(uiLayoutAssignment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -336,6 +353,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiGridLayoutAssigment(uiGridLayoutAssigment);
 				if (result == null) result = caseUiLayoutAssignment(uiGridLayoutAssigment);
 				if (result == null) result = caseUiNamedElement(uiGridLayoutAssigment);
+				if (result == null) result = caseUiRawBindableProvider(uiGridLayoutAssigment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -355,6 +373,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiHorizontalLayoutAssigment(uiHorizontalLayoutAssigment);
 				if (result == null) result = caseUiLayoutAssignment(uiHorizontalLayoutAssigment);
 				if (result == null) result = caseUiNamedElement(uiHorizontalLayoutAssigment);
+				if (result == null) result = caseUiRawBindableProvider(uiHorizontalLayoutAssigment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -374,6 +393,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiVerticalLayoutAssigment(uiVerticalLayoutAssigment);
 				if (result == null) result = caseUiLayoutAssignment(uiVerticalLayoutAssigment);
 				if (result == null) result = caseUiNamedElement(uiVerticalLayoutAssigment);
+				if (result == null) result = caseUiRawBindableProvider(uiVerticalLayoutAssigment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -393,6 +413,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiFormLayoutAssigment(uiFormLayoutAssigment);
 				if (result == null) result = caseUiLayoutAssignment(uiFormLayoutAssigment);
 				if (result == null) result = caseUiNamedElement(uiFormLayoutAssigment);
+				if (result == null) result = caseUiRawBindableProvider(uiFormLayoutAssigment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -655,6 +676,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiHorizontalButtonGroupAssigment(uiHorizontalButtonGroupAssigment);
 				if (result == null) result = caseUiLayoutAssignment(uiHorizontalButtonGroupAssigment);
 				if (result == null) result = caseUiNamedElement(uiHorizontalButtonGroupAssigment);
+				if (result == null) result = caseUiRawBindableProvider(uiHorizontalButtonGroupAssigment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -700,6 +722,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiVerticalComponentGroupAssigment(uiVerticalComponentGroupAssigment);
 				if (result == null) result = caseUiLayoutAssignment(uiVerticalComponentGroupAssigment);
 				if (result == null) result = caseUiNamedElement(uiVerticalComponentGroupAssigment);
+				if (result == null) result = caseUiRawBindableProvider(uiVerticalComponentGroupAssigment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -753,6 +776,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiTabAssignment(uiTabAssignment);
 				if (result == null) result = caseUiLayoutAssignment(uiTabAssignment);
 				if (result == null) result = caseUiNamedElement(uiTabAssignment);
+				if (result == null) result = caseUiRawBindableProvider(uiTabAssignment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -782,6 +806,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiMobileNavigationPageAssignment(uiMobileNavigationPageAssignment);
 				if (result == null) result = caseUiLayoutAssignment(uiMobileNavigationPageAssignment);
 				if (result == null) result = caseUiNamedElement(uiMobileNavigationPageAssignment);
+				if (result == null) result = caseUiRawBindableProvider(uiMobileNavigationPageAssignment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -818,6 +843,45 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiOpenDialogCommand(uiOpenDialogCommand);
 				if (result == null) result = caseUiCommand(uiOpenDialogCommand);
 				if (result == null) result = caseUiNamedElement(uiOpenDialogCommand);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_SEARCH_FIELD: {
+				UiSearchField uiSearchField = (UiSearchField)theEObject;
+				T result = caseUiSearchField(uiSearchField);
+				if (result == null) result = caseUiField(uiSearchField);
+				if (result == null) result = caseUiEmbeddable(uiSearchField);
+				if (result == null) result = caseUiVisibilityProcessable(uiSearchField);
+				if (result == null) result = caseUiRawBindable(uiSearchField);
+				if (result == null) result = caseUiNamedElement(uiSearchField);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_SEARCH_DIALOG: {
+				UiSearchDialog uiSearchDialog = (UiSearchDialog)theEObject;
+				T result = caseUiSearchDialog(uiSearchDialog);
+				if (result == null) result = caseUiEmbeddable(uiSearchDialog);
+				if (result == null) result = caseUiTypeProvider(uiSearchDialog);
+				if (result == null) result = caseUiVisibilityProcessable(uiSearchDialog);
+				if (result == null) result = caseUiRawBindable(uiSearchDialog);
+				if (result == null) result = caseUiNamedElement(uiSearchDialog);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_DIALOG_SEARCH_FIELD_ASSIGNMENT: {
+				UiDialogSearchFieldAssignment uiDialogSearchFieldAssignment = (UiDialogSearchFieldAssignment)theEObject;
+				T result = caseUiDialogSearchFieldAssignment(uiDialogSearchFieldAssignment);
+				if (result == null) result = caseUiLayoutAssignment(uiDialogSearchFieldAssignment);
+				if (result == null) result = caseUiNamedElement(uiDialogSearchFieldAssignment);
+				if (result == null) result = caseUiRawBindableProvider(uiDialogSearchFieldAssignment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_SEARCH_WITH_DIALOG_COMMAND: {
+				UiSearchWithDialogCommand uiSearchWithDialogCommand = (UiSearchWithDialogCommand)theEObject;
+				T result = caseUiSearchWithDialogCommand(uiSearchWithDialogCommand);
+				if (result == null) result = caseUiCommand(uiSearchWithDialogCommand);
+				if (result == null) result = caseUiNamedElement(uiSearchWithDialogCommand);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1212,6 +1276,36 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiRawBindable(UiRawBindable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Raw Bindable Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Raw Bindable Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiRawBindableProvider(UiRawBindableProvider object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Raw Bindable Path Segment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Raw Bindable Path Segment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiRawBindablePathSegment(UiRawBindablePathSegment object) {
 		return null;
 	}
 
@@ -2082,6 +2176,66 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiOpenDialogCommand(UiOpenDialogCommand object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Search Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Search Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiSearchField(UiSearchField object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Search Dialog</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Search Dialog</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiSearchDialog(UiSearchDialog object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Dialog Search Field Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Dialog Search Field Assignment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiDialogSearchFieldAssignment(UiDialogSearchFieldAssignment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Search With Dialog Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Search With Dialog Command</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiSearchWithDialogCommand(UiSearchWithDialogCommand object) {
 		return null;
 	}
 

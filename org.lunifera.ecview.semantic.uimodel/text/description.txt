@@ -26,7 +26,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiViewSet -> UiContext
 
-  Class UiView -> UiContext
+  Class UiView -> UiContext, UiRawBindable
     Reference viewSet : UiViewSet
     Reference content : UiEmbeddable
     Reference validatorAssignments : UiValidatorAssignment<<0..*>>
@@ -76,10 +76,17 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiRawBindable -> UiNamedElement
 
+  Class UiRawBindableProvider
+
+  Class UiRawBindablePathSegment
+    Reference rawBindable : UiRawBindable
+    Reference path : UiRawBindablePathSegment
+
   Class UiTypedBindable -> UiNamedElement
 
   Class UiTypedBindableDef -> UiTypedBindable, UiBindingExpression
     Reference rawBindable : UiRawBindable
+    Reference rawBindablePath : UiRawBindablePathSegment
     Reference method : UxEndpointDef
 
   Class UiCommandBindableDef -> UiTypedBindable, UiBindingExpression
@@ -93,7 +100,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiLayout -> UiEmbeddable
 
-  Class UiLayoutAssignment -> UiNamedElement
+  Class UiLayoutAssignment -> UiNamedElement, UiRawBindableProvider
 
   Class UiAction -> UiEmbeddable
 
@@ -279,6 +286,19 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiOpenDialogCommand -> UiCommand
     Reference dialog : UiDialog
+
+  Class UiSearchField -> UiField
+    Reference property : JvmField
+
+  Class UiSearchDialog -> UiEmbeddable, UiTypeProvider
+    Reference searchFields : UiDialogSearchFieldAssignment<<0..*>>
+    Reference content : UiDialogAssignment
+
+  Class UiDialogSearchFieldAssignment -> UiLayoutAssignment
+    Reference element : UiSearchField
+
+  Class UiSearchWithDialogCommand -> UiCommand
+    Reference dialog : UiSearchDialog
 
   Enum UiFlatAlignment
     Literal LEFT = 0

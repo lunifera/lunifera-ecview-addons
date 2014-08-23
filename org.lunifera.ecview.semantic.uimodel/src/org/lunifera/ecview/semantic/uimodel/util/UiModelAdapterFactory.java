@@ -144,6 +144,14 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiRawBindableAdapter();
 			}
 			@Override
+			public Adapter caseUiRawBindableProvider(UiRawBindableProvider object) {
+				return createUiRawBindableProviderAdapter();
+			}
+			@Override
+			public Adapter caseUiRawBindablePathSegment(UiRawBindablePathSegment object) {
+				return createUiRawBindablePathSegmentAdapter();
+			}
+			@Override
 			public Adapter caseUiTypedBindable(UiTypedBindable object) {
 				return createUiTypedBindableAdapter();
 			}
@@ -402,6 +410,22 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUiOpenDialogCommand(UiOpenDialogCommand object) {
 				return createUiOpenDialogCommandAdapter();
+			}
+			@Override
+			public Adapter caseUiSearchField(UiSearchField object) {
+				return createUiSearchFieldAdapter();
+			}
+			@Override
+			public Adapter caseUiSearchDialog(UiSearchDialog object) {
+				return createUiSearchDialogAdapter();
+			}
+			@Override
+			public Adapter caseUiDialogSearchFieldAssignment(UiDialogSearchFieldAssignment object) {
+				return createUiDialogSearchFieldAssignmentAdapter();
+			}
+			@Override
+			public Adapter caseUiSearchWithDialogCommand(UiSearchWithDialogCommand object) {
+				return createUiSearchWithDialogCommandAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -784,6 +808,34 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiRawBindableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiRawBindableProvider <em>Ui Raw Bindable Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRawBindableProvider
+	 * @generated
+	 */
+	public Adapter createUiRawBindableProviderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment <em>Ui Raw Bindable Path Segment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment
+	 * @generated
+	 */
+	public Adapter createUiRawBindablePathSegmentAdapter() {
 		return null;
 	}
 
@@ -1596,6 +1648,62 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiOpenDialogCommandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiSearchField <em>Ui Search Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSearchField
+	 * @generated
+	 */
+	public Adapter createUiSearchFieldAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiSearchDialog <em>Ui Search Dialog</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSearchDialog
+	 * @generated
+	 */
+	public Adapter createUiSearchDialogAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment <em>Ui Dialog Search Field Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment
+	 * @generated
+	 */
+	public Adapter createUiDialogSearchFieldAssignmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand <em>Ui Search With Dialog Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand
+	 * @generated
+	 */
+	public Adapter createUiSearchWithDialogCommandAdapter() {
 		return null;
 	}
 

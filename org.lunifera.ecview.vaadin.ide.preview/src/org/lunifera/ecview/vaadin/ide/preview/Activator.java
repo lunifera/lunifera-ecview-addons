@@ -55,7 +55,7 @@ public class Activator extends AbstractUIPlugin implements
 	private Provider<IWorkspace> workspaceProvider;
 
 	// used to track the HttpService
-	private ServiceTracker<HttpService, HttpService> tracker;
+	private ServiceTracker<HttpService, HttpService> ideHttpServiceTracker;
 	// track the XtextUtilService
 	private ServiceTracker<IXtextUtilService, IXtextUtilService> xtextUtilServiceTracker;
 
@@ -131,15 +131,15 @@ public class Activator extends AbstractUIPlugin implements
 		xtextUtilService = xtextUtilServiceTracker.waitForService(5000);
 
 		// Start a HttpService-Tracker to get an instance of HttpService
-		tracker = new ServiceTracker<>(bundleContext, HttpService.class, this);
-		tracker.open();
-
+		ideHttpServiceTracker = new ServiceTracker<>(bundleContext,
+				HttpService.class, this);
+		ideHttpServiceTracker.open();
 	}
 
 	public void stop(BundleContext bundleContext) throws Exception {
 		// close the HttpService-tracker
-		tracker.close();
-		tracker = null;
+		ideHttpServiceTracker.close();
+		ideHttpServiceTracker = null;
 		resourceProvider = null;
 
 		// close vaadin UI
@@ -171,8 +171,9 @@ public class Activator extends AbstractUIPlugin implements
 	protected void handleStartedBundles(BundleContext context) {
 		for (Bundle bundle : context.getBundles()) {
 			String name = bundle.getSymbolicName();
-			if (bundle.getState() == Bundle.RESOLVED
-					&& name.startsWith("com.vaadin")) {
+			if (bundle.getState() != BundleEvent.STOPPED
+					&& (name.startsWith("com.vaadin") || name
+							.equals("org.lunifera.runtime.web.vaadin.widgetset"))) {
 				resourceProvider.add(bundle);
 			} else if (bundle.getState() == Bundle.RESOLVED
 					&& name.equals("org.eclipse.equinox.http.jetty")) {
@@ -206,8 +207,9 @@ public class Activator extends AbstractUIPlugin implements
 		// tracks the starting and stopping of vaadin bundles. If a bundle is a
 		// vaadin bundle it will be added to the resource provider for lookups.
 		String name = event.getBundle().getSymbolicName();
-		if (name.startsWith("com.vaadin")) {
-			if (event.getType() == BundleEvent.RESOLVED) {
+		if (name.startsWith("com.vaadin")
+				|| name.equals("org.lunifera.runtime.web.vaadin.widgetset")) {
+			if (event.getType() != BundleEvent.STOPPED) {
 				resourceProvider.add(event.getBundle());
 			} else if (event.getType() == BundleEvent.STOPPED) {
 				resourceProvider.remove(event.getBundle());

@@ -27,7 +27,7 @@
         eType="#//UiBinding" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiViewSet" eSuperTypes="#//UiContext"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiView" eSuperTypes="#//UiContext">
+  <eClassifiers xsi:type="ecore:EClass" name="UiView" eSuperTypes="#//UiContext #//UiRawBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewSet" eType="#//UiViewSet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//UiEmbeddable"
         containment="true"/>
@@ -91,10 +91,19 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiRawBindable" abstract="true" interface="true"
       eSuperTypes="#//UiNamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiRawBindableProvider" abstract="true"
+      interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiRawBindablePathSegment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rawBindable" eType="#//UiRawBindable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//UiRawBindablePathSegment"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiTypedBindable" abstract="true" interface="true"
       eSuperTypes="#//UiNamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiTypedBindableDef" eSuperTypes="#//UiTypedBindable #//UiBindingExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rawBindable" eType="#//UiRawBindable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rawBindablePath" eType="#//UiRawBindablePathSegment"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="ecore:EClass ../../org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore#//UxEndpointDef"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiCommandBindableDef" eSuperTypes="#//UiTypedBindable #//UiBindingExpression">
@@ -114,7 +123,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="UiLayout" abstract="true" interface="true"
       eSuperTypes="#//UiEmbeddable"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiLayoutAssignment" abstract="true"
-      interface="true" eSuperTypes="#//UiNamedElement"/>
+      interface="true" eSuperTypes="#//UiNamedElement #//UiRawBindableProvider"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiAction" eSuperTypes="#//UiEmbeddable"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiMobileEmbeddable" abstract="true"
       interface="true" eSuperTypes="#//UiEmbeddable"/>
@@ -344,6 +353,23 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiOpenDialogCommand" eSuperTypes="#//UiCommand">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dialog" eType="#//UiDialog"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiSearchField" eSuperTypes="#//UiField">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmField"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiSearchDialog" eSuperTypes="#//UiEmbeddable #//UiTypeProvider">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="searchFields" upperBound="-1"
+        eType="#//UiDialogSearchFieldAssignment" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//UiDialogAssignment"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiDialogSearchFieldAssignment" eSuperTypes="#//UiLayoutAssignment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiSearchField"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiSearchWithDialogCommand" eSuperTypes="#//UiCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dialog" eType="#//UiSearchDialog"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

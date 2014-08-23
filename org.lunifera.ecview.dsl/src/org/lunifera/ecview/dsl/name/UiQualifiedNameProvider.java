@@ -28,7 +28,9 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 			if (yEmb.getName() == null) {
 				return QualifiedName.create("notDefined");
 			} else {
-				return QualifiedName.create(yEmb.getName());
+				return converter.toQualifiedName(String.format("%s.%s",
+						getPackage(yEmb), yEmb.getName()));
+				// return QualifiedName.create(yEmb.getName());
 			}
 		} else if (obj instanceof UiBindingEndpointAlias) {
 			UiBindingEndpointAlias uiBindingEndpoint = (UiBindingEndpointAlias) obj;

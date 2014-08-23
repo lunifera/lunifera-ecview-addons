@@ -139,6 +139,15 @@ public interface UiModelFactory extends EFactory {
 	UiPathSegment createUiPathSegment();
 
 	/**
+	 * Returns a new object of class '<em>Ui Raw Bindable Path Segment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Raw Bindable Path Segment</em>'.
+	 * @generated
+	 */
+	UiRawBindablePathSegment createUiRawBindablePathSegment();
+
+	/**
 	 * Returns a new object of class '<em>Ui Bean Slot</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -614,6 +623,42 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiOpenDialogCommand createUiOpenDialogCommand();
+
+	/**
+	 * Returns a new object of class '<em>Ui Search Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Search Field</em>'.
+	 * @generated
+	 */
+	UiSearchField createUiSearchField();
+
+	/**
+	 * Returns a new object of class '<em>Ui Search Dialog</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Search Dialog</em>'.
+	 * @generated
+	 */
+	UiSearchDialog createUiSearchDialog();
+
+	/**
+	 * Returns a new object of class '<em>Ui Dialog Search Field Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Dialog Search Field Assignment</em>'.
+	 * @generated
+	 */
+	UiDialogSearchFieldAssignment createUiDialogSearchFieldAssignment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Search With Dialog Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Search With Dialog Command</em>'.
+	 * @generated
+	 */
+	UiSearchWithDialogCommand createUiSearchWithDialogCommand();
 
 	/**
 	 * Returns the package supported by this factory.

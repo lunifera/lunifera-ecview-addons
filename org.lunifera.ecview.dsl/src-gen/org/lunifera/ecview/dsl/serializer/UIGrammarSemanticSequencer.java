@@ -70,6 +70,7 @@ import org.lunifera.ecview.semantic.uimodel.UiComboBox;
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
 import org.lunifera.ecview.semantic.uimodel.UiDialog;
 import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiGridLayout;
@@ -97,7 +98,11 @@ import org.lunifera.ecview.semantic.uimodel.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
+import org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
+import org.lunifera.ecview.semantic.uimodel.UiSearchDialog;
+import org.lunifera.ecview.semantic.uimodel.UiSearchField;
+import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSwitch;
 import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiTabSheet;
@@ -256,6 +261,12 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 			case UiModelPackage.UI_DIALOG_ASSIGNMENT:
 				if(context == grammarAccess.getUiDialogAssignmentRule()) {
 					sequence_UiDialogAssignment(context, (UiDialogAssignment) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_DIALOG_SEARCH_FIELD_ASSIGNMENT:
+				if(context == grammarAccess.getUiDialogSearchFieldAssignmentRule()) {
+					sequence_UiDialogSearchFieldAssignment(context, (UiDialogSearchFieldAssignment) semanticObject); 
 					return; 
 				}
 				else break;
@@ -445,10 +456,37 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 					return; 
 				}
 				else break;
+			case UiModelPackage.UI_RAW_BINDABLE_PATH_SEGMENT:
+				if(context == grammarAccess.getUiRawBindablePathSegmentRule()) {
+					sequence_UiRawBindablePathSegment(context, (UiRawBindablePathSegment) semanticObject); 
+					return; 
+				}
+				else break;
 			case UiModelPackage.UI_REGEXP_VALIDATOR:
 				if(context == grammarAccess.getUiRegexpValidatorRule() ||
 				   context == grammarAccess.getUiValidatorRule()) {
 					sequence_UiRegexpValidator(context, (UiRegexpValidator) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_SEARCH_DIALOG:
+				if(context == grammarAccess.getUiSearchDialogRule()) {
+					sequence_UiSearchDialog(context, (UiSearchDialog) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_SEARCH_FIELD:
+				if(context == grammarAccess.getUiEmbeddableRule() ||
+				   context == grammarAccess.getUiFieldRule() ||
+				   context == grammarAccess.getUiSearchFieldRule()) {
+					sequence_UiSearchField(context, (UiSearchField) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_SEARCH_WITH_DIALOG_COMMAND:
+				if(context == grammarAccess.getUiCommandRule() ||
+				   context == grammarAccess.getUiSearchWithDialogCommandRule()) {
+					sequence_UiSearchWithDialogCommand(context, (UiSearchWithDialogCommand) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1703,6 +1741,15 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     element=UiSearchField
+	 */
+	protected void sequence_UiDialogSearchFieldAssignment(EObject context, UiDialogSearchFieldAssignment semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID? jvmType=JvmTypeReference? content=UiDialogAssignment? bindings+=UiBinding*)
 	 */
 	protected void sequence_UiDialog(EObject context, UiDialog semanticObject) {
@@ -1999,9 +2046,45 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (rawBindable=[UiRawBindable|ID] path=UiRawBindablePathSegment?)
+	 */
+	protected void sequence_UiRawBindablePathSegment(EObject context, UiRawBindablePathSegment semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID? regExpression=STRING)
 	 */
 	protected void sequence_UiRegexpValidator(EObject context, UiRegexpValidator semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID? jvmType=JvmTypeReference? searchFields+=UiDialogSearchFieldAssignment* content=UiDialogAssignment? bindings+=UiBinding*)
+	 */
+	protected void sequence_UiSearchDialog(EObject context, UiSearchDialog semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     property=[JvmField|ID]
+	 */
+	protected void sequence_UiSearchField(EObject context, UiSearchField semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     dialog=UiSearchDialog
+	 */
+	protected void sequence_UiSearchWithDialogCommand(EObject context, UiSearchWithDialogCommand semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2053,7 +2136,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (rawBindable=[UiRawBindable|ID] method=[UxEndpointDef|ID])
+	 *     (rawBindable=[UiRawBindable|ID] rawBindablePath=UiRawBindablePathSegment? method=[UxEndpointDef|ID])
 	 */
 	protected void sequence_UiTypedBindableDef(EObject context, UiTypedBindableDef semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

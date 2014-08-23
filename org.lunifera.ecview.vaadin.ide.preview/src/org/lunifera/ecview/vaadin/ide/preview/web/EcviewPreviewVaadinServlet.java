@@ -22,7 +22,7 @@ import com.vaadin.server.VaadinServlet;
  * An implementation of VaadinServlet that uses SimpleUI as its base UI.
  */
 @SuppressWarnings("serial")
-@VaadinServletConfiguration(ui = EcviewPreviewUI.class, productionMode = false)
+@VaadinServletConfiguration(ui = EcviewPreviewUI.class, widgetset = "org.lunifera.runtime.web.vaadin.widgetset.LuniferaWidget", productionMode = false)
 public class EcviewPreviewVaadinServlet extends VaadinServlet {
 
 }
