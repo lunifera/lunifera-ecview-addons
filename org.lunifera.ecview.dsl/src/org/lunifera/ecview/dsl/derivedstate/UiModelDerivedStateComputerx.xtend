@@ -266,7 +266,6 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.fillVertical = eObject.fillVertical
 		layout.columns = eObject.columns
 
-		//		layout.columns = eObject.columns
 		layout.addToParent
 		eObject.associateUi(layout)
 
@@ -308,7 +307,6 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.name = eObject.name
 		layout.fillVertical = eObject.fillVertical
 
-		//		layout.columns = eObject.columns
 		layout.addToParent
 		eObject.associateUi(layout)
 
@@ -350,7 +348,6 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.name = eObject.name
 		layout.fillHorizontal = eObject.fillHorizontal
 
-		//		layout.columns = eObject.columns
 		layout.addToParent
 		eObject.associateUi(layout)
 
@@ -914,9 +911,15 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val YDecimalField decimalField = factory.createDecimalField
 		decimalField.name = object.name
 		decimalField.label = object.name
-		decimalField.grouping = object.grouping
-		decimalField.markNegative = object.markNegative
-		decimalField.precision = object.precision
+		
+		val dt = factory.createDecimalDatatype
+		decimalField.datatype = dt
+		decimalField.orphanDatatypes += dt
+		
+		dt.grouping = object.grouping
+		dt.markNegative = object.markNegative
+		dt.precision = object.precision
+		
 		object.associateUi(decimalField)
 
 		return decimalField
@@ -1024,9 +1027,13 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val YNumericField field = factory.createNumericField
 		field.name = object.name
 		field.label = object.name
-		field.grouping = object.grouping
-		field.markNegative = object.markNegative
-
+		
+		val dt = factory.createNumericDatatype
+		field.datatype = dt
+		field.orphanDatatypes += dt
+		
+		dt.grouping = object.grouping
+		dt.markNegative = object.markNegative
 		object.associateUi(field)
 
 		return field
