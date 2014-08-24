@@ -53,7 +53,7 @@ class UIGrammarJvmModelInferrer extends AbstractModelInferrer {
 					members += element.toMethod("validateValue", element.newTypeRef(typeof(IStatus))) [
 						parameters += element.toParameter("param", element.newTypeRef(typeof(Object)))
 						body = '''
-							IStatus status = doValidateValue((String) param);
+							IStatus status = doValidateValue((«element.jvmType.simpleName») param);
 							if(status == null) {
 								return IStatus.OK;
 							}

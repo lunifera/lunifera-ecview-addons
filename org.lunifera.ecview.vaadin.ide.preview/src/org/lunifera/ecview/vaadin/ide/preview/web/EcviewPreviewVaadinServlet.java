@@ -15,14 +15,26 @@
  */
 package org.lunifera.ecview.vaadin.ide.preview.web;
 
+import javax.servlet.ServletException;
+
+import com.vaadin.addon.touchkit.server.TouchKitServlet;
+import com.vaadin.addon.touchkit.settings.TouchKitSettings;
 import com.vaadin.annotations.VaadinServletConfiguration;
-import com.vaadin.server.VaadinServlet;
 
 /**
  * An implementation of VaadinServlet that uses SimpleUI as its base UI.
  */
 @SuppressWarnings("serial")
-@VaadinServletConfiguration(ui = EcviewPreviewUI.class, widgetset = "org.lunifera.runtime.web.vaadin.widgetset.LuniferaWidget", productionMode = false)
-public class EcviewPreviewVaadinServlet extends VaadinServlet {
+@VaadinServletConfiguration(ui = EcviewPreviewUI.class, widgetset = "org.lunifera.mobile.vaadin.widgetset.LuniferaMobileWidget", productionMode = false)
+public class EcviewPreviewVaadinServlet extends TouchKitServlet {
+
+	@Override
+	protected void servletInitialized() throws ServletException {
+		super.servletInitialized();
+
+		TouchKitSettings s = getTouchKitSettings();
+		s.getWebAppSettings().setWebAppCapable(true);
+		s.getWebAppSettings().setStatusBarStyle("black");
+	}
 
 }

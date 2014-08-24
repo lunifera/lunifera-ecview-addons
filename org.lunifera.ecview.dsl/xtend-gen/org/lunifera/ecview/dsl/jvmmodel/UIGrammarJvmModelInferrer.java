@@ -111,8 +111,12 @@ public class UIGrammarJvmModelInferrer extends AbstractModelInferrer {
             StringConcatenationClient _client = new StringConcatenationClient() {
               @Override
               protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
-                _builder.append("IStatus status = doValidateValue((String) param);");
-                _builder.newLine();
+                _builder.append("IStatus status = doValidateValue((");
+                JvmTypeReference _jvmType = element.getJvmType();
+                String _simpleName = _jvmType.getSimpleName();
+                _builder.append(_simpleName, "");
+                _builder.append(") param);");
+                _builder.newLineIfNotEmpty();
                 _builder.append("if(status == null) {");
                 _builder.newLine();
                 _builder.append("\t");

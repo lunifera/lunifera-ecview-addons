@@ -172,7 +172,7 @@ public class Activator extends AbstractUIPlugin implements
 		for (Bundle bundle : context.getBundles()) {
 			String name = bundle.getSymbolicName();
 			if (name.startsWith("com.vaadin")
-					|| name.equals("org.lunifera.runtime.web.vaadin.widgetset")) {
+					|| name.equals("org.lunifera.mobile.vaadin.widgetset")) {
 				resourceProvider.add(bundle);
 			} else if (bundle.getState() == Bundle.RESOLVED
 					&& name.equals("org.eclipse.equinox.http.jetty")) {
@@ -207,7 +207,7 @@ public class Activator extends AbstractUIPlugin implements
 		// vaadin bundle it will be added to the resource provider for lookups.
 		String name = event.getBundle().getSymbolicName();
 		if (name.startsWith("com.vaadin")
-				|| name.equals("org.lunifera.runtime.web.vaadin.widgetset")) {
+				|| name.equals("org.lunifera.mobile.vaadin.widgetset")) {
 			if (event.getType() != BundleEvent.STOPPED) {
 				resourceProvider.add(event.getBundle());
 			} else if (event.getType() == BundleEvent.STOPPED) {
