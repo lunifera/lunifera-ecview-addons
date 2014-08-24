@@ -34,8 +34,11 @@ import org.lunifera.ecview.vaadin.ide.preview.Activator;
 import org.lunifera.runtime.web.ecview.presentation.vaadin.VaadinRenderer;
 import org.lunifera.runtime.web.vaadin.databinding.VaadinObservables;
 
+import com.vaadin.annotations.PreserveOnRefresh;
 import com.vaadin.annotations.Push;
 import com.vaadin.annotations.Theme;
+import com.vaadin.annotations.Title;
+import com.vaadin.annotations.Widgetset;
 import com.vaadin.server.ErrorHandler;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Component;
@@ -46,7 +49,10 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.themes.Reindeer;
 
 @SuppressWarnings("serial")
-@Theme(Reindeer.THEME_NAME)
+@Theme("mobiletheme")
+@Widgetset("org.lunifera.mobile.vaadin.widgetset.LuniferaMobileWidget")
+@PreserveOnRefresh
+@Title("Vaadin Mobile Preview")
 @Push
 public class EcviewPreviewUI extends UI {
 
