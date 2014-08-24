@@ -18,6 +18,5 @@ public interface UiHorizontalLayoutValidator {
 	boolean validate();
 
 	boolean validateContents(EList<UiHorizontalLayoutAssigment> value);
-
 	boolean validateFillHorizontal(boolean value);
 }

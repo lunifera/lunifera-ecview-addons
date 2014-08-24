@@ -15,7 +15,5 @@ public interface UiNumericFieldValidator {
 	boolean validate();
 
 	boolean validateGrouping(boolean value);
-
 	boolean validateMarkNegative(boolean value);
-
 }

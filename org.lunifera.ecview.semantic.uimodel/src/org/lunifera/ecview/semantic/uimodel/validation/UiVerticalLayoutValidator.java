@@ -18,6 +18,5 @@ public interface UiVerticalLayoutValidator {
 	boolean validate();
 
 	boolean validateContents(EList<UiVerticalLayoutAssigment> value);
-
 	boolean validateFillVertical(boolean value);
 }

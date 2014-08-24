@@ -5,24 +5,24 @@ package org.lunifera.ecview.semantic.uisemantics.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
-import org.lunifera.ecview.semantic.uisemantics.UxListBindingEndpointDef;
+import org.lunifera.ecview.semantic.uisemantics.UxBindingableOption;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Ux List Binding Endpoint Def</b></em>'.
+ * An implementation of the model object '<em><b>Ux Bindingable Option</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class UxListBindingEndpointDefImpl extends UxEndpointDefImpl implements UxListBindingEndpointDef {
+public class UxBindingableOptionImpl extends UxEndpointDefImpl implements UxBindingableOption {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected UxListBindingEndpointDefImpl() {
+	protected UxBindingableOptionImpl() {
 		super();
 	}
 
@@ -33,7 +33,7 @@ public class UxListBindingEndpointDefImpl extends UxEndpointDefImpl implements U
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return UiSemanticsPackage.Literals.UX_LIST_BINDING_ENDPOINT_DEF;
+		return UiSemanticsPackage.Literals.UX_BINDINGABLE_OPTION;
 	}
 
-} //UxListBindingEndpointDefImpl
+} //UxBindingableOptionImpl

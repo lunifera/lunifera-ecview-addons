@@ -418,24 +418,6 @@ public interface UiModelFactory extends EFactory {
 	UiXbaseVisibilityRule createUiXbaseVisibilityRule();
 
 	/**
-	 * Returns a new object of class '<em>Ui Visibility Properties</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui Visibility Properties</em>'.
-	 * @generated
-	 */
-	UiVisibilityProperties createUiVisibilityProperties();
-
-	/**
-	 * Returns a new object of class '<em>Ui Visibility Properties Def</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui Visibility Properties Def</em>'.
-	 * @generated
-	 */
-	UiVisibilityPropertiesDef createUiVisibilityPropertiesDef();
-
-	/**
 	 * Returns a new object of class '<em>Ui Visibility Properties Assignment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -443,6 +425,15 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiVisibilityPropertiesAssignment createUiVisibilityPropertiesAssignment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Visibility Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Visibility Property</em>'.
+	 * @generated
+	 */
+	UiVisibilityProperty createUiVisibilityProperty();
 
 	/**
 	 * Returns a new object of class '<em>Ui Validator Alias</em>'.
@@ -688,13 +679,13 @@ public interface UiModelFactory extends EFactory {
 	UiTextArea createUiTextArea();
 
 	/**
-	 * Returns a new object of class '<em>Ui Radio Button Group</em>'.
+	 * Returns a new object of class '<em>Ui Options Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui Radio Button Group</em>'.
+	 * @return a new object of class '<em>Ui Options Group</em>'.
 	 * @generated
 	 */
-	UiRadioButtonGroup createUiRadioButtonGroup();
+	UiOptionsGroup createUiOptionsGroup();
 
 	/**
 	 * Returns a new object of class '<em>Ui Date Field</em>'.

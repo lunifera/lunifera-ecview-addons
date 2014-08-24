@@ -6,7 +6,7 @@ package org.lunifera.ecview.semantic.uisemantics.validation;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
+import org.lunifera.ecview.semantic.uisemantics.UxBindingableOption;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uisemantics.UxAvailableBindings}.
@@ -17,5 +17,5 @@ import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 public interface UxAvailableBindingsValidator {
 	boolean validate();
 
-	boolean validateBindings(EList<UxEndpointDef> value);
+	boolean validateBindings(EList<UxBindingableOption> value);
 }

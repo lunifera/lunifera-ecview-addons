@@ -5,24 +5,24 @@ package org.lunifera.ecview.semantic.uisemantics.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
-import org.lunifera.ecview.semantic.uisemantics.UxSetBindingEndpointDef;
+import org.lunifera.ecview.semantic.uisemantics.UxVisibleableOption;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Ux Set Binding Endpoint Def</b></em>'.
+ * An implementation of the model object '<em><b>Ux Visibleable Option</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class UxSetBindingEndpointDefImpl extends UxEndpointDefImpl implements UxSetBindingEndpointDef {
+public class UxVisibleableOptionImpl extends UxEndpointDefImpl implements UxVisibleableOption {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected UxSetBindingEndpointDefImpl() {
+	protected UxVisibleableOptionImpl() {
 		super();
 	}
 
@@ -33,7 +33,7 @@ public class UxSetBindingEndpointDefImpl extends UxEndpointDefImpl implements Ux
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return UiSemanticsPackage.Literals.UX_SET_BINDING_ENDPOINT_DEF;
+		return UiSemanticsPackage.Literals.UX_VISIBLEABLE_OPTION;
 	}
 
-} //UxSetBindingEndpointDefImpl
+} //UxVisibleableOptionImpl

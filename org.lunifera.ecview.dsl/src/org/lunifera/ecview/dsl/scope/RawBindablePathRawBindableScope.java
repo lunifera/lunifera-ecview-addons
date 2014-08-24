@@ -50,10 +50,14 @@ public class RawBindablePathRawBindableScope extends AbstractScope {
 	protected List<IEObjectDescription> collectRawBindables(EObject container) {
 		List<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 		for (EObject object : container.eContents()) {
-			if (object instanceof UiRawBindable
-					&& isValid(((UiRawBindable) object).getName())) {
-				result.add(EObjectDescription.create(
-						((UiRawBindable) object).getName(), object));
+			if (object instanceof UiRawBindable) {
+				if (isValid(((UiRawBindable) object).getName())) {
+					result.add(EObjectDescription.create(
+							((UiRawBindable) object).getName(), object));
+				} else {
+					// direct children may be of type UiRawBindable
+					result.addAll(collectRawBindables(object));
+				}
 			} else if (object instanceof UiRawBindableProvider) {
 				// direct children may be of type UiRawBindable
 				result.addAll(collectRawBindables(object));

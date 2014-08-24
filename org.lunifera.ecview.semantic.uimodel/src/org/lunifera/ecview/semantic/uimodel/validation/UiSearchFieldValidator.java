@@ -6,7 +6,6 @@ package org.lunifera.ecview.semantic.uimodel.validation;
 
 import org.eclipse.xtext.common.types.JvmField;
 
-
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiSearchField}.
  * This doesn't really do anything, and it's not a real EMF artifact.
@@ -17,5 +16,4 @@ public interface UiSearchFieldValidator {
 	boolean validate();
 
 	boolean validateProperty(JvmField value);
-
 }

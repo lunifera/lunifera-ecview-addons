@@ -100,7 +100,6 @@ import org.lunifera.ecview.semantic.uimodel.UiNumericField
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand
 import org.lunifera.ecview.semantic.uimodel.UiPoint
 import org.lunifera.ecview.semantic.uimodel.UiProgressBar
-import org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator
 import org.lunifera.ecview.semantic.uimodel.UiSearchDialog
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType
@@ -142,6 +141,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.ExtensionModelFactory
 import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand
 import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment
+import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup
 
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
@@ -285,6 +285,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		eObject.contents.forEach [
 			it.map
 		]
+		
+		eObject.bindings.forEach [
+			it.map
+		]
 
 		pop
 	}
@@ -322,6 +326,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.push
 
 		eObject.contents.forEach [
+			it.map
+		]
+		
+		eObject.bindings.forEach [
 			it.map
 		]
 
@@ -366,6 +374,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		eObject.contents.forEach [
 			it.map
 		]
+		
+		eObject.bindings.forEach [
+			it.map
+		]
 
 		pop
 	}
@@ -403,6 +415,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.push
 
 		eObject.tabs.forEach [
+			it.map
+		]
+		
+		eObject.bindings.forEach [
 			it.map
 		]
 
@@ -452,6 +468,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		eObject.tabs.forEach [
 			it.map
 		]
+		
+		eObject.bindings.forEach [
+			it.map
+		]
 
 		pop
 	}
@@ -490,13 +510,16 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val VMHorizontalButtonGroup layout = VaadinMobileFactory.eINSTANCE.createVMHorizontalButtonGroup
 		layout.name = eObject.name
 
-		//		layout.columns = eObject.columns
 		layout.addToParent
 		eObject.associateUi(layout)
 
 		layout.push
 
 		eObject.contents.forEach [
+			it.map
+		]
+		
+		eObject.bindings.forEach [
 			it.map
 		]
 
@@ -536,6 +559,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.push
 
 		eObject.contents.forEach [
+			it.map
+		]
+		
+		eObject.bindings.forEach [
 			it.map
 		]
 
@@ -641,6 +668,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		eObject.searchFields.forEach [
 			it.map
 		]
+		
+		eObject.bindings.forEach [
+			it.map
+		]
 
 		// pop searchFieldLayout
 		pop
@@ -717,11 +748,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			it.map
 		]
 
-		if (eObject.bindings != null) {
-			eObject.bindings.forEach [
-				it.map
-			]
-		}
+		eObject.bindings.forEach [
+			it.map
+		]
 
 		pop
 	}
@@ -761,6 +790,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			it.map
 		]
 
+		eObject.bindings.forEach [
+			it.map
+		]
+
 		pop
 	}
 
@@ -786,7 +819,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	}
 
-	def dispatch void map(UiRadioButtonGroup eObject) {
+	def dispatch void map(UiOptionsGroup eObject) {
 		val YOptionsGroup yOptionsGroup = eObject.associatedUi
 		yOptionsGroup.push
 
@@ -854,6 +887,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		button.label = object.name
 		button.addToParent
 		object.associateUi(button)
+		
+		object.bindings.forEach [
+			it.map
+		]
 	}
 
 	def dispatch void map(UiMobileNavigationButton object) {
@@ -869,6 +906,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		} else if (object.targetPageAlias != null) {
 			object.targetPageAlias.map
 		}
+		
+		object.bindings.forEach [
+			it.map
+		]
+		
 		pop
 
 	}
@@ -1033,7 +1075,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		return textArea
 	}
 
-	def dispatch YEmbeddable create(UiRadioButtonGroup object) {
+	def dispatch YEmbeddable create(UiOptionsGroup object) {
 		val YOptionsGroup optionsGroup = factory.createOptionsGroup
 		optionsGroup.name = object.name
 		optionsGroup.label = object.name
@@ -1408,7 +1450,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			info.deepestJvmField = assignment.path.fieldofLastSegment
 
 			val pathType = assignment.path.typeofSecondLastSegment
-			if (pathType != null) {
+			if (info.typeForBinding == null && pathType != null) {
 				info.typeForBinding = pathType
 			}
 		}

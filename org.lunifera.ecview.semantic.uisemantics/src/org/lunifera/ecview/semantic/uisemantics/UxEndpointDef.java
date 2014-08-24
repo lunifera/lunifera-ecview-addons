@@ -22,7 +22,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * </p>
  *
  * @see org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage#getUxEndpointDef()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface UxEndpointDef extends EObject {

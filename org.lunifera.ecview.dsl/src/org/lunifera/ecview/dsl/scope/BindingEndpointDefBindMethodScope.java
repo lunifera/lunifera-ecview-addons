@@ -16,12 +16,12 @@ import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 
-public class BindingEndpointDefMethodScope extends AbstractScope {
+public class BindingEndpointDefBindMethodScope extends AbstractScope {
 
 	private UiTypedBindableDef bindingEndpointDef;
 	private IResourceDescriptions desc;
 
-	protected BindingEndpointDefMethodScope(IResourceDescriptions desc,
+	protected BindingEndpointDefBindMethodScope(IResourceDescriptions desc,
 			UiTypedBindableDef context) {
 		super(IScope.NULLSCOPE, true);
 		this.desc = desc;
@@ -31,12 +31,12 @@ public class BindingEndpointDefMethodScope extends AbstractScope {
 	@Override
 	protected Iterable<IEObjectDescription> getAllLocalElements() {
 		UiRawBindable yEmb = bindingEndpointDef.getRawBindableOfLastSegment();
-		if(yEmb == null){
+		if (yEmb == null) {
 			return Collections.emptyList();
 		}
 		List<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 		for (IEObjectDescription des : desc
-				.getExportedObjectsByType(UiSemanticsPackage.Literals.UX_ENDPOINT_DEF)) {
+				.getExportedObjectsByType(UiSemanticsPackage.Literals.UX_BINDINGABLE_OPTION)) {
 			UxEndpointDef binding = (UxEndpointDef) des.getEObjectOrProxy();
 			binding = (UxEndpointDef) EcoreUtil.resolve(binding,
 					bindingEndpointDef);

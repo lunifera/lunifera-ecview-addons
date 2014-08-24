@@ -130,10 +130,10 @@ import org.lunifera.ecview.semantic.uimodel.UiMobileView;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
+import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
 import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
-import org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
@@ -492,6 +492,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiGridLayoutAssigment>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
     this.<Object>pop();
   }
   
@@ -533,6 +540,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiVerticalLayoutAssigment>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
     this.<Object>pop();
   }
   
@@ -577,6 +591,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiHorizontalLayoutAssigment>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
     this.<Object>pop();
   }
   
@@ -616,6 +637,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiTabAssignment>forEach(_tabs, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
     this.<Object>pop();
   }
   
@@ -662,6 +690,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiMobileTabAssignment>forEach(_tabs, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
     this.<Object>pop();
   }
   
@@ -708,6 +743,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiHorizontalButtonGroupAssigment>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
     this.<Object>pop();
   }
   
@@ -747,6 +789,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiVerticalComponentGroupAssigment>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
     this.<Object>pop();
   }
   
@@ -880,22 +929,29 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiDialogSearchFieldAssignment>forEach(_searchFields, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
     this.<Object>pop();
     UiDialogAssignment _content = eObject.getContent();
     if (_content!=null) {
       this.map(_content);
     }
     this.<Object>pop();
-    EList<UiBinding> _bindings = eObject.getBindings();
-    boolean _notEquals_1 = (!Objects.equal(_bindings, null));
+    EList<UiBinding> _bindings_1 = eObject.getBindings();
+    boolean _notEquals_1 = (!Objects.equal(_bindings_1, null));
     if (_notEquals_1) {
-      EList<UiBinding> _bindings_1 = eObject.getBindings();
-      final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      EList<UiBinding> _bindings_2 = eObject.getBindings();
+      final Procedure1<UiBinding> _function_2 = new Procedure1<UiBinding>() {
         public void apply(final UiBinding it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiBinding>forEach(_bindings_1, _function_1);
+      IterableExtensions.<UiBinding>forEach(_bindings_2, _function_2);
     }
     this.<Object>pop();
   }
@@ -976,16 +1032,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     };
     IterableExtensions.<UiMobileNavigationPageAssignment>forEach(_contents, _function);
     EList<UiBinding> _bindings = eObject.getBindings();
-    boolean _notEquals = (!Objects.equal(_bindings, null));
-    if (_notEquals) {
-      EList<UiBinding> _bindings_1 = eObject.getBindings();
-      final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
-        public void apply(final UiBinding it) {
-          UiModelDerivedStateComputerx.this.map(it);
-        }
-      };
-      IterableExtensions.<UiBinding>forEach(_bindings_1, _function_1);
-    }
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
     this.<Object>pop();
   }
   
@@ -1025,6 +1077,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiFormLayoutAssigment>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
     this.<Object>pop();
   }
   
@@ -1050,7 +1109,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     }
   }
   
-  protected void _map(final UiRadioButtonGroup eObject) {
+  protected void _map(final UiOptionsGroup eObject) {
     final YOptionsGroup yOptionsGroup = this.<YOptionsGroup>associatedUi(eObject);
     this.push(yOptionsGroup);
     EList<UiBinding> _bindings = eObject.getBindings();
@@ -1145,6 +1204,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     button.setLabel(_name_1);
     this.addToParent(button);
     this.associateUi(object, button);
+    EList<UiBinding> _bindings = object.getBindings();
+    final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function);
   }
   
   protected void _map(final UiMobileNavigationButton object) {
@@ -1169,6 +1235,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
         this.map(_targetPageAlias_1);
       }
     }
+    EList<UiBinding> _bindings = object.getBindings();
+    final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function);
     this.<Object>pop();
   }
   
@@ -1382,7 +1455,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return textArea;
   }
   
-  protected YEmbeddable _create(final UiRadioButtonGroup object) {
+  protected YEmbeddable _create(final UiOptionsGroup object) {
     final YOptionsGroup optionsGroup = this.factory.createOptionsGroup();
     String _name = object.getName();
     optionsGroup.setName(_name);
@@ -1901,8 +1974,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       info.setDeepestJvmField(_fieldofLastSegment);
       UiPathSegment _path_4 = assignment.getPath();
       final JvmType pathType = _path_4.getTypeofSecondLastSegment();
-      boolean _notEquals_3 = (!Objects.equal(pathType, null));
-      if (_notEquals_3) {
+      boolean _and = false;
+      JvmType _typeForBinding = info.getTypeForBinding();
+      boolean _equals = Objects.equal(_typeForBinding, null);
+      if (!_equals) {
+        _and = false;
+      } else {
+        boolean _notEquals_3 = (!Objects.equal(pathType, null));
+        _and = _notEquals_3;
+      }
+      if (_and) {
         info.setTypeForBinding(pathType);
       }
     }
@@ -2076,8 +2157,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     } else if (eObject instanceof UiMobileView) {
       _map((UiMobileView)eObject);
       return;
-    } else if (eObject instanceof UiRadioButtonGroup) {
-      _map((UiRadioButtonGroup)eObject);
+    } else if (eObject instanceof UiOptionsGroup) {
+      _map((UiOptionsGroup)eObject);
       return;
     } else if (eObject instanceof UiTable) {
       _map((UiTable)eObject);
@@ -2200,10 +2281,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return _create((UiLabel)object);
     } else if (object instanceof UiNumericField) {
       return _create((UiNumericField)object);
+    } else if (object instanceof UiOptionsGroup) {
+      return _create((UiOptionsGroup)object);
     } else if (object instanceof UiProgressBar) {
       return _create((UiProgressBar)object);
-    } else if (object instanceof UiRadioButtonGroup) {
-      return _create((UiRadioButtonGroup)object);
     } else if (object instanceof UiTable) {
       return _create((UiTable)object);
     } else if (object instanceof UiTextArea) {

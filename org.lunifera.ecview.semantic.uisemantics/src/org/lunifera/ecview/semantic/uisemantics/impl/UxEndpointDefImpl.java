@@ -32,7 +32,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
  *
  * @generated
  */
-public class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements UxEndpointDef {
+public abstract class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements UxEndpointDef {
 	/**
 	 * The default value of the '{@link #isFinal() <em>Final</em>}' attribute.
 	 * <!-- begin-user-doc -->

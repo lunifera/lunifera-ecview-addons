@@ -5,6 +5,7 @@
 package org.lunifera.ecview.semantic.uimodel.validation;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment;
 
@@ -18,7 +19,5 @@ public interface UiSearchDialogValidator {
 	boolean validate();
 
 	boolean validateSearchFields(EList<UiDialogSearchFieldAssignment> value);
-
-	boolean validateSearchFields(UiDialogSearchFieldAssignment value);
 	boolean validateContent(UiDialogAssignment value);
 }

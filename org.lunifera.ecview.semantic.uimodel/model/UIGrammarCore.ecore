@@ -243,6 +243,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="processorAssignment" eType="#//UiVisibilityProcessorAssignment"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiVisibilityProcessorAssignment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processor" eType="#//UiVisibilityProcessor"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processorAlias" eType="#//UiVisibilityProcessor"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiVisibilityProcessor" eSuperTypes="#//UiNamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindingAlias" upperBound="-1"
         eType="#//UiBindingEndpointAlias" containment="true"/>
@@ -257,11 +262,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="processor" eType="#//UiVisibilityProcessor"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiVisibilityProcessorAssignment">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="processor" eType="#//UiVisibilityProcessor"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="processorAlias" eType="#//UiVisibilityProcessor"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiChangeTrigger">
     <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" eType="#//UiBindingExpression"
         containment="true"/>
@@ -272,15 +272,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiVisibilityProperties" eSuperTypes="#//UiNamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiVisibilityPropertiesDef" eSuperTypes="#//UiRootElements">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" eType="#//UiVisibilityProperties"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiVisibilityPropertiesAssignment">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" eType="#//UiVisibilityProperties"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//UiVisibilityProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiVisibilityProperty" eSuperTypes="#//UiNamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindableDef" eType="#//UiBindingExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyAlias" eType="#//UiVisibilityProperties"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignmentExpression" eType="ecore:EClass ../../org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiValidator" abstract="true" interface="true"
       eSuperTypes="#//UiRawBindable"/>
@@ -401,7 +401,7 @@
         defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiTextArea" eSuperTypes="#//UiField"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiRadioButtonGroup" eSuperTypes="#//UiField #//UiTypeProvider">
+  <eClassifiers xsi:type="ecore:EClass" name="UiOptionsGroup" eSuperTypes="#//UiField #//UiTypeProvider">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionType" eType="#//UiSelectionType"
         defaultValueLiteral="SINGLE"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemImageProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmField"/>

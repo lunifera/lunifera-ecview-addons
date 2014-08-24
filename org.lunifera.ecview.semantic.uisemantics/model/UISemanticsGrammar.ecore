@@ -34,27 +34,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UxAvailableBindings">
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
-        eType="#//UxEndpointDef" containment="true"/>
+        eType="#//UxBindingableOption" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UxEndpointDef">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="listbinding" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UxAvailableVisibilityOptions">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
+        eType="#//UxVisibleableOption" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UxValueBindingEndpointDef" eSuperTypes="#//UxEndpointDef"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UxListBindingEndpointDef" eSuperTypes="#//UxEndpointDef"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UxSetBindingEndpointDef" eSuperTypes="#//UxEndpointDef"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UxAvailableVisibilityOptions">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
-        eType="#//UxVisibilityOption" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UxVisibilityOption">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UxAvailableValidatorProperties">
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//UxValidatorProperty" containment="true"/>
@@ -62,4 +48,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="UxValidatorProperty">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UxEndpointDef" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="listbinding" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UxBindingableOption" eSuperTypes="#//UxEndpointDef"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UxVisibleableOption" eSuperTypes="#//UxEndpointDef"/>
 </ecore:EPackage>

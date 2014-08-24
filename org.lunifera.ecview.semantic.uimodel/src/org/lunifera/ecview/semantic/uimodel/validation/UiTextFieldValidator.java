@@ -15,9 +15,6 @@ public interface UiTextFieldValidator {
 	boolean validate();
 
 	boolean validateMaxLength(int value);
-
 	boolean validateMinLength(int value);
-
 	boolean validateRegex(String value);
-
 }

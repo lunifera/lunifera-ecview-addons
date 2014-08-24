@@ -141,7 +141,7 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxEndpointDef()
 	 * @generated
 	 */
-	int UX_ENDPOINT_DEF = 6;
+	int UX_ENDPOINT_DEF = 10;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxValueBindingEndpointDefImpl <em>Ux Value Binding Endpoint Def</em>}' class.
@@ -152,46 +152,6 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @generated
 	 */
 	int UX_VALUE_BINDING_ENDPOINT_DEF = 7;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxListBindingEndpointDefImpl <em>Ux List Binding Endpoint Def</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxListBindingEndpointDefImpl
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxListBindingEndpointDef()
-	 * @generated
-	 */
-	int UX_LIST_BINDING_ENDPOINT_DEF = 8;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxSetBindingEndpointDefImpl <em>Ux Set Binding Endpoint Def</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxSetBindingEndpointDefImpl
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxSetBindingEndpointDef()
-	 * @generated
-	 */
-	int UX_SET_BINDING_ENDPOINT_DEF = 9;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableVisibilityOptionsImpl <em>Ux Available Visibility Options</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableVisibilityOptionsImpl
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxAvailableVisibilityOptions()
-	 * @generated
-	 */
-	int UX_AVAILABLE_VISIBILITY_OPTIONS = 10;
-
-	/**
-	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxVisibilityOptionImpl <em>Ux Visibility Option</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxVisibilityOptionImpl
-	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxVisibilityOption()
-	 * @generated
-	 */
-	int UX_VISIBILITY_OPTION = 11;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxImportSectionDeclarationImpl <em>Ux Import Section Declaration</em>}' class.
@@ -402,6 +362,34 @@ public interface UiSemanticsPackage extends EPackage {
 	int UX_AVAILABLE_BINDINGS_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableVisibilityOptionsImpl <em>Ux Available Visibility Options</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableVisibilityOptionsImpl
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxAvailableVisibilityOptions()
+	 * @generated
+	 */
+	int UX_AVAILABLE_VISIBILITY_OPTIONS = 6;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_AVAILABLE_VISIBILITY_OPTIONS__BINDINGS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Ux Available Visibility Options</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_AVAILABLE_VISIBILITY_OPTIONS_FEATURE_COUNT = 1;
+
+	/**
 	 * The feature id for the '<em><b>Final</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -492,142 +480,6 @@ public interface UiSemanticsPackage extends EPackage {
 	int UX_VALUE_BINDING_ENDPOINT_DEF_FEATURE_COUNT = UX_ENDPOINT_DEF_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Final</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UX_LIST_BINDING_ENDPOINT_DEF__FINAL = UX_ENDPOINT_DEF__FINAL;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UX_LIST_BINDING_ENDPOINT_DEF__NAME = UX_ENDPOINT_DEF__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UX_LIST_BINDING_ENDPOINT_DEF__JVM_TYPE = UX_ENDPOINT_DEF__JVM_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Listbinding</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UX_LIST_BINDING_ENDPOINT_DEF__LISTBINDING = UX_ENDPOINT_DEF__LISTBINDING;
-
-	/**
-	 * The number of structural features of the '<em>Ux List Binding Endpoint Def</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UX_LIST_BINDING_ENDPOINT_DEF_FEATURE_COUNT = UX_ENDPOINT_DEF_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Final</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UX_SET_BINDING_ENDPOINT_DEF__FINAL = UX_ENDPOINT_DEF__FINAL;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UX_SET_BINDING_ENDPOINT_DEF__NAME = UX_ENDPOINT_DEF__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UX_SET_BINDING_ENDPOINT_DEF__JVM_TYPE = UX_ENDPOINT_DEF__JVM_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Listbinding</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UX_SET_BINDING_ENDPOINT_DEF__LISTBINDING = UX_ENDPOINT_DEF__LISTBINDING;
-
-	/**
-	 * The number of structural features of the '<em>Ux Set Binding Endpoint Def</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UX_SET_BINDING_ENDPOINT_DEF_FEATURE_COUNT = UX_ENDPOINT_DEF_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UX_AVAILABLE_VISIBILITY_OPTIONS__OPTIONS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Ux Available Visibility Options</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UX_AVAILABLE_VISIBILITY_OPTIONS_FEATURE_COUNT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UX_VISIBILITY_OPTION__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UX_VISIBILITY_OPTION__JVM_TYPE = 1;
-
-	/**
-	 * The number of structural features of the '<em>Ux Visibility Option</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UX_VISIBILITY_OPTION_FEATURE_COUNT = 2;
-
-
-	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableValidatorPropertiesImpl <em>Ux Available Validator Properties</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -635,7 +487,7 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxAvailableValidatorProperties()
 	 * @generated
 	 */
-	int UX_AVAILABLE_VALIDATOR_PROPERTIES = 12;
+	int UX_AVAILABLE_VALIDATOR_PROPERTIES = 8;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -663,7 +515,7 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxValidatorProperty()
 	 * @generated
 	 */
-	int UX_VALIDATOR_PROPERTY = 13;
+	int UX_VALIDATOR_PROPERTY = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -682,6 +534,117 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @ordered
 	 */
 	int UX_VALIDATOR_PROPERTY_FEATURE_COUNT = 1;
+
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxBindingableOptionImpl <em>Ux Bindingable Option</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxBindingableOptionImpl
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxBindingableOption()
+	 * @generated
+	 */
+	int UX_BINDINGABLE_OPTION = 11;
+
+	/**
+	 * The feature id for the '<em><b>Final</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_BINDINGABLE_OPTION__FINAL = UX_ENDPOINT_DEF__FINAL;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_BINDINGABLE_OPTION__NAME = UX_ENDPOINT_DEF__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_BINDINGABLE_OPTION__JVM_TYPE = UX_ENDPOINT_DEF__JVM_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Listbinding</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_BINDINGABLE_OPTION__LISTBINDING = UX_ENDPOINT_DEF__LISTBINDING;
+
+	/**
+	 * The number of structural features of the '<em>Ux Bindingable Option</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_BINDINGABLE_OPTION_FEATURE_COUNT = UX_ENDPOINT_DEF_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxVisibleableOptionImpl <em>Ux Visibleable Option</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxVisibleableOptionImpl
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxVisibleableOption()
+	 * @generated
+	 */
+	int UX_VISIBLEABLE_OPTION = 12;
+
+	/**
+	 * The feature id for the '<em><b>Final</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_VISIBLEABLE_OPTION__FINAL = UX_ENDPOINT_DEF__FINAL;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_VISIBLEABLE_OPTION__NAME = UX_ENDPOINT_DEF__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_VISIBLEABLE_OPTION__JVM_TYPE = UX_ENDPOINT_DEF__JVM_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Listbinding</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_VISIBLEABLE_OPTION__LISTBINDING = UX_ENDPOINT_DEF__LISTBINDING;
+
+	/**
+	 * The number of structural features of the '<em>Ux Visibleable Option</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_VISIBLEABLE_OPTION_FEATURE_COUNT = UX_ENDPOINT_DEF_FEATURE_COUNT + 0;
 
 
 	/**
@@ -867,6 +830,27 @@ public interface UiSemanticsPackage extends EPackage {
 	EReference getUxAvailableBindings_Bindings();
 
 	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions <em>Ux Available Visibility Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ux Available Visibility Options</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions
+	 * @generated
+	 */
+	EClass getUxAvailableVisibilityOptions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions#getBindings <em>Bindings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Bindings</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions#getBindings()
+	 * @see #getUxAvailableVisibilityOptions()
+	 * @generated
+	 */
+	EReference getUxAvailableVisibilityOptions_Bindings();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxEndpointDef <em>Ux Endpoint Def</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -931,79 +915,6 @@ public interface UiSemanticsPackage extends EPackage {
 	EClass getUxValueBindingEndpointDef();
 
 	/**
-	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxListBindingEndpointDef <em>Ux List Binding Endpoint Def</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ux List Binding Endpoint Def</em>'.
-	 * @see org.lunifera.ecview.semantic.uisemantics.UxListBindingEndpointDef
-	 * @generated
-	 */
-	EClass getUxListBindingEndpointDef();
-
-	/**
-	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxSetBindingEndpointDef <em>Ux Set Binding Endpoint Def</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ux Set Binding Endpoint Def</em>'.
-	 * @see org.lunifera.ecview.semantic.uisemantics.UxSetBindingEndpointDef
-	 * @generated
-	 */
-	EClass getUxSetBindingEndpointDef();
-
-	/**
-	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions <em>Ux Available Visibility Options</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ux Available Visibility Options</em>'.
-	 * @see org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions
-	 * @generated
-	 */
-	EClass getUxAvailableVisibilityOptions();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions#getOptions <em>Options</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Options</em>'.
-	 * @see org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions#getOptions()
-	 * @see #getUxAvailableVisibilityOptions()
-	 * @generated
-	 */
-	EReference getUxAvailableVisibilityOptions_Options();
-
-	/**
-	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption <em>Ux Visibility Option</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ux Visibility Option</em>'.
-	 * @see org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption
-	 * @generated
-	 */
-	EClass getUxVisibilityOption();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption#getName()
-	 * @see #getUxVisibilityOption()
-	 * @generated
-	 */
-	EAttribute getUxVisibilityOption_Name();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption#getJvmType <em>Jvm Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Jvm Type</em>'.
-	 * @see org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption#getJvmType()
-	 * @see #getUxVisibilityOption()
-	 * @generated
-	 */
-	EReference getUxVisibilityOption_JvmType();
-
-	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxAvailableValidatorProperties <em>Ux Available Validator Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1044,6 +955,26 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getUxValidatorProperty_Name();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxBindingableOption <em>Ux Bindingable Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ux Bindingable Option</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxBindingableOption
+	 * @generated
+	 */
+	EClass getUxBindingableOption();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxVisibleableOption <em>Ux Visibleable Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ux Visibleable Option</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxVisibleableOption
+	 * @generated
+	 */
+	EClass getUxVisibleableOption();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxImportSectionDeclaration <em>Ux Import Section Declaration</em>}'.
@@ -1235,6 +1166,24 @@ public interface UiSemanticsPackage extends EPackage {
 		EReference UX_AVAILABLE_BINDINGS__BINDINGS = eINSTANCE.getUxAvailableBindings_Bindings();
 
 		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableVisibilityOptionsImpl <em>Ux Available Visibility Options</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableVisibilityOptionsImpl
+		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxAvailableVisibilityOptions()
+		 * @generated
+		 */
+		EClass UX_AVAILABLE_VISIBILITY_OPTIONS = eINSTANCE.getUxAvailableVisibilityOptions();
+
+		/**
+		 * The meta object literal for the '<em><b>Bindings</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UX_AVAILABLE_VISIBILITY_OPTIONS__BINDINGS = eINSTANCE.getUxAvailableVisibilityOptions_Bindings();
+
+		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxEndpointDefImpl <em>Ux Endpoint Def</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1287,70 +1236,6 @@ public interface UiSemanticsPackage extends EPackage {
 		EClass UX_VALUE_BINDING_ENDPOINT_DEF = eINSTANCE.getUxValueBindingEndpointDef();
 
 		/**
-		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxListBindingEndpointDefImpl <em>Ux List Binding Endpoint Def</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxListBindingEndpointDefImpl
-		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxListBindingEndpointDef()
-		 * @generated
-		 */
-		EClass UX_LIST_BINDING_ENDPOINT_DEF = eINSTANCE.getUxListBindingEndpointDef();
-
-		/**
-		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxSetBindingEndpointDefImpl <em>Ux Set Binding Endpoint Def</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxSetBindingEndpointDefImpl
-		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxSetBindingEndpointDef()
-		 * @generated
-		 */
-		EClass UX_SET_BINDING_ENDPOINT_DEF = eINSTANCE.getUxSetBindingEndpointDef();
-
-		/**
-		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableVisibilityOptionsImpl <em>Ux Available Visibility Options</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableVisibilityOptionsImpl
-		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxAvailableVisibilityOptions()
-		 * @generated
-		 */
-		EClass UX_AVAILABLE_VISIBILITY_OPTIONS = eINSTANCE.getUxAvailableVisibilityOptions();
-
-		/**
-		 * The meta object literal for the '<em><b>Options</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UX_AVAILABLE_VISIBILITY_OPTIONS__OPTIONS = eINSTANCE.getUxAvailableVisibilityOptions_Options();
-
-		/**
-		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxVisibilityOptionImpl <em>Ux Visibility Option</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxVisibilityOptionImpl
-		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxVisibilityOption()
-		 * @generated
-		 */
-		EClass UX_VISIBILITY_OPTION = eINSTANCE.getUxVisibilityOption();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute UX_VISIBILITY_OPTION__NAME = eINSTANCE.getUxVisibilityOption_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Jvm Type</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UX_VISIBILITY_OPTION__JVM_TYPE = eINSTANCE.getUxVisibilityOption_JvmType();
-
-		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableValidatorPropertiesImpl <em>Ux Available Validator Properties</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1385,6 +1270,26 @@ public interface UiSemanticsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UX_VALIDATOR_PROPERTY__NAME = eINSTANCE.getUxValidatorProperty_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxBindingableOptionImpl <em>Ux Bindingable Option</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxBindingableOptionImpl
+		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxBindingableOption()
+		 * @generated
+		 */
+		EClass UX_BINDINGABLE_OPTION = eINSTANCE.getUxBindingableOption();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxVisibleableOptionImpl <em>Ux Visibleable Option</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxVisibleableOptionImpl
+		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxVisibleableOption()
+		 * @generated
+		 */
+		EClass UX_VISIBLEABLE_OPTION = eINSTANCE.getUxVisibleableOption();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxImportSectionDeclarationImpl <em>Ux Import Section Declaration</em>}' class.

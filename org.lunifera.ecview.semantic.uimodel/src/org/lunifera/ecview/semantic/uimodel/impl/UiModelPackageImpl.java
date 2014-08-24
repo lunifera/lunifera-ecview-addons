@@ -7,13 +7,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.xtext.common.types.TypesPackage;
-
 import org.eclipse.xtext.xbase.XbasePackage;
-
 import org.lunifera.ecview.semantic.uimodel.UiAction;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
@@ -73,10 +69,10 @@ import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
+import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
 import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
-import org.lunifera.ecview.semantic.uimodel.UiRadioButtonGroup;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindableProvider;
@@ -109,13 +105,12 @@ import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessable;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorDef;
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperties;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityPropertiesAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityPropertiesDef;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperty;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityRule;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseVisibilityRule;
-
+import org.lunifera.ecview.semantic.uimodel.*;
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 
 /**
@@ -536,21 +531,14 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass uiVisibilityPropertiesEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass uiVisibilityPropertiesDefEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass uiVisibilityPropertiesAssignmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiVisibilityPropertyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -781,7 +769,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass uiRadioButtonGroupEClass = null;
+	private EClass uiOptionsGroupEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2202,33 +2190,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUiVisibilityProperties() {
-		return uiVisibilityPropertiesEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUiVisibilityPropertiesDef() {
-		return uiVisibilityPropertiesDefEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUiVisibilityPropertiesDef_Properties() {
-		return (EReference)uiVisibilityPropertiesDefEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getUiVisibilityPropertiesAssignment() {
 		return uiVisibilityPropertiesAssignmentEClass;
 	}
@@ -2247,8 +2208,26 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUiVisibilityPropertiesAssignment_PropertyAlias() {
-		return (EReference)uiVisibilityPropertiesAssignmentEClass.getEStructuralFeatures().get(1);
+	public EClass getUiVisibilityProperty() {
+		return uiVisibilityPropertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiVisibilityProperty_BindableDef() {
+		return (EReference)uiVisibilityPropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiVisibilityProperty_AssignmentExpression() {
+		return (EReference)uiVisibilityPropertyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2859,8 +2838,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUiRadioButtonGroup() {
-		return uiRadioButtonGroupEClass;
+	public EClass getUiOptionsGroup() {
+		return uiOptionsGroupEClass;
 	}
 
 	/**
@@ -2868,8 +2847,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUiRadioButtonGroup_SelectionType() {
-		return (EAttribute)uiRadioButtonGroupEClass.getEStructuralFeatures().get(0);
+	public EAttribute getUiOptionsGroup_SelectionType() {
+		return (EAttribute)uiOptionsGroupEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2877,8 +2856,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUiRadioButtonGroup_ItemImageProperty() {
-		return (EReference)uiRadioButtonGroupEClass.getEStructuralFeatures().get(1);
+	public EReference getUiOptionsGroup_ItemImageProperty() {
+		return (EReference)uiOptionsGroupEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2886,8 +2865,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUiRadioButtonGroup_ItemCaptionProperty() {
-		return (EReference)uiRadioButtonGroupEClass.getEStructuralFeatures().get(2);
+	public EReference getUiOptionsGroup_ItemCaptionProperty() {
+		return (EReference)uiOptionsGroupEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3145,6 +3124,10 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiVisibilityProcessableEClass = createEClass(UI_VISIBILITY_PROCESSABLE);
 		createEReference(uiVisibilityProcessableEClass, UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENT);
 
+		uiVisibilityProcessorAssignmentEClass = createEClass(UI_VISIBILITY_PROCESSOR_ASSIGNMENT);
+		createEReference(uiVisibilityProcessorAssignmentEClass, UI_VISIBILITY_PROCESSOR_ASSIGNMENT__PROCESSOR);
+		createEReference(uiVisibilityProcessorAssignmentEClass, UI_VISIBILITY_PROCESSOR_ASSIGNMENT__PROCESSOR_ALIAS);
+
 		uiVisibilityProcessorEClass = createEClass(UI_VISIBILITY_PROCESSOR);
 		createEReference(uiVisibilityProcessorEClass, UI_VISIBILITY_PROCESSOR__BINDING_ALIAS);
 		createEReference(uiVisibilityProcessorEClass, UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER);
@@ -3153,10 +3136,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiVisibilityProcessorDefEClass = createEClass(UI_VISIBILITY_PROCESSOR_DEF);
 		createEReference(uiVisibilityProcessorDefEClass, UI_VISIBILITY_PROCESSOR_DEF__PROCESSOR);
-
-		uiVisibilityProcessorAssignmentEClass = createEClass(UI_VISIBILITY_PROCESSOR_ASSIGNMENT);
-		createEReference(uiVisibilityProcessorAssignmentEClass, UI_VISIBILITY_PROCESSOR_ASSIGNMENT__PROCESSOR);
-		createEReference(uiVisibilityProcessorAssignmentEClass, UI_VISIBILITY_PROCESSOR_ASSIGNMENT__PROCESSOR_ALIAS);
 
 		uiChangeTriggerEClass = createEClass(UI_CHANGE_TRIGGER);
 		createEReference(uiChangeTriggerEClass, UI_CHANGE_TRIGGER__ENDPOINT);
@@ -3167,14 +3146,12 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiXbaseVisibilityRuleEClass = createEClass(UI_XBASE_VISIBILITY_RULE);
 		createEReference(uiXbaseVisibilityRuleEClass, UI_XBASE_VISIBILITY_RULE__EXPRESSION);
 
-		uiVisibilityPropertiesEClass = createEClass(UI_VISIBILITY_PROPERTIES);
-
-		uiVisibilityPropertiesDefEClass = createEClass(UI_VISIBILITY_PROPERTIES_DEF);
-		createEReference(uiVisibilityPropertiesDefEClass, UI_VISIBILITY_PROPERTIES_DEF__PROPERTIES);
-
 		uiVisibilityPropertiesAssignmentEClass = createEClass(UI_VISIBILITY_PROPERTIES_ASSIGNMENT);
 		createEReference(uiVisibilityPropertiesAssignmentEClass, UI_VISIBILITY_PROPERTIES_ASSIGNMENT__PROPERTIES);
-		createEReference(uiVisibilityPropertiesAssignmentEClass, UI_VISIBILITY_PROPERTIES_ASSIGNMENT__PROPERTY_ALIAS);
+
+		uiVisibilityPropertyEClass = createEClass(UI_VISIBILITY_PROPERTY);
+		createEReference(uiVisibilityPropertyEClass, UI_VISIBILITY_PROPERTY__BINDABLE_DEF);
+		createEReference(uiVisibilityPropertyEClass, UI_VISIBILITY_PROPERTY__ASSIGNMENT_EXPRESSION);
 
 		uiValidatorEClass = createEClass(UI_VALIDATOR);
 
@@ -3275,10 +3252,10 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiTextAreaEClass = createEClass(UI_TEXT_AREA);
 
-		uiRadioButtonGroupEClass = createEClass(UI_RADIO_BUTTON_GROUP);
-		createEAttribute(uiRadioButtonGroupEClass, UI_RADIO_BUTTON_GROUP__SELECTION_TYPE);
-		createEReference(uiRadioButtonGroupEClass, UI_RADIO_BUTTON_GROUP__ITEM_IMAGE_PROPERTY);
-		createEReference(uiRadioButtonGroupEClass, UI_RADIO_BUTTON_GROUP__ITEM_CAPTION_PROPERTY);
+		uiOptionsGroupEClass = createEClass(UI_OPTIONS_GROUP);
+		createEAttribute(uiOptionsGroupEClass, UI_OPTIONS_GROUP__SELECTION_TYPE);
+		createEReference(uiOptionsGroupEClass, UI_OPTIONS_GROUP__ITEM_IMAGE_PROPERTY);
+		createEReference(uiOptionsGroupEClass, UI_OPTIONS_GROUP__ITEM_CAPTION_PROPERTY);
 
 		uiDateFieldEClass = createEClass(UI_DATE_FIELD);
 
@@ -3384,8 +3361,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiVisibilityProcessorDefEClass.getESuperTypes().add(this.getUiRootElements());
 		uiVisibilityRuleEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiXbaseVisibilityRuleEClass.getESuperTypes().add(this.getUiVisibilityRule());
-		uiVisibilityPropertiesEClass.getESuperTypes().add(this.getUiNamedElement());
-		uiVisibilityPropertiesDefEClass.getESuperTypes().add(this.getUiRootElements());
+		uiVisibilityPropertyEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiValidatorEClass.getESuperTypes().add(this.getUiRawBindable());
 		uiMaxLengthValidatorEClass.getESuperTypes().add(this.getUiValidator());
 		uiMinLengthValidatorEClass.getESuperTypes().add(this.getUiValidator());
@@ -3420,8 +3396,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiLabelEClass.getESuperTypes().add(this.getUiField());
 		uiDecimalFieldEClass.getESuperTypes().add(this.getUiField());
 		uiTextAreaEClass.getESuperTypes().add(this.getUiField());
-		uiRadioButtonGroupEClass.getESuperTypes().add(this.getUiField());
-		uiRadioButtonGroupEClass.getESuperTypes().add(this.getUiTypeProvider());
+		uiOptionsGroupEClass.getESuperTypes().add(this.getUiField());
+		uiOptionsGroupEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiDateFieldEClass.getESuperTypes().add(this.getUiField());
 		uiBrowserEClass.getESuperTypes().add(this.getUiField());
 		uiProgressBarEClass.getESuperTypes().add(this.getUiField());
@@ -3609,6 +3585,10 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiVisibilityProcessableEClass, UiVisibilityProcessable.class, "UiVisibilityProcessable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiVisibilityProcessable_ProcessorAssignment(), this.getUiVisibilityProcessorAssignment(), null, "processorAssignment", null, 0, 1, UiVisibilityProcessable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(uiVisibilityProcessorAssignmentEClass, UiVisibilityProcessorAssignment.class, "UiVisibilityProcessorAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiVisibilityProcessorAssignment_Processor(), this.getUiVisibilityProcessor(), null, "processor", null, 0, 1, UiVisibilityProcessorAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiVisibilityProcessorAssignment_ProcessorAlias(), this.getUiVisibilityProcessor(), null, "processorAlias", null, 0, 1, UiVisibilityProcessorAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(uiVisibilityProcessorEClass, UiVisibilityProcessor.class, "UiVisibilityProcessor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiVisibilityProcessor_BindingAlias(), this.getUiBindingEndpointAlias(), null, "bindingAlias", null, 0, -1, UiVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiVisibilityProcessor_ChangeTrigger(), this.getUiChangeTrigger(), null, "changeTrigger", null, 0, -1, UiVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3617,10 +3597,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiVisibilityProcessorDefEClass, UiVisibilityProcessorDef.class, "UiVisibilityProcessorDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiVisibilityProcessorDef_Processor(), this.getUiVisibilityProcessor(), null, "processor", null, 0, 1, UiVisibilityProcessorDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(uiVisibilityProcessorAssignmentEClass, UiVisibilityProcessorAssignment.class, "UiVisibilityProcessorAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUiVisibilityProcessorAssignment_Processor(), this.getUiVisibilityProcessor(), null, "processor", null, 0, 1, UiVisibilityProcessorAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUiVisibilityProcessorAssignment_ProcessorAlias(), this.getUiVisibilityProcessor(), null, "processorAlias", null, 0, 1, UiVisibilityProcessorAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiChangeTriggerEClass, UiChangeTrigger.class, "UiChangeTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiChangeTrigger_Endpoint(), this.getUiBindingExpression(), null, "endpoint", null, 0, 1, UiChangeTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3631,14 +3607,12 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiXbaseVisibilityRuleEClass, UiXbaseVisibilityRule.class, "UiXbaseVisibilityRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiXbaseVisibilityRule_Expression(), theXbasePackage.getXExpression(), null, "expression", null, 0, 1, UiXbaseVisibilityRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(uiVisibilityPropertiesEClass, UiVisibilityProperties.class, "UiVisibilityProperties", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(uiVisibilityPropertiesDefEClass, UiVisibilityPropertiesDef.class, "UiVisibilityPropertiesDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUiVisibilityPropertiesDef_Properties(), this.getUiVisibilityProperties(), null, "properties", null, 0, 1, UiVisibilityPropertiesDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(uiVisibilityPropertiesAssignmentEClass, UiVisibilityPropertiesAssignment.class, "UiVisibilityPropertiesAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUiVisibilityPropertiesAssignment_Properties(), this.getUiVisibilityProperties(), null, "properties", null, 0, 1, UiVisibilityPropertiesAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUiVisibilityPropertiesAssignment_PropertyAlias(), this.getUiVisibilityProperties(), null, "propertyAlias", null, 0, 1, UiVisibilityPropertiesAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiVisibilityPropertiesAssignment_Properties(), this.getUiVisibilityProperty(), null, "properties", null, 0, -1, UiVisibilityPropertiesAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiVisibilityPropertyEClass, UiVisibilityProperty.class, "UiVisibilityProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiVisibilityProperty_BindableDef(), this.getUiBindingExpression(), null, "bindableDef", null, 0, 1, UiVisibilityProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiVisibilityProperty_AssignmentExpression(), theXbasePackage.getXExpression(), null, "assignmentExpression", null, 0, 1, UiVisibilityProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiValidatorEClass, UiValidator.class, "UiValidator", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3739,10 +3713,10 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiTextAreaEClass, UiTextArea.class, "UiTextArea", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(uiRadioButtonGroupEClass, UiRadioButtonGroup.class, "UiRadioButtonGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getUiRadioButtonGroup_SelectionType(), this.getUiSelectionType(), "selectionType", "SINGLE", 0, 1, UiRadioButtonGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUiRadioButtonGroup_ItemImageProperty(), theTypesPackage.getJvmField(), null, "itemImageProperty", null, 0, 1, UiRadioButtonGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUiRadioButtonGroup_ItemCaptionProperty(), theTypesPackage.getJvmField(), null, "itemCaptionProperty", null, 0, 1, UiRadioButtonGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(uiOptionsGroupEClass, UiOptionsGroup.class, "UiOptionsGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUiOptionsGroup_SelectionType(), this.getUiSelectionType(), "selectionType", "SINGLE", 0, 1, UiOptionsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiOptionsGroup_ItemImageProperty(), theTypesPackage.getJvmField(), null, "itemImageProperty", null, 0, 1, UiOptionsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiOptionsGroup_ItemCaptionProperty(), theTypesPackage.getJvmField(), null, "itemCaptionProperty", null, 0, 1, UiOptionsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiDateFieldEClass, UiDateField.class, "UiDateField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

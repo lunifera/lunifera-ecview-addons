@@ -102,9 +102,9 @@ public class UiSemanticsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case UiSemanticsPackage.UX_ENDPOINT_DEF: {
-				UxEndpointDef uxEndpointDef = (UxEndpointDef)theEObject;
-				T result = caseUxEndpointDef(uxEndpointDef);
+			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS: {
+				UxAvailableVisibilityOptions uxAvailableVisibilityOptions = (UxAvailableVisibilityOptions)theEObject;
+				T result = caseUxAvailableVisibilityOptions(uxAvailableVisibilityOptions);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -112,32 +112,6 @@ public class UiSemanticsSwitch<T> extends Switch<T> {
 				UxValueBindingEndpointDef uxValueBindingEndpointDef = (UxValueBindingEndpointDef)theEObject;
 				T result = caseUxValueBindingEndpointDef(uxValueBindingEndpointDef);
 				if (result == null) result = caseUxEndpointDef(uxValueBindingEndpointDef);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case UiSemanticsPackage.UX_LIST_BINDING_ENDPOINT_DEF: {
-				UxListBindingEndpointDef uxListBindingEndpointDef = (UxListBindingEndpointDef)theEObject;
-				T result = caseUxListBindingEndpointDef(uxListBindingEndpointDef);
-				if (result == null) result = caseUxEndpointDef(uxListBindingEndpointDef);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case UiSemanticsPackage.UX_SET_BINDING_ENDPOINT_DEF: {
-				UxSetBindingEndpointDef uxSetBindingEndpointDef = (UxSetBindingEndpointDef)theEObject;
-				T result = caseUxSetBindingEndpointDef(uxSetBindingEndpointDef);
-				if (result == null) result = caseUxEndpointDef(uxSetBindingEndpointDef);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS: {
-				UxAvailableVisibilityOptions uxAvailableVisibilityOptions = (UxAvailableVisibilityOptions)theEObject;
-				T result = caseUxAvailableVisibilityOptions(uxAvailableVisibilityOptions);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case UiSemanticsPackage.UX_VISIBILITY_OPTION: {
-				UxVisibilityOption uxVisibilityOption = (UxVisibilityOption)theEObject;
-				T result = caseUxVisibilityOption(uxVisibilityOption);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -150,6 +124,26 @@ public class UiSemanticsSwitch<T> extends Switch<T> {
 			case UiSemanticsPackage.UX_VALIDATOR_PROPERTY: {
 				UxValidatorProperty uxValidatorProperty = (UxValidatorProperty)theEObject;
 				T result = caseUxValidatorProperty(uxValidatorProperty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiSemanticsPackage.UX_ENDPOINT_DEF: {
+				UxEndpointDef uxEndpointDef = (UxEndpointDef)theEObject;
+				T result = caseUxEndpointDef(uxEndpointDef);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiSemanticsPackage.UX_BINDINGABLE_OPTION: {
+				UxBindingableOption uxBindingableOption = (UxBindingableOption)theEObject;
+				T result = caseUxBindingableOption(uxBindingableOption);
+				if (result == null) result = caseUxEndpointDef(uxBindingableOption);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiSemanticsPackage.UX_VISIBLEABLE_OPTION: {
+				UxVisibleableOption uxVisibleableOption = (UxVisibleableOption)theEObject;
+				T result = caseUxVisibleableOption(uxVisibleableOption);
+				if (result == null) result = caseUxEndpointDef(uxVisibleableOption);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -233,6 +227,21 @@ public class UiSemanticsSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ux Available Visibility Options</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ux Available Visibility Options</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUxAvailableVisibilityOptions(UxAvailableVisibilityOptions object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Ux Endpoint Def</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -263,66 +272,6 @@ public class UiSemanticsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ux List Binding Endpoint Def</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ux List Binding Endpoint Def</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUxListBindingEndpointDef(UxListBindingEndpointDef object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ux Set Binding Endpoint Def</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ux Set Binding Endpoint Def</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUxSetBindingEndpointDef(UxSetBindingEndpointDef object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ux Available Visibility Options</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ux Available Visibility Options</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUxAvailableVisibilityOptions(UxAvailableVisibilityOptions object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ux Visibility Option</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ux Visibility Option</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUxVisibilityOption(UxVisibilityOption object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Ux Available Validator Properties</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -349,6 +298,36 @@ public class UiSemanticsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUxValidatorProperty(UxValidatorProperty object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ux Bindingable Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ux Bindingable Option</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUxBindingableOption(UxBindingableOption object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ux Visibleable Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ux Visibleable Option</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUxVisibleableOption(UxVisibleableOption object) {
 		return null;
 	}
 

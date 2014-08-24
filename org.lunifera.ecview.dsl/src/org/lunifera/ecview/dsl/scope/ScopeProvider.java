@@ -15,6 +15,7 @@ import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTable;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperty;
 import org.lunifera.ecview.semantic.uimodel.impl.UiPathSegmentImpl;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 
@@ -38,9 +39,15 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
 		if (reference == UiModelPackage.Literals.UI_TYPED_BINDABLE_DEF__METHOD) {
-			return new BindingEndpointDefMethodScope(
-					provider.getResourceDescriptions(context.eResource()),
-					(UiTypedBindableDef) context);
+			if (context.eContainer() instanceof UiVisibilityProperty) {
+				return new BindingEndpointDefVisibilityMethodScope(
+						provider.getResourceDescriptions(context.eResource()),
+						(UiTypedBindableDef) context);
+			} else {
+				return new BindingEndpointDefBindMethodScope(
+						provider.getResourceDescriptions(context.eResource()),
+						(UiTypedBindableDef) context);
+			}
 		} else if (reference == UiModelPackage.Literals.UI_TYPED_BINDABLE_DEF__RAW_BINDABLE) {
 			return new BindingEndpointDefRawBindableScope(context, nameProvider);
 		} else if (reference == UiModelPackage.Literals.UI_RAW_BINDABLE_PATH_SEGMENT__RAW_BINDABLE) {
@@ -61,9 +68,9 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 			return createJvmFieldScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_SEARCH_FIELD__PROPERTY) {
 			return createJvmFieldScope(context);
-		} else if (reference == UiModelPackage.Literals.UI_RADIO_BUTTON_GROUP__ITEM_CAPTION_PROPERTY) {
+		} else if (reference == UiModelPackage.Literals.UI_OPTIONS_GROUP__ITEM_CAPTION_PROPERTY) {
 			return createJvmFieldScope(context);
-		} else if (reference == UiModelPackage.Literals.UI_RADIO_BUTTON_GROUP__ITEM_IMAGE_PROPERTY) {
+		} else if (reference == UiModelPackage.Literals.UI_OPTIONS_GROUP__ITEM_IMAGE_PROPERTY) {
 			return createJvmFieldScope(context);
 		}
 		return super.getScope(context, reference);
