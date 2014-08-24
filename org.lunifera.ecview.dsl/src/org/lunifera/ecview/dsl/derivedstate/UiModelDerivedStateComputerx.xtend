@@ -141,7 +141,11 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.ExtensionModelFactory
 import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand
 import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment
+<<<<<<< HEAD
+import java.util.ArrayList
+=======
 import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup
+>>>>>>> 0f3e54c36e3d116c72edca1964a6cdc0fade2c2d
 
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
@@ -162,6 +166,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	YView currentView;
 
 	DerivedStateAwareResource resource
+	List<UiBinding> pendingBindings = newArrayList()
+	List<UiBinding> temporaryPendingBindings = newArrayList()
 
 	def void associateUi(EObject grammarElement, EObject uiElement) {
 		grammarToUiAssociations.put(grammarElement, uiElement)
@@ -199,12 +205,13 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			eObject.eContents.forEach [
 				it.map
 			]
-
+			
 			if (views.size > 0) {
 				resource.contents += views.get(0)
 			}
 			views.clear
 			viewContext.clear
+			pendingBindings.clear
 		}
 
 		this.typeLoader.dispose
@@ -242,10 +249,31 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		object.content.map
 		object.bindings.forEach[it.map]
 
-		object.validatorAssignments.forEach[it.map]
-
-		pop
-		currentView = null
+		// install all bindings
+		
+		temporaryPendingBindings =  newArrayList(pendingBindings) 
+		pendingBindings.clear
+		
+		temporaryPendingBindings.forEach[
+				it.install
+		]
+		if (pendingBindings.empty){
+			object.validatorAssignments.forEach[it.map]
+	
+			pop
+			currentView = null
+		} else {
+			temporaryPendingBindings = newArrayList(pendingBindings)
+			pendingBindings.clear
+		
+			temporaryPendingBindings.forEach[
+				it.install
+			]
+			object.validatorAssignments.forEach[it.map]
+	
+			pop
+			currentView = null
+		}
 	}
 
 	def dispatch void map(UiMobileView object) {
@@ -259,6 +287,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		object.beanSlots.forEach[it.map]
 		object.content.map
 		object.bindings.forEach[it.map]
+		
+		// install all bindings
+		pendingBindings.forEach[
+				it.install
+		]
 
 		object.validatorAssignments.forEach[it.map]
 
@@ -1257,6 +1290,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	}
 
 	def dispatch void map(UiBinding object) {
+		pendingBindings += object
+	}
+
+	def void install(UiBinding object) {
 		val UiBindingEndpointAlias sourceAlias = object.sourceAlias as UiBindingEndpointAlias
 		val source = object.source
 		val UiBindingEndpointAlias targetAlias = object.targetAlias as UiBindingEndpointAlias
@@ -1448,7 +1485,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			info.appendPath(assignment.path.toPathString)
 			info.typeOfBoundProperty = assignment.path.typeofLastSegment
 			info.deepestJvmField = assignment.path.fieldofLastSegment
-
+ 
 			val pathType = assignment.path.typeofSecondLastSegment
 			if (info.typeForBinding == null && pathType != null) {
 				info.typeForBinding = pathType

@@ -2,11 +2,13 @@ package org.lunifera.ecview.dsl.derivedstate;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
+import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -58,7 +60,6 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YImage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericSearchField;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YProgressBar;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTab;
@@ -80,7 +81,6 @@ import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.lunifera.ecview.dsl.derivedstate.TypeHelper;
 import org.lunifera.ecview.dsl.derivedstate.UiGrammarElementAdapter;
@@ -130,7 +130,6 @@ import org.lunifera.ecview.semantic.uimodel.UiMobileView;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
-import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
 import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
@@ -316,6 +315,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   private DerivedStateAwareResource resource;
   
+  private List<UiBinding> pendingBindings = CollectionLiterals.<UiBinding>newArrayList();
+  
+  private List<UiBinding> temporaryPendingBindings = CollectionLiterals.<UiBinding>newArrayList();
+  
   public void associateUi(final EObject grammarElement, final EObject uiElement) {
     this.grammarToUiAssociations.put(grammarElement, uiElement);
     this.uiToGrammarAssociations.put(uiElement, grammarElement);
@@ -351,12 +354,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       EList<EObject> _contents_1 = resource.getContents();
       final EObject eObject = _contents_1.get(0);
       EList<EObject> _eContents = eObject.eContents();
-      final Procedure1<EObject> _function = new Procedure1<EObject>() {
-        public void apply(final EObject it) {
+      final Consumer<EObject> _function = new Consumer<EObject>() {
+        public void accept(final EObject it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<EObject>forEach(_eContents, _function);
+      _eContents.forEach(_function);
       int _size = this.views.size();
       boolean _greaterThan = (_size > 0);
       if (_greaterThan) {
@@ -366,6 +369,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
       this.views.clear();
       this.viewContext.clear();
+      this.pendingBindings.clear();
     }
     this.typeLoader.dispose();
     this.typeLoader = null;
@@ -389,12 +393,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     Iterable<UiRootElements> _filter = IterableExtensions.<UiRootElements>filter(_roots, _function);
-    final Procedure1<UiRootElements> _function_1 = new Procedure1<UiRootElements>() {
-      public void apply(final UiRootElements it) {
+    final Consumer<UiRootElements> _function_1 = new Consumer<UiRootElements>() {
+      public void accept(final UiRootElements it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiRootElements>forEach(_filter, _function_1);
+    _filter.forEach(_function_1);
   }
   
   protected void _map(final UiView object) {
@@ -410,30 +414,61 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.currentView = yView;
     this.push(yView);
     EList<UiBeanSlot> _beanSlots = object.getBeanSlots();
-    final Procedure1<UiBeanSlot> _function = new Procedure1<UiBeanSlot>() {
-      public void apply(final UiBeanSlot it) {
+    final Consumer<UiBeanSlot> _function = new Consumer<UiBeanSlot>() {
+      public void accept(final UiBeanSlot it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiBeanSlot>forEach(_beanSlots, _function);
+    _beanSlots.forEach(_function);
     UiEmbeddable _content = object.getContent();
     this.map(_content);
     EList<UiBinding> _bindings = object.getBindings();
-    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
-      public void apply(final UiBinding it) {
+    final Consumer<UiBinding> _function_1 = new Consumer<UiBinding>() {
+      public void accept(final UiBinding it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
-    EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
-    final Procedure1<UiValidatorAssignment> _function_2 = new Procedure1<UiValidatorAssignment>() {
-      public void apply(final UiValidatorAssignment it) {
-        UiModelDerivedStateComputerx.this.map(it);
+    _bindings.forEach(_function_1);
+    ArrayList<UiBinding> _newArrayList = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
+    this.temporaryPendingBindings = _newArrayList;
+    this.pendingBindings.clear();
+    final Consumer<UiBinding> _function_2 = new Consumer<UiBinding>() {
+      public void accept(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.install(it);
       }
     };
-    IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_2);
-    this.<Object>pop();
-    this.currentView = null;
+    this.temporaryPendingBindings.forEach(_function_2);
+    boolean _isEmpty = this.pendingBindings.isEmpty();
+    if (_isEmpty) {
+      EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
+      final Consumer<UiValidatorAssignment> _function_3 = new Consumer<UiValidatorAssignment>() {
+        public void accept(final UiValidatorAssignment it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      _validatorAssignments.forEach(_function_3);
+      this.<Object>pop();
+      this.currentView = null;
+    } else {
+      ArrayList<UiBinding> _newArrayList_1 = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
+      this.temporaryPendingBindings = _newArrayList_1;
+      this.pendingBindings.clear();
+      final Consumer<UiBinding> _function_4 = new Consumer<UiBinding>() {
+        public void accept(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.install(it);
+        }
+      };
+      this.temporaryPendingBindings.forEach(_function_4);
+      EList<UiValidatorAssignment> _validatorAssignments_1 = object.getValidatorAssignments();
+      final Consumer<UiValidatorAssignment> _function_5 = new Consumer<UiValidatorAssignment>() {
+        public void accept(final UiValidatorAssignment it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      _validatorAssignments_1.forEach(_function_5);
+      this.<Object>pop();
+      this.currentView = null;
+    }
   }
   
   protected void _map(final UiMobileView object) {
@@ -442,28 +477,34 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.currentView = yView;
     this.push(yView);
     EList<UiBeanSlot> _beanSlots = object.getBeanSlots();
-    final Procedure1<UiBeanSlot> _function = new Procedure1<UiBeanSlot>() {
-      public void apply(final UiBeanSlot it) {
+    final Consumer<UiBeanSlot> _function = new Consumer<UiBeanSlot>() {
+      public void accept(final UiBeanSlot it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiBeanSlot>forEach(_beanSlots, _function);
+    _beanSlots.forEach(_function);
     UiEmbeddable _content = object.getContent();
     this.map(_content);
     EList<UiBinding> _bindings = object.getBindings();
-    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
-      public void apply(final UiBinding it) {
+    final Consumer<UiBinding> _function_1 = new Consumer<UiBinding>() {
+      public void accept(final UiBinding it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    _bindings.forEach(_function_1);
+    final Consumer<UiBinding> _function_2 = new Consumer<UiBinding>() {
+      public void accept(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.install(it);
+      }
+    };
+    this.pendingBindings.forEach(_function_2);
     EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
-    final Procedure1<UiValidatorAssignment> _function_2 = new Procedure1<UiValidatorAssignment>() {
-      public void apply(final UiValidatorAssignment it) {
+    final Consumer<UiValidatorAssignment> _function_3 = new Consumer<UiValidatorAssignment>() {
+      public void accept(final UiValidatorAssignment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_2);
+    _validatorAssignments.forEach(_function_3);
     this.<Object>pop();
     this.currentView = null;
   }
@@ -486,19 +527,19 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.associateUi(eObject, layout);
     this.push(layout);
     EList<UiGridLayoutAssigment> _contents = eObject.getContents();
-    final Procedure1<UiGridLayoutAssigment> _function = new Procedure1<UiGridLayoutAssigment>() {
-      public void apply(final UiGridLayoutAssigment it) {
+    final Consumer<UiGridLayoutAssigment> _function = new Consumer<UiGridLayoutAssigment>() {
+      public void accept(final UiGridLayoutAssigment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiGridLayoutAssigment>forEach(_contents, _function);
+    _contents.forEach(_function);
     EList<UiBinding> _bindings = eObject.getBindings();
-    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
-      public void apply(final UiBinding it) {
+    final Consumer<UiBinding> _function_1 = new Consumer<UiBinding>() {
+      public void accept(final UiBinding it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    _bindings.forEach(_function_1);
     this.<Object>pop();
   }
   
@@ -512,12 +553,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
-      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
-        public void apply(final UiValidator it) {
+      final Consumer<UiValidator> _function = new Consumer<UiValidator>() {
+        public void accept(final UiValidator it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      _validators.forEach(_function);
       this.<Object>pop();
     } else {
       this.map(element);
@@ -534,19 +575,19 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.associateUi(eObject, layout);
     this.push(layout);
     EList<UiVerticalLayoutAssigment> _contents = eObject.getContents();
-    final Procedure1<UiVerticalLayoutAssigment> _function = new Procedure1<UiVerticalLayoutAssigment>() {
-      public void apply(final UiVerticalLayoutAssigment it) {
+    final Consumer<UiVerticalLayoutAssigment> _function = new Consumer<UiVerticalLayoutAssigment>() {
+      public void accept(final UiVerticalLayoutAssigment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiVerticalLayoutAssigment>forEach(_contents, _function);
+    _contents.forEach(_function);
     EList<UiBinding> _bindings = eObject.getBindings();
-    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
-      public void apply(final UiBinding it) {
+    final Consumer<UiBinding> _function_1 = new Consumer<UiBinding>() {
+      public void accept(final UiBinding it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    _bindings.forEach(_function_1);
     this.<Object>pop();
   }
   
@@ -562,12 +603,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
         this.push(newField);
         final UiField yField = ((UiField) element);
         EList<UiValidator> _validators = yField.getValidators();
-        final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
-          public void apply(final UiValidator it) {
+        final Consumer<UiValidator> _function = new Consumer<UiValidator>() {
+          public void accept(final UiValidator it) {
             UiModelDerivedStateComputerx.this.map(it);
           }
         };
-        IterableExtensions.<UiValidator>forEach(_validators, _function);
+        _validators.forEach(_function);
         this.<Object>pop();
       }
     } else {
@@ -585,19 +626,19 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.associateUi(eObject, layout);
     this.push(layout);
     EList<UiHorizontalLayoutAssigment> _contents = eObject.getContents();
-    final Procedure1<UiHorizontalLayoutAssigment> _function = new Procedure1<UiHorizontalLayoutAssigment>() {
-      public void apply(final UiHorizontalLayoutAssigment it) {
+    final Consumer<UiHorizontalLayoutAssigment> _function = new Consumer<UiHorizontalLayoutAssigment>() {
+      public void accept(final UiHorizontalLayoutAssigment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiHorizontalLayoutAssigment>forEach(_contents, _function);
+    _contents.forEach(_function);
     EList<UiBinding> _bindings = eObject.getBindings();
-    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
-      public void apply(final UiBinding it) {
+    final Consumer<UiBinding> _function_1 = new Consumer<UiBinding>() {
+      public void accept(final UiBinding it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    _bindings.forEach(_function_1);
     this.<Object>pop();
   }
   
@@ -611,12 +652,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
-      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
-        public void apply(final UiValidator it) {
+      final Consumer<UiValidator> _function = new Consumer<UiValidator>() {
+        public void accept(final UiValidator it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      _validators.forEach(_function);
       this.<Object>pop();
     } else {
       this.map(element);
@@ -631,19 +672,19 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.associateUi(eObject, layout);
     this.push(layout);
     EList<UiTabAssignment> _tabs = eObject.getTabs();
-    final Procedure1<UiTabAssignment> _function = new Procedure1<UiTabAssignment>() {
-      public void apply(final UiTabAssignment it) {
+    final Consumer<UiTabAssignment> _function = new Consumer<UiTabAssignment>() {
+      public void accept(final UiTabAssignment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiTabAssignment>forEach(_tabs, _function);
+    _tabs.forEach(_function);
     EList<UiBinding> _bindings = eObject.getBindings();
-    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
-      public void apply(final UiBinding it) {
+    final Consumer<UiBinding> _function_1 = new Consumer<UiBinding>() {
+      public void accept(final UiBinding it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    _bindings.forEach(_function_1);
     this.<Object>pop();
   }
   
@@ -663,12 +704,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
-      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
-        public void apply(final UiValidator it) {
+      final Consumer<UiValidator> _function = new Consumer<UiValidator>() {
+        public void accept(final UiValidator it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      _validators.forEach(_function);
       this.<Object>pop();
     } else {
       this.map(element);
@@ -684,19 +725,19 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.associateUi(eObject, layout);
     this.push(layout);
     EList<UiMobileTabAssignment> _tabs = eObject.getTabs();
-    final Procedure1<UiMobileTabAssignment> _function = new Procedure1<UiMobileTabAssignment>() {
-      public void apply(final UiMobileTabAssignment it) {
+    final Consumer<UiMobileTabAssignment> _function = new Consumer<UiMobileTabAssignment>() {
+      public void accept(final UiMobileTabAssignment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiMobileTabAssignment>forEach(_tabs, _function);
+    _tabs.forEach(_function);
     EList<UiBinding> _bindings = eObject.getBindings();
-    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
-      public void apply(final UiBinding it) {
+    final Consumer<UiBinding> _function_1 = new Consumer<UiBinding>() {
+      public void accept(final UiBinding it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    _bindings.forEach(_function_1);
     this.<Object>pop();
   }
   
@@ -716,12 +757,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
-      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
-        public void apply(final UiValidator it) {
+      final Consumer<UiValidator> _function = new Consumer<UiValidator>() {
+        public void accept(final UiValidator it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      _validators.forEach(_function);
       this.<Object>pop();
     } else {
       this.map(element);
@@ -737,19 +778,19 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.associateUi(eObject, layout);
     this.push(layout);
     EList<UiHorizontalButtonGroupAssigment> _contents = eObject.getContents();
-    final Procedure1<UiHorizontalButtonGroupAssigment> _function = new Procedure1<UiHorizontalButtonGroupAssigment>() {
-      public void apply(final UiHorizontalButtonGroupAssigment it) {
+    final Consumer<UiHorizontalButtonGroupAssigment> _function = new Consumer<UiHorizontalButtonGroupAssigment>() {
+      public void accept(final UiHorizontalButtonGroupAssigment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiHorizontalButtonGroupAssigment>forEach(_contents, _function);
+    _contents.forEach(_function);
     EList<UiBinding> _bindings = eObject.getBindings();
-    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
-      public void apply(final UiBinding it) {
+    final Consumer<UiBinding> _function_1 = new Consumer<UiBinding>() {
+      public void accept(final UiBinding it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    _bindings.forEach(_function_1);
     this.<Object>pop();
   }
   
@@ -763,12 +804,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
-      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
-        public void apply(final UiValidator it) {
+      final Consumer<UiValidator> _function = new Consumer<UiValidator>() {
+        public void accept(final UiValidator it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      _validators.forEach(_function);
       this.<Object>pop();
     } else {
       this.map(element);
@@ -783,19 +824,19 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.associateUi(eObject, layout);
     this.push(layout);
     EList<UiVerticalComponentGroupAssigment> _contents = eObject.getContents();
-    final Procedure1<UiVerticalComponentGroupAssigment> _function = new Procedure1<UiVerticalComponentGroupAssigment>() {
-      public void apply(final UiVerticalComponentGroupAssigment it) {
+    final Consumer<UiVerticalComponentGroupAssigment> _function = new Consumer<UiVerticalComponentGroupAssigment>() {
+      public void accept(final UiVerticalComponentGroupAssigment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiVerticalComponentGroupAssigment>forEach(_contents, _function);
+    _contents.forEach(_function);
     EList<UiBinding> _bindings = eObject.getBindings();
-    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
-      public void apply(final UiBinding it) {
+    final Consumer<UiBinding> _function_1 = new Consumer<UiBinding>() {
+      public void accept(final UiBinding it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    _bindings.forEach(_function_1);
     this.<Object>pop();
   }
   
@@ -809,12 +850,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
-      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
-        public void apply(final UiValidator it) {
+      final Consumer<UiValidator> _function = new Consumer<UiValidator>() {
+        public void accept(final UiValidator it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      _validators.forEach(_function);
       this.<Object>pop();
     } else {
       this.map(element);
@@ -829,22 +870,22 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.associateUi(eObject, layout);
     this.push(layout);
     EList<UiMobileNavigationPageAssignment> _contents = eObject.getContents();
-    final Procedure1<UiMobileNavigationPageAssignment> _function = new Procedure1<UiMobileNavigationPageAssignment>() {
-      public void apply(final UiMobileNavigationPageAssignment it) {
+    final Consumer<UiMobileNavigationPageAssignment> _function = new Consumer<UiMobileNavigationPageAssignment>() {
+      public void accept(final UiMobileNavigationPageAssignment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiMobileNavigationPageAssignment>forEach(_contents, _function);
+    _contents.forEach(_function);
     EList<UiBinding> _bindings = eObject.getBindings();
     boolean _notEquals = (!Objects.equal(_bindings, null));
     if (_notEquals) {
       EList<UiBinding> _bindings_1 = eObject.getBindings();
-      final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
-        public void apply(final UiBinding it) {
+      final Consumer<UiBinding> _function_1 = new Consumer<UiBinding>() {
+        public void accept(final UiBinding it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiBinding>forEach(_bindings_1, _function_1);
+      _bindings_1.forEach(_function_1);
     }
     this.<Object>pop();
   }
@@ -881,12 +922,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _notEquals_1 = (!Objects.equal(_bindings, null));
     if (_notEquals_1) {
       EList<UiBinding> _bindings_1 = eObject.getBindings();
-      final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
-        public void apply(final UiBinding it) {
+      final Consumer<UiBinding> _function = new Consumer<UiBinding>() {
+        public void accept(final UiBinding it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiBinding>forEach(_bindings_1, _function);
+      _bindings_1.forEach(_function);
     }
     this.<Object>pop();
   }
@@ -923,19 +964,19 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     _elements.add(searchFieldLayout);
     this.push(searchFieldLayout);
     EList<UiDialogSearchFieldAssignment> _searchFields = eObject.getSearchFields();
-    final Procedure1<UiDialogSearchFieldAssignment> _function = new Procedure1<UiDialogSearchFieldAssignment>() {
-      public void apply(final UiDialogSearchFieldAssignment it) {
+    final Consumer<UiDialogSearchFieldAssignment> _function = new Consumer<UiDialogSearchFieldAssignment>() {
+      public void accept(final UiDialogSearchFieldAssignment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiDialogSearchFieldAssignment>forEach(_searchFields, _function);
+    _searchFields.forEach(_function);
     EList<UiBinding> _bindings = eObject.getBindings();
-    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
-      public void apply(final UiBinding it) {
+    final Consumer<UiBinding> _function_1 = new Consumer<UiBinding>() {
+      public void accept(final UiBinding it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    _bindings.forEach(_function_1);
     this.<Object>pop();
     UiDialogAssignment _content = eObject.getContent();
     if (_content!=null) {
@@ -946,12 +987,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _notEquals_1 = (!Objects.equal(_bindings_1, null));
     if (_notEquals_1) {
       EList<UiBinding> _bindings_2 = eObject.getBindings();
-      final Procedure1<UiBinding> _function_2 = new Procedure1<UiBinding>() {
-        public void apply(final UiBinding it) {
+      final Consumer<UiBinding> _function_2 = new Consumer<UiBinding>() {
+        public void accept(final UiBinding it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiBinding>forEach(_bindings_2, _function_2);
+      _bindings_2.forEach(_function_2);
     }
     this.<Object>pop();
   }
@@ -965,12 +1006,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
-      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
-        public void apply(final UiValidator it) {
+      final Consumer<UiValidator> _function = new Consumer<UiValidator>() {
+        public void accept(final UiValidator it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      _validators.forEach(_function);
       this.<Object>pop();
     } else {
       this.map(element);
@@ -1025,19 +1066,19 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.associateUi(eObject, layout);
     this.push(layout);
     EList<UiMobileNavigationPageAssignment> _contents = eObject.getContents();
-    final Procedure1<UiMobileNavigationPageAssignment> _function = new Procedure1<UiMobileNavigationPageAssignment>() {
-      public void apply(final UiMobileNavigationPageAssignment it) {
+    final Consumer<UiMobileNavigationPageAssignment> _function = new Consumer<UiMobileNavigationPageAssignment>() {
+      public void accept(final UiMobileNavigationPageAssignment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiMobileNavigationPageAssignment>forEach(_contents, _function);
+    _contents.forEach(_function);
     EList<UiBinding> _bindings = eObject.getBindings();
-    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
-      public void apply(final UiBinding it) {
+    final Consumer<UiBinding> _function_1 = new Consumer<UiBinding>() {
+      public void accept(final UiBinding it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    _bindings.forEach(_function_1);
     this.<Object>pop();
   }
   
@@ -1051,12 +1092,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
-      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
-        public void apply(final UiValidator it) {
+      final Consumer<UiValidator> _function = new Consumer<UiValidator>() {
+        public void accept(final UiValidator it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      _validators.forEach(_function);
       this.<Object>pop();
     } else {
       this.map(element);
@@ -1071,66 +1112,40 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.associateUi(eObject, layout);
     this.push(layout);
     EList<UiFormLayoutAssigment> _contents = eObject.getContents();
-    final Procedure1<UiFormLayoutAssigment> _function = new Procedure1<UiFormLayoutAssigment>() {
-      public void apply(final UiFormLayoutAssigment it) {
+    final Consumer<UiFormLayoutAssigment> _function = new Consumer<UiFormLayoutAssigment>() {
+      public void accept(final UiFormLayoutAssigment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiFormLayoutAssigment>forEach(_contents, _function);
+    _contents.forEach(_function);
     EList<UiBinding> _bindings = eObject.getBindings();
-    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
-      public void apply(final UiBinding it) {
+    final Consumer<UiBinding> _function_1 = new Consumer<UiBinding>() {
+      public void accept(final UiBinding it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    _bindings.forEach(_function_1);
     this.<Object>pop();
   }
   
-  protected void _map(final UiFormLayoutAssigment eObject) {
-    final YFormLayout layout = this.<YFormLayout>peek();
-    final UiEmbeddable element = eObject.getElement();
-    if ((element instanceof UiField)) {
-      final YEmbeddable newField = this.create(element);
-      layout.addElement(newField);
-      this.map(element);
-      this.push(newField);
-      final UiField yField = ((UiField) element);
-      EList<UiValidator> _validators = yField.getValidators();
-      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
-        public void apply(final UiValidator it) {
-          UiModelDerivedStateComputerx.this.map(it);
-        }
-      };
-      IterableExtensions.<UiValidator>forEach(_validators, _function);
-      this.<Object>pop();
-    } else {
-      this.map(element);
-    }
+  protected void _map(final /* UiFormLayoutAssigment */Object eObject) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nelement cannot be resolved"
+      + "\ncreate cannot be resolved"
+      + "\nmap cannot be resolved"
+      + "\npush cannot be resolved"
+      + "\nmap cannot be resolved");
   }
   
-  protected void _map(final UiOptionsGroup eObject) {
-    final YOptionsGroup yOptionsGroup = this.<YOptionsGroup>associatedUi(eObject);
-    this.push(yOptionsGroup);
-    EList<UiBinding> _bindings = eObject.getBindings();
-    final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
-      public void apply(final UiBinding it) {
-        UiModelDerivedStateComputerx.this.map(it);
-      }
-    };
-    IterableExtensions.<UiBinding>forEach(_bindings, _function);
-    EList<UiBinding> _bindings_1 = eObject.getBindings();
-    boolean _notEquals = (!Objects.equal(_bindings_1, null));
-    if (_notEquals) {
-      EList<UiBinding> _bindings_2 = eObject.getBindings();
-      final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
-        public void apply(final UiBinding it) {
-          UiModelDerivedStateComputerx.this.map(it);
-        }
-      };
-      IterableExtensions.<UiBinding>forEach(_bindings_2, _function_1);
-    }
-    this.<Object>pop();
+  protected void _map(final /* UiOptionsGroup */Object eObject) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nassociatedUi cannot be resolved"
+      + "\nbindings cannot be resolved"
+      + "\nforEach cannot be resolved"
+      + "\nbindings cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\nbindings cannot be resolved"
+      + "\nforEach cannot be resolved");
   }
   
   protected void _map(final UiTable eObject) {
@@ -1141,23 +1156,23 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     if (_notEquals) {
       UiColumnsAssignment _columnAssignment_1 = eObject.getColumnAssignment();
       EList<UiColumn> _columns = _columnAssignment_1.getColumns();
-      final Procedure1<UiColumn> _function = new Procedure1<UiColumn>() {
-        public void apply(final UiColumn it) {
+      final Consumer<UiColumn> _function = new Consumer<UiColumn>() {
+        public void accept(final UiColumn it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiColumn>forEach(_columns, _function);
+      _columns.forEach(_function);
     }
     EList<UiBinding> _bindings = eObject.getBindings();
     boolean _notEquals_1 = (!Objects.equal(_bindings, null));
     if (_notEquals_1) {
       EList<UiBinding> _bindings_1 = eObject.getBindings();
-      final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
-        public void apply(final UiBinding it) {
+      final Consumer<UiBinding> _function_1 = new Consumer<UiBinding>() {
+        public void accept(final UiBinding it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiBinding>forEach(_bindings_1, _function_1);
+      _bindings_1.forEach(_function_1);
     }
     this.<Object>pop();
   }
@@ -1169,12 +1184,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _notEquals = (!Objects.equal(_bindings, null));
     if (_notEquals) {
       EList<UiBinding> _bindings_1 = eObject.getBindings();
-      final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
-        public void apply(final UiBinding it) {
+      final Consumer<UiBinding> _function = new Consumer<UiBinding>() {
+        public void accept(final UiBinding it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiBinding>forEach(_bindings_1, _function);
+      _bindings_1.forEach(_function);
     }
     this.<Object>pop();
   }
@@ -1186,12 +1201,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _notEquals = (!Objects.equal(_bindings, null));
     if (_notEquals) {
       EList<UiBinding> _bindings_1 = eObject.getBindings();
-      final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
-        public void apply(final UiBinding it) {
+      final Consumer<UiBinding> _function = new Consumer<UiBinding>() {
+        public void accept(final UiBinding it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiBinding>forEach(_bindings_1, _function);
+      _bindings_1.forEach(_function);
     }
     this.<Object>pop();
   }
@@ -1205,12 +1220,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.addToParent(button);
     this.associateUi(object, button);
     EList<UiBinding> _bindings = object.getBindings();
-    final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
-      public void apply(final UiBinding it) {
+    final Consumer<UiBinding> _function = new Consumer<UiBinding>() {
+      public void accept(final UiBinding it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(_bindings, _function);
+    _bindings.forEach(_function);
   }
   
   protected void _map(final UiMobileNavigationButton object) {
@@ -1236,12 +1251,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     }
     EList<UiBinding> _bindings = object.getBindings();
-    final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
-      public void apply(final UiBinding it) {
+    final Consumer<UiBinding> _function = new Consumer<UiBinding>() {
+      public void accept(final UiBinding it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(_bindings, _function);
+    _bindings.forEach(_function);
     this.<Object>pop();
   }
   
@@ -1455,42 +1470,25 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return textArea;
   }
   
-  protected YEmbeddable _create(final UiOptionsGroup object) {
-    final YOptionsGroup optionsGroup = this.factory.createOptionsGroup();
-    String _name = object.getName();
-    optionsGroup.setName(_name);
-    String _name_1 = object.getName();
-    optionsGroup.setLabel(_name_1);
-    UiSelectionType _selectionType = object.getSelectionType();
-    YSelectionType _convert = this.convert(_selectionType);
-    optionsGroup.setSelectionType(_convert);
-    JvmField _itemCaptionProperty = object.getItemCaptionProperty();
-    String _simpleName = null;
-    if (_itemCaptionProperty!=null) {
-      _simpleName=_itemCaptionProperty.getSimpleName();
-    }
-    optionsGroup.setItemCaptionProperty(_simpleName);
-    JvmField _itemImageProperty = object.getItemImageProperty();
-    String _simpleName_1 = null;
-    if (_itemImageProperty!=null) {
-      _simpleName_1=_itemImageProperty.getSimpleName();
-    }
-    optionsGroup.setItemImageProperty(_simpleName_1);
-    JvmTypeReference _jvmType = object.getJvmType();
-    boolean _notEquals = (!Objects.equal(_jvmType, null));
-    if (_notEquals) {
-      JvmTypeReference _jvmType_1 = object.getJvmType();
-      String _qualifiedName = _jvmType_1.getQualifiedName();
-      optionsGroup.setTypeQualifiedName(_qualifiedName);
-      Resource _eResource = object.eResource();
-      ResourceSet _resourceSet = _eResource.getResourceSet();
-      JvmTypeReference _jvmType_2 = object.getJvmType();
-      String _qualifiedName_1 = _jvmType_2.getQualifiedName();
-      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
-      optionsGroup.setType(_loadClass);
-    }
-    this.associateUi(object, optionsGroup);
-    return optionsGroup;
+  protected YEmbeddable _create(final /* UiOptionsGroup */Object object) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nselectionType cannot be resolved"
+      + "\nconvert cannot be resolved"
+      + "\nitemCaptionProperty cannot be resolved"
+      + "\nsimpleName cannot be resolved"
+      + "\nitemImageProperty cannot be resolved"
+      + "\nsimpleName cannot be resolved"
+      + "\njvmType cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\njvmType cannot be resolved"
+      + "\nqualifiedName cannot be resolved"
+      + "\neResource cannot be resolved"
+      + "\nresourceSet cannot be resolved"
+      + "\njvmType cannot be resolved"
+      + "\nqualifiedName cannot be resolved"
+      + "\nassociateUi cannot be resolved");
   }
   
   protected YEmbeddable _create(final UiDateField object) {
@@ -1709,6 +1707,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiBinding object) {
+    this.pendingBindings.add(object);
+  }
+  
+  public void install(final UiBinding object) {
     UiTypedBindable _sourceAlias = object.getSourceAlias();
     final UiBindingEndpointAlias sourceAlias = ((UiBindingEndpointAlias) _sourceAlias);
     final UiBindingExpression source = object.getSource();
@@ -2157,9 +2159,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     } else if (eObject instanceof UiMobileView) {
       _map((UiMobileView)eObject);
       return;
-    } else if (eObject instanceof UiOptionsGroup) {
-      _map((UiOptionsGroup)eObject);
-      return;
     } else if (eObject instanceof UiTable) {
       _map((UiTable)eObject);
       return;
@@ -2204,9 +2203,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return;
     } else if (eObject instanceof UiDialogSearchFieldAssignment) {
       _map((UiDialogSearchFieldAssignment)eObject);
-      return;
-    } else if (eObject instanceof UiFormLayoutAssigment) {
-      _map((UiFormLayoutAssigment)eObject);
       return;
     } else if (eObject instanceof UiGridLayoutAssigment) {
       _map((UiGridLayoutAssigment)eObject);
@@ -2256,6 +2252,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     } else if (eObject == null) {
       _map((Void)null);
       return;
+    } else if (eObject != null) {
+      _map(eObject);
+      return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(eObject).toString());
@@ -2281,8 +2280,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return _create((UiLabel)object);
     } else if (object instanceof UiNumericField) {
       return _create((UiNumericField)object);
-    } else if (object instanceof UiOptionsGroup) {
-      return _create((UiOptionsGroup)object);
     } else if (object instanceof UiProgressBar) {
       return _create((UiProgressBar)object);
     } else if (object instanceof UiTable) {
@@ -2291,6 +2288,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return _create((UiTextArea)object);
     } else if (object instanceof UiTextField) {
       return _create((UiTextField)object);
+    } else if (object != null) {
+      return _create(object);
     } else if (object != null) {
       return _create(object);
     } else {
