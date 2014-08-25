@@ -170,8 +170,6 @@ import org.lunifera.mobile.vaadin.ecview.model.VMTab;
 import org.lunifera.mobile.vaadin.ecview.model.VMTabSheet;
 import org.lunifera.mobile.vaadin.ecview.model.VMVerticalComponentGroup;
 import org.lunifera.mobile.vaadin.ecview.model.VaadinMobileFactory;
-import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoader;
-import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderFactory;
 
 @SuppressWarnings("all")
 public class UiModelDerivedStateComputerx extends JvmModelAssociator {
@@ -292,9 +290,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   @Inject
-  private IJdtTypeLoaderFactory typeLoaderFactory;
+  private /* IJdtTypeLoaderFactory */Object typeLoaderFactory;
   
-  private IJdtTypeLoader typeLoader;
+  private /* IJdtTypeLoader */Object typeLoader;
   
   @Inject
   private BindableTypeProvider typeOfBoundPropertyProvider;
@@ -335,40 +333,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   public void installDerivedState(final DerivedStateAwareResource resource, final boolean preLinkingPhase) {
-    super.installDerivedState(resource, preLinkingPhase);
-    this.resource = resource;
-    ResourceSet _resourceSet = resource.getResourceSet();
-    IJdtTypeLoader _createJdtTypeLoader = this.typeLoaderFactory.createJdtTypeLoader(_resourceSet);
-    this.typeLoader = _createJdtTypeLoader;
-    EList<EObject> _contents = resource.getContents();
-    boolean _isEmpty = _contents.isEmpty();
-    if (_isEmpty) {
-      return;
-    }
-    if ((!preLinkingPhase)) {
-      this.grammarToUiAssociations.clear();
-      this.uiToGrammarAssociations.clear();
-      EList<EObject> _contents_1 = resource.getContents();
-      final EObject eObject = _contents_1.get(0);
-      EList<EObject> _eContents = eObject.eContents();
-      final Procedure1<EObject> _function = new Procedure1<EObject>() {
-        public void apply(final EObject it) {
-          UiModelDerivedStateComputerx.this.map(it);
-        }
-      };
-      IterableExtensions.<EObject>forEach(_eContents, _function);
-      int _size = this.views.size();
-      boolean _greaterThan = (_size > 0);
-      if (_greaterThan) {
-        EList<EObject> _contents_2 = resource.getContents();
-        YView _get = this.views.get(0);
-        _contents_2.add(_get);
-      }
-      this.views.clear();
-      this.viewContext.clear();
-    }
-    this.typeLoader.dispose();
-    this.typeLoader = null;
+    throw new Error("Unresolved compilation problems:"
+      + "\ncreateJdtTypeLoader cannot be resolved"
+      + "\ndispose cannot be resolved");
   }
   
   public <A extends Object> A peek() {
@@ -865,7 +832,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       ResourceSet _resourceSet = _eResource.getResourceSet();
       JvmTypeReference _jvmType_2 = eObject.getJvmType();
       String _qualifiedName_1 = _jvmType_2.getQualifiedName();
-      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+      Object _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
       layout.setType(_loadClass);
     }
     this.addToParent(layout);
@@ -907,7 +874,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       ResourceSet _resourceSet = _eResource.getResourceSet();
       JvmTypeReference _jvmType_2 = eObject.getJvmType();
       String _qualifiedName_1 = _jvmType_2.getQualifiedName();
-      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+      Object _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
       dialog.setType(_loadClass);
     }
     this.addToParent(dialog);
@@ -1486,7 +1453,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       ResourceSet _resourceSet = _eResource.getResourceSet();
       JvmTypeReference _jvmType_2 = object.getJvmType();
       String _qualifiedName_1 = _jvmType_2.getQualifiedName();
-      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+      Object _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
       optionsGroup.setType(_loadClass);
     }
     this.associateUi(object, optionsGroup);
@@ -1560,7 +1527,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       ResourceSet _resourceSet = _eResource.getResourceSet();
       JvmTypeReference _jvmType_2 = object.getJvmType();
       String _qualifiedName_1 = _jvmType_2.getQualifiedName();
-      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+      Object _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
       table.setType(_loadClass);
     }
     this.associateUi(object, table);
@@ -1639,7 +1606,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       ResourceSet _resourceSet = _eResource.getResourceSet();
       JvmTypeReference _jvmType_2 = object.getJvmType();
       String _qualifiedName_1 = _jvmType_2.getQualifiedName();
-      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+      Object _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
       field.setType(_loadClass);
     }
     this.associateUi(object, field);
@@ -1804,7 +1771,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
           Resource _eResource = epDef.eResource();
           ResourceSet _resourceSet = _eResource.getResourceSet();
           String _typeQualifiedName = ep_1.getTypeQualifiedName();
-          Class<?> _loadClass = this.loadClass(_resourceSet, _typeQualifiedName);
+          Object _loadClass = this.loadClass(_resourceSet, _typeQualifiedName);
           ep_1.setType(_loadClass);
         }
         boolean _notEquals_1 = (!Objects.equal(yElement, null));
@@ -1926,7 +1893,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
           Resource _eResource = epDef.eResource();
           ResourceSet _resourceSet = _eResource.getResourceSet();
           String _typeQualifiedName = ep_1.getTypeQualifiedName();
-          Class<?> _loadClass = this.loadClass(_resourceSet, _typeQualifiedName);
+          Object _loadClass = this.loadClass(_resourceSet, _typeQualifiedName);
           ep_1.setType(_loadClass);
         }
         boolean _notEquals_1 = (!Objects.equal(yElement, null));
@@ -2060,8 +2027,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return _xblockexpression;
   }
   
-  public Class<?> loadClass(final ResourceSet resourceSet, final String qualifiedName) {
-    return this.typeLoader.findTypeByName(qualifiedName);
+  public Object loadClass(final ResourceSet resourceSet, final String qualifiedName) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nfindTypeByName cannot be resolved");
   }
   
   protected void _map(final UiPathSegment object) {
@@ -2080,7 +2048,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     Resource _eResource = object.eResource();
     ResourceSet _resourceSet = _eResource.getResourceSet();
     String _valueTypeQualifiedName = yBeanSlot.getValueTypeQualifiedName();
-    Class<?> _loadClass = this.loadClass(_resourceSet, _valueTypeQualifiedName);
+    Object _loadClass = this.loadClass(_resourceSet, _valueTypeQualifiedName);
     yBeanSlot.setValueType(_loadClass);
     this.associateUi(object, yBeanSlot);
     final EObject lastElement = this.viewContext.peek();
