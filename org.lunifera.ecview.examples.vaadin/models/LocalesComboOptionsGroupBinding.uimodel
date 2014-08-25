@@ -28,6 +28,6 @@ ideview LocaleSample {
 			} 
 		} 
 	}
-	
+	 
 	bind list [LocaleSample.selector].multiSelection --> [LocaleSample.options].collection
 }  
