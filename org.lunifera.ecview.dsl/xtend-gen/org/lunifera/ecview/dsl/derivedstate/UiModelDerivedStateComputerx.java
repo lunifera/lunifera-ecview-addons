@@ -2,6 +2,7 @@ package org.lunifera.ecview.dsl.derivedstate;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -58,7 +59,6 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YImage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericSearchField;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YProgressBar;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTab;
@@ -130,7 +130,6 @@ import org.lunifera.ecview.semantic.uimodel.UiMobileView;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
-import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
 import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
@@ -314,6 +313,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   private DerivedStateAwareResource resource;
   
+  private List<UiBinding> pendingBindings = CollectionLiterals.<UiBinding>newArrayList();
+  
+  private List<UiBinding> temporaryPendingBindings = CollectionLiterals.<UiBinding>newArrayList();
+  
   public void associateUi(final EObject grammarElement, final EObject uiElement) {
     this.grammarToUiAssociations.put(grammarElement, uiElement);
     this.uiToGrammarAssociations.put(uiElement, grammarElement);
@@ -392,15 +395,46 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
-    EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
-    final Procedure1<UiValidatorAssignment> _function_2 = new Procedure1<UiValidatorAssignment>() {
-      public void apply(final UiValidatorAssignment it) {
-        UiModelDerivedStateComputerx.this.map(it);
+    ArrayList<UiBinding> _newArrayList = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
+    this.temporaryPendingBindings = _newArrayList;
+    this.pendingBindings.clear();
+    final Procedure1<UiBinding> _function_2 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.install(it);
       }
     };
-    IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_2);
-    this.<Object>pop();
-    this.currentView = null;
+    IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_2);
+    boolean _isEmpty = this.pendingBindings.isEmpty();
+    if (_isEmpty) {
+      EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
+      final Procedure1<UiValidatorAssignment> _function_3 = new Procedure1<UiValidatorAssignment>() {
+        public void apply(final UiValidatorAssignment it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_3);
+      this.<Object>pop();
+      this.currentView = null;
+    } else {
+      ArrayList<UiBinding> _newArrayList_1 = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
+      this.temporaryPendingBindings = _newArrayList_1;
+      this.pendingBindings.clear();
+      final Procedure1<UiBinding> _function_4 = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.install(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_4);
+      EList<UiValidatorAssignment> _validatorAssignments_1 = object.getValidatorAssignments();
+      final Procedure1<UiValidatorAssignment> _function_5 = new Procedure1<UiValidatorAssignment>() {
+        public void apply(final UiValidatorAssignment it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments_1, _function_5);
+      this.<Object>pop();
+      this.currentView = null;
+    }
   }
   
   protected void _map(final UiMobileView object) {
@@ -424,13 +458,19 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    final Procedure1<UiBinding> _function_2 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.install(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(this.pendingBindings, _function_2);
     EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
-    final Procedure1<UiValidatorAssignment> _function_2 = new Procedure1<UiValidatorAssignment>() {
+    final Procedure1<UiValidatorAssignment> _function_3 = new Procedure1<UiValidatorAssignment>() {
       public void apply(final UiValidatorAssignment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_2);
+    IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_3);
     this.<Object>pop();
     this.currentView = null;
   }
@@ -1054,50 +1094,24 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.<Object>pop();
   }
   
-  protected void _map(final UiFormLayoutAssigment eObject) {
-    final YFormLayout layout = this.<YFormLayout>peek();
-    final UiEmbeddable element = eObject.getElement();
-    if ((element instanceof UiField)) {
-      final YEmbeddable newField = this.create(element);
-      layout.addElement(newField);
-      this.map(element);
-      this.push(newField);
-      final UiField yField = ((UiField) element);
-      EList<UiValidator> _validators = yField.getValidators();
-      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
-        public void apply(final UiValidator it) {
-          UiModelDerivedStateComputerx.this.map(it);
-        }
-      };
-      IterableExtensions.<UiValidator>forEach(_validators, _function);
-      this.<Object>pop();
-    } else {
-      this.map(element);
-    }
+  protected void _map(final /* UiFormLayoutAssigment */Object eObject) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nelement cannot be resolved"
+      + "\ncreate cannot be resolved"
+      + "\nmap cannot be resolved"
+      + "\npush cannot be resolved"
+      + "\nmap cannot be resolved");
   }
   
-  protected void _map(final UiOptionsGroup eObject) {
-    final YOptionsGroup yOptionsGroup = this.<YOptionsGroup>associatedUi(eObject);
-    this.push(yOptionsGroup);
-    EList<UiBinding> _bindings = eObject.getBindings();
-    final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
-      public void apply(final UiBinding it) {
-        UiModelDerivedStateComputerx.this.map(it);
-      }
-    };
-    IterableExtensions.<UiBinding>forEach(_bindings, _function);
-    EList<UiBinding> _bindings_1 = eObject.getBindings();
-    boolean _notEquals = (!Objects.equal(_bindings_1, null));
-    if (_notEquals) {
-      EList<UiBinding> _bindings_2 = eObject.getBindings();
-      final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
-        public void apply(final UiBinding it) {
-          UiModelDerivedStateComputerx.this.map(it);
-        }
-      };
-      IterableExtensions.<UiBinding>forEach(_bindings_2, _function_1);
-    }
-    this.<Object>pop();
+  protected void _map(final /* UiOptionsGroup */Object eObject) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nassociatedUi cannot be resolved"
+      + "\nbindings cannot be resolved"
+      + "\nforEach cannot be resolved"
+      + "\nbindings cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\nbindings cannot be resolved"
+      + "\nforEach cannot be resolved");
   }
   
   protected void _map(final UiTable eObject) {
@@ -1422,42 +1436,25 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return textArea;
   }
   
-  protected YEmbeddable _create(final UiOptionsGroup object) {
-    final YOptionsGroup optionsGroup = this.factory.createOptionsGroup();
-    String _name = object.getName();
-    optionsGroup.setName(_name);
-    String _name_1 = object.getName();
-    optionsGroup.setLabel(_name_1);
-    UiSelectionType _selectionType = object.getSelectionType();
-    YSelectionType _convert = this.convert(_selectionType);
-    optionsGroup.setSelectionType(_convert);
-    JvmField _itemCaptionProperty = object.getItemCaptionProperty();
-    String _simpleName = null;
-    if (_itemCaptionProperty!=null) {
-      _simpleName=_itemCaptionProperty.getSimpleName();
-    }
-    optionsGroup.setItemCaptionProperty(_simpleName);
-    JvmField _itemImageProperty = object.getItemImageProperty();
-    String _simpleName_1 = null;
-    if (_itemImageProperty!=null) {
-      _simpleName_1=_itemImageProperty.getSimpleName();
-    }
-    optionsGroup.setItemImageProperty(_simpleName_1);
-    JvmTypeReference _jvmType = object.getJvmType();
-    boolean _notEquals = (!Objects.equal(_jvmType, null));
-    if (_notEquals) {
-      JvmTypeReference _jvmType_1 = object.getJvmType();
-      String _qualifiedName = _jvmType_1.getQualifiedName();
-      optionsGroup.setTypeQualifiedName(_qualifiedName);
-      Resource _eResource = object.eResource();
-      ResourceSet _resourceSet = _eResource.getResourceSet();
-      JvmTypeReference _jvmType_2 = object.getJvmType();
-      String _qualifiedName_1 = _jvmType_2.getQualifiedName();
-      Object _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
-      optionsGroup.setType(_loadClass);
-    }
-    this.associateUi(object, optionsGroup);
-    return optionsGroup;
+  protected YEmbeddable _create(final /* UiOptionsGroup */Object object) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nselectionType cannot be resolved"
+      + "\nconvert cannot be resolved"
+      + "\nitemCaptionProperty cannot be resolved"
+      + "\nsimpleName cannot be resolved"
+      + "\nitemImageProperty cannot be resolved"
+      + "\nsimpleName cannot be resolved"
+      + "\njvmType cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\njvmType cannot be resolved"
+      + "\nqualifiedName cannot be resolved"
+      + "\neResource cannot be resolved"
+      + "\nresourceSet cannot be resolved"
+      + "\njvmType cannot be resolved"
+      + "\nqualifiedName cannot be resolved"
+      + "\nassociateUi cannot be resolved");
   }
   
   protected YEmbeddable _create(final UiDateField object) {
@@ -1676,6 +1673,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiBinding object) {
+    this.pendingBindings.add(object);
+  }
+  
+  public void install(final UiBinding object) {
     UiTypedBindable _sourceAlias = object.getSourceAlias();
     final UiBindingEndpointAlias sourceAlias = ((UiBindingEndpointAlias) _sourceAlias);
     final UiBindingExpression source = object.getSource();
@@ -2125,9 +2126,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     } else if (eObject instanceof UiMobileView) {
       _map((UiMobileView)eObject);
       return;
-    } else if (eObject instanceof UiOptionsGroup) {
-      _map((UiOptionsGroup)eObject);
-      return;
     } else if (eObject instanceof UiTable) {
       _map((UiTable)eObject);
       return;
@@ -2172,9 +2170,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return;
     } else if (eObject instanceof UiDialogSearchFieldAssignment) {
       _map((UiDialogSearchFieldAssignment)eObject);
-      return;
-    } else if (eObject instanceof UiFormLayoutAssigment) {
-      _map((UiFormLayoutAssigment)eObject);
       return;
     } else if (eObject instanceof UiGridLayoutAssigment) {
       _map((UiGridLayoutAssigment)eObject);
@@ -2224,6 +2219,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     } else if (eObject == null) {
       _map((Void)null);
       return;
+    } else if (eObject != null) {
+      _map(eObject);
+      return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(eObject).toString());
@@ -2249,8 +2247,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return _create((UiLabel)object);
     } else if (object instanceof UiNumericField) {
       return _create((UiNumericField)object);
-    } else if (object instanceof UiOptionsGroup) {
-      return _create((UiOptionsGroup)object);
     } else if (object instanceof UiProgressBar) {
       return _create((UiProgressBar)object);
     } else if (object instanceof UiTable) {
@@ -2259,6 +2255,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return _create((UiTextArea)object);
     } else if (object instanceof UiTextField) {
       return _create((UiTextField)object);
+    } else if (object != null) {
+      return _create(object);
     } else if (object != null) {
       return _create(object);
     } else {
