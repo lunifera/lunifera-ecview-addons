@@ -22,40 +22,9 @@
       <discovery label="Kepler" url="http://download.eclipse.org/releases/kepler"/>
    </url>
 
-   <plugin
-         id="org.lunifera.ecview.dsl"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.lunifera.ecview.dsl.lib"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.lunifera.ecview.semantic.uimodel"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.lunifera.ecview.semantic.uisemantics"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.lunifera.ecview.uisemantics"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+   <requires>
+      <import feature="org.lunifera.ecview.feature.runtime" version="0.7.3" match="greaterOrEqual"/>
+   </requires>
 
    <plugin
          id="org.lunifera.ecview.xtext.builder.participant"

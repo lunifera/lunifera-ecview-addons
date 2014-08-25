@@ -1,6 +1,6 @@
 ePackage "http://www.lunifera.org/ecview/dsl/uimodel/core" as view
  
-element TextField {
+element TextField {  
 	uri view:UiTextField
 	
 	bindings {
@@ -26,6 +26,20 @@ element TextField {
 		property validators
 	} 
 }  
+
+element Label {
+	uri view:UiLabel
+	
+	bindings {
+		endpoint value String
+		endpoint editable Boolean
+		endpoint visible Boolean
+	}
+	 
+	validator {
+		property validators
+	} 
+} 
 
 element Image {
 	uri view:UiImage
@@ -77,12 +91,67 @@ element CheckBox {
 	}
 }
 
+element Button {
+	uri view:UiButton
+	 
+	bindings { 
+		endpoint value Boolean
+		endpoint editable Boolean
+		endpoint visible Boolean
+	}
+	
+	validator {
+		property validators
+	}
+}
+
 element NumericField {
 	uri view:UiNumericField
 	
 	bindings {
 		endpoint value Integer
 		endpoint editable Boolean
+		endpoint visible Boolean
+	}
+	
+	visibility {
+		endpoint background String
+		endpoint foreground String
+		endpoint bold Boolean
+		endpoint cssClass Boolean
+		endpoint editable Boolean
+		endpoint enabled Boolean
+		endpoint italic Boolean
+		endpoint strikthrough Boolean
+		endpoint underline Boolean
+		endpoint visible Boolean
+	}
+	
+	validator {
+		property validators
+	}
+} 
+
+element DecimalField {
+	uri view:UiDecimalField
+	
+	bindings {
+		endpoint value Double
+		endpoint editable Boolean
+		endpoint visible Boolean
+		endpoint locale Locale
+	}
+	
+	visibility {
+		endpoint background String
+		endpoint foreground String
+		endpoint bold Boolean
+		endpoint cssClass Boolean
+		endpoint editable Boolean
+		endpoint enabled Boolean
+		endpoint italic Boolean
+		endpoint strikthrough Boolean
+		endpoint underline Boolean
 		endpoint visible Boolean
 	}
 	
@@ -121,6 +190,35 @@ element List {
 
 element Table {  
 	uri view:UiTable
+	
+	bindings {
+		final endpoint selection Object
+		endpoint editable Boolean
+		endpoint visible Boolean
+		list endpoint collection Object
+		endpoint multiSelection Object
+	}
+
+	visibility {
+		endpoint background String
+		endpoint foreground String
+		endpoint bold Boolean
+		endpoint cssClass Boolean
+		endpoint editable Boolean
+		endpoint enabled Boolean
+		endpoint italic Boolean
+		endpoint strikthrough Boolean
+		endpoint underline Boolean
+		endpoint visible Boolean
+	}
+	
+	validator {
+		property validators
+	}
+}
+
+element OptionsGroup {  
+	uri view:UiOptionsGroup
 	
 	bindings {
 		final endpoint selection Object
@@ -272,6 +370,49 @@ element VerticalLayout {
 	}
 }
 
+element VerticalGroup {
+	uri view:UiVerticalComponentGroup
+	
+	bindings {
+		endpoint editable Boolean
+		endpoint visible Boolean
+	}
+	
+	visibility {
+		endpoint background String
+		endpoint foreground String
+		endpoint bold Boolean
+		endpoint cssClass Boolean
+		endpoint editable Boolean
+		endpoint enabled Boolean
+		endpoint italic Boolean
+		endpoint strikthrough Boolean
+		endpoint underline Boolean
+		endpoint visible Boolean
+	}
+}
+
+element SearchField {
+	uri view:UiSearchField
+	
+	bindings {
+		endpoint value String
+	}
+	
+	visibility {
+		endpoint background String
+		endpoint foreground String
+		endpoint bold Boolean
+		endpoint cssClass Boolean
+		endpoint editable Boolean
+		endpoint enabled Boolean
+		endpoint italic Boolean
+		endpoint strikthrough Boolean
+		endpoint underline Boolean
+		endpoint visible Boolean
+	}
+}
+
 element Form {
 	uri view:UiFormLayout
 	
@@ -323,27 +464,6 @@ element Switch {
 		endpoint editable Boolean
 		endpoint visible Boolean
 		endpoint value Boolean
-	}
-	
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
-}
-
-element SearchField {
-	uri view:UiSearchField
-	
-	bindings {
-		endpoint value String
 	}
 	
 	visibility {
