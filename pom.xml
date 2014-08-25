@@ -39,7 +39,7 @@
 		<module>org.lunifera.ecview.dsl.ui</module>
 		<module>org.lunifera.ecview.dsl.lib</module>
 		<module>org.lunifera.ecview.eclipse.ui.examples</module>
-		<module>org.lunifera.ecview.examples.vaadin</module>
+<!-- 		<module>org.lunifera.ecview.examples.vaadin</module> -->
 		<module>org.lunifera.ecview.semantic.uimodel</module>
 		<module>org.lunifera.ecview.semantic.uisemantics</module>
 		<module>org.lunifera.ecview.uisemantics</module>
