@@ -141,11 +141,10 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.ExtensionModelFactory
 import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand
 import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment
-<<<<<<< HEAD
 import java.util.ArrayList
-=======
 import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup
->>>>>>> 0f3e54c36e3d116c72edca1964a6cdc0fade2c2d
+import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup
+import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment
 
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
