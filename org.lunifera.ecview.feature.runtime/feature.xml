@@ -2,7 +2,7 @@
 <feature
       id="org.lunifera.ecview.feature.runtime"
       label="%featureName"
-      version="0.0.1"
+      version="0.7.3.qualifier"
       provider-name="%providerName">
 
    <description>
@@ -22,13 +22,36 @@
       <discovery label="Kepler" url="http://download.eclipse.org/releases/kepler"/>
    </url>
 
-   <requires>
-      <import feature="org.eclipse.xtext.sdk" version="2.5.4" match="greaterOrEqual"/>
-      <import feature="org.lunifera.xtext.builder.feature.types" version="0.0.0"/>
-   </requires>
+   <plugin
+         id="org.lunifera.ecview.dsl"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
    <plugin
-         id="org.lunifera.xtext.builder.metadata.services"
+         id="org.lunifera.ecview.dsl.lib"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.lunifera.ecview.semantic.uimodel"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.lunifera.ecview.semantic.uisemantics"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.lunifera.ecview.uisemantics"
          download-size="0"
          install-size="0"
          version="0.0.0"

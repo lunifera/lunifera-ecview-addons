@@ -109,8 +109,8 @@ public class EcviewPreviewUI extends UI {
 					// ... and render
 					VaadinRenderer renderer = new VaadinRenderer();
 					try {
-						Map<String, Object> params = new HashMap<>();
-						Map<String, Object> services = new HashMap<>();
+						Map<String, Object> params = new HashMap<String, Object>();
+						Map<String, Object> services = new HashMap<String, Object>();
 						params.put(IViewContext.PARAM_SERVICES, services);
 						services.put(ITypeProviderService.class.getName(),
 								classLoadingHelper);

@@ -1,0 +1,45 @@
+package org.lunifera.ecview.examples
+
+import org.lunifera.ecview.examples.*
+
+ideview LocaleSample {
+
+	datasource ds : Locales
+	  
+	gridlayout(columns=5) {
+		table localeName {
+			type LocaleBean
+			selectionType multi
+			columns {
+				column localeName
+				column language
+			}
+				 
+			bind ds.locales --> [this].collection 
+		}
+		
+		verticalLayout placeholder{} 
+		
+		table flags {
+			type LocaleBean
+			selectionType multi
+			imageField iconName
+			
+			bind ds.locales --> [this].collection 
+		}
+		verticalLayout placeholder{}
+		
+		table composite {
+			type LocaleBean
+			
+			imageField iconName
+			columns{
+				column localeName
+			}
+		
+		bind list [LocaleSample.flags].multiSelection --> [LocaleSample.composite].collection
+		}
+		
+	} 
+		bind list [LocaleSample.localeName].multiSelection <--> [LocaleSample.flags].multiSelection  
+}  

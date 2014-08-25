@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-Version: 0.7.3.qualifier
+Bundle-ClassPath: .
+Bundle-SymbolicName: org.lunifera.ecview.dsl.lib;singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.lunifera.ecview.semantic.uimodel;bundle-version="0.7.3",
+ org.lunifera.ecview.uisemantics;bundle-version="0.7.3"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

@@ -1,0 +1,14 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.lunifera.ecview</groupId>
+		<artifactId>org.lunifera.ecview.parent</artifactId>
+		<version>0.7.3-SNAPSHOT</version>
+		<relativePath>../org.lunifera.ecview.parent/pom.xml</relativePath>
+	</parent>
+
+  <artifactId>org.lunifera.ecview.dsl.ui</artifactId>
+  <packaging>eclipse-plugin</packaging>
+  <name>Xtext UI bundle for UI Grammar</name>
+</project>

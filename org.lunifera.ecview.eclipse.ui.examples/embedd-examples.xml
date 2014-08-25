@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Embedd the example into the contents folder" default="main">
+	<target name="main">
+		<echo>Embedding example: ${example.name}</echo>
+
+		<copy todir="${basedir}/contents/${example.name}">
+			<fileset dir="${basedir}/../${example.name}">
+				<include name="*" />
+				<include name="models/**" />
+				<exclude name="target/**" />
+			</fileset>
+		</copy>
+		<zip basedir="${basedir}/contents/${example.name}" destfile="${basedir}/contents/${example.name}.zip" />
+		<delete dir="${basedir}/contents/${example.name}" />
+	</target>
+</project>

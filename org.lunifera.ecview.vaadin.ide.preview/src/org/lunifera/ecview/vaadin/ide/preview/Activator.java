@@ -125,13 +125,13 @@ public class Activator extends AbstractUIPlugin implements
 		// vaadin bundles. Used to find the static resources.
 		bundleContext.addBundleListener(this);
 
-		xtextUtilServiceTracker = new ServiceTracker<>(bundleContext,
+		xtextUtilServiceTracker = new ServiceTracker<IXtextUtilService, IXtextUtilService>(bundleContext,
 				IXtextUtilService.class, null);
 		xtextUtilServiceTracker.open();
 		xtextUtilService = xtextUtilServiceTracker.waitForService(5000);
 
 		// Start a HttpService-Tracker to get an instance of HttpService
-		ideHttpServiceTracker = new ServiceTracker<>(bundleContext,
+		ideHttpServiceTracker = new ServiceTracker<HttpService, HttpService>(bundleContext,
 				HttpService.class, this);
 		ideHttpServiceTracker.open();
 	}
