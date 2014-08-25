@@ -43,9 +43,17 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="3.10.0",
  org.lunifera.xtext.builder.ui.access;bundle-version="0.8.2",
  org.lunifera.runtime.web.vaadin.widgetset;bundle-version="0.7.3",
  org.lunifera.mobile.vaadin.touchkit.osgi;bundle-version="0.7.3",
- org.lunifera.mobile.vaadin.widgetset;bundle-version="0.7.3"
+ org.lunifera.mobile.vaadin.widgetset;bundle-version="0.7.3",
+ org.eclipse.equinox.http.jetty,
+ org.eclipse.jetty.server,
+ org.eclipse.jetty.http;bundle-version="8.1.14",
+ org.eclipse.jetty.servlet;bundle-version="8.1.14",
+ org.eclipse.jetty.util;bundle-version="8.1.14",
+ org.eclipse.jetty.websocket;bundle-version="8.1.14",
+ org.eclipse.equinox.http.servlet
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.osgi.framework;version="1.3.0",
+ org.osgi.service.cm;version="1.5.0",
  org.osgi.service.http;version="1.2.1",
  org.slf4j;version="1.7.2"
 Bundle-ActivationPolicy: lazy

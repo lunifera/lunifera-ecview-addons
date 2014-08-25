@@ -1,7 +1,10 @@
 package org.lunifera.ecview.vaadin.ide.preview;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Hashtable;
 
 import javax.servlet.ServletException;
 
@@ -10,10 +13,12 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.equinox.http.jetty.JettyConstants;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.shared.SharedStateModule;
+import org.lunifera.ecview.vaadin.ide.preview.jetty.JettyManager;
 import org.lunifera.ecview.vaadin.ide.preview.parts.ECViewVaadinSynchronizer;
 import org.lunifera.ecview.vaadin.ide.preview.web.EcviewPreviewUI;
 import org.lunifera.ecview.vaadin.ide.preview.web.EcviewPreviewVaadinServlet;
@@ -24,6 +29,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleEvent;
 import org.osgi.framework.BundleException;
 import org.osgi.framework.BundleListener;
+import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.http.HttpService;
 import org.osgi.service.http.NamespaceException;
@@ -43,6 +49,9 @@ import com.vaadin.ui.UI;
 public class Activator extends AbstractUIPlugin implements
 		ServiceTrackerCustomizer<HttpService, HttpService>, BundleListener {
 
+	final String PROPERTY_PREFIX = "org.eclipse.equinox.http.jetty."; //$NON-NLS-1$
+	private static final String TYPE_IDE = "IDE";
+	private static final String LUNIFERA_VAADIN_PREVIEW = "lunifera.vaadin.preview.ide";
 	public static final String BUNDLE_ID = "org.lunifera.ecview.vaadin.ide.preview";
 
 	private static BundleContext context;
@@ -72,13 +81,14 @@ public class Activator extends AbstractUIPlugin implements
 
 	private boolean linkedWithEditor;
 
+	private JettyManager jettyManager;
+
 	//
 	// Helper methods to get an instance of the http service
 	//
 	@Override
 	public HttpService addingService(ServiceReference<HttpService> reference) {
 		httpService = context.getService(reference);
-
 		try {
 			// register the servlet at the http service
 			httpService.registerServlet("/", new EcviewPreviewVaadinServlet(),
@@ -111,8 +121,10 @@ public class Activator extends AbstractUIPlugin implements
 		Activator.context = bundleContext;
 		plugin = this;
 
-		// Starts the jetty server
-		startJetty();
+		// // Starts the jetty server
+		// startJetty();
+
+		startJetty(bundleContext);
 
 		resourceProvider = new ResourceProvider();
 
@@ -125,15 +137,40 @@ public class Activator extends AbstractUIPlugin implements
 		// vaadin bundles. Used to find the static resources.
 		bundleContext.addBundleListener(this);
 
-		xtextUtilServiceTracker = new ServiceTracker<IXtextUtilService, IXtextUtilService>(bundleContext,
-				IXtextUtilService.class, null);
+		xtextUtilServiceTracker = new ServiceTracker<IXtextUtilService, IXtextUtilService>(
+				bundleContext, IXtextUtilService.class, null);
 		xtextUtilServiceTracker.open();
 		xtextUtilService = xtextUtilServiceTracker.waitForService(5000);
 
-		// Start a HttpService-Tracker to get an instance of HttpService
-		ideHttpServiceTracker = new ServiceTracker<HttpService, HttpService>(bundleContext,
-				HttpService.class, this);
+		// // Start a HttpService-Tracker to get an instance of HttpService
+		String filter = String.format("(&(objectClass=%s)(%s=%s))",
+				HttpService.class.getName(), JettyConstants.HTTP_PORT, 8099);
+		ideHttpServiceTracker = new ServiceTracker<HttpService, HttpService>(
+				bundleContext, bundleContext.createFilter(filter), this);
 		ideHttpServiceTracker.open();
+	}
+
+	/**
+	 * Start the jetty server.
+	 * 
+	 * @param bundleContext
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	protected void startJetty(BundleContext bundleContext)
+			throws InterruptedException, IOException {
+
+		Hashtable<String, Object> jettyProps = new Hashtable<String, Object>();
+		jettyProps.put(Constants.SERVICE_PID, TYPE_IDE);
+		jettyProps.put(JettyConstants.HTTP_PORT, 8099);
+		jettyProps.put(JettyConstants.HTTP_ENABLED, Boolean.TRUE);
+		jettyProps.put(JettyConstants.OTHER_INFO, LUNIFERA_VAADIN_PREVIEW);
+
+		File jettyWorkDir = new File(
+				bundleContext.getDataFile(""), "idepreview"); //$NON-NLS-1$ 
+		jettyWorkDir.mkdir();
+		jettyManager = new JettyManager(jettyWorkDir);
+		jettyManager.start(jettyProps);
 	}
 
 	public void stop(BundleContext bundleContext) throws Exception {
@@ -141,6 +178,11 @@ public class Activator extends AbstractUIPlugin implements
 		ideHttpServiceTracker.close();
 		ideHttpServiceTracker = null;
 		resourceProvider = null;
+
+		if (jettyManager != null) {
+			jettyManager.stop();
+			jettyManager = null;
+		}
 
 		// close vaadin UI
 		if (ui != null) {
@@ -184,22 +226,22 @@ public class Activator extends AbstractUIPlugin implements
 		}
 	}
 
-	/**
-	 * Starts the jetty server.
-	 * 
-	 * @param context
-	 */
-	private void startJetty() {
-		for (Bundle bundle : context.getBundles()) {
-			String name = bundle.getSymbolicName();
-			if (name.equals("org.eclipse.equinox.http.jetty")) {
-				try {
-					bundle.start();
-				} catch (BundleException e) {
-				}
-			}
-		}
-	}
+	// /**
+	// * Starts the jetty server.
+	// *
+	// * @param context
+	// */
+	// private void startJetty() {
+	// for (Bundle bundle : context.getBundles()) {
+	// String name = bundle.getSymbolicName();
+	// if (name.equals("org.eclipse.equinox.http.jetty")) {
+	// try {
+	// bundle.start();
+	// } catch (BundleException e) {
+	// }
+	// }
+	// }
+	// }
 
 	@Override
 	public void bundleChanged(BundleEvent event) {
