@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment;
+import org.lunifera.ecview.semantic.uimodel.UiLayoutAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;

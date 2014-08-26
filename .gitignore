@@ -15,3 +15,5 @@ bin/
 hs_err_pid*
 /bin/
 /VAADIN/widgetsets/
+/*.java._trace
+/target/

@@ -7,35 +7,52 @@ import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot
+import org.lunifera.ecview.semantic.uimodel.UiBinding
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
+import org.lunifera.ecview.semantic.uimodel.UiBrowser
 import org.lunifera.ecview.semantic.uimodel.UiButton
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox
 import org.lunifera.ecview.semantic.uimodel.UiColumn
 import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments
 import org.lunifera.ecview.semantic.uimodel.UiComboBox
+import org.lunifera.ecview.semantic.uimodel.UiCommand
+import org.lunifera.ecview.semantic.uimodel.UiDateField
+import org.lunifera.ecview.semantic.uimodel.UiDecimalField
 import org.lunifera.ecview.semantic.uimodel.UiDialog
 import org.lunifera.ecview.semantic.uimodel.UiFormLayout
+import org.lunifera.ecview.semantic.uimodel.UiGridLayout
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout
 import org.lunifera.ecview.semantic.uimodel.UiIDEView
 import org.lunifera.ecview.semantic.uimodel.UiImage
 import org.lunifera.ecview.semantic.uimodel.UiImports
+import org.lunifera.ecview.semantic.uimodel.UiLabel
+import org.lunifera.ecview.semantic.uimodel.UiList
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage
+import org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment
 import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet
 import org.lunifera.ecview.semantic.uimodel.UiMobileView
 import org.lunifera.ecview.semantic.uimodel.UiModel
 import org.lunifera.ecview.semantic.uimodel.UiNumericField
+import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup
+import org.lunifera.ecview.semantic.uimodel.UiProgressBar
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator
+import org.lunifera.ecview.semantic.uimodel.UiSearchDialog
+import org.lunifera.ecview.semantic.uimodel.UiSearchField
 import org.lunifera.ecview.semantic.uimodel.UiSwitch
+import org.lunifera.ecview.semantic.uimodel.UiTabAssignment
 import org.lunifera.ecview.semantic.uimodel.UiTabSheet
 import org.lunifera.ecview.semantic.uimodel.UiTable
+import org.lunifera.ecview.semantic.uimodel.UiTextArea
 import org.lunifera.ecview.semantic.uimodel.UiTextField
+import org.lunifera.ecview.semantic.uimodel.UiValidator
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias
 import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup
 import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout
+import org.lunifera.ecview.semantic.uimodel.UiView
 import org.lunifera.ecview.semantic.uimodel.UiViewSet
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator
 
@@ -51,108 +68,108 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 		super(delegate);
 	}
 
-	override getImage(Object object) {
-		return null
-	}
-
 	def text(UiModel ele) {
 		ele.name
 	}
 
 	def text(UiImports ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Import"
 	}
 
 	def text(UiIDEView ele) {
-		ele.name
+		if(ele.name != null) ele.name else "IDE View"
 	}
 
 	def text(UiMobileView ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Mobile View"
 	}
 
 	def text(UiValidatorAlias ele) {
-		ele.name
+		if(ele.name != null) ele.name else "alias"
+	}
+
+	def text(UiBinding ele) {
+		"Binding"
 	}
 
 	def text(UiBindingEndpointAlias ele) {
-		ele.name
+		if(ele.name != null) ele.name else "alias"
 	}
 
 	def text(UiBeanSlot ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Beanslot"
 	}
 
 	def text(UiViewSet ele) {
-		ele.name
+		if(ele.name != null) ele.name else "ViewSet"
 	}
 
 	def text(UiFormLayout ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Form"
 	}
 
 	def text(UiVerticalLayout ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Vertical Layout"
 	}
 
 	def text(UiHorizontalLayout ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Horizontal Layout"
 	}
 
 	def text(UiVerticalComponentGroup ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Vertical Group"
 	}
 
 	def text(UiHorizontalButtonGroup ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Horizontal Group"
 	}
 
 	def text(UiTabSheet ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Tabsheet"
 	}
 
 	def text(UiMobileTabSheet ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Tabsheet"
 	}
 
 	def text(UiImage ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Image"
 	}
 
 	def text(UiDialog ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Dialog"
 	}
 
 	def text(UiMobileNavigationPage ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Navigation Page"
 	}
 
 	def text(UiTextField ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Textfield"
 	}
 
 	def text(UiTable ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Table"
 	}
 
 	def text(UiComboBox ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Checkbox"
 	}
 
 	def text(UiButton ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Button"
 	}
 
 	def text(UiMobileNavigationButton ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Button"
 	}
 
 	def text(UiSwitch ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Switch"
 	}
 
 	def text(UiColumnAssignments ele) {
-		ele.name
+		if(ele.name != null) ele.name else "column"
 	}
 
 	def text(UiColumn ele) {
@@ -160,31 +177,39 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 	}
 
 	def text(UiNumericField ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Numberfield"
 	}
 
 	def text(UiCheckBox ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Checkbox"
 	}
 
 	def text(UiMaxLengthValidator ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Validator"
 	}
 
 	def text(UiMinLengthValidator ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Validator"
 	}
 
 	def text(UiRegexpValidator ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Validator"
 	}
 
 	def text(UiXbaseValidator ele) {
-		ele.name
+		if(ele.name != null) ele.name else "Validator"
 	}
 
 	def image(UiModel ele) {
 		'UiModel.gif'
+	}
+
+	def image(UiOptionsGroup ele) {
+		'UiOptionsGroup.gif'
+	}
+
+	def image(UiProgressBar ele) {
+		'UiProgressBar.gif'
 	}
 
 	def image(UiImports ele) {
@@ -192,55 +217,87 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 	}
 
 	def image(UiIDEView ele) {
-		'UiIDEView.gif'
+		'UiView.gif'
 	}
 
 	def image(UiMobileView ele) {
-		'UiMobileView.gif'
+		'UiView.gif'
+	}
+
+	def image(UiValidator ele) {
+		'UiValidator.gif'
 	}
 
 	def image(UiValidatorAlias ele) {
 		'UiValidatorAlias.gif'
 	}
 
+	def image(UiSearchDialog ele) {
+		'UiSearchDialog.png'
+	}
+
+	def image(UiSearchField ele) {
+		'UiSearchField.png'
+	}
+
+	def image(UiBinding ele) {
+		'UiBinding.png'
+	}
+
 	def image(UiBindingEndpointAlias ele) {
-		'UiDataBindingAlias.gif'
+		'UiBeanSlot.gif'
 	}
 
 	def image(UiBeanSlot ele) {
-		'UiDatasource.gif'
+		'UiBeanSlot.gif'
+	}
+
+	def image(UiView ele) {
+		'UiView.gif'
 	}
 
 	def image(UiViewSet ele) {
-		'UiViewSet.gif'
+		'UiViewSet.png'
 	}
 
 	def image(UiFormLayout ele) {
-		'UiLayout.gif'
+		'UiFormLayout.gif'
+	}
+
+	def image(UiGridLayout ele) {
+		'UiGridLayout.png'
 	}
 
 	def image(UiVerticalLayout ele) {
-		'UiLayout.gif'
+		'UiVerticalLayout.gif'
 	}
 
 	def image(UiHorizontalLayout ele) {
-		'UiLayout.gif'
+		'UiHorizontalLayout.gif'
 	}
 
 	def image(UiVerticalComponentGroup ele) {
-		'UiGroup.gif'
+		'UiVerticalComponentGroup.gif'
 	}
 
 	def image(UiHorizontalButtonGroup ele) {
-		'UiGroup.gif'
+		'UiHorizontalButtonGroup.gif'
 	}
 
 	def image(UiTabSheet ele) {
-		'UiTabsheet.gif'
+		'UiTabSheet.png'
+	}
+
+	def image(UiTabAssignment ele) {
+		'UiTabAssignment.gif'
 	}
 
 	def image(UiMobileTabSheet ele) {
-		'UiTabsheet.gif'
+		'UiMobileTabSheet.gif'
+	}
+
+	def image(UiMobileTabAssignment ele) {
+		'UiMobileTabAssignment.gif'
 	}
 
 	def image(UiImage ele) {
@@ -248,7 +305,7 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 	}
 
 	def image(UiDialog ele) {
-		'UiDialog.gif'
+		'UiDialog.png'
 	}
 
 	def image(UiMobileNavigationPage ele) {
@@ -259,6 +316,10 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 		'UiTextField.gif'
 	}
 
+	def image(UiTextArea ele) {
+		'UiTextArea.gif'
+	}
+
 	def image(UiTable ele) {
 		'UiTable.gif'
 	}
@@ -267,8 +328,24 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 		'UiCombobox.gif'
 	}
 
+	def image(UiCommand ele) {
+		'UiCommand.gif'
+	}
+
 	def image(UiButton ele) {
 		'UiButton.gif'
+	}
+
+	def image(UiLabel ele) {
+		'UiLabel.png'
+	}
+
+	def image(UiList ele) {
+		'UiList.png'
+	}
+
+	def image(UiBrowser ele) {
+		'UiBrowser.png'
 	}
 
 	def image(UiMobileNavigationButton ele) {
@@ -285,6 +362,14 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 
 	def image(UiColumn ele) {
 		'UiColumn.gif'
+	}
+
+	def image(UiDateField ele) {
+		'UiDateField.gif'
+	}
+
+	def image(UiDecimalField ele) {
+		'UiDecimalField.gif'
 	}
 
 	def image(UiNumericField ele) {
