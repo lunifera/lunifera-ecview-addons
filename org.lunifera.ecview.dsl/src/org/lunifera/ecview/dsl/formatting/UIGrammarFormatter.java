@@ -1,5 +1,6 @@
 package org.lunifera.ecview.dsl.formatting;
 
+import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter;
 import org.eclipse.xtext.formatting.impl.FormattingConfig;
 import org.eclipse.xtext.xbase.formatting.XbaseFormatter;
@@ -9,18 +10,17 @@ import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiBindingElements
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiBindingEndpointAliasElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiButtonElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiCheckBoxElements;
-import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiColumnAssignmentsElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiColumnElements;
+import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiColumnsAssignmentElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiComboBoxElements;
+import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiDecimalFieldElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiDialogElements;
-import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiEmbeddableElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiFormLayoutElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiIDEViewElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiImageElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiListElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiMobileNavigationButtonElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiMobileNavigationPageElements;
-import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiMobileTabAssignmentElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiMobileTabSheetElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiMobileViewElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiNumericFieldElements;
@@ -29,8 +29,6 @@ import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiTabSheetElement
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiTableElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiTextFieldElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiViewSetElements;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.Keyword;
 
 import com.google.inject.Inject;
 
@@ -67,7 +65,7 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		// MobileTab
 		configureUiMobileTab(c, f.getUiMobileTabSheetAccess());
 		// Columns
-		configureUiColumns(c, f.getUiColumnAssignmentsAccess());
+		configureUiColumns(c, f.getUiColumnsAssignmentAccess());
 		// Forms
 		configureUiForms(c, f.getUiFormLayoutAccess());
 		// Combobox
@@ -92,6 +90,25 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		configureUiColumn(c, f.getUiColumnAccess());
 		// Textfield
 		configureUiTextField(c, f.getUiTextFieldAccess());
+		// Numericfield
+		configureUiNumericField(c, f.getUiNumericFieldAccess());
+		// Decimalfield
+		configureUiDecimalField(c, f.getUiDecimalFieldAccess());
+//		// Optionsgroup
+//		configureUiOptionsgroup(c, f.getUiOptionsGroupAccess());
+//		// Progressbar
+//		configureUiProgressbar(c, f.getUiProgressBarAccess());
+//		// Searchdialog
+//		configureUiSearchDialog(c, f.getUiSearchDialogAccess());
+//		// Searchfield
+//		configureUiSearchfield(c, f.getUiSearchFieldAccess());
+//		// Textarea
+//		configureUiTextArea(c, f.getUiTextAreaAccess());
+//		// Browser
+//		configureUiBrowser(c, f.getUiBrowserAccess());
+//		// Datefield
+//		configureUiDatefield(c, f.getUiDateFieldAccess());
+		
 		// Button
 		configureUiButton(c, f.getUiButtonAccess());
 		// MobileNavigationButton
@@ -149,21 +166,21 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 			UiMobileNavigationPageElements ele) {
 		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_4_0());
 		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3());
-		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());
-		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_7());
+		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_8());
+		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_8());
 		// indentation
 		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3());
-		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_7());
+		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_8());
 	}
 
 	private void configureUiDialog(FormattingConfig c, UiDialogElements ele) {
 		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_4_0());
 		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3());
-		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());
-		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_7());
+		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_8());
+		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_8());
 		// indentation
 		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3());
-		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_7());
+		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_8());
 	}
 
 	private void configureUiList(FormattingConfig c, UiListElements ele) {
@@ -175,6 +192,31 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		// linewrap
 		c.setLinewrap(1, 1, 2).before(ele.getImageKeyword_1());
 		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
+		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_4());
+		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_4());
+		// indentation
+		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
+		c.setIndentationDecrement().before(
+				ele.getRightCurlyBracketKeyword_3_4());
+	}
+
+	private void configureUiNumericFiled(FormattingConfig c,
+			UiNumericFieldElements ele) {
+		// linewrap
+		c.setLinewrap(1, 1, 2).before(ele.getNumericFieldKeyword_1());
+		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_4_0());
+		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_4_3());
+		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_4_3());
+		// indentation
+		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_4_0());
+		c.setIndentationDecrement().before(
+				ele.getRightCurlyBracketKeyword_4_3());
+	}
+
+	private void configureUiCheckBox(FormattingConfig c, UiCheckBoxElements ele) {
+		// linewrap
+		c.setLinewrap(1, 1, 2).before(ele.getCheckboxKeyword_1());
+		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
 		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_3());
 		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_3());
 		// indentation
@@ -183,43 +225,18 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 				ele.getRightCurlyBracketKeyword_3_3());
 	}
 
-	private void configureUiNumericFiled(FormattingConfig c,
-			UiNumericFieldElements ele) {
-		// linewrap
-		c.setLinewrap(1, 1, 2).before(ele.getNumericFieldKeyword_1());
-		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
-		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_2());
-		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_2());
-		// indentation
-		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
-		c.setIndentationDecrement().before(
-				ele.getRightCurlyBracketKeyword_3_2());
-	}
-
-	private void configureUiCheckBox(FormattingConfig c, UiCheckBoxElements ele) {
-		// linewrap
-		c.setLinewrap(1, 1, 2).before(ele.getCheckboxKeyword_1());
-		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
-		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_2());
-		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_2());
-		// indentation
-		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
-		c.setIndentationDecrement().before(
-				ele.getRightCurlyBracketKeyword_3_2());
-	}
-
 	private void configureUiTable(FormattingConfig c, UiTableElements ele) {
 		// linewrap
-		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_3_1_0());
-		c.setLinewrap(1, 1, 2).before(ele.getSelectionTypeKeyword_3_2_0());
-		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_3_3_0());
+		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_3_1_0_0());
+		c.setLinewrap(1, 1, 2).before(ele.getSelectionTypeKeyword_3_1_1_0());
+		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_3_1_2_0());
 		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
-		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_6());
-		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_6());
+		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_5());
+		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_5());
 		// indentation
 		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
 		c.setIndentationDecrement().before(
-				ele.getRightCurlyBracketKeyword_3_6());
+				ele.getRightCurlyBracketKeyword_3_5());
 	}
 
 	public void configureUiModel(FormattingConfig c,
@@ -233,10 +250,10 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		// linewrap
 		c.setLinewrap(1).before(ele.getIdeviewKeyword_0());
 		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_2());
-		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_9());
+		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());
 		// indentation
 		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_2());
-		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_9());
+		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_7());
 	}
 
 	private void configureMobileView(FormattingConfig c,
@@ -244,10 +261,10 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		// linewrap
 		c.setLinewrap(1, 1, 2).before(ele.getMobileKeyword_0());
 		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_2());
-		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_9());
+		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());
 		// indentation
 		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_2());
-		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_9());
+		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_7());
 	}
 
 	private void configureUiViewSet(FormattingConfig c, UiViewSetElements ele) {
@@ -265,11 +282,11 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		// linewrap
 		c.setLinewrap(1).before(ele.getTabsheetKeyword_1());
 		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3());
-		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_5());
-		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_5());
+		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());
+		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_7());
 		// indentation
 		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3());
-		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_5());
+		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_7());
 	}
 
 	private void configureUiTab(FormattingConfig c, UiTabAssignmentElements ele) {
@@ -287,15 +304,15 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		// linewrap
 		// c.setLinewrap(1, 1, 2).before(ele.getFormKeyword_1());
 		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3());
-		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_5());
-		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_5());
+		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());
+		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_7());
 		// indentation
 		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3());
-		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_5());
+		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_7());
 	}
 
 	private void configureUiColumns(FormattingConfig c,
-			UiColumnAssignmentsElements ele) {
+			UiColumnsAssignmentElements ele) {
 		// linewrap
 		c.setLinewrap(1, 1, 2).before(ele.getColumnsKeyword_1());
 		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_2());
@@ -328,6 +345,16 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap(1, 1, 2).before(ele.getTextfieldKeyword_1());
 	}
 
+	private void configureUiNumericField(FormattingConfig c,
+			UiNumericFieldElements ele) {
+		c.setLinewrap(1, 1, 2).before(ele.getNumericFieldKeyword_1());
+	}
+
+	private void configureUiDecimalField(FormattingConfig c,
+			UiDecimalFieldElements ele) {
+		c.setLinewrap(1, 1, 2).before(ele.getDecimalFieldKeyword_1());
+	}
+
 	private void configureUiColumn(FormattingConfig c, UiColumnElements ele) {
 		c.setLinewrap(1, 1, 2).before(ele.getColumnKeyword_1());
 	}
@@ -345,16 +372,16 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 	private void configureUiComboBoxAccess(FormattingConfig c,
 			UiComboBoxElements ele) {
 		// linewrap
-		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_3_1_0());
-		c.setLinewrap(1, 1, 2).before(ele.getCaptionFieldKeyword_3_2_0());
-		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_3_3_0());
+		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_3_1_0_0());
+		c.setLinewrap(1, 1, 2).before(ele.getCaptionFieldKeyword_3_1_1_0());
+		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_3_1_2_0());
 		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
-		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_5());
-		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_5());
+		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_4());
+		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_4());
 		// indentation
 		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
 		c.setIndentationDecrement().before(
-				ele.getRightCurlyBracketKeyword_3_5());
+				ele.getRightCurlyBracketKeyword_3_4());
 	}
 
 }
