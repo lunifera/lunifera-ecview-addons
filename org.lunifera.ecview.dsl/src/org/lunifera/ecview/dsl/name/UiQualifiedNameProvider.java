@@ -11,7 +11,7 @@ import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiValidator;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor;
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperties;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperty;
 
 import com.google.inject.Inject;
 
@@ -28,7 +28,9 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 			if (yEmb.getName() == null) {
 				return QualifiedName.create("notDefined");
 			} else {
-				return QualifiedName.create(yEmb.getName());
+				return converter.toQualifiedName(String.format("%s.%s",
+						getPackage(yEmb), yEmb.getName()));
+				// return QualifiedName.create(yEmb.getName());
 			}
 		} else if (obj instanceof UiBindingEndpointAlias) {
 			UiBindingEndpointAlias uiBindingEndpoint = (UiBindingEndpointAlias) obj;
@@ -85,13 +87,11 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 				// getPackage(uiProcessor), uiProcessor.getName()));
 				return converter.toQualifiedName(uiProcessor.getName());
 			}
-		} else if (obj instanceof UiVisibilityProperties) {
-			UiVisibilityProperties uiProperties = (UiVisibilityProperties) obj;
+		} else if (obj instanceof UiVisibilityProperty) {
+			UiVisibilityProperty uiProperties = (UiVisibilityProperty) obj;
 			if (uiProperties.getName() == null) {
 				return QualifiedName.create("notDefined");
 			} else {
-				// return converter.toQualifiedName(String.format("%s.%s",
-				// getPackage(uiProperties), uiProperties.getName()));
 				return converter.toQualifiedName(uiProperties.getName());
 			}
 		}

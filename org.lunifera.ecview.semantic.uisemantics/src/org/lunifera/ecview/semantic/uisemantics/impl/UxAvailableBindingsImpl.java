@@ -3,22 +3,16 @@
 package org.lunifera.ecview.semantic.uisemantics.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableBindings;
-import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
+import org.lunifera.ecview.semantic.uisemantics.UxBindingableOption;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,7 +36,7 @@ public class UxAvailableBindingsImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<UxEndpointDef> bindings;
+	protected EList<UxBindingableOption> bindings;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,9 +62,9 @@ public class UxAvailableBindingsImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<UxEndpointDef> getBindings() {
+	public EList<UxBindingableOption> getBindings() {
 		if (bindings == null) {
-			bindings = new EObjectContainmentEList<UxEndpointDef>(UxEndpointDef.class, this, UiSemanticsPackage.UX_AVAILABLE_BINDINGS__BINDINGS);
+			bindings = new EObjectContainmentEList<UxBindingableOption>(UxBindingableOption.class, this, UiSemanticsPackage.UX_AVAILABLE_BINDINGS__BINDINGS);
 		}
 		return bindings;
 	}
@@ -114,7 +108,7 @@ public class UxAvailableBindingsImpl extends MinimalEObjectImpl.Container implem
 		switch (featureID) {
 			case UiSemanticsPackage.UX_AVAILABLE_BINDINGS__BINDINGS:
 				getBindings().clear();
-				getBindings().addAll((Collection<? extends UxEndpointDef>)newValue);
+				getBindings().addAll((Collection<? extends UxBindingableOption>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

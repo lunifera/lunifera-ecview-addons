@@ -22,6 +22,5 @@ public interface UxElementDefinitionValidator {
 	boolean validateUri(UxElementURI value);
 	boolean validateBindingContainer(UxAvailableBindings value);
 	boolean validateVisibilityContainer(UxAvailableVisibilityOptions value);
-
 	boolean validateValidatorContainer(UxAvailableValidatorProperties value);
 }

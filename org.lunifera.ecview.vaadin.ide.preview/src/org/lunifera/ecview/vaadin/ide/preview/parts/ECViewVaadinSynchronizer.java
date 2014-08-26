@@ -136,6 +136,9 @@ public class ECViewVaadinSynchronizer implements IPartListener,
 	}
 
 	public void modelChanged(XtextResource resource) {
+		if(resource == null){
+			return;
+		}
 		if (resource.getContents().size() < 2) {
 			return;
 		}

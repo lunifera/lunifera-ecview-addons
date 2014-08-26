@@ -3,7 +3,7 @@
 package org.lunifera.ecview.semantic.uimodel;
 
 import org.eclipse.emf.ecore.EFactory;
-
+ 
 /**
  * <!-- begin-user-doc -->
  * The <b>Factory</b> for the model.
@@ -137,6 +137,15 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiPathSegment createUiPathSegment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Raw Bindable Path Segment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Raw Bindable Path Segment</em>'.
+	 * @generated
+	 */
+	UiRawBindablePathSegment createUiRawBindablePathSegment();
 
 	/**
 	 * Returns a new object of class '<em>Ui Bean Slot</em>'.
@@ -337,13 +346,13 @@ public interface UiModelFactory extends EFactory {
 	UiColumn createUiColumn();
 
 	/**
-	 * Returns a new object of class '<em>Ui Column Assignments</em>'.
+	 * Returns a new object of class '<em>Ui Columns Assignment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui Column Assignments</em>'.
+	 * @return a new object of class '<em>Ui Columns Assignment</em>'.
 	 * @generated
 	 */
-	UiColumnAssignments createUiColumnAssignments();
+	UiColumnsAssignment createUiColumnsAssignment();
 
 	/**
 	 * Returns a new object of class '<em>Ui Numeric Field</em>'.
@@ -409,24 +418,6 @@ public interface UiModelFactory extends EFactory {
 	UiXbaseVisibilityRule createUiXbaseVisibilityRule();
 
 	/**
-	 * Returns a new object of class '<em>Ui Visibility Properties</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui Visibility Properties</em>'.
-	 * @generated
-	 */
-	UiVisibilityProperties createUiVisibilityProperties();
-
-	/**
-	 * Returns a new object of class '<em>Ui Visibility Properties Def</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui Visibility Properties Def</em>'.
-	 * @generated
-	 */
-	UiVisibilityPropertiesDef createUiVisibilityPropertiesDef();
-
-	/**
 	 * Returns a new object of class '<em>Ui Visibility Properties Assignment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -434,6 +425,15 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiVisibilityPropertiesAssignment createUiVisibilityPropertiesAssignment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Visibility Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Visibility Property</em>'.
+	 * @generated
+	 */
+	UiVisibilityProperty createUiVisibilityProperty();
 
 	/**
 	 * Returns a new object of class '<em>Ui Validator Alias</em>'.
@@ -614,6 +614,105 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiOpenDialogCommand createUiOpenDialogCommand();
+
+	/**
+	 * Returns a new object of class '<em>Ui Search Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Search Field</em>'.
+	 * @generated
+	 */
+	UiSearchField createUiSearchField();
+
+	/**
+	 * Returns a new object of class '<em>Ui Search Dialog</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Search Dialog</em>'.
+	 * @generated
+	 */
+	UiSearchDialog createUiSearchDialog();
+
+	/**
+	 * Returns a new object of class '<em>Ui Dialog Search Field Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Dialog Search Field Assignment</em>'.
+	 * @generated
+	 */
+	UiDialogSearchFieldAssignment createUiDialogSearchFieldAssignment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Search With Dialog Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Search With Dialog Command</em>'.
+	 * @generated
+	 */
+	UiSearchWithDialogCommand createUiSearchWithDialogCommand();
+
+	/**
+	 * Returns a new object of class '<em>Ui Label</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Label</em>'.
+	 * @generated
+	 */
+	UiLabel createUiLabel();
+
+	/**
+	 * Returns a new object of class '<em>Ui Decimal Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Decimal Field</em>'.
+	 * @generated
+	 */
+	UiDecimalField createUiDecimalField();
+
+	/**
+	 * Returns a new object of class '<em>Ui Text Area</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Text Area</em>'.
+	 * @generated
+	 */
+	UiTextArea createUiTextArea();
+
+	/**
+	 * Returns a new object of class '<em>Ui Options Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Options Group</em>'.
+	 * @generated
+	 */
+	UiOptionsGroup createUiOptionsGroup();
+
+	/**
+	 * Returns a new object of class '<em>Ui Date Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Date Field</em>'.
+	 * @generated
+	 */
+	UiDateField createUiDateField();
+
+	/**
+	 * Returns a new object of class '<em>Ui Browser</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Browser</em>'.
+	 * @generated
+	 */
+	UiBrowser createUiBrowser();
+
+	/**
+	 * Returns a new object of class '<em>Ui Progress Bar</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Progress Bar</em>'.
+	 * @generated
+	 */
+	UiProgressBar createUiProgressBar();
 
 	/**
 	 * Returns the package supported by this factory.

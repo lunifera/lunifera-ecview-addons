@@ -14,7 +14,7 @@ import com.google.inject.Inject;
 
 public class ECViewVaadinPreviewPart extends ViewPart {
 
-	private static String URL = "http://localhost:8086";
+	private static String URL = "http://localhost:8099/";
 
 	@Inject
 	private ECViewVaadinSynchronizer synchronizer;
@@ -50,6 +50,7 @@ public class ECViewVaadinPreviewPart extends ViewPart {
 
 	@Override
 	public void dispose() {
+		browser.close();
 		synchronizer.stop(getSite());
 		super.dispose();
 	}

@@ -3,6 +3,7 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -14,7 +15,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
-import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments;
+import org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
@@ -122,7 +123,7 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 	 * @generated
 	 * @ordered
 	 */
-	protected UiColumnAssignments columnAssignment;
+	protected UiColumnsAssignment columnAssignment;
 
 	/**
 	 * The default value of the '{@link #getSelectionType() <em>Selection Type</em>}' attribute.
@@ -244,10 +245,10 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UiColumnAssignments getColumnAssignment() {
+	public UiColumnsAssignment getColumnAssignment() {
 		if (columnAssignment != null && columnAssignment.eIsProxy()) {
 			InternalEObject oldColumnAssignment = (InternalEObject)columnAssignment;
-			columnAssignment = (UiColumnAssignments)eResolveProxy(oldColumnAssignment);
+			columnAssignment = (UiColumnsAssignment)eResolveProxy(oldColumnAssignment);
 			if (columnAssignment != oldColumnAssignment) {
 				InternalEObject newColumnAssignment = (InternalEObject)columnAssignment;
 				NotificationChain msgs = oldColumnAssignment.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_TABLE__COLUMN_ASSIGNMENT, null, null);
@@ -267,7 +268,7 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UiColumnAssignments basicGetColumnAssignment() {
+	public UiColumnsAssignment basicGetColumnAssignment() {
 		return columnAssignment;
 	}
 
@@ -276,8 +277,8 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetColumnAssignment(UiColumnAssignments newColumnAssignment, NotificationChain msgs) {
-		UiColumnAssignments oldColumnAssignment = columnAssignment;
+	public NotificationChain basicSetColumnAssignment(UiColumnsAssignment newColumnAssignment, NotificationChain msgs) {
+		UiColumnsAssignment oldColumnAssignment = columnAssignment;
 		columnAssignment = newColumnAssignment;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_TABLE__COLUMN_ASSIGNMENT, oldColumnAssignment, newColumnAssignment);
@@ -291,7 +292,7 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setColumnAssignment(UiColumnAssignments newColumnAssignment) {
+	public void setColumnAssignment(UiColumnsAssignment newColumnAssignment) {
 		if (newColumnAssignment != columnAssignment) {
 			NotificationChain msgs = null;
 			if (columnAssignment != null)
@@ -508,7 +509,7 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 				setJvmType((JvmTypeReference)newValue);
 				return;
 			case UiModelPackage.UI_TABLE__COLUMN_ASSIGNMENT:
-				setColumnAssignment((UiColumnAssignments)newValue);
+				setColumnAssignment((UiColumnsAssignment)newValue);
 				return;
 			case UiModelPackage.UI_TABLE__SELECTION_TYPE:
 				setSelectionType((UiSelectionType)newValue);
@@ -544,7 +545,7 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 				setJvmType((JvmTypeReference)null);
 				return;
 			case UiModelPackage.UI_TABLE__COLUMN_ASSIGNMENT:
-				setColumnAssignment((UiColumnAssignments)null);
+				setColumnAssignment((UiColumnsAssignment)null);
 				return;
 			case UiModelPackage.UI_TABLE__SELECTION_TYPE:
 				setSelectionType(SELECTION_TYPE_EDEFAULT);

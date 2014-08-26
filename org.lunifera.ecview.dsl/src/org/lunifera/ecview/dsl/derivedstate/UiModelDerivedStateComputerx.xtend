@@ -5,7 +5,6 @@ import java.util.List
 import java.util.Map
 import java.util.Stack
 import org.eclipse.emf.ecore.EObject
-import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy
 import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEndpoint
 import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelValueBindingEndpoint
@@ -22,28 +21,35 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YField
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout
 import org.eclipse.emf.ecp.ecview.common.model.core.YOpenDialogCommand
 import org.eclipse.emf.ecp.ecview.common.model.core.YView
-import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet
 import org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidator
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator
 import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YBrowser
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YButton
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YCheckBox
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YColumn
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YComboBox
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YDateTime
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YDecimalField
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YFlatAlignment
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YFormLayout
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YGridLayout
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YHorizontalLayout
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YImage
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YLabel
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YNumericField
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YOptionsGroup
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YProgressBar
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YSelectionType
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTab
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTabSheet
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTable
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTextArea
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTextField
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YVerticalLayout
 import org.eclipse.emf.ecp.ecview.^extension.model.^extension.util.SimpleExtensionModelFactory
+import org.eclipse.xtext.common.types.JvmDeclaredType
 import org.eclipse.xtext.common.types.JvmField
 import org.eclipse.xtext.common.types.JvmGenericType
 import org.eclipse.xtext.common.types.JvmType
@@ -55,17 +61,21 @@ import org.lunifera.ecview.semantic.uimodel.UiBinding
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression
+import org.lunifera.ecview.semantic.uimodel.UiBrowser
 import org.lunifera.ecview.semantic.uimodel.UiButton
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox
 import org.lunifera.ecview.semantic.uimodel.UiColumn
 import org.lunifera.ecview.semantic.uimodel.UiComboBox
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef
+import org.lunifera.ecview.semantic.uimodel.UiDateField
+import org.lunifera.ecview.semantic.uimodel.UiDecimalField
 import org.lunifera.ecview.semantic.uimodel.UiDialog
+import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment
+import org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable
 import org.lunifera.ecview.semantic.uimodel.UiField
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment
 import org.lunifera.ecview.semantic.uimodel.UiFormLayout
-import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment
 import org.lunifera.ecview.semantic.uimodel.UiGridLayout
 import org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup
@@ -74,6 +84,7 @@ import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment
 import org.lunifera.ecview.semantic.uimodel.UiIDEView
 import org.lunifera.ecview.semantic.uimodel.UiImage
+import org.lunifera.ecview.semantic.uimodel.UiLabel
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton
@@ -87,16 +98,17 @@ import org.lunifera.ecview.semantic.uimodel.UiMobileView
 import org.lunifera.ecview.semantic.uimodel.UiModel
 import org.lunifera.ecview.semantic.uimodel.UiNumericField
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand
-import org.lunifera.ecview.semantic.uimodel.UiPathSegment
 import org.lunifera.ecview.semantic.uimodel.UiPoint
+import org.lunifera.ecview.semantic.uimodel.UiProgressBar
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator
+import org.lunifera.ecview.semantic.uimodel.UiSearchDialog
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType
 import org.lunifera.ecview.semantic.uimodel.UiSwitch
 import org.lunifera.ecview.semantic.uimodel.UiTabAssignment
 import org.lunifera.ecview.semantic.uimodel.UiTabSheet
 import org.lunifera.ecview.semantic.uimodel.UiTable
+import org.lunifera.ecview.semantic.uimodel.UiTextArea
 import org.lunifera.ecview.semantic.uimodel.UiTextField
-import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAssignment
 import org.lunifera.ecview.semantic.uimodel.UiValidatorDef
@@ -120,7 +132,19 @@ import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderFactory
 
 import static org.lunifera.ecview.semantic.uimodel.UiFlatAlignment.*
 import static org.lunifera.ecview.semantic.uimodel.UiSelectionType.*
-import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef
+import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef
+import org.lunifera.ecview.semantic.uimodel.UiBindingExpression
+import org.eclipse.emf.ecore.resource.ResourceSet
+import org.lunifera.ecview.semantic.uimodel.UiPathSegment
+import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet
+import org.eclipse.emf.ecp.ecview.^extension.model.^extension.ExtensionModelFactory
+import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand
+import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment
+import java.util.ArrayList
+import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup
+import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup
+import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment
 
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
@@ -129,6 +153,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	private IJdtTypeLoader typeLoader
 	@Inject
 	BindableTypeProvider typeOfBoundPropertyProvider;
+	@Inject
+	TypeHelper typeHelper;
+
 	final Stack<EObject> viewContext = new Stack
 	final List<YView> views = newArrayList()
 	final Map<EObject, EObject> grammarToUiAssociations = newHashMap();
@@ -138,6 +165,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	YView currentView;
 
 	DerivedStateAwareResource resource
+	List<UiBinding> pendingBindings = newArrayList()
+	List<UiBinding> temporaryPendingBindings = newArrayList()
 
 	def void associateUi(EObject grammarElement, EObject uiElement) {
 		grammarToUiAssociations.put(grammarElement, uiElement)
@@ -175,12 +204,13 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			eObject.eContents.forEach [
 				it.map
 			]
-
+			
 			if (views.size > 0) {
 				resource.contents += views.get(0)
 			}
 			views.clear
 			viewContext.clear
+			pendingBindings.clear
 		}
 
 		this.typeLoader.dispose
@@ -218,10 +248,31 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		object.content.map
 		object.bindings.forEach[it.map]
 
-		object.validatorAssignments.forEach[it.map]
-
-		pop
-		currentView = null
+		// install all bindings
+		
+		temporaryPendingBindings =  newArrayList(pendingBindings) 
+		pendingBindings.clear
+		
+		temporaryPendingBindings.forEach[
+				it.install
+		]
+		if (pendingBindings.empty){
+			object.validatorAssignments.forEach[it.map]
+	
+			pop
+			currentView = null
+		} else {
+			temporaryPendingBindings = newArrayList(pendingBindings)
+			pendingBindings.clear
+		
+			temporaryPendingBindings.forEach[
+				it.install
+			]
+			object.validatorAssignments.forEach[it.map]
+	
+			pop
+			currentView = null
+		}
 	}
 
 	def dispatch void map(UiMobileView object) {
@@ -235,6 +286,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		object.beanSlots.forEach[it.map]
 		object.content.map
 		object.bindings.forEach[it.map]
+		
+		// install all bindings
+		pendingBindings.forEach[
+				it.install
+		]
 
 		object.validatorAssignments.forEach[it.map]
 
@@ -249,14 +305,20 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	def dispatch void map(UiGridLayout eObject) {
 		val YGridLayout layout = factory.createGridLayout
 		layout.name = eObject.name
+		layout.fillHorizontal = eObject.fillHorizontal
+		layout.fillVertical = eObject.fillVertical
+		layout.columns = eObject.columns
 
-		//		layout.columns = eObject.columns
 		layout.addToParent
 		eObject.associateUi(layout)
 
 		layout.push
 
 		eObject.contents.forEach [
+			it.map
+		]
+		
+		eObject.bindings.forEach [
 			it.map
 		]
 
@@ -272,16 +334,14 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			val newField = element.create
 			layout.addElement(newField)
 
-			if (element instanceof UiField) {
-				element.map
+			element.map
 
-				newField.push
-				val UiField yField = element as UiField
-				yField.validators.forEach [
-					it.map
-				]
-				pop
-			}
+			newField.push
+			val UiField yField = element as UiField
+			yField.validators.forEach [
+				it.map
+			]
+			pop
 		} else {
 			element.map
 		}
@@ -290,14 +350,18 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	def dispatch void map(UiVerticalLayout eObject) {
 		val YVerticalLayout layout = factory.createVerticalLayout
 		layout.name = eObject.name
+		layout.fillVertical = eObject.fillVertical
 
-		//		layout.columns = eObject.columns
 		layout.addToParent
 		eObject.associateUi(layout)
 
 		layout.push
 
 		eObject.contents.forEach [
+			it.map
+		]
+		
+		eObject.bindings.forEach [
 			it.map
 		]
 
@@ -311,9 +375,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val element = eObject.element
 		if (element instanceof UiField) {
 			val newField = element.create
-			layout.addElement(newField)
 
-			if (element instanceof UiField) {
+			if (newField != null) {
+				layout.addElement(newField)
+
 				element.map
 
 				newField.push
@@ -331,14 +396,18 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	def dispatch void map(UiHorizontalLayout eObject) {
 		val YHorizontalLayout layout = factory.createHorizontalLayout
 		layout.name = eObject.name
+		layout.fillHorizontal = eObject.fillHorizontal
 
-		//		layout.columns = eObject.columns
 		layout.addToParent
 		eObject.associateUi(layout)
 
 		layout.push
 
 		eObject.contents.forEach [
+			it.map
+		]
+		
+		eObject.bindings.forEach [
 			it.map
 		]
 
@@ -353,16 +422,14 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			val newField = element.create
 			layout.addElement(newField)
 
-			if (element instanceof UiField) {
-				element.map
+			element.map
 
-				newField.push
-				val UiField yField = element as UiField
-				yField.validators.forEach [
-					it.map
-				]
-				pop
-			}
+			newField.push
+			val UiField yField = element as UiField
+			yField.validators.forEach [
+				it.map
+			]
+			pop
 		} else {
 			element.map
 		}
@@ -380,6 +447,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.push
 
 		eObject.tabs.forEach [
+			it.map
+		]
+		
+		eObject.bindings.forEach [
 			it.map
 		]
 
@@ -400,16 +471,14 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			val newField = element.create
 			tab.embeddable = newField
 
-			if (element instanceof UiField) {
-				element.map
+			element.map
 
-				newField.push
-				val UiField yField = element as UiField
-				yField.validators.forEach [
-					it.map
-				]
-				pop
-			}
+			newField.push
+			val UiField yField = element as UiField
+			yField.validators.forEach [
+				it.map
+			]
+			pop
 		} else {
 			element.map
 		}
@@ -431,6 +500,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		eObject.tabs.forEach [
 			it.map
 		]
+		
+		eObject.bindings.forEach [
+			it.map
+		]
 
 		pop
 	}
@@ -449,16 +522,14 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			val newField = element.create
 			tab.embeddable = newField
 
-			if (element instanceof UiField) {
-				element.map
+			element.map
 
-				newField.push
-				val UiField yField = element as UiField
-				yField.validators.forEach [
-					it.map
-				]
-				pop
-			}
+			newField.push
+			val UiField yField = element as UiField
+			yField.validators.forEach [
+				it.map
+			]
+			pop
 		} else {
 			element.map
 		}
@@ -471,13 +542,16 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val VMHorizontalButtonGroup layout = VaadinMobileFactory.eINSTANCE.createVMHorizontalButtonGroup
 		layout.name = eObject.name
 
-		//		layout.columns = eObject.columns
 		layout.addToParent
 		eObject.associateUi(layout)
 
 		layout.push
 
 		eObject.contents.forEach [
+			it.map
+		]
+		
+		eObject.bindings.forEach [
 			it.map
 		]
 
@@ -492,16 +566,14 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			val newField = element.create
 			layout.addElement(newField)
 
-			if (element instanceof UiField) {
-				element.map
+			element.map
 
-				newField.push
-				val UiField yField = element as UiField
-				yField.validators.forEach [
-					it.map
-				]
-				pop
-			}
+			newField.push
+			val UiField yField = element as UiField
+			yField.validators.forEach [
+				it.map
+			]
+			pop
 		} else {
 			element.map
 		}
@@ -521,6 +593,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		eObject.contents.forEach [
 			it.map
 		]
+		
+		eObject.bindings.forEach [
+			it.map
+		]
 
 		pop
 	}
@@ -533,16 +609,14 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			val newField = element.create
 			layout.addElement(newField)
 
-			if (element instanceof UiField) {
-				element.map
+			element.map
 
-				newField.push
-				val UiField yField = element as UiField
-				yField.validators.forEach [
-					it.map
-				]
-				pop
-			}
+			newField.push
+			val UiField yField = element as UiField
+			yField.validators.forEach [
+				it.map
+			]
+			pop
 		} else {
 			element.map
 		}
@@ -599,14 +673,63 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		pop
 	}
-	
+
+	def dispatch void map(UiSearchDialog eObject) {
+		val YDialog dialog = CoreModelFactory.eINSTANCE.createYDialog
+		dialog.name = eObject.name
+		dialog.label = eObject.name
+
+		if (eObject.jvmType != null) {
+			dialog.typeQualifiedName = eObject.jvmType.qualifiedName
+			dialog.type = loadClass(eObject.eResource.resourceSet, eObject.jvmType.qualifiedName)
+		}
+
+		dialog.addToParent
+		eObject.associateUi(dialog)
+		currentView.dialogs += dialog
+		dialog.push
+
+		val YVerticalLayout content = ExtensionModelFactory.eINSTANCE.createYVerticalLayout
+		dialog.content = content
+		content.push
+
+		val YGridLayout searchFieldLayout = ExtensionModelFactory.eINSTANCE.createYGridLayout
+		content.elements += searchFieldLayout
+		searchFieldLayout.push
+
+		eObject.searchFields.forEach [
+			it.map
+		]
+		
+		eObject.bindings.forEach [
+			it.map
+		]
+
+		// pop searchFieldLayout
+		pop
+
+		// map the content of the search dialog
+		eObject.content?.map
+
+		// pop content
+		pop
+
+		if (eObject.bindings != null) {
+			eObject.bindings.forEach [
+				it.map
+			]
+		}
+
+		// pop dialog
+		pop
+	}
+
 	def dispatch void map(UiDialogAssignment eObject) {
 
-		val YDialog layout = peek
 		val element = eObject.element
 		if (element instanceof UiField) {
 			val newField = element.create
-			layout.content = newField 
+			newField.addToParent
 			element.map
 
 			newField.push
@@ -617,6 +740,30 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			pop
 		} else {
 			element.map
+		}
+	}
+
+	def dispatch void map(UiDialogSearchFieldAssignment eObject) {
+
+		val YLayout layout = peek
+		val element = eObject.element
+
+		val JvmField property = element.property
+		if (property != null) {
+			val JvmType type = property?.type?.type;
+
+			var YField newField = null
+			if (typeHelper.isString(type)) {
+				newField = ExtensionModelFactory.eINSTANCE.createYTextSearchField
+			} else if (typeHelper.isNumber(type)) {
+				newField = ExtensionModelFactory.eINSTANCE.createYNumericSearchField
+			} else if (typeHelper.isBoolean(type)) {
+				newField = ExtensionModelFactory.eINSTANCE.createYBooleanSearchField
+			}
+
+			if (newField != null) {
+				layout.elements += newField
+			}
 		}
 	}
 
@@ -633,11 +780,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			it.map
 		]
 
-		if (eObject.bindings != null) {
-			eObject.bindings.forEach [
-				it.map
-			]
-		}
+		eObject.bindings.forEach [
+			it.map
+		]
 
 		pop
 	}
@@ -677,29 +822,50 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			it.map
 		]
 
+		eObject.bindings.forEach [
+			it.map
+		]
+
 		pop
 	}
 
 	def dispatch void map(UiFormLayoutAssigment eObject) {
+
 		val YFormLayout layout = peek
 		val element = eObject.element
 		if (element instanceof UiField) {
 			val newField = element.create
 			layout.addElement(newField)
 
-			if (element instanceof UiField) {
-				element.map
+			element.map
 
-				newField.push
-				val UiField yField = element as UiField
-				yField.validators.forEach [
-					it.map
-				]
-				pop
-			}
+			newField.push
+			val UiField yField = element as UiField
+			yField.validators.forEach [
+				it.map
+			]
+			pop
 		} else {
 			element.map
 		}
+
+	}
+
+	def dispatch void map(UiOptionsGroup eObject) {
+		val YOptionsGroup yOptionsGroup = eObject.associatedUi
+		yOptionsGroup.push
+
+		eObject.bindings.forEach [
+			it.map
+		]
+
+		if (eObject.bindings != null) {
+			eObject.bindings.forEach [
+				it.map
+			]
+		}
+
+		pop
 	}
 
 	def dispatch void map(UiTable eObject) {
@@ -753,6 +919,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		button.label = object.name
 		button.addToParent
 		object.associateUi(button)
+		
+		object.bindings.forEach [
+			it.map
+		]
 	}
 
 	def dispatch void map(UiMobileNavigationButton object) {
@@ -768,6 +938,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		} else if (object.targetPageAlias != null) {
 			object.targetPageAlias.map
 		}
+		
+		object.bindings.forEach [
+			it.map
+		]
+		
 		pop
 
 	}
@@ -882,9 +1057,102 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		textField.name = object.name
 		textField.label = object.name
 
+		val dt = factory.createTextDatatype
+		textField.datatype = dt
+		textField.orphanDatatypes += dt
+
+		dt.maxLength = object.maxLength
+		dt.minLength = object.minLength
+		dt.regExpression = object.regex
 		object.associateUi(textField)
 
 		return textField
+	}
+
+	def dispatch YEmbeddable create(UiLabel object) {
+		val YLabel label = factory.createLabel
+		label.name = object.name
+		label.label = object.name
+
+		object.associateUi(label)
+
+		return label
+	}
+
+	def dispatch YEmbeddable create(UiDecimalField object) {
+		val YDecimalField decimalField = factory.createDecimalField
+		decimalField.name = object.name
+		decimalField.label = object.name
+
+		val dt = factory.createDecimalDatatype
+		decimalField.datatype = dt
+		decimalField.orphanDatatypes += dt
+
+		dt.grouping = object.grouping
+		dt.markNegative = object.markNegative
+		dt.precision = object.precision
+
+		object.associateUi(decimalField)
+
+		return decimalField
+	}
+
+	def dispatch YEmbeddable create(UiTextArea object) {
+		val YTextArea textArea = factory.createTextArea
+		textArea.name = object.name
+		textArea.label = object.name
+
+		object.associateUi(textArea)
+
+		return textArea
+	}
+
+	def dispatch YEmbeddable create(UiOptionsGroup object) {
+		val YOptionsGroup optionsGroup = factory.createOptionsGroup
+		optionsGroup.name = object.name
+		optionsGroup.label = object.name
+		optionsGroup.selectionType = object.selectionType.convert
+ 
+		optionsGroup.itemCaptionProperty = object.itemCaptionProperty?.simpleName
+		optionsGroup.itemImageProperty = object.itemImageProperty?.simpleName
+		if (object.jvmType != null) {
+			optionsGroup.typeQualifiedName = object.jvmType.qualifiedName
+			optionsGroup.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
+		}
+
+		object.associateUi(optionsGroup)
+
+		return optionsGroup
+	}
+
+	def dispatch YEmbeddable create(UiDateField object) {
+		val YDateTime dateTime = factory.createDateTime
+		dateTime.name = object.name
+		dateTime.label = object.name
+
+		object.associateUi(dateTime)
+
+		return dateTime
+	}
+
+	def dispatch YEmbeddable create(UiBrowser object) {
+		val YBrowser browser = factory.createBrowser
+		browser.name = object.name
+		browser.label = object.name
+
+		object.associateUi(browser)
+
+		return browser
+	}
+
+	def dispatch YEmbeddable create(UiProgressBar object) {
+		val YProgressBar progressBar = factory.createProgressBar
+		progressBar.name = object.name
+		progressBar.label = object.name
+
+		object.associateUi(progressBar)
+
+		return progressBar
 	}
 
 	def dispatch YEmbeddable create(UiImage object) {
@@ -933,6 +1201,12 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		field.name = object.name
 		field.label = object.name
 
+		val dt = factory.createNumericDatatype
+		field.datatype = dt
+		field.orphanDatatypes += dt
+
+		dt.grouping = object.grouping
+		dt.markNegative = object.markNegative
 		object.associateUi(field)
 
 		return field
@@ -1003,7 +1277,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			val YDialog yDialog = context as YDialog
 			yDialog.content = embeddable as YEmbeddable
 		}
-	} 
+	}
 
 	def dispatch void map(UiPoint object) {
 	}
@@ -1015,6 +1289,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	}
 
 	def dispatch void map(UiBinding object) {
+		pendingBindings += object
+	}
+
+	def void install(UiBinding object) {
 		val UiBindingEndpointAlias sourceAlias = object.sourceAlias as UiBindingEndpointAlias
 		val source = object.source
 		val UiBindingEndpointAlias targetAlias = object.targetAlias as UiBindingEndpointAlias
@@ -1126,6 +1404,20 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			pop
 
 			result = yCommand.createTriggerDialogEndpoint
+		} else if (info.bindingRoot instanceof UiSearchWithDialogCommand) {
+			val UiSearchWithDialogCommand command = info.bindingRoot as UiSearchWithDialogCommand
+
+			// Create the command and register it at the current view
+			val YOpenDialogCommand yCommand = CoreModelFactory.eINSTANCE.createYOpenDialogCommand
+			currentView.commandSet.addCommand(yCommand)
+
+			// create the target page and add it to the command
+			yCommand.push
+			command.dialog.map
+
+			pop
+
+			result = yCommand.createTriggerDialogEndpoint
 		}
 
 		return result
@@ -1176,8 +1468,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		return result
 	}
 
-	def dispatch void collectBindingInfo(UiBindingEndpointAssignment assignment,
-		UiModelDerivedStateComputerx.BindingInfo info) {
+	def dispatch void collectBindingInfo(
+		UiBindingEndpointAssignment assignment,
+		UiModelDerivedStateComputerx.BindingInfo info
+	) {
 		var result = if(info != null) info else new UiModelDerivedStateComputerx.BindingInfo
 		if (assignment.typedBindableAlias != null) {
 			assignment.typedBindableAlias.collectBindingInfo(result)
@@ -1190,9 +1484,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			info.appendPath(assignment.path.toPathString)
 			info.typeOfBoundProperty = assignment.path.typeofLastSegment
 			info.deepestJvmField = assignment.path.fieldofLastSegment
-
+ 
 			val pathType = assignment.path.typeofSecondLastSegment
-			if (pathType != null) {
+			if (info.typeForBinding == null && pathType != null) {
 				info.typeForBinding = pathType
 			}
 		}
@@ -1211,7 +1505,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		// must be the last element
 		info.typeForBinding = typeOfBoundPropertyProvider.getType(definition)
-		info.bindingRoot = definition.rawBindable
+		info.bindingRoot = definition.rawBindableOfLastSegment
 		val bindingMethod = definition.method
 		if (bindingMethod != null) {
 			info.appendPath(bindingMethod.name)

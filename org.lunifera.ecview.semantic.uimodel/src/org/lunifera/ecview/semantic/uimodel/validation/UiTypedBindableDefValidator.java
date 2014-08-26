@@ -5,6 +5,7 @@
 package org.lunifera.ecview.semantic.uimodel.validation;
 
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
+import org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment;
 
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 
@@ -18,5 +19,6 @@ public interface UiTypedBindableDefValidator {
 	boolean validate();
 
 	boolean validateRawBindable(UiRawBindable value);
+	boolean validateRawBindablePath(UiRawBindablePathSegment value);
 	boolean validateMethod(UxEndpointDef value);
 }

@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions;
-import org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption;
+import org.lunifera.ecview.semantic.uisemantics.UxVisibleableOption;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +27,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableVisibilityOptionsImpl#getOptions <em>Options</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxAvailableVisibilityOptionsImpl#getBindings <em>Bindings</em>}</li>
  * </ul>
  * </p>
  *
@@ -35,14 +35,14 @@ import org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption;
  */
 public class UxAvailableVisibilityOptionsImpl extends MinimalEObjectImpl.Container implements UxAvailableVisibilityOptions {
 	/**
-	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference list.
+	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOptions()
+	 * @see #getBindings()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<UxVisibilityOption> options;
+	protected EList<UxVisibleableOption> bindings;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,11 +68,11 @@ public class UxAvailableVisibilityOptionsImpl extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<UxVisibilityOption> getOptions() {
-		if (options == null) {
-			options = new EObjectContainmentEList<UxVisibilityOption>(UxVisibilityOption.class, this, UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS__OPTIONS);
+	public EList<UxVisibleableOption> getBindings() {
+		if (bindings == null) {
+			bindings = new EObjectContainmentEList<UxVisibleableOption>(UxVisibleableOption.class, this, UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS__BINDINGS);
 		}
-		return options;
+		return bindings;
 	}
 
 	/**
@@ -83,8 +83,8 @@ public class UxAvailableVisibilityOptionsImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS__OPTIONS:
-				return ((InternalEList<?>)getOptions()).basicRemove(otherEnd, msgs);
+			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS__BINDINGS:
+				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,8 +97,8 @@ public class UxAvailableVisibilityOptionsImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS__OPTIONS:
-				return getOptions();
+			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS__BINDINGS:
+				return getBindings();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,9 +112,9 @@ public class UxAvailableVisibilityOptionsImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS__OPTIONS:
-				getOptions().clear();
-				getOptions().addAll((Collection<? extends UxVisibilityOption>)newValue);
+			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS__BINDINGS:
+				getBindings().clear();
+				getBindings().addAll((Collection<? extends UxVisibleableOption>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -128,8 +128,8 @@ public class UxAvailableVisibilityOptionsImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS__OPTIONS:
-				getOptions().clear();
+			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS__BINDINGS:
+				getBindings().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -143,8 +143,8 @@ public class UxAvailableVisibilityOptionsImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS__OPTIONS:
-				return options != null && !options.isEmpty();
+			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS__BINDINGS:
+				return bindings != null && !bindings.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

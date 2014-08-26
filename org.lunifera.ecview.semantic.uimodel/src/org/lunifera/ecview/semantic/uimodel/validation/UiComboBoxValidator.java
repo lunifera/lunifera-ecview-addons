@@ -5,7 +5,6 @@
 package org.lunifera.ecview.semantic.uimodel.validation;
 
 import org.eclipse.xtext.common.types.JvmField;
-import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiComboBox}.
@@ -17,8 +16,5 @@ public interface UiComboBoxValidator {
 	boolean validate();
 
 	boolean validateItemCaptionProperty(JvmField value);
-
 	boolean validateItemImageProperty(JvmField value);
-
-	boolean validateSelectionType(UiSelectionType value);
 }

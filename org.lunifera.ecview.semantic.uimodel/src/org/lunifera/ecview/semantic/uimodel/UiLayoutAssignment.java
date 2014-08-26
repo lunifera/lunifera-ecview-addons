@@ -13,5 +13,5 @@ package org.lunifera.ecview.semantic.uimodel;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface UiLayoutAssignment extends UiNamedElement {
+public interface UiLayoutAssignment extends UiNamedElement, UiRawBindableProvider {
 } // UiLayoutAssignment

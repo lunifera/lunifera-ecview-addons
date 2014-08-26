@@ -6,7 +6,7 @@ package org.lunifera.ecview.semantic.uisemantics.validation;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption;
+import org.lunifera.ecview.semantic.uisemantics.UxVisibleableOption;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions}.
@@ -17,5 +17,5 @@ import org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption;
 public interface UxAvailableVisibilityOptionsValidator {
 	boolean validate();
 
-	boolean validateOptions(EList<UxVisibilityOption> value);
+	boolean validateBindings(EList<UxVisibleableOption> value);
 }

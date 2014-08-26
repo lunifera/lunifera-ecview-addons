@@ -30,7 +30,18 @@ Package uisemantics <http://www.lunifera.org/ecview/dsl/uimodel/semantics>
     Reference eClass : EClass
 
   Class UxAvailableBindings
-    Reference bindings : UxEndpointDef<<0..*>>
+    Reference bindings : UxBindingableOption<<0..*>>
+
+  Class UxAvailableVisibilityOptions
+    Reference bindings : UxVisibleableOption<<0..*>>
+
+  Class UxValueBindingEndpointDef -> UxEndpointDef
+
+  Class UxAvailableValidatorProperties
+    Reference properties : UxValidatorProperty<<0..*>>
+
+  Class UxValidatorProperty
+    Attribute name : EString
 
   Class UxEndpointDef
     Attribute final : EBoolean
@@ -38,21 +49,6 @@ Package uisemantics <http://www.lunifera.org/ecview/dsl/uimodel/semantics>
     Reference jvmType : JvmTypeReference
     Attribute listbinding : EBoolean
 
-  Class UxValueBindingEndpointDef -> UxEndpointDef
+  Class UxBindingableOption -> UxEndpointDef
 
-  Class UxListBindingEndpointDef -> UxEndpointDef
-
-  Class UxSetBindingEndpointDef -> UxEndpointDef
-
-  Class UxAvailableVisibilityOptions
-    Reference options : UxVisibilityOption<<0..*>>
-
-  Class UxVisibilityOption
-    Attribute name : EString
-    Reference jvmType : JvmTypeReference
-
-  Class UxAvailableValidatorProperties
-    Reference properties : UxValidatorProperty<<0..*>>
-
-  Class UxValidatorProperty
-    Attribute name : EString
+  Class UxVisibleableOption -> UxEndpointDef

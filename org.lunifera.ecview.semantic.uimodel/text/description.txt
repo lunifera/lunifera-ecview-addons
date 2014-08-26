@@ -26,7 +26,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiViewSet -> UiContext
 
-  Class UiView -> UiContext
+  Class UiView -> UiContext, UiRawBindable
     Reference viewSet : UiViewSet
     Reference content : UiEmbeddable
     Reference validatorAssignments : UiValidatorAssignment<<0..*>>
@@ -76,10 +76,17 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiRawBindable -> UiNamedElement
 
+  Class UiRawBindableProvider
+
+  Class UiRawBindablePathSegment
+    Reference rawBindable : UiRawBindable
+    Reference path : UiRawBindablePathSegment
+
   Class UiTypedBindable -> UiNamedElement
 
   Class UiTypedBindableDef -> UiTypedBindable, UiBindingExpression
     Reference rawBindable : UiRawBindable
+    Reference rawBindablePath : UiRawBindablePathSegment
     Reference method : UxEndpointDef
 
   Class UiCommandBindableDef -> UiTypedBindable, UiBindingExpression
@@ -93,7 +100,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiLayout -> UiEmbeddable
 
-  Class UiLayoutAssignment -> UiNamedElement
+  Class UiLayoutAssignment -> UiNamedElement, UiRawBindableProvider
 
   Class UiAction -> UiEmbeddable
 
@@ -112,18 +119,23 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiGridLayout -> UiLayout
     Reference contents : UiGridLayoutAssigment<<0..*>>
+    Attribute columns : EInt
+    Attribute fillHorizontal : EBoolean
+    Attribute fillVertical : EBoolean
 
   Class UiHorizontalLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
 
   Class UiHorizontalLayout -> UiLayout
     Reference contents : UiHorizontalLayoutAssigment<<0..*>>
+    Attribute fillHorizontal : EBoolean
 
   Class UiVerticalLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
 
   Class UiVerticalLayout -> UiLayout
     Reference contents : UiVerticalLayoutAssigment<<0..*>>
+    Attribute fillVertical : EBoolean
 
   Class UiFormLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
@@ -132,6 +144,9 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference contents : UiFormLayoutAssigment<<0..*>>
 
   Class UiTextField -> UiField
+    Attribute maxLength : EInt
+    Attribute minLength : EInt
+    Attribute regex : EString
 
   Class UiImage -> UiField
     Attribute value : EString
@@ -141,7 +156,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference itemImageProperty : JvmField
 
   Class UiTable -> UiField, UiTypeProvider
-    Reference columnAssignment : UiColumnAssignments
+    Reference columnAssignment : UiColumnsAssignment
     Attribute selectionType : UiSelectionType<<1..1>>
     Reference itemImageProperty : JvmField
 
@@ -162,15 +177,21 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Attribute alignment : UiFlatAlignment
     Attribute expandRatio : EFloat
 
-  Class UiColumnAssignments -> UiField
+  Class UiColumnsAssignment -> UiField
     Reference columns : UiColumn<<0..*>>
 
   Class UiNumericField -> UiField
+    Attribute grouping : EBoolean
+    Attribute markNegative : EBoolean
 
   Class UiCheckBox -> UiField
 
   Class UiVisibilityProcessable
     Reference processorAssignment : UiVisibilityProcessorAssignment
+
+  Class UiVisibilityProcessorAssignment
+    Reference processor : UiVisibilityProcessor
+    Reference processorAlias : UiVisibilityProcessor
 
   Class UiVisibilityProcessor -> UiNamedElement
     Reference bindingAlias : UiBindingEndpointAlias<<0..*>>
@@ -181,10 +202,6 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiVisibilityProcessorDef -> UiRootElements
     Reference processor : UiVisibilityProcessor
 
-  Class UiVisibilityProcessorAssignment
-    Reference processor : UiVisibilityProcessor
-    Reference processorAlias : UiVisibilityProcessor
-
   Class UiChangeTrigger
     Reference endpoint : UiBindingExpression
     Reference endpointAlias : UiBindingEndpointAlias
@@ -194,14 +211,12 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiXbaseVisibilityRule -> UiVisibilityRule
     Reference expression : XExpression
 
-  Class UiVisibilityProperties -> UiNamedElement
-
-  Class UiVisibilityPropertiesDef -> UiRootElements
-    Reference properties : UiVisibilityProperties
-
   Class UiVisibilityPropertiesAssignment
-    Reference properties : UiVisibilityProperties
-    Reference propertyAlias : UiVisibilityProperties
+    Reference properties : UiVisibilityProperty<<0..*>>
+
+  Class UiVisibilityProperty -> UiNamedElement
+    Reference bindableDef : UiBindingExpression
+    Reference assignmentExpression : XExpression
 
   Class UiValidator -> UiRawBindable
 
@@ -279,6 +294,39 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiOpenDialogCommand -> UiCommand
     Reference dialog : UiDialog
+
+  Class UiSearchField -> UiField
+    Reference property : JvmField
+
+  Class UiSearchDialog -> UiEmbeddable, UiTypeProvider
+    Reference searchFields : UiDialogSearchFieldAssignment<<0..*>>
+    Reference content : UiDialogAssignment
+
+  Class UiDialogSearchFieldAssignment -> UiLayoutAssignment
+    Reference element : UiSearchField
+
+  Class UiSearchWithDialogCommand -> UiCommand
+    Reference dialog : UiSearchDialog
+
+  Class UiLabel -> UiField
+
+  Class UiDecimalField -> UiField
+    Attribute precision : EInt
+    Attribute grouping : EBoolean
+    Attribute markNegative : EBoolean
+
+  Class UiTextArea -> UiField
+
+  Class UiOptionsGroup -> UiField, UiTypeProvider
+    Attribute selectionType : UiSelectionType
+    Reference itemImageProperty : JvmField
+    Reference itemCaptionProperty : JvmField
+
+  Class UiDateField -> UiField
+
+  Class UiBrowser -> UiField
+
+  Class UiProgressBar -> UiField
 
   Enum UiFlatAlignment
     Literal LEFT = 0

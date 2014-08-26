@@ -1,0 +1,20 @@
+package org.lunifera.ecview.examples
+
+import org.lunifera.ecview.examples.*;
+
+ideview LocaleSample {
+
+	datasource ds : Locales
+	
+	form f{
+		combo localeSelection {
+			type LocaleBean
+			
+			captionField localeName
+		}
+		decimalField (precision=2)dec
+	}
+	
+	bind ds.locales --> [LocaleSample.f.localeSelection].collection
+	bind [LocaleSample.f.localeSelection].selection.someDouble --> [LocaleSample.f.dec].value 
+}  

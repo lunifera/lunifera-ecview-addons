@@ -90,28 +90,12 @@ public class UiSemanticsAdapterFactory extends AdapterFactoryImpl {
 				return createUxAvailableBindingsAdapter();
 			}
 			@Override
-			public Adapter caseUxEndpointDef(UxEndpointDef object) {
-				return createUxEndpointDefAdapter();
-			}
-			@Override
-			public Adapter caseUxValueBindingEndpointDef(UxValueBindingEndpointDef object) {
-				return createUxValueBindingEndpointDefAdapter();
-			}
-			@Override
-			public Adapter caseUxListBindingEndpointDef(UxListBindingEndpointDef object) {
-				return createUxListBindingEndpointDefAdapter();
-			}
-			@Override
-			public Adapter caseUxSetBindingEndpointDef(UxSetBindingEndpointDef object) {
-				return createUxSetBindingEndpointDefAdapter();
-			}
-			@Override
 			public Adapter caseUxAvailableVisibilityOptions(UxAvailableVisibilityOptions object) {
 				return createUxAvailableVisibilityOptionsAdapter();
 			}
 			@Override
-			public Adapter caseUxVisibilityOption(UxVisibilityOption object) {
-				return createUxVisibilityOptionAdapter();
+			public Adapter caseUxValueBindingEndpointDef(UxValueBindingEndpointDef object) {
+				return createUxValueBindingEndpointDefAdapter();
 			}
 			@Override
 			public Adapter caseUxAvailableValidatorProperties(UxAvailableValidatorProperties object) {
@@ -120,6 +104,18 @@ public class UiSemanticsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUxValidatorProperty(UxValidatorProperty object) {
 				return createUxValidatorPropertyAdapter();
+			}
+			@Override
+			public Adapter caseUxEndpointDef(UxEndpointDef object) {
+				return createUxEndpointDefAdapter();
+			}
+			@Override
+			public Adapter caseUxBindingableOption(UxBindingableOption object) {
+				return createUxBindingableOptionAdapter();
+			}
+			@Override
+			public Adapter caseUxVisibleableOption(UxVisibleableOption object) {
+				return createUxVisibleableOptionAdapter();
 			}
 			@Override
 			public Adapter caseXImportDeclaration(XImportDeclaration object) {
@@ -216,6 +212,20 @@ public class UiSemanticsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions <em>Ux Available Visibility Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions
+	 * @generated
+	 */
+	public Adapter createUxAvailableVisibilityOptionsAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uisemantics.UxEndpointDef <em>Ux Endpoint Def</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -244,62 +254,6 @@ public class UiSemanticsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uisemantics.UxListBindingEndpointDef <em>Ux List Binding Endpoint Def</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uisemantics.UxListBindingEndpointDef
-	 * @generated
-	 */
-	public Adapter createUxListBindingEndpointDefAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uisemantics.UxSetBindingEndpointDef <em>Ux Set Binding Endpoint Def</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uisemantics.UxSetBindingEndpointDef
-	 * @generated
-	 */
-	public Adapter createUxSetBindingEndpointDefAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions <em>Ux Available Visibility Options</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions
-	 * @generated
-	 */
-	public Adapter createUxAvailableVisibilityOptionsAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption <em>Ux Visibility Option</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption
-	 * @generated
-	 */
-	public Adapter createUxVisibilityOptionAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uisemantics.UxAvailableValidatorProperties <em>Ux Available Validator Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -324,6 +278,34 @@ public class UiSemanticsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUxValidatorPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uisemantics.UxBindingableOption <em>Ux Bindingable Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxBindingableOption
+	 * @generated
+	 */
+	public Adapter createUxBindingableOptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uisemantics.UxVisibleableOption <em>Ux Visibleable Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxVisibleableOption
+	 * @generated
+	 */
+	public Adapter createUxVisibleableOptionAdapter() {
 		return null;
 	}
 

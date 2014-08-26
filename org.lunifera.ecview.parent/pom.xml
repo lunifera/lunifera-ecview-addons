@@ -16,14 +16,15 @@
  
 	<parent>
 		<groupId>org.lunifera.releng.maven</groupId>
-		<artifactId>org.lunifera.releng.maven.parent.tycho</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<artifactId>lunifera-releng-maven-parent-tycho</artifactId>
+		<version>0.10.1-SNAPSHOT</version>
 		<relativePath />
 	</parent>
 
 	<groupId>org.lunifera.ecview</groupId>
 	<artifactId>org.lunifera.ecview.parent</artifactId>
 	<packaging>pom</packaging>
+	<version>0.7.3-SNAPSHOT</version>
 
 	<url>${distribution.site.url}</url>
 	<distributionManagement>
@@ -38,16 +39,16 @@
 		<lunifera.deployment.p2.name>xtext.builder</lunifera.deployment.p2.name>
 		<lunifera.build.p2.project.name>org.lunifera.xtext.builder.p2</lunifera.build.p2.project.name>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<xtext.version>2.5.4</xtext.version>
+		<xtext.version>2.6.2</xtext.version>
 
 		<lunifera.jacoco.include>org.lunifera.xtext.builder.*</lunifera.jacoco.include>
-		<sonar.skippedModules>
-			org.lunifera.xtext.builder.participant.jvmtypes.tests,
-			org.lunifera.xtext.builder.participant.jvmtypes.extender.tests,
-			org.lunifera.xtext.builder.participant.xbase.extender.tests,
-			org.lunifera.xtext.builder.participant.xbase.tests,
-			org.eclipse.xtext.example.domainmodel
-		</sonar.skippedModules>
+<!-- 		<sonar.skippedModules> -->
+<!-- 			org.lunifera.xtext.builder.participant.jvmtypes.tests, -->
+<!-- 			org.lunifera.xtext.builder.participant.jvmtypes.extender.tests, -->
+<!-- 			org.lunifera.xtext.builder.participant.xbase.extender.tests, -->
+<!-- 			org.lunifera.xtext.builder.participant.xbase.tests, -->
+<!-- 			org.eclipse.xtext.example.domainmodel -->
+<!-- 		</sonar.skippedModules> -->
 	</properties>
 
 	<build>
@@ -75,7 +76,7 @@
 				<plugin>
 					<groupId>org.eclipse.xtend</groupId>
 					<artifactId>xtend-maven-plugin</artifactId>
-					<version>${xtext.version}</version>
+					<version>2.6.1</version>
 					<executions>
 						<execution>
 							<goals>
@@ -100,29 +101,28 @@
 		</plugins>
 	</build>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.eclipse.xtext</groupId>
-				<artifactId>org.eclipse.xtext.xtext</artifactId>
-				<version>${xtext.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.eclipse.xtext</groupId>
-				<artifactId>org.eclipse.xtext.xbase</artifactId>
-				<version>${xtext.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.eclipse.xtext</groupId>
-				<artifactId>org.eclipse.xtext.common.types</artifactId>
-				<version>${xtext.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.eclipse.xtext</groupId>
-				<artifactId>org.eclipse.xtext.ecore</artifactId>
-				<version>2.5.1</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-<version>0.0.1-SNAPSHOT</version>
+<!-- 	<dependencyManagement> -->
+<!-- 		<dependencies> -->
+<!-- 			<dependency> -->
+<!-- 				<groupId>org.eclipse.xtext</groupId> -->
+<!-- 				<artifactId>org.eclipse.xtext.xtext</artifactId> -->
+<!-- 				<version>${xtext.version}</version> -->
+<!-- 			</dependency> -->
+<!-- 			<dependency> -->
+<!-- 				<groupId>org.eclipse.xtext</groupId> -->
+<!-- 				<artifactId>org.eclipse.xtext.xbase</artifactId> -->
+<!-- 				<version>${xtext.version}</version> -->
+<!-- 			</dependency> -->
+<!-- 			<dependency> -->
+<!-- 				<groupId>org.eclipse.xtext</groupId> -->
+<!-- 				<artifactId>org.eclipse.xtext.common.types</artifactId> -->
+<!-- 				<version>${xtext.version}</version> -->
+<!-- 			</dependency> -->
+<!-- 			<dependency> -->
+<!-- 				<groupId>org.eclipse.xtext</groupId> -->
+<!-- 				<artifactId>org.eclipse.xtext.ecore</artifactId> -->
+<!-- 				<version>2.6.2</version> -->
+<!-- 			</dependency> -->
+<!-- 		</dependencies> -->
+<!-- 	</dependencyManagement> -->
 </project>
