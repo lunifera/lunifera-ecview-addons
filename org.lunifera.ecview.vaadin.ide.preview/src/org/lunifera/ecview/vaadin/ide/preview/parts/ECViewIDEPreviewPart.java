@@ -12,16 +12,16 @@ import org.lunifera.ecview.vaadin.ide.preview.Activator;
 
 import com.google.inject.Inject;
 
-public class ECViewVaadinPreviewPart extends ViewPart {
+public class ECViewIDEPreviewPart extends ViewPart {
 
-	private static String URL = "http://localhost:8099/";
+	private static String URL = "http://localhost:8099/idepreview";
 
 	@Inject
 	private ECViewVaadinSynchronizer synchronizer;
 
 	private Browser browser;
 
-	public ECViewVaadinPreviewPart() {
+	public ECViewIDEPreviewPart() {
 
 	}
 
@@ -51,7 +51,7 @@ public class ECViewVaadinPreviewPart extends ViewPart {
 	@Override
 	public void dispose() {
 		browser.close();
-		synchronizer.stop(getSite());
+		// synchronizer.stop(getSite());
 		super.dispose();
 	}
 
@@ -69,7 +69,7 @@ public class ECViewVaadinPreviewPart extends ViewPart {
 
 		@Override
 		public void run() {
-			Activator.getDefault().setLinkedWithEditor(isChecked());
+			Activator.getIDEPreviewHandler().setLinkedWithEditor(isChecked());
 		}
 	}
 }

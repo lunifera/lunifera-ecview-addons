@@ -10,9 +10,18 @@
       <view
             allowMultiple="false"
             category="org.lunifera.ecview"
-            class="org.lunifera.ecview.vaadin.ide.preview.parts.ECViewVaadinViewExecutableExtensionRegistry:org.lunifera.ecview.vaadin.ide.preview.parts.ECViewVaadinPreviewPart"
-            id="org.lunifera.ecview.ide.preview.vaadin"
-            name="Vaadin Preview View">
+            class="org.lunifera.ecview.vaadin.ide.preview.parts.ECViewVaadinViewExecutableExtensionRegistry:org.lunifera.ecview.vaadin.ide.preview.parts.ECViewIDEPreviewPart"
+            icon="icons/idePreview.gif"
+            id="org.lunifera.ecview.ide.preview.vaadin.ide"
+            name="Vaadin IDE Preview">
+      </view>
+      <view
+            allowMultiple="false"
+            category="org.lunifera.ecview"
+            class="org.lunifera.ecview.vaadin.ide.preview.parts.ECViewVaadinViewExecutableExtensionRegistry:org.lunifera.ecview.vaadin.ide.preview.parts.ECViewMobilePreviewPart"
+            icon="icons/mobilePreview.gif"
+            id="org.lunifera.ecview.ide.preview.vaadin.mobile"
+            name="Vaadin Mobile Preview">
       </view>
    </extension>
 </plugin>

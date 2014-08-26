@@ -145,6 +145,7 @@ import java.util.ArrayList
 import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup
 import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup
 import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment
+import org.eclipse.emf.ecp.ecview.common.model.core.YDeviceType
 
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
@@ -279,6 +280,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		// create a view instance
 		val YView yView = factory.createView
+		yView.deviceType = YDeviceType.MOBILE
 		views += yView
 		currentView = yView
 		yView.push;

@@ -49,12 +49,12 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.themes.Reindeer;
 
 @SuppressWarnings("serial")
-@Theme(Reindeer.THEME_NAME)
-@Widgetset("org.lunifera.runtime.web.vaadin.widgetset.LuniferaWidget")
+@Theme("mobiletheme")
+@Widgetset("org.lunifera.mobile.vaadin.widgetset.LuniferaMobileWidget")
 @PreserveOnRefresh
-@Title("Vaadin IDE Preview")
+@Title("Vaadin Mobile Preview")
 @Push
-public class EcviewPreviewUI extends UI {
+public class EcviewMobilePreviewUI extends UI {
 
 	private IViewContext context;
 	private CssLayout layout;
@@ -67,16 +67,16 @@ public class EcviewPreviewUI extends UI {
 		setErrorHandler(new ErrorHandler() {
 			@Override
 			public void error(com.vaadin.server.ErrorEvent event) {
-				if (EcviewPreviewUI.this.isClosing()
-						|| !EcviewPreviewUI.this.isAttached()) {
+				if (EcviewMobilePreviewUI.this.isClosing()
+						|| !EcviewMobilePreviewUI.this.isAttached()) {
 					return;
 				}
-				UI.setCurrent(EcviewPreviewUI.this);
+				UI.setCurrent(EcviewMobilePreviewUI.this);
 				disconnectAndClose(event.getThrowable());
 			}
 		});
 
-		if (!Activator.getIDEPreviewHandler().setPreviewUI(this)) {
+		if (!Activator.getMobilePreviewHandler().setPreviewUI(this)) {
 			close();
 			return;
 		}
@@ -105,7 +105,7 @@ public class EcviewPreviewUI extends UI {
 					// nothing to do
 				}
 
-				if (Activator.getIDEPreviewHandler().getActiveView() != null) {
+				if (Activator.getMobilePreviewHandler().getActiveView() != null) {
 					// ... and render
 					VaadinRenderer renderer = new VaadinRenderer();
 					try {
@@ -115,13 +115,13 @@ public class EcviewPreviewUI extends UI {
 						services.put(ITypeProviderService.class.getName(),
 								classLoadingHelper);
 
-						YView view = Activator.getIDEPreviewHandler()
+						YView view = Activator.getMobilePreviewHandler()
 								.getActiveView();
 						context = renderer.render(layout, view, params);
 
 						registerBeans(view);
 
-						if (Activator.getIDEPreviewHandler()
+						if (Activator.getMobilePreviewHandler()
 								.isLinkedWithEditor()) {
 							installSourceViewSelectionSupport();
 						}
@@ -182,8 +182,8 @@ public class EcviewPreviewUI extends UI {
 		disposeContext();
 
 		error(e.toString());
-		Activator.getIDEPreviewHandler().setPreviewUI(null);
-		EcviewPreviewUI.this.close();
+		Activator.getMobilePreviewHandler().setPreviewUI(null);
+		EcviewMobilePreviewUI.this.close();
 	}
 
 	/**
@@ -196,7 +196,7 @@ public class EcviewPreviewUI extends UI {
 		clickService.addListener(new IWidgetMouseClickService.Listener() {
 			@Override
 			public void clicked(Object modelElement) {
-				Activator.getIDEPreviewHandler().selectInXtextEditor(
+				Activator.getMobilePreviewHandler().selectInXtextEditor(
 						(EObject) modelElement);
 			}
 		});

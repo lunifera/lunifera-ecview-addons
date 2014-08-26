@@ -14,7 +14,6 @@ package org.lunifera.ecview.vaadin.ide.preview.jetty;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Dictionary;
 import java.util.Properties;
 
 import javax.servlet.Servlet;
@@ -25,21 +24,23 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 import org.eclipse.equinox.http.jetty.JettyConstants;
-import org.eclipse.equinox.http.jetty.JettyCustomizer;
 import org.eclipse.equinox.http.servlet.HttpServiceServlet;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.bio.SocketConnector;
+import org.eclipse.jetty.server.handler.ContextHandlerCollection;
 import org.eclipse.jetty.server.nio.SelectChannelConnector;
 import org.eclipse.jetty.server.session.HashSessionManager;
 import org.eclipse.jetty.server.session.SessionHandler;
-import org.eclipse.jetty.server.ssl.SslSocketConnector;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.osgi.framework.Constants;
 
 public class JettyManager {
 
+	public static final String PROP_MOBILEPREVIEW = "mobilepreview";
+	public static final String PROP_IDEPREVIEW = "idepreview";
+	private static final int HTTP_PORT = 8099;
 	private static final String CONTEXT_TEMPDIR = "javax.servlet.context.tempdir"; //$NON-NLS-1$
 	private static final String DIR_PREFIX = "preview"; //$NON-NLS-1$
 	private static final String INTERNAL_CONTEXT_CLASSLOADER = "org.eclipse.equinox.http.jetty.internal.ContextClassLoader"; //$NON-NLS-1$
@@ -68,59 +69,20 @@ public class JettyManager {
 		return this.getClass().getName();
 	}
 
-	public synchronized void start(Dictionary<String, ?> dictionary) {
+	public synchronized void start() {
 		stop();
 		Server server = new Server();
 
-		JettyCustomizer customizer = createJettyCustomizer(dictionary);
+		Connector httpConnector = createHttpConnector();
+		server.addConnector(httpConnector);
 
-		Connector httpConnector = createHttpConnector(dictionary);
-		if (null != customizer)
-			httpConnector = (Connector) customizer.customizeHttpConnector(
-					httpConnector, dictionary);
+		ContextHandlerCollection handlers = new ContextHandlerCollection();
+		ServletContextHandler ideContext = createServletContext(PROP_IDEPREVIEW);
+		ServletContextHandler mobileContext = createServletContext(PROP_MOBILEPREVIEW);
+		handlers.addHandler(ideContext);
+		handlers.addHandler(mobileContext);
 
-		if (httpConnector != null)
-			server.addConnector(httpConnector);
-
-		Connector httpsConnector = createHttpsConnector(dictionary);
-		if (null != customizer)
-			httpsConnector = (Connector) customizer.customizeHttpsConnector(
-					httpsConnector, dictionary);
-		if (httpsConnector != null)
-			server.addConnector(httpsConnector);
-
-		ServletHolder holder = new ServletHolder(
-				new InternalHttpServiceServlet());
-		holder.setInitOrder(0);
-		holder.setInitParameter(Constants.SERVICE_VENDOR, "Eclipse.org"); //$NON-NLS-1$
-		holder.setInitParameter(Constants.SERVICE_DESCRIPTION,
-				"Equinox Jetty-based Http Service"); //$NON-NLS-1$
-		if (httpConnector != null) {
-			int port = httpConnector.getLocalPort();
-			if (port == -1)
-				port = httpConnector.getPort();
-			holder.setInitParameter(JettyConstants.HTTP_PORT,
-					Integer.toString(port));
-		}
-		if (httpsConnector != null) {
-			int port = httpsConnector.getLocalPort();
-			if (port == -1)
-				port = httpsConnector.getPort();
-			holder.setInitParameter(JettyConstants.HTTPS_PORT,
-					Integer.toString(port));
-		}
-		String otherInfo = (String) dictionary.get(JettyConstants.OTHER_INFO);
-		if (otherInfo != null)
-			holder.setInitParameter(JettyConstants.OTHER_INFO, otherInfo);
-
-		ServletContextHandler httpContext = createHttpContext(dictionary);
-		if (null != customizer)
-			httpContext = (ServletContextHandler) customizer.customizeContext(
-					httpContext, dictionary);
-
-		httpContext.addServlet(holder, "/*"); //$NON-NLS-1$
-		server.setHandler(httpContext);
-
+		server.setHandler(handlers);
 		try {
 			server.start();
 		} catch (Exception e) {
@@ -129,65 +91,35 @@ public class JettyManager {
 		this.server = server;
 	}
 
+	protected ServletContextHandler createServletContext(String contextPath) {
+		ServletHolder holder = new ServletHolder(
+				new InternalHttpServiceServlet());
+		holder.setInitOrder(0);
+		holder.setInitParameter(Constants.SERVICE_VENDOR, "Lunifera.org"); //$NON-NLS-1$
+		holder.setInitParameter(Constants.SERVICE_DESCRIPTION,
+				"ECView" + contextPath); //$NON-NLS-1$
+		holder.setInitParameter(JettyConstants.HTTP_PORT,
+				Integer.toString(HTTP_PORT));
+		holder.setInitParameter(JettyConstants.OTHER_INFO, contextPath);
+		ServletContextHandler httpContext = createHttpContext("/" + contextPath);
+
+		httpContext.addServlet(holder, "/*"); //$NON-NLS-1$
+		return httpContext;
+	}
+
 	public synchronized void shutdown() throws Exception {
 		server.stop();
 		server = null;
 	}
 
-	private Connector createHttpConnector(
-			@SuppressWarnings("rawtypes") Dictionary dictionary) {
-		Boolean httpEnabled = null;
-		Object httpEnabledObj = dictionary.get(JettyConstants.HTTP_ENABLED);
-		if (httpEnabledObj instanceof Boolean) {
-			httpEnabled = (Boolean) httpEnabledObj;
-		} else if (httpEnabledObj instanceof String) {
-			httpEnabled = Boolean.parseBoolean(httpEnabledObj.toString());
-		}
-		if (httpEnabled != null && !httpEnabled.booleanValue())
-			return null;
-
-		Integer httpPort = null;
-		Object httpPortObj = dictionary.get(JettyConstants.HTTP_PORT);
-		if (httpPortObj instanceof Integer) {
-			httpPort = (Integer) httpPortObj;
-		} else if (httpPortObj instanceof String) {
-			httpPort = Integer.valueOf(httpPortObj.toString());
-		}
-		if (httpPort == null)
-			return null;
-
-		Boolean nioEnabled = null;
-		Object nioEnabledObj = dictionary.get(JettyConstants.HTTP_NIO);
-		if (nioEnabledObj instanceof Boolean) {
-			nioEnabled = (Boolean) nioEnabledObj;
-		} else if (nioEnabledObj instanceof String) {
-			nioEnabled = Boolean.parseBoolean(nioEnabledObj.toString());
-		}
-		if (nioEnabled == null)
-			nioEnabled = getDefaultNIOEnablement();
-
+	private Connector createHttpConnector() {
 		Connector connector;
-		if (nioEnabled.booleanValue())
+		if (getDefaultNIOEnablement()) {
 			connector = new SelectChannelConnector();
-		else
+		} else {
 			connector = new SocketConnector();
-
-		connector.setPort(httpPort.intValue());
-
-		String httpHost = (String) dictionary.get(JettyConstants.HTTP_HOST);
-		if (httpHost != null) {
-			connector.setHost(httpHost);
 		}
-
-		if (connector.getPort() == 0) {
-			try {
-				connector.open();
-			} catch (IOException e) {
-				// this would be unexpected since we're opening the next
-				// available port
-				e.printStackTrace();
-			}
-		}
+		connector.setPort(HTTP_PORT);
 		return connector;
 	}
 
@@ -212,144 +144,24 @@ public class JettyManager {
 		return Boolean.TRUE;
 	}
 
-	@SuppressWarnings("deprecation")
-	private Connector createHttpsConnector(
-			@SuppressWarnings("rawtypes") Dictionary dictionary) {
-		Boolean httpsEnabled = null;
-		Object httpsEnabledObj = dictionary.get(JettyConstants.HTTPS_ENABLED);
-		if (httpsEnabledObj instanceof Boolean) {
-			httpsEnabled = (Boolean) httpsEnabledObj;
-		} else if (httpsEnabledObj instanceof String) {
-			httpsEnabled = Boolean.parseBoolean(httpsEnabledObj.toString());
-		}
-		if (httpsEnabled == null || !httpsEnabled.booleanValue())
-			return null;
-
-		Integer httpsPort = null;
-		Object httpsPortObj = dictionary.get(JettyConstants.HTTPS_PORT);
-		if (httpsPortObj instanceof Integer) {
-			httpsPort = (Integer) httpsPortObj;
-		} else if (httpsPortObj instanceof String) {
-			httpsPort = Integer.valueOf(httpsPortObj.toString());
-		}
-		if (httpsPort == null)
-			return null;
-
-		SslSocketConnector sslConnector = new SslSocketConnector();
-		sslConnector.setPort(httpsPort.intValue());
-
-		String httpsHost = (String) dictionary.get(JettyConstants.HTTPS_HOST);
-		if (httpsHost != null) {
-			sslConnector.setHost(httpsHost);
-		}
-
-		String keyStore = (String) dictionary.get(JettyConstants.SSL_KEYSTORE);
-		if (keyStore != null)
-			sslConnector.setKeystore(keyStore);
-
-		String password = (String) dictionary.get(JettyConstants.SSL_PASSWORD);
-		if (password != null)
-			sslConnector.setPassword(password);
-
-		String keyPassword = (String) dictionary
-				.get(JettyConstants.SSL_KEYPASSWORD);
-		if (keyPassword != null)
-			sslConnector.setKeyPassword(keyPassword);
-
-		Object needClientAuth = dictionary
-				.get(JettyConstants.SSL_NEEDCLIENTAUTH);
-		if (needClientAuth != null) {
-			if (needClientAuth instanceof String)
-				needClientAuth = Boolean.valueOf((String) needClientAuth);
-
-			sslConnector.setNeedClientAuth(((Boolean) needClientAuth)
-					.booleanValue());
-		}
-
-		Object wantClientAuth = dictionary
-				.get(JettyConstants.SSL_WANTCLIENTAUTH);
-		if (wantClientAuth != null) {
-			if (wantClientAuth instanceof String)
-				wantClientAuth = Boolean.valueOf((String) wantClientAuth);
-
-			sslConnector.setWantClientAuth(((Boolean) wantClientAuth)
-					.booleanValue());
-		}
-
-		String protocol = (String) dictionary.get(JettyConstants.SSL_PROTOCOL);
-		if (protocol != null)
-			sslConnector.setProtocol(protocol);
-
-		String keystoreType = (String) dictionary
-				.get(JettyConstants.SSL_KEYSTORETYPE);
-		if (keystoreType != null)
-			sslConnector.setKeystoreType(keystoreType);
-
-		if (sslConnector.getPort() == 0) {
-			try {
-				sslConnector.open();
-			} catch (IOException e) {
-				// this would be unexpected since we're opening the next
-				// available port
-				e.printStackTrace();
-			}
-		}
-		return sslConnector;
-	}
-
-	private ServletContextHandler createHttpContext(
-			@SuppressWarnings("rawtypes") Dictionary dictionary) {
+	private ServletContextHandler createHttpContext(String contextPath) {
 		ServletContextHandler httpContext = new ServletContextHandler();
 		// hack in the mime type for xsd until jetty fixes it (bug 393218)
 		httpContext.getMimeTypes().addMimeMapping("xsd", "application/xml"); //$NON-NLS-1$ //$NON-NLS-2$
 		httpContext.setAttribute(INTERNAL_CONTEXT_CLASSLOADER, Thread
 				.currentThread().getContextClassLoader());
 		httpContext.setClassLoader(this.getClass().getClassLoader());
+		httpContext.setContextPath(contextPath);
 
-		String contextPathProperty = (String) dictionary
-				.get(JettyConstants.CONTEXT_PATH);
-		if (contextPathProperty == null)
-			contextPathProperty = "/"; //$NON-NLS-1$
-		httpContext.setContextPath(contextPathProperty);
-
-		File contextWorkDir = new File(workDir, DIR_PREFIX
-				+ dictionary.get(Constants.SERVICE_PID).hashCode());
+		File contextWorkDir = new File(workDir, DIR_PREFIX + contextPath);
 		contextWorkDir.mkdir();
 		httpContext.setAttribute(CONTEXT_TEMPDIR, contextWorkDir);
 
 		HashSessionManager sessionManager = new HashSessionManager();
-		Integer sessionInactiveInterval = null;
-		Object sessionInactiveIntervalObj = dictionary
-				.get(JettyConstants.CONTEXT_SESSIONINACTIVEINTERVAL);
-		if (sessionInactiveIntervalObj instanceof Integer) {
-			sessionInactiveInterval = (Integer) sessionInactiveIntervalObj;
-		} else if (sessionInactiveIntervalObj instanceof String) {
-			sessionInactiveInterval = Integer
-					.valueOf(sessionInactiveIntervalObj.toString());
-		}
-		if (sessionInactiveInterval != null)
-			sessionManager.setMaxInactiveInterval(sessionInactiveInterval
-					.intValue());
 
 		httpContext.setSessionHandler(new SessionHandler(sessionManager));
 
 		return httpContext;
-	}
-
-	private JettyCustomizer createJettyCustomizer(
-			@SuppressWarnings("rawtypes") Dictionary dictionary) {
-		String customizerClass = (String) dictionary
-				.get(JettyConstants.CUSTOMIZER_CLASS);
-		if (null == customizerClass)
-			return null;
-
-		try {
-			return (JettyCustomizer) Class.forName(customizerClass)
-					.newInstance();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
 	}
 
 	public static class InternalHttpServiceServlet implements Servlet {

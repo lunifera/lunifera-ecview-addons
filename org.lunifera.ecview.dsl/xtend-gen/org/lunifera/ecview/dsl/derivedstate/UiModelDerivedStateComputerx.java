@@ -25,6 +25,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCommandSet;
+import org.eclipse.emf.ecp.ecview.common.model.core.YDeviceType;
 import org.eclipse.emf.ecp.ecview.common.model.core.YDialog;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
@@ -475,6 +476,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected void _map(final UiMobileView object) {
     final YView yView = this.factory.createView();
+    yView.setDeviceType(YDeviceType.MOBILE);
     this.views.add(yView);
     this.currentView = yView;
     this.push(yView);
