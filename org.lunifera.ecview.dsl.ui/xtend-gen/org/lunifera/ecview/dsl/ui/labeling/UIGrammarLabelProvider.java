@@ -7,6 +7,38 @@ import com.google.inject.Inject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider;
+import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
+import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
+import org.lunifera.ecview.semantic.uimodel.UiButton;
+import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
+import org.lunifera.ecview.semantic.uimodel.UiColumn;
+import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments;
+import org.lunifera.ecview.semantic.uimodel.UiComboBox;
+import org.lunifera.ecview.semantic.uimodel.UiDialog;
+import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup;
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout;
+import org.lunifera.ecview.semantic.uimodel.UiIDEView;
+import org.lunifera.ecview.semantic.uimodel.UiImage;
+import org.lunifera.ecview.semantic.uimodel.UiImports;
+import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
+import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage;
+import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet;
+import org.lunifera.ecview.semantic.uimodel.UiMobileView;
+import org.lunifera.ecview.semantic.uimodel.UiModel;
+import org.lunifera.ecview.semantic.uimodel.UiNumericField;
+import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
+import org.lunifera.ecview.semantic.uimodel.UiSwitch;
+import org.lunifera.ecview.semantic.uimodel.UiTabSheet;
+import org.lunifera.ecview.semantic.uimodel.UiTable;
+import org.lunifera.ecview.semantic.uimodel.UiTextField;
+import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias;
+import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup;
+import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout;
+import org.lunifera.ecview.semantic.uimodel.UiViewSet;
+import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 
 /**
  * Provides labels for a EObjects.
@@ -24,291 +56,259 @@ public class UIGrammarLabelProvider extends XbaseLabelProvider {
     return null;
   }
   
-  public Object text(final /* UiModel */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiModel ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiImports */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiImports ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiIDEView */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiIDEView ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiMobileView */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiMobileView ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiValidatorAlias */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiValidatorAlias ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiBindingEndpointAlias */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiBindingEndpointAlias ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiBeanSlot */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiBeanSlot ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiViewSet */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiViewSet ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiFormLayout */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiFormLayout ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiVerticalLayout */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiVerticalLayout ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiHorizontalLayout */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiHorizontalLayout ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiVerticalComponentGroup */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiVerticalComponentGroup ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiHorizontalButtonGroup */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiHorizontalButtonGroup ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiTabSheet */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiTabSheet ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiMobileTabSheet */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiMobileTabSheet ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiImage */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiImage ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiDialog */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiDialog ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiMobileNavigationPage */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiMobileNavigationPage ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiTextField */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiTextField ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiTable */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiTable ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiComboBox */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiComboBox ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiButton */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiButton ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiMobileNavigationButton */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiMobileNavigationButton ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiSwitch */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiSwitch ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiColumnAssignments */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiColumnAssignments ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiColumn */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiColumn ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiNumericField */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiNumericField ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiCheckBox */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiCheckBox ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiMaxLengthValidator */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiMaxLengthValidator ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiMinLengthValidator */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiMinLengthValidator ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiRegexpValidator */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiRegexpValidator ele) {
+    return ele.getName();
   }
   
-  public Object text(final /* UiXbaseValidator */Object ele) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
+  public String text(final UiXbaseValidator ele) {
+    return ele.getName();
   }
   
-  public String image(final /* UiModel */Object ele) {
+  public String image(final UiModel ele) {
     return "UiModel.gif";
   }
   
-  public String image(final /* UiImports */Object ele) {
+  public String image(final UiImports ele) {
     return "UiImport.gif";
   }
   
-  public String image(final /* UiIDEView */Object ele) {
+  public String image(final UiIDEView ele) {
     return "UiIDEView.gif";
   }
   
-  public String image(final /* UiMobileView */Object ele) {
+  public String image(final UiMobileView ele) {
     return "UiMobileView.gif";
   }
   
-  public String image(final /* UiValidatorAlias */Object ele) {
+  public String image(final UiValidatorAlias ele) {
     return "UiValidatorAlias.gif";
   }
   
-  public String image(final /* UiBindingEndpointAlias */Object ele) {
+  public String image(final UiBindingEndpointAlias ele) {
     return "UiDataBindingAlias.gif";
   }
   
-  public String image(final /* UiBeanSlot */Object ele) {
+  public String image(final UiBeanSlot ele) {
     return "UiDatasource.gif";
   }
   
-  public String image(final /* UiViewSet */Object ele) {
+  public String image(final UiViewSet ele) {
     return "UiViewSet.gif";
   }
   
-  public String image(final /* UiFormLayout */Object ele) {
+  public String image(final UiFormLayout ele) {
     return "UiLayout.gif";
   }
   
-  public String image(final /* UiVerticalLayout */Object ele) {
+  public String image(final UiVerticalLayout ele) {
     return "UiLayout.gif";
   }
   
-  public String image(final /* UiHorizontalLayout */Object ele) {
+  public String image(final UiHorizontalLayout ele) {
     return "UiLayout.gif";
   }
   
-  public String image(final /* UiVerticalComponentGroup */Object ele) {
+  public String image(final UiVerticalComponentGroup ele) {
     return "UiGroup.gif";
   }
   
-  public String image(final /* UiHorizontalButtonGroup */Object ele) {
+  public String image(final UiHorizontalButtonGroup ele) {
     return "UiGroup.gif";
   }
   
-  public String image(final /* UiTabSheet */Object ele) {
+  public String image(final UiTabSheet ele) {
     return "UiTabsheet.gif";
   }
   
-  public String image(final /* UiMobileTabSheet */Object ele) {
+  public String image(final UiMobileTabSheet ele) {
     return "UiTabsheet.gif";
   }
   
-  public String image(final /* UiImage */Object ele) {
+  public String image(final UiImage ele) {
     return "UiImage.gif";
   }
   
-  public String image(final /* UiDialog */Object ele) {
+  public String image(final UiDialog ele) {
     return "UiDialog.gif";
   }
   
-  public String image(final /* UiMobileNavigationPage */Object ele) {
+  public String image(final UiMobileNavigationPage ele) {
     return "UiMobileNavigationPage.gif";
   }
   
-  public String image(final /* UiTextField */Object ele) {
+  public String image(final UiTextField ele) {
     return "UiTextField.gif";
   }
   
-  public String image(final /* UiTable */Object ele) {
+  public String image(final UiTable ele) {
     return "UiTable.gif";
   }
   
-  public String image(final /* UiComboBox */Object ele) {
+  public String image(final UiComboBox ele) {
     return "UiCombobox.gif";
   }
   
-  public String image(final /* UiButton */Object ele) {
+  public String image(final UiButton ele) {
     return "UiButton.gif";
   }
   
-  public String image(final /* UiMobileNavigationButton */Object ele) {
+  public String image(final UiMobileNavigationButton ele) {
     return "UiMobileNavigationButton.gif";
   }
   
-  public String image(final /* UiSwitch */Object ele) {
+  public String image(final UiSwitch ele) {
     return "UiSwitch.gif";
   }
   
-  public String image(final /* UiColumnAssignments */Object ele) {
+  public String image(final UiColumnAssignments ele) {
     return "UiColumnAssignments.gif";
   }
   
-  public String image(final /* UiColumn */Object ele) {
+  public String image(final UiColumn ele) {
     return "UiColumn.gif";
   }
   
-  public String image(final /* UiNumericField */Object ele) {
+  public String image(final UiNumericField ele) {
     return "UiNumericField.gif";
   }
   
-  public String image(final /* UiCheckBox */Object ele) {
+  public String image(final UiCheckBox ele) {
     return "UiCheckBox.gif";
   }
   
-  public String image(final /* UiMaxLengthValidator */Object ele) {
+  public String image(final UiMaxLengthValidator ele) {
     return "UiValidator.gif";
   }
   
-  public String image(final /* UiMinLengthValidator */Object ele) {
+  public String image(final UiMinLengthValidator ele) {
     return "UiValidator.gif";
   }
   
-  public String image(final /* UiRegexpValidator */Object ele) {
+  public String image(final UiRegexpValidator ele) {
     return "UiValidator.gif";
   }
   
-  public String image(final /* UiXbaseValidator */Object ele) {
+  public String image(final UiXbaseValidator ele) {
     return "UiValidator.gif";
   }
 }
