@@ -23,4 +23,292 @@ public class UIGrammarLabelProvider extends XbaseLabelProvider {
   public Image getImage(final Object object) {
     return null;
   }
+  
+  public Object text(final /* UiModel */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiImports */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiIDEView */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiMobileView */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiValidatorAlias */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiBindingEndpointAlias */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiBeanSlot */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiViewSet */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiFormLayout */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiVerticalLayout */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiHorizontalLayout */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiVerticalComponentGroup */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiHorizontalButtonGroup */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiTabSheet */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiMobileTabSheet */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiImage */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiDialog */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiMobileNavigationPage */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiTextField */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiTable */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiComboBox */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiButton */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiMobileNavigationButton */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiSwitch */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiColumnAssignments */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiColumn */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiNumericField */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiCheckBox */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiMaxLengthValidator */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiMinLengthValidator */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiRegexpValidator */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public Object text(final /* UiXbaseValidator */Object ele) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
+  }
+  
+  public String image(final /* UiModel */Object ele) {
+    return "UiModel.gif";
+  }
+  
+  public String image(final /* UiImports */Object ele) {
+    return "UiImport.gif";
+  }
+  
+  public String image(final /* UiIDEView */Object ele) {
+    return "UiIDEView.gif";
+  }
+  
+  public String image(final /* UiMobileView */Object ele) {
+    return "UiMobileView.gif";
+  }
+  
+  public String image(final /* UiValidatorAlias */Object ele) {
+    return "UiValidatorAlias.gif";
+  }
+  
+  public String image(final /* UiBindingEndpointAlias */Object ele) {
+    return "UiDataBindingAlias.gif";
+  }
+  
+  public String image(final /* UiBeanSlot */Object ele) {
+    return "UiDatasource.gif";
+  }
+  
+  public String image(final /* UiViewSet */Object ele) {
+    return "UiViewSet.gif";
+  }
+  
+  public String image(final /* UiFormLayout */Object ele) {
+    return "UiLayout.gif";
+  }
+  
+  public String image(final /* UiVerticalLayout */Object ele) {
+    return "UiLayout.gif";
+  }
+  
+  public String image(final /* UiHorizontalLayout */Object ele) {
+    return "UiLayout.gif";
+  }
+  
+  public String image(final /* UiVerticalComponentGroup */Object ele) {
+    return "UiGroup.gif";
+  }
+  
+  public String image(final /* UiHorizontalButtonGroup */Object ele) {
+    return "UiGroup.gif";
+  }
+  
+  public String image(final /* UiTabSheet */Object ele) {
+    return "UiTabsheet.gif";
+  }
+  
+  public String image(final /* UiMobileTabSheet */Object ele) {
+    return "UiTabsheet.gif";
+  }
+  
+  public String image(final /* UiImage */Object ele) {
+    return "UiImage.gif";
+  }
+  
+  public String image(final /* UiDialog */Object ele) {
+    return "UiDialog.gif";
+  }
+  
+  public String image(final /* UiMobileNavigationPage */Object ele) {
+    return "UiMobileNavigationPage.gif";
+  }
+  
+  public String image(final /* UiTextField */Object ele) {
+    return "UiTextField.gif";
+  }
+  
+  public String image(final /* UiTable */Object ele) {
+    return "UiTable.gif";
+  }
+  
+  public String image(final /* UiComboBox */Object ele) {
+    return "UiCombobox.gif";
+  }
+  
+  public String image(final /* UiButton */Object ele) {
+    return "UiButton.gif";
+  }
+  
+  public String image(final /* UiMobileNavigationButton */Object ele) {
+    return "UiMobileNavigationButton.gif";
+  }
+  
+  public String image(final /* UiSwitch */Object ele) {
+    return "UiSwitch.gif";
+  }
+  
+  public String image(final /* UiColumnAssignments */Object ele) {
+    return "UiColumnAssignments.gif";
+  }
+  
+  public String image(final /* UiColumn */Object ele) {
+    return "UiColumn.gif";
+  }
+  
+  public String image(final /* UiNumericField */Object ele) {
+    return "UiNumericField.gif";
+  }
+  
+  public String image(final /* UiCheckBox */Object ele) {
+    return "UiCheckBox.gif";
+  }
+  
+  public String image(final /* UiMaxLengthValidator */Object ele) {
+    return "UiValidator.gif";
+  }
+  
+  public String image(final /* UiMinLengthValidator */Object ele) {
+    return "UiValidator.gif";
+  }
+  
+  public String image(final /* UiRegexpValidator */Object ele) {
+    return "UiValidator.gif";
+  }
+  
+  public String image(final /* UiXbaseValidator */Object ele) {
+    return "UiValidator.gif";
+  }
 }

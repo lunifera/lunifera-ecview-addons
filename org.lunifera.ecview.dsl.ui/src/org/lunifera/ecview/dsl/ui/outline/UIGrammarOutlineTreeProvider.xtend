@@ -8,6 +8,9 @@ package org.lunifera.ecview.dsl.ui.outline
  *
  * see http://www.eclipse.org/Xtext/documentation.html#outline
  */
+
+
 class UIGrammarOutlineTreeProvider extends org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider {
-	
+
+
 }

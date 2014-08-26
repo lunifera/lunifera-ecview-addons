@@ -6,6 +6,39 @@ package org.lunifera.ecview.dsl.ui.labeling
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider
+import org.lunifera.ecview.semantic.uimodel.UiIDEView
+import org.lunifera.ecview.semantic.uimodel.UiMobileView
+import org.lunifera.ecview.semantic.uimodel.UiModel
+import org.lunifera.ecview.semantic.uimodel.UiImports
+import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias
+import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
+import org.lunifera.ecview.semantic.uimodel.UiBeanSlot
+import org.lunifera.ecview.semantic.uimodel.UiViewSet
+import org.lunifera.ecview.semantic.uimodel.UiBinding
+import org.lunifera.ecview.semantic.uimodel.UiFormLayout
+import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout
+import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup
+import org.lunifera.ecview.semantic.uimodel.UiTabSheet
+import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet
+import org.lunifera.ecview.semantic.uimodel.UiDialog
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage
+import org.lunifera.ecview.semantic.uimodel.UiTextField
+import org.lunifera.ecview.semantic.uimodel.UiImage
+import org.lunifera.ecview.semantic.uimodel.UiTable
+import org.lunifera.ecview.semantic.uimodel.UiComboBox
+import org.lunifera.ecview.semantic.uimodel.UiButton
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton
+import org.lunifera.ecview.semantic.uimodel.UiSwitch
+import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments
+import org.lunifera.ecview.semantic.uimodel.UiColumn
+import org.lunifera.ecview.semantic.uimodel.UiNumericField
+import org.lunifera.ecview.semantic.uimodel.UiCheckBox
+import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator
+import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator
+import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator
+import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator
 
 /**
  * Provides labels for a EObjects.
@@ -20,16 +53,263 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 	}
 
 	override getImage(Object object) {
-		//		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 		return null
 	}
 
-// Labels and icons can be computed like this:
-//	def text(Greeting ele) {
-//		'A greeting to ' + ele.name
-//	}
-//
-//	def image(Greeting ele) {
-//		'Greeting.gif'
-//	}
+	def text(UiModel ele) {
+		ele.name
+	}
+
+	def text(UiImports ele) {
+		ele.name
+	}
+
+	def text(UiIDEView ele) {
+		ele.name
+	}
+
+	def text(UiMobileView ele) {
+		ele.name
+	}
+
+	def text(UiValidatorAlias ele) {
+		ele.name
+	}
+
+	def text(UiBindingEndpointAlias ele) {
+		ele.name
+	}
+
+	def text(UiBeanSlot ele) {
+		ele.name
+	}
+
+	def text(UiViewSet ele) {
+		ele.name
+	}
+
+	def text(UiFormLayout ele) {
+		ele.name
+	}
+
+	def text(UiVerticalLayout ele) {
+		ele.name
+	}
+
+	def text(UiHorizontalLayout ele) {
+		ele.name
+	}
+
+	def text(UiVerticalComponentGroup ele) {
+		ele.name
+	}
+
+	def text(UiHorizontalButtonGroup ele) {
+		ele.name
+	}
+
+	def text(UiTabSheet ele) {
+		ele.name
+	}
+
+	def text(UiMobileTabSheet ele) {
+		ele.name
+	}
+
+	def text(UiImage ele) {
+		ele.name
+	}
+
+	def text(UiDialog ele) {
+		ele.name
+	}
+
+	def text(UiMobileNavigationPage ele) {
+		ele.name
+	}
+
+	def text(UiTextField ele) {
+		ele.name
+	}
+
+	def text(UiTable ele) {
+		ele.name
+	}
+
+	def text(UiComboBox ele) {
+		ele.name
+	}
+
+	def text(UiButton ele) {
+		ele.name
+	}
+
+	def text(UiMobileNavigationButton ele) {
+		ele.name
+	}
+
+	def text(UiSwitch ele) {
+		ele.name
+	}
+
+	def text(UiColumnAssignments ele) {
+		ele.name
+	}
+
+	def text(UiColumn ele) {
+		ele.name
+	}
+
+	def text(UiNumericField ele) {
+		ele.name
+	}
+
+	def text(UiCheckBox ele) {
+		ele.name
+	}
+
+	def text(UiMaxLengthValidator ele) {
+		ele.name
+	}
+
+	def text(UiMinLengthValidator ele) {
+		ele.name
+	}
+
+	def text(UiRegexpValidator ele) {
+		ele.name
+	}
+
+	def text(UiXbaseValidator ele) {
+		ele.name
+	}
+
+	def image(UiModel ele) {
+		'UiModel.gif'
+	}
+
+	def image(UiImports ele) {
+		'UiImport.gif'
+	}
+
+	def image(UiIDEView ele) {
+		'UiIDEView.gif'
+	}
+
+	def image(UiMobileView ele) {
+		'UiMobileView.gif'
+	}
+
+	def image(UiValidatorAlias ele) {
+		'UiValidatorAlias.gif'
+	}
+
+	def image(UiBindingEndpointAlias ele) {
+		'UiDataBindingAlias.gif'
+	}
+
+	def image(UiBeanSlot ele) {
+		'UiDatasource.gif'
+	}
+
+	def image(UiViewSet ele) {
+		'UiViewSet.gif'
+	}
+
+	def image(UiFormLayout ele) {
+		'UiLayout.gif'
+	}
+
+	def image(UiVerticalLayout ele) {
+		'UiLayout.gif'
+	}
+
+	def image(UiHorizontalLayout ele) {
+		'UiLayout.gif'
+	}
+
+	def image(UiVerticalComponentGroup ele) {
+		'UiGroup.gif'
+	}
+
+	def image(UiHorizontalButtonGroup ele) {
+		'UiGroup.gif'
+	}
+
+	def image(UiTabSheet ele) {
+		'UiTabsheet.gif'
+	}
+
+	def image(UiMobileTabSheet ele) {
+		'UiTabsheet.gif'
+	}
+
+	def image(UiImage ele) {
+		'UiImage.gif'
+	}
+
+	def image(UiDialog ele) {
+		'UiDialog.gif'
+	}
+
+	def image(UiMobileNavigationPage ele) {
+		'UiMobileNavigationPage.gif'
+	}
+
+	def image(UiTextField ele) {
+		'UiTextField.gif'
+	}
+
+	def image(UiTable ele) {
+		'UiTable.gif'
+	}
+
+	def image(UiComboBox ele) {
+		'UiCombobox.gif'
+	}
+
+	def image(UiButton ele) {
+		'UiButton.gif'
+	}
+
+	def image(UiMobileNavigationButton ele) {
+		'UiMobileNavigationButton.gif'
+	}
+
+	def image(UiSwitch ele) {
+		'UiSwitch.gif'
+	}
+
+	def image(UiColumnAssignments ele) {
+		'UiColumnAssignments.gif'
+	}
+
+	def image(UiColumn ele) {
+		'UiColumn.gif'
+	}
+
+	def image(UiNumericField ele) {
+		'UiNumericField.gif'
+	}
+
+	def image(UiCheckBox ele) {
+		'UiCheckBox.gif'
+	}
+
+	def image(UiMaxLengthValidator ele) {
+		'UiValidator.gif'
+	}
+
+	def image(UiMinLengthValidator ele) {
+		'UiValidator.gif'
+	}
+
+	def image(UiRegexpValidator ele) {
+		'UiValidator.gif'
+	}
+
+	def image(UiXbaseValidator ele) {
+		'UiValidator.gif'
+	}
+
 }
