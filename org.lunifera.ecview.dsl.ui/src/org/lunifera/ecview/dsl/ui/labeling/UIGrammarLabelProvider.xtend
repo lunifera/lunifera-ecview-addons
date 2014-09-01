@@ -55,6 +55,7 @@ import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout
 import org.lunifera.ecview.semantic.uimodel.UiView
 import org.lunifera.ecview.semantic.uimodel.UiViewSet
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfo
 
 /**
  * Provides labels for a EObjects.
@@ -271,6 +272,10 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 	def image(UiVerticalLayout ele) {
 		'UiVerticalLayout.gif'
 	}
+	
+	def image(UiI18nInfo ele) {
+		'UiI18nInfo.gif'
+	}
 
 	def image(UiHorizontalLayout ele) {
 		'UiHorizontalLayout.gif'
@@ -315,7 +320,7 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 	def image(UiTextField ele) {
 		'UiTextField.gif'
 	}
-
+	
 	def image(UiTextArea ele) {
 		'UiTextArea.gif'
 	}

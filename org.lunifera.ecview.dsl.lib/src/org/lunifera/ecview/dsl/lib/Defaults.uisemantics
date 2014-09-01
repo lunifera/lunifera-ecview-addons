@@ -27,6 +27,35 @@ element TextField {
 	} 
 }  
 
+element DateField {  
+	uri view:UiDateField
+	
+	bindings {
+		endpoint value String
+		endpoint editable Boolean
+		endpoint visible Boolean
+	}
+	
+	visibility {
+		endpoint background String
+		endpoint foreground String
+		endpoint bold Boolean
+		endpoint cssClass Boolean
+		endpoint editable Boolean
+		endpoint enabled Boolean
+		endpoint italic Boolean
+		endpoint strikthrough Boolean
+		endpoint underline Boolean
+		endpoint visible Boolean
+	}
+	 
+	validator {
+		property validators
+	} 
+}  
+
+
+
 element Label {
 	uri view:UiLabel
 	

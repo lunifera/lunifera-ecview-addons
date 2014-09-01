@@ -24,7 +24,7 @@ public interface UiNumericField extends UiField {
 
 	/**
 	 * Returns the value of the '<em><b>Grouping</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Grouping</em>' attribute isn't clear,
@@ -34,7 +34,7 @@ public interface UiNumericField extends UiField {
 	 * @return the value of the '<em>Grouping</em>' attribute.
 	 * @see #setGrouping(boolean)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiNumericField_Grouping()
-	 * @model default="false"
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isGrouping();
@@ -51,7 +51,7 @@ public interface UiNumericField extends UiField {
 
 	/**
 	 * Returns the value of the '<em><b>Mark Negative</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Mark Negative</em>' attribute isn't clear,
@@ -61,7 +61,7 @@ public interface UiNumericField extends UiField {
 	 * @return the value of the '<em>Mark Negative</em>' attribute.
 	 * @see #setMarkNegative(boolean)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiNumericField_MarkNegative()
-	 * @model default="false"
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isMarkNegative();

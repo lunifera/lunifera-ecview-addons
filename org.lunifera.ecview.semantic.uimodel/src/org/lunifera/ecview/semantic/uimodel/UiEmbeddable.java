@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface UiEmbeddable extends UiVisibilityProcessable, UiRawBindable {
+public interface UiEmbeddable extends UiVisibilityProcessable, UiRawBindable, UiI18nInfoable {
 
 	/**
 	 * Returns the value of the '<em><b>Bindings</b></em>' containment reference list.

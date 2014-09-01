@@ -3,11 +3,138 @@
  */
 package org.lunifera.ecview.dsl.ui.contentassist;
 
+import com.google.common.base.Objects;
+import com.google.inject.Inject;
+import java.util.List;
+import java.util.Locale;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.text.Region;
+import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal;
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
+import org.eclipse.xtext.ui.editor.contentassist.PrefixMatcher;
 import org.lunifera.ecview.dsl.ui.contentassist.AbstractUIGrammarProposalProvider;
+import org.lunifera.ecview.semantic.uimodel.UiModel;
+import org.lunifera.ide.core.api.i18n.II18nRegistry;
+import org.lunifera.ide.core.ui.util.CoreUiUtil;
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
  */
 @SuppressWarnings("all")
 public class UIGrammarProposalProvider extends AbstractUIGrammarProposalProvider {
+  @Inject
+  private II18nRegistry i18nRegistry;
+  
+  @Inject
+  private CoreUiUtil util;
+  
+  public void completeUiI18nInfo_Key(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    final IProject project = this.util.getProject(model);
+    String _prefix = context.getPrefix();
+    final String searchString = _prefix.replaceAll("\"", "");
+    Locale _locale = this.util.getLocale();
+    String _findPackage = this.findPackage(model);
+    final List<II18nRegistry.Proposal> proposals = this.i18nRegistry.findProposals(project, _locale, _findPackage, searchString);
+    Region _replaceRegion = context.getReplaceRegion();
+    final int replacementOffset = _replaceRegion.getOffset();
+    Region _replaceRegion_1 = context.getReplaceRegion();
+    int _length = _replaceRegion_1.getLength();
+    final int replacementLength = (_length + 1);
+    final boolean relativePath = searchString.startsWith(".");
+    for (final II18nRegistry.Proposal proposal : proposals) {
+      {
+        String _replacementString = this.toReplacementString(proposal, relativePath);
+        String _plus = ("\"" + _replacementString);
+        String _plus_1 = (_plus + "\"");
+        StyledString _displayString = this.displayString(proposal);
+        final ConfigurableCompletionProposal result = this.doCreateProposal(_plus_1, _displayString, null, replacementOffset, replacementLength);
+        result.setPriority(1);
+        PrefixMatcher _matcher = context.getMatcher();
+        result.setMatcher(_matcher);
+        int _replaceContextLength = context.getReplaceContextLength();
+        result.setReplaceContextLength(_replaceContextLength);
+        acceptor.accept(result);
+      }
+    }
+  }
+  
+  public String toReplacementString(final II18nRegistry.Proposal proposal, final boolean relative) {
+    if ((!relative)) {
+      return proposal.getI18nKey();
+    } else {
+      String _i18nKey = proposal.getI18nKey();
+      final String[] pathTokens = _i18nKey.split("\\.");
+      String _xifexpression = null;
+      int _length = pathTokens.length;
+      boolean _greaterThan = (_length > 0);
+      if (_greaterThan) {
+        int _length_1 = pathTokens.length;
+        int _minus = (_length_1 - 1);
+        String _get = pathTokens[_minus];
+        _xifexpression = ("." + _get);
+      } else {
+        _xifexpression = "";
+      }
+      return _xifexpression;
+    }
+  }
+  
+  /**
+   * Iterates the containment tree up to the UiModel and returns the package.
+   */
+  public String findPackage(final EObject model) {
+    EObject temp = model;
+    boolean _and = false;
+    boolean _notEquals = (!Objects.equal(temp, null));
+    if (!_notEquals) {
+      _and = false;
+    } else {
+      EObject _eContainer = temp.eContainer();
+      boolean _notEquals_1 = (!Objects.equal(_eContainer, null));
+      _and = _notEquals_1;
+    }
+    boolean _while = _and;
+    while (_while) {
+      {
+        if ((temp instanceof UiModel)) {
+          final UiModel uiModel = ((UiModel) temp);
+          return uiModel.getPackageName();
+        }
+        EObject _eContainer_1 = temp.eContainer();
+        temp = _eContainer_1;
+        if ((temp instanceof UiModel)) {
+          final UiModel uiModel_1 = ((UiModel) temp);
+          return uiModel_1.getPackageName();
+        }
+      }
+      boolean _and_1 = false;
+      boolean _notEquals_2 = (!Objects.equal(temp, null));
+      if (!_notEquals_2) {
+        _and_1 = false;
+      } else {
+        EObject _eContainer_1 = temp.eContainer();
+        boolean _notEquals_3 = (!Objects.equal(_eContainer_1, null));
+        _and_1 = _notEquals_3;
+      }
+      _while = _and_1;
+    }
+    return "";
+  }
+  
+  public StyledString displayString(final II18nRegistry.Proposal proposal) {
+    String _i18nValue = proposal.getI18nValue();
+    StyledString _styledString = new StyledString(_i18nValue, StyledString.QUALIFIER_STYLER);
+    StyledString _append = _styledString.append(" : ");
+    Locale _locale = proposal.getLocale();
+    String _languageTag = _locale.toLanguageTag();
+    StyledString _append_1 = _append.append(_languageTag, StyledString.DECORATIONS_STYLER);
+    StyledString _append_2 = _append_1.append(" - ");
+    String _i18nKey = proposal.getI18nKey();
+    final StyledString displayText = _append_2.append(_i18nKey, StyledString.DECORATIONS_STYLER);
+    return displayText;
+  }
 }

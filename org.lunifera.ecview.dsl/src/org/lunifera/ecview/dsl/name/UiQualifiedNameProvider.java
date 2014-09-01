@@ -7,6 +7,7 @@ import org.eclipse.xtext.xbase.scoping.XbaseQualifiedNameProvider;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiValidator;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias;
@@ -94,6 +95,11 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 			} else {
 				return converter.toQualifiedName(uiProperties.getName());
 			}
+		} else if (obj instanceof UiI18nInfo) {
+			UiI18nInfo i18nInfo = (UiI18nInfo) obj;
+			UiEmbeddable parent = (UiEmbeddable) i18nInfo.eContainer();
+			return converter.toQualifiedName(parent.getName() + ".i18n."
+					+ i18nInfo.getKey());
 		}
 		return super.getFullyQualifiedName(obj);
 	}

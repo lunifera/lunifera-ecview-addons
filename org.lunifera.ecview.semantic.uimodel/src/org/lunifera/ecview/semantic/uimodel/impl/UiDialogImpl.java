@@ -16,6 +16,8 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiDialog;
 import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
@@ -30,6 +32,7 @@ import org.lunifera.ecview.semantic.uimodel.UiTypeProvider;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiDialogImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiDialogImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiDialogImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiDialogImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiDialogImpl#getJvmType <em>Jvm Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiDialogImpl#getContent <em>Content</em>}</li>
@@ -78,6 +81,16 @@ public class UiDialogImpl extends UiVisibilityProcessableImpl implements UiDialo
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getI18nInfo() <em>I1 8n Info</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getI18nInfo()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiI18nInfo i18nInfo;
 
 	/**
 	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
@@ -180,6 +193,72 @@ public class UiDialogImpl extends UiVisibilityProcessableImpl implements UiDialo
 			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_DIALOG__BINDINGS);
 		}
 		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiI18nInfo getI18nInfo() {
+		if (i18nInfo != null && i18nInfo.eIsProxy()) {
+			InternalEObject oldI18nInfo = (InternalEObject)i18nInfo;
+			i18nInfo = (UiI18nInfo)eResolveProxy(oldI18nInfo);
+			if (i18nInfo != oldI18nInfo) {
+				InternalEObject newI18nInfo = (InternalEObject)i18nInfo;
+				NotificationChain msgs = oldI18nInfo.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_DIALOG__I18N_INFO, null, null);
+				if (newI18nInfo.eInternalContainer() == null) {
+					msgs = newI18nInfo.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_DIALOG__I18N_INFO, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_DIALOG__I18N_INFO, oldI18nInfo, i18nInfo));
+			}
+		}
+		return i18nInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiI18nInfo basicGetI18nInfo() {
+		return i18nInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetI18nInfo(UiI18nInfo newI18nInfo, NotificationChain msgs) {
+		UiI18nInfo oldI18nInfo = i18nInfo;
+		i18nInfo = newI18nInfo;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_DIALOG__I18N_INFO, oldI18nInfo, newI18nInfo);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setI18nInfo(UiI18nInfo newI18nInfo) {
+		if (newI18nInfo != i18nInfo) {
+			NotificationChain msgs = null;
+			if (i18nInfo != null)
+				msgs = ((InternalEObject)i18nInfo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_DIALOG__I18N_INFO, null, msgs);
+			if (newI18nInfo != null)
+				msgs = ((InternalEObject)newI18nInfo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_DIALOG__I18N_INFO, null, msgs);
+			msgs = basicSetI18nInfo(newI18nInfo, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_DIALOG__I18N_INFO, newI18nInfo, newI18nInfo));
 	}
 
 	/**
@@ -322,6 +401,8 @@ public class UiDialogImpl extends UiVisibilityProcessableImpl implements UiDialo
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case UiModelPackage.UI_DIALOG__I18N_INFO:
+				return basicSetI18nInfo(null, msgs);
 			case UiModelPackage.UI_DIALOG__BINDINGS:
 				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_DIALOG__JVM_TYPE:
@@ -344,6 +425,9 @@ public class UiDialogImpl extends UiVisibilityProcessableImpl implements UiDialo
 				return getId();
 			case UiModelPackage.UI_DIALOG__NAME:
 				return getName();
+			case UiModelPackage.UI_DIALOG__I18N_INFO:
+				if (resolve) return getI18nInfo();
+				return basicGetI18nInfo();
 			case UiModelPackage.UI_DIALOG__BINDINGS:
 				return getBindings();
 			case UiModelPackage.UI_DIALOG__JVM_TYPE:
@@ -370,6 +454,9 @@ public class UiDialogImpl extends UiVisibilityProcessableImpl implements UiDialo
 				return;
 			case UiModelPackage.UI_DIALOG__NAME:
 				setName((String)newValue);
+				return;
+			case UiModelPackage.UI_DIALOG__I18N_INFO:
+				setI18nInfo((UiI18nInfo)newValue);
 				return;
 			case UiModelPackage.UI_DIALOG__BINDINGS:
 				getBindings().clear();
@@ -399,6 +486,9 @@ public class UiDialogImpl extends UiVisibilityProcessableImpl implements UiDialo
 			case UiModelPackage.UI_DIALOG__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case UiModelPackage.UI_DIALOG__I18N_INFO:
+				setI18nInfo((UiI18nInfo)null);
+				return;
 			case UiModelPackage.UI_DIALOG__BINDINGS:
 				getBindings().clear();
 				return;
@@ -424,6 +514,8 @@ public class UiDialogImpl extends UiVisibilityProcessableImpl implements UiDialo
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case UiModelPackage.UI_DIALOG__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiModelPackage.UI_DIALOG__I18N_INFO:
+				return i18nInfo != null;
 			case UiModelPackage.UI_DIALOG__BINDINGS:
 				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_DIALOG__JVM_TYPE:
@@ -453,6 +545,12 @@ public class UiDialogImpl extends UiVisibilityProcessableImpl implements UiDialo
 				default: return -1;
 			}
 		}
+		if (baseClass == UiI18nInfoable.class) {
+			switch (derivedFeatureID) {
+				case UiModelPackage.UI_DIALOG__I18N_INFO: return UiModelPackage.UI_I1_8N_INFOABLE__I18N_INFO;
+				default: return -1;
+			}
+		}
 		if (baseClass == UiTypeProvider.class) {
 			switch (derivedFeatureID) {
 				case UiModelPackage.UI_DIALOG__JVM_TYPE: return UiModelPackage.UI_TYPE_PROVIDER__JVM_TYPE;
@@ -478,6 +576,12 @@ public class UiDialogImpl extends UiVisibilityProcessableImpl implements UiDialo
 		}
 		if (baseClass == UiRawBindable.class) {
 			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiI18nInfoable.class) {
+			switch (baseFeatureID) {
+				case UiModelPackage.UI_I1_8N_INFOABLE__I18N_INFO: return UiModelPackage.UI_DIALOG__I18N_INFO;
 				default: return -1;
 			}
 		}

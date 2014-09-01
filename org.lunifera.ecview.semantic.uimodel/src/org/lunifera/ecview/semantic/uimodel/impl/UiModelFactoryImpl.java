@@ -211,6 +211,7 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_DATE_FIELD: return createUiDateField();
 			case UiModelPackage.UI_BROWSER: return createUiBrowser();
 			case UiModelPackage.UI_PROGRESS_BAR: return createUiProgressBar();
+			case UiModelPackage.UI_I1_8N_INFO: return createUiI18nInfo();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1018,6 +1019,16 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiProgressBar createUiProgressBar() {
 		UiProgressBarImpl uiProgressBar = new UiProgressBarImpl();
 		return uiProgressBar;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiI18nInfo createUiI18nInfo() {
+		UiI18nInfoImpl uiI18nInfo = new UiI18nInfoImpl();
+		return uiI18nInfo;
 	}
 
 	/**

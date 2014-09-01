@@ -4,6 +4,8 @@
 package org.lunifera.ecview.dsl.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.lunifera.ecview.dsl.ui.hover.UiGrammarHoverDocumentationProvider;
+import org.lunifera.ide.core.api.i18n.II18nRegistry;
 import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderFactory;
 import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderProvider;
 import org.lunifera.xtext.builder.ui.access.jdt.impl.JdtTypeLoaderFactory;
@@ -25,6 +27,14 @@ public class UIGrammarUiModule extends
 
 	public Class<? extends IJdtTypeLoaderProvider> bindIJdtTypeLoaderProvider() {
 		return JdtTypeLoaderProvider.class;
+	}
+
+	public Class<? extends org.eclipse.xtext.ui.editor.hover.html.IEObjectHoverDocumentationProvider> bindIEObjectHoverDocumentationProvider() {
+		return UiGrammarHoverDocumentationProvider.class;
+	}
+
+	public com.google.inject.Provider<II18nRegistry> provideII18nRegistry() {
+		return org.lunifera.ide.core.ui.shared.Access.getII18nRegistry();
 	}
 
 }

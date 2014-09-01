@@ -19,7 +19,7 @@ package org.lunifera.ecview.semantic.uimodel;
  * @model
  * @generated
  */
-public interface UiDialog extends UiEmbeddable, UiTypeProvider {
+public interface UiDialog extends UiEmbeddable, UiTypeProvider, UiI18nInfoable {
 	/**
 	 * Returns the value of the '<em><b>Content</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

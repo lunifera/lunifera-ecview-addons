@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
 import org.lunifera.ecview.semantic.uimodel.UiLabel;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
@@ -28,6 +30,7 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl#getValidators <em>Validators</em>}</li>
  * </ul>
@@ -75,6 +78,16 @@ public class UiLabelImpl extends UiVisibilityProcessableImpl implements UiLabel 
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getI18nInfo() <em>I1 8n Info</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getI18nInfo()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiI18nInfo i18nInfo;
 
 	/**
 	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
@@ -174,6 +187,72 @@ public class UiLabelImpl extends UiVisibilityProcessableImpl implements UiLabel 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiI18nInfo getI18nInfo() {
+		if (i18nInfo != null && i18nInfo.eIsProxy()) {
+			InternalEObject oldI18nInfo = (InternalEObject)i18nInfo;
+			i18nInfo = (UiI18nInfo)eResolveProxy(oldI18nInfo);
+			if (i18nInfo != oldI18nInfo) {
+				InternalEObject newI18nInfo = (InternalEObject)i18nInfo;
+				NotificationChain msgs = oldI18nInfo.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_LABEL__I18N_INFO, null, null);
+				if (newI18nInfo.eInternalContainer() == null) {
+					msgs = newI18nInfo.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_LABEL__I18N_INFO, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_LABEL__I18N_INFO, oldI18nInfo, i18nInfo));
+			}
+		}
+		return i18nInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiI18nInfo basicGetI18nInfo() {
+		return i18nInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetI18nInfo(UiI18nInfo newI18nInfo, NotificationChain msgs) {
+		UiI18nInfo oldI18nInfo = i18nInfo;
+		i18nInfo = newI18nInfo;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_LABEL__I18N_INFO, oldI18nInfo, newI18nInfo);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setI18nInfo(UiI18nInfo newI18nInfo) {
+		if (newI18nInfo != i18nInfo) {
+			NotificationChain msgs = null;
+			if (i18nInfo != null)
+				msgs = ((InternalEObject)i18nInfo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_LABEL__I18N_INFO, null, msgs);
+			if (newI18nInfo != null)
+				msgs = ((InternalEObject)newI18nInfo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_LABEL__I18N_INFO, null, msgs);
+			msgs = basicSetI18nInfo(newI18nInfo, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_LABEL__I18N_INFO, newI18nInfo, newI18nInfo));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<UiValidator> getValidators() {
 		if (validators == null) {
 			validators = new EObjectContainmentEList.Resolving<UiValidator>(UiValidator.class, this, UiModelPackage.UI_LABEL__VALIDATORS);
@@ -189,6 +268,8 @@ public class UiLabelImpl extends UiVisibilityProcessableImpl implements UiLabel 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case UiModelPackage.UI_LABEL__I18N_INFO:
+				return basicSetI18nInfo(null, msgs);
 			case UiModelPackage.UI_LABEL__BINDINGS:
 				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_LABEL__VALIDATORS:
@@ -209,6 +290,9 @@ public class UiLabelImpl extends UiVisibilityProcessableImpl implements UiLabel 
 				return getId();
 			case UiModelPackage.UI_LABEL__NAME:
 				return getName();
+			case UiModelPackage.UI_LABEL__I18N_INFO:
+				if (resolve) return getI18nInfo();
+				return basicGetI18nInfo();
 			case UiModelPackage.UI_LABEL__BINDINGS:
 				return getBindings();
 			case UiModelPackage.UI_LABEL__VALIDATORS:
@@ -231,6 +315,9 @@ public class UiLabelImpl extends UiVisibilityProcessableImpl implements UiLabel 
 				return;
 			case UiModelPackage.UI_LABEL__NAME:
 				setName((String)newValue);
+				return;
+			case UiModelPackage.UI_LABEL__I18N_INFO:
+				setI18nInfo((UiI18nInfo)newValue);
 				return;
 			case UiModelPackage.UI_LABEL__BINDINGS:
 				getBindings().clear();
@@ -258,6 +345,9 @@ public class UiLabelImpl extends UiVisibilityProcessableImpl implements UiLabel 
 			case UiModelPackage.UI_LABEL__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case UiModelPackage.UI_LABEL__I18N_INFO:
+				setI18nInfo((UiI18nInfo)null);
+				return;
 			case UiModelPackage.UI_LABEL__BINDINGS:
 				getBindings().clear();
 				return;
@@ -280,6 +370,8 @@ public class UiLabelImpl extends UiVisibilityProcessableImpl implements UiLabel 
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case UiModelPackage.UI_LABEL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiModelPackage.UI_LABEL__I18N_INFO:
+				return i18nInfo != null;
 			case UiModelPackage.UI_LABEL__BINDINGS:
 				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_LABEL__VALIDATORS:
@@ -307,6 +399,12 @@ public class UiLabelImpl extends UiVisibilityProcessableImpl implements UiLabel 
 				default: return -1;
 			}
 		}
+		if (baseClass == UiI18nInfoable.class) {
+			switch (derivedFeatureID) {
+				case UiModelPackage.UI_LABEL__I18N_INFO: return UiModelPackage.UI_I1_8N_INFOABLE__I18N_INFO;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -326,6 +424,12 @@ public class UiLabelImpl extends UiVisibilityProcessableImpl implements UiLabel 
 		}
 		if (baseClass == UiRawBindable.class) {
 			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiI18nInfoable.class) {
+			switch (baseFeatureID) {
+				case UiModelPackage.UI_I1_8N_INFOABLE__I18N_INFO: return UiModelPackage.UI_LABEL__I18N_INFO;
 				default: return -1;
 			}
 		}

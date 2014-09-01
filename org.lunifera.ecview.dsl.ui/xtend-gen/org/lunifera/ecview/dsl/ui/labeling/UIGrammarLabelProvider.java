@@ -24,6 +24,7 @@ import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
 import org.lunifera.ecview.semantic.uimodel.UiGridLayout;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
 import org.lunifera.ecview.semantic.uimodel.UiImage;
 import org.lunifera.ecview.semantic.uimodel.UiImports;
@@ -511,6 +512,10 @@ public class UIGrammarLabelProvider extends XbaseLabelProvider {
   
   public String image(final UiVerticalLayout ele) {
     return "UiVerticalLayout.gif";
+  }
+  
+  public String image(final UiI18nInfo ele) {
+    return "UiI18nInfo.gif";
   }
   
   public String image(final UiHorizontalLayout ele) {

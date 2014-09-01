@@ -31,7 +31,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference content : UiEmbeddable
     Reference validatorAssignments : UiValidatorAssignment<<0..*>>
 
-  Class UiDialog -> UiEmbeddable, UiTypeProvider
+  Class UiDialog -> UiEmbeddable, UiTypeProvider, UiI18nInfoable
     Reference content : UiDialogAssignment
 
   Class UiDialogAssignment -> UiLayoutAssignment
@@ -92,7 +92,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiCommandBindableDef -> UiTypedBindable, UiBindingExpression
     Reference command : UiCommand
 
-  Class UiEmbeddable -> UiVisibilityProcessable, UiRawBindable
+  Class UiEmbeddable -> UiVisibilityProcessable, UiRawBindable, UiI18nInfoable
     Reference bindings : UiBinding<<0..*>>
 
   Class UiField -> UiEmbeddable
@@ -218,7 +218,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference bindableDef : UiBindingExpression
     Reference assignmentExpression : XExpression
 
-  Class UiValidator -> UiRawBindable
+  Class UiValidator -> UiRawBindable, UiI18nInfoable
 
   Class UiMaxLengthValidator -> UiValidator
     Attribute maxLength : EInt
@@ -252,7 +252,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiHorizontalButtonGroup -> UiMobileLayout
     Reference contents : UiHorizontalButtonGroupAssigment<<0..*>>
 
-  Class UiButton -> UiAction
+  Class UiButton -> UiAction, UiI18nInfoable
 
   Class UiSwitch -> UiMobileField
 
@@ -265,13 +265,13 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiMobileTabSheet -> UiMobileEmbeddable
     Reference tabs : UiMobileTabAssignment<<0..*>>
 
-  Class UiMobileTabAssignment -> UiMobileEmbeddable
+  Class UiMobileTabAssignment -> UiMobileEmbeddable, UiI18nInfoable
     Reference element : UiEmbeddable
 
   Class UiTabSheet -> UiEmbeddable
     Reference tabs : UiTabAssignment<<0..*>>
 
-  Class UiTabAssignment -> UiLayoutAssignment
+  Class UiTabAssignment -> UiLayoutAssignment, UiI18nInfoable
     Reference element : UiEmbeddable
 
   Class UiMobileNavigationHandler
@@ -327,6 +327,12 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiBrowser -> UiField
 
   Class UiProgressBar -> UiField
+
+  Class UiI18nInfo
+    Attribute key : EString
+
+  Class UiI18nInfoable
+    Reference i18nInfo : UiI18nInfo
 
   Enum UiFlatAlignment
     Literal LEFT = 0

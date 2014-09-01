@@ -4,15 +4,25 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
 
 import javax.servlet.ServletException;
 
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IResourceChangeEvent;
+import org.eclipse.core.resources.IResourceChangeListener;
+import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.equinox.http.jetty.JettyConstants;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.shared.SharedStateModule;
+import org.eclipse.xtext.util.Modules2;
 import org.lunifera.ecview.vaadin.ide.preview.jetty.JettyManager;
 import org.lunifera.ecview.vaadin.ide.preview.parts.ECViewVaadinSynchronizer;
 import org.lunifera.ecview.vaadin.ide.preview.parts.IDEPreviewHandler;
@@ -33,6 +43,7 @@ import org.osgi.util.tracker.ServiceTracker;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.google.inject.Module;
 import com.google.inject.Provider;
 
 /**
@@ -40,7 +51,8 @@ import com.google.inject.Provider;
  * bundle. The activator will look for the HttpService and registers the vaadin
  * servlet at it.
  */
-public class Activator extends AbstractUIPlugin implements BundleListener {
+public class Activator extends AbstractUIPlugin implements BundleListener,
+		IResourceChangeListener {
 
 	final String PROPERTY_PREFIX = "org.eclipse.equinox.http.jetty."; //$NON-NLS-1$
 	public static final String BUNDLE_ID = "org.lunifera.ecview.vaadin.ide.preview";
@@ -73,6 +85,9 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 	private IDEPreviewHandler idePreviewHandler;
 	private MobilePreviewHandler mobilePreviewHandler;
 
+	// I18n properties
+	private Map<String, Properties> i18nProperties = new HashMap<String, Properties>();
+
 	public void start(BundleContext bundleContext) throws Exception {
 		super.start(bundleContext);
 
@@ -91,7 +106,8 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 
 		handleStartedBundles(context);
 
-		injector = Guice.createInjector(new SharedStateModule());
+		Module mergedModule = Modules2.mixin(new SharedStateModule(), new IdeUiModule());
+		injector = Guice.createInjector(mergedModule);
 		workspaceProvider = injector.getProvider(IWorkspace.class);
 
 		// register this instance as a bundle listener to an reference to all
@@ -102,6 +118,8 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 				bundleContext, IXtextUtilService.class, null);
 		xtextUtilServiceTracker.open();
 		xtextUtilService = xtextUtilServiceTracker.waitForService(5000);
+
+		initI18nCache();
 
 		registerIDEPreview(bundleContext);
 		registerMobilePreview(bundleContext);
@@ -194,6 +212,8 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 	public void stop(BundleContext bundleContext) throws Exception {
 		resourceProvider = null;
 
+		workspaceProvider.get().removeResourceChangeListener(this);
+
 		idePreviewHandler.dispose();
 		mobilePreviewHandler.dispose();
 		idePreviewHandler = null;
@@ -235,23 +255,6 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 			}
 		}
 	}
-
-	// /**
-	// * Starts the jetty server.
-	// *
-	// * @param context
-	// */
-	// private void startJetty() {
-	// for (Bundle bundle : context.getBundles()) {
-	// String name = bundle.getSymbolicName();
-	// if (name.equals("org.eclipse.equinox.http.jetty")) {
-	// try {
-	// bundle.start();
-	// } catch (BundleException e) {
-	// }
-	// }
-	// }
-	// }
 
 	@Override
 	public void bundleChanged(BundleEvent event) {
@@ -322,6 +325,85 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 			ECViewVaadinSynchronizer ecViewVaadinSynchronizer) {
 		idePreviewHandler.setSynchronizer(ecViewVaadinSynchronizer);
 		mobilePreviewHandler.setSynchronizer(ecViewVaadinSynchronizer);
+	}
+
+	/**
+	 * Tries to find the resource traversing all projects contained in the
+	 * workspace.
+	 * 
+	 * @param uri
+	 * @return
+	 */
+	public void initI18nCache() {
+		IWorkspace ws = workspaceProvider.get();
+		ws.addResourceChangeListener(this);
+		try {
+			iterateContainer(ws.getRoot());
+		} catch (CoreException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void iterateContainer(IContainer container) throws CoreException,
+			IOException {
+		IResource[] members = container.members();
+		for (IResource member : members) {
+			if (member instanceof IContainer) {
+				iterateContainer((IContainer) member);
+			} else if (member instanceof IFile) {
+				processFile((IFile) member);
+			}
+		}
+	}
+
+	private void processFile(IFile member) throws IOException {
+		URL url = member.getLocationURI().toURL();
+		System.out.println(url.toString());
+		if (url.toString().endsWith(".i18n_de")) {
+			loadProperties(url);
+		}
+	}
+
+	/**
+	 * Load the new properties.
+	 * 
+	 * @param url
+	 * @throws IOException
+	 */
+	protected void loadProperties(URL url) throws IOException {
+		Properties props = new Properties();
+		props.load(url.openStream());
+		i18nProperties.put(url.toString(), props);
+	}
+
+	@Override
+	public void resourceChanged(IResourceChangeEvent event) {
+		try {
+			switch (event.getType()) {
+			case IResourceChangeEvent.POST_CHANGE:
+				iterateDelta(event.getDelta());
+				break;
+			case IResourceChangeEvent.PRE_CLOSE:
+			case IResourceChangeEvent.PRE_DELETE:
+			}
+		} catch (MalformedURLException e) {
+		} catch (IOException e) {
+		} catch (CoreException e) {
+		}
+	}
+
+	private void iterateDelta(IResourceDelta delta) throws CoreException,
+			IOException {
+		for (IResourceDelta member : delta.getAffectedChildren()) {
+			IResource affected = member.getResource();
+			if (affected instanceof IContainer) {
+				iterateDelta((IResourceDelta) member);
+			} else if (affected instanceof IFile) {
+				processFile((IFile) affected);
+			}
+		}
 	}
 
 }

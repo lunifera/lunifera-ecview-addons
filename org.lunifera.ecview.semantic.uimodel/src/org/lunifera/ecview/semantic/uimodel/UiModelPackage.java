@@ -705,13 +705,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_EMBEDDABLE__NAME = UI_VISIBILITY_PROCESSABLE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_EMBEDDABLE__I18N_INFO = UI_VISIBILITY_PROCESSABLE_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_EMBEDDABLE__BINDINGS = UI_VISIBILITY_PROCESSABLE_FEATURE_COUNT + 2;
+	int UI_EMBEDDABLE__BINDINGS = UI_VISIBILITY_PROCESSABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Ui Embeddable</em>' class.
@@ -720,7 +729,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_EMBEDDABLE_FEATURE_COUNT = UI_VISIBILITY_PROCESSABLE_FEATURE_COUNT + 3;
+	int UI_EMBEDDABLE_FEATURE_COUNT = UI_VISIBILITY_PROCESSABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiDialogImpl <em>Ui Dialog</em>}' class.
@@ -758,6 +767,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_DIALOG__NAME = UI_EMBEDDABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DIALOG__I18N_INFO = UI_EMBEDDABLE__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -1558,6 +1576,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_FIELD__NAME = UI_EMBEDDABLE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_FIELD__I18N_INFO = UI_EMBEDDABLE__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1610,6 +1637,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_LAYOUT__NAME = UI_EMBEDDABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LAYOUT__I18N_INFO = UI_EMBEDDABLE__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -1977,6 +2013,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_ACTION__NAME = UI_EMBEDDABLE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_ACTION__I18N_INFO = UI_EMBEDDABLE__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2022,6 +2067,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_MOBILE_EMBEDDABLE__NAME = UI_EMBEDDABLE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_EMBEDDABLE__I18N_INFO = UI_EMBEDDABLE__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2065,6 +2119,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_MOBILE_FIELD__NAME = UI_MOBILE_EMBEDDABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_FIELD__I18N_INFO = UI_MOBILE_EMBEDDABLE__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -2121,6 +2184,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_MOBILE_LAYOUT__NAME = UI_MOBILE_EMBEDDABLE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_LAYOUT__I18N_INFO = UI_MOBILE_EMBEDDABLE__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2164,6 +2236,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_MOBILE_ACTION__NAME = UI_MOBILE_EMBEDDABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_ACTION__I18N_INFO = UI_MOBILE_EMBEDDABLE__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -2263,6 +2344,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_GRID_LAYOUT__NAME = UI_LAYOUT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_GRID_LAYOUT__I18N_INFO = UI_LAYOUT__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -2382,6 +2472,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_HORIZONTAL_LAYOUT__NAME = UI_LAYOUT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_HORIZONTAL_LAYOUT__I18N_INFO = UI_LAYOUT__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2479,6 +2578,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_VERTICAL_LAYOUT__NAME = UI_LAYOUT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VERTICAL_LAYOUT__I18N_INFO = UI_LAYOUT__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -2580,6 +2688,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_FORM_LAYOUT__NAME = UI_LAYOUT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_FORM_LAYOUT__I18N_INFO = UI_LAYOUT__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2632,6 +2749,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_TEXT_FIELD__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_FIELD__I18N_INFO = UI_FIELD__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -2725,6 +2851,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_IMAGE__NAME = UI_FIELD__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_IMAGE__I18N_INFO = UI_FIELD__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2786,6 +2921,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_LIST__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LIST__I18N_INFO = UI_FIELD__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -2867,6 +3011,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_TABLE__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TABLE__I18N_INFO = UI_FIELD__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -2969,6 +3122,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_COMBO_BOX__NAME = UI_FIELD__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_COMBO_BOX__I18N_INFO = UI_FIELD__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3066,6 +3228,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_COLUMN__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_COLUMN__I18N_INFO = UI_FIELD__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -3204,6 +3375,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_COLUMNS_ASSIGNMENT__NAME = UI_FIELD__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_COLUMNS_ASSIGNMENT__I18N_INFO = UI_FIELD__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3265,6 +3445,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_NUMERIC_FIELD__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_NUMERIC_FIELD__I18N_INFO = UI_FIELD__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -3337,6 +3526,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_CHECK_BOX__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_CHECK_BOX__I18N_INFO = UI_FIELD__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -3673,13 +3871,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_VALIDATOR__NAME = UI_RAW_BINDABLE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VALIDATOR__I18N_INFO = UI_RAW_BINDABLE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Ui Validator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VALIDATOR_FEATURE_COUNT = UI_RAW_BINDABLE_FEATURE_COUNT + 0;
+	int UI_VALIDATOR_FEATURE_COUNT = UI_RAW_BINDABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3698,6 +3905,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_MAX_LENGTH_VALIDATOR__NAME = UI_VALIDATOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MAX_LENGTH_VALIDATOR__I18N_INFO = UI_VALIDATOR__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
@@ -3736,6 +3952,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_MIN_LENGTH_VALIDATOR__NAME = UI_VALIDATOR__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MIN_LENGTH_VALIDATOR__I18N_INFO = UI_VALIDATOR__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3772,6 +3997,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_REGEXP_VALIDATOR__NAME = UI_VALIDATOR__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_REGEXP_VALIDATOR__I18N_INFO = UI_VALIDATOR__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Reg Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3806,6 +4040,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_XBASE_VALIDATOR__NAME = UI_VALIDATOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_XBASE_VALIDATOR__I18N_INFO = UI_VALIDATOR__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -4042,6 +4285,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_HORIZONTAL_BUTTON_GROUP__NAME = UI_MOBILE_LAYOUT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_HORIZONTAL_BUTTON_GROUP__I18N_INFO = UI_MOBILE_LAYOUT__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4106,6 +4358,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_BUTTON__NAME = UI_ACTION__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BUTTON__I18N_INFO = UI_ACTION__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4159,6 +4420,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_SWITCH__NAME = UI_MOBILE_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SWITCH__I18N_INFO = UI_MOBILE_FIELD__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -4271,6 +4541,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_VERTICAL_COMPONENT_GROUP__NAME = UI_MOBILE_LAYOUT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VERTICAL_COMPONENT_GROUP__I18N_INFO = UI_MOBILE_LAYOUT__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4333,6 +4612,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_MOBILE_TAB_SHEET__NAME = UI_MOBILE_EMBEDDABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_TAB_SHEET__I18N_INFO = UI_MOBILE_EMBEDDABLE__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -4399,6 +4687,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_MOBILE_TAB_ASSIGNMENT__NAME = UI_MOBILE_EMBEDDABLE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_TAB_ASSIGNMENT__I18N_INFO = UI_MOBILE_EMBEDDABLE__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4463,6 +4760,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_TAB_SHEET__NAME = UI_EMBEDDABLE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TAB_SHEET__I18N_INFO = UI_EMBEDDABLE__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4518,13 +4824,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_TAB_ASSIGNMENT__NAME = UI_LAYOUT_ASSIGNMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TAB_ASSIGNMENT__I18N_INFO = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_TAB_ASSIGNMENT__ELEMENT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 0;
+	int UI_TAB_ASSIGNMENT__ELEMENT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Ui Tab Assignment</em>' class.
@@ -4533,7 +4848,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_TAB_ASSIGNMENT_FEATURE_COUNT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 1;
+	int UI_TAB_ASSIGNMENT_FEATURE_COUNT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationHandler <em>Ui Mobile Navigation Handler</em>}' class.
@@ -4590,6 +4905,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_MOBILE_NAVIGATION_PAGE__NAME = UI_MOBILE_LAYOUT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE__I18N_INFO = UI_MOBILE_LAYOUT__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -4709,6 +5033,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_MOBILE_NAVIGATION_BUTTON__NAME = UI_MOBILE_ACTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_BUTTON__I18N_INFO = UI_MOBILE_ACTION__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -4922,6 +5255,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_SEARCH_FIELD__NAME = UI_FIELD__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SEARCH_FIELD__I18N_INFO = UI_FIELD__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4993,6 +5335,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_SEARCH_DIALOG__NAME = UI_EMBEDDABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SEARCH_DIALOG__I18N_INFO = UI_EMBEDDABLE__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -5169,6 +5520,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_LABEL__NAME = UI_FIELD__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LABEL__I18N_INFO = UI_FIELD__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5231,6 +5591,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_DECIMAL_FIELD__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DECIMAL_FIELD__I18N_INFO = UI_FIELD__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -5324,6 +5693,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_TEXT_AREA__NAME = UI_FIELD__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_AREA__I18N_INFO = UI_FIELD__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5386,6 +5764,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_OPTIONS_GROUP__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_OPTIONS_GROUP__I18N_INFO = UI_FIELD__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -5488,6 +5875,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_DATE_FIELD__NAME = UI_FIELD__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DATE_FIELD__I18N_INFO = UI_FIELD__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5550,6 +5946,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_BROWSER__NAME = UI_FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BROWSER__I18N_INFO = UI_FIELD__I18N_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -5616,6 +6021,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_PROGRESS_BAR__NAME = UI_FIELD__NAME;
 
 	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PROGRESS_BAR__I18N_INFO = UI_FIELD__I18N_INFO;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5643,6 +6057,62 @@ public interface UiModelPackage extends EPackage {
 	int UI_PROGRESS_BAR_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiI18nInfoImpl <em>Ui I1 8n Info</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiI18nInfoImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiI18nInfo()
+	 * @generated
+	 */
+	int UI_I1_8N_INFO = 96;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_I1_8N_INFO__KEY = 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui I1 8n Info</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_I1_8N_INFO_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiI18nInfoable <em>Ui I1 8n Infoable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.UiI18nInfoable
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiI18nInfoable()
+	 * @generated
+	 */
+	int UI_I1_8N_INFOABLE = 97;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_I1_8N_INFOABLE__I18N_INFO = 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui I1 8n Infoable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_I1_8N_INFOABLE_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5650,7 +6120,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiFlatAlignment()
 	 * @generated
 	 */
-	int UI_FLAT_ALIGNMENT = 96;
+	int UI_FLAT_ALIGNMENT = 98;
 
 
 	/**
@@ -5661,7 +6131,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSelectionType()
 	 * @generated
 	 */
-	int UI_SELECTION_TYPE = 97;
+	int UI_SELECTION_TYPE = 99;
 
 
 	/**
@@ -7949,6 +8419,48 @@ public interface UiModelPackage extends EPackage {
 	EClass getUiProgressBar();
 
 	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiI18nInfo <em>Ui I1 8n Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui I1 8n Info</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiI18nInfo
+	 * @generated
+	 */
+	EClass getUiI18nInfo();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiI18nInfo#getKey <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiI18nInfo#getKey()
+	 * @see #getUiI18nInfo()
+	 * @generated
+	 */
+	EAttribute getUiI18nInfo_Key();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiI18nInfoable <em>Ui I1 8n Infoable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui I1 8n Infoable</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiI18nInfoable
+	 * @generated
+	 */
+	EClass getUiI18nInfoable();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiI18nInfoable#getI18nInfo <em>I1 8n Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>I1 8n Info</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiI18nInfoable#getI18nInfo()
+	 * @see #getUiI18nInfoable()
+	 * @generated
+	 */
+	EReference getUiI18nInfoable_I18nInfo();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiSearchField <em>Ui Search Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10076,6 +10588,42 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UI_PROGRESS_BAR = eINSTANCE.getUiProgressBar();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiI18nInfoImpl <em>Ui I1 8n Info</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiI18nInfoImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiI18nInfo()
+		 * @generated
+		 */
+		EClass UI_I1_8N_INFO = eINSTANCE.getUiI18nInfo();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_I1_8N_INFO__KEY = eINSTANCE.getUiI18nInfo_Key();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiI18nInfoable <em>Ui I1 8n Infoable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.UiI18nInfoable
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiI18nInfoable()
+		 * @generated
+		 */
+		EClass UI_I1_8N_INFOABLE = eINSTANCE.getUiI18nInfoable();
+
+		/**
+		 * The meta object literal for the '<em><b>I1 8n Info</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_I1_8N_INFOABLE__I18N_INFO = eINSTANCE.getUiI18nInfoable_I18nInfo();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.

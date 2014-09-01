@@ -153,7 +153,10 @@ Workflow {
 			fragment = generator.GeneratorFragment auto-inject {}
 
 			// formatter API
-			fragment = formatting.FormatterFragment auto-inject {}
+			fragment = formatting.FormatterFragment auto-inject {
+				generateStub=true
+				generateXtendStub=false
+			}
 
 			// labeling API
 			fragment = labeling.LabelProviderFragment auto-inject {}

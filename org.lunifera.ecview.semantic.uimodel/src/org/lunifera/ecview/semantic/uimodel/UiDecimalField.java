@@ -25,6 +25,7 @@ public interface UiDecimalField extends UiField {
 
 	/**
 	 * Returns the value of the '<em><b>Precision</b></em>' attribute.
+	 * The default value is <code>"2"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Precision</em>' attribute isn't clear,
@@ -34,7 +35,7 @@ public interface UiDecimalField extends UiField {
 	 * @return the value of the '<em>Precision</em>' attribute.
 	 * @see #setPrecision(int)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiDecimalField_Precision()
-	 * @model
+	 * @model default="2"
 	 * @generated
 	 */
 	int getPrecision();
@@ -51,7 +52,7 @@ public interface UiDecimalField extends UiField {
 
 	/**
 	 * Returns the value of the '<em><b>Grouping</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Grouping</em>' attribute isn't clear,
@@ -61,7 +62,7 @@ public interface UiDecimalField extends UiField {
 	 * @return the value of the '<em>Grouping</em>' attribute.
 	 * @see #setGrouping(boolean)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiDecimalField_Grouping()
-	 * @model default="false"
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isGrouping();
@@ -78,7 +79,7 @@ public interface UiDecimalField extends UiField {
 
 	/**
 	 * Returns the value of the '<em><b>Mark Negative</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Mark Negative</em>' attribute isn't clear,
@@ -88,7 +89,7 @@ public interface UiDecimalField extends UiField {
 	 * @return the value of the '<em>Mark Negative</em>' attribute.
 	 * @see #setMarkNegative(boolean)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiDecimalField_MarkNegative()
-	 * @model default="false"
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isMarkNegative();

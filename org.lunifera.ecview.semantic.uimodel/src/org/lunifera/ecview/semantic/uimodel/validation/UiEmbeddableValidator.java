@@ -7,6 +7,7 @@ package org.lunifera.ecview.semantic.uimodel.validation;
 import org.eclipse.emf.common.util.EList;
 
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiEmbeddable}.
@@ -18,4 +19,6 @@ public interface UiEmbeddableValidator {
 	boolean validate();
 
 	boolean validateBindings(EList<UiBinding> value);
+
+	boolean validateI18nInfo(UiI18nInfo value);
 }

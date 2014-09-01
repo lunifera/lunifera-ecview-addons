@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
+import org.lunifera.ecview.dsl.derivedstate.UiModelUtil;
+import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.vaadin.ide.preview.Activator;
 import org.lunifera.ecview.vaadin.ide.preview.web.EcviewPreviewUI;
 
@@ -19,11 +21,11 @@ import com.vaadin.ui.UI;
 /**
  * Handles model exchange between Xtext editor and Vaadin UI.
  */
+@SuppressWarnings("restriction")
 public class IDEPreviewHandler {
 
 	// xtext and vaadin preview
 	private YView yView;
-	private Injector injector;
 	private ECViewVaadinSynchronizer synchronizer;
 	private EcviewPreviewUI ui;
 	private boolean linkedWithEditor;
@@ -33,11 +35,26 @@ public class IDEPreviewHandler {
 	}
 
 	public Injector getInjector() {
-		return injector;
+		return Activator.getDefault().getInjector();
 	}
 
+	/**
+	 * Returns the currently active view.
+	 * 
+	 * @return
+	 */
 	public synchronized YView getActiveView() {
 		return yView;
+	}
+
+	/**
+	 * Returns the view from the grammar model. The current view was created by
+	 * the {@link UiView}.
+	 * 
+	 * @return
+	 */
+	public synchronized UiView getActiveViewFromGrammar() {
+		return (UiView) UiModelUtil.getUiGrammarElement(yView);
 	}
 
 	public synchronized void setActiveViewFromXtextEditor(YView yView) {

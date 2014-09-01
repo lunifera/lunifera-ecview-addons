@@ -116,6 +116,7 @@ import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroupAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
 import org.lunifera.ecview.semantic.uimodel.UiImage;
 import org.lunifera.ecview.semantic.uimodel.UiLabel;
@@ -314,6 +315,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   private final SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
   
+  private String currentPackage;
+  
   private YView currentView;
   
   private DerivedStateAwareResource resource;
@@ -355,7 +358,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       this.grammarToUiAssociations.clear();
       this.uiToGrammarAssociations.clear();
       EList<EObject> _contents_1 = resource.getContents();
-      final EObject eObject = _contents_1.get(0);
+      EObject _get = _contents_1.get(0);
+      final UiModel eObject = ((UiModel) _get);
+      String _packageName = eObject.getPackageName();
+      this.currentPackage = _packageName;
       EList<EObject> _eContents = eObject.eContents();
       final Procedure1<EObject> _function = new Procedure1<EObject>() {
         public void apply(final EObject it) {
@@ -367,8 +373,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       boolean _greaterThan = (_size > 0);
       if (_greaterThan) {
         EList<EObject> _contents_2 = resource.getContents();
-        YView _get = this.views.get(0);
-        _contents_2.add(_get);
+        YView _get_1 = this.views.get(0);
+        _contents_2.add(_get_1);
       }
       this.views.clear();
       this.viewContext.clear();
@@ -388,7 +394,67 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return ((A) _pop);
   }
   
+  public String toI18nKey(final UiEmbeddable embeddable) {
+    boolean _and = false;
+    UiI18nInfo _i18nInfo = embeddable.getI18nInfo();
+    boolean _notEquals = (!Objects.equal(_i18nInfo, null));
+    if (!_notEquals) {
+      _and = false;
+    } else {
+      UiI18nInfo _i18nInfo_1 = embeddable.getI18nInfo();
+      String _key = _i18nInfo_1.getKey();
+      boolean _notEquals_1 = (!Objects.equal(_key, null));
+      _and = _notEquals_1;
+    }
+    if (_and) {
+      UiI18nInfo _i18nInfo_2 = embeddable.getI18nInfo();
+      String _key_1 = _i18nInfo_2.getKey();
+      boolean _startsWith = _key_1.startsWith(".");
+      if (_startsWith) {
+        UiI18nInfo _i18nInfo_3 = embeddable.getI18nInfo();
+        String _key_2 = _i18nInfo_3.getKey();
+        return (this.currentPackage + _key_2);
+      } else {
+        UiI18nInfo _i18nInfo_4 = embeddable.getI18nInfo();
+        return _i18nInfo_4.getKey();
+      }
+    }
+    String _name = embeddable.getName();
+    return ((this.currentPackage + ".") + _name);
+  }
+  
+  public String toI18nKey(final UiTabAssignment embeddable) {
+    boolean _and = false;
+    UiI18nInfo _i18nInfo = embeddable.getI18nInfo();
+    boolean _notEquals = (!Objects.equal(_i18nInfo, null));
+    if (!_notEquals) {
+      _and = false;
+    } else {
+      UiI18nInfo _i18nInfo_1 = embeddable.getI18nInfo();
+      String _key = _i18nInfo_1.getKey();
+      boolean _notEquals_1 = (!Objects.equal(_key, null));
+      _and = _notEquals_1;
+    }
+    if (_and) {
+      UiI18nInfo _i18nInfo_2 = embeddable.getI18nInfo();
+      String _key_1 = _i18nInfo_2.getKey();
+      boolean _startsWith = _key_1.startsWith(".");
+      if (_startsWith) {
+        UiI18nInfo _i18nInfo_3 = embeddable.getI18nInfo();
+        String _key_2 = _i18nInfo_3.getKey();
+        return ((this.currentPackage + ".") + _key_2);
+      } else {
+        UiI18nInfo _i18nInfo_4 = embeddable.getI18nInfo();
+        return _i18nInfo_4.getKey();
+      }
+    }
+    String _name = embeddable.getName();
+    return ((this.currentPackage + ".") + _name);
+  }
+  
   protected void _map(final UiModel object) {
+    String _packageName = object.getPackageName();
+    this.currentPackage = _packageName;
     EList<UiRootElements> _roots = object.getRoots();
     final Function1<UiRootElements, Boolean> _function = new Function1<UiRootElements, Boolean>() {
       public Boolean apply(final UiRootElements it) {
@@ -413,6 +479,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected void _map(final UiIDEView object) {
     final YView yView = this.factory.createView();
+    this.associateUi(object, yView);
     this.views.add(yView);
     this.currentView = yView;
     this.push(yView);
@@ -476,6 +543,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected void _map(final UiMobileView object) {
     final YView yView = this.factory.createView();
+    this.associateUi(object, yView);
     yView.setDeviceType(YDeviceType.MOBILE);
     this.views.add(yView);
     this.currentView = yView;
@@ -527,6 +595,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     layout.setFillVertical(_isFillVertical);
     int _columns = eObject.getColumns();
     layout.setColumns(_columns);
+    String _i18nKey = this.toI18nKey(eObject);
+    layout.setLabelI18nKey(_i18nKey);
     this.addToParent(layout);
     this.associateUi(eObject, layout);
     this.push(layout);
@@ -575,6 +645,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     layout.setName(_name);
     boolean _isFillVertical = eObject.isFillVertical();
     layout.setFillVertical(_isFillVertical);
+    String _i18nKey = this.toI18nKey(eObject);
+    layout.setLabelI18nKey(_i18nKey);
     this.addToParent(layout);
     this.associateUi(eObject, layout);
     this.push(layout);
@@ -626,6 +698,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     layout.setName(_name);
     boolean _isFillHorizontal = eObject.isFillHorizontal();
     layout.setFillHorizontal(_isFillHorizontal);
+    String _i18nKey = this.toI18nKey(eObject);
+    layout.setLabelI18nKey(_i18nKey);
     this.addToParent(layout);
     this.associateUi(eObject, layout);
     this.push(layout);
@@ -672,6 +746,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final YTabSheet layout = this.factory.createTabSheet();
     String _name = eObject.getName();
     layout.setName(_name);
+    String _i18nKey = this.toI18nKey(eObject);
+    layout.setLabelI18nKey(_i18nKey);
     this.addToParent(layout);
     this.associateUi(eObject, layout);
     this.push(layout);
@@ -697,6 +773,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final YTab tab = this.factory.createTab();
     String _name = eObject.getName();
     tab.setLabel(_name);
+    String _i18nKey = this.toI18nKey(eObject);
+    tab.setLabelI18nKey(_i18nKey);
     EList<YTab> _tabs = layout.getTabs();
     _tabs.add(tab);
     this.push(tab);
@@ -725,6 +803,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final VMTabSheet layout = VaadinMobileFactory.eINSTANCE.createVMTabSheet();
     String _name = eObject.getName();
     layout.setName(_name);
+    String _i18nKey = this.toI18nKey(eObject);
+    layout.setLabelI18nKey(_i18nKey);
     this.addToParent(layout);
     this.associateUi(eObject, layout);
     this.push(layout);
@@ -778,6 +858,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final VMHorizontalButtonGroup layout = VaadinMobileFactory.eINSTANCE.createVMHorizontalButtonGroup();
     String _name = eObject.getName();
     layout.setName(_name);
+    String _i18nKey = this.toI18nKey(eObject);
+    layout.setLabelI18nKey(_i18nKey);
     this.addToParent(layout);
     this.associateUi(eObject, layout);
     this.push(layout);
@@ -824,6 +906,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final VMVerticalComponentGroup layout = VaadinMobileFactory.eINSTANCE.createVMVerticalComponentGroup();
     String _name = eObject.getName();
     layout.setName(_name);
+    String _i18nKey = this.toI18nKey(eObject);
+    layout.setLabelI18nKey(_i18nKey);
     this.addToParent(layout);
     this.associateUi(eObject, layout);
     this.push(layout);
@@ -870,6 +954,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final VMNavigationPage layout = VaadinMobileFactory.eINSTANCE.createVMNavigationPage();
     String _name = eObject.getName();
     layout.setName(_name);
+    String _i18nKey = this.toI18nKey(eObject);
+    layout.setLabelI18nKey(_i18nKey);
     this.addToParent(layout);
     this.associateUi(eObject, layout);
     this.push(layout);
@@ -900,6 +986,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     layout.setName(_name);
     String _name_1 = eObject.getName();
     layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(eObject);
+    layout.setLabelI18nKey(_i18nKey);
     JvmTypeReference _jvmType = eObject.getJvmType();
     boolean _notEquals = (!Objects.equal(_jvmType, null));
     if (_notEquals) {
@@ -942,6 +1030,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     dialog.setName(_name);
     String _name_1 = eObject.getName();
     dialog.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(eObject);
+    dialog.setLabelI18nKey(_i18nKey);
     JvmTypeReference _jvmType = eObject.getJvmType();
     boolean _notEquals = (!Objects.equal(_jvmType, null));
     if (_notEquals) {
@@ -1112,6 +1202,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final YFormLayout layout = this.factory.createFormLayout();
     String _name = eObject.getName();
     layout.setName(_name);
+    String _i18nKey = this.toI18nKey(eObject);
+    layout.setLabelI18nKey(_i18nKey);
     this.addToParent(layout);
     this.associateUi(eObject, layout);
     this.push(layout);
@@ -1247,6 +1339,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     button.setName(_name);
     String _name_1 = object.getName();
     button.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    button.setLabelI18nKey(_i18nKey);
     this.addToParent(button);
     this.associateUi(object, button);
     EList<UiBinding> _bindings = object.getBindings();
@@ -1264,6 +1358,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     button.setName(_name);
     String _name_1 = object.getName();
     button.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    button.setLabelI18nKey(_i18nKey);
     this.addToParent(button);
     this.associateUi(object, button);
     this.push(button);
@@ -1446,6 +1542,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     textField.setName(_name);
     String _name_1 = object.getName();
     textField.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    textField.setLabelI18nKey(_i18nKey);
     final YTextDatatype dt = this.factory.createTextDatatype();
     textField.setDatatype(dt);
     EList<YDatatype> _orphanDatatypes = textField.getOrphanDatatypes();
@@ -1466,6 +1564,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     label.setName(_name);
     String _name_1 = object.getName();
     label.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    label.setLabelI18nKey(_i18nKey);
     this.associateUi(object, label);
     return label;
   }
@@ -1476,6 +1576,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     decimalField.setName(_name);
     String _name_1 = object.getName();
     decimalField.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    decimalField.setLabelI18nKey(_i18nKey);
     final YDecimalDatatype dt = this.factory.createDecimalDatatype();
     decimalField.setDatatype(dt);
     EList<YDatatype> _orphanDatatypes = decimalField.getOrphanDatatypes();
@@ -1496,6 +1598,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     textArea.setName(_name);
     String _name_1 = object.getName();
     textArea.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    textArea.setLabelI18nKey(_i18nKey);
     this.associateUi(object, textArea);
     return textArea;
   }
@@ -1506,6 +1610,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     optionsGroup.setName(_name);
     String _name_1 = object.getName();
     optionsGroup.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    optionsGroup.setLabelI18nKey(_i18nKey);
     UiSelectionType _selectionType = object.getSelectionType();
     YSelectionType _convert = this.convert(_selectionType);
     optionsGroup.setSelectionType(_convert);
@@ -1544,6 +1650,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     dateTime.setName(_name);
     String _name_1 = object.getName();
     dateTime.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    dateTime.setLabelI18nKey(_i18nKey);
     this.associateUi(object, dateTime);
     return dateTime;
   }
@@ -1554,6 +1662,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     browser.setName(_name);
     String _name_1 = object.getName();
     browser.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    browser.setLabelI18nKey(_i18nKey);
     this.associateUi(object, browser);
     return browser;
   }
@@ -1564,6 +1674,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     progressBar.setName(_name);
     String _name_1 = object.getName();
     progressBar.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    progressBar.setLabelI18nKey(_i18nKey);
     this.associateUi(object, progressBar);
     return progressBar;
   }
@@ -1574,6 +1686,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     image.setName(_name);
     String _name_1 = object.getName();
     image.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    image.setLabelI18nKey(_i18nKey);
     String _value = object.getValue();
     image.setValue(_value);
     this.associateUi(object, image);
@@ -1586,6 +1700,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     table.setName(_name);
     String _name_1 = object.getName();
     table.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    table.setLabelI18nKey(_i18nKey);
     UiSelectionType _selectionType = object.getSelectionType();
     YSelectionType _convert = this.convert(_selectionType);
     table.setSelectionType(_convert);
@@ -1634,6 +1750,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     field.setName(_name);
     String _name_1 = object.getName();
     field.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    field.setLabelI18nKey(_i18nKey);
     final YNumericDatatype dt = this.factory.createNumericDatatype();
     field.setDatatype(dt);
     EList<YDatatype> _orphanDatatypes = field.getOrphanDatatypes();
@@ -1652,6 +1770,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     field.setName(_name);
     String _name_1 = object.getName();
     field.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    field.setLabelI18nKey(_i18nKey);
     this.associateUi(object, field);
     return field;
   }
@@ -1662,6 +1782,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     field.setName(_name);
     String _name_1 = object.getName();
     field.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    field.setLabelI18nKey(_i18nKey);
     JvmField _itemCaptionProperty = object.getItemCaptionProperty();
     String _simpleName = null;
     if (_itemCaptionProperty!=null) {
@@ -1697,6 +1819,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     field.setName(_name);
     String _name_1 = object.getName();
     field.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    field.setLabelI18nKey(_i18nKey);
     this.associateUi(object, field);
     return field;
   }

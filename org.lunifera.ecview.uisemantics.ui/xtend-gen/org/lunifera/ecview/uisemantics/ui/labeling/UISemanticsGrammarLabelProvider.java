@@ -7,6 +7,7 @@ import com.google.inject.Inject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider;
+import org.lunifera.ecview.semantic.uisemantics.UxBindingableOption;
 
 /**
  * Provides labels for a EObjects.
@@ -22,5 +23,9 @@ public class UISemanticsGrammarLabelProvider extends XbaseLabelProvider {
   
   public String text(final EPackage ele) {
     return ele.getNsURI();
+  }
+  
+  public String image(final UxBindingableOption object) {
+    return "UxBindingableOption.png";
   }
 }

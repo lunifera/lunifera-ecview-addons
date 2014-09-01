@@ -113,13 +113,18 @@ UiMobileView returns UiMobileView:
 	(validatorAssignments+=UiValidatorAssignment))*
 	'}';
 
+UiI18nInfo:
+	'i18n' key = STRING
+;
+
 UiGridLayout returns UiGridLayout:
 	{UiGridLayout}
 	'gridlayout'
 	('('
 	(('columns=' columns=INT)?
 	& (fillHorizontal?='fill-h')?
-	& (fillVertical?='fill-v')?)
+	& (fillVertical?='fill-v')?
+	& (i18nInfo=UiI18nInfo))
 	')')?
 	name=ID?
 	'{'
@@ -153,7 +158,8 @@ UiVerticalLayout:
 	{UiVerticalLayout}
 	'verticalLayout'
 	('('
-	fillVertical?='fill-v'
+	((fillVertical?='fill-v')?
+	& (i18nInfo=UiI18nInfo))
 	')')?
 	name=ID?
 	'{'
@@ -169,7 +175,8 @@ UiHorizontalLayout:
 	{UiHorizontalLayout}
 	'horizontalLayout'
 	('('
-	fillHorizontal?='fill-h'
+	((fillHorizontal?='fill-h')?
+	& (i18nInfo=UiI18nInfo))
 	')')?
 	name=ID?
 	'{'
@@ -184,6 +191,7 @@ UiHorizontalLayoutAssigment returns UiHorizontalLayoutAssigment:
 UiMobileHorizontalButtonGroup returns UiHorizontalButtonGroup:
 	{UiHorizontalButtonGroup}
 	'horizontalButtonGroup'
+	(i18nInfo=UiI18nInfo)?
 	name=ID?
 	'{'
 	(contents+=UiMobileHorizontalButtonGroupAssigment)*
@@ -196,6 +204,7 @@ UiMobileHorizontalButtonGroupAssigment returns UiHorizontalButtonGroupAssigment:
 UiMobileVerticalComponentGroup returns UiVerticalComponentGroup:
 	{UiVerticalComponentGroup}
 	'verticalGroup'
+	(i18nInfo=UiI18nInfo)?
 	name=ID?
 	'{'
 	(contents+=UiMobileVerticalComponentGroupAssigment)*
@@ -209,6 +218,7 @@ UiMobileVerticalComponentGroupAssigment returns UiVerticalComponentGroupAssigmen
 UiMobileTabSheet:
 	{UiMobileTabSheet}
 	'mobileTab'
+	(i18nInfo=UiI18nInfo)?
 	name=ID?
 	'{'
 	(tabs+=UiMobileTabAssignment)*
@@ -222,6 +232,7 @@ UiMobileTabAssignment:
 UiTabSheet:
 	{UiTabSheet}
 	'tabsheet'
+	(i18nInfo=UiI18nInfo)?
 	name=ID?
 	'{'
 	(tabs+=UiTabAssignment)*
@@ -234,7 +245,7 @@ UiTabAssignment:
 
 UiDialog:
 	{UiDialog}
-	'dialog' name=ID? '{'
+	'dialog' (i18nInfo=UiI18nInfo)? name=ID? '{'
 	('type' jvmType=JvmTypeReference (';')?)?
 	(content=UiDialogAssignment (';')?)?
 	(bindings+=UiBinding)*
@@ -246,7 +257,7 @@ UiDialogAssignment:
 
 UiSearchDialog:
 	{UiSearchDialog}
-	'searchdialog' name=ID? '{'
+	'searchdialog' (i18nInfo=UiI18nInfo)? name=ID? '{'
 	('type' jvmType=JvmTypeReference )?
 	('search' '{'
 	searchFields+=UiDialogSearchFieldAssignment*
@@ -263,7 +274,7 @@ UiDialogSearchFieldAssignment:
 
 UiMobileNavigationPage:
 	{UiMobileNavigationPage}
-	'navPage' name=ID? '{'
+	'navPage' (i18nInfo=UiI18nInfo)? name=ID? '{'
 	('type' jvmType=JvmTypeReference (';')?)?
 	(contents+=UiMobileNavigationPageAssignment)*
 	(bindings+=UiBinding)*
@@ -282,7 +293,8 @@ UiTextField returns UiTextField:
 	('('
 	(('maxLength=' maxLength=INT)?
 	& ('minLength=' minLength=INT)?
-	& ('regex=' regex=STRING)?)
+	& ('regex=' regex=STRING)?
+	& (i18nInfo=UiI18nInfo)?)
 	')')?
 	name=ID?
 	('{'
@@ -298,7 +310,7 @@ UiSearchField:
 
 UiTextArea returns UiTextArea:
 	{UiTextArea}
-	'textarea' name=ID?
+	'textarea' (i18nInfo=UiI18nInfo)? name=ID?
 	('{'
 	(validators+=UiValidator
 		|
@@ -308,7 +320,7 @@ UiTextArea returns UiTextArea:
 
 UiDateField returns UiDateField:
 	{UiDateField}
-	'datefield' name=ID?
+	'datefield' (i18nInfo=UiI18nInfo)? name=ID?
 	('{'
 	(validators+=UiValidator
 		|
@@ -318,7 +330,7 @@ UiDateField returns UiDateField:
 
 UiBrowser returns UiBrowser:
 	{UiBrowser}
-	'browser' name=ID?
+	'browser' (i18nInfo=UiI18nInfo)? name=ID?
 	('{'
 	(validators+=UiValidator
 		|
@@ -328,7 +340,7 @@ UiBrowser returns UiBrowser:
 
 UiProgressBar returns UiProgressBar:
 	{UiProgressBar}
-	'progressbar' name=ID?
+	'progressbar' (i18nInfo=UiI18nInfo)? name=ID?
 	('{'
 	(validators+=UiValidator
 		|
@@ -338,7 +350,7 @@ UiProgressBar returns UiProgressBar:
 
 UiImage returns UiImage:
 	{UiImage}
-	'image' name=ID?
+	'image' (i18nInfo=UiI18nInfo)? name=ID?
 	('{'
 	('iconPath' value=STRING (';')?)?
 	(bindings+=UiBinding)*
@@ -347,7 +359,7 @@ UiImage returns UiImage:
 
 UiList returns UiList:
 	{UiList}
-	'listSelect' name=ID?;
+	'listSelect' (i18nInfo=UiI18nInfo)? name=ID?;
 
 UiTable returns UiTable:
 	{UiTable}
@@ -355,7 +367,8 @@ UiTable returns UiTable:
 	('{'
 	(('type' jvmType=JvmTypeReference (';')?)?
 	& ('selectionType' selectionType=UiSelectionType (';')?)?
-	& ('imageField' itemImageProperty=[JvmField] (';')?)?)
+	& ('imageField' itemImageProperty=[JvmField] (';')?)?
+	&(i18nInfo=UiI18nInfo)?)
 	columnAssignment=UiColumnsAssignment?
 	(validators+=UiValidator
 		|
@@ -369,7 +382,8 @@ UiComboBox returns UiComboBox:
 	('{'
 	(('type' jvmType=JvmTypeReference (';')?)?
 	& ('captionField' itemCaptionProperty=[JvmField] (';')?)?
-	& ('imageField' itemImageProperty=[JvmField] (';')?)?)
+	& ('imageField' itemImageProperty=[JvmField] (';')?)?
+	& (i18nInfo=UiI18nInfo)?)
 	(validators+=UiValidator
 		|
 	bindings+=UiBinding)*
@@ -386,7 +400,7 @@ UiMobileNavigationButton:
 
 UiMobileSwitch returns UiSwitch:
 	{UiSwitch}
-	'switchIt' name=ID? ('{'
+	'switchIt' (i18nInfo=UiI18nInfo)? name=ID? ('{'
 		(processorAssignment=UiVisibilityProcessorAssignment)?
 		(validators+=UiValidator
 		|
@@ -395,7 +409,7 @@ UiMobileSwitch returns UiSwitch:
 
 UiLabel:
 	{UiLabel}
-	'label' name=ID? ('{'
+	'label' (i18nInfo=UiI18nInfo)? name=ID? ('{'
 	(processorAssignment=UiVisibilityProcessorAssignment)?
 	(bindings+=UiBinding)*
 	'}')?;
@@ -405,10 +419,9 @@ UiDecimalField returns UiDecimalField:
 	'decimalField'
 	('('
 	((grouping?='grouping')?
-	&
-	(markNegative?='markNegative')?
-	&
-	('precision=' precision=INT)?)
+	& (markNegative?='markNegative')?
+	& ('precision=' precision=INT)?
+	& (i18nInfo=UiI18nInfo)?)
 	')')?
 	name=ID?
 	('{'
@@ -426,7 +439,8 @@ UiOptionsGroup:
 	(('type' jvmType=JvmTypeReference)?
 	& ('selectionType' selectionType=UiSelectionType)?
 	& ('captionField' itemCaptionProperty=[JvmField])?
-	& ('imageField' itemImageProperty=[JvmField])?)
+	& ('imageField' itemImageProperty=[JvmField])?
+	& (i18nInfo=UiI18nInfo)?)
 	(validators+=UiValidator
 		|
 	bindings+=UiBinding)*
@@ -477,8 +491,8 @@ UiNumericField:
 	'numericField'
 	('('
 	((grouping?='grouping')?
-	&
-	(markNegative?='markNegative')?)
+	& (markNegative?='markNegative')?
+	& (i18nInfo=UiI18nInfo)?)
 	')')?
 	name=ID?
 	('{'
@@ -490,7 +504,7 @@ UiNumericField:
 
 UiCheckBox:
 	{UiCheckBox}
-	'checkbox' name=ID?
+	'checkbox' (i18nInfo=UiI18nInfo)? name=ID?
 	('{'
 	(validators+=UiValidator
 		|

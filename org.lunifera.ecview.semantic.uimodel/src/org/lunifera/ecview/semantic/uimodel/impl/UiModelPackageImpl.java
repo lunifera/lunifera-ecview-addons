@@ -42,6 +42,8 @@ import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroupAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
 import org.lunifera.ecview.semantic.uimodel.UiImage;
 import org.lunifera.ecview.semantic.uimodel.UiImports;
@@ -791,6 +793,20 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiProgressBarEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiI18nInfoEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiI18nInfoableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2901,6 +2917,42 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiI18nInfo() {
+		return uiI18nInfoEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiI18nInfo_Key() {
+		return (EAttribute)uiI18nInfoEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiI18nInfoable() {
+		return uiI18nInfoableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiI18nInfoable_I18nInfo() {
+		return (EReference)uiI18nInfoableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getUiFlatAlignment() {
 		return uiFlatAlignmentEEnum;
 	}
@@ -3263,6 +3315,12 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiProgressBarEClass = createEClass(UI_PROGRESS_BAR);
 
+		uiI18nInfoEClass = createEClass(UI_I1_8N_INFO);
+		createEAttribute(uiI18nInfoEClass, UI_I1_8N_INFO__KEY);
+
+		uiI18nInfoableEClass = createEClass(UI_I1_8N_INFOABLE);
+		createEReference(uiI18nInfoableEClass, UI_I1_8N_INFOABLE__I18N_INFO);
+
 		// Create enums
 		uiFlatAlignmentEEnum = createEEnum(UI_FLAT_ALIGNMENT);
 		uiSelectionTypeEEnum = createEEnum(UI_SELECTION_TYPE);
@@ -3309,6 +3367,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiViewEClass.getESuperTypes().add(this.getUiRawBindable());
 		uiDialogEClass.getESuperTypes().add(this.getUiEmbeddable());
 		uiDialogEClass.getESuperTypes().add(this.getUiTypeProvider());
+		uiDialogEClass.getESuperTypes().add(this.getUiI18nInfoable());
 		uiDialogAssignmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
 		uiIDEViewEClass.getESuperTypes().add(this.getUiView());
 		uiMobileViewEClass.getESuperTypes().add(this.getUiView());
@@ -3325,6 +3384,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiCommandBindableDefEClass.getESuperTypes().add(this.getUiBindingExpression());
 		uiEmbeddableEClass.getESuperTypes().add(this.getUiVisibilityProcessable());
 		uiEmbeddableEClass.getESuperTypes().add(this.getUiRawBindable());
+		uiEmbeddableEClass.getESuperTypes().add(this.getUiI18nInfoable());
 		uiFieldEClass.getESuperTypes().add(this.getUiEmbeddable());
 		uiLayoutEClass.getESuperTypes().add(this.getUiEmbeddable());
 		uiLayoutAssignmentEClass.getESuperTypes().add(this.getUiNamedElement());
@@ -3363,6 +3423,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiXbaseVisibilityRuleEClass.getESuperTypes().add(this.getUiVisibilityRule());
 		uiVisibilityPropertyEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiValidatorEClass.getESuperTypes().add(this.getUiRawBindable());
+		uiValidatorEClass.getESuperTypes().add(this.getUiI18nInfoable());
 		uiMaxLengthValidatorEClass.getESuperTypes().add(this.getUiValidator());
 		uiMinLengthValidatorEClass.getESuperTypes().add(this.getUiValidator());
 		uiRegexpValidatorEClass.getESuperTypes().add(this.getUiValidator());
@@ -3373,13 +3434,16 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiHorizontalButtonGroupAssigmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
 		uiHorizontalButtonGroupEClass.getESuperTypes().add(this.getUiMobileLayout());
 		uiButtonEClass.getESuperTypes().add(this.getUiAction());
+		uiButtonEClass.getESuperTypes().add(this.getUiI18nInfoable());
 		uiSwitchEClass.getESuperTypes().add(this.getUiMobileField());
 		uiVerticalComponentGroupAssigmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
 		uiVerticalComponentGroupEClass.getESuperTypes().add(this.getUiMobileLayout());
 		uiMobileTabSheetEClass.getESuperTypes().add(this.getUiMobileEmbeddable());
 		uiMobileTabAssignmentEClass.getESuperTypes().add(this.getUiMobileEmbeddable());
+		uiMobileTabAssignmentEClass.getESuperTypes().add(this.getUiI18nInfoable());
 		uiTabSheetEClass.getESuperTypes().add(this.getUiEmbeddable());
 		uiTabAssignmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
+		uiTabAssignmentEClass.getESuperTypes().add(this.getUiI18nInfoable());
 		uiMobileNavigationPageEClass.getESuperTypes().add(this.getUiMobileLayout());
 		uiMobileNavigationPageEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiMobileNavigationPageEClass.getESuperTypes().add(this.getUiMobileNavigationHandler());
@@ -3577,8 +3641,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiColumnsAssignment_Columns(), this.getUiColumn(), null, "columns", null, 0, -1, UiColumnsAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiNumericFieldEClass, UiNumericField.class, "UiNumericField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getUiNumericField_Grouping(), ecorePackage.getEBoolean(), "grouping", "false", 0, 1, UiNumericField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getUiNumericField_MarkNegative(), ecorePackage.getEBoolean(), "markNegative", "false", 0, 1, UiNumericField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiNumericField_Grouping(), ecorePackage.getEBoolean(), "grouping", "true", 0, 1, UiNumericField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiNumericField_MarkNegative(), ecorePackage.getEBoolean(), "markNegative", "true", 0, 1, UiNumericField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiCheckBoxEClass, UiCheckBox.class, "UiCheckBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3707,9 +3771,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiLabelEClass, UiLabel.class, "UiLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(uiDecimalFieldEClass, UiDecimalField.class, "UiDecimalField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getUiDecimalField_Precision(), ecorePackage.getEInt(), "precision", null, 0, 1, UiDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getUiDecimalField_Grouping(), ecorePackage.getEBoolean(), "grouping", "false", 0, 1, UiDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getUiDecimalField_MarkNegative(), ecorePackage.getEBoolean(), "markNegative", "false", 0, 1, UiDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiDecimalField_Precision(), ecorePackage.getEInt(), "precision", "2", 0, 1, UiDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiDecimalField_Grouping(), ecorePackage.getEBoolean(), "grouping", "true", 0, 1, UiDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiDecimalField_MarkNegative(), ecorePackage.getEBoolean(), "markNegative", "true", 0, 1, UiDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiTextAreaEClass, UiTextArea.class, "UiTextArea", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3723,6 +3787,12 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiBrowserEClass, UiBrowser.class, "UiBrowser", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(uiProgressBarEClass, UiProgressBar.class, "UiProgressBar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uiI18nInfoEClass, UiI18nInfo.class, "UiI18nInfo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUiI18nInfo_Key(), ecorePackage.getEString(), "key", null, 0, 1, UiI18nInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiI18nInfoableEClass, UiI18nInfoable.class, "UiI18nInfoable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiI18nInfoable_I18nInfo(), this.getUiI18nInfo(), null, "i18nInfo", null, 0, 1, UiI18nInfoable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(uiFlatAlignmentEEnum, UiFlatAlignment.class, "UiFlatAlignment");

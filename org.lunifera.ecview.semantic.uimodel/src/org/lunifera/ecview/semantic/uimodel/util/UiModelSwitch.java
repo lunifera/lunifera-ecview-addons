@@ -214,6 +214,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiTypeProvider(uiDialog);
 				if (result == null) result = caseUiVisibilityProcessable(uiDialog);
 				if (result == null) result = caseUiRawBindable(uiDialog);
+				if (result == null) result = caseUiI18nInfoable(uiDialog);
 				if (result == null) result = caseUiNamedElement(uiDialog);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -354,6 +355,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiEmbeddable(uiEmbeddable);
 				if (result == null) result = caseUiVisibilityProcessable(uiEmbeddable);
 				if (result == null) result = caseUiRawBindable(uiEmbeddable);
+				if (result == null) result = caseUiI18nInfoable(uiEmbeddable);
 				if (result == null) result = caseUiNamedElement(uiEmbeddable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -364,6 +366,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiField);
 				if (result == null) result = caseUiVisibilityProcessable(uiField);
 				if (result == null) result = caseUiRawBindable(uiField);
+				if (result == null) result = caseUiI18nInfoable(uiField);
 				if (result == null) result = caseUiNamedElement(uiField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -374,6 +377,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiLayout);
 				if (result == null) result = caseUiVisibilityProcessable(uiLayout);
 				if (result == null) result = caseUiRawBindable(uiLayout);
+				if (result == null) result = caseUiI18nInfoable(uiLayout);
 				if (result == null) result = caseUiNamedElement(uiLayout);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -392,6 +396,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiAction);
 				if (result == null) result = caseUiVisibilityProcessable(uiAction);
 				if (result == null) result = caseUiRawBindable(uiAction);
+				if (result == null) result = caseUiI18nInfoable(uiAction);
 				if (result == null) result = caseUiNamedElement(uiAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -402,6 +407,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiMobileEmbeddable);
 				if (result == null) result = caseUiVisibilityProcessable(uiMobileEmbeddable);
 				if (result == null) result = caseUiRawBindable(uiMobileEmbeddable);
+				if (result == null) result = caseUiI18nInfoable(uiMobileEmbeddable);
 				if (result == null) result = caseUiNamedElement(uiMobileEmbeddable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -414,6 +420,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiMobileField);
 				if (result == null) result = caseUiVisibilityProcessable(uiMobileField);
 				if (result == null) result = caseUiRawBindable(uiMobileField);
+				if (result == null) result = caseUiI18nInfoable(uiMobileField);
 				if (result == null) result = caseUiNamedElement(uiMobileField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -426,6 +433,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiMobileLayout);
 				if (result == null) result = caseUiVisibilityProcessable(uiMobileLayout);
 				if (result == null) result = caseUiRawBindable(uiMobileLayout);
+				if (result == null) result = caseUiI18nInfoable(uiMobileLayout);
 				if (result == null) result = caseUiNamedElement(uiMobileLayout);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -438,6 +446,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiMobileAction);
 				if (result == null) result = caseUiVisibilityProcessable(uiMobileAction);
 				if (result == null) result = caseUiRawBindable(uiMobileAction);
+				if (result == null) result = caseUiI18nInfoable(uiMobileAction);
 				if (result == null) result = caseUiNamedElement(uiMobileAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -458,6 +467,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiGridLayout);
 				if (result == null) result = caseUiVisibilityProcessable(uiGridLayout);
 				if (result == null) result = caseUiRawBindable(uiGridLayout);
+				if (result == null) result = caseUiI18nInfoable(uiGridLayout);
 				if (result == null) result = caseUiNamedElement(uiGridLayout);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -478,6 +488,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiHorizontalLayout);
 				if (result == null) result = caseUiVisibilityProcessable(uiHorizontalLayout);
 				if (result == null) result = caseUiRawBindable(uiHorizontalLayout);
+				if (result == null) result = caseUiI18nInfoable(uiHorizontalLayout);
 				if (result == null) result = caseUiNamedElement(uiHorizontalLayout);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -498,6 +509,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiVerticalLayout);
 				if (result == null) result = caseUiVisibilityProcessable(uiVerticalLayout);
 				if (result == null) result = caseUiRawBindable(uiVerticalLayout);
+				if (result == null) result = caseUiI18nInfoable(uiVerticalLayout);
 				if (result == null) result = caseUiNamedElement(uiVerticalLayout);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -518,6 +530,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiFormLayout);
 				if (result == null) result = caseUiVisibilityProcessable(uiFormLayout);
 				if (result == null) result = caseUiRawBindable(uiFormLayout);
+				if (result == null) result = caseUiI18nInfoable(uiFormLayout);
 				if (result == null) result = caseUiNamedElement(uiFormLayout);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -529,6 +542,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiTextField);
 				if (result == null) result = caseUiVisibilityProcessable(uiTextField);
 				if (result == null) result = caseUiRawBindable(uiTextField);
+				if (result == null) result = caseUiI18nInfoable(uiTextField);
 				if (result == null) result = caseUiNamedElement(uiTextField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -540,6 +554,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiImage);
 				if (result == null) result = caseUiVisibilityProcessable(uiImage);
 				if (result == null) result = caseUiRawBindable(uiImage);
+				if (result == null) result = caseUiI18nInfoable(uiImage);
 				if (result == null) result = caseUiNamedElement(uiImage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -552,6 +567,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiList);
 				if (result == null) result = caseUiVisibilityProcessable(uiList);
 				if (result == null) result = caseUiRawBindable(uiList);
+				if (result == null) result = caseUiI18nInfoable(uiList);
 				if (result == null) result = caseUiNamedElement(uiList);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -564,6 +580,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiTable);
 				if (result == null) result = caseUiVisibilityProcessable(uiTable);
 				if (result == null) result = caseUiRawBindable(uiTable);
+				if (result == null) result = caseUiI18nInfoable(uiTable);
 				if (result == null) result = caseUiNamedElement(uiTable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -576,6 +593,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiComboBox);
 				if (result == null) result = caseUiVisibilityProcessable(uiComboBox);
 				if (result == null) result = caseUiRawBindable(uiComboBox);
+				if (result == null) result = caseUiI18nInfoable(uiComboBox);
 				if (result == null) result = caseUiNamedElement(uiComboBox);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -593,6 +611,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiColumn);
 				if (result == null) result = caseUiVisibilityProcessable(uiColumn);
 				if (result == null) result = caseUiRawBindable(uiColumn);
+				if (result == null) result = caseUiI18nInfoable(uiColumn);
 				if (result == null) result = caseUiNamedElement(uiColumn);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -604,6 +623,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiColumnsAssignment);
 				if (result == null) result = caseUiVisibilityProcessable(uiColumnsAssignment);
 				if (result == null) result = caseUiRawBindable(uiColumnsAssignment);
+				if (result == null) result = caseUiI18nInfoable(uiColumnsAssignment);
 				if (result == null) result = caseUiNamedElement(uiColumnsAssignment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -615,6 +635,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiNumericField);
 				if (result == null) result = caseUiVisibilityProcessable(uiNumericField);
 				if (result == null) result = caseUiRawBindable(uiNumericField);
+				if (result == null) result = caseUiI18nInfoable(uiNumericField);
 				if (result == null) result = caseUiNamedElement(uiNumericField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -626,6 +647,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiCheckBox);
 				if (result == null) result = caseUiVisibilityProcessable(uiCheckBox);
 				if (result == null) result = caseUiRawBindable(uiCheckBox);
+				if (result == null) result = caseUiI18nInfoable(uiCheckBox);
 				if (result == null) result = caseUiNamedElement(uiCheckBox);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -695,6 +717,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				UiValidator uiValidator = (UiValidator)theEObject;
 				T result = caseUiValidator(uiValidator);
 				if (result == null) result = caseUiRawBindable(uiValidator);
+				if (result == null) result = caseUiI18nInfoable(uiValidator);
 				if (result == null) result = caseUiNamedElement(uiValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -704,6 +727,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiMaxLengthValidator(uiMaxLengthValidator);
 				if (result == null) result = caseUiValidator(uiMaxLengthValidator);
 				if (result == null) result = caseUiRawBindable(uiMaxLengthValidator);
+				if (result == null) result = caseUiI18nInfoable(uiMaxLengthValidator);
 				if (result == null) result = caseUiNamedElement(uiMaxLengthValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -713,6 +737,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiMinLengthValidator(uiMinLengthValidator);
 				if (result == null) result = caseUiValidator(uiMinLengthValidator);
 				if (result == null) result = caseUiRawBindable(uiMinLengthValidator);
+				if (result == null) result = caseUiI18nInfoable(uiMinLengthValidator);
 				if (result == null) result = caseUiNamedElement(uiMinLengthValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -722,6 +747,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiRegexpValidator(uiRegexpValidator);
 				if (result == null) result = caseUiValidator(uiRegexpValidator);
 				if (result == null) result = caseUiRawBindable(uiRegexpValidator);
+				if (result == null) result = caseUiI18nInfoable(uiRegexpValidator);
 				if (result == null) result = caseUiNamedElement(uiRegexpValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -731,6 +757,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiXbaseValidator(uiXbaseValidator);
 				if (result == null) result = caseUiValidator(uiXbaseValidator);
 				if (result == null) result = caseUiRawBindable(uiXbaseValidator);
+				if (result == null) result = caseUiI18nInfoable(uiXbaseValidator);
 				if (result == null) result = caseUiNamedElement(uiXbaseValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -775,6 +802,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiHorizontalButtonGroup);
 				if (result == null) result = caseUiVisibilityProcessable(uiHorizontalButtonGroup);
 				if (result == null) result = caseUiRawBindable(uiHorizontalButtonGroup);
+				if (result == null) result = caseUiI18nInfoable(uiHorizontalButtonGroup);
 				if (result == null) result = caseUiNamedElement(uiHorizontalButtonGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -786,6 +814,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiButton);
 				if (result == null) result = caseUiVisibilityProcessable(uiButton);
 				if (result == null) result = caseUiRawBindable(uiButton);
+				if (result == null) result = caseUiI18nInfoable(uiButton);
 				if (result == null) result = caseUiNamedElement(uiButton);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -799,6 +828,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiSwitch);
 				if (result == null) result = caseUiVisibilityProcessable(uiSwitch);
 				if (result == null) result = caseUiRawBindable(uiSwitch);
+				if (result == null) result = caseUiI18nInfoable(uiSwitch);
 				if (result == null) result = caseUiNamedElement(uiSwitch);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -821,6 +851,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiVerticalComponentGroup);
 				if (result == null) result = caseUiVisibilityProcessable(uiVerticalComponentGroup);
 				if (result == null) result = caseUiRawBindable(uiVerticalComponentGroup);
+				if (result == null) result = caseUiI18nInfoable(uiVerticalComponentGroup);
 				if (result == null) result = caseUiNamedElement(uiVerticalComponentGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -832,6 +863,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiMobileTabSheet);
 				if (result == null) result = caseUiVisibilityProcessable(uiMobileTabSheet);
 				if (result == null) result = caseUiRawBindable(uiMobileTabSheet);
+				if (result == null) result = caseUiI18nInfoable(uiMobileTabSheet);
 				if (result == null) result = caseUiNamedElement(uiMobileTabSheet);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -843,6 +875,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiMobileTabAssignment);
 				if (result == null) result = caseUiVisibilityProcessable(uiMobileTabAssignment);
 				if (result == null) result = caseUiRawBindable(uiMobileTabAssignment);
+				if (result == null) result = caseUiI18nInfoable(uiMobileTabAssignment);
 				if (result == null) result = caseUiNamedElement(uiMobileTabAssignment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -853,6 +886,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiTabSheet);
 				if (result == null) result = caseUiVisibilityProcessable(uiTabSheet);
 				if (result == null) result = caseUiRawBindable(uiTabSheet);
+				if (result == null) result = caseUiI18nInfoable(uiTabSheet);
 				if (result == null) result = caseUiNamedElement(uiTabSheet);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -861,6 +895,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				UiTabAssignment uiTabAssignment = (UiTabAssignment)theEObject;
 				T result = caseUiTabAssignment(uiTabAssignment);
 				if (result == null) result = caseUiLayoutAssignment(uiTabAssignment);
+				if (result == null) result = caseUiI18nInfoable(uiTabAssignment);
 				if (result == null) result = caseUiNamedElement(uiTabAssignment);
 				if (result == null) result = caseUiRawBindableProvider(uiTabAssignment);
 				if (result == null) result = defaultCase(theEObject);
@@ -883,6 +918,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiMobileNavigationPage);
 				if (result == null) result = caseUiVisibilityProcessable(uiMobileNavigationPage);
 				if (result == null) result = caseUiRawBindable(uiMobileNavigationPage);
+				if (result == null) result = caseUiI18nInfoable(uiMobileNavigationPage);
 				if (result == null) result = caseUiNamedElement(uiMobileNavigationPage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -905,6 +941,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiMobileNavigationButton);
 				if (result == null) result = caseUiVisibilityProcessable(uiMobileNavigationButton);
 				if (result == null) result = caseUiRawBindable(uiMobileNavigationButton);
+				if (result == null) result = caseUiI18nInfoable(uiMobileNavigationButton);
 				if (result == null) result = caseUiNamedElement(uiMobileNavigationButton);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -939,6 +976,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiSearchField);
 				if (result == null) result = caseUiVisibilityProcessable(uiSearchField);
 				if (result == null) result = caseUiRawBindable(uiSearchField);
+				if (result == null) result = caseUiI18nInfoable(uiSearchField);
 				if (result == null) result = caseUiNamedElement(uiSearchField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -950,6 +988,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiTypeProvider(uiSearchDialog);
 				if (result == null) result = caseUiVisibilityProcessable(uiSearchDialog);
 				if (result == null) result = caseUiRawBindable(uiSearchDialog);
+				if (result == null) result = caseUiI18nInfoable(uiSearchDialog);
 				if (result == null) result = caseUiNamedElement(uiSearchDialog);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -978,6 +1017,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiLabel);
 				if (result == null) result = caseUiVisibilityProcessable(uiLabel);
 				if (result == null) result = caseUiRawBindable(uiLabel);
+				if (result == null) result = caseUiI18nInfoable(uiLabel);
 				if (result == null) result = caseUiNamedElement(uiLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -989,6 +1029,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiDecimalField);
 				if (result == null) result = caseUiVisibilityProcessable(uiDecimalField);
 				if (result == null) result = caseUiRawBindable(uiDecimalField);
+				if (result == null) result = caseUiI18nInfoable(uiDecimalField);
 				if (result == null) result = caseUiNamedElement(uiDecimalField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -1000,6 +1041,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiTextArea);
 				if (result == null) result = caseUiVisibilityProcessable(uiTextArea);
 				if (result == null) result = caseUiRawBindable(uiTextArea);
+				if (result == null) result = caseUiI18nInfoable(uiTextArea);
 				if (result == null) result = caseUiNamedElement(uiTextArea);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -1012,6 +1054,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiOptionsGroup);
 				if (result == null) result = caseUiVisibilityProcessable(uiOptionsGroup);
 				if (result == null) result = caseUiRawBindable(uiOptionsGroup);
+				if (result == null) result = caseUiI18nInfoable(uiOptionsGroup);
 				if (result == null) result = caseUiNamedElement(uiOptionsGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -1023,6 +1066,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiDateField);
 				if (result == null) result = caseUiVisibilityProcessable(uiDateField);
 				if (result == null) result = caseUiRawBindable(uiDateField);
+				if (result == null) result = caseUiI18nInfoable(uiDateField);
 				if (result == null) result = caseUiNamedElement(uiDateField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -1034,6 +1078,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiBrowser);
 				if (result == null) result = caseUiVisibilityProcessable(uiBrowser);
 				if (result == null) result = caseUiRawBindable(uiBrowser);
+				if (result == null) result = caseUiI18nInfoable(uiBrowser);
 				if (result == null) result = caseUiNamedElement(uiBrowser);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -1045,7 +1090,20 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiEmbeddable(uiProgressBar);
 				if (result == null) result = caseUiVisibilityProcessable(uiProgressBar);
 				if (result == null) result = caseUiRawBindable(uiProgressBar);
+				if (result == null) result = caseUiI18nInfoable(uiProgressBar);
 				if (result == null) result = caseUiNamedElement(uiProgressBar);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_I1_8N_INFO: {
+				UiI18nInfo uiI18nInfo = (UiI18nInfo)theEObject;
+				T result = caseUiI18nInfo(uiI18nInfo);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_I1_8N_INFOABLE: {
+				UiI18nInfoable uiI18nInfoable = (UiI18nInfoable)theEObject;
+				T result = caseUiI18nInfoable(uiI18nInfoable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2490,6 +2548,36 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiProgressBar(UiProgressBar object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui I1 8n Info</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui I1 8n Info</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiI18nInfo(UiI18nInfo object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui I1 8n Infoable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui I1 8n Infoable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiI18nInfoable(UiI18nInfoable object) {
 		return null;
 	}
 

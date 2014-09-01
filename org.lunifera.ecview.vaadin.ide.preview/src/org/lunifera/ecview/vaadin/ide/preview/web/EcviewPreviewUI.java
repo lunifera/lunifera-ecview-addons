@@ -19,10 +19,14 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecp.ecview.common.context.I18nAdapter;
+import org.eclipse.emf.ecp.ecview.common.context.II18nService;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
@@ -30,9 +34,17 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
 import org.eclipse.emf.ecp.ecview.common.services.IWidgetAssocationsService;
 import org.eclipse.emf.ecp.ecview.common.tooling.IWidgetMouseClickService;
 import org.eclipse.emf.ecp.ecview.common.types.ITypeProviderService;
+import org.lunifera.ecview.semantic.uimodel.UiModel;
+import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.vaadin.ide.preview.Activator;
+import org.lunifera.ecview.vaadin.ide.preview.parts.IDEPreviewHandler;
+import org.lunifera.ide.core.api.i18n.II18nRegistry;
+import org.lunifera.ide.core.api.i18n.II18nRegistry.Proposal;
+import org.lunifera.ide.core.ui.util.CoreUiUtil;
 import org.lunifera.runtime.web.ecview.presentation.vaadin.VaadinRenderer;
 import org.lunifera.runtime.web.vaadin.databinding.VaadinObservables;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.vaadin.annotations.PreserveOnRefresh;
 import com.vaadin.annotations.Push;
@@ -55,6 +67,9 @@ import com.vaadin.ui.themes.Reindeer;
 @Title("Vaadin IDE Preview")
 @Push
 public class EcviewPreviewUI extends UI {
+
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(EcviewPreviewUI.class);
 
 	private IViewContext context;
 	private CssLayout layout;
@@ -102,7 +117,7 @@ public class EcviewPreviewUI extends UI {
 						disposeContext();
 					}
 				} catch (Exception e) {
-					// nothing to do
+					LOGGER.error("{}", e);
 				}
 
 				if (Activator.getIDEPreviewHandler().getActiveView() != null) {
@@ -114,6 +129,8 @@ public class EcviewPreviewUI extends UI {
 						params.put(IViewContext.PARAM_SERVICES, services);
 						services.put(ITypeProviderService.class.getName(),
 								classLoadingHelper);
+						services.put(II18nService.class.getName(),
+								new I18nProvider());
 
 						YView view = Activator.getIDEPreviewHandler()
 								.getActiveView();
@@ -127,7 +144,7 @@ public class EcviewPreviewUI extends UI {
 						}
 
 					} catch (Exception e) {
-						// nothing to do
+						LOGGER.error("{}", e);
 					}
 				} else {
 					layout.addComponent(new Label("No viewmodel available yet!"));
@@ -141,6 +158,9 @@ public class EcviewPreviewUI extends UI {
 			 */
 			private void registerBeans(YView view) {
 				for (YBeanSlot slot : view.getBeanSlots()) {
+					if(slot.getName().startsWith("ecview")){
+						continue;
+					}
 					Class<?> bean = slot.getValueType();
 					if (bean != null) {
 						try {
@@ -258,6 +278,38 @@ public class EcviewPreviewUI extends UI {
 				}
 			}
 			return null;
+		}
+	}
+
+	/**
+	 * An internal I18nAdapter that delegates to the workspace.
+	 */
+	private class I18nProvider extends I18nAdapter {
+		private II18nRegistry i18nRegistry;
+		private CoreUiUtil util;
+
+		public I18nProvider() {
+			i18nRegistry = Activator.getDefault().getInjector()
+					.getInstance(II18nRegistry.class);
+			util = Activator.getDefault().getInjector()
+					.getInstance(CoreUiUtil.class);
+		}
+
+		@Override
+		public String getValue(String i18nKey, Locale locale) {
+			IDEPreviewHandler handler = Activator.getIDEPreviewHandler();
+			// get the grammar element for the YView
+			UiView view = handler.getActiveViewFromGrammar();
+			UiModel model = (UiModel) view.eContainer();
+
+			// access the project with the view
+			IProject project = util.getProject(view);
+
+			// calculate best matching proposal
+			Proposal proposal = i18nRegistry.findBestMatch(project, locale,
+					model.getPackageName(), i18nKey);
+
+			return proposal != null ? proposal.getI18nValue() : "";
 		}
 	}
 }

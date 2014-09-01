@@ -545,6 +545,14 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiProgressBarAdapter();
 			}
 			@Override
+			public Adapter caseUiI18nInfo(UiI18nInfo object) {
+				return createUiI18nInfoAdapter();
+			}
+			@Override
+			public Adapter caseUiI18nInfoable(UiI18nInfoable object) {
+				return createUiI18nInfoableAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -1905,6 +1913,34 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiProgressBarAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiI18nInfo <em>Ui I1 8n Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiI18nInfo
+	 * @generated
+	 */
+	public Adapter createUiI18nInfoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiI18nInfoable <em>Ui I1 8n Infoable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiI18nInfoable
+	 * @generated
+	 */
+	public Adapter createUiI18nInfoableAdapter() {
 		return null;
 	}
 

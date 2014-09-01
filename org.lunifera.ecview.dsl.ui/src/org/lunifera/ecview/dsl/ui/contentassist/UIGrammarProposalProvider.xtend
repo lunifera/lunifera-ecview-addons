@@ -3,10 +3,87 @@
  */
 package org.lunifera.ecview.dsl.ui.contentassist
 
-import org.lunifera.ecview.dsl.ui.contentassist.AbstractUIGrammarProposalProvider
+import com.google.inject.Inject
+import java.util.List
+import java.util.Locale
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.jdt.core.IJavaProject
+import org.eclipse.jface.viewers.StyledString
+import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.common.types.access.jdt.IJavaProjectProvider
+import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
+import org.lunifera.ecview.semantic.uimodel.UiModel
+import org.lunifera.ide.core.api.i18n.II18nRegistry
+import org.lunifera.ide.core.api.i18n.II18nRegistry.Proposal
+import org.lunifera.ide.core.ui.util.CoreUiUtil
+import org.eclipse.core.resources.IProject
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
  */
 class UIGrammarProposalProvider extends AbstractUIGrammarProposalProvider {
+
+	@Inject
+	II18nRegistry i18nRegistry
+	@Inject
+	CoreUiUtil util;
+
+	override void completeUiI18nInfo_Key(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+
+		val IProject project = util.getProject(model)
+		val searchString = context.prefix.replaceAll("\"", "")
+		val List<Proposal> proposals = i18nRegistry.findProposals(project, util.locale,
+			findPackage(model), searchString);
+
+		val int replacementOffset = context.getReplaceRegion().getOffset();
+		val int replacementLength = context.getReplaceRegion().getLength() + 1;
+
+		val relativePath = searchString.startsWith(".")
+		for (proposal : proposals) {
+			val ConfigurableCompletionProposal result = doCreateProposal("\"" + proposal.toReplacementString(relativePath) + "\"",
+				proposal.displayString(), null, replacementOffset, replacementLength);
+			result.setPriority(1);
+			result.setMatcher(context.getMatcher());
+			result.setReplaceContextLength(context.getReplaceContextLength());
+			acceptor.accept(result)
+		}
+	}
+	
+	def String toReplacementString(Proposal proposal, boolean relative){
+		if(!relative){
+			return proposal.i18nKey
+		}else{
+			val String[] pathTokens = proposal.i18nKey.split('\\.')
+			return if(pathTokens.length > 0) ("." + pathTokens.get(pathTokens.length -1)) else ""
+		}
+	}
+
+	/**
+	 * Iterates the containment tree up to the UiModel and returns the package.
+	 */
+	def String findPackage(EObject model) {
+		var EObject temp = model;
+		while (temp != null && temp.eContainer != null) {
+			if (temp instanceof UiModel) {
+				val UiModel uiModel = temp as UiModel
+				return uiModel.packageName
+			}
+			temp = temp.eContainer
+			if (temp instanceof UiModel) {
+				val UiModel uiModel = temp as UiModel
+				return uiModel.packageName
+			}
+		}
+		return ""
+	}
+
+	def StyledString displayString(Proposal proposal) {
+		val StyledString displayText = new StyledString(proposal.i18nValue, StyledString.QUALIFIER_STYLER).append(" : ").
+			append(proposal.locale.toLanguageTag, StyledString.DECORATIONS_STYLER).append(" - ").append(
+				proposal.i18nKey, StyledString.DECORATIONS_STYLER);
+		return displayText;
+	}
 }

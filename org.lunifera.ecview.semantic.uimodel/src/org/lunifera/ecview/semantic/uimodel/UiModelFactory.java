@@ -715,6 +715,15 @@ public interface UiModelFactory extends EFactory {
 	UiProgressBar createUiProgressBar();
 
 	/**
+	 * Returns a new object of class '<em>Ui I1 8n Info</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui I1 8n Info</em>'.
+	 * @generated
+	 */
+	UiI18nInfo createUiI18nInfo();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -328,16 +328,16 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 	private void configureUiTextArea(FormattingConfig c, UiTextAreaElements ele) {
 		// Keywords
 		c.setLinewrap(1, 1, 2).before(ele.getTextareaKeyword_1());
-		c.setLinewrap(1, 1, 2).before(ele.getValidatorsAssignment_3_1_0());
+		c.setLinewrap(1, 1, 2).before(ele.getValidatorsAssignment_4_1_0());
 	}
 
 	private void configureUiSearchDialog(FormattingConfig c,
 			UiSearchDialogElements ele) {
 		// Keywords
 		c.setLinewrap(1, 1, 2).before(ele.getSearchdialogKeyword_1());
-		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_4_0());
-		c.setLinewrap(1, 1, 2).before(ele.getSearchKeyword_5_0());
-		c.setLinewrap(1, 1, 2).before(ele.getContentKeyword_6_0());
+		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_5_0());
+		c.setLinewrap(1, 1, 2).before(ele.getSearchKeyword_6_0());
+		c.setLinewrap(1, 1, 2).before(ele.getContentKeyword_7_0());
 		// Brackets
 		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3());
 		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_5_1());
@@ -371,68 +371,68 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 	private void configureUiBrowser(FormattingConfig c, UiBrowserElements ele) {
 		// Keywords
 		c.setLinewrap(1, 1, 2).before(ele.getBrowserKeyword_1());
-//		// Brackets
-//		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
-//		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_3());
-//		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_3());
-//		// Indentation
-//		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
-//		c.setIndentationDecrement().before(
-//				ele.getRightCurlyBracketKeyword_3_3());
+		// // Brackets
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_3());
+		// c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_3());
+		// // Indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setIndentationDecrement().before(
+		// ele.getRightCurlyBracketKeyword_3_3());
 	}
 
 	private void configureUiProgressbar(FormattingConfig c,
 			UiProgressBarElements ele) {
 		// Keywords
 		c.setLinewrap(1, 1, 2).before(ele.getProgressbarKeyword_1());
-		c.setLinewrap(1, 1, 2).before(ele.getValidatorsAssignment_3_1_0());
+		c.setLinewrap(1, 1, 2).before(ele.getValidatorsAssignment_4_1_0());
 		c.setLinewrap(1, 1, 2).before(
-				ele.getProcessorAssignmentAssignment_3_2());
+				ele.getProcessorAssignmentAssignment_4_2());
 		// Brackets
-//		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
-//		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_3());
-//		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_3());
-//		// Indentation
-//		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
-//		c.setIndentationDecrement().before(
-//				ele.getRightCurlyBracketKeyword_3_3());
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_3());
+		// c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_3());
+		// // Indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setIndentationDecrement().before(
+		// ele.getRightCurlyBracketKeyword_3_3());
 	}
 
 	private void configureUiOptionsGroup(FormattingConfig c,
 			UiOptionsGroupElements ele) {
 		// Brackets
-//		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
-//		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_4());
-//		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_4());
-//		// Indentation
-//		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
-//		c.setIndentationDecrement().before(
-//				ele.getRightCurlyBracketKeyword_3_4());
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_4());
+		// c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_4());
+		// // Indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setIndentationDecrement().before(
+		// ele.getRightCurlyBracketKeyword_3_4());
 	}
 
 	private void configureUiMobileNavigationPage(FormattingConfig c,
 			UiMobileNavigationPageElements ele) {
 		// Keywords
-		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_4_0());
-//		// Brackets
-//		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3());
-//		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_8());
-//		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_8());
-//		// Indentation
-//		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3());
-//		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_8());
+		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_5_0());
+		// // Brackets
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_8());
+		// c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_8());
+		// // Indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3());
+		// c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_8());
 	}
 
 	private void configureUiDialog(FormattingConfig c, UiDialogElements ele) {
 		// Keywords
-		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_4_0());
-//		// Brackets
-//		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3());
-//		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_8());
-//		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_8());
-//		// Indentation
-//		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3());
-//		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_8());
+		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_5_0());
+		// // Brackets
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_8());
+		// c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_8());
+		// // Indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3());
+		// c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_8());
 	}
 
 	private void configureUiList(FormattingConfig c, UiListElements ele) {
@@ -443,14 +443,14 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 	private void configureUiImage(FormattingConfig c, UiImageElements ele) {
 		// Keywords
 		c.setLinewrap(1, 1, 2).before(ele.getImageKeyword_1());
-//		// Brackets
-//		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
-//		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_4());
-//		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_4());
-//		// Indentation
-//		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
-//		c.setIndentationDecrement().before(
-//				ele.getRightCurlyBracketKeyword_3_4());
+		// // Brackets
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_4());
+		// c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_4());
+		// // Indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setIndentationDecrement().before(
+		// ele.getRightCurlyBracketKeyword_3_4());
 	}
 
 	private void configureUiNumericFiled(FormattingConfig c,
@@ -458,26 +458,26 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		// Keywords
 		c.setLinewrap(1, 1, 2).before(ele.getNumericFieldKeyword_1());
 		// Brackets
-//		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_4_0());
-//		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_4_3());
-//		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_4_3());
-//		// Indentation
-//		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_4_0());
-//		c.setIndentationDecrement().before(
-//				ele.getRightCurlyBracketKeyword_4_3());
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_4_0());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_4_3());
+		// c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_4_3());
+		// // Indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_4_0());
+		// c.setIndentationDecrement().before(
+		// ele.getRightCurlyBracketKeyword_4_3());
 	}
 
 	private void configureUiCheckBox(FormattingConfig c, UiCheckBoxElements ele) {
 		// Keywords
 		c.setLinewrap(1, 1, 2).before(ele.getCheckboxKeyword_1());
-//		// Brackets
-//		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
-//		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_3());
-//		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_3());
-//		// Indentation
-//		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
-//		c.setIndentationDecrement().before(
-//				ele.getRightCurlyBracketKeyword_3_3());
+		// // Brackets
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_3());
+		// c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_3());
+		// // Indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setIndentationDecrement().before(
+		// ele.getRightCurlyBracketKeyword_3_3());
 	}
 
 	private void configureUiTable(FormattingConfig c, UiTableElements ele) {
@@ -486,21 +486,21 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap(1, 1, 2).before(ele.getSelectionTypeKeyword_3_1_1_0());
 		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_3_1_2_0());
 		// Brackets
-//		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
-//		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_5());
-//		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_5());
-//		// Indentation
-//		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
-//		c.setIndentationDecrement().before(
-//				ele.getRightCurlyBracketKeyword_3_5());
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_5());
+		// c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_5());
+		// // Indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setIndentationDecrement().before(
+		// ele.getRightCurlyBracketKeyword_3_5());
 	}
 
 	public void configureUiModel(FormattingConfig c,
 			UIGrammarGrammarAccess.UiModelElements ele) {
 		// linewrap
 		c.setLinewrap(1, 1, 2).after(ele.getPackageNameAssignment_1());
-		c.setLinewrap().around(ele.getImportsAssignment_2());
-		//c.setLinewrap().around(ele.getRootsAssignment_3());
+		c.setLinewrap(1, 1, 2).around(ele.getImportsAssignment_2());
+		// c.setLinewrap().around(ele.getRootsAssignment_3());
 	}
 
 	private void configureUiIdeView(FormattingConfig c, UiIDEViewElements ele) {
@@ -508,11 +508,11 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap(1).before(ele.getIdeviewKeyword_0());
 		c.setLinewrap(1, 1, 2).before(ele.getViewsetKeyword_3_0());
 		// Brackets
-//		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_2());
-//		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());
-//		// indentation
-//		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_2());
-//		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_7());
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_2());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());
+		// // indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_2());
+		// c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_7());
 	}
 
 	private void configureMobileView(FormattingConfig c,
@@ -521,35 +521,35 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap(1, 1, 2).before(ele.getMobileKeyword_0());
 		c.setLinewrap(1, 1, 2).before(ele.getViewsetKeyword_3_0());
 		// Brackets
-//		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_2());
-//		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());
-//		// indentation
-//		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_2());
-//		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_7());
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_2());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());
+		// // indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_2());
+		// c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_7());
 	}
 
 	private void configureUiViewSet(FormattingConfig c, UiViewSetElements ele) {
 		// Keywords
 		c.setLinewrap(1).before(ele.getViewsetKeyword_0());
 		// Brackets
-//		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_2());
-//		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_5());
-//		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_5());
-//		// indentation
-//		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_2());
-//		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_5());
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_2());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_5());
+		// c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_5());
+		// // indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_2());
+		// c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_5());
 	}
 
 	private void configureUiTabSheet(FormattingConfig c, UiTabSheetElements ele) {
 		// Keywords
 		c.setLinewrap(1).before(ele.getTabsheetKeyword_1());
 		// Brackets
-//		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3());
-//		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());
-//		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_7());
-//		// indentation
-//		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3());
-//		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_7());
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());
+		// c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_7());
+		// // indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3());
+		// c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_7());
 	}
 
 	private void configureUiTab(FormattingConfig c, UiTabAssignmentElements ele) {
@@ -568,12 +568,12 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		// c.setLinewrap(1, 1, 2).before(ele.getFormKeyword_1());
 		c.setLinewrap(1, 1, 2).after(ele.getContentsAssignment_4());
 		// Brackets
-//		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3());
-//		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());
-//		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_7());
-//		// indentation
-//		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3());
-//		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_7());
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());
+		// c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_7());
+		// // indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3());
+		// c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_7());
 	}
 
 	private void configureUiColumns(FormattingConfig c,
@@ -581,12 +581,12 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		// Keywords
 		c.setLinewrap(1, 1, 2).before(ele.getColumnsKeyword_1());
 		// Brackets
-//		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_2());
-//		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_4());
-//		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_4());
-//		// Indentation
-//		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_2());
-//		c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_4());
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_2());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_4());
+		// c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_4());
+		// // Indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_2());
+		// c.setIndentationDecrement().before(ele.getRightCurlyBracketKeyword_4());
 	}
 
 	private void configureUiBeanSlot(FormattingConfig c, UiBeanSlotElements ele) {
@@ -652,13 +652,13 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap(1, 1, 2).before(ele.getCaptionFieldKeyword_3_1_1_0());
 		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_3_1_2_0());
 		// Brackets
-//		c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
-//		c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_4());
-//		c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_4());
-//		// Indentation
-//		c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
-//		c.setIndentationDecrement().before(
-//				ele.getRightCurlyBracketKeyword_3_4());
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_4());
+		// c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_4());
+		// // Indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setIndentationDecrement().before(
+		// ele.getRightCurlyBracketKeyword_3_4());
 	}
 
 }
