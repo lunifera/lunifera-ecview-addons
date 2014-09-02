@@ -4,7 +4,7 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
-import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmOperation;
 
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
 
@@ -17,7 +17,7 @@ import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
 public interface UiColumnValidator {
 	boolean validate();
 
-	boolean validateJvmField(JvmField value);
+	boolean validateGetter(JvmOperation value);
 	boolean validateIconName(String value);
 	boolean validateVisible(boolean value);
 	boolean validateOrderable(boolean value);

@@ -2,7 +2,7 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
-import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmOperation;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +12,7 @@ import org.eclipse.xtext.common.types.JvmField;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiColumn#getJvmField <em>Jvm Field</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiColumn#getGetter <em>Getter</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiColumn#getIconName <em>Icon Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiColumn#isVisible <em>Visible</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiColumn#isOrderable <em>Orderable</em>}</li>
@@ -29,30 +29,30 @@ import org.eclipse.xtext.common.types.JvmField;
  */
 public interface UiColumn extends UiField {
 	/**
-	 * Returns the value of the '<em><b>Jvm Field</b></em>' reference.
+	 * Returns the value of the '<em><b>Getter</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Jvm Field</em>' reference isn't clear,
+	 * If the meaning of the '<em>Getter</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Jvm Field</em>' reference.
-	 * @see #setJvmField(JvmField)
-	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiColumn_JvmField()
+	 * @return the value of the '<em>Getter</em>' reference.
+	 * @see #setGetter(JvmOperation)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiColumn_Getter()
 	 * @model
 	 * @generated
 	 */
-	JvmField getJvmField();
+	JvmOperation getGetter();
 
 	/**
-	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiColumn#getJvmField <em>Jvm Field</em>}' reference.
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiColumn#getGetter <em>Getter</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Jvm Field</em>' reference.
-	 * @see #getJvmField()
+	 * @param value the new value of the '<em>Getter</em>' reference.
+	 * @see #getGetter()
 	 * @generated
 	 */
-	void setJvmField(JvmField value);
+	void setGetter(JvmOperation value);
 
 	/**
 	 * Returns the value of the '<em><b>Icon Name</b></em>' attribute.

@@ -227,6 +227,8 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 		switch (eDataType.getClassifierID()) {
 			case UiModelPackage.UI_FLAT_ALIGNMENT:
 				return createUiFlatAlignmentFromString(eDataType, initialValue);
+			case UiModelPackage.UI_ALIGNMENT:
+				return createUiAlignmentFromString(eDataType, initialValue);
 			case UiModelPackage.UI_SELECTION_TYPE:
 				return createUiSelectionTypeFromString(eDataType, initialValue);
 			default:
@@ -244,6 +246,8 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 		switch (eDataType.getClassifierID()) {
 			case UiModelPackage.UI_FLAT_ALIGNMENT:
 				return convertUiFlatAlignmentToString(eDataType, instanceValue);
+			case UiModelPackage.UI_ALIGNMENT:
+				return convertUiAlignmentToString(eDataType, instanceValue);
 			case UiModelPackage.UI_SELECTION_TYPE:
 				return convertUiSelectionTypeToString(eDataType, instanceValue);
 			default:
@@ -1048,6 +1052,26 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	 * @generated
 	 */
 	public String convertUiFlatAlignmentToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiAlignment createUiAlignmentFromString(EDataType eDataType, String initialValue) {
+		UiAlignment result = UiAlignment.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertUiAlignmentToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

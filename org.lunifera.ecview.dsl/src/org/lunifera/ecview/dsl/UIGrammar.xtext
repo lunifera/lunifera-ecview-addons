@@ -5,6 +5,7 @@ import "http://www.lunifera.org/ecview/dsl/uimodel/core"
 import "http://www.eclipse.org/xtext/common/JavaVMTypes"
 import "http://www.eclipse.org/xtext/xbase/Xbase"
 import "http://www.eclipse.org/xtext/xbase/Xtype"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 UiModel returns UiModel:
 	'package' packageName=QualifiedName
@@ -49,7 +50,8 @@ UiBindingEndpointAssignment returns UiBindingExpression:
 	| ({UiBindingEndpointAssignment} typedBindableAlias=[UiTypedBindable] path=(UiPathSegment)?));
 
 UiPathSegment returns UiPathSegment:
-	'.' jvmField=[JvmField] path=(UiPathSegment)?;
+	{UiPathSegment}
+	'.' getter=[JvmOperation] path=(UiPathSegment)?;
 
 UiTypedBindableDef returns UiBindingExpression:
 	{UiTypedBindableDef}
@@ -87,8 +89,7 @@ UiIDEView returns UiIDEView:
 	('viewset' viewSet=[UiViewSet] (';')?)?
 	((beanSlots+=UiBeanSlot)
 	|
-	(bindingEndpointAlias+=UiBindingEndpointAlias)
-	)*
+	(bindingEndpointAlias+=UiBindingEndpointAlias))*
 	content=UiEmbeddable
 	((bindingEndpointAlias+=UiBindingEndpointAlias)
 	|
@@ -103,8 +104,7 @@ UiMobileView returns UiMobileView:
 	('viewset' viewSet=[UiViewSet] (';')?)?
 	((beanSlots+=UiBeanSlot)
 	|
-	(bindingEndpointAlias+=UiBindingEndpointAlias)
-	)*
+	(bindingEndpointAlias+=UiBindingEndpointAlias))*
 	content=UiEmbeddable
 	((bindingEndpointAlias+=UiBindingEndpointAlias)
 	|
@@ -114,8 +114,7 @@ UiMobileView returns UiMobileView:
 	'}';
 
 UiI18nInfo:
-	'i18n' key = STRING
-;
+	'i18n' key=STRING;
 
 UiGridLayout returns UiGridLayout:
 	{UiGridLayout}
@@ -135,11 +134,10 @@ UiGridLayout returns UiGridLayout:
 
 UiVisibilityProcessorAssignment:
 	{UiVisibilityProcessorAssignment}
-	processor=UiVisibilityProcessor
-;
+	processor=UiVisibilityProcessor;
 
 UiGridLayoutAssigment returns UiGridLayoutAssigment:
-	element=UiEmbeddable;
+	element=UiEmbeddable ('align' alignment=UiAlignment )?;
 
 UiFormLayout:
 	{UiFormLayout}
@@ -152,7 +150,7 @@ UiFormLayout:
 	'}';
 
 UiFormLayoutAssigment:
-	element=UiEmbeddable;
+	element=UiEmbeddable ('align' alignment=UiAlignment )?;
 
 UiVerticalLayout:
 	{UiVerticalLayout}
@@ -169,7 +167,7 @@ UiVerticalLayout:
 	'}';
 
 UiVerticalLayoutAssigment:
-	element=UiEmbeddable;
+	element=UiEmbeddable ('align' alignment=UiAlignment )?;
 
 UiHorizontalLayout:
 	{UiHorizontalLayout}
@@ -186,7 +184,7 @@ UiHorizontalLayout:
 	'}';
 
 UiHorizontalLayoutAssigment returns UiHorizontalLayoutAssigment:
-	element=UiEmbeddable;
+	element=UiEmbeddable ('align' alignment=UiAlignment )?;
 
 UiMobileHorizontalButtonGroup returns UiHorizontalButtonGroup:
 	{UiHorizontalButtonGroup}
@@ -258,7 +256,7 @@ UiDialogAssignment:
 UiSearchDialog:
 	{UiSearchDialog}
 	'searchdialog' (i18nInfo=UiI18nInfo)? name=ID? '{'
-	('type' jvmType=JvmTypeReference )?
+	('type' jvmType=JvmTypeReference)?
 	('search' '{'
 	searchFields+=UiDialogSearchFieldAssignment*
 	'}')?
@@ -299,7 +297,7 @@ UiTextField returns UiTextField:
 	name=ID?
 	('{'
 	(validators+=UiValidator
-		|
+	|
 	bindings+=UiBinding)*
 	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
@@ -313,7 +311,7 @@ UiTextArea returns UiTextArea:
 	'textarea' (i18nInfo=UiI18nInfo)? name=ID?
 	('{'
 	(validators+=UiValidator
-		|
+	|
 	bindings+=UiBinding)*
 	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
@@ -323,7 +321,7 @@ UiDateField returns UiDateField:
 	'datefield' (i18nInfo=UiI18nInfo)? name=ID?
 	('{'
 	(validators+=UiValidator
-		|
+	|
 	bindings+=UiBinding)*
 	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
@@ -333,7 +331,7 @@ UiBrowser returns UiBrowser:
 	'browser' (i18nInfo=UiI18nInfo)? name=ID?
 	('{'
 	(validators+=UiValidator
-		|
+	|
 	bindings+=UiBinding)*
 	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
@@ -343,7 +341,7 @@ UiProgressBar returns UiProgressBar:
 	'progressbar' (i18nInfo=UiI18nInfo)? name=ID?
 	('{'
 	(validators+=UiValidator
-		|
+	|
 	bindings+=UiBinding)*
 	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
@@ -367,11 +365,11 @@ UiTable returns UiTable:
 	('{'
 	(('type' jvmType=JvmTypeReference (';')?)?
 	& ('selectionType' selectionType=UiSelectionType (';')?)?
-	& ('imageField' itemImageProperty=[JvmField] (';')?)?
-	&(i18nInfo=UiI18nInfo)?)
+	& ('imageField' itemImageProperty=[JvmOperation] (';')?)?
+	& (i18nInfo=UiI18nInfo)?)
 	columnAssignment=UiColumnsAssignment?
 	(validators+=UiValidator
-		|
+	|
 	bindings+=UiBinding)*
 	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
@@ -381,11 +379,11 @@ UiComboBox returns UiComboBox:
 	'combo' name=ID?
 	('{'
 	(('type' jvmType=JvmTypeReference (';')?)?
-	& ('captionField' itemCaptionProperty=[JvmField] (';')?)?
-	& ('imageField' itemImageProperty=[JvmField] (';')?)?
+	& ('captionField' itemCaptionProperty=[JvmOperation] (';')?)?
+	& ('imageField' itemImageProperty=[JvmOperation] (';')?)?
 	& (i18nInfo=UiI18nInfo)?)
 	(validators+=UiValidator
-		|
+	|
 	bindings+=UiBinding)*
 	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
@@ -401,10 +399,10 @@ UiMobileNavigationButton:
 UiMobileSwitch returns UiSwitch:
 	{UiSwitch}
 	'switchIt' (i18nInfo=UiI18nInfo)? name=ID? ('{'
-		(processorAssignment=UiVisibilityProcessorAssignment)?
-		(validators+=UiValidator
-		|
-		bindings+=UiBinding)*
+	(processorAssignment=UiVisibilityProcessorAssignment)?
+	(validators+=UiValidator
+	|
+	bindings+=UiBinding)*
 	'}')?;
 
 UiLabel:
@@ -426,7 +424,7 @@ UiDecimalField returns UiDecimalField:
 	name=ID?
 	('{'
 	(validators+=UiValidator
-		|
+	|
 	bindings+=UiBinding)*
 	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
@@ -438,17 +436,25 @@ UiOptionsGroup:
 	('{'
 	(('type' jvmType=JvmTypeReference)?
 	& ('selectionType' selectionType=UiSelectionType)?
-	& ('captionField' itemCaptionProperty=[JvmField])?
-	& ('imageField' itemImageProperty=[JvmField])?
+	& ('captionField' itemCaptionProperty=[JvmOperation])?
+	& ('imageField' itemImageProperty=[JvmOperation])?
 	& (i18nInfo=UiI18nInfo)?)
 	(validators+=UiValidator
-		|
+	|
 	bindings+=UiBinding)*
 	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
 
 enum UiSelectionType returns UiSelectionType:
 	SINGLE='single' | MULTI='multi' | NONE='none';
+
+enum UiAlignment:
+	UNDEFINED = "undefined" 
+	| BOTTOM_CENTER = "bottom-center" | BOTTOM_LEFT="bottom-left" | BOTTOM_RIGHT = "bottom-right" | BOTTOM_FILL ="bottom-fill"  
+		| MIDDLE_CENTER = "middle-center" | MIDDLE_LEFT="middle-left" | MIDDLE_RIGHT = "middle-right" | MIDDLE_FILL ="middle-fill" 
+		| TOP_CENTER = "top-center" | TOP_LEFT="top-left" | TOP_RIGHT = "top-right" | TOP_FILL ="top-fill" 
+		| FILL_CENTER = "fill-center" | FILL_LEFT="fill-left" | FILL_RIGHT = "fill-right" | FILL_FILL ="fill-fill" 
+;
 
 UiColumnsAssignment:
 	{UiColumnsAssignment}
@@ -458,7 +464,7 @@ UiColumnsAssignment:
 
 UiColumn returns UiColumn:
 	{UiColumn}
-	'column' jvmField=[JvmField] ('icon' iconName=STRING)? (';')?;
+	'column' getter=[JvmOperation] ('icon' iconName=STRING)? (';')?;
 
 UiEmbeddable:
 	UiLayout | UiField | UiAction | UiTabSheet | UiMobileEmbeddable;
@@ -497,7 +503,7 @@ UiNumericField:
 	name=ID?
 	('{'
 	(validators+=UiValidator
-		|
+	|
 	bindings+=UiBinding)*
 	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
@@ -507,7 +513,7 @@ UiCheckBox:
 	'checkbox' (i18nInfo=UiI18nInfo)? name=ID?
 	('{'
 	(validators+=UiValidator
-		|
+	|
 	bindings+=UiBinding)*
 	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
@@ -534,34 +540,27 @@ UiXbaseValidator returns UiXbaseValidator:
 UiVisibilityProcessor:
 	{UiVisibilityProcessor}
 	'visibility' (name=ID)? '{'
-		propertiesAssignment=UiVisibilityPropertiesAssignment
+	propertiesAssignment=UiVisibilityPropertiesAssignment
 	'}'
-	( 'uses' '{'
-		(bindingAlias+=UiBindingEndpointAlias
-			|
-		changeTrigger+=UiChangeTrigger
-		)*
+	('uses' '{'
+	(bindingAlias+=UiBindingEndpointAlias
+	|
+	changeTrigger+=UiChangeTrigger)*
 	'}')?
-	('activation' 
-		rule=UiXbaseVisibilityRule
-	)?
-;
+	('activation'
+	rule=UiXbaseVisibilityRule)?;
 
 UiXbaseVisibilityRule:
-	expression=XBlockExpression
-;
+	expression=XBlockExpression;
 
 UiVisibilityPropertiesAssignment:
 	{UiVisibilityPropertiesAssignment}
-	properties+=UiVisibilityProperty*
-;
- 
+	properties+=UiVisibilityProperty*;
+
 UiVisibilityProperty:
-	bindableDef=UiTypedBindableDef '=' assignmentExpression=XAssignment
-;
+	bindableDef=UiTypedBindableDef '=' assignmentExpression=XAssignment;
 
 UiChangeTrigger:
-	'fireOn' endpoint=UiBindingEndpointAssignment
-;
+	'fireOn' endpoint=UiBindingEndpointAssignment;
 
 

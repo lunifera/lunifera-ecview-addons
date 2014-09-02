@@ -22,6 +22,7 @@ import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanSlotImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanSlotImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanSlotImpl#getJvmType <em>Jvm Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanSlotImpl#getEClass <em>EClass</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,6 +75,15 @@ public class UiBeanSlotImpl extends MinimalEObjectImpl.Container implements UiBe
 	 */
 	protected JvmTypeReference jvmType;
 
+	/**
+	 * The cached value of the '{@link #getEClass() <em>EClass</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEClass()
+	 * @generated
+	 * @ordered
+	 */
+	protected EClass eClass;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -206,11 +216,79 @@ public class UiBeanSlotImpl extends MinimalEObjectImpl.Container implements UiBe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getEClass() {
+		if (eClass != null && eClass.eIsProxy()) {
+			InternalEObject oldEClass = (InternalEObject)eClass;
+			eClass = (EClass)eResolveProxy(oldEClass);
+			if (eClass != oldEClass) {
+				InternalEObject newEClass = (InternalEObject)eClass;
+				NotificationChain msgs = oldEClass.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BEAN_SLOT__ECLASS, null, null);
+				if (newEClass.eInternalContainer() == null) {
+					msgs = newEClass.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BEAN_SLOT__ECLASS, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_BEAN_SLOT__ECLASS, oldEClass, eClass));
+			}
+		}
+		return eClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass basicGetEClass() {
+		return eClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEClass(EClass newEClass, NotificationChain msgs) {
+		EClass oldEClass = eClass;
+		eClass = newEClass;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BEAN_SLOT__ECLASS, oldEClass, newEClass);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEClass(EClass newEClass) {
+		if (newEClass != eClass) {
+			NotificationChain msgs = null;
+			if (eClass != null)
+				msgs = ((InternalEObject)eClass).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BEAN_SLOT__ECLASS, null, msgs);
+			if (newEClass != null)
+				msgs = ((InternalEObject)newEClass).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BEAN_SLOT__ECLASS, null, msgs);
+			msgs = basicSetEClass(newEClass, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BEAN_SLOT__ECLASS, newEClass, newEClass));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case UiModelPackage.UI_BEAN_SLOT__JVM_TYPE:
 				return basicSetJvmType(null, msgs);
+			case UiModelPackage.UI_BEAN_SLOT__ECLASS:
+				return basicSetEClass(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -230,6 +308,9 @@ public class UiBeanSlotImpl extends MinimalEObjectImpl.Container implements UiBe
 			case UiModelPackage.UI_BEAN_SLOT__JVM_TYPE:
 				if (resolve) return getJvmType();
 				return basicGetJvmType();
+			case UiModelPackage.UI_BEAN_SLOT__ECLASS:
+				if (resolve) return getEClass();
+				return basicGetEClass();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -250,6 +331,9 @@ public class UiBeanSlotImpl extends MinimalEObjectImpl.Container implements UiBe
 				return;
 			case UiModelPackage.UI_BEAN_SLOT__JVM_TYPE:
 				setJvmType((JvmTypeReference)newValue);
+				return;
+			case UiModelPackage.UI_BEAN_SLOT__ECLASS:
+				setEClass((EClass)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -272,6 +356,9 @@ public class UiBeanSlotImpl extends MinimalEObjectImpl.Container implements UiBe
 			case UiModelPackage.UI_BEAN_SLOT__JVM_TYPE:
 				setJvmType((JvmTypeReference)null);
 				return;
+			case UiModelPackage.UI_BEAN_SLOT__ECLASS:
+				setEClass((EClass)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -290,6 +377,8 @@ public class UiBeanSlotImpl extends MinimalEObjectImpl.Container implements UiBe
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case UiModelPackage.UI_BEAN_SLOT__JVM_TYPE:
 				return jvmType != null;
+			case UiModelPackage.UI_BEAN_SLOT__ECLASS:
+				return eClass != null;
 		}
 		return super.eIsSet(featureID);
 	}

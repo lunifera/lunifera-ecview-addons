@@ -8,8 +8,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 
@@ -19,8 +20,8 @@ import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiPathSegmentImpl#getJvmField <em>Jvm Field</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiPathSegmentImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiPathSegmentImpl#getGetter <em>Getter</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,15 +30,6 @@ import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 		UiPathSegment {
 	/**
-	 * The cached value of the '{@link #getJvmField() <em>Jvm Field</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getJvmField()
-	 * @generated
-	 * @ordered
-	 */
-	protected JvmField jvmField;
-
-	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPath()
@@ -45,6 +37,15 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected UiPathSegment path;
+
+	/**
+	 * The cached value of the '{@link #getGetter() <em>Getter</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getGetter()
+	 * @generated
+	 * @ordered
+	 */
+	protected JvmOperation getter;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -61,41 +62,6 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	protected EClass eStaticClass() {
 		return UiModelPackage.Literals.UI_PATH_SEGMENT;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public JvmField getJvmField() {
-		if (jvmField != null && jvmField.eIsProxy()) {
-			InternalEObject oldJvmField = (InternalEObject)jvmField;
-			jvmField = (JvmField)eResolveProxy(oldJvmField);
-			if (jvmField != oldJvmField) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_PATH_SEGMENT__JVM_FIELD, oldJvmField, jvmField));
-			}
-		}
-		return jvmField;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public JvmField basicGetJvmField() {
-		return jvmField;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setJvmField(JvmField newJvmField) {
-		JvmField oldJvmField = jvmField;
-		jvmField = newJvmField;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_PATH_SEGMENT__JVM_FIELD, oldJvmField, jvmField));
 	}
 
 	/**
@@ -165,6 +131,41 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	public JvmOperation getGetter() {
+		if (getter != null && getter.eIsProxy()) {
+			InternalEObject oldGetter = (InternalEObject)getter;
+			getter = (JvmOperation)eResolveProxy(oldGetter);
+			if (getter != oldGetter) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_PATH_SEGMENT__GETTER, oldGetter, getter));
+			}
+		}
+		return getter;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JvmOperation basicGetGetter() {
+		return getter;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGetter(JvmOperation newGetter) {
+		JvmOperation oldGetter = getter;
+		getter = newGetter;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_PATH_SEGMENT__GETTER, oldGetter, getter));
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
@@ -182,12 +183,12 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UiModelPackage.UI_PATH_SEGMENT__JVM_FIELD:
-				if (resolve) return getJvmField();
-				return basicGetJvmField();
 			case UiModelPackage.UI_PATH_SEGMENT__PATH:
 				if (resolve) return getPath();
 				return basicGetPath();
+			case UiModelPackage.UI_PATH_SEGMENT__GETTER:
+				if (resolve) return getGetter();
+				return basicGetGetter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -199,11 +200,11 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UiModelPackage.UI_PATH_SEGMENT__JVM_FIELD:
-				setJvmField((JvmField)newValue);
-				return;
 			case UiModelPackage.UI_PATH_SEGMENT__PATH:
 				setPath((UiPathSegment)newValue);
+				return;
+			case UiModelPackage.UI_PATH_SEGMENT__GETTER:
+				setGetter((JvmOperation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -216,11 +217,11 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UiModelPackage.UI_PATH_SEGMENT__JVM_FIELD:
-				setJvmField((JvmField)null);
-				return;
 			case UiModelPackage.UI_PATH_SEGMENT__PATH:
 				setPath((UiPathSegment)null);
+				return;
+			case UiModelPackage.UI_PATH_SEGMENT__GETTER:
+				setGetter((JvmOperation)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -233,10 +234,10 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UiModelPackage.UI_PATH_SEGMENT__JVM_FIELD:
-				return jvmField != null;
 			case UiModelPackage.UI_PATH_SEGMENT__PATH:
 				return path != null;
+			case UiModelPackage.UI_PATH_SEGMENT__GETTER:
+				return getter != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -248,15 +249,33 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 		if (child != null) {
 			result = child.toPathString();
 			if (result != null) {
-				result = getJvmField().getSimpleName() + "." + result;
+				result = getSimpleGetterName() + "." + result;
 			} else {
-				result = getJvmField().getSimpleName();
+				result = getSimpleGetterName();
 			}
 		} else {
-			return getJvmField() != null ? getJvmField().getSimpleName() : null;
+			return getSimpleGetterName();
 		}
 
 		return result;
+	}
+
+	public String getSimpleGetterName() {
+		if(getGetter() == null){
+			return null;
+		}
+		String simpleName = getGetter().getSimpleName();
+		if(simpleName == null){
+			return null;
+		}
+		if (simpleName.startsWith("get")) {
+			return StringExtensions.toFirstLower(simpleName.replaceFirst("get",
+					""));
+		} else {
+			return StringExtensions.toFirstLower(simpleName.replaceFirst("is",
+					""));
+		}
+
 	}
 
 	@Override
@@ -265,8 +284,8 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 		if (child != null) {
 			return child.getTypeofLastSegment();
 		} else {
-			return getJvmField() != null && getJvmField().getType() != null ? getJvmField()
-					.getType().getType() : null;
+			return getGetter() != null && getGetter().getReturnType() != null ? getGetter()
+					.getReturnType().getType() : null;
 		}
 	}
 
@@ -276,9 +295,9 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 		if (child != null) {
 			JvmType type = child.getTypeofSecondLastSegment();
 			if (type == null) {
-				JvmField field = getJvmField();
-				return (field != null && field.getType() != null) ? field
-						.getType().getType() : null;
+				JvmOperation operation = getGetter();
+				return (operation != null && operation.getReturnType() != null) ? operation
+						.getReturnType().getType() : null;
 			} else {
 				return type;
 			}
@@ -290,12 +309,12 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 	}
 
 	@Override
-	public JvmField getFieldofLastSegment() {
+	public JvmOperation getOperationofLastSegment() {
 		UiPathSegment child = getPath();
 		if (child != null) {
-			return child.getFieldofLastSegment();
+			return child.getOperationofLastSegment();
 		} else {
-			return getJvmField();
+			return getGetter();
 		}
 	}
 

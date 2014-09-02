@@ -7,13 +7,13 @@ import org.eclipse.xtext.common.types.JvmTypeReference
 import org.eclipse.xtext.common.types.JvmUnknownTypeReference
 import org.eclipse.xtext.common.types.TypesFactory
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot
+import org.lunifera.ecview.semantic.uimodel.UiBinding
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef
 import org.lunifera.ecview.semantic.uimodel.UiTypeProvider
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef
-import org.lunifera.ecview.semantic.uimodel.UiBinding
 
 @Singleton
 class BindableTypeProvider {
@@ -46,7 +46,7 @@ class BindableTypeProvider {
 	def dispatch JvmTypeReference doGetTypeReference(UiBeanSlot beanSlot) {
 		return beanSlot.jvmType
 	}
-
+	 
 	def dispatch JvmTypeReference doGetTypeReference(UiBindingEndpointAlias alias) {
 		return alias.endpoint.doGetTypeReference
 	}

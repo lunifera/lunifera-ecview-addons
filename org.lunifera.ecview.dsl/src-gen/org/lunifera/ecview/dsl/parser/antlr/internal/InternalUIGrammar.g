@@ -899,9 +899,15 @@ ruleUiPathSegment returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='.' 
+((
     {
-    	newLeafNode(otherlv_0, grammarAccess.getUiPathSegmentAccess().getFullStopKeyword_0());
+        $current = forceCreateModelElement(
+            grammarAccess.getUiPathSegmentAccess().getUiPathSegmentAction_0(),
+            $current);
+    }
+)	otherlv_1='.' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiPathSegmentAccess().getFullStopKeyword_1());
     }
 (
 (
@@ -910,25 +916,25 @@ ruleUiPathSegment returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getUiPathSegmentRule());
 	        }
         }
-	otherlv_1=RULE_ID
+	otherlv_2=RULE_ID
 	{
-		newLeafNode(otherlv_1, grammarAccess.getUiPathSegmentAccess().getJvmFieldJvmFieldCrossReference_1_0()); 
+		newLeafNode(otherlv_2, grammarAccess.getUiPathSegmentAccess().getGetterJvmOperationCrossReference_2_0()); 
 	}
 
 )
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiPathSegmentAccess().getPathUiPathSegmentParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getUiPathSegmentAccess().getPathUiPathSegmentParserRuleCall_3_0()); 
 	    }
-		lv_path_2_0=ruleUiPathSegment		{
+		lv_path_3_0=ruleUiPathSegment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiPathSegmentRule());
 	        }
        		set(
        			$current, 
        			"path",
-        		lv_path_2_0, 
+        		lv_path_3_0, 
         		"UiPathSegment");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2080,10 +2086,10 @@ ruleUiGridLayoutAssigment returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiGridLayoutAssigmentAccess().getElementUiEmbeddableParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getUiGridLayoutAssigmentAccess().getElementUiEmbeddableParserRuleCall_0_0()); 
 	    }
 		lv_element_0_0=ruleUiEmbeddable		{
 	        if ($current==null) {
@@ -2098,7 +2104,29 @@ ruleUiGridLayoutAssigment returns [EObject current=null]
 	    }
 
 )
+)(	otherlv_1='align' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiGridLayoutAssigmentAccess().getAlignKeyword_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiGridLayoutAssigmentAccess().getAlignmentUiAlignmentEnumRuleCall_1_1_0()); 
+	    }
+		lv_alignment_2_0=ruleUiAlignment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiGridLayoutAssigmentRule());
+	        }
+       		set(
+       			$current, 
+       			"alignment",
+        		lv_alignment_2_0, 
+        		"UiAlignment");
+	        afterParserOrEnumRuleCall();
+	    }
+
 )
+))?)
 ;
 
 
@@ -2230,10 +2258,10 @@ ruleUiFormLayoutAssigment returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiFormLayoutAssigmentAccess().getElementUiEmbeddableParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getUiFormLayoutAssigmentAccess().getElementUiEmbeddableParserRuleCall_0_0()); 
 	    }
 		lv_element_0_0=ruleUiEmbeddable		{
 	        if ($current==null) {
@@ -2248,7 +2276,29 @@ ruleUiFormLayoutAssigment returns [EObject current=null]
 	    }
 
 )
+)(	otherlv_1='align' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiFormLayoutAssigmentAccess().getAlignKeyword_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiFormLayoutAssigmentAccess().getAlignmentUiAlignmentEnumRuleCall_1_1_0()); 
+	    }
+		lv_alignment_2_0=ruleUiAlignment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiFormLayoutAssigmentRule());
+	        }
+       		set(
+       			$current, 
+       			"alignment",
+        		lv_alignment_2_0, 
+        		"UiAlignment");
+	        afterParserOrEnumRuleCall();
+	    }
+
 )
+))?)
 ;
 
 
@@ -2462,10 +2512,10 @@ ruleUiVerticalLayoutAssigment returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiVerticalLayoutAssigmentAccess().getElementUiEmbeddableParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getUiVerticalLayoutAssigmentAccess().getElementUiEmbeddableParserRuleCall_0_0()); 
 	    }
 		lv_element_0_0=ruleUiEmbeddable		{
 	        if ($current==null) {
@@ -2480,7 +2530,29 @@ ruleUiVerticalLayoutAssigment returns [EObject current=null]
 	    }
 
 )
+)(	otherlv_1='align' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiVerticalLayoutAssigmentAccess().getAlignKeyword_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiVerticalLayoutAssigmentAccess().getAlignmentUiAlignmentEnumRuleCall_1_1_0()); 
+	    }
+		lv_alignment_2_0=ruleUiAlignment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiVerticalLayoutAssigmentRule());
+	        }
+       		set(
+       			$current, 
+       			"alignment",
+        		lv_alignment_2_0, 
+        		"UiAlignment");
+	        afterParserOrEnumRuleCall();
+	    }
+
 )
+))?)
 ;
 
 
@@ -2694,10 +2766,10 @@ ruleUiHorizontalLayoutAssigment returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiHorizontalLayoutAssigmentAccess().getElementUiEmbeddableParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getUiHorizontalLayoutAssigmentAccess().getElementUiEmbeddableParserRuleCall_0_0()); 
 	    }
 		lv_element_0_0=ruleUiEmbeddable		{
 	        if ($current==null) {
@@ -2712,7 +2784,29 @@ ruleUiHorizontalLayoutAssigment returns [EObject current=null]
 	    }
 
 )
+)(	otherlv_1='align' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiHorizontalLayoutAssigmentAccess().getAlignKeyword_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiHorizontalLayoutAssigmentAccess().getAlignmentUiAlignmentEnumRuleCall_1_1_0()); 
+	    }
+		lv_alignment_2_0=ruleUiAlignment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiHorizontalLayoutAssigmentRule());
+	        }
+       		set(
+       			$current, 
+       			"alignment",
+        		lv_alignment_2_0, 
+        		"UiAlignment");
+	        afterParserOrEnumRuleCall();
+	    }
+
 )
+))?)
 ;
 
 
@@ -5228,7 +5322,7 @@ ruleUiTable returns [EObject current=null]
         }
 	otherlv_12=RULE_ID
 	{
-		newLeafNode(otherlv_12, grammarAccess.getUiTableAccess().getItemImagePropertyJvmFieldCrossReference_3_1_2_1_0()); 
+		newLeafNode(otherlv_12, grammarAccess.getUiTableAccess().getItemImagePropertyJvmOperationCrossReference_3_1_2_1_0()); 
 	}
 
 )
@@ -5475,7 +5569,7 @@ ruleUiComboBox returns [EObject current=null]
         }
 	otherlv_9=RULE_ID
 	{
-		newLeafNode(otherlv_9, grammarAccess.getUiComboBoxAccess().getItemCaptionPropertyJvmFieldCrossReference_3_1_1_1_0()); 
+		newLeafNode(otherlv_9, grammarAccess.getUiComboBoxAccess().getItemCaptionPropertyJvmOperationCrossReference_3_1_1_1_0()); 
 	}
 
 )
@@ -5508,7 +5602,7 @@ ruleUiComboBox returns [EObject current=null]
         }
 	otherlv_12=RULE_ID
 	{
-		newLeafNode(otherlv_12, grammarAccess.getUiComboBoxAccess().getItemImagePropertyJvmFieldCrossReference_3_1_2_1_0()); 
+		newLeafNode(otherlv_12, grammarAccess.getUiComboBoxAccess().getItemImagePropertyJvmOperationCrossReference_3_1_2_1_0()); 
 	}
 
 )
@@ -6396,7 +6490,7 @@ ruleUiOptionsGroup returns [EObject current=null]
         }
 	otherlv_10=RULE_ID
 	{
-		newLeafNode(otherlv_10, grammarAccess.getUiOptionsGroupAccess().getItemCaptionPropertyJvmFieldCrossReference_3_1_2_1_0()); 
+		newLeafNode(otherlv_10, grammarAccess.getUiOptionsGroupAccess().getItemCaptionPropertyJvmOperationCrossReference_3_1_2_1_0()); 
 	}
 
 )
@@ -6425,7 +6519,7 @@ ruleUiOptionsGroup returns [EObject current=null]
         }
 	otherlv_12=RULE_ID
 	{
-		newLeafNode(otherlv_12, grammarAccess.getUiOptionsGroupAccess().getItemImagePropertyJvmFieldCrossReference_3_1_3_1_0()); 
+		newLeafNode(otherlv_12, grammarAccess.getUiOptionsGroupAccess().getItemImagePropertyJvmOperationCrossReference_3_1_3_1_0()); 
 	}
 
 )
@@ -6629,7 +6723,7 @@ ruleUiColumn returns [EObject current=null]
         }
 	otherlv_2=RULE_ID
 	{
-		newLeafNode(otherlv_2, grammarAccess.getUiColumnAccess().getJvmFieldJvmFieldCrossReference_2_0()); 
+		newLeafNode(otherlv_2, grammarAccess.getUiColumnAccess().getGetterJvmOperationCrossReference_2_0()); 
 	}
 
 )
@@ -14038,6 +14132,115 @@ ruleUiSelectionType returns [Enumerator current=null]
 	{
         $current = grammarAccess.getUiSelectionTypeAccess().getNONEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_2, grammarAccess.getUiSelectionTypeAccess().getNONEEnumLiteralDeclaration_2()); 
+    }
+));
+
+
+
+// Rule UiAlignment
+ruleUiAlignment returns [Enumerator current=null] 
+    @init { enterRule(); }
+    @after { leaveRule(); }:
+((	enumLiteral_0='undefined' 
+	{
+        $current = grammarAccess.getUiAlignmentAccess().getUNDEFINEDEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getUiAlignmentAccess().getUNDEFINEDEnumLiteralDeclaration_0()); 
+    }
+)
+    |(	enumLiteral_1='bottom-center' 
+	{
+        $current = grammarAccess.getUiAlignmentAccess().getBOTTOM_CENTEREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getUiAlignmentAccess().getBOTTOM_CENTEREnumLiteralDeclaration_1()); 
+    }
+)
+    |(	enumLiteral_2='bottom-left' 
+	{
+        $current = grammarAccess.getUiAlignmentAccess().getBOTTOM_LEFTEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getUiAlignmentAccess().getBOTTOM_LEFTEnumLiteralDeclaration_2()); 
+    }
+)
+    |(	enumLiteral_3='bottom-right' 
+	{
+        $current = grammarAccess.getUiAlignmentAccess().getBOTTOM_RIGHTEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_3, grammarAccess.getUiAlignmentAccess().getBOTTOM_RIGHTEnumLiteralDeclaration_3()); 
+    }
+)
+    |(	enumLiteral_4='bottom-fill' 
+	{
+        $current = grammarAccess.getUiAlignmentAccess().getBOTTOM_FILLEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_4, grammarAccess.getUiAlignmentAccess().getBOTTOM_FILLEnumLiteralDeclaration_4()); 
+    }
+)
+    |(	enumLiteral_5='middle-center' 
+	{
+        $current = grammarAccess.getUiAlignmentAccess().getMIDDLE_CENTEREnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_5, grammarAccess.getUiAlignmentAccess().getMIDDLE_CENTEREnumLiteralDeclaration_5()); 
+    }
+)
+    |(	enumLiteral_6='middle-left' 
+	{
+        $current = grammarAccess.getUiAlignmentAccess().getMIDDLE_LEFTEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_6, grammarAccess.getUiAlignmentAccess().getMIDDLE_LEFTEnumLiteralDeclaration_6()); 
+    }
+)
+    |(	enumLiteral_7='middle-right' 
+	{
+        $current = grammarAccess.getUiAlignmentAccess().getMIDDLE_RIGHTEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_7, grammarAccess.getUiAlignmentAccess().getMIDDLE_RIGHTEnumLiteralDeclaration_7()); 
+    }
+)
+    |(	enumLiteral_8='middle-fill' 
+	{
+        $current = grammarAccess.getUiAlignmentAccess().getMIDDLE_FILLEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_8, grammarAccess.getUiAlignmentAccess().getMIDDLE_FILLEnumLiteralDeclaration_8()); 
+    }
+)
+    |(	enumLiteral_9='top-center' 
+	{
+        $current = grammarAccess.getUiAlignmentAccess().getTOP_CENTEREnumLiteralDeclaration_9().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_9, grammarAccess.getUiAlignmentAccess().getTOP_CENTEREnumLiteralDeclaration_9()); 
+    }
+)
+    |(	enumLiteral_10='top-left' 
+	{
+        $current = grammarAccess.getUiAlignmentAccess().getTOP_LEFTEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_10, grammarAccess.getUiAlignmentAccess().getTOP_LEFTEnumLiteralDeclaration_10()); 
+    }
+)
+    |(	enumLiteral_11='top-right' 
+	{
+        $current = grammarAccess.getUiAlignmentAccess().getTOP_RIGHTEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_11, grammarAccess.getUiAlignmentAccess().getTOP_RIGHTEnumLiteralDeclaration_11()); 
+    }
+)
+    |(	enumLiteral_12='top-fill' 
+	{
+        $current = grammarAccess.getUiAlignmentAccess().getTOP_FILLEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_12, grammarAccess.getUiAlignmentAccess().getTOP_FILLEnumLiteralDeclaration_12()); 
+    }
+)
+    |(	enumLiteral_13='fill-center' 
+	{
+        $current = grammarAccess.getUiAlignmentAccess().getFILL_CENTEREnumLiteralDeclaration_13().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_13, grammarAccess.getUiAlignmentAccess().getFILL_CENTEREnumLiteralDeclaration_13()); 
+    }
+)
+    |(	enumLiteral_14='fill-left' 
+	{
+        $current = grammarAccess.getUiAlignmentAccess().getFILL_LEFTEnumLiteralDeclaration_14().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_14, grammarAccess.getUiAlignmentAccess().getFILL_LEFTEnumLiteralDeclaration_14()); 
+    }
+)
+    |(	enumLiteral_15='fill-right' 
+	{
+        $current = grammarAccess.getUiAlignmentAccess().getFILL_RIGHTEnumLiteralDeclaration_15().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_15, grammarAccess.getUiAlignmentAccess().getFILL_RIGHTEnumLiteralDeclaration_15()); 
+    }
+)
+    |(	enumLiteral_16='fill-fill' 
+	{
+        $current = grammarAccess.getUiAlignmentAccess().getFILL_FILLEnumLiteralDeclaration_16().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_16, grammarAccess.getUiAlignmentAccess().getFILL_FILLEnumLiteralDeclaration_16()); 
     }
 ));
 

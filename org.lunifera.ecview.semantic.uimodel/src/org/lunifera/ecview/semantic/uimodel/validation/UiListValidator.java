@@ -4,7 +4,7 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
-import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmOperation;
 
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
 
@@ -18,5 +18,5 @@ public interface UiListValidator {
 	boolean validate();
 
 	boolean validateSelectionType(UiSelectionType value);
-	boolean validateItemImageProperty(JvmField value);
+	boolean validateItemImageProperty(JvmOperation value);
 }

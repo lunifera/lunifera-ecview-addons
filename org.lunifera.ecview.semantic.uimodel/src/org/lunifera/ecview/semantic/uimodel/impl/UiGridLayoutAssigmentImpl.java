@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.lunifera.ecview.semantic.uimodel.UiAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
@@ -25,6 +26,7 @@ import org.lunifera.ecview.semantic.uimodel.UiPoint;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutAssigmentImpl#getElement <em>Element</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutAssigmentImpl#getFrom <em>From</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutAssigmentImpl#getTo <em>To</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutAssigmentImpl#getAlignment <em>Alignment</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,6 +102,26 @@ public class UiGridLayoutAssigmentImpl extends MinimalEObjectImpl.Container impl
 	 * @ordered
 	 */
 	protected UiPoint to;
+
+	/**
+	 * The default value of the '{@link #getAlignment() <em>Alignment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlignment()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final UiAlignment ALIGNMENT_EDEFAULT = UiAlignment.BOTTOM_LEFT;
+
+	/**
+	 * The cached value of the '{@link #getAlignment() <em>Alignment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlignment()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiAlignment alignment = ALIGNMENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -365,6 +387,27 @@ public class UiGridLayoutAssigmentImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiAlignment getAlignment() {
+		return alignment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAlignment(UiAlignment newAlignment) {
+		UiAlignment oldAlignment = alignment;
+		alignment = newAlignment == null ? ALIGNMENT_EDEFAULT : newAlignment;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_GRID_LAYOUT_ASSIGMENT__ALIGNMENT, oldAlignment, alignment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -399,6 +442,8 @@ public class UiGridLayoutAssigmentImpl extends MinimalEObjectImpl.Container impl
 			case UiModelPackage.UI_GRID_LAYOUT_ASSIGMENT__TO:
 				if (resolve) return getTo();
 				return basicGetTo();
+			case UiModelPackage.UI_GRID_LAYOUT_ASSIGMENT__ALIGNMENT:
+				return getAlignment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -425,6 +470,9 @@ public class UiGridLayoutAssigmentImpl extends MinimalEObjectImpl.Container impl
 				return;
 			case UiModelPackage.UI_GRID_LAYOUT_ASSIGMENT__TO:
 				setTo((UiPoint)newValue);
+				return;
+			case UiModelPackage.UI_GRID_LAYOUT_ASSIGMENT__ALIGNMENT:
+				setAlignment((UiAlignment)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -453,6 +501,9 @@ public class UiGridLayoutAssigmentImpl extends MinimalEObjectImpl.Container impl
 			case UiModelPackage.UI_GRID_LAYOUT_ASSIGMENT__TO:
 				setTo((UiPoint)null);
 				return;
+			case UiModelPackage.UI_GRID_LAYOUT_ASSIGMENT__ALIGNMENT:
+				setAlignment(ALIGNMENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -475,6 +526,8 @@ public class UiGridLayoutAssigmentImpl extends MinimalEObjectImpl.Container impl
 				return from != null;
 			case UiModelPackage.UI_GRID_LAYOUT_ASSIGMENT__TO:
 				return to != null;
+			case UiModelPackage.UI_GRID_LAYOUT_ASSIGMENT__ALIGNMENT:
+				return alignment != ALIGNMENT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -493,6 +546,8 @@ public class UiGridLayoutAssigmentImpl extends MinimalEObjectImpl.Container impl
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", alignment: ");
+		result.append(alignment);
 		result.append(')');
 		return result.toString();
 	}

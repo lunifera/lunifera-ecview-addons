@@ -3,7 +3,6 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -12,7 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiComboBox;
@@ -133,7 +132,7 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 	 * @generated
 	 * @ordered
 	 */
-	protected JvmField itemCaptionProperty;
+	protected JvmOperation itemCaptionProperty;
 
 	/**
 	 * The cached value of the '{@link #getItemImageProperty() <em>Item Image Property</em>}' reference.
@@ -143,7 +142,7 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 	 * @generated
 	 * @ordered
 	 */
-	protected JvmField itemImageProperty;
+	protected JvmOperation itemImageProperty;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -367,10 +366,10 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JvmField getItemCaptionProperty() {
+	public JvmOperation getItemCaptionProperty() {
 		if (itemCaptionProperty != null && itemCaptionProperty.eIsProxy()) {
 			InternalEObject oldItemCaptionProperty = (InternalEObject)itemCaptionProperty;
-			itemCaptionProperty = (JvmField)eResolveProxy(oldItemCaptionProperty);
+			itemCaptionProperty = (JvmOperation)eResolveProxy(oldItemCaptionProperty);
 			if (itemCaptionProperty != oldItemCaptionProperty) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_COMBO_BOX__ITEM_CAPTION_PROPERTY, oldItemCaptionProperty, itemCaptionProperty));
@@ -384,7 +383,7 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JvmField basicGetItemCaptionProperty() {
+	public JvmOperation basicGetItemCaptionProperty() {
 		return itemCaptionProperty;
 	}
 
@@ -393,8 +392,8 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setItemCaptionProperty(JvmField newItemCaptionProperty) {
-		JvmField oldItemCaptionProperty = itemCaptionProperty;
+	public void setItemCaptionProperty(JvmOperation newItemCaptionProperty) {
+		JvmOperation oldItemCaptionProperty = itemCaptionProperty;
 		itemCaptionProperty = newItemCaptionProperty;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_COMBO_BOX__ITEM_CAPTION_PROPERTY, oldItemCaptionProperty, itemCaptionProperty));
@@ -405,10 +404,10 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JvmField getItemImageProperty() {
+	public JvmOperation getItemImageProperty() {
 		if (itemImageProperty != null && itemImageProperty.eIsProxy()) {
 			InternalEObject oldItemImageProperty = (InternalEObject)itemImageProperty;
-			itemImageProperty = (JvmField)eResolveProxy(oldItemImageProperty);
+			itemImageProperty = (JvmOperation)eResolveProxy(oldItemImageProperty);
 			if (itemImageProperty != oldItemImageProperty) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_COMBO_BOX__ITEM_IMAGE_PROPERTY, oldItemImageProperty, itemImageProperty));
@@ -422,7 +421,7 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JvmField basicGetItemImageProperty() {
+	public JvmOperation basicGetItemImageProperty() {
 		return itemImageProperty;
 	}
 
@@ -431,8 +430,8 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setItemImageProperty(JvmField newItemImageProperty) {
-		JvmField oldItemImageProperty = itemImageProperty;
+	public void setItemImageProperty(JvmOperation newItemImageProperty) {
+		JvmOperation oldItemImageProperty = itemImageProperty;
 		itemImageProperty = newItemImageProperty;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_COMBO_BOX__ITEM_IMAGE_PROPERTY, oldItemImageProperty, itemImageProperty));
@@ -520,10 +519,10 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 				setJvmType((JvmTypeReference)newValue);
 				return;
 			case UiModelPackage.UI_COMBO_BOX__ITEM_CAPTION_PROPERTY:
-				setItemCaptionProperty((JvmField)newValue);
+				setItemCaptionProperty((JvmOperation)newValue);
 				return;
 			case UiModelPackage.UI_COMBO_BOX__ITEM_IMAGE_PROPERTY:
-				setItemImageProperty((JvmField)newValue);
+				setItemImageProperty((JvmOperation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -556,10 +555,10 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 				setJvmType((JvmTypeReference)null);
 				return;
 			case UiModelPackage.UI_COMBO_BOX__ITEM_CAPTION_PROPERTY:
-				setItemCaptionProperty((JvmField)null);
+				setItemCaptionProperty((JvmOperation)null);
 				return;
 			case UiModelPackage.UI_COMBO_BOX__ITEM_IMAGE_PROPERTY:
-				setItemImageProperty((JvmField)null);
+				setItemImageProperty((JvmOperation)null);
 				return;
 		}
 		super.eUnset(featureID);

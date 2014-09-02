@@ -54,24 +54,24 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 			return new RawBindablePathRawBindableScope(context, nameProvider);
 		} else if (reference == UiModelPackage.Literals.UI_BINDING_ENDPOINT_ASSIGNMENT__PATH) {
 			return createBindingEndpointDefPathScope(context);
-		} else if (reference == UiModelPackage.Literals.UI_PATH_SEGMENT__JVM_FIELD) {
-			return createPathSegmentJvmFieldScope(context);
-		} else if (reference == UiModelPackage.Literals.UI_COLUMN__JVM_FIELD) {
-			return createUiColumnJvmFieldScope(context);
+		} else if (reference == UiModelPackage.Literals.UI_PATH_SEGMENT__GETTER) {
+			return createPathSegmentJvmOperationScope(context);
+		} else if (reference == UiModelPackage.Literals.UI_COLUMN__GETTER) {
+			return createUiColumnJvmOperationScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_COMBO_BOX__ITEM_CAPTION_PROPERTY) {
-			return createJvmFieldScope(context);
+			return createJvmOperationScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_COMBO_BOX__ITEM_IMAGE_PROPERTY) {
-			return createJvmFieldScope(context);
+			return createJvmOperationScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_TABLE__ITEM_IMAGE_PROPERTY) {
-			return createJvmFieldScope(context);
+			return createJvmOperationScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_LIST__ITEM_IMAGE_PROPERTY) {
-			return createJvmFieldScope(context);
+			return createJvmOperationScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_SEARCH_FIELD__PROPERTY) {
-			return createJvmFieldScope(context);
+			return createJvmOperationScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_OPTIONS_GROUP__ITEM_CAPTION_PROPERTY) {
-			return createJvmFieldScope(context);
+			return createJvmOperationScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_OPTIONS_GROUP__ITEM_IMAGE_PROPERTY) {
-			return createJvmFieldScope(context);
+			return createJvmOperationScope(context);
 		}
 		return super.getScope(context, reference);
 	}
@@ -83,7 +83,7 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 	 * @param context
 	 * @return
 	 */
-	private IScope createPathSegmentJvmFieldScope(EObject context) {
+	private IScope createPathSegmentJvmOperationScope(EObject context) {
 		UiPathSegmentImpl segment = (UiPathSegmentImpl) context;
 		if (segment.eContainer() instanceof UiBindingEndpointAssignment) {
 			UiBindingEndpointAssignment parent = (UiBindingEndpointAssignment) segment
@@ -98,10 +98,10 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 			}
 		} else {
 			UiPathSegment parent = (UiPathSegment) segment.eContainer();
-			if (parent.getJvmField().getType() == null) {
+			if (parent.getGetter().getReturnType() == null) {
 				return IScope.NULLSCOPE;
 			}
-			return new BindingPathScope(parent.getJvmField().getType()
+			return new BindingPathScope(parent.getGetter().getReturnType()
 					.getType());
 		}
 	}
@@ -113,7 +113,7 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 	 * @param context
 	 * @return
 	 */
-	private IScope createUiColumnJvmFieldScope(EObject context) {
+	private IScope createUiColumnJvmOperationScope(EObject context) {
 		UiTable table = (UiTable) context.eContainer().eContainer();
 		JvmTypeReference expectedType = typeProvider.getTypeReference(table,
 				true);
@@ -131,7 +131,7 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 	 * @param context
 	 * @return
 	 */
-	private IScope createJvmFieldScope(EObject context) {
+	private IScope createJvmOperationScope(EObject context) {
 		JvmTypeReference expectedType = findExpectedType(context);
 		if (expectedType == null) {
 			return IScope.NULLSCOPE;

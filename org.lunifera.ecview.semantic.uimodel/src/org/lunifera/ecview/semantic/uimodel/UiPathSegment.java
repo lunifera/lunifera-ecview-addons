@@ -3,7 +3,7 @@
 package org.lunifera.ecview.semantic.uimodel;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
 
 /**
@@ -13,8 +13,8 @@ import org.eclipse.xtext.common.types.JvmType;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiPathSegment#getJvmField <em>Jvm Field</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiPathSegment#getPath <em>Path</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiPathSegment#getGetter <em>Getter</em>}</li>
  * </ul>
  * </p>
  *
@@ -23,36 +23,6 @@ import org.eclipse.xtext.common.types.JvmType;
  * @generated
  */
 public interface UiPathSegment extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Jvm Field</b></em>' reference. <!--
-	 * begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Jvm Field</em>' reference isn't clear, there
-	 * really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Jvm Field</em>' reference.
-	 * @see #setJvmField(JvmField)
-	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiPathSegment_JvmField()
-	 * @model
-	 * @generated
-	 */
-	JvmField getJvmField();
-
-	/**
-	 * Sets the value of the '
-	 * {@link org.lunifera.ecview.semantic.uimodel.UiPathSegment#getJvmField
-	 * <em>Jvm Field</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Jvm Field</em>' reference.
-	 * @see #getJvmField()
-	 * @generated
-	 */
-	void setJvmField(JvmField value);
-
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -80,6 +50,32 @@ public interface UiPathSegment extends EObject {
 	void setPath(UiPathSegment value);
 
 	/**
+	 * Returns the value of the '<em><b>Getter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Getter</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Getter</em>' reference.
+	 * @see #setGetter(JvmOperation)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiPathSegment_Getter()
+	 * @model
+	 * @generated
+	 */
+	JvmOperation getGetter();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiPathSegment#getGetter <em>Getter</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Getter</em>' reference.
+	 * @see #getGetter()
+	 * @generated
+	 */
+	void setGetter(JvmOperation value);
+
+	/**
 	 * Returns the path in dot notation from this segment to the last child.
 	 * 
 	 * @return
@@ -102,10 +98,10 @@ public interface UiPathSegment extends EObject {
 	public JvmType getTypeofSecondLastSegment();
 	
 	/**
-	 * Returns the field of the last segment.
+	 * Returns the operation of the last segment.
 	 * 
 	 * @return
 	 */
-	public JvmField getFieldofLastSegment();
+	public JvmOperation getOperationofLastSegment();
 	
 } // UiPathSegment

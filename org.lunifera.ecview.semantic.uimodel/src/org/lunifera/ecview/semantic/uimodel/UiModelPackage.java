@@ -1160,13 +1160,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_BEAN_SLOT__JVM_TYPE = UI_TYPED_BINDABLE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>EClass</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BEAN_SLOT__ECLASS = UI_TYPED_BINDABLE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Ui Bean Slot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BEAN_SLOT_FEATURE_COUNT = UI_TYPED_BINDABLE_FEATURE_COUNT + 1;
+	int UI_BEAN_SLOT_FEATURE_COUNT = UI_TYPED_BINDABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Ui Binding Expression</em>' class.
@@ -1349,22 +1358,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_BINDING_FEATURE_COUNT = 7;
 
 	/**
-	 * The feature id for the '<em><b>Jvm Field</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_PATH_SEGMENT__JVM_FIELD = 0;
-
-	/**
 	 * The feature id for the '<em><b>Path</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_PATH_SEGMENT__PATH = 1;
+	int UI_PATH_SEGMENT__PATH = 0;
+
+	/**
+	 * The feature id for the '<em><b>Getter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PATH_SEGMENT__GETTER = 1;
 
 	/**
 	 * The number of structural features of the '<em>Ui Path Segment</em>' class.
@@ -2310,13 +2319,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_GRID_LAYOUT_ASSIGMENT__TO = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Alignment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_GRID_LAYOUT_ASSIGMENT__ALIGNMENT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Ui Grid Layout Assigment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_GRID_LAYOUT_ASSIGMENT_FEATURE_COUNT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 3;
+	int UI_GRID_LAYOUT_ASSIGMENT_FEATURE_COUNT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -2436,13 +2454,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_HORIZONTAL_LAYOUT_ASSIGMENT__ELEMENT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Alignment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_HORIZONTAL_LAYOUT_ASSIGMENT__ALIGNMENT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Ui Horizontal Layout Assigment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_HORIZONTAL_LAYOUT_ASSIGMENT_FEATURE_COUNT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 1;
+	int UI_HORIZONTAL_LAYOUT_ASSIGMENT_FEATURE_COUNT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -2544,13 +2571,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_VERTICAL_LAYOUT_ASSIGMENT__ELEMENT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Alignment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VERTICAL_LAYOUT_ASSIGMENT__ALIGNMENT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Ui Vertical Layout Assigment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VERTICAL_LAYOUT_ASSIGMENT_FEATURE_COUNT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 1;
+	int UI_VERTICAL_LAYOUT_ASSIGMENT_FEATURE_COUNT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -2652,13 +2688,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_FORM_LAYOUT_ASSIGMENT__ELEMENT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Alignment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_FORM_LAYOUT_ASSIGMENT__ALIGNMENT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Ui Form Layout Assigment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_FORM_LAYOUT_ASSIGMENT_FEATURE_COUNT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 1;
+	int UI_FORM_LAYOUT_ASSIGMENT_FEATURE_COUNT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -3257,13 +3302,13 @@ public interface UiModelPackage extends EPackage {
 	int UI_COLUMN__VALIDATORS = UI_FIELD__VALIDATORS;
 
 	/**
-	 * The feature id for the '<em><b>Jvm Field</b></em>' reference.
+	 * The feature id for the '<em><b>Getter</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_COLUMN__JVM_FIELD = UI_FIELD_FEATURE_COUNT + 0;
+	int UI_COLUMN__GETTER = UI_FIELD_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Icon Name</b></em>' attribute.
@@ -6124,6 +6169,16 @@ public interface UiModelPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiAlignment <em>Ui Alignment</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.UiAlignment
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiAlignment()
+	 * @generated
+	 */
+	int UI_ALIGNMENT = 99;
+
+	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiSelectionType <em>Ui Selection Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6131,7 +6186,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSelectionType()
 	 * @generated
 	 */
-	int UI_SELECTION_TYPE = 99;
+	int UI_SELECTION_TYPE = 100;
 
 
 	/**
@@ -6583,17 +6638,6 @@ public interface UiModelPackage extends EPackage {
 	EClass getUiPathSegment();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiPathSegment#getJvmField <em>Jvm Field</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Jvm Field</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiPathSegment#getJvmField()
-	 * @see #getUiPathSegment()
-	 * @generated
-	 */
-	EReference getUiPathSegment_JvmField();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiPathSegment#getPath <em>Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6603,6 +6647,17 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUiPathSegment_Path();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiPathSegment#getGetter <em>Getter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Getter</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiPathSegment#getGetter()
+	 * @see #getUiPathSegment()
+	 * @generated
+	 */
+	EReference getUiPathSegment_Getter();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiBeanSlot <em>Ui Bean Slot</em>}'.
@@ -6624,6 +6679,17 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUiBeanSlot_JvmType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiBeanSlot#getEClass <em>EClass</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>EClass</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBeanSlot#getEClass()
+	 * @see #getUiBeanSlot()
+	 * @generated
+	 */
+	EReference getUiBeanSlot_EClass();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiViewSet <em>Ui View Set</em>}'.
@@ -7032,6 +7098,17 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiGridLayoutAssigment_To();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment#getAlignment <em>Alignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment#getAlignment()
+	 * @see #getUiGridLayoutAssigment()
+	 * @generated
+	 */
+	EAttribute getUiGridLayoutAssigment_Alignment();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout <em>Ui Grid Layout</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7107,6 +7184,17 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiHorizontalLayoutAssigment_Element();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment#getAlignment <em>Alignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment#getAlignment()
+	 * @see #getUiHorizontalLayoutAssigment()
+	 * @generated
+	 */
+	EAttribute getUiHorizontalLayoutAssigment_Alignment();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout <em>Ui Horizontal Layout</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7160,6 +7248,17 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiVerticalLayoutAssigment_Element();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment#getAlignment <em>Alignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment#getAlignment()
+	 * @see #getUiVerticalLayoutAssigment()
+	 * @generated
+	 */
+	EAttribute getUiVerticalLayoutAssigment_Alignment();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiVerticalLayout <em>Ui Vertical Layout</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7211,6 +7310,17 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUiFormLayoutAssigment_Element();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment#getAlignment <em>Alignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment#getAlignment()
+	 * @see #getUiFormLayoutAssigment()
+	 * @generated
+	 */
+	EAttribute getUiFormLayoutAssigment_Alignment();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiFormLayout <em>Ui Form Layout</em>}'.
@@ -7436,15 +7546,15 @@ public interface UiModelPackage extends EPackage {
 	EClass getUiColumn();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiColumn#getJvmField <em>Jvm Field</em>}'.
+	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiColumn#getGetter <em>Getter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Jvm Field</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiColumn#getJvmField()
+	 * @return the meta object for the reference '<em>Getter</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiColumn#getGetter()
 	 * @see #getUiColumn()
 	 * @generated
 	 */
-	EReference getUiColumn_JvmField();
+	EReference getUiColumn_Getter();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiColumn#getIconName <em>Icon Name</em>}'.
@@ -8566,6 +8676,16 @@ public interface UiModelPackage extends EPackage {
 	EEnum getUiFlatAlignment();
 
 	/**
+	 * Returns the meta object for enum '{@link org.lunifera.ecview.semantic.uimodel.UiAlignment <em>Ui Alignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Ui Alignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiAlignment
+	 * @generated
+	 */
+	EEnum getUiAlignment();
+
+	/**
 	 * Returns the meta object for enum '{@link org.lunifera.ecview.semantic.uimodel.UiSelectionType <em>Ui Selection Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8962,20 +9082,20 @@ public interface UiModelPackage extends EPackage {
 		EClass UI_PATH_SEGMENT = eINSTANCE.getUiPathSegment();
 
 		/**
-		 * The meta object literal for the '<em><b>Jvm Field</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UI_PATH_SEGMENT__JVM_FIELD = eINSTANCE.getUiPathSegment_JvmField();
-
-		/**
 		 * The meta object literal for the '<em><b>Path</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference UI_PATH_SEGMENT__PATH = eINSTANCE.getUiPathSegment_Path();
+
+		/**
+		 * The meta object literal for the '<em><b>Getter</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_PATH_SEGMENT__GETTER = eINSTANCE.getUiPathSegment_Getter();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanSlotImpl <em>Ui Bean Slot</em>}' class.
@@ -8994,6 +9114,14 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_BEAN_SLOT__JVM_TYPE = eINSTANCE.getUiBeanSlot_JvmType();
+
+		/**
+		 * The meta object literal for the '<em><b>EClass</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_BEAN_SLOT__ECLASS = eINSTANCE.getUiBeanSlot_EClass();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewSetImpl <em>Ui View Set</em>}' class.
@@ -9354,6 +9482,14 @@ public interface UiModelPackage extends EPackage {
 		EReference UI_GRID_LAYOUT_ASSIGMENT__TO = eINSTANCE.getUiGridLayoutAssigment_To();
 
 		/**
+		 * The meta object literal for the '<em><b>Alignment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_GRID_LAYOUT_ASSIGMENT__ALIGNMENT = eINSTANCE.getUiGridLayoutAssigment_Alignment();
+
+		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl <em>Ui Grid Layout</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9414,6 +9550,14 @@ public interface UiModelPackage extends EPackage {
 		EReference UI_HORIZONTAL_LAYOUT_ASSIGMENT__ELEMENT = eINSTANCE.getUiHorizontalLayoutAssigment_Element();
 
 		/**
+		 * The meta object literal for the '<em><b>Alignment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_HORIZONTAL_LAYOUT_ASSIGMENT__ALIGNMENT = eINSTANCE.getUiHorizontalLayoutAssigment_Alignment();
+
+		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalLayoutImpl <em>Ui Horizontal Layout</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9458,6 +9602,14 @@ public interface UiModelPackage extends EPackage {
 		EReference UI_VERTICAL_LAYOUT_ASSIGMENT__ELEMENT = eINSTANCE.getUiVerticalLayoutAssigment_Element();
 
 		/**
+		 * The meta object literal for the '<em><b>Alignment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_VERTICAL_LAYOUT_ASSIGMENT__ALIGNMENT = eINSTANCE.getUiVerticalLayoutAssigment_Alignment();
+
+		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutImpl <em>Ui Vertical Layout</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9500,6 +9652,14 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_FORM_LAYOUT_ASSIGMENT__ELEMENT = eINSTANCE.getUiFormLayoutAssigment_Element();
+
+		/**
+		 * The meta object literal for the '<em><b>Alignment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_FORM_LAYOUT_ASSIGMENT__ALIGNMENT = eINSTANCE.getUiFormLayoutAssigment_Alignment();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiFormLayoutImpl <em>Ui Form Layout</em>}' class.
@@ -9686,12 +9846,12 @@ public interface UiModelPackage extends EPackage {
 		EClass UI_COLUMN = eINSTANCE.getUiColumn();
 
 		/**
-		 * The meta object literal for the '<em><b>Jvm Field</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Getter</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference UI_COLUMN__JVM_FIELD = eINSTANCE.getUiColumn_JvmField();
+		EReference UI_COLUMN__GETTER = eINSTANCE.getUiColumn_Getter();
 
 		/**
 		 * The meta object literal for the '<em><b>Icon Name</b></em>' attribute feature.
@@ -10634,6 +10794,16 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum UI_FLAT_ALIGNMENT = eINSTANCE.getUiFlatAlignment();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiAlignment <em>Ui Alignment</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.UiAlignment
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiAlignment()
+		 * @generated
+		 */
+		EEnum UI_ALIGNMENT = eINSTANCE.getUiAlignment();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiSelectionType <em>Ui Selection Type</em>}' enum.

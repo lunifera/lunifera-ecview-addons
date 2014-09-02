@@ -25,7 +25,7 @@ public class UIGrammarActivator extends AbstractUIPlugin {
 	
 	public static final String ORG_LUNIFERA_ECVIEW_DSL_UIGRAMMAR = "org.lunifera.ecview.dsl.UIGrammar";
 	
-	protected static final Logger logger = Logger.getLogger(UIGrammarActivator.class);
+	private static final Logger logger = Logger.getLogger(UIGrammarActivator.class);
 	
 	private static UIGrammarActivator INSTANCE;
 	

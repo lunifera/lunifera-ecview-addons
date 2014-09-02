@@ -47,6 +47,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiBeanSlot -> UiTypedBindable
     Reference jvmType : JvmTypeReference
+    Reference eClass : EClass
 
   Class UiRootElements -> UiNamedElement
 
@@ -71,8 +72,8 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Attribute listBinding : EBoolean
 
   Class UiPathSegment
-    Reference jvmField : JvmField
     Reference path : UiPathSegment
+    Reference getter : JvmOperation
 
   Class UiRawBindable -> UiNamedElement
 
@@ -116,6 +117,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference element : UiEmbeddable
     Reference from : UiPoint
     Reference to : UiPoint
+    Attribute alignment : UiAlignment
 
   Class UiGridLayout -> UiLayout
     Reference contents : UiGridLayoutAssigment<<0..*>>
@@ -125,6 +127,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiHorizontalLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
+    Attribute alignment : UiAlignment
 
   Class UiHorizontalLayout -> UiLayout
     Reference contents : UiHorizontalLayoutAssigment<<0..*>>
@@ -132,6 +135,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiVerticalLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
+    Attribute alignment : UiAlignment
 
   Class UiVerticalLayout -> UiLayout
     Reference contents : UiVerticalLayoutAssigment<<0..*>>
@@ -139,6 +143,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiFormLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
+    Attribute alignment : UiAlignment
 
   Class UiFormLayout -> UiLayout
     Reference contents : UiFormLayoutAssigment<<0..*>>
@@ -153,22 +158,22 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiList -> UiField, UiTypeProvider
     Attribute selectionType : UiSelectionType<<1..1>>
-    Reference itemImageProperty : JvmField
+    Reference itemImageProperty : JvmOperation
 
   Class UiTable -> UiField, UiTypeProvider
     Reference columnAssignment : UiColumnsAssignment
     Attribute selectionType : UiSelectionType<<1..1>>
-    Reference itemImageProperty : JvmField
+    Reference itemImageProperty : JvmOperation
 
   Class UiComboBox -> UiField, UiTypeProvider
-    Reference itemCaptionProperty : JvmField
-    Reference itemImageProperty : JvmField
+    Reference itemCaptionProperty : JvmOperation
+    Reference itemImageProperty : JvmOperation
 
   Class UiTypeProvider
     Reference jvmType : JvmTypeReference
 
   Class UiColumn -> UiField
-    Reference jvmField : JvmField
+    Reference getter : JvmOperation
     Attribute iconName : EString
     Attribute visible : EBoolean
     Attribute orderable : EBoolean
@@ -319,8 +324,8 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiOptionsGroup -> UiField, UiTypeProvider
     Attribute selectionType : UiSelectionType
-    Reference itemImageProperty : JvmField
-    Reference itemCaptionProperty : JvmField
+    Reference itemImageProperty : JvmOperation
+    Reference itemCaptionProperty : JvmOperation
 
   Class UiDateField -> UiField
 
@@ -338,6 +343,25 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Literal LEFT = 0
     Literal CENTER = 1
     Literal RIGHT = 2
+
+  Enum UiAlignment
+    Literal BOTTOM_LEFT = 0
+    Literal BOTTOM_CENTER = 1
+    Literal BOTTOM_RIGHT = 2
+    Literal BOTTOM_FILL = 3
+    Literal MIDDLE_LEFT = 4
+    Literal MIDDLE_CENTER = 5
+    Literal MIDDLE_RIGHT = 6
+    Literal MIDDLE_FILL = 7
+    Literal TOP_LEFT = 8
+    Literal TOP_CENTER = 9
+    Literal TOP_RIGHT = 10
+    Literal TOP_FILL = 11
+    Literal FILL_FILL = 12
+    Literal FILL_LEFT = 13
+    Literal FILL_CENTER = 14
+    Literal FILL_RIGHT = 15
+    Literal UNDEFINED = 16
 
   Enum UiSelectionType
     Literal NONE = 0

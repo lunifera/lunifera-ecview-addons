@@ -158,7 +158,7 @@ public class EcviewPreviewUI extends UI {
 			 */
 			private void registerBeans(YView view) {
 				for (YBeanSlot slot : view.getBeanSlots()) {
-					if(slot.getName().startsWith("ecview")){
+					if (slot.getName().startsWith("ecview")) {
 						continue;
 					}
 					Class<?> bean = slot.getValueType();

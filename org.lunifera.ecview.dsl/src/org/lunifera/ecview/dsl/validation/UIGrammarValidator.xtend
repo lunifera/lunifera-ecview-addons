@@ -10,7 +10,7 @@ package org.lunifera.ecview.dsl.validation
  * see http://www.eclipse.org/Xtext/documentation.html#validation
  */
 class UIGrammarValidator extends AbstractUIGrammarValidator {
-
+ 
 //  public static val INVALID_NAME = 'invalidName'
 //
 //	@Check

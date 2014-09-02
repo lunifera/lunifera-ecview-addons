@@ -2,7 +2,7 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
-import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmOperation;
 
 
 /**
@@ -63,12 +63,12 @@ public interface UiList extends UiField, UiTypeProvider {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Item Image Property</em>' reference.
-	 * @see #setItemImageProperty(JvmField)
+	 * @see #setItemImageProperty(JvmOperation)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiList_ItemImageProperty()
 	 * @model
 	 * @generated
 	 */
-	JvmField getItemImageProperty();
+	JvmOperation getItemImageProperty();
 
 	/**
 	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiList#getItemImageProperty <em>Item Image Property</em>}' reference.
@@ -78,5 +78,5 @@ public interface UiList extends UiField, UiTypeProvider {
 	 * @see #getItemImageProperty()
 	 * @generated
 	 */
-	void setItemImageProperty(JvmField value);
+	void setItemImageProperty(JvmOperation value);
 } // UiList

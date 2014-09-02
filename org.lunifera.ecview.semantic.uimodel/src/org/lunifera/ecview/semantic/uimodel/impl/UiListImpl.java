@@ -3,7 +3,6 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -12,7 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
@@ -148,7 +147,7 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 	 * @generated
 	 * @ordered
 	 */
-	protected JvmField itemImageProperty;
+	protected JvmOperation itemImageProperty;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -393,10 +392,10 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JvmField getItemImageProperty() {
+	public JvmOperation getItemImageProperty() {
 		if (itemImageProperty != null && itemImageProperty.eIsProxy()) {
 			InternalEObject oldItemImageProperty = (InternalEObject)itemImageProperty;
-			itemImageProperty = (JvmField)eResolveProxy(oldItemImageProperty);
+			itemImageProperty = (JvmOperation)eResolveProxy(oldItemImageProperty);
 			if (itemImageProperty != oldItemImageProperty) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_LIST__ITEM_IMAGE_PROPERTY, oldItemImageProperty, itemImageProperty));
@@ -410,7 +409,7 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JvmField basicGetItemImageProperty() {
+	public JvmOperation basicGetItemImageProperty() {
 		return itemImageProperty;
 	}
 
@@ -419,8 +418,8 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setItemImageProperty(JvmField newItemImageProperty) {
-		JvmField oldItemImageProperty = itemImageProperty;
+	public void setItemImageProperty(JvmOperation newItemImageProperty) {
+		JvmOperation oldItemImageProperty = itemImageProperty;
 		itemImageProperty = newItemImageProperty;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_LIST__ITEM_IMAGE_PROPERTY, oldItemImageProperty, itemImageProperty));
@@ -510,7 +509,7 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 				setSelectionType((UiSelectionType)newValue);
 				return;
 			case UiModelPackage.UI_LIST__ITEM_IMAGE_PROPERTY:
-				setItemImageProperty((JvmField)newValue);
+				setItemImageProperty((JvmOperation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -546,7 +545,7 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 				setSelectionType(SELECTION_TYPE_EDEFAULT);
 				return;
 			case UiModelPackage.UI_LIST__ITEM_IMAGE_PROPERTY:
-				setItemImageProperty((JvmField)null);
+				setItemImageProperty((JvmOperation)null);
 				return;
 		}
 		super.eUnset(featureID);

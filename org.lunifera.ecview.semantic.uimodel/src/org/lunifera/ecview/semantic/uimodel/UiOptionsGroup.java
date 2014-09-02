@@ -2,7 +2,7 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
-import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmOperation;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,12 +62,12 @@ public interface UiOptionsGroup extends UiField, UiTypeProvider {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Item Image Property</em>' reference.
-	 * @see #setItemImageProperty(JvmField)
+	 * @see #setItemImageProperty(JvmOperation)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiOptionsGroup_ItemImageProperty()
 	 * @model
 	 * @generated
 	 */
-	JvmField getItemImageProperty();
+	JvmOperation getItemImageProperty();
 
 	/**
 	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiOptionsGroup#getItemImageProperty <em>Item Image Property</em>}' reference.
@@ -77,7 +77,7 @@ public interface UiOptionsGroup extends UiField, UiTypeProvider {
 	 * @see #getItemImageProperty()
 	 * @generated
 	 */
-	void setItemImageProperty(JvmField value);
+	void setItemImageProperty(JvmOperation value);
 
 	/**
 	 * Returns the value of the '<em><b>Item Caption Property</b></em>' reference.
@@ -88,12 +88,12 @@ public interface UiOptionsGroup extends UiField, UiTypeProvider {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Item Caption Property</em>' reference.
-	 * @see #setItemCaptionProperty(JvmField)
+	 * @see #setItemCaptionProperty(JvmOperation)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiOptionsGroup_ItemCaptionProperty()
 	 * @model
 	 * @generated
 	 */
-	JvmField getItemCaptionProperty();
+	JvmOperation getItemCaptionProperty();
 
 	/**
 	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiOptionsGroup#getItemCaptionProperty <em>Item Caption Property</em>}' reference.
@@ -103,6 +103,6 @@ public interface UiOptionsGroup extends UiField, UiTypeProvider {
 	 * @see #getItemCaptionProperty()
 	 * @generated
 	 */
-	void setItemCaptionProperty(JvmField value);
+	void setItemCaptionProperty(JvmOperation value);
 
 } // UiOptionsGroup

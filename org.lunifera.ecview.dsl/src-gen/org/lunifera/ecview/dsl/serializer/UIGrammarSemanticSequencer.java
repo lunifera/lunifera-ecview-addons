@@ -1826,7 +1826,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (jvmField=[JvmField|ID] iconName=STRING?)
+	 *     (getter=[JvmOperation|ID] iconName=STRING?)
 	 */
 	protected void sequence_UiColumn(EObject context, UiColumn semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1848,8 +1848,8 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *         name=ID? 
 	 *         (
 	 *             jvmType=JvmTypeReference? 
-	 *             itemCaptionProperty=[JvmField|ID]? 
-	 *             itemImageProperty=[JvmField|ID]? 
+	 *             itemCaptionProperty=[JvmOperation|ID]? 
+	 *             itemImageProperty=[JvmOperation|ID]? 
 	 *             i18nInfo=UiI18nInfo? 
 	 *             (validators+=UiValidator | bindings+=UiBinding)* 
 	 *             processorAssignment=UiVisibilityProcessorAssignment?
@@ -1928,7 +1928,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     element=UiEmbeddable
+	 *     (element=UiEmbeddable alignment=UiAlignment?)
 	 */
 	protected void sequence_UiFormLayoutAssigment(EObject context, UiFormLayoutAssigment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1946,7 +1946,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     element=UiEmbeddable
+	 *     (element=UiEmbeddable alignment=UiAlignment?)
 	 */
 	protected void sequence_UiGridLayoutAssigment(EObject context, UiGridLayoutAssigment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1970,7 +1970,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     element=UiEmbeddable
+	 *     (element=UiEmbeddable alignment=UiAlignment?)
 	 */
 	protected void sequence_UiHorizontalLayoutAssigment(EObject context, UiHorizontalLayoutAssigment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2242,8 +2242,8 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *         (
 	 *             jvmType=JvmTypeReference? 
 	 *             selectionType=UiSelectionType? 
-	 *             itemCaptionProperty=[JvmField|ID]? 
-	 *             itemImageProperty=[JvmField|ID]? 
+	 *             itemCaptionProperty=[JvmOperation|ID]? 
+	 *             itemImageProperty=[JvmOperation|ID]? 
 	 *             i18nInfo=UiI18nInfo? 
 	 *             (validators+=UiValidator | bindings+=UiBinding)* 
 	 *             processorAssignment=UiVisibilityProcessorAssignment?
@@ -2257,7 +2257,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (jvmField=[JvmField|ID] path=UiPathSegment?)
+	 *     (getter=[JvmOperation|ID] path=UiPathSegment?)
 	 */
 	protected void sequence_UiPathSegment(EObject context, UiPathSegment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2370,7 +2370,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *         (
 	 *             jvmType=JvmTypeReference? 
 	 *             selectionType=UiSelectionType? 
-	 *             itemImageProperty=[JvmField|ID]? 
+	 *             itemImageProperty=[JvmOperation|ID]? 
 	 *             i18nInfo=UiI18nInfo? 
 	 *             columnAssignment=UiColumnsAssignment? 
 	 *             (validators+=UiValidator | bindings+=UiBinding)* 
@@ -2443,7 +2443,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     element=UiEmbeddable
+	 *     (element=UiEmbeddable alignment=UiAlignment?)
 	 */
 	protected void sequence_UiVerticalLayoutAssigment(EObject context, UiVerticalLayoutAssigment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

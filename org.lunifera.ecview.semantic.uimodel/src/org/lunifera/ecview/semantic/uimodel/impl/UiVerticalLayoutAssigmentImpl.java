@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.lunifera.ecview.semantic.uimodel.UiAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment;
@@ -22,6 +23,7 @@ import org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutAssigmentImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutAssigmentImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutAssigmentImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutAssigmentImpl#getAlignment <em>Alignment</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,6 +75,25 @@ public class UiVerticalLayoutAssigmentImpl extends MinimalEObjectImpl.Container 
 	 * @ordered
 	 */
 	protected UiEmbeddable element;
+
+	/**
+	 * The default value of the '{@link #getAlignment() <em>Alignment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlignment()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final UiAlignment ALIGNMENT_EDEFAULT = UiAlignment.BOTTOM_LEFT;
+	/**
+	 * The cached value of the '{@link #getAlignment() <em>Alignment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlignment()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiAlignment alignment = ALIGNMENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -206,6 +227,27 @@ public class UiVerticalLayoutAssigmentImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiAlignment getAlignment() {
+		return alignment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAlignment(UiAlignment newAlignment) {
+		UiAlignment oldAlignment = alignment;
+		alignment = newAlignment == null ? ALIGNMENT_EDEFAULT : newAlignment;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_VERTICAL_LAYOUT_ASSIGMENT__ALIGNMENT, oldAlignment, alignment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -230,6 +272,8 @@ public class UiVerticalLayoutAssigmentImpl extends MinimalEObjectImpl.Container 
 			case UiModelPackage.UI_VERTICAL_LAYOUT_ASSIGMENT__ELEMENT:
 				if (resolve) return getElement();
 				return basicGetElement();
+			case UiModelPackage.UI_VERTICAL_LAYOUT_ASSIGMENT__ALIGNMENT:
+				return getAlignment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -250,6 +294,9 @@ public class UiVerticalLayoutAssigmentImpl extends MinimalEObjectImpl.Container 
 				return;
 			case UiModelPackage.UI_VERTICAL_LAYOUT_ASSIGMENT__ELEMENT:
 				setElement((UiEmbeddable)newValue);
+				return;
+			case UiModelPackage.UI_VERTICAL_LAYOUT_ASSIGMENT__ALIGNMENT:
+				setAlignment((UiAlignment)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -272,6 +319,9 @@ public class UiVerticalLayoutAssigmentImpl extends MinimalEObjectImpl.Container 
 			case UiModelPackage.UI_VERTICAL_LAYOUT_ASSIGMENT__ELEMENT:
 				setElement((UiEmbeddable)null);
 				return;
+			case UiModelPackage.UI_VERTICAL_LAYOUT_ASSIGMENT__ALIGNMENT:
+				setAlignment(ALIGNMENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -290,6 +340,8 @@ public class UiVerticalLayoutAssigmentImpl extends MinimalEObjectImpl.Container 
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case UiModelPackage.UI_VERTICAL_LAYOUT_ASSIGMENT__ELEMENT:
 				return element != null;
+			case UiModelPackage.UI_VERTICAL_LAYOUT_ASSIGMENT__ALIGNMENT:
+				return alignment != ALIGNMENT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -308,6 +360,8 @@ public class UiVerticalLayoutAssigmentImpl extends MinimalEObjectImpl.Container 
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", alignment: ");
+		result.append(alignment);
 		result.append(')');
 		return result.toString();
 	}

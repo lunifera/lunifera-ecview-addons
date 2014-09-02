@@ -3,7 +3,6 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -12,7 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmOperation;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiColumn;
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
@@ -35,7 +34,7 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#getValidators <em>Validators</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#getJvmField <em>Jvm Field</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#getGetter <em>Getter</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#getIconName <em>Icon Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#isVisible <em>Visible</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#isOrderable <em>Orderable</em>}</li>
@@ -120,14 +119,14 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 	protected EList<UiValidator> validators;
 
 	/**
-	 * The cached value of the '{@link #getJvmField() <em>Jvm Field</em>}' reference.
+	 * The cached value of the '{@link #getGetter() <em>Getter</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getJvmField()
+	 * @see #getGetter()
 	 * @generated
 	 * @ordered
 	 */
-	protected JvmField jvmField;
+	protected JvmOperation getter;
 
 	/**
 	 * The default value of the '{@link #getIconName() <em>Icon Name</em>}' attribute.
@@ -425,16 +424,16 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JvmField getJvmField() {
-		if (jvmField != null && jvmField.eIsProxy()) {
-			InternalEObject oldJvmField = (InternalEObject)jvmField;
-			jvmField = (JvmField)eResolveProxy(oldJvmField);
-			if (jvmField != oldJvmField) {
+	public JvmOperation getGetter() {
+		if (getter != null && getter.eIsProxy()) {
+			InternalEObject oldGetter = (InternalEObject)getter;
+			getter = (JvmOperation)eResolveProxy(oldGetter);
+			if (getter != oldGetter) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_COLUMN__JVM_FIELD, oldJvmField, jvmField));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_COLUMN__GETTER, oldGetter, getter));
 			}
 		}
-		return jvmField;
+		return getter;
 	}
 
 	/**
@@ -442,8 +441,8 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JvmField basicGetJvmField() {
-		return jvmField;
+	public JvmOperation basicGetGetter() {
+		return getter;
 	}
 
 	/**
@@ -451,11 +450,11 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setJvmField(JvmField newJvmField) {
-		JvmField oldJvmField = jvmField;
-		jvmField = newJvmField;
+	public void setGetter(JvmOperation newGetter) {
+		JvmOperation oldGetter = getter;
+		getter = newGetter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_COLUMN__JVM_FIELD, oldJvmField, jvmField));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_COLUMN__GETTER, oldGetter, getter));
 	}
 
 	/**
@@ -642,9 +641,9 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 				return getBindings();
 			case UiModelPackage.UI_COLUMN__VALIDATORS:
 				return getValidators();
-			case UiModelPackage.UI_COLUMN__JVM_FIELD:
-				if (resolve) return getJvmField();
-				return basicGetJvmField();
+			case UiModelPackage.UI_COLUMN__GETTER:
+				if (resolve) return getGetter();
+				return basicGetGetter();
 			case UiModelPackage.UI_COLUMN__ICON_NAME:
 				return getIconName();
 			case UiModelPackage.UI_COLUMN__VISIBLE:
@@ -689,8 +688,8 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 				getValidators().clear();
 				getValidators().addAll((Collection<? extends UiValidator>)newValue);
 				return;
-			case UiModelPackage.UI_COLUMN__JVM_FIELD:
-				setJvmField((JvmField)newValue);
+			case UiModelPackage.UI_COLUMN__GETTER:
+				setGetter((JvmOperation)newValue);
 				return;
 			case UiModelPackage.UI_COLUMN__ICON_NAME:
 				setIconName((String)newValue);
@@ -740,8 +739,8 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 			case UiModelPackage.UI_COLUMN__VALIDATORS:
 				getValidators().clear();
 				return;
-			case UiModelPackage.UI_COLUMN__JVM_FIELD:
-				setJvmField((JvmField)null);
+			case UiModelPackage.UI_COLUMN__GETTER:
+				setGetter((JvmOperation)null);
 				return;
 			case UiModelPackage.UI_COLUMN__ICON_NAME:
 				setIconName(ICON_NAME_EDEFAULT);
@@ -786,8 +785,8 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_COLUMN__VALIDATORS:
 				return validators != null && !validators.isEmpty();
-			case UiModelPackage.UI_COLUMN__JVM_FIELD:
-				return jvmField != null;
+			case UiModelPackage.UI_COLUMN__GETTER:
+				return getter != null;
 			case UiModelPackage.UI_COLUMN__ICON_NAME:
 				return ICON_NAME_EDEFAULT == null ? iconName != null : !ICON_NAME_EDEFAULT.equals(iconName);
 			case UiModelPackage.UI_COLUMN__VISIBLE:

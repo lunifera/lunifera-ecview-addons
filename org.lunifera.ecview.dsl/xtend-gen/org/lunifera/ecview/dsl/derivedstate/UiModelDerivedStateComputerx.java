@@ -34,6 +34,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YOpenDialogCommand;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidator;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
@@ -44,6 +45,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDecimalDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YBooleanSearchField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YBrowser;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
@@ -54,8 +56,11 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YDateTime;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YFlatAlignment;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayout;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YImage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
@@ -70,9 +75,11 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextSearchField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayout;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
 import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmGenericType;
+import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.resource.DerivedStateAwareResource;
@@ -86,7 +93,9 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.lunifera.ecview.dsl.derivedstate.TypeHelper;
 import org.lunifera.ecview.dsl.derivedstate.UiGrammarElementAdapter;
+import org.lunifera.ecview.dsl.extensions.OperationExtensions;
 import org.lunifera.ecview.dsl.scope.BindableTypeProvider;
+import org.lunifera.ecview.semantic.uimodel.UiAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
@@ -218,21 +227,21 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     }
     
     /**
-     * The deepest JvmField in the hierarchy. This field is used to bind.
+     * The deepest JvmOperation in the hierarchy. This field is used to bind.
      */
-    private JvmField _deepestJvmField;
+    private JvmOperation _deepestJvmField;
     
     /**
-     * The deepest JvmField in the hierarchy. This field is used to bind.
+     * The deepest JvmOperation in the hierarchy. This field is used to bind.
      */
-    public JvmField getDeepestJvmField() {
+    public JvmOperation getDeepestJvmField() {
       return this._deepestJvmField;
     }
     
     /**
-     * The deepest JvmField in the hierarchy. This field is used to bind.
+     * The deepest JvmOperation in the hierarchy. This field is used to bind.
      */
-    public void setDeepestJvmField(final JvmField deepestJvmField) {
+    public void setDeepestJvmField(final JvmOperation deepestJvmField) {
       this._deepestJvmField = deepestJvmField;
     }
     
@@ -491,7 +500,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     };
     IterableExtensions.<UiBeanSlot>forEach(_beanSlots, _function);
     UiEmbeddable _content = object.getContent();
-    this.map(_content);
+    final YEmbeddable element = this.create(_content);
+    yView.setContent(element);
+    UiEmbeddable _content_1 = object.getContent();
+    this.map(_content_1);
     EList<UiBinding> _bindings = object.getBindings();
     final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
       public void apply(final UiBinding it) {
@@ -556,7 +568,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     };
     IterableExtensions.<UiBeanSlot>forEach(_beanSlots, _function);
     UiEmbeddable _content = object.getContent();
-    this.map(_content);
+    final YEmbeddable element = this.create(_content);
+    yView.setContent(element);
+    object.getContent();
     EList<UiBinding> _bindings = object.getBindings();
     final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
       public void apply(final UiBinding it) {
@@ -586,20 +600,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiGridLayout eObject) {
-    final YGridLayout layout = this.factory.createGridLayout();
-    String _name = eObject.getName();
-    layout.setName(_name);
-    boolean _isFillHorizontal = eObject.isFillHorizontal();
-    layout.setFillHorizontal(_isFillHorizontal);
-    boolean _isFillVertical = eObject.isFillVertical();
-    layout.setFillVertical(_isFillVertical);
-    int _columns = eObject.getColumns();
-    layout.setColumns(_columns);
-    String _i18nKey = this.toI18nKey(eObject);
-    layout.setLabelI18nKey(_i18nKey);
-    this.addToParent(layout);
-    this.associateUi(eObject, layout);
-    this.push(layout);
+    final YGridLayout yField = this.<YGridLayout>associatedUi(eObject);
+    this.push(yField);
     EList<UiGridLayoutAssigment> _contents = eObject.getContents();
     final Procedure1<UiGridLayoutAssigment> _function = new Procedure1<UiGridLayoutAssigment>() {
       public void apply(final UiGridLayoutAssigment it) {
@@ -620,10 +622,18 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   protected void _map(final UiGridLayoutAssigment eObject) {
     final YGridLayout layout = this.<YGridLayout>peek();
     final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    UiAlignment _alignment = eObject.getAlignment();
+    boolean _notEquals = (!Objects.equal(_alignment, UiAlignment.UNDEFINED));
+    if (_notEquals) {
+      final YGridLayoutCellStyle style = layout.addGridLayoutCellStyle(newField);
+      UiAlignment _alignment_1 = eObject.getAlignment();
+      YAlignment _yAlignment = this.toYAlignment(_alignment_1);
+      style.setAlignment(_yAlignment);
+    }
+    this.map(element);
     if ((element instanceof UiField)) {
-      final YEmbeddable newField = this.create(element);
-      layout.addElement(newField);
-      this.map(element);
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
@@ -634,22 +644,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       };
       IterableExtensions.<UiValidator>forEach(_validators, _function);
       this.<Object>pop();
-    } else {
-      this.map(element);
     }
   }
   
   protected void _map(final UiVerticalLayout eObject) {
-    final YVerticalLayout layout = this.factory.createVerticalLayout();
-    String _name = eObject.getName();
-    layout.setName(_name);
-    boolean _isFillVertical = eObject.isFillVertical();
-    layout.setFillVertical(_isFillVertical);
-    String _i18nKey = this.toI18nKey(eObject);
-    layout.setLabelI18nKey(_i18nKey);
-    this.addToParent(layout);
-    this.associateUi(eObject, layout);
-    this.push(layout);
+    final YVerticalLayout yField = this.<YVerticalLayout>associatedUi(eObject);
+    this.push(yField);
     EList<UiVerticalLayoutAssigment> _contents = eObject.getContents();
     final Procedure1<UiVerticalLayoutAssigment> _function = new Procedure1<UiVerticalLayoutAssigment>() {
       public void apply(final UiVerticalLayoutAssigment it) {
@@ -670,12 +670,20 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   protected void _map(final UiVerticalLayoutAssigment eObject) {
     final YVerticalLayout layout = this.<YVerticalLayout>peek();
     final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    UiAlignment _alignment = eObject.getAlignment();
+    boolean _notEquals = (!Objects.equal(_alignment, UiAlignment.UNDEFINED));
+    if (_notEquals) {
+      final YVerticalLayoutCellStyle style = layout.addCellStyle(newField);
+      UiAlignment _alignment_1 = eObject.getAlignment();
+      YAlignment _yAlignment = this.toYAlignment(_alignment_1);
+      style.setAlignment(_yAlignment);
+    }
+    this.map(element);
     if ((element instanceof UiField)) {
-      final YEmbeddable newField = this.create(element);
-      boolean _notEquals = (!Objects.equal(newField, null));
-      if (_notEquals) {
-        layout.addElement(newField);
-        this.map(element);
+      boolean _notEquals_1 = (!Objects.equal(newField, null));
+      if (_notEquals_1) {
         this.push(newField);
         final UiField yField = ((UiField) element);
         EList<UiValidator> _validators = yField.getValidators();
@@ -687,22 +695,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
         IterableExtensions.<UiValidator>forEach(_validators, _function);
         this.<Object>pop();
       }
-    } else {
-      this.map(element);
     }
   }
   
   protected void _map(final UiHorizontalLayout eObject) {
-    final YHorizontalLayout layout = this.factory.createHorizontalLayout();
-    String _name = eObject.getName();
-    layout.setName(_name);
-    boolean _isFillHorizontal = eObject.isFillHorizontal();
-    layout.setFillHorizontal(_isFillHorizontal);
-    String _i18nKey = this.toI18nKey(eObject);
-    layout.setLabelI18nKey(_i18nKey);
-    this.addToParent(layout);
-    this.associateUi(eObject, layout);
-    this.push(layout);
+    final YHorizontalLayout yField = this.<YHorizontalLayout>associatedUi(eObject);
+    this.push(yField);
     EList<UiHorizontalLayoutAssigment> _contents = eObject.getContents();
     final Procedure1<UiHorizontalLayoutAssigment> _function = new Procedure1<UiHorizontalLayoutAssigment>() {
       public void apply(final UiHorizontalLayoutAssigment it) {
@@ -723,10 +721,18 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   protected void _map(final UiHorizontalLayoutAssigment eObject) {
     final YHorizontalLayout layout = this.<YHorizontalLayout>peek();
     final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    UiAlignment _alignment = eObject.getAlignment();
+    boolean _notEquals = (!Objects.equal(_alignment, UiAlignment.UNDEFINED));
+    if (_notEquals) {
+      final YHorizontalLayoutCellStyle style = layout.addCellStyle(newField);
+      UiAlignment _alignment_1 = eObject.getAlignment();
+      YAlignment _yAlignment = this.toYAlignment(_alignment_1);
+      style.setAlignment(_yAlignment);
+    }
+    this.map(element);
     if ((element instanceof UiField)) {
-      final YEmbeddable newField = this.create(element);
-      layout.addElement(newField);
-      this.map(element);
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
@@ -737,20 +743,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       };
       IterableExtensions.<UiValidator>forEach(_validators, _function);
       this.<Object>pop();
-    } else {
-      this.map(element);
     }
   }
   
   protected void _map(final UiTabSheet eObject) {
-    final YTabSheet layout = this.factory.createTabSheet();
-    String _name = eObject.getName();
-    layout.setName(_name);
-    String _i18nKey = this.toI18nKey(eObject);
-    layout.setLabelI18nKey(_i18nKey);
-    this.addToParent(layout);
-    this.associateUi(eObject, layout);
-    this.push(layout);
+    final YTabSheet yField = this.<YTabSheet>associatedUi(eObject);
+    this.push(yField);
     EList<UiTabAssignment> _tabs = eObject.getTabs();
     final Procedure1<UiTabAssignment> _function = new Procedure1<UiTabAssignment>() {
       public void apply(final UiTabAssignment it) {
@@ -779,10 +777,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     _tabs.add(tab);
     this.push(tab);
     final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    tab.setEmbeddable(newField);
+    this.map(element);
     if ((element instanceof UiField)) {
-      final YEmbeddable newField = this.create(element);
-      tab.setEmbeddable(newField);
-      this.map(element);
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
@@ -800,14 +798,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiMobileTabSheet eObject) {
-    final VMTabSheet layout = VaadinMobileFactory.eINSTANCE.createVMTabSheet();
-    String _name = eObject.getName();
-    layout.setName(_name);
-    String _i18nKey = this.toI18nKey(eObject);
-    layout.setLabelI18nKey(_i18nKey);
-    this.addToParent(layout);
-    this.associateUi(eObject, layout);
-    this.push(layout);
+    final VMTabSheet yField = this.<VMTabSheet>associatedUi(eObject);
+    this.push(yField);
     EList<UiMobileTabAssignment> _tabs = eObject.getTabs();
     final Procedure1<UiMobileTabAssignment> _function = new Procedure1<UiMobileTabAssignment>() {
       public void apply(final UiMobileTabAssignment it) {
@@ -834,10 +826,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     _tabs.add(tab);
     this.push(tab);
     final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    tab.setEmbeddable(newField);
+    this.map(element);
     if ((element instanceof UiField)) {
-      final YEmbeddable newField = this.create(element);
-      tab.setEmbeddable(newField);
-      this.map(element);
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
@@ -848,21 +840,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       };
       IterableExtensions.<UiValidator>forEach(_validators, _function);
       this.<Object>pop();
-    } else {
-      this.map(element);
     }
     this.<Object>pop();
   }
   
   protected void _map(final UiHorizontalButtonGroup eObject) {
-    final VMHorizontalButtonGroup layout = VaadinMobileFactory.eINSTANCE.createVMHorizontalButtonGroup();
-    String _name = eObject.getName();
-    layout.setName(_name);
-    String _i18nKey = this.toI18nKey(eObject);
-    layout.setLabelI18nKey(_i18nKey);
-    this.addToParent(layout);
-    this.associateUi(eObject, layout);
-    this.push(layout);
+    final VMHorizontalButtonGroup yField = this.<VMHorizontalButtonGroup>associatedUi(eObject);
+    this.push(yField);
     EList<UiHorizontalButtonGroupAssigment> _contents = eObject.getContents();
     final Procedure1<UiHorizontalButtonGroupAssigment> _function = new Procedure1<UiHorizontalButtonGroupAssigment>() {
       public void apply(final UiHorizontalButtonGroupAssigment it) {
@@ -883,10 +867,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   protected void _map(final UiHorizontalButtonGroupAssigment eObject) {
     final VMHorizontalButtonGroup layout = this.<VMHorizontalButtonGroup>peek();
     final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    this.map(element);
     if ((element instanceof UiField)) {
-      final YEmbeddable newField = this.create(element);
-      layout.addElement(newField);
-      this.map(element);
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
@@ -897,20 +881,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       };
       IterableExtensions.<UiValidator>forEach(_validators, _function);
       this.<Object>pop();
-    } else {
-      this.map(element);
     }
   }
   
   protected void _map(final UiVerticalComponentGroup eObject) {
-    final VMVerticalComponentGroup layout = VaadinMobileFactory.eINSTANCE.createVMVerticalComponentGroup();
-    String _name = eObject.getName();
-    layout.setName(_name);
-    String _i18nKey = this.toI18nKey(eObject);
-    layout.setLabelI18nKey(_i18nKey);
-    this.addToParent(layout);
-    this.associateUi(eObject, layout);
-    this.push(layout);
+    final VMVerticalComponentGroup yField = this.<VMVerticalComponentGroup>associatedUi(eObject);
+    this.push(yField);
     EList<UiVerticalComponentGroupAssigment> _contents = eObject.getContents();
     final Procedure1<UiVerticalComponentGroupAssigment> _function = new Procedure1<UiVerticalComponentGroupAssigment>() {
       public void apply(final UiVerticalComponentGroupAssigment it) {
@@ -931,10 +907,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   protected void _map(final UiVerticalComponentGroupAssigment eObject) {
     final VMVerticalComponentGroup layout = this.<VMVerticalComponentGroup>peek();
     final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    this.map(element);
     if ((element instanceof UiField)) {
-      final YEmbeddable newField = this.create(element);
-      layout.addElement(newField);
-      this.map(element);
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
@@ -945,20 +921,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       };
       IterableExtensions.<UiValidator>forEach(_validators, _function);
       this.<Object>pop();
-    } else {
-      this.map(element);
     }
   }
   
   protected void _map(final UiMobileNavigationPage eObject) {
-    final VMNavigationPage layout = VaadinMobileFactory.eINSTANCE.createVMNavigationPage();
-    String _name = eObject.getName();
-    layout.setName(_name);
-    String _i18nKey = this.toI18nKey(eObject);
-    layout.setLabelI18nKey(_i18nKey);
-    this.addToParent(layout);
-    this.associateUi(eObject, layout);
-    this.push(layout);
+    final VMNavigationPage yField = this.<VMNavigationPage>associatedUi(eObject);
+    this.push(yField);
     EList<UiMobileNavigationPageAssignment> _contents = eObject.getContents();
     final Procedure1<UiMobileNavigationPageAssignment> _function = new Procedure1<UiMobileNavigationPageAssignment>() {
       public void apply(final UiMobileNavigationPageAssignment it) {
@@ -1001,7 +969,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
       layout.setType(_loadClass);
     }
-    this.addToParent(layout);
     EList<YDialog> _dialogs = this.currentView.getDialogs();
     _dialogs.add(layout);
     this.associateUi(eObject, layout);
@@ -1045,7 +1012,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
       dialog.setType(_loadClass);
     }
-    this.addToParent(dialog);
     this.associateUi(eObject, dialog);
     EList<YDialog> _dialogs = this.currentView.getDialogs();
     _dialogs.add(dialog);
@@ -1092,11 +1058,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiDialogAssignment eObject) {
+    final YDialog yDialog = this.<YDialog>peek();
     final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    yDialog.setContent(newField);
+    this.map(element);
     if ((element instanceof UiField)) {
-      final YEmbeddable newField = this.create(element);
-      this.addToParent(newField);
-      this.map(element);
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
@@ -1154,11 +1121,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   public void createTransient(final UiMobileNavigationPage eObject) {
-    final VMNavigationPage layout = VaadinMobileFactory.eINSTANCE.createVMNavigationPage();
-    String _name = eObject.getName();
-    layout.setName(_name);
-    this.associateUi(eObject, layout);
-    this.push(layout);
+    final VMNavigationPage yField = this.<VMNavigationPage>associatedUi(eObject);
+    this.push(yField);
     EList<UiMobileNavigationPageAssignment> _contents = eObject.getContents();
     final Procedure1<UiMobileNavigationPageAssignment> _function = new Procedure1<UiMobileNavigationPageAssignment>() {
       public void apply(final UiMobileNavigationPageAssignment it) {
@@ -1179,10 +1143,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   protected void _map(final UiMobileNavigationPageAssignment eObject) {
     final VMNavigationPage layout = this.<VMNavigationPage>peek();
     final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    this.map(element);
     if ((element instanceof UiField)) {
-      final YEmbeddable newField = this.create(element);
-      layout.addElement(newField);
-      this.map(element);
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
@@ -1193,20 +1157,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       };
       IterableExtensions.<UiValidator>forEach(_validators, _function);
       this.<Object>pop();
-    } else {
-      this.map(element);
     }
   }
   
   protected void _map(final UiFormLayout eObject) {
-    final YFormLayout layout = this.factory.createFormLayout();
-    String _name = eObject.getName();
-    layout.setName(_name);
-    String _i18nKey = this.toI18nKey(eObject);
-    layout.setLabelI18nKey(_i18nKey);
-    this.addToParent(layout);
-    this.associateUi(eObject, layout);
-    this.push(layout);
+    final YFormLayout yField = this.<YFormLayout>associatedUi(eObject);
+    this.push(yField);
     EList<UiFormLayoutAssigment> _contents = eObject.getContents();
     final Procedure1<UiFormLayoutAssigment> _function = new Procedure1<UiFormLayoutAssigment>() {
       public void apply(final UiFormLayoutAssigment it) {
@@ -1227,10 +1183,18 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   protected void _map(final UiFormLayoutAssigment eObject) {
     final YFormLayout layout = this.<YFormLayout>peek();
     final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    UiAlignment _alignment = eObject.getAlignment();
+    boolean _notEquals = (!Objects.equal(_alignment, UiAlignment.UNDEFINED));
+    if (_notEquals) {
+      final YFormLayoutCellStyle style = layout.addCellStyle(newField);
+      UiAlignment _alignment_1 = eObject.getAlignment();
+      YAlignment _yAlignment = this.toYAlignment(_alignment_1);
+      style.setAlignment(_yAlignment);
+    }
+    this.map(element);
     if ((element instanceof UiField)) {
-      final YEmbeddable newField = this.create(element);
-      layout.addElement(newField);
-      this.map(element);
       this.push(newField);
       final UiField yField = ((UiField) element);
       EList<UiValidator> _validators = yField.getValidators();
@@ -1334,15 +1298,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiButton object) {
-    final YButton button = this.factory.createButton();
-    String _name = object.getName();
-    button.setName(_name);
-    String _name_1 = object.getName();
-    button.setLabel(_name_1);
-    String _i18nKey = this.toI18nKey(object);
-    button.setLabelI18nKey(_i18nKey);
-    this.addToParent(button);
-    this.associateUi(object, button);
+    final YButton yField = this.<YButton>associatedUi(object);
     EList<UiBinding> _bindings = object.getBindings();
     final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
       public void apply(final UiBinding it) {
@@ -1353,15 +1309,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiMobileNavigationButton object) {
-    final VMNavigationButton button = VaadinMobileFactory.eINSTANCE.createVMNavigationButton();
-    String _name = object.getName();
-    button.setName(_name);
-    String _name_1 = object.getName();
-    button.setLabel(_name_1);
-    String _i18nKey = this.toI18nKey(object);
-    button.setLabelI18nKey(_i18nKey);
-    this.addToParent(button);
-    this.associateUi(object, button);
+    final VMNavigationButton button = this.<VMNavigationButton>associatedUi(object);
     this.push(button);
     UiMobileNavigationPage _targetPage = object.getTargetPage();
     boolean _notEquals = (!Objects.equal(_targetPage, null));
@@ -1400,16 +1348,23 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     yColumn.setExpandRatio(_expandRatio);
     String _iconName = eObject.getIconName();
     yColumn.setIcon(_iconName);
-    JvmField _jvmField = eObject.getJvmField();
+    JvmOperation _getter = eObject.getGetter();
     String _simpleName = null;
-    if (_jvmField!=null) {
-      _simpleName=_jvmField.getSimpleName();
+    if (_getter!=null) {
+      _simpleName=_getter.getSimpleName();
     }
-    yColumn.setName(_simpleName);
+    String _propertyName = OperationExtensions.toPropertyName(_simpleName);
+    yColumn.setName(_propertyName);
     boolean _isOrderable = eObject.isOrderable();
     yColumn.setOrderable(_isOrderable);
     boolean _isVisible = eObject.isVisible();
     yColumn.setVisible(_isVisible);
+    YDatadescription _datadescription = yField.getDatadescription();
+    String _labelI18nKey = _datadescription.getLabelI18nKey();
+    String _plus = (_labelI18nKey + ".");
+    String _name = yColumn.getName();
+    String _plus_1 = (_plus + _name);
+    yColumn.setLabelI18nKey(_plus_1);
     EList<YColumn> _columns = yField.getColumns();
     _columns.add(yColumn);
   }
@@ -1423,6 +1378,50 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
           return YFlatAlignment.CENTER;
         case RIGHT:
           return YFlatAlignment.RIGHT;
+        default:
+          break;
+      }
+    }
+    return null;
+  }
+  
+  public YAlignment toYAlignment(final UiAlignment uiAlign) {
+    if (uiAlign != null) {
+      switch (uiAlign) {
+        case BOTTOM_CENTER:
+          return YAlignment.BOTTOM_CENTER;
+        case BOTTOM_FILL:
+          return YAlignment.BOTTOM_FILL;
+        case BOTTOM_LEFT:
+          return YAlignment.BOTTOM_LEFT;
+        case BOTTOM_RIGHT:
+          return YAlignment.BOTTOM_RIGHT;
+        case FILL_CENTER:
+          return YAlignment.FILL_CENTER;
+        case FILL_FILL:
+          return YAlignment.FILL_FILL;
+        case FILL_LEFT:
+          return YAlignment.FILL_LEFT;
+        case FILL_RIGHT:
+          return YAlignment.FILL_RIGHT;
+        case MIDDLE_CENTER:
+          return YAlignment.MIDDLE_CENTER;
+        case MIDDLE_FILL:
+          return YAlignment.MIDDLE_FILL;
+        case MIDDLE_LEFT:
+          return YAlignment.MIDDLE_LEFT;
+        case MIDDLE_RIGHT:
+          return YAlignment.MIDDLE_RIGHT;
+        case TOP_CENTER:
+          return YAlignment.TOP_CENTER;
+        case TOP_FILL:
+          return YAlignment.TOP_FILL;
+        case TOP_LEFT:
+          return YAlignment.TOP_LEFT;
+        case TOP_RIGHT:
+          return YAlignment.TOP_RIGHT;
+        case UNDEFINED:
+          return YAlignment.UNDEFINED;
         default:
           break;
       }
@@ -1536,6 +1535,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return null;
   }
   
+  protected YEmbeddable _create(final Void object) {
+    return null;
+  }
+  
   protected YEmbeddable _create(final UiTextField object) {
     final YTextField textField = this.factory.createTextField();
     String _name = object.getName();
@@ -1615,18 +1618,20 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     UiSelectionType _selectionType = object.getSelectionType();
     YSelectionType _convert = this.convert(_selectionType);
     optionsGroup.setSelectionType(_convert);
-    JvmField _itemCaptionProperty = object.getItemCaptionProperty();
+    JvmOperation _itemCaptionProperty = object.getItemCaptionProperty();
     String _simpleName = null;
     if (_itemCaptionProperty!=null) {
       _simpleName=_itemCaptionProperty.getSimpleName();
     }
-    optionsGroup.setItemCaptionProperty(_simpleName);
-    JvmField _itemImageProperty = object.getItemImageProperty();
+    String _propertyName = OperationExtensions.toPropertyName(_simpleName);
+    optionsGroup.setItemCaptionProperty(_propertyName);
+    JvmOperation _itemImageProperty = object.getItemImageProperty();
     String _simpleName_1 = null;
     if (_itemImageProperty!=null) {
       _simpleName_1=_itemImageProperty.getSimpleName();
     }
-    optionsGroup.setItemImageProperty(_simpleName_1);
+    String _propertyName_1 = OperationExtensions.toPropertyName(_simpleName_1);
+    optionsGroup.setItemImageProperty(_propertyName_1);
     JvmTypeReference _jvmType = object.getJvmType();
     boolean _notEquals = (!Objects.equal(_jvmType, null));
     if (_notEquals) {
@@ -1705,12 +1710,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     UiSelectionType _selectionType = object.getSelectionType();
     YSelectionType _convert = this.convert(_selectionType);
     table.setSelectionType(_convert);
-    JvmField _itemImageProperty = object.getItemImageProperty();
+    JvmOperation _itemImageProperty = object.getItemImageProperty();
     String _simpleName = null;
     if (_itemImageProperty!=null) {
       _simpleName=_itemImageProperty.getSimpleName();
     }
-    table.setItemImageProperty(_simpleName);
+    String _propertyName = OperationExtensions.toPropertyName(_simpleName);
+    table.setItemImageProperty(_propertyName);
     JvmTypeReference _jvmType = object.getJvmType();
     boolean _notEquals = (!Objects.equal(_jvmType, null));
     if (_notEquals) {
@@ -1776,6 +1782,30 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return field;
   }
   
+  protected YButton _create(final UiButton object) {
+    final YButton field = this.factory.createButton();
+    String _name = object.getName();
+    field.setName(_name);
+    String _name_1 = object.getName();
+    field.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    field.setLabelI18nKey(_i18nKey);
+    this.associateUi(object, field);
+    return field;
+  }
+  
+  protected VMNavigationButton _create(final UiMobileNavigationButton object) {
+    final VMNavigationButton field = VaadinMobileFactory.eINSTANCE.createVMNavigationButton();
+    String _name = object.getName();
+    field.setName(_name);
+    String _name_1 = object.getName();
+    field.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    field.setLabelI18nKey(_i18nKey);
+    this.associateUi(object, field);
+    return field;
+  }
+  
   protected YEmbeddable _create(final UiComboBox object) {
     final YComboBox field = this.factory.createComboBox();
     String _name = object.getName();
@@ -1784,18 +1814,20 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     field.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     field.setLabelI18nKey(_i18nKey);
-    JvmField _itemCaptionProperty = object.getItemCaptionProperty();
+    JvmOperation _itemCaptionProperty = object.getItemCaptionProperty();
     String _simpleName = null;
     if (_itemCaptionProperty!=null) {
       _simpleName=_itemCaptionProperty.getSimpleName();
     }
-    field.setItemCaptionProperty(_simpleName);
-    JvmField _itemImageProperty = object.getItemImageProperty();
+    String _propertyName = OperationExtensions.toPropertyName(_simpleName);
+    field.setItemCaptionProperty(_propertyName);
+    JvmOperation _itemImageProperty = object.getItemImageProperty();
     String _simpleName_1 = null;
     if (_itemImageProperty!=null) {
       _simpleName_1=_itemImageProperty.getSimpleName();
     }
-    field.setItemImageProperty(_simpleName_1);
+    String _propertyName_1 = OperationExtensions.toPropertyName(_simpleName_1);
+    field.setItemImageProperty(_propertyName_1);
     JvmTypeReference _jvmType = object.getJvmType();
     boolean _notEquals = (!Objects.equal(_jvmType, null));
     if (_notEquals) {
@@ -1825,7 +1857,111 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return field;
   }
   
-  public void addToParent(final YElement embeddable) {
+  protected YGridLayout _create(final UiGridLayout object) {
+    final YGridLayout layout = this.factory.createGridLayout();
+    String _name = object.getName();
+    layout.setName(_name);
+    boolean _isFillHorizontal = object.isFillHorizontal();
+    layout.setFillHorizontal(_isFillHorizontal);
+    boolean _isFillVertical = object.isFillVertical();
+    layout.setFillVertical(_isFillVertical);
+    int _columns = object.getColumns();
+    layout.setColumns(_columns);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    this.associateUi(object, layout);
+    return layout;
+  }
+  
+  protected YFormLayout _create(final UiFormLayout object) {
+    final YFormLayout layout = this.factory.createFormLayout();
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    this.associateUi(object, layout);
+    return layout;
+  }
+  
+  protected YHorizontalLayout _create(final UiHorizontalLayout object) {
+    final YHorizontalLayout layout = this.factory.createHorizontalLayout();
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    boolean _isFillHorizontal = object.isFillHorizontal();
+    layout.setFillHorizontal(_isFillHorizontal);
+    this.associateUi(object, layout);
+    return layout;
+  }
+  
+  protected YVerticalLayout _create(final UiVerticalLayout object) {
+    final YVerticalLayout layout = this.factory.createVerticalLayout();
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    boolean _isFillVertical = object.isFillVertical();
+    layout.setFillVertical(_isFillVertical);
+    this.associateUi(object, layout);
+    return layout;
+  }
+  
+  protected VMHorizontalButtonGroup _create(final UiHorizontalButtonGroup object) {
+    final VMHorizontalButtonGroup layout = VaadinMobileFactory.eINSTANCE.createVMHorizontalButtonGroup();
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    this.associateUi(object, layout);
+    return layout;
+  }
+  
+  protected VMVerticalComponentGroup _create(final UiVerticalComponentGroup object) {
+    final VMVerticalComponentGroup layout = VaadinMobileFactory.eINSTANCE.createVMVerticalComponentGroup();
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    this.associateUi(object, layout);
+    return layout;
+  }
+  
+  protected YTabSheet _create(final UiTabSheet object) {
+    final YTabSheet layout = this.factory.createTabSheet();
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    this.associateUi(object, layout);
+    return layout;
+  }
+  
+  protected VMTabSheet _create(final UiMobileTabSheet object) {
+    final VMTabSheet layout = VaadinMobileFactory.eINSTANCE.createVMTabSheet();
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    this.associateUi(object, layout);
+    return layout;
+  }
+  
+  public void xxaddToParent(final YElement embeddable) {
     final Object context = this.<Object>peek();
     if ((context instanceof YLayout)) {
       final YLayout layout = ((YLayout) context);
@@ -1980,8 +2116,17 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
           Class<?> _loadClass = this.loadClass(_resourceSet, _typeQualifiedName);
           ep_1.setType(_loadClass);
         }
-        boolean _notEquals_1 = (!Objects.equal(yElement, null));
-        if (_notEquals_1) {
+        boolean _and = false;
+        Class<?> _type = ep_1.getType();
+        boolean _notEquals_1 = (!Objects.equal(_type, null));
+        if (!_notEquals_1) {
+          _and = false;
+        } else {
+          Class<?> _type_1 = ep_1.getType();
+          boolean _isAssignableFrom = _type_1.isAssignableFrom(EObject.class);
+          _and = _isAssignableFrom;
+        }
+        if (_and) {
           EClass _eClass = yElement.eClass();
           EPackage _ePackage = _eClass.getEPackage();
           String _nsURI = _ePackage.getNsURI();
@@ -2143,8 +2288,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       JvmType _typeofLastSegment = _path_2.getTypeofLastSegment();
       info.setTypeOfBoundProperty(_typeofLastSegment);
       UiPathSegment _path_3 = assignment.getPath();
-      JvmField _fieldofLastSegment = _path_3.getFieldofLastSegment();
-      info.setDeepestJvmField(_fieldofLastSegment);
+      JvmOperation _operationofLastSegment = _path_3.getOperationofLastSegment();
+      info.setDeepestJvmField(_operationofLastSegment);
       UiPathSegment _path_4 = assignment.getPath();
       final JvmType pathType = _path_4.getTypeofSecondLastSegment();
       boolean _and = false;
@@ -2436,10 +2581,18 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   public YEmbeddable create(final UiEmbeddable object) {
-    if (object instanceof UiSwitch) {
+    if (object instanceof UiHorizontalButtonGroup) {
+      return _create((UiHorizontalButtonGroup)object);
+    } else if (object instanceof UiMobileNavigationButton) {
+      return _create((UiMobileNavigationButton)object);
+    } else if (object instanceof UiSwitch) {
       return _create((UiSwitch)object);
+    } else if (object instanceof UiVerticalComponentGroup) {
+      return _create((UiVerticalComponentGroup)object);
     } else if (object instanceof UiBrowser) {
       return _create((UiBrowser)object);
+    } else if (object instanceof UiButton) {
+      return _create((UiButton)object);
     } else if (object instanceof UiCheckBox) {
       return _create((UiCheckBox)object);
     } else if (object instanceof UiComboBox) {
@@ -2448,10 +2601,18 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return _create((UiDateField)object);
     } else if (object instanceof UiDecimalField) {
       return _create((UiDecimalField)object);
+    } else if (object instanceof UiFormLayout) {
+      return _create((UiFormLayout)object);
+    } else if (object instanceof UiGridLayout) {
+      return _create((UiGridLayout)object);
+    } else if (object instanceof UiHorizontalLayout) {
+      return _create((UiHorizontalLayout)object);
     } else if (object instanceof UiImage) {
       return _create((UiImage)object);
     } else if (object instanceof UiLabel) {
       return _create((UiLabel)object);
+    } else if (object instanceof UiMobileTabSheet) {
+      return _create((UiMobileTabSheet)object);
     } else if (object instanceof UiNumericField) {
       return _create((UiNumericField)object);
     } else if (object instanceof UiOptionsGroup) {
@@ -2464,8 +2625,14 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return _create((UiTextArea)object);
     } else if (object instanceof UiTextField) {
       return _create((UiTextField)object);
+    } else if (object instanceof UiVerticalLayout) {
+      return _create((UiVerticalLayout)object);
+    } else if (object instanceof UiTabSheet) {
+      return _create((UiTabSheet)object);
     } else if (object != null) {
       return _create(object);
+    } else if (object == null) {
+      return _create((Void)null);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(object).toString());

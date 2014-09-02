@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.xtext.common.types.TypesPackage;
 import org.eclipse.xtext.xbase.XbasePackage;
 import org.lunifera.ecview.semantic.uimodel.UiAction;
+import org.lunifera.ecview.semantic.uimodel.UiAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
@@ -820,6 +821,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum uiAlignmentEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum uiSelectionTypeEEnum = null;
 
 	/**
@@ -1153,6 +1161,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getUiBeanSlot_EClass() {
+		return (EReference)uiBeanSlotEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiRootElements() {
 		return uiRootElementsEClass;
 	}
@@ -1315,7 +1332,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUiPathSegment_JvmField() {
+	public EReference getUiPathSegment_Path() {
 		return (EReference)uiPathSegmentEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1324,7 +1341,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUiPathSegment_Path() {
+	public EReference getUiPathSegment_Getter() {
 		return (EReference)uiPathSegmentEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1576,6 +1593,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUiGridLayoutAssigment_Alignment() {
+		return (EAttribute)uiGridLayoutAssigmentEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiGridLayout() {
 		return uiGridLayoutEClass;
 	}
@@ -1639,6 +1665,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUiHorizontalLayoutAssigment_Alignment() {
+		return (EAttribute)uiHorizontalLayoutAssigmentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiHorizontalLayout() {
 		return uiHorizontalLayoutEClass;
 	}
@@ -1684,6 +1719,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUiVerticalLayoutAssigment_Alignment() {
+		return (EAttribute)uiVerticalLayoutAssigmentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiVerticalLayout() {
 		return uiVerticalLayoutEClass;
 	}
@@ -1722,6 +1766,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiFormLayoutAssigment_Element() {
 		return (EReference)uiFormLayoutAssigmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiFormLayoutAssigment_Alignment() {
+		return (EAttribute)uiFormLayoutAssigmentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1918,7 +1971,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUiColumn_JvmField() {
+	public EReference getUiColumn_Getter() {
 		return (EReference)uiColumnEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2962,6 +3015,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getUiAlignment() {
+		return uiAlignmentEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getUiSelectionType() {
 		return uiSelectionTypeEEnum;
 	}
@@ -3034,6 +3096,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiBeanSlotEClass = createEClass(UI_BEAN_SLOT);
 		createEReference(uiBeanSlotEClass, UI_BEAN_SLOT__JVM_TYPE);
+		createEReference(uiBeanSlotEClass, UI_BEAN_SLOT__ECLASS);
 
 		uiRootElementsEClass = createEClass(UI_ROOT_ELEMENTS);
 
@@ -3058,8 +3121,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEAttribute(uiBindingEClass, UI_BINDING__LIST_BINDING);
 
 		uiPathSegmentEClass = createEClass(UI_PATH_SEGMENT);
-		createEReference(uiPathSegmentEClass, UI_PATH_SEGMENT__JVM_FIELD);
 		createEReference(uiPathSegmentEClass, UI_PATH_SEGMENT__PATH);
+		createEReference(uiPathSegmentEClass, UI_PATH_SEGMENT__GETTER);
 
 		uiRawBindableEClass = createEClass(UI_RAW_BINDABLE);
 
@@ -3103,6 +3166,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiGridLayoutAssigmentEClass, UI_GRID_LAYOUT_ASSIGMENT__ELEMENT);
 		createEReference(uiGridLayoutAssigmentEClass, UI_GRID_LAYOUT_ASSIGMENT__FROM);
 		createEReference(uiGridLayoutAssigmentEClass, UI_GRID_LAYOUT_ASSIGMENT__TO);
+		createEAttribute(uiGridLayoutAssigmentEClass, UI_GRID_LAYOUT_ASSIGMENT__ALIGNMENT);
 
 		uiGridLayoutEClass = createEClass(UI_GRID_LAYOUT);
 		createEReference(uiGridLayoutEClass, UI_GRID_LAYOUT__CONTENTS);
@@ -3112,6 +3176,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiHorizontalLayoutAssigmentEClass = createEClass(UI_HORIZONTAL_LAYOUT_ASSIGMENT);
 		createEReference(uiHorizontalLayoutAssigmentEClass, UI_HORIZONTAL_LAYOUT_ASSIGMENT__ELEMENT);
+		createEAttribute(uiHorizontalLayoutAssigmentEClass, UI_HORIZONTAL_LAYOUT_ASSIGMENT__ALIGNMENT);
 
 		uiHorizontalLayoutEClass = createEClass(UI_HORIZONTAL_LAYOUT);
 		createEReference(uiHorizontalLayoutEClass, UI_HORIZONTAL_LAYOUT__CONTENTS);
@@ -3119,6 +3184,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiVerticalLayoutAssigmentEClass = createEClass(UI_VERTICAL_LAYOUT_ASSIGMENT);
 		createEReference(uiVerticalLayoutAssigmentEClass, UI_VERTICAL_LAYOUT_ASSIGMENT__ELEMENT);
+		createEAttribute(uiVerticalLayoutAssigmentEClass, UI_VERTICAL_LAYOUT_ASSIGMENT__ALIGNMENT);
 
 		uiVerticalLayoutEClass = createEClass(UI_VERTICAL_LAYOUT);
 		createEReference(uiVerticalLayoutEClass, UI_VERTICAL_LAYOUT__CONTENTS);
@@ -3126,6 +3192,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiFormLayoutAssigmentEClass = createEClass(UI_FORM_LAYOUT_ASSIGMENT);
 		createEReference(uiFormLayoutAssigmentEClass, UI_FORM_LAYOUT_ASSIGMENT__ELEMENT);
+		createEAttribute(uiFormLayoutAssigmentEClass, UI_FORM_LAYOUT_ASSIGMENT__ALIGNMENT);
 
 		uiFormLayoutEClass = createEClass(UI_FORM_LAYOUT);
 		createEReference(uiFormLayoutEClass, UI_FORM_LAYOUT__CONTENTS);
@@ -3155,7 +3222,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiTypeProviderEClass, UI_TYPE_PROVIDER__JVM_TYPE);
 
 		uiColumnEClass = createEClass(UI_COLUMN);
-		createEReference(uiColumnEClass, UI_COLUMN__JVM_FIELD);
+		createEReference(uiColumnEClass, UI_COLUMN__GETTER);
 		createEAttribute(uiColumnEClass, UI_COLUMN__ICON_NAME);
 		createEAttribute(uiColumnEClass, UI_COLUMN__VISIBLE);
 		createEAttribute(uiColumnEClass, UI_COLUMN__ORDERABLE);
@@ -3323,6 +3390,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		// Create enums
 		uiFlatAlignmentEEnum = createEEnum(UI_FLAT_ALIGNMENT);
+		uiAlignmentEEnum = createEEnum(UI_ALIGNMENT);
 		uiSelectionTypeEEnum = createEEnum(UI_SELECTION_TYPE);
 	}
 
@@ -3507,6 +3575,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiBeanSlotEClass, UiBeanSlot.class, "UiBeanSlot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiBeanSlot_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, UiBeanSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiBeanSlot_EClass(), ecorePackage.getEClass(), null, "eClass", null, 0, 1, UiBeanSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiRootElementsEClass, UiRootElements.class, "UiRootElements", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3531,8 +3600,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEAttribute(getUiBinding_ListBinding(), ecorePackage.getEBoolean(), "listBinding", null, 0, 1, UiBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiPathSegmentEClass, UiPathSegment.class, "UiPathSegment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUiPathSegment_JvmField(), theTypesPackage.getJvmField(), null, "jvmField", null, 0, 1, UiPathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiPathSegment_Path(), this.getUiPathSegment(), null, "path", null, 0, 1, UiPathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiPathSegment_Getter(), theTypesPackage.getJvmOperation(), null, "getter", null, 0, 1, UiPathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiRawBindableEClass, UiRawBindable.class, "UiRawBindable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3576,6 +3645,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiGridLayoutAssigment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiGridLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiGridLayoutAssigment_From(), this.getUiPoint(), null, "from", null, 0, 1, UiGridLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiGridLayoutAssigment_To(), this.getUiPoint(), null, "to", null, 0, 1, UiGridLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiGridLayoutAssigment_Alignment(), this.getUiAlignment(), "alignment", null, 0, 1, UiGridLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiGridLayoutEClass, UiGridLayout.class, "UiGridLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiGridLayout_Contents(), this.getUiGridLayoutAssigment(), null, "contents", null, 0, -1, UiGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3585,6 +3655,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiHorizontalLayoutAssigmentEClass, UiHorizontalLayoutAssigment.class, "UiHorizontalLayoutAssigment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiHorizontalLayoutAssigment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiHorizontalLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiHorizontalLayoutAssigment_Alignment(), this.getUiAlignment(), "alignment", null, 0, 1, UiHorizontalLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiHorizontalLayoutEClass, UiHorizontalLayout.class, "UiHorizontalLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiHorizontalLayout_Contents(), this.getUiHorizontalLayoutAssigment(), null, "contents", null, 0, -1, UiHorizontalLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3592,6 +3663,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiVerticalLayoutAssigmentEClass, UiVerticalLayoutAssigment.class, "UiVerticalLayoutAssigment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiVerticalLayoutAssigment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiVerticalLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiVerticalLayoutAssigment_Alignment(), this.getUiAlignment(), "alignment", null, 0, 1, UiVerticalLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiVerticalLayoutEClass, UiVerticalLayout.class, "UiVerticalLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiVerticalLayout_Contents(), this.getUiVerticalLayoutAssigment(), null, "contents", null, 0, -1, UiVerticalLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3599,6 +3671,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiFormLayoutAssigmentEClass, UiFormLayoutAssigment.class, "UiFormLayoutAssigment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiFormLayoutAssigment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiFormLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiFormLayoutAssigment_Alignment(), this.getUiAlignment(), "alignment", null, 0, 1, UiFormLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiFormLayoutEClass, UiFormLayout.class, "UiFormLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiFormLayout_Contents(), this.getUiFormLayoutAssigment(), null, "contents", null, 0, -1, UiFormLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3613,22 +3686,22 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiListEClass, UiList.class, "UiList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiList_SelectionType(), this.getUiSelectionType(), "selectionType", "SINGLE", 1, 1, UiList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUiList_ItemImageProperty(), theTypesPackage.getJvmField(), null, "itemImageProperty", null, 0, 1, UiList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiList_ItemImageProperty(), theTypesPackage.getJvmOperation(), null, "itemImageProperty", null, 0, 1, UiList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiTableEClass, UiTable.class, "UiTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiTable_ColumnAssignment(), this.getUiColumnsAssignment(), null, "columnAssignment", null, 0, 1, UiTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiTable_SelectionType(), this.getUiSelectionType(), "selectionType", "SINGLE", 1, 1, UiTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUiTable_ItemImageProperty(), theTypesPackage.getJvmField(), null, "itemImageProperty", null, 0, 1, UiTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiTable_ItemImageProperty(), theTypesPackage.getJvmOperation(), null, "itemImageProperty", null, 0, 1, UiTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiComboBoxEClass, UiComboBox.class, "UiComboBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUiComboBox_ItemCaptionProperty(), theTypesPackage.getJvmField(), null, "itemCaptionProperty", null, 0, 1, UiComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUiComboBox_ItemImageProperty(), theTypesPackage.getJvmField(), null, "itemImageProperty", null, 0, 1, UiComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiComboBox_ItemCaptionProperty(), theTypesPackage.getJvmOperation(), null, "itemCaptionProperty", null, 0, 1, UiComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiComboBox_ItemImageProperty(), theTypesPackage.getJvmOperation(), null, "itemImageProperty", null, 0, 1, UiComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiTypeProviderEClass, UiTypeProvider.class, "UiTypeProvider", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiTypeProvider_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, UiTypeProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiColumnEClass, UiColumn.class, "UiColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUiColumn_JvmField(), theTypesPackage.getJvmField(), null, "jvmField", null, 0, 1, UiColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiColumn_Getter(), theTypesPackage.getJvmOperation(), null, "getter", null, 0, 1, UiColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiColumn_IconName(), ecorePackage.getEString(), "iconName", null, 0, 1, UiColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiColumn_Visible(), ecorePackage.getEBoolean(), "visible", "true", 0, 1, UiColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiColumn_Orderable(), ecorePackage.getEBoolean(), "orderable", "true", 0, 1, UiColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3779,8 +3852,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiOptionsGroupEClass, UiOptionsGroup.class, "UiOptionsGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiOptionsGroup_SelectionType(), this.getUiSelectionType(), "selectionType", "SINGLE", 0, 1, UiOptionsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUiOptionsGroup_ItemImageProperty(), theTypesPackage.getJvmField(), null, "itemImageProperty", null, 0, 1, UiOptionsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUiOptionsGroup_ItemCaptionProperty(), theTypesPackage.getJvmField(), null, "itemCaptionProperty", null, 0, 1, UiOptionsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiOptionsGroup_ItemImageProperty(), theTypesPackage.getJvmOperation(), null, "itemImageProperty", null, 0, 1, UiOptionsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiOptionsGroup_ItemCaptionProperty(), theTypesPackage.getJvmOperation(), null, "itemCaptionProperty", null, 0, 1, UiOptionsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiDateFieldEClass, UiDateField.class, "UiDateField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3799,6 +3872,25 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		addEEnumLiteral(uiFlatAlignmentEEnum, UiFlatAlignment.LEFT);
 		addEEnumLiteral(uiFlatAlignmentEEnum, UiFlatAlignment.CENTER);
 		addEEnumLiteral(uiFlatAlignmentEEnum, UiFlatAlignment.RIGHT);
+
+		initEEnum(uiAlignmentEEnum, UiAlignment.class, "UiAlignment");
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.BOTTOM_LEFT);
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.BOTTOM_CENTER);
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.BOTTOM_RIGHT);
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.BOTTOM_FILL);
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.MIDDLE_LEFT);
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.MIDDLE_CENTER);
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.MIDDLE_RIGHT);
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.MIDDLE_FILL);
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.TOP_LEFT);
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.TOP_CENTER);
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.TOP_RIGHT);
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.TOP_FILL);
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.FILL_FILL);
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.FILL_LEFT);
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.FILL_CENTER);
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.FILL_RIGHT);
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.UNDEFINED);
 
 		initEEnum(uiSelectionTypeEEnum, UiSelectionType.class, "UiSelectionType");
 		addEEnumLiteral(uiSelectionTypeEEnum, UiSelectionType.NONE);

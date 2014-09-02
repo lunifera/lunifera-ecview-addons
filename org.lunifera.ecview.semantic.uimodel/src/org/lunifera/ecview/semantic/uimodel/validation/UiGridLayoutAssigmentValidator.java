@@ -4,6 +4,7 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
+import org.lunifera.ecview.semantic.uimodel.UiAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
 
@@ -19,4 +20,6 @@ public interface UiGridLayoutAssigmentValidator {
 	boolean validateElement(UiEmbeddable value);
 	boolean validateFrom(UiPoint value);
 	boolean validateTo(UiPoint value);
+
+	boolean validateAlignment(UiAlignment value);
 }
