@@ -2,7 +2,7 @@ package org.lunifera.ecview.dsl.scope;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
+import org.lunifera.ecview.core.common.model.core.YBeanSlot;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.common.types.util.TypeReferences;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;

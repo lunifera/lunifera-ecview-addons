@@ -10,8 +10,8 @@
  */
 package org.lunifera.ecview.xtext.builder.participant;
 
-import org.eclipse.emf.ecp.ecview.common.model.core.YView;
-import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.lunifera.ecview.core.common.model.core.YView;
+import org.lunifera.ecview.core.common.model.core.YViewSet;
 
 public interface IECViewAddonsMetadataService {
 

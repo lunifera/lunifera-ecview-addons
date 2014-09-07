@@ -1,8 +1,6 @@
 package org.lunifera.ecview.dsl.jvmmodel
 
 import com.google.inject.Inject
-import org.eclipse.emf.ecp.ecview.common.validation.IStatus
-import org.eclipse.emf.ecp.ecview.common.validation.IValidator
 import org.eclipse.xtext.common.types.util.TypeReferences
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
@@ -11,8 +9,9 @@ import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociator
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator
 import org.eclipse.xtext.common.types.JvmVisibility
-import org.eclipse.emf.ecp.ecview.common.validation.Status
 import org.eclipse.xtext.xbase.compiler.ImportManager
+import org.lunifera.ecview.core.common.validation.IValidator
+import org.lunifera.ecview.core.common.validation.IStatus
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -78,7 +77,7 @@ class UIGrammarJvmModelInferrer extends AbstractModelInferrer {
 						parameters += element.toParameter("errorCode", element.newTypeRef(typeof(String)))
 						parameters += element.toParameter("message", element.newTypeRef(typeof(String)))
 						body = '''
-							return org.eclipse.emf.ecp.ecview.common.validation.Status.createStatus(errorCode, getClass(), IStatus.Severity.ERROR, message);
+							return org.lunifera.ecview.core.common.validation.Status.createStatus(errorCode, getClass(), IStatus.Severity.ERROR, message);
 						 '''
 					]
 					
@@ -93,7 +92,7 @@ class UIGrammarJvmModelInferrer extends AbstractModelInferrer {
 						parameters += element.toParameter("errorCode", element.newTypeRef(typeof(String)))
 						parameters += element.toParameter("message", element.newTypeRef(typeof(String)))
 						body = '''
-							return org.eclipse.emf.ecp.ecview.common.validation.Status.createStatus(errorCode, getClass(), IStatus.Severity.WARNING, message);
+							return org.lunifera.ecview.core.common.validation.Status.createStatus(errorCode, getClass(), IStatus.Severity.WARNING, message);
 						 '''
 					]
 				])

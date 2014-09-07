@@ -2,6 +2,7 @@ package org.lunifera.ecview.dsl.derivedstate;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -30,18 +31,26 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.lunifera.ecview.core.common.model.binding.YBindingSet;
 import org.lunifera.ecview.core.common.model.binding.YBindingUpdateStrategy;
 import org.lunifera.ecview.core.common.model.binding.YECViewModelListBindingEndpoint;
+import org.lunifera.ecview.core.common.model.binding.YECViewModelValueBindingEndpoint;
 import org.lunifera.ecview.core.common.model.binding.YListBindingEndpoint;
 import org.lunifera.ecview.core.common.model.binding.YValueBindingEndpoint;
 import org.lunifera.ecview.core.common.model.core.CoreModelFactory;
+import org.lunifera.ecview.core.common.model.core.YAlignment;
 import org.lunifera.ecview.core.common.model.core.YBeanSlot;
 import org.lunifera.ecview.core.common.model.core.YBeanSlotListBindingEndpoint;
+import org.lunifera.ecview.core.common.model.core.YBeanSlotValueBindingEndpoint;
+import org.lunifera.ecview.core.common.model.core.YCommandSet;
+import org.lunifera.ecview.core.common.model.core.YDeviceType;
 import org.lunifera.ecview.core.common.model.core.YDialog;
 import org.lunifera.ecview.core.common.model.core.YElement;
 import org.lunifera.ecview.core.common.model.core.YEmbeddable;
 import org.lunifera.ecview.core.common.model.core.YField;
+import org.lunifera.ecview.core.common.model.core.YFlatAlignment;
 import org.lunifera.ecview.core.common.model.core.YLayout;
+import org.lunifera.ecview.core.common.model.core.YOpenDialogCommand;
 import org.lunifera.ecview.core.common.model.core.YView;
 import org.lunifera.ecview.core.common.model.core.YViewSet;
+import org.lunifera.ecview.core.common.model.datatypes.YDatadescription;
 import org.lunifera.ecview.core.common.model.datatypes.YDatatype;
 import org.lunifera.ecview.core.common.model.validation.YClassDelegateValidator;
 import org.lunifera.ecview.core.common.model.validation.YMaxLengthValidator;
@@ -56,25 +65,32 @@ import org.lunifera.ecview.core.extension.model.extension.YBooleanSearchField;
 import org.lunifera.ecview.core.extension.model.extension.YBrowser;
 import org.lunifera.ecview.core.extension.model.extension.YButton;
 import org.lunifera.ecview.core.extension.model.extension.YCheckBox;
+import org.lunifera.ecview.core.extension.model.extension.YColumn;
 import org.lunifera.ecview.core.extension.model.extension.YComboBox;
 import org.lunifera.ecview.core.extension.model.extension.YDateTime;
 import org.lunifera.ecview.core.extension.model.extension.YDecimalField;
 import org.lunifera.ecview.core.extension.model.extension.YFormLayout;
 import org.lunifera.ecview.core.extension.model.extension.YGridLayout;
+import org.lunifera.ecview.core.extension.model.extension.YGridLayoutCellStyle;
 import org.lunifera.ecview.core.extension.model.extension.YHorizontalLayout;
+import org.lunifera.ecview.core.extension.model.extension.YHorizontalLayoutCellStyle;
 import org.lunifera.ecview.core.extension.model.extension.YImage;
 import org.lunifera.ecview.core.extension.model.extension.YLabel;
 import org.lunifera.ecview.core.extension.model.extension.YNumericField;
 import org.lunifera.ecview.core.extension.model.extension.YNumericSearchField;
 import org.lunifera.ecview.core.extension.model.extension.YOptionsGroup;
+import org.lunifera.ecview.core.extension.model.extension.YPanel;
 import org.lunifera.ecview.core.extension.model.extension.YProgressBar;
 import org.lunifera.ecview.core.extension.model.extension.YSelectionType;
+import org.lunifera.ecview.core.extension.model.extension.YSplitPanel;
+import org.lunifera.ecview.core.extension.model.extension.YTab;
 import org.lunifera.ecview.core.extension.model.extension.YTabSheet;
 import org.lunifera.ecview.core.extension.model.extension.YTable;
 import org.lunifera.ecview.core.extension.model.extension.YTextArea;
 import org.lunifera.ecview.core.extension.model.extension.YTextField;
 import org.lunifera.ecview.core.extension.model.extension.YTextSearchField;
 import org.lunifera.ecview.core.extension.model.extension.YVerticalLayout;
+import org.lunifera.ecview.core.extension.model.extension.YVerticalLayoutCellStyle;
 import org.lunifera.ecview.core.extension.model.extension.util.SimpleExtensionModelFactory;
 import org.lunifera.ecview.dsl.derivedstate.TypeHelper;
 import org.lunifera.ecview.dsl.derivedstate.UiGrammarElementAdapter;
@@ -117,6 +133,7 @@ import org.lunifera.ecview.semantic.uimodel.UiLabel;
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationCommand;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationHandler;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment;
@@ -125,6 +142,7 @@ import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet;
 import org.lunifera.ecview.semantic.uimodel.UiMobileView;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiNumericField;
+import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup;
 import org.lunifera.ecview.semantic.uimodel.UiPanel;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
@@ -135,6 +153,7 @@ import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
 import org.lunifera.ecview.semantic.uimodel.UiSearchDialog;
 import org.lunifera.ecview.semantic.uimodel.UiSearchField;
+import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanel;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment;
@@ -159,7 +178,11 @@ import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 import org.lunifera.mobile.vaadin.ecview.model.VMHorizontalButtonGroup;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationButton;
+import org.lunifera.mobile.vaadin.ecview.model.VMNavigationCommand;
+import org.lunifera.mobile.vaadin.ecview.model.VMNavigationHandler;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationPage;
+import org.lunifera.mobile.vaadin.ecview.model.VMSwitch;
+import org.lunifera.mobile.vaadin.ecview.model.VMTab;
 import org.lunifera.mobile.vaadin.ecview.model.VMTabSheet;
 import org.lunifera.mobile.vaadin.ecview.model.VMVerticalComponentGroup;
 import org.lunifera.mobile.vaadin.ecview.model.VaadinMobileFactory;
@@ -468,15 +491,115 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiIDEView object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field contentAlignment is undefined for the type UiModelDerivedStateComputerx");
+    final YView yView = this.factory.createView();
+    UiAlignment _contentAlignment = object.getContentAlignment();
+    YAlignment _yAlignment = this.toYAlignment(_contentAlignment);
+    yView.setContentAlignment(_yAlignment);
+    this.associateUi(object, yView);
+    this.views.add(yView);
+    this.currentView = yView;
+    this.push(yView);
+    EList<UiBeanSlot> _beanSlots = object.getBeanSlots();
+    final Procedure1<UiBeanSlot> _function = new Procedure1<UiBeanSlot>() {
+      public void apply(final UiBeanSlot it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBeanSlot>forEach(_beanSlots, _function);
+    UiEmbeddable _content = object.getContent();
+    final YEmbeddable element = this.create(_content);
+    yView.setContent(element);
+    UiEmbeddable _content_1 = object.getContent();
+    this.map(_content_1);
+    EList<UiBinding> _bindings = object.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    ArrayList<UiBinding> _newArrayList = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
+    this.temporaryPendingBindings = _newArrayList;
+    this.pendingBindings.clear();
+    final Procedure1<UiBinding> _function_2 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.install(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_2);
+    boolean _isEmpty = this.pendingBindings.isEmpty();
+    if (_isEmpty) {
+      EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
+      final Procedure1<UiValidatorAssignment> _function_3 = new Procedure1<UiValidatorAssignment>() {
+        public void apply(final UiValidatorAssignment it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_3);
+      this.<Object>pop();
+      this.currentView = null;
+    } else {
+      ArrayList<UiBinding> _newArrayList_1 = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
+      this.temporaryPendingBindings = _newArrayList_1;
+      this.pendingBindings.clear();
+      final Procedure1<UiBinding> _function_4 = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.install(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_4);
+      EList<UiValidatorAssignment> _validatorAssignments_1 = object.getValidatorAssignments();
+      final Procedure1<UiValidatorAssignment> _function_5 = new Procedure1<UiValidatorAssignment>() {
+        public void apply(final UiValidatorAssignment it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments_1, _function_5);
+      this.<Object>pop();
+      this.currentView = null;
+    }
   }
   
   protected void _map(final UiMobileView object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field deviceType is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YDeviceType is undefined for the type UiModelDerivedStateComputerx"
-      + "\nMOBILE cannot be resolved");
+    final YView yView = this.factory.createView();
+    this.associateUi(object, yView);
+    yView.setDeviceType(YDeviceType.MOBILE);
+    this.views.add(yView);
+    this.currentView = yView;
+    this.push(yView);
+    EList<UiBeanSlot> _beanSlots = object.getBeanSlots();
+    final Procedure1<UiBeanSlot> _function = new Procedure1<UiBeanSlot>() {
+      public void apply(final UiBeanSlot it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBeanSlot>forEach(_beanSlots, _function);
+    UiEmbeddable _content = object.getContent();
+    final YEmbeddable element = this.create(_content);
+    yView.setContent(element);
+    object.getContent();
+    EList<UiBinding> _bindings = object.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    final Procedure1<UiBinding> _function_2 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.install(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(this.pendingBindings, _function_2);
+    EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
+    final Procedure1<UiValidatorAssignment> _function_3 = new Procedure1<UiValidatorAssignment>() {
+      public void apply(final UiValidatorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_3);
+    this.<Object>pop();
+    this.currentView = null;
   }
   
   public EObject push(final EObject eObject) {
@@ -504,8 +627,31 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiGridLayoutAssigment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\npush cannot be resolved");
+    final YGridLayout layout = this.<YGridLayout>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    UiAlignment _alignment = eObject.getAlignment();
+    boolean _notEquals = (!Objects.equal(_alignment, UiAlignment.UNDEFINED));
+    if (_notEquals) {
+      final YGridLayoutCellStyle style = layout.addGridLayoutCellStyle(newField);
+      UiAlignment _alignment_1 = eObject.getAlignment();
+      YAlignment _yAlignment = this.toYAlignment(_alignment_1);
+      style.setAlignment(_yAlignment);
+    }
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
   }
   
   protected void _map(final UiVerticalLayout eObject) {
@@ -529,11 +675,34 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiVerticalLayoutAssigment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method addCellStyle is undefined for the type UiModelDerivedStateComputerx"
-      + "\nalignment cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\npush cannot be resolved");
+    final YVerticalLayout layout = this.<YVerticalLayout>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    UiAlignment _alignment = eObject.getAlignment();
+    boolean _notEquals = (!Objects.equal(_alignment, UiAlignment.UNDEFINED));
+    if (_notEquals) {
+      final YVerticalLayoutCellStyle style = layout.addCellStyle(newField);
+      UiAlignment _alignment_1 = eObject.getAlignment();
+      YAlignment _yAlignment = this.toYAlignment(_alignment_1);
+      style.setAlignment(_yAlignment);
+    }
+    this.map(element);
+    if ((element instanceof UiField)) {
+      boolean _notEquals_1 = (!Objects.equal(newField, null));
+      if (_notEquals_1) {
+        this.push(newField);
+        final UiField yField = ((UiField) element);
+        EList<UiValidator> _validators = yField.getValidators();
+        final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+          public void apply(final UiValidator it) {
+            UiModelDerivedStateComputerx.this.map(it);
+          }
+        };
+        IterableExtensions.<UiValidator>forEach(_validators, _function);
+        this.<Object>pop();
+      }
+    }
   }
   
   protected void _map(final UiHorizontalLayout eObject) {
@@ -557,35 +726,102 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiHorizontalLayoutAssigment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method addCellStyle is undefined for the type UiModelDerivedStateComputerx"
-      + "\nalignment cannot be resolved"
-      + "\npush cannot be resolved");
+    final YHorizontalLayout layout = this.<YHorizontalLayout>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    UiAlignment _alignment = eObject.getAlignment();
+    boolean _notEquals = (!Objects.equal(_alignment, UiAlignment.UNDEFINED));
+    if (_notEquals) {
+      final YHorizontalLayoutCellStyle style = layout.addCellStyle(newField);
+      UiAlignment _alignment_1 = eObject.getAlignment();
+      YAlignment _yAlignment = this.toYAlignment(_alignment_1);
+      style.setAlignment(_yAlignment);
+    }
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
   }
   
   protected void _map(final UiSplitpanel eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYSplitPanel cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final YSplitPanel yField = this.<YSplitPanel>associatedUi(eObject);
+    this.push(yField);
+    UiSplitpanelAssigment _firstContent = eObject.getFirstContent();
+    this.map(_firstContent);
+    UiSplitpanelAssigment _secondContent = eObject.getSecondContent();
+    this.map(_secondContent);
+    this.<Object>pop();
   }
   
   protected void _map(final UiSplitpanelAssigment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYSplitPanel cannot be resolved to a type."
-      + "\n== cannot be resolved"
-      + "\naddElement cannot be resolved"
-      + "\npush cannot be resolved");
+    final YSplitPanel layout = this.<YSplitPanel>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    boolean _equals = Objects.equal(newField, null);
+    if (_equals) {
+      return;
+    }
+    layout.addElement(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
   }
   
   protected void _map(final UiPanel eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYPanel cannot be resolved to a type."
-      + "\npush cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nelements cannot be resolved"
-      + "\n+= cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\npush cannot be resolved");
+    final YPanel yPanel = this.<YPanel>associatedUi(eObject);
+    this.push(yPanel);
+    final UiEmbeddable element = eObject.getContent();
+    final YEmbeddable newField = this.create(element);
+    boolean _equals = Objects.equal(newField, null);
+    if (_equals) {
+      return;
+    }
+    EList<YEmbeddable> _elements = yPanel.getElements();
+    _elements.add(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      boolean _notEquals = (!Objects.equal(newField, null));
+      if (_notEquals) {
+        this.push(newField);
+        final UiField yField = ((UiField) element);
+        EList<UiValidator> _validators = yField.getValidators();
+        final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+          public void apply(final UiValidator it) {
+            UiModelDerivedStateComputerx.this.map(it);
+          }
+        };
+        IterableExtensions.<UiValidator>forEach(_validators, _function);
+        this.<Object>pop();
+      }
+    }
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    this.<Object>pop();
   }
   
   protected void _map(final UiTabSheet eObject) {
@@ -609,8 +845,32 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiTabAssignment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\npush cannot be resolved");
+    final YTabSheet layout = this.<YTabSheet>peek();
+    final YTab tab = this.factory.createTab();
+    String _name = eObject.getName();
+    tab.setLabel(_name);
+    String _i18nKey = this.toI18nKey(eObject);
+    tab.setLabelI18nKey(_i18nKey);
+    EList<YTab> _tabs = layout.getTabs();
+    _tabs.add(tab);
+    this.push(tab);
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    tab.setEmbeddable(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
+    this.<Object>pop();
   }
   
   protected void _map(final UiMobileTabSheet eObject) {
@@ -634,8 +894,30 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiMobileTabAssignment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\npush cannot be resolved");
+    final VMTabSheet layout = this.<VMTabSheet>peek();
+    final VMTab tab = VaadinMobileFactory.eINSTANCE.createVMTab();
+    String _name = eObject.getName();
+    tab.setLabel(_name);
+    EList<VMTab> _tabs = layout.getTabs();
+    _tabs.add(tab);
+    this.push(tab);
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    tab.setEmbeddable(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
+    this.<Object>pop();
   }
   
   protected void _map(final UiHorizontalButtonGroup eObject) {
@@ -659,8 +941,23 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiHorizontalButtonGroupAssigment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\npush cannot be resolved");
+    final VMHorizontalButtonGroup layout = this.<VMHorizontalButtonGroup>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
   }
   
   protected void _map(final UiVerticalComponentGroup eObject) {
@@ -684,8 +981,23 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiVerticalComponentGroupAssigment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\npush cannot be resolved");
+    final VMVerticalComponentGroup layout = this.<VMVerticalComponentGroup>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
   }
   
   protected void _map(final UiMobileNavigationPage eObject) {
@@ -822,8 +1134,23 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiDialogAssignment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\npush cannot be resolved");
+    final YDialog yDialog = this.<YDialog>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    yDialog.setContent(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
   }
   
   protected void _map(final UiDialogSearchFieldAssignment eObject) {
@@ -888,8 +1215,23 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiMobileNavigationPageAssignment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\npush cannot be resolved");
+    final VMNavigationPage layout = this.<VMNavigationPage>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
   }
   
   protected void _map(final UiFormLayout eObject) {
@@ -913,8 +1255,23 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiFormLayoutAssigment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\npush cannot be resolved");
+    final YFormLayout layout = this.<YFormLayout>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
   }
   
   protected void _map(final UiOptionsGroup eObject) {
@@ -1042,56 +1399,98 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiColumn eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field labelI18nKey is undefined for the type UiModelDerivedStateComputerx");
+    final YTable yField = this.<YTable>peek();
+    final YColumn yColumn = this.factory.createColumn();
+    UiFlatAlignment _alignment = eObject.getAlignment();
+    YFlatAlignment _yFlatAlignment = this.toYFlatAlignment(_alignment);
+    yColumn.setAlignment(_yFlatAlignment);
+    boolean _isCollapsed = eObject.isCollapsed();
+    yColumn.setCollapsed(_isCollapsed);
+    boolean _isCollapsible = eObject.isCollapsible();
+    yColumn.setCollapsible(_isCollapsible);
+    float _expandRatio = eObject.getExpandRatio();
+    yColumn.setExpandRatio(_expandRatio);
+    String _iconName = eObject.getIconName();
+    yColumn.setIcon(_iconName);
+    JvmOperation _getter = eObject.getGetter();
+    String _simpleName = null;
+    if (_getter!=null) {
+      _simpleName=_getter.getSimpleName();
+    }
+    String _propertyName = OperationExtensions.toPropertyName(_simpleName);
+    yColumn.setName(_propertyName);
+    boolean _isOrderable = eObject.isOrderable();
+    yColumn.setOrderable(_isOrderable);
+    boolean _isVisible = eObject.isVisible();
+    yColumn.setVisible(_isVisible);
+    YDatadescription _datadescription = yField.getDatadescription();
+    String _labelI18nKey = _datadescription.getLabelI18nKey();
+    String _plus = (_labelI18nKey + ".");
+    String _name = yColumn.getName();
+    String _plus_1 = (_plus + _name);
+    yColumn.setLabelI18nKey(_plus_1);
+    EList<YColumn> _columns = yField.getColumns();
+    _columns.add(yColumn);
   }
   
-  public /* YFlatAlignment */Object toYFlatAlignment(final UiFlatAlignment uiAlign) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field YFlatAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YFlatAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YFlatAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nLEFT cannot be resolved"
-      + "\nCENTER cannot be resolved"
-      + "\nRIGHT cannot be resolved");
+  public YFlatAlignment toYFlatAlignment(final UiFlatAlignment uiAlign) {
+    if (uiAlign != null) {
+      switch (uiAlign) {
+        case LEFT:
+          return YFlatAlignment.LEFT;
+        case CENTER:
+          return YFlatAlignment.CENTER;
+        case RIGHT:
+          return YFlatAlignment.RIGHT;
+        default:
+          break;
+      }
+    }
+    return null;
   }
   
-  public /* YAlignment */Object toYAlignment(final UiAlignment uiAlign) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nBOTTOM_CENTER cannot be resolved"
-      + "\nBOTTOM_FILL cannot be resolved"
-      + "\nBOTTOM_LEFT cannot be resolved"
-      + "\nBOTTOM_RIGHT cannot be resolved"
-      + "\nFILL_CENTER cannot be resolved"
-      + "\nFILL_FILL cannot be resolved"
-      + "\nFILL_LEFT cannot be resolved"
-      + "\nFILL_RIGHT cannot be resolved"
-      + "\nMIDDLE_CENTER cannot be resolved"
-      + "\nMIDDLE_FILL cannot be resolved"
-      + "\nMIDDLE_LEFT cannot be resolved"
-      + "\nMIDDLE_RIGHT cannot be resolved"
-      + "\nTOP_CENTER cannot be resolved"
-      + "\nTOP_FILL cannot be resolved"
-      + "\nTOP_LEFT cannot be resolved"
-      + "\nTOP_RIGHT cannot be resolved"
-      + "\nUNDEFINED cannot be resolved");
+  public YAlignment toYAlignment(final UiAlignment uiAlign) {
+    if (uiAlign != null) {
+      switch (uiAlign) {
+        case BOTTOM_CENTER:
+          return YAlignment.BOTTOM_CENTER;
+        case BOTTOM_FILL:
+          return YAlignment.BOTTOM_FILL;
+        case BOTTOM_LEFT:
+          return YAlignment.BOTTOM_LEFT;
+        case BOTTOM_RIGHT:
+          return YAlignment.BOTTOM_RIGHT;
+        case FILL_CENTER:
+          return YAlignment.FILL_CENTER;
+        case FILL_FILL:
+          return YAlignment.FILL_FILL;
+        case FILL_LEFT:
+          return YAlignment.FILL_LEFT;
+        case FILL_RIGHT:
+          return YAlignment.FILL_RIGHT;
+        case MIDDLE_CENTER:
+          return YAlignment.MIDDLE_CENTER;
+        case MIDDLE_FILL:
+          return YAlignment.MIDDLE_FILL;
+        case MIDDLE_LEFT:
+          return YAlignment.MIDDLE_LEFT;
+        case MIDDLE_RIGHT:
+          return YAlignment.MIDDLE_RIGHT;
+        case TOP_CENTER:
+          return YAlignment.TOP_CENTER;
+        case TOP_FILL:
+          return YAlignment.TOP_FILL;
+        case TOP_LEFT:
+          return YAlignment.TOP_LEFT;
+        case TOP_RIGHT:
+          return YAlignment.TOP_RIGHT;
+        case UNDEFINED:
+          return YAlignment.UNDEFINED;
+        default:
+          break;
+      }
+    }
+    return null;
   }
   
   protected void _map(final UiValidatorAssignment eObject) {
@@ -1511,8 +1910,15 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected YEmbeddable _create(final UiSwitch object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from VMSwitch to YEmbeddable");
+    final VMSwitch field = VaadinMobileFactory.eINSTANCE.createVMSwitch();
+    String _name = object.getName();
+    field.setName(_name);
+    String _name_1 = object.getName();
+    field.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    field.setLabelI18nKey(_i18nKey);
+    this.associateUi(object, field);
+    return field;
   }
   
   protected YGridLayout _create(final UiGridLayout object) {
@@ -1532,8 +1938,19 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected YFormLayout _create(final UiFormLayout object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field fillHorizontal is undefined for the type UiModelDerivedStateComputerx");
+    final YFormLayout layout = this.factory.createFormLayout();
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    boolean _isFillHorizontal = object.isFillHorizontal();
+    layout.setFillHorizontal(_isFillHorizontal);
+    boolean _isFillVertical = object.isFillVertical();
+    layout.setFillVertical(_isFillVertical);
+    this.associateUi(object, layout);
+    return layout;
   }
   
   protected YHorizontalLayout _create(final UiHorizontalLayout object) {
@@ -1550,23 +1967,30 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return layout;
   }
   
-  protected /* YSplitPanel */Object _create(final UiSplitpanel object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYSplitPanel cannot be resolved to a type."
-      + "\nThe method createSplitPanel is undefined for the type UiModelDerivedStateComputerx"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\nsplitPosition cannot be resolved");
+  protected YSplitPanel _create(final UiSplitpanel object) {
+    final YSplitPanel layout = this.factory.createSplitPanel();
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    int _splitPosition = object.getSplitPosition();
+    layout.setSplitPosition(_splitPosition);
+    this.associateUi(object, layout);
+    return layout;
   }
   
-  protected /* YPanel */Object _create(final UiPanel object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYPanel cannot be resolved to a type."
-      + "\nThe method createPanel is undefined for the type UiModelDerivedStateComputerx"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved");
+  protected YPanel _create(final UiPanel object) {
+    final YPanel layout = this.factory.createPanel();
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    this.associateUi(object, layout);
+    return layout;
   }
   
   protected YVerticalLayout _create(final UiVerticalLayout object) {
@@ -1632,8 +2056,46 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   public void xxaddToParent(final YElement embeddable) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from YEmbeddable to YEmbeddable");
+    final Object context = this.<Object>peek();
+    if ((context instanceof YLayout)) {
+      final YLayout layout = ((YLayout) context);
+      layout.addElement(((YEmbeddable) embeddable));
+    } else {
+      if ((context instanceof YView)) {
+        final YView yView = ((YView) context);
+        yView.setContent(((YEmbeddable) embeddable));
+      } else {
+        if ((context instanceof YTab)) {
+          final YTab yTab = ((YTab) context);
+          yTab.setEmbeddable(((YEmbeddable) embeddable));
+        } else {
+          if ((context instanceof VMTab)) {
+            final VMTab yTab_1 = ((VMTab) context);
+            yTab_1.setEmbeddable(((YEmbeddable) embeddable));
+          } else {
+            if ((context instanceof VMNavigationButton)) {
+              final VMNavigationButton yButton = ((VMNavigationButton) context);
+              yButton.setPage(((VMNavigationPage) embeddable));
+            } else {
+              if ((context instanceof VMNavigationCommand)) {
+                final VMNavigationCommand yCommand = ((VMNavigationCommand) context);
+                yCommand.setTargetPage(((VMNavigationPage) embeddable));
+              } else {
+                if ((context instanceof YOpenDialogCommand)) {
+                  final YOpenDialogCommand yCommand_1 = ((YOpenDialogCommand) context);
+                  yCommand_1.setDialog(((YDialog) embeddable));
+                } else {
+                  if ((context instanceof YDialog)) {
+                    final YDialog yDialog = ((YDialog) context);
+                    yDialog.setContent(((YEmbeddable) embeddable));
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
   
   protected void _map(final UiPoint object) {
@@ -1708,9 +2170,114 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   public YValueBindingEndpoint createValueBindingEndpoint(final UiBindingEndpointAssignment epDef) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from VMNavigationCommand to YCommand"
-      + "\nType mismatch: cannot convert from YECViewModelValueBindingEndpoint to YValueBindingEndpoint");
+    boolean _equals = Objects.equal(epDef, null);
+    if (_equals) {
+      return null;
+    }
+    YValueBindingEndpoint result = null;
+    final UiModelDerivedStateComputerx.BindingInfo info = new UiModelDerivedStateComputerx.BindingInfo();
+    this.collectBindingInfo(epDef, info);
+    EObject _bindingRoot = info.getBindingRoot();
+    if ((_bindingRoot instanceof UiBeanSlot)) {
+      EObject _bindingRoot_1 = info.getBindingRoot();
+      final UiBeanSlot uiBeanSlot = ((UiBeanSlot) _bindingRoot_1);
+      final YBeanSlot yBeanSlot = this.<YBeanSlot>associatedUi(uiBeanSlot);
+      final YBeanSlotValueBindingEndpoint ep = this.factory.createBeanSlotValueBindingEndpoint();
+      ep.setBeanSlot(yBeanSlot);
+      StringBuilder _path = info.getPath();
+      String _string = _path.toString();
+      ep.setAttributePath(_string);
+      result = ep;
+    } else {
+      EObject _bindingRoot_2 = info.getBindingRoot();
+      if ((_bindingRoot_2 instanceof UiEmbeddable)) {
+        EObject _bindingRoot_3 = info.getBindingRoot();
+        final YElement yElement = this.<YElement>associatedUi(_bindingRoot_3);
+        final YECViewModelValueBindingEndpoint ep_1 = this.factory.createECViewModelValueBindingEndpoint();
+        ep_1.setElement(yElement);
+        StringBuilder _path_1 = info.getPath();
+        String _string_1 = _path_1.toString();
+        ep_1.setPropertyPath(_string_1);
+        JvmType _typeForBinding = info.getTypeForBinding();
+        boolean _notEquals = (!Objects.equal(_typeForBinding, null));
+        if (_notEquals) {
+          JvmType _typeForBinding_1 = info.getTypeForBinding();
+          String _qualifiedName = _typeForBinding_1.getQualifiedName();
+          ep_1.setTypeQualifiedName(_qualifiedName);
+          Resource _eResource = epDef.eResource();
+          ResourceSet _resourceSet = _eResource.getResourceSet();
+          String _typeQualifiedName = ep_1.getTypeQualifiedName();
+          Class<?> _loadClass = this.loadClass(_resourceSet, _typeQualifiedName);
+          ep_1.setType(_loadClass);
+        }
+        boolean _and = false;
+        Class<?> _type = ep_1.getType();
+        boolean _notEquals_1 = (!Objects.equal(_type, null));
+        if (!_notEquals_1) {
+          _and = false;
+        } else {
+          Class<?> _type_1 = ep_1.getType();
+          boolean _isAssignableFrom = _type_1.isAssignableFrom(EObject.class);
+          _and = _isAssignableFrom;
+        }
+        if (_and) {
+          EClass _eClass = yElement.eClass();
+          EPackage _ePackage = _eClass.getEPackage();
+          String _nsURI = _ePackage.getNsURI();
+          ep_1.setEmfNsURI(_nsURI);
+        }
+        result = ep_1;
+      } else {
+        EObject _bindingRoot_4 = info.getBindingRoot();
+        if ((_bindingRoot_4 instanceof UiMobileNavigationCommand)) {
+          EObject _bindingRoot_5 = info.getBindingRoot();
+          final UiMobileNavigationCommand command = ((UiMobileNavigationCommand) _bindingRoot_5);
+          final VMNavigationCommand yCommand = VaadinMobileFactory.eINSTANCE.createVMNavigationCommand();
+          YCommandSet _commandSet = this.currentView.getCommandSet();
+          _commandSet.addCommand(yCommand);
+          this.push(yCommand);
+          UiMobileNavigationPage _targetPage = command.getTargetPage();
+          this.map(_targetPage);
+          final UiMobileNavigationHandler navHandler = this.findNavHandler(epDef);
+          VMNavigationHandler _associatedUi = this.<VMNavigationHandler>associatedUi(((EObject) navHandler));
+          yCommand.setNavigationHandler(_associatedUi);
+          this.<Object>pop();
+          YECViewModelValueBindingEndpoint _createNavigationValueEndpoint = yCommand.createNavigationValueEndpoint();
+          result = _createNavigationValueEndpoint;
+        } else {
+          EObject _bindingRoot_6 = info.getBindingRoot();
+          if ((_bindingRoot_6 instanceof UiOpenDialogCommand)) {
+            EObject _bindingRoot_7 = info.getBindingRoot();
+            final UiOpenDialogCommand command_1 = ((UiOpenDialogCommand) _bindingRoot_7);
+            final YOpenDialogCommand yCommand_1 = CoreModelFactory.eINSTANCE.createYOpenDialogCommand();
+            YCommandSet _commandSet_1 = this.currentView.getCommandSet();
+            _commandSet_1.addCommand(yCommand_1);
+            this.push(yCommand_1);
+            UiDialog _dialog = command_1.getDialog();
+            this.map(_dialog);
+            this.<Object>pop();
+            YECViewModelValueBindingEndpoint _createTriggerDialogEndpoint = yCommand_1.createTriggerDialogEndpoint();
+            result = _createTriggerDialogEndpoint;
+          } else {
+            EObject _bindingRoot_8 = info.getBindingRoot();
+            if ((_bindingRoot_8 instanceof UiSearchWithDialogCommand)) {
+              EObject _bindingRoot_9 = info.getBindingRoot();
+              final UiSearchWithDialogCommand command_2 = ((UiSearchWithDialogCommand) _bindingRoot_9);
+              final YOpenDialogCommand yCommand_2 = CoreModelFactory.eINSTANCE.createYOpenDialogCommand();
+              YCommandSet _commandSet_2 = this.currentView.getCommandSet();
+              _commandSet_2.addCommand(yCommand_2);
+              this.push(yCommand_2);
+              UiSearchDialog _dialog_1 = command_2.getDialog();
+              this.map(_dialog_1);
+              this.<Object>pop();
+              YECViewModelValueBindingEndpoint _createTriggerDialogEndpoint_1 = yCommand_2.createTriggerDialogEndpoint();
+              result = _createTriggerDialogEndpoint_1;
+            }
+          }
+        }
+      }
+    }
+    return result;
   }
   
   public UiMobileNavigationHandler findNavHandler(final UiBindingEndpointAssignment assignment) {
@@ -2116,7 +2683,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     }
   }
   
-  public YPanel create(final UiEmbeddable object) {
+  public YEmbeddable create(final UiEmbeddable object) {
     if (object instanceof UiHorizontalButtonGroup) {
       return _create((UiHorizontalButtonGroup)object);
     } else if (object instanceof UiMobileNavigationButton) {

@@ -365,7 +365,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val element = eObject.element
 		val newField = element.create
 		layout.addElement(newField)
-		
+		 
 		if(eObject.alignment != UiAlignment.UNDEFINED){
 			val style = layout.addGridLayoutCellStyle(newField)
 			style.alignment = eObject.alignment.toYAlignment
@@ -1413,7 +1413,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
 		layout.splitPosition = object.splitPosition
-		
+		 
 		object.associateUi(layout)
 
 		return layout

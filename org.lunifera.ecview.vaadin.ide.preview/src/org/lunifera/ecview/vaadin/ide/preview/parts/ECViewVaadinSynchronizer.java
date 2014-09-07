@@ -10,8 +10,8 @@
 package org.lunifera.ecview.vaadin.ide.preview.parts;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecp.ecview.common.model.core.YDeviceType;
-import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.lunifera.ecview.core.common.model.core.YDeviceType;
+import org.lunifera.ecview.core.common.model.core.YView;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;

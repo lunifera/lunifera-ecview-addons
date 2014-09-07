@@ -7,7 +7,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.lunifera.ecview.core.common.model.core.YView;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.lunifera.ecview.dsl.derivedstate.UiModelUtil;
