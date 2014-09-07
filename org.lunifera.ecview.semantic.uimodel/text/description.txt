@@ -29,6 +29,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiView -> UiContext, UiRawBindable
     Reference viewSet : UiViewSet
     Reference content : UiEmbeddable
+    Attribute contentAlignment : UiAlignment
     Reference validatorAssignments : UiValidatorAssignment<<0..*>>
 
   Class UiDialog -> UiEmbeddable, UiTypeProvider, UiI18nInfoable
@@ -143,10 +144,11 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiFormLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
-    Attribute alignment : UiAlignment
 
   Class UiFormLayout -> UiLayout
     Reference contents : UiFormLayoutAssigment<<0..*>>
+    Attribute fillVertical : EBoolean
+    Attribute fillHorizontal : EBoolean
 
   Class UiTextField -> UiField
     Attribute maxLength : EInt
@@ -339,29 +341,43 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiI18nInfoable
     Reference i18nInfo : UiI18nInfo
 
+  Class UiSplitpanelAssigment -> UiLayoutAssignment
+    Reference element : UiEmbeddable
+    Attribute alignment : UiAlignment
+
+  Class UiSplitpanel -> UiLayout
+    Reference firstContent : UiSplitpanelAssigment
+    Reference secondContent : UiSplitpanelAssigment
+    Attribute splitPosition : EInt
+    Attribute horizontal : EBoolean
+
+  Class UiPanel -> UiLayout
+    Reference content : UiEmbeddable
+    Attribute contentAlignment : UiAlignment
+
   Enum UiFlatAlignment
     Literal LEFT = 0
     Literal CENTER = 1
     Literal RIGHT = 2
 
   Enum UiAlignment
-    Literal BOTTOM_LEFT = 0
-    Literal BOTTOM_CENTER = 1
-    Literal BOTTOM_RIGHT = 2
-    Literal BOTTOM_FILL = 3
-    Literal MIDDLE_LEFT = 4
-    Literal MIDDLE_CENTER = 5
-    Literal MIDDLE_RIGHT = 6
-    Literal MIDDLE_FILL = 7
-    Literal TOP_LEFT = 8
-    Literal TOP_CENTER = 9
-    Literal TOP_RIGHT = 10
-    Literal TOP_FILL = 11
-    Literal FILL_FILL = 12
-    Literal FILL_LEFT = 13
-    Literal FILL_CENTER = 14
-    Literal FILL_RIGHT = 15
-    Literal UNDEFINED = 16
+    Literal UNDEFINED = 0
+    Literal BOTTOM_LEFT = 1
+    Literal BOTTOM_CENTER = 2
+    Literal BOTTOM_RIGHT = 3
+    Literal BOTTOM_FILL = 4
+    Literal MIDDLE_LEFT = 5
+    Literal MIDDLE_CENTER = 6
+    Literal MIDDLE_RIGHT = 7
+    Literal MIDDLE_FILL = 8
+    Literal TOP_LEFT = 9
+    Literal TOP_CENTER = 10
+    Literal TOP_RIGHT = 11
+    Literal TOP_FILL = 12
+    Literal FILL_FILL = 13
+    Literal FILL_LEFT = 14
+    Literal FILL_CENTER = 15
+    Literal FILL_RIGHT = 16
 
   Enum UiSelectionType
     Literal NONE = 0

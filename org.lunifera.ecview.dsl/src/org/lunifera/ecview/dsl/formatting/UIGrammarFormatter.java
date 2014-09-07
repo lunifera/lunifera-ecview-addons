@@ -167,7 +167,7 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		configureUiOpenDialog(c, f.getUiOpenDialogCommandAccess());
 		// searchWithCommand
 		configureUiSearchWithCommand(c, f.getUiSearchWithDialogCommandAccess());
-
+		
 		for (Keyword kw : f.findKeywords("{")) {
 			c.setSpace(" ").before(kw);
 			c.setLinewrap(1).after(kw);
@@ -358,6 +358,7 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 
 	private void configureUiDatefield(FormattingConfig c,
 			UiDateFieldElements ele) {
+		c.setLinewrap(1, 1, 2).before(ele.getDatefieldKeyword_1());
 		// Brackets
 		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
 		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_3());
@@ -482,9 +483,9 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 
 	private void configureUiTable(FormattingConfig c, UiTableElements ele) {
 		// Keywords
-		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_3_1_0_0());
-		c.setLinewrap(1, 1, 2).before(ele.getSelectionTypeKeyword_3_1_1_0());
-		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_3_1_2_0());
+		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_4_1_0_0());
+		c.setLinewrap(1, 1, 2).before(ele.getSelectionTypeKeyword_4_1_1_0());
+		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_4_1_2_0());
 		// Brackets
 		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
 		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_5());
@@ -566,7 +567,7 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 	private void configureUiForms(FormattingConfig c, UiFormLayoutElements ele) {
 		// Keywords
 		// c.setLinewrap(1, 1, 2).before(ele.getFormKeyword_1());
-		c.setLinewrap(1, 1, 2).after(ele.getContentsAssignment_4());
+		c.setLinewrap(1, 1, 2).after(ele.getContentsAssignment_5());
 		// Brackets
 		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3());
 		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());
@@ -648,9 +649,9 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 	private void configureUiComboBoxAccess(FormattingConfig c,
 			UiComboBoxElements ele) {
 		// Keywords
-		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_3_1_0_0());
-		c.setLinewrap(1, 1, 2).before(ele.getCaptionFieldKeyword_3_1_1_0());
-		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_3_1_2_0());
+		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_4_1_0_0());
+		c.setLinewrap(1, 1, 2).before(ele.getCaptionFieldKeyword_4_1_1_0());
+		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_4_1_2_0());
 		// Brackets
 		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
 		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_4());

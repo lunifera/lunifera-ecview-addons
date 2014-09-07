@@ -84,7 +84,7 @@ public class UiHorizontalLayoutAssigmentImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 * @ordered
 	 */
-	protected static final UiAlignment ALIGNMENT_EDEFAULT = UiAlignment.BOTTOM_LEFT;
+	protected static final UiAlignment ALIGNMENT_EDEFAULT = UiAlignment.UNDEFINED;
 	/**
 	 * The cached value of the '{@link #getAlignment() <em>Alignment</em>}' attribute.
 	 * <!-- begin-user-doc -->

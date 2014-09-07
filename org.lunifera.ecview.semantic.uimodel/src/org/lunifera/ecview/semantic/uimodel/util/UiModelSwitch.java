@@ -1107,6 +1107,39 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_SPLITPANEL_ASSIGMENT: {
+				UiSplitpanelAssigment uiSplitpanelAssigment = (UiSplitpanelAssigment)theEObject;
+				T result = caseUiSplitpanelAssigment(uiSplitpanelAssigment);
+				if (result == null) result = caseUiLayoutAssignment(uiSplitpanelAssigment);
+				if (result == null) result = caseUiNamedElement(uiSplitpanelAssigment);
+				if (result == null) result = caseUiRawBindableProvider(uiSplitpanelAssigment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_SPLITPANEL: {
+				UiSplitpanel uiSplitpanel = (UiSplitpanel)theEObject;
+				T result = caseUiSplitpanel(uiSplitpanel);
+				if (result == null) result = caseUiLayout(uiSplitpanel);
+				if (result == null) result = caseUiEmbeddable(uiSplitpanel);
+				if (result == null) result = caseUiVisibilityProcessable(uiSplitpanel);
+				if (result == null) result = caseUiRawBindable(uiSplitpanel);
+				if (result == null) result = caseUiI18nInfoable(uiSplitpanel);
+				if (result == null) result = caseUiNamedElement(uiSplitpanel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_PANEL: {
+				UiPanel uiPanel = (UiPanel)theEObject;
+				T result = caseUiPanel(uiPanel);
+				if (result == null) result = caseUiLayout(uiPanel);
+				if (result == null) result = caseUiEmbeddable(uiPanel);
+				if (result == null) result = caseUiVisibilityProcessable(uiPanel);
+				if (result == null) result = caseUiRawBindable(uiPanel);
+				if (result == null) result = caseUiI18nInfoable(uiPanel);
+				if (result == null) result = caseUiNamedElement(uiPanel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -2578,6 +2611,51 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiI18nInfoable(UiI18nInfoable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Splitpanel Assigment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Splitpanel Assigment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiSplitpanelAssigment(UiSplitpanelAssigment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Splitpanel</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Splitpanel</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiSplitpanel(UiSplitpanel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Panel</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Panel</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiPanel(UiPanel object) {
 		return null;
 	}
 

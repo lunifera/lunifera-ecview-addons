@@ -35,6 +35,8 @@ public class ECViewMobilePreviewPart extends ViewPart {
 
 		getViewSite().getActionBars().getMenuManager()
 				.add(new LinkWithEditorAction());
+		getViewSite().getActionBars().getMenuManager()
+				.add(new ShowLayoutBoundsAction());
 	}
 
 	@Override
@@ -51,7 +53,7 @@ public class ECViewMobilePreviewPart extends ViewPart {
 	@Override
 	public void dispose() {
 		browser.close();
-//		synchronizer.stop(getSite());
+		// synchronizer.stop(getSite());
 		super.dispose();
 	}
 
@@ -69,7 +71,25 @@ public class ECViewMobilePreviewPart extends ViewPart {
 
 		@Override
 		public void run() {
-			Activator.getMobilePreviewHandler().setLinkedWithEditor(isChecked());
+			Activator.getMobilePreviewHandler()
+					.setLinkedWithEditor(isChecked());
+		}
+	}
+
+	private class ShowLayoutBoundsAction extends Action {
+
+		public ShowLayoutBoundsAction() {
+			setText("Show layout bounds");
+			setImageDescriptor(Activator.imageDescriptorFromPlugin(
+					Activator.BUNDLE_ID, "/icons/bounds.png"));
+			setChecked(false);
+			setEnabled(true);
+		}
+
+		@Override
+		public void run() {
+			Activator.getMobilePreviewHandler()
+					.setShowLayoutBounds(isChecked());
 		}
 	}
 }

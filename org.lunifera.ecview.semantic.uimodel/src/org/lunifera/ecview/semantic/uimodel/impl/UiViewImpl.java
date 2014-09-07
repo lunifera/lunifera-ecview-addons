@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.lunifera.ecview.semantic.uimodel.UiAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAssignment;
@@ -27,6 +28,7 @@ import org.lunifera.ecview.semantic.uimodel.UiViewSet;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getViewSet <em>View Set</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getContentAlignment <em>Content Alignment</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getValidatorAssignments <em>Validator Assignments</em>}</li>
  * </ul>
  * </p>
@@ -52,6 +54,24 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	 * @ordered
 	 */
 	protected UiEmbeddable content;
+	/**
+	 * The default value of the '{@link #getContentAlignment() <em>Content Alignment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContentAlignment()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final UiAlignment CONTENT_ALIGNMENT_EDEFAULT = UiAlignment.UNDEFINED;
+	/**
+	 * The cached value of the '{@link #getContentAlignment() <em>Content Alignment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContentAlignment()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiAlignment contentAlignment = CONTENT_ALIGNMENT_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getValidatorAssignments() <em>Validator Assignments</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -189,6 +209,27 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiAlignment getContentAlignment() {
+		return contentAlignment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContentAlignment(UiAlignment newContentAlignment) {
+		UiAlignment oldContentAlignment = contentAlignment;
+		contentAlignment = newContentAlignment == null ? CONTENT_ALIGNMENT_EDEFAULT : newContentAlignment;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_VIEW__CONTENT_ALIGNMENT, oldContentAlignment, contentAlignment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<UiValidatorAssignment> getValidatorAssignments() {
 		if (validatorAssignments == null) {
 			validatorAssignments = new EObjectContainmentEList.Resolving<UiValidatorAssignment>(UiValidatorAssignment.class, this, UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS);
@@ -226,6 +267,8 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 			case UiModelPackage.UI_VIEW__CONTENT:
 				if (resolve) return getContent();
 				return basicGetContent();
+			case UiModelPackage.UI_VIEW__CONTENT_ALIGNMENT:
+				return getContentAlignment();
 			case UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS:
 				return getValidatorAssignments();
 		}
@@ -246,6 +289,9 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 				return;
 			case UiModelPackage.UI_VIEW__CONTENT:
 				setContent((UiEmbeddable)newValue);
+				return;
+			case UiModelPackage.UI_VIEW__CONTENT_ALIGNMENT:
+				setContentAlignment((UiAlignment)newValue);
 				return;
 			case UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS:
 				getValidatorAssignments().clear();
@@ -269,6 +315,9 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 			case UiModelPackage.UI_VIEW__CONTENT:
 				setContent((UiEmbeddable)null);
 				return;
+			case UiModelPackage.UI_VIEW__CONTENT_ALIGNMENT:
+				setContentAlignment(CONTENT_ALIGNMENT_EDEFAULT);
+				return;
 			case UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS:
 				getValidatorAssignments().clear();
 				return;
@@ -288,10 +337,28 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 				return viewSet != null;
 			case UiModelPackage.UI_VIEW__CONTENT:
 				return content != null;
+			case UiModelPackage.UI_VIEW__CONTENT_ALIGNMENT:
+				return contentAlignment != CONTENT_ALIGNMENT_EDEFAULT;
 			case UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS:
 				return validatorAssignments != null && !validatorAssignments.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (contentAlignment: ");
+		result.append(contentAlignment);
+		result.append(')');
+		return result.toString();
 	}
 
 } //UiViewImpl

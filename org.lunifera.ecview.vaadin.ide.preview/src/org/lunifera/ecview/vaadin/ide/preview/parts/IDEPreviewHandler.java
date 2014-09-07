@@ -29,6 +29,7 @@ public class IDEPreviewHandler {
 	private ECViewVaadinSynchronizer synchronizer;
 	private EcviewPreviewUI ui;
 	private boolean linkedWithEditor;
+	private boolean showLayoutBounds;
 
 	public IDEPreviewHandler() {
 
@@ -147,6 +148,29 @@ public class IDEPreviewHandler {
 	}
 
 	/**
+	 * True, if the preview should show layout bounds.
+	 * 
+	 * @param showLayoutBounds
+	 */
+	public void setShowLayoutBounds(boolean showLayoutBounds) {
+		this.showLayoutBounds = showLayoutBounds;
+
+		// reload the ui
+		if (ui != null) {
+			ui.modelChanged();
+		}
+	}
+
+	/**
+	 * Returns true, if the preview should show layout bounds.
+	 * 
+	 * @return showLayoutBounds
+	 */
+	public boolean isShowLayoutBounds() {
+		return showLayoutBounds;
+	}
+
+	/**
 	 * Is called to select the given eObject in the Xtext editor
 	 * 
 	 * @param textSelection
@@ -202,4 +226,5 @@ public class IDEPreviewHandler {
 		}
 		ui = null;
 	}
+
 }

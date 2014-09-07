@@ -32,6 +32,8 @@ import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiFormLayoutImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiFormLayoutImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiFormLayoutImpl#getContents <em>Contents</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiFormLayoutImpl#isFillVertical <em>Fill Vertical</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiFormLayoutImpl#isFillHorizontal <em>Fill Horizontal</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,6 +109,46 @@ public class UiFormLayoutImpl extends UiVisibilityProcessableImpl implements UiF
 	 * @ordered
 	 */
 	protected EList<UiFormLayoutAssigment> contents;
+
+	/**
+	 * The default value of the '{@link #isFillVertical() <em>Fill Vertical</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFillVertical()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FILL_VERTICAL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isFillVertical() <em>Fill Vertical</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFillVertical()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean fillVertical = FILL_VERTICAL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isFillHorizontal() <em>Fill Horizontal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFillHorizontal()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FILL_HORIZONTAL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isFillHorizontal() <em>Fill Horizontal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFillHorizontal()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean fillHorizontal = FILL_HORIZONTAL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -264,6 +306,48 @@ public class UiFormLayoutImpl extends UiVisibilityProcessableImpl implements UiF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isFillVertical() {
+		return fillVertical;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFillVertical(boolean newFillVertical) {
+		boolean oldFillVertical = fillVertical;
+		fillVertical = newFillVertical;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_FORM_LAYOUT__FILL_VERTICAL, oldFillVertical, fillVertical));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isFillHorizontal() {
+		return fillHorizontal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFillHorizontal(boolean newFillHorizontal) {
+		boolean oldFillHorizontal = fillHorizontal;
+		fillHorizontal = newFillHorizontal;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_FORM_LAYOUT__FILL_HORIZONTAL, oldFillHorizontal, fillHorizontal));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -296,6 +380,10 @@ public class UiFormLayoutImpl extends UiVisibilityProcessableImpl implements UiF
 				return getBindings();
 			case UiModelPackage.UI_FORM_LAYOUT__CONTENTS:
 				return getContents();
+			case UiModelPackage.UI_FORM_LAYOUT__FILL_VERTICAL:
+				return isFillVertical();
+			case UiModelPackage.UI_FORM_LAYOUT__FILL_HORIZONTAL:
+				return isFillHorizontal();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -326,6 +414,12 @@ public class UiFormLayoutImpl extends UiVisibilityProcessableImpl implements UiF
 				getContents().clear();
 				getContents().addAll((Collection<? extends UiFormLayoutAssigment>)newValue);
 				return;
+			case UiModelPackage.UI_FORM_LAYOUT__FILL_VERTICAL:
+				setFillVertical((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_FORM_LAYOUT__FILL_HORIZONTAL:
+				setFillHorizontal((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -353,6 +447,12 @@ public class UiFormLayoutImpl extends UiVisibilityProcessableImpl implements UiF
 			case UiModelPackage.UI_FORM_LAYOUT__CONTENTS:
 				getContents().clear();
 				return;
+			case UiModelPackage.UI_FORM_LAYOUT__FILL_VERTICAL:
+				setFillVertical(FILL_VERTICAL_EDEFAULT);
+				return;
+			case UiModelPackage.UI_FORM_LAYOUT__FILL_HORIZONTAL:
+				setFillHorizontal(FILL_HORIZONTAL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -375,6 +475,10 @@ public class UiFormLayoutImpl extends UiVisibilityProcessableImpl implements UiF
 				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_FORM_LAYOUT__CONTENTS:
 				return contents != null && !contents.isEmpty();
+			case UiModelPackage.UI_FORM_LAYOUT__FILL_VERTICAL:
+				return fillVertical != FILL_VERTICAL_EDEFAULT;
+			case UiModelPackage.UI_FORM_LAYOUT__FILL_HORIZONTAL:
+				return fillHorizontal != FILL_HORIZONTAL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -449,6 +553,10 @@ public class UiFormLayoutImpl extends UiVisibilityProcessableImpl implements UiF
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", fillVertical: ");
+		result.append(fillVertical);
+		result.append(", fillHorizontal: ");
+		result.append(fillHorizontal);
 		result.append(')');
 		return result.toString();
 	}

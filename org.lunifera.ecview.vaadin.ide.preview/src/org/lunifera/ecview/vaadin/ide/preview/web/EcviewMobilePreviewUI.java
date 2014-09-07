@@ -121,6 +121,12 @@ public class EcviewMobilePreviewUI extends UI {
 				}
 
 				if (Activator.getMobilePreviewHandler().getActiveView() != null) {
+					if (Activator.getMobilePreviewHandler().isShowLayoutBounds()) {
+						layout.addStyleName("l-debug-show-layout-bounds");
+					} else {
+						layout.removeStyleName("l-debug-show-layout-bounds");
+					}
+
 					// ... and render
 					VaadinRenderer renderer = new VaadinRenderer();
 					try {
@@ -158,7 +164,7 @@ public class EcviewMobilePreviewUI extends UI {
 			 */
 			private void registerBeans(YView view) {
 				for (YBeanSlot slot : view.getBeanSlots()) {
-					if(slot.getName().startsWith("ecview")){
+					if (slot.getName().startsWith("ecview")) {
 						continue;
 					}
 					Class<?> bean = slot.getValueType();

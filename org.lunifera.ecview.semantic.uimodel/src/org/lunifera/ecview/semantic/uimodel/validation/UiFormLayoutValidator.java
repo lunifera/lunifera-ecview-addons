@@ -18,4 +18,8 @@ public interface UiFormLayoutValidator {
 	boolean validate();
 
 	boolean validateContents(EList<UiFormLayoutAssigment> value);
+
+	boolean validateFillHorizontal(boolean value);
+
+	boolean validateFillVertical(boolean value);
 }

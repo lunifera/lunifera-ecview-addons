@@ -502,13 +502,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_VIEW__CONTENT = UI_CONTEXT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Content Alignment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VIEW__CONTENT_ALIGNMENT = UI_CONTEXT_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Validator Assignments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VIEW__VALIDATOR_ASSIGNMENTS = UI_CONTEXT_FEATURE_COUNT + 2;
+	int UI_VIEW__VALIDATOR_ASSIGNMENTS = UI_CONTEXT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Ui View</em>' class.
@@ -517,7 +526,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VIEW_FEATURE_COUNT = UI_CONTEXT_FEATURE_COUNT + 3;
+	int UI_VIEW_FEATURE_COUNT = UI_CONTEXT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileViewImpl <em>Ui Mobile View</em>}' class.
@@ -980,6 +989,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_IDE_VIEW__CONTENT = UI_VIEW__CONTENT;
 
 	/**
+	 * The feature id for the '<em><b>Content Alignment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_IDE_VIEW__CONTENT_ALIGNMENT = UI_VIEW__CONTENT_ALIGNMENT;
+
+	/**
 	 * The feature id for the '<em><b>Validator Assignments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1059,6 +1077,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_MOBILE_VIEW__CONTENT = UI_VIEW__CONTENT;
+
+	/**
+	 * The feature id for the '<em><b>Content Alignment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_VIEW__CONTENT_ALIGNMENT = UI_VIEW__CONTENT_ALIGNMENT;
 
 	/**
 	 * The feature id for the '<em><b>Validator Assignments</b></em>' containment reference list.
@@ -2688,22 +2715,13 @@ public interface UiModelPackage extends EPackage {
 	int UI_FORM_LAYOUT_ASSIGMENT__ELEMENT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Alignment</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_FORM_LAYOUT_ASSIGMENT__ALIGNMENT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Ui Form Layout Assigment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_FORM_LAYOUT_ASSIGMENT_FEATURE_COUNT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 2;
+	int UI_FORM_LAYOUT_ASSIGMENT_FEATURE_COUNT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -2760,13 +2778,31 @@ public interface UiModelPackage extends EPackage {
 	int UI_FORM_LAYOUT__CONTENTS = UI_LAYOUT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Fill Vertical</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_FORM_LAYOUT__FILL_VERTICAL = UI_LAYOUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Fill Horizontal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_FORM_LAYOUT__FILL_HORIZONTAL = UI_LAYOUT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Ui Form Layout</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_FORM_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 1;
+	int UI_FORM_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -6158,6 +6194,243 @@ public interface UiModelPackage extends EPackage {
 	int UI_I1_8N_INFOABLE_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiSplitpanelAssigmentImpl <em>Ui Splitpanel Assigment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiSplitpanelAssigmentImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSplitpanelAssigment()
+	 * @generated
+	 */
+	int UI_SPLITPANEL_ASSIGMENT = 98;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL_ASSIGMENT__ID = UI_LAYOUT_ASSIGNMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL_ASSIGMENT__NAME = UI_LAYOUT_ASSIGNMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Element</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL_ASSIGMENT__ELEMENT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Alignment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL_ASSIGMENT__ALIGNMENT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Ui Splitpanel Assigment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL_ASSIGMENT_FEATURE_COUNT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiSplitpanelImpl <em>Ui Splitpanel</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiSplitpanelImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSplitpanel()
+	 * @generated
+	 */
+	int UI_SPLITPANEL = 99;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL__PROCESSOR_ASSIGNMENT = UI_LAYOUT__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL__ID = UI_LAYOUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL__NAME = UI_LAYOUT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL__I18N_INFO = UI_LAYOUT__I18N_INFO;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL__BINDINGS = UI_LAYOUT__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>First Content</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL__FIRST_CONTENT = UI_LAYOUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Second Content</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL__SECOND_CONTENT = UI_LAYOUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Split Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL__SPLIT_POSITION = UI_LAYOUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Horizontal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL__HORIZONTAL = UI_LAYOUT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Ui Splitpanel</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiPanelImpl <em>Ui Panel</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiPanelImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiPanel()
+	 * @generated
+	 */
+	int UI_PANEL = 100;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PANEL__PROCESSOR_ASSIGNMENT = UI_LAYOUT__PROCESSOR_ASSIGNMENT;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PANEL__ID = UI_LAYOUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PANEL__NAME = UI_LAYOUT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PANEL__I18N_INFO = UI_LAYOUT__I18N_INFO;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PANEL__BINDINGS = UI_LAYOUT__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PANEL__CONTENT = UI_LAYOUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Content Alignment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PANEL__CONTENT_ALIGNMENT = UI_LAYOUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Ui Panel</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PANEL_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6165,7 +6438,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiFlatAlignment()
 	 * @generated
 	 */
-	int UI_FLAT_ALIGNMENT = 98;
+	int UI_FLAT_ALIGNMENT = 101;
 
 
 	/**
@@ -6176,7 +6449,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiAlignment()
 	 * @generated
 	 */
-	int UI_ALIGNMENT = 99;
+	int UI_ALIGNMENT = 102;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiSelectionType <em>Ui Selection Type</em>}' enum.
@@ -6186,7 +6459,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSelectionType()
 	 * @generated
 	 */
-	int UI_SELECTION_TYPE = 100;
+	int UI_SELECTION_TYPE = 103;
 
 
 	/**
@@ -6359,6 +6632,17 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUiView_Content();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiView#getContentAlignment <em>Content Alignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Content Alignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiView#getContentAlignment()
+	 * @see #getUiView()
+	 * @generated
+	 */
+	EAttribute getUiView_ContentAlignment();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiView#getValidatorAssignments <em>Validator Assignments</em>}'.
@@ -7312,17 +7596,6 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiFormLayoutAssigment_Element();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment#getAlignment <em>Alignment</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Alignment</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment#getAlignment()
-	 * @see #getUiFormLayoutAssigment()
-	 * @generated
-	 */
-	EAttribute getUiFormLayoutAssigment_Alignment();
-
-	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiFormLayout <em>Ui Form Layout</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7342,6 +7615,28 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUiFormLayout_Contents();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiFormLayout#isFillVertical <em>Fill Vertical</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fill Vertical</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiFormLayout#isFillVertical()
+	 * @see #getUiFormLayout()
+	 * @generated
+	 */
+	EAttribute getUiFormLayout_FillVertical();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiFormLayout#isFillHorizontal <em>Fill Horizontal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fill Horizontal</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiFormLayout#isFillHorizontal()
+	 * @see #getUiFormLayout()
+	 * @generated
+	 */
+	EAttribute getUiFormLayout_FillHorizontal();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiTextField <em>Ui Text Field</em>}'.
@@ -8571,6 +8866,124 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiI18nInfoable_I18nInfo();
 
 	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment <em>Ui Splitpanel Assigment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Splitpanel Assigment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment
+	 * @generated
+	 */
+	EClass getUiSplitpanelAssigment();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Element</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment#getElement()
+	 * @see #getUiSplitpanelAssigment()
+	 * @generated
+	 */
+	EReference getUiSplitpanelAssigment_Element();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment#getAlignment <em>Alignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment#getAlignment()
+	 * @see #getUiSplitpanelAssigment()
+	 * @generated
+	 */
+	EAttribute getUiSplitpanelAssigment_Alignment();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiSplitpanel <em>Ui Splitpanel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Splitpanel</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSplitpanel
+	 * @generated
+	 */
+	EClass getUiSplitpanel();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiSplitpanel#getFirstContent <em>First Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>First Content</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSplitpanel#getFirstContent()
+	 * @see #getUiSplitpanel()
+	 * @generated
+	 */
+	EReference getUiSplitpanel_FirstContent();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiSplitpanel#getSecondContent <em>Second Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Second Content</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSplitpanel#getSecondContent()
+	 * @see #getUiSplitpanel()
+	 * @generated
+	 */
+	EReference getUiSplitpanel_SecondContent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiSplitpanel#getSplitPosition <em>Split Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Split Position</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSplitpanel#getSplitPosition()
+	 * @see #getUiSplitpanel()
+	 * @generated
+	 */
+	EAttribute getUiSplitpanel_SplitPosition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiSplitpanel#isHorizontal <em>Horizontal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Horizontal</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSplitpanel#isHorizontal()
+	 * @see #getUiSplitpanel()
+	 * @generated
+	 */
+	EAttribute getUiSplitpanel_Horizontal();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiPanel <em>Ui Panel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Panel</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiPanel
+	 * @generated
+	 */
+	EClass getUiPanel();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiPanel#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Content</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiPanel#getContent()
+	 * @see #getUiPanel()
+	 * @generated
+	 */
+	EReference getUiPanel_Content();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiPanel#getContentAlignment <em>Content Alignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Content Alignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiPanel#getContentAlignment()
+	 * @see #getUiPanel()
+	 * @generated
+	 */
+	EAttribute getUiPanel_ContentAlignment();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiSearchField <em>Ui Search Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8854,6 +9267,14 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_VIEW__CONTENT = eINSTANCE.getUiView_Content();
+
+		/**
+		 * The meta object literal for the '<em><b>Content Alignment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_VIEW__CONTENT_ALIGNMENT = eINSTANCE.getUiView_ContentAlignment();
 
 		/**
 		 * The meta object literal for the '<em><b>Validator Assignments</b></em>' containment reference list feature.
@@ -9654,14 +10075,6 @@ public interface UiModelPackage extends EPackage {
 		EReference UI_FORM_LAYOUT_ASSIGMENT__ELEMENT = eINSTANCE.getUiFormLayoutAssigment_Element();
 
 		/**
-		 * The meta object literal for the '<em><b>Alignment</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute UI_FORM_LAYOUT_ASSIGMENT__ALIGNMENT = eINSTANCE.getUiFormLayoutAssigment_Alignment();
-
-		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiFormLayoutImpl <em>Ui Form Layout</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9678,6 +10091,22 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_FORM_LAYOUT__CONTENTS = eINSTANCE.getUiFormLayout_Contents();
+
+		/**
+		 * The meta object literal for the '<em><b>Fill Vertical</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_FORM_LAYOUT__FILL_VERTICAL = eINSTANCE.getUiFormLayout_FillVertical();
+
+		/**
+		 * The meta object literal for the '<em><b>Fill Horizontal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_FORM_LAYOUT__FILL_HORIZONTAL = eINSTANCE.getUiFormLayout_FillHorizontal();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl <em>Ui Text Field</em>}' class.
@@ -10784,6 +11213,100 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_I1_8N_INFOABLE__I18N_INFO = eINSTANCE.getUiI18nInfoable_I18nInfo();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiSplitpanelAssigmentImpl <em>Ui Splitpanel Assigment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiSplitpanelAssigmentImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSplitpanelAssigment()
+		 * @generated
+		 */
+		EClass UI_SPLITPANEL_ASSIGMENT = eINSTANCE.getUiSplitpanelAssigment();
+
+		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_SPLITPANEL_ASSIGMENT__ELEMENT = eINSTANCE.getUiSplitpanelAssigment_Element();
+
+		/**
+		 * The meta object literal for the '<em><b>Alignment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_SPLITPANEL_ASSIGMENT__ALIGNMENT = eINSTANCE.getUiSplitpanelAssigment_Alignment();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiSplitpanelImpl <em>Ui Splitpanel</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiSplitpanelImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSplitpanel()
+		 * @generated
+		 */
+		EClass UI_SPLITPANEL = eINSTANCE.getUiSplitpanel();
+
+		/**
+		 * The meta object literal for the '<em><b>First Content</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_SPLITPANEL__FIRST_CONTENT = eINSTANCE.getUiSplitpanel_FirstContent();
+
+		/**
+		 * The meta object literal for the '<em><b>Second Content</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_SPLITPANEL__SECOND_CONTENT = eINSTANCE.getUiSplitpanel_SecondContent();
+
+		/**
+		 * The meta object literal for the '<em><b>Split Position</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_SPLITPANEL__SPLIT_POSITION = eINSTANCE.getUiSplitpanel_SplitPosition();
+
+		/**
+		 * The meta object literal for the '<em><b>Horizontal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_SPLITPANEL__HORIZONTAL = eINSTANCE.getUiSplitpanel_Horizontal();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiPanelImpl <em>Ui Panel</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiPanelImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiPanel()
+		 * @generated
+		 */
+		EClass UI_PANEL = eINSTANCE.getUiPanel();
+
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_PANEL__CONTENT = eINSTANCE.getUiPanel_Content();
+
+		/**
+		 * The meta object literal for the '<em><b>Content Alignment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_PANEL__CONTENT_ALIGNMENT = eINSTANCE.getUiPanel_ContentAlignment();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.

@@ -31,6 +31,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewSet" eType="#//UiViewSet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//UiEmbeddable"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contentAlignment" eType="#//UiAlignment"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="validatorAssignments" upperBound="-1"
         eType="#//UiValidatorAssignment" containment="true"/>
   </eClassifiers>
@@ -60,23 +61,23 @@
     <eLiterals name="RIGHT" value="2" literal="RIGHT"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="UiAlignment">
-    <eLiterals name="BOTTOM_LEFT"/>
-    <eLiterals name="BOTTOM_CENTER" value="1" literal="BOTTOM_CENTER"/>
-    <eLiterals name="BOTTOM_RIGHT" value="2" literal="BOTTOM_RIGHT"/>
-    <eLiterals name="BOTTOM_FILL" value="3" literal="BOTTOM_FILL"/>
-    <eLiterals name="MIDDLE_LEFT" value="4" literal="MIDDLE_LEFT"/>
-    <eLiterals name="MIDDLE_CENTER" value="5" literal="MIDDLE_CENTER"/>
-    <eLiterals name="MIDDLE_RIGHT" value="6" literal="MIDDLE_RIGHT"/>
-    <eLiterals name="MIDDLE_FILL" value="7" literal="MIDDLE_FILL"/>
-    <eLiterals name="TOP_LEFT" value="8"/>
-    <eLiterals name="TOP_CENTER" value="9" literal="TOP_CENTER"/>
-    <eLiterals name="TOP_RIGHT" value="10" literal="TOP_RIGHT"/>
-    <eLiterals name="TOP_FILL" value="11" literal="TOP_FILL"/>
-    <eLiterals name="FILL_FILL" value="12" literal="FILL_FILL"/>
-    <eLiterals name="FILL_LEFT" value="13" literal="FILL_LEFT"/>
-    <eLiterals name="FILL_CENTER" value="14" literal="FILL_CENTER"/>
-    <eLiterals name="FILL_RIGHT" value="15" literal="FILL_RIGHT"/>
-    <eLiterals name="UNDEFINED" value="16" literal="UNDEFINED"/>
+    <eLiterals name="UNDEFINED" literal="UNDEFINED"/>
+    <eLiterals name="BOTTOM_LEFT" value="1"/>
+    <eLiterals name="BOTTOM_CENTER" value="2" literal="BOTTOM_CENTER"/>
+    <eLiterals name="BOTTOM_RIGHT" value="3" literal="BOTTOM_RIGHT"/>
+    <eLiterals name="BOTTOM_FILL" value="4" literal="BOTTOM_FILL"/>
+    <eLiterals name="MIDDLE_LEFT" value="5" literal="MIDDLE_LEFT"/>
+    <eLiterals name="MIDDLE_CENTER" value="6" literal="MIDDLE_CENTER"/>
+    <eLiterals name="MIDDLE_RIGHT" value="7" literal="MIDDLE_RIGHT"/>
+    <eLiterals name="MIDDLE_FILL" value="8" literal="MIDDLE_FILL"/>
+    <eLiterals name="TOP_LEFT" value="9"/>
+    <eLiterals name="TOP_CENTER" value="10" literal="TOP_CENTER"/>
+    <eLiterals name="TOP_RIGHT" value="11" literal="TOP_RIGHT"/>
+    <eLiterals name="TOP_FILL" value="12" literal="TOP_FILL"/>
+    <eLiterals name="FILL_FILL" value="13" literal="FILL_FILL"/>
+    <eLiterals name="FILL_LEFT" value="14" literal="FILL_LEFT"/>
+    <eLiterals name="FILL_CENTER" value="15" literal="FILL_CENTER"/>
+    <eLiterals name="FILL_RIGHT" value="16" literal="FILL_RIGHT"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiRootElements" abstract="true" interface="true"
       eSuperTypes="#//UiNamedElement"/>
@@ -174,7 +175,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="UiHorizontalLayoutAssigment" eSuperTypes="#//UiLayoutAssignment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="#//UiAlignment"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="#//UiAlignment"
+        defaultValueLiteral="UNDEFINED"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiHorizontalLayout" eSuperTypes="#//UiLayout">
     <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
@@ -196,11 +198,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="UiFormLayoutAssigment" eSuperTypes="#//UiLayoutAssignment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="#//UiAlignment"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiFormLayout" eSuperTypes="#//UiLayout">
     <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
         eType="#//UiFormLayoutAssigment" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fillVertical" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fillHorizontal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiTextField" eSuperTypes="#//UiField">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
@@ -442,5 +447,24 @@
   <eClassifiers xsi:type="ecore:EClass" name="UiI18nInfoable" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="i18nInfo" eType="#//UiI18nInfo"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiSplitpanelAssigment" eSuperTypes="#//UiLayoutAssignment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="#//UiAlignment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiSplitpanel" eSuperTypes="#//UiLayout">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="firstContent" eType="#//UiSplitpanelAssigment"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="secondContent" eType="#//UiSplitpanelAssigment"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="splitPosition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="50"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="horizontal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiPanel" eSuperTypes="#//UiLayout">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//UiEmbeddable"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contentAlignment" eType="#//UiAlignment"/>
   </eClassifiers>
 </ecore:EPackage>

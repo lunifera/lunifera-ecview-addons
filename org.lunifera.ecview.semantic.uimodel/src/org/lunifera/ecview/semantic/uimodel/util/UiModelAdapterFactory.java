@@ -553,6 +553,18 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiI18nInfoableAdapter();
 			}
 			@Override
+			public Adapter caseUiSplitpanelAssigment(UiSplitpanelAssigment object) {
+				return createUiSplitpanelAssigmentAdapter();
+			}
+			@Override
+			public Adapter caseUiSplitpanel(UiSplitpanel object) {
+				return createUiSplitpanelAdapter();
+			}
+			@Override
+			public Adapter caseUiPanel(UiPanel object) {
+				return createUiPanelAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -1941,6 +1953,48 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiI18nInfoableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment <em>Ui Splitpanel Assigment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment
+	 * @generated
+	 */
+	public Adapter createUiSplitpanelAssigmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiSplitpanel <em>Ui Splitpanel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSplitpanel
+	 * @generated
+	 */
+	public Adapter createUiSplitpanelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiPanel <em>Ui Panel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiPanel
+	 * @generated
+	 */
+	public Adapter createUiPanelAdapter() {
 		return null;
 	}
 

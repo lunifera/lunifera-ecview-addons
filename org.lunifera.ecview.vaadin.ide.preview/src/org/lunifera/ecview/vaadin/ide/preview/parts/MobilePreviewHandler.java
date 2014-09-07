@@ -29,6 +29,7 @@ public class MobilePreviewHandler {
 	private ECViewVaadinSynchronizer synchronizer;
 	private EcviewMobilePreviewUI ui;
 	private boolean linkedWithEditor;
+	private boolean showLayoutBounds;
 
 	public Injector getInjector() {
 		return Activator.getDefault().getInjector();
@@ -141,6 +142,30 @@ public class MobilePreviewHandler {
 	public synchronized boolean isLinkedWithEditor() {
 		return linkedWithEditor;
 	}
+	 
+	/**
+	 * True, if the preview should show layout bounds.
+	 * 
+	 * @param showLayoutBounds
+	 */
+	public void setShowLayoutBounds(boolean showLayoutBounds) {
+		this.showLayoutBounds = showLayoutBounds;
+
+		// reload the ui
+		if (ui != null) {
+			ui.modelChanged();
+		}
+	}
+
+	/**
+	 * Returns true, if the preview should show layout bounds.
+	 * 
+	 * @return showLayoutBounds
+	 */
+	public boolean isShowLayoutBounds() {
+		return showLayoutBounds;
+	}
+
 
 	/**
 	 * Is called to select the given eObject in the Xtext editor

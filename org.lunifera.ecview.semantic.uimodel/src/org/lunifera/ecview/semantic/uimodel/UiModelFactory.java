@@ -724,6 +724,33 @@ public interface UiModelFactory extends EFactory {
 	UiI18nInfo createUiI18nInfo();
 
 	/**
+	 * Returns a new object of class '<em>Ui Splitpanel Assigment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Splitpanel Assigment</em>'.
+	 * @generated
+	 */
+	UiSplitpanelAssigment createUiSplitpanelAssigment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Splitpanel</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Splitpanel</em>'.
+	 * @generated
+	 */
+	UiSplitpanel createUiSplitpanel();
+
+	/**
+	 * Returns a new object of class '<em>Ui Panel</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Panel</em>'.
+	 * @generated
+	 */
+	UiPanel createUiPanel();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

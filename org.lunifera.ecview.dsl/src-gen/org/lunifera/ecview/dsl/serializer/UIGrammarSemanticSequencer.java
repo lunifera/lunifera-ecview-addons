@@ -103,6 +103,7 @@ import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup;
+import org.lunifera.ecview.semantic.uimodel.UiPanel;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
 import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
@@ -111,6 +112,8 @@ import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
 import org.lunifera.ecview.semantic.uimodel.UiSearchDialog;
 import org.lunifera.ecview.semantic.uimodel.UiSearchField;
 import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
+import org.lunifera.ecview.semantic.uimodel.UiSplitpanel;
+import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiSwitch;
 import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiTabSheet;
@@ -510,6 +513,14 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 					return; 
 				}
 				else break;
+			case UiModelPackage.UI_PANEL:
+				if(context == grammarAccess.getUiEmbeddableRule() ||
+				   context == grammarAccess.getUiLayoutRule() ||
+				   context == grammarAccess.getUiPanelRule()) {
+					sequence_UiPanel(context, (UiPanel) semanticObject); 
+					return; 
+				}
+				else break;
 			case UiModelPackage.UI_PATH_SEGMENT:
 				if(context == grammarAccess.getUiPathSegmentRule()) {
 					sequence_UiPathSegment(context, (UiPathSegment) semanticObject); 
@@ -561,6 +572,20 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 				if(context == grammarAccess.getUiCommandRule() ||
 				   context == grammarAccess.getUiSearchWithDialogCommandRule()) {
 					sequence_UiSearchWithDialogCommand(context, (UiSearchWithDialogCommand) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_SPLITPANEL:
+				if(context == grammarAccess.getUiEmbeddableRule() ||
+				   context == grammarAccess.getUiLayoutRule() ||
+				   context == grammarAccess.getUiSplitpanelRule()) {
+					sequence_UiSplitpanel(context, (UiSplitpanel) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_SPLITPANEL_ASSIGMENT:
+				if(context == grammarAccess.getUiSplitpanelAssigmentRule()) {
+					sequence_UiSplitpanelAssigment(context, (UiSplitpanelAssigment) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1799,7 +1824,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID?)
+	 *     (i18nInfo=UiI18nInfo? name=ID?)
 	 */
 	protected void sequence_UiButton(EObject context, UiButton semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1845,12 +1870,12 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
+	 *         i18nInfo=UiI18nInfo? 
 	 *         name=ID? 
 	 *         (
 	 *             jvmType=JvmTypeReference? 
 	 *             itemCaptionProperty=[JvmOperation|ID]? 
 	 *             itemImageProperty=[JvmOperation|ID]? 
-	 *             i18nInfo=UiI18nInfo? 
 	 *             (validators+=UiValidator | bindings+=UiBinding)* 
 	 *             processorAssignment=UiVisibilityProcessorAssignment?
 	 *         )?
@@ -1928,7 +1953,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (element=UiEmbeddable alignment=UiAlignment?)
+	 *     element=UiEmbeddable
 	 */
 	protected void sequence_UiFormLayoutAssigment(EObject context, UiFormLayoutAssigment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1937,7 +1962,13 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? contents+=UiFormLayoutAssigment* bindings+=UiBinding* processorAssignment=UiVisibilityProcessorAssignment?)
+	 *     (
+	 *         (fillVertical?='fill-v'? fillHorizontal?='fill-h'? i18nInfo=UiI18nInfo?)? 
+	 *         name=ID? 
+	 *         contents+=UiFormLayoutAssigment* 
+	 *         bindings+=UiBinding* 
+	 *         processorAssignment=UiVisibilityProcessorAssignment?
+	 *     )
 	 */
 	protected void sequence_UiFormLayout(EObject context, UiFormLayout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1956,7 +1987,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (columns=INT? fillHorizontal?='fill-h'? fillVertical?='fill-v'? i18nInfo=UiI18nInfo)? 
+	 *         (columns=INT? fillHorizontal?='fill-h'? fillVertical?='fill-v'? i18nInfo=UiI18nInfo?)? 
 	 *         name=ID? 
 	 *         contents+=UiGridLayoutAssigment* 
 	 *         bindings+=UiBinding* 
@@ -1980,7 +2011,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (fillHorizontal?='fill-h'? i18nInfo=UiI18nInfo)? 
+	 *         (fillHorizontal?='fill-h'? i18nInfo=UiI18nInfo?)? 
 	 *         name=ID? 
 	 *         contents+=UiHorizontalLayoutAssigment* 
 	 *         bindings+=UiBinding* 
@@ -2015,6 +2046,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *         viewSet=[UiViewSet|ID]? 
 	 *         (beanSlots+=UiBeanSlot | bindingEndpointAlias+=UiBindingEndpointAlias)* 
 	 *         content=UiEmbeddable 
+	 *         contentAlignment=UiAlignment? 
 	 *         (bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding | validatorAssignments+=UiValidatorAssignment)*
 	 *     )
 	 */
@@ -2097,7 +2129,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? (targetPage=UiMobileNavigationPage | targetPageAlias=[UiMobileNavigationPage|ID]))
+	 *     (i18nInfo=UiI18nInfo? name=ID? (targetPage=UiMobileNavigationPage | targetPageAlias=[UiMobileNavigationPage|ID]))
 	 */
 	protected void sequence_UiMobileNavigationButton(EObject context, UiMobileNavigationButton semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2196,6 +2228,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *         viewSet=[UiViewSet|ID]? 
 	 *         (beanSlots+=UiBeanSlot | bindingEndpointAlias+=UiBindingEndpointAlias)* 
 	 *         content=UiEmbeddable 
+	 *         contentAlignment=UiAlignment? 
 	 *         (bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding | validatorAssignments+=UiValidatorAssignment)*
 	 *     )
 	 */
@@ -2238,19 +2271,28 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
+	 *         i18nInfo=UiI18nInfo? 
 	 *         name=ID? 
 	 *         (
 	 *             jvmType=JvmTypeReference? 
 	 *             selectionType=UiSelectionType? 
 	 *             itemCaptionProperty=[JvmOperation|ID]? 
 	 *             itemImageProperty=[JvmOperation|ID]? 
-	 *             i18nInfo=UiI18nInfo? 
 	 *             (validators+=UiValidator | bindings+=UiBinding)* 
 	 *             processorAssignment=UiVisibilityProcessorAssignment?
 	 *         )?
 	 *     )
 	 */
 	protected void sequence_UiOptionsGroup(EObject context, UiOptionsGroup semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (i18nInfo=UiI18nInfo? name=ID content=UiEmbeddable bindings+=UiBinding* processorAssignment=UiVisibilityProcessorAssignment?)
+	 */
+	protected void sequence_UiPanel(EObject context, UiPanel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2347,6 +2389,32 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     element=UiEmbeddable
+	 */
+	protected void sequence_UiSplitpanelAssigment(EObject context, UiSplitpanelAssigment semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         i18nInfo=UiI18nInfo? 
+	 *         name=ID 
+	 *         firstContent=UiSplitpanelAssigment 
+	 *         secondContent=UiSplitpanelAssigment 
+	 *         splitPosition=INT? 
+	 *         bindings+=UiBinding* 
+	 *         processorAssignment=UiVisibilityProcessorAssignment?
+	 *     )
+	 */
+	protected void sequence_UiSplitpanel(EObject context, UiSplitpanel semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID? element=UiEmbeddable)
 	 */
 	protected void sequence_UiTabAssignment(EObject context, UiTabAssignment semanticObject) {
@@ -2366,12 +2434,12 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
+	 *         i18nInfo=UiI18nInfo? 
 	 *         name=ID? 
 	 *         (
 	 *             jvmType=JvmTypeReference? 
 	 *             selectionType=UiSelectionType? 
 	 *             itemImageProperty=[JvmOperation|ID]? 
-	 *             i18nInfo=UiI18nInfo? 
 	 *             columnAssignment=UiColumnsAssignment? 
 	 *             (validators+=UiValidator | bindings+=UiBinding)* 
 	 *             processorAssignment=UiVisibilityProcessorAssignment?
@@ -2453,7 +2521,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (fillVertical?='fill-v'? i18nInfo=UiI18nInfo)? 
+	 *         (fillVertical?='fill-v'? i18nInfo=UiI18nInfo?)? 
 	 *         name=ID? 
 	 *         contents+=UiVerticalLayoutAssigment* 
 	 *         bindings+=UiBinding* 

@@ -6,53 +6,52 @@ import java.util.Map
 import java.util.Stack
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.ResourceSet
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy
-import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEndpoint
-import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelValueBindingEndpoint
-import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint
-import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint
-import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory
-import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot
-import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint
-import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint
-import org.eclipse.emf.ecp.ecview.common.model.core.YDeviceType
-import org.eclipse.emf.ecp.ecview.common.model.core.YDialog
-import org.eclipse.emf.ecp.ecview.common.model.core.YElement
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable
-import org.eclipse.emf.ecp.ecview.common.model.core.YField
-import org.eclipse.emf.ecp.ecview.common.model.core.YLayout
-import org.eclipse.emf.ecp.ecview.common.model.core.YOpenDialogCommand
-import org.eclipse.emf.ecp.ecview.common.model.core.YView
-import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet
-import org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidator
-import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator
-import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator
-import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.ExtensionModelFactory
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YBrowser
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YButton
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YCheckBox
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YColumn
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YComboBox
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YDateTime
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YDecimalField
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YFlatAlignment
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YFormLayout
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YGridLayout
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YHorizontalLayout
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YImage
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YLabel
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YNumericField
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YOptionsGroup
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YProgressBar
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YSelectionType
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTab
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTabSheet
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTable
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTextArea
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YTextField
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YVerticalLayout
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.util.SimpleExtensionModelFactory
+import org.lunifera.ecview.core.common.model.binding.YBindingUpdateStrategy
+import org.lunifera.ecview.core.common.model.binding.YECViewModelListBindingEndpoint
+import org.lunifera.ecview.core.common.model.binding.YECViewModelValueBindingEndpoint
+import org.lunifera.ecview.core.common.model.binding.YListBindingEndpoint
+import org.lunifera.ecview.core.common.model.binding.YValueBindingEndpoint
+import org.lunifera.ecview.core.common.model.core.CoreModelFactory
+import org.lunifera.ecview.core.common.model.core.YBeanSlot
+import org.lunifera.ecview.core.common.model.core.YBeanSlotListBindingEndpoint
+import org.lunifera.ecview.core.common.model.core.YBeanSlotValueBindingEndpoint
+import org.lunifera.ecview.core.common.model.core.YDeviceType
+import org.lunifera.ecview.core.common.model.core.YDialog
+import org.lunifera.ecview.core.common.model.core.YElement
+import org.lunifera.ecview.core.common.model.core.YEmbeddable
+import org.lunifera.ecview.core.common.model.core.YField
+import org.lunifera.ecview.core.common.model.core.YLayout
+import org.lunifera.ecview.core.common.model.core.YOpenDialogCommand
+import org.lunifera.ecview.core.common.model.core.YView
+import org.lunifera.ecview.core.common.model.core.YViewSet
+import org.lunifera.ecview.core.common.model.validation.YClassDelegateValidator
+import org.lunifera.ecview.core.common.model.validation.YMaxLengthValidator
+import org.lunifera.ecview.core.common.model.validation.YMinLengthValidator
+import org.lunifera.ecview.core.common.model.validation.YRegexpValidator
+import org.lunifera.ecview.core.^extension.model.^extension.ExtensionModelFactory
+import org.lunifera.ecview.core.^extension.model.^extension.YBrowser
+import org.lunifera.ecview.core.^extension.model.^extension.YButton
+import org.lunifera.ecview.core.^extension.model.^extension.YCheckBox
+import org.lunifera.ecview.core.^extension.model.^extension.YColumn
+import org.lunifera.ecview.core.^extension.model.^extension.YComboBox
+import org.lunifera.ecview.core.^extension.model.^extension.YDateTime
+import org.lunifera.ecview.core.^extension.model.^extension.YDecimalField
+import org.lunifera.ecview.core.^extension.model.^extension.YFormLayout
+import org.lunifera.ecview.core.^extension.model.^extension.YGridLayout
+import org.lunifera.ecview.core.^extension.model.^extension.YHorizontalLayout
+import org.lunifera.ecview.core.^extension.model.^extension.YImage
+import org.lunifera.ecview.core.^extension.model.^extension.YLabel
+import org.lunifera.ecview.core.^extension.model.^extension.YNumericField
+import org.lunifera.ecview.core.^extension.model.^extension.YOptionsGroup
+import org.lunifera.ecview.core.^extension.model.^extension.YProgressBar
+import org.lunifera.ecview.core.^extension.model.^extension.YSelectionType
+import org.lunifera.ecview.core.^extension.model.^extension.YTab
+import org.lunifera.ecview.core.^extension.model.^extension.YTabSheet
+import org.lunifera.ecview.core.^extension.model.^extension.YTable
+import org.lunifera.ecview.core.^extension.model.^extension.YTextArea
+import org.lunifera.ecview.core.^extension.model.^extension.YTextField
+import org.lunifera.ecview.core.^extension.model.^extension.YVerticalLayout
+import org.lunifera.ecview.core.^extension.model.^extension.util.SimpleExtensionModelFactory
 import org.eclipse.xtext.common.types.JvmField
 import org.eclipse.xtext.common.types.JvmGenericType
 import org.eclipse.xtext.common.types.JvmOperation
@@ -104,6 +103,7 @@ import org.lunifera.ecview.semantic.uimodel.UiModel
 import org.lunifera.ecview.semantic.uimodel.UiNumericField
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand
 import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup
+import org.lunifera.ecview.semantic.uimodel.UiPanel
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment
 import org.lunifera.ecview.semantic.uimodel.UiPoint
 import org.lunifera.ecview.semantic.uimodel.UiProgressBar
@@ -143,7 +143,12 @@ import static org.lunifera.ecview.semantic.uimodel.UiFlatAlignment.*
 import static org.lunifera.ecview.semantic.uimodel.UiSelectionType.*
 import org.lunifera.ecview.dsl.extensions.OperationExtensions
 import org.lunifera.ecview.semantic.uimodel.UiAlignment
-import org.eclipse.emf.ecp.ecview.^extension.model.^extension.YAlignment
+import org.lunifera.ecview.core.common.model.core.YAlignment
+import org.lunifera.ecview.core.common.model.core.YFlatAlignment
+import org.lunifera.ecview.semantic.uimodel.UiSplitpanel
+import org.lunifera.ecview.core.^extension.model.^extension.YSplitPanel
+import org.lunifera.ecview.core.^extension.model.^extension.YPanel
+import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment
 
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
@@ -268,6 +273,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		// create a view instance
 		val YView yView = factory.createView
+		yView.contentAlignment = object.contentAlignment.toYAlignment
 		object.associateUi(yView)
 		views += yView
 		currentView = yView
@@ -457,6 +463,75 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		}
 
 	}
+	
+	def dispatch void map(UiSplitpanel eObject) {
+		val YSplitPanel yField = eObject.associatedUi
+		yField.push
+
+		eObject.firstContent.map
+		eObject.secondContent.map
+
+		pop
+	}
+
+	def dispatch void map(UiSplitpanelAssigment eObject) {
+
+		val YSplitPanel layout = peek
+		val element = eObject.element
+		val newField = element.create
+		
+		if(newField == null){
+			return
+		}
+		
+		layout.addElement(newField)
+
+		element.map
+
+		if (element instanceof UiField) {
+			newField.push
+			val UiField yField = element as UiField
+			yField.validators.forEach [
+				it.map
+			]
+			pop
+		}
+	}
+	
+	
+	def dispatch void map(UiPanel eObject) {
+		val YPanel yPanel = eObject.associatedUi
+		yPanel.push
+
+		val element = eObject.content
+		val newField = element.create
+
+		if(newField == null){
+			return
+		}
+
+		yPanel.elements += newField
+		element.map
+
+		if (element instanceof UiField) {
+			if (newField != null) {
+				newField.push
+				val UiField yField = element as UiField
+				yField.validators.forEach [
+					it.map
+				]
+				pop
+			}
+		}
+
+		eObject.bindings.forEach [
+			it.map
+		]
+
+		pop
+	}
+	
+	
 
 	def dispatch void map(UiTabSheet eObject) {
 		val YTabSheet yField = eObject.associatedUi
@@ -496,8 +571,6 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 				it.map
 			]
 			pop
-		} else {
-			element.map
 		}
 
 		pop
@@ -726,8 +799,6 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 				it.map
 			]
 			pop
-		} else {
-			element.map
 		}
 	}
 
@@ -811,10 +882,6 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val newField = element.create
 		layout.addElement(newField)
 		
-		if(eObject.alignment != UiAlignment.UNDEFINED){
-			val style = layout.addCellStyle(newField)
-			style.alignment = eObject.alignment.toYAlignment
-		}
 		element.map
 
 		if (element instanceof UiField) {
@@ -824,8 +891,6 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 				it.map
 			]
 			pop
-		} else {
-			element.map
 		}
 
 	}
@@ -1322,12 +1387,13 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
+		layout.fillHorizontal = object.fillHorizontal
+		layout.fillVertical = object.fillVertical
 
 		object.associateUi(layout)
 
 		return layout
 	}
-	
 	
 	def dispatch YHorizontalLayout create(UiHorizontalLayout object) {
 		val YHorizontalLayout layout = factory.createHorizontalLayout
@@ -1335,6 +1401,29 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
 		layout.fillHorizontal = object.fillHorizontal
+
+		object.associateUi(layout)
+
+		return layout
+	}
+	
+	def dispatch YSplitPanel create(UiSplitpanel object) {
+		val YSplitPanel layout = factory.createSplitPanel
+		layout.name = object.name
+		layout.label = object.name
+		layout.labelI18nKey = object.toI18nKey
+		layout.splitPosition = object.splitPosition
+		
+		object.associateUi(layout)
+
+		return layout
+	}
+	
+	def dispatch YPanel create(UiPanel object) {
+		val YPanel layout = factory.createPanel
+		layout.name = object.name
+		layout.label = object.name
+		layout.labelI18nKey = object.toI18nKey
 
 		object.associateUi(layout)
 

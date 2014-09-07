@@ -212,6 +212,9 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_BROWSER: return createUiBrowser();
 			case UiModelPackage.UI_PROGRESS_BAR: return createUiProgressBar();
 			case UiModelPackage.UI_I1_8N_INFO: return createUiI18nInfo();
+			case UiModelPackage.UI_SPLITPANEL_ASSIGMENT: return createUiSplitpanelAssigment();
+			case UiModelPackage.UI_SPLITPANEL: return createUiSplitpanel();
+			case UiModelPackage.UI_PANEL: return createUiPanel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1033,6 +1036,36 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiI18nInfo createUiI18nInfo() {
 		UiI18nInfoImpl uiI18nInfo = new UiI18nInfoImpl();
 		return uiI18nInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiSplitpanelAssigment createUiSplitpanelAssigment() {
+		UiSplitpanelAssigmentImpl uiSplitpanelAssigment = new UiSplitpanelAssigmentImpl();
+		return uiSplitpanelAssigment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiSplitpanel createUiSplitpanel() {
+		UiSplitpanelImpl uiSplitpanel = new UiSplitpanelImpl();
+		return uiSplitpanel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiPanel createUiPanel() {
+		UiPanelImpl uiPanel = new UiPanelImpl();
+		return uiPanel;
 	}
 
 	/**

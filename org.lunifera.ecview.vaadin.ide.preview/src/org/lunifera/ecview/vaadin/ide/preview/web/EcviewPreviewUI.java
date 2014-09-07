@@ -121,6 +121,12 @@ public class EcviewPreviewUI extends UI {
 				}
 
 				if (Activator.getIDEPreviewHandler().getActiveView() != null) {
+					if (Activator.getIDEPreviewHandler().isShowLayoutBounds()) {
+						layout.addStyleName("l-debug-show-layout-bounds");
+					} else {
+						layout.removeStyleName("l-debug-show-layout-bounds");
+					}
+
 					// ... and render
 					VaadinRenderer renderer = new VaadinRenderer();
 					try {

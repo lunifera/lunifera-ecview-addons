@@ -73,6 +73,7 @@ import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup;
+import org.lunifera.ecview.semantic.uimodel.UiPanel;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
 import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
@@ -85,6 +86,8 @@ import org.lunifera.ecview.semantic.uimodel.UiSearchDialog;
 import org.lunifera.ecview.semantic.uimodel.UiSearchField;
 import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
+import org.lunifera.ecview.semantic.uimodel.UiSplitpanel;
+import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiSwitch;
 import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiTabSheet;
@@ -814,6 +817,27 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass uiSplitpanelAssigmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiSplitpanelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiPanelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum uiFlatAlignmentEEnum = null;
 
 	/**
@@ -1053,8 +1077,17 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUiView_ContentAlignment() {
+		return (EAttribute)uiViewEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getUiView_ValidatorAssignments() {
-		return (EReference)uiViewEClass.getEStructuralFeatures().get(2);
+		return (EReference)uiViewEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1773,15 +1806,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUiFormLayoutAssigment_Alignment() {
-		return (EAttribute)uiFormLayoutAssigmentEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getUiFormLayout() {
 		return uiFormLayoutEClass;
 	}
@@ -1793,6 +1817,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiFormLayout_Contents() {
 		return (EReference)uiFormLayoutEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiFormLayout_FillVertical() {
+		return (EAttribute)uiFormLayoutEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiFormLayout_FillHorizontal() {
+		return (EAttribute)uiFormLayoutEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3006,6 +3048,105 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiSplitpanelAssigment() {
+		return uiSplitpanelAssigmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiSplitpanelAssigment_Element() {
+		return (EReference)uiSplitpanelAssigmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiSplitpanelAssigment_Alignment() {
+		return (EAttribute)uiSplitpanelAssigmentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiSplitpanel() {
+		return uiSplitpanelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiSplitpanel_FirstContent() {
+		return (EReference)uiSplitpanelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiSplitpanel_SecondContent() {
+		return (EReference)uiSplitpanelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiSplitpanel_SplitPosition() {
+		return (EAttribute)uiSplitpanelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiSplitpanel_Horizontal() {
+		return (EAttribute)uiSplitpanelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiPanel() {
+		return uiPanelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiPanel_Content() {
+		return (EReference)uiPanelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiPanel_ContentAlignment() {
+		return (EAttribute)uiPanelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getUiFlatAlignment() {
 		return uiFlatAlignmentEEnum;
 	}
@@ -3078,6 +3219,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiViewEClass = createEClass(UI_VIEW);
 		createEReference(uiViewEClass, UI_VIEW__VIEW_SET);
 		createEReference(uiViewEClass, UI_VIEW__CONTENT);
+		createEAttribute(uiViewEClass, UI_VIEW__CONTENT_ALIGNMENT);
 		createEReference(uiViewEClass, UI_VIEW__VALIDATOR_ASSIGNMENTS);
 
 		uiDialogEClass = createEClass(UI_DIALOG);
@@ -3192,10 +3334,11 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiFormLayoutAssigmentEClass = createEClass(UI_FORM_LAYOUT_ASSIGMENT);
 		createEReference(uiFormLayoutAssigmentEClass, UI_FORM_LAYOUT_ASSIGMENT__ELEMENT);
-		createEAttribute(uiFormLayoutAssigmentEClass, UI_FORM_LAYOUT_ASSIGMENT__ALIGNMENT);
 
 		uiFormLayoutEClass = createEClass(UI_FORM_LAYOUT);
 		createEReference(uiFormLayoutEClass, UI_FORM_LAYOUT__CONTENTS);
+		createEAttribute(uiFormLayoutEClass, UI_FORM_LAYOUT__FILL_VERTICAL);
+		createEAttribute(uiFormLayoutEClass, UI_FORM_LAYOUT__FILL_HORIZONTAL);
 
 		uiTextFieldEClass = createEClass(UI_TEXT_FIELD);
 		createEAttribute(uiTextFieldEClass, UI_TEXT_FIELD__MAX_LENGTH);
@@ -3388,6 +3531,20 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiI18nInfoableEClass = createEClass(UI_I1_8N_INFOABLE);
 		createEReference(uiI18nInfoableEClass, UI_I1_8N_INFOABLE__I18N_INFO);
 
+		uiSplitpanelAssigmentEClass = createEClass(UI_SPLITPANEL_ASSIGMENT);
+		createEReference(uiSplitpanelAssigmentEClass, UI_SPLITPANEL_ASSIGMENT__ELEMENT);
+		createEAttribute(uiSplitpanelAssigmentEClass, UI_SPLITPANEL_ASSIGMENT__ALIGNMENT);
+
+		uiSplitpanelEClass = createEClass(UI_SPLITPANEL);
+		createEReference(uiSplitpanelEClass, UI_SPLITPANEL__FIRST_CONTENT);
+		createEReference(uiSplitpanelEClass, UI_SPLITPANEL__SECOND_CONTENT);
+		createEAttribute(uiSplitpanelEClass, UI_SPLITPANEL__SPLIT_POSITION);
+		createEAttribute(uiSplitpanelEClass, UI_SPLITPANEL__HORIZONTAL);
+
+		uiPanelEClass = createEClass(UI_PANEL);
+		createEReference(uiPanelEClass, UI_PANEL__CONTENT);
+		createEAttribute(uiPanelEClass, UI_PANEL__CONTENT_ALIGNMENT);
+
 		// Create enums
 		uiFlatAlignmentEEnum = createEEnum(UI_FLAT_ALIGNMENT);
 		uiAlignmentEEnum = createEEnum(UI_ALIGNMENT);
@@ -3533,6 +3690,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiDateFieldEClass.getESuperTypes().add(this.getUiField());
 		uiBrowserEClass.getESuperTypes().add(this.getUiField());
 		uiProgressBarEClass.getESuperTypes().add(this.getUiField());
+		uiSplitpanelAssigmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
+		uiSplitpanelEClass.getESuperTypes().add(this.getUiLayout());
+		uiPanelEClass.getESuperTypes().add(this.getUiLayout());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(uiNamedElementEClass, UiNamedElement.class, "UiNamedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3557,6 +3717,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiViewEClass, UiView.class, "UiView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiView_ViewSet(), this.getUiViewSet(), null, "viewSet", null, 0, 1, UiView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiView_Content(), this.getUiEmbeddable(), null, "content", null, 0, 1, UiView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiView_ContentAlignment(), this.getUiAlignment(), "contentAlignment", null, 0, 1, UiView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiView_ValidatorAssignments(), this.getUiValidatorAssignment(), null, "validatorAssignments", null, 0, -1, UiView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiDialogEClass, UiDialog.class, "UiDialog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3655,7 +3816,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiHorizontalLayoutAssigmentEClass, UiHorizontalLayoutAssigment.class, "UiHorizontalLayoutAssigment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiHorizontalLayoutAssigment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiHorizontalLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getUiHorizontalLayoutAssigment_Alignment(), this.getUiAlignment(), "alignment", null, 0, 1, UiHorizontalLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiHorizontalLayoutAssigment_Alignment(), this.getUiAlignment(), "alignment", "UNDEFINED", 0, 1, UiHorizontalLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiHorizontalLayoutEClass, UiHorizontalLayout.class, "UiHorizontalLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiHorizontalLayout_Contents(), this.getUiHorizontalLayoutAssigment(), null, "contents", null, 0, -1, UiHorizontalLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3671,10 +3832,11 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiFormLayoutAssigmentEClass, UiFormLayoutAssigment.class, "UiFormLayoutAssigment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiFormLayoutAssigment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiFormLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getUiFormLayoutAssigment_Alignment(), this.getUiAlignment(), "alignment", null, 0, 1, UiFormLayoutAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiFormLayoutEClass, UiFormLayout.class, "UiFormLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiFormLayout_Contents(), this.getUiFormLayoutAssigment(), null, "contents", null, 0, -1, UiFormLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiFormLayout_FillVertical(), ecorePackage.getEBoolean(), "fillVertical", "false", 0, 1, UiFormLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiFormLayout_FillHorizontal(), ecorePackage.getEBoolean(), "fillHorizontal", "false", 0, 1, UiFormLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiTextFieldEClass, UiTextField.class, "UiTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiTextField_MaxLength(), ecorePackage.getEInt(), "maxLength", "-1", 0, 1, UiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3867,6 +4029,20 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiI18nInfoableEClass, UiI18nInfoable.class, "UiI18nInfoable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiI18nInfoable_I18nInfo(), this.getUiI18nInfo(), null, "i18nInfo", null, 0, 1, UiI18nInfoable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(uiSplitpanelAssigmentEClass, UiSplitpanelAssigment.class, "UiSplitpanelAssigment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiSplitpanelAssigment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiSplitpanelAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiSplitpanelAssigment_Alignment(), this.getUiAlignment(), "alignment", null, 0, 1, UiSplitpanelAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiSplitpanelEClass, UiSplitpanel.class, "UiSplitpanel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiSplitpanel_FirstContent(), this.getUiSplitpanelAssigment(), null, "firstContent", null, 0, 1, UiSplitpanel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiSplitpanel_SecondContent(), this.getUiSplitpanelAssigment(), null, "secondContent", null, 0, 1, UiSplitpanel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiSplitpanel_SplitPosition(), ecorePackage.getEInt(), "splitPosition", "50", 0, 1, UiSplitpanel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiSplitpanel_Horizontal(), ecorePackage.getEBoolean(), "horizontal", null, 0, 1, UiSplitpanel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiPanelEClass, UiPanel.class, "UiPanel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiPanel_Content(), this.getUiEmbeddable(), null, "content", null, 0, 1, UiPanel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiPanel_ContentAlignment(), this.getUiAlignment(), "contentAlignment", null, 0, 1, UiPanel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(uiFlatAlignmentEEnum, UiFlatAlignment.class, "UiFlatAlignment");
 		addEEnumLiteral(uiFlatAlignmentEEnum, UiFlatAlignment.LEFT);
@@ -3874,6 +4050,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		addEEnumLiteral(uiFlatAlignmentEEnum, UiFlatAlignment.RIGHT);
 
 		initEEnum(uiAlignmentEEnum, UiAlignment.class, "UiAlignment");
+		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.UNDEFINED);
 		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.BOTTOM_LEFT);
 		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.BOTTOM_CENTER);
 		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.BOTTOM_RIGHT);
@@ -3890,7 +4067,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.FILL_LEFT);
 		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.FILL_CENTER);
 		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.FILL_RIGHT);
-		addEEnumLiteral(uiAlignmentEEnum, UiAlignment.UNDEFINED);
 
 		initEEnum(uiSelectionTypeEEnum, UiSelectionType.class, "UiSelectionType");
 		addEEnumLiteral(uiSelectionTypeEEnum, UiSelectionType.NONE);

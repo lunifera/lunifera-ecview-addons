@@ -49,6 +49,7 @@ public interface UiHorizontalLayoutAssigment extends UiLayoutAssignment {
 
 	/**
 	 * Returns the value of the '<em><b>Alignment</b></em>' attribute.
+	 * The default value is <code>"UNDEFINED"</code>.
 	 * The literals are from the enumeration {@link org.lunifera.ecview.semantic.uimodel.UiAlignment}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -60,7 +61,7 @@ public interface UiHorizontalLayoutAssigment extends UiLayoutAssignment {
 	 * @see org.lunifera.ecview.semantic.uimodel.UiAlignment
 	 * @see #setAlignment(UiAlignment)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiHorizontalLayoutAssigment_Alignment()
-	 * @model
+	 * @model default="UNDEFINED"
 	 * @generated
 	 */
 	UiAlignment getAlignment();

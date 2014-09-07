@@ -35,6 +35,8 @@ public class ECViewIDEPreviewPart extends ViewPart {
 
 		getViewSite().getActionBars().getMenuManager()
 				.add(new LinkWithEditorAction());
+		getViewSite().getActionBars().getMenuManager()
+				.add(new ShowLayoutBoundsAction());
 	}
 
 	@Override
@@ -70,6 +72,22 @@ public class ECViewIDEPreviewPart extends ViewPart {
 		@Override
 		public void run() {
 			Activator.getIDEPreviewHandler().setLinkedWithEditor(isChecked());
+		}
+	}
+
+	private class ShowLayoutBoundsAction extends Action {
+
+		public ShowLayoutBoundsAction() {
+			setText("Show layout bounds");
+			setImageDescriptor(Activator.imageDescriptorFromPlugin(
+					Activator.BUNDLE_ID, "/icons/bounds.png"));
+			setChecked(false);
+			setEnabled(true);
+		}
+
+		@Override
+		public void run() {
+			Activator.getIDEPreviewHandler().setShowLayoutBounds(isChecked());
 		}
 	}
 }

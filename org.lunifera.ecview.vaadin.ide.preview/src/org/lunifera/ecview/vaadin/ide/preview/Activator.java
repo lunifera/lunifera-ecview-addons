@@ -51,8 +51,7 @@ import com.google.inject.Provider;
  * bundle. The activator will look for the HttpService and registers the vaadin
  * servlet at it.
  */
-public class Activator extends AbstractUIPlugin implements BundleListener,
-		IResourceChangeListener {
+public class Activator extends AbstractUIPlugin implements BundleListener {
 
 	final String PROPERTY_PREFIX = "org.eclipse.equinox.http.jetty."; //$NON-NLS-1$
 	public static final String BUNDLE_ID = "org.lunifera.ecview.vaadin.ide.preview";
@@ -119,11 +118,8 @@ public class Activator extends AbstractUIPlugin implements BundleListener,
 		xtextUtilServiceTracker.open();
 		xtextUtilService = xtextUtilServiceTracker.waitForService(5000);
 
-		initI18nCache();
-
 		registerIDEPreview(bundleContext);
 		registerMobilePreview(bundleContext);
-
 	}
 
 	public IWorkspace getWorkspace() {
@@ -211,8 +207,6 @@ public class Activator extends AbstractUIPlugin implements BundleListener,
 
 	public void stop(BundleContext bundleContext) throws Exception {
 		resourceProvider = null;
-
-		workspaceProvider.get().removeResourceChangeListener(this);
 
 		idePreviewHandler.dispose();
 		mobilePreviewHandler.dispose();
@@ -325,85 +319,6 @@ public class Activator extends AbstractUIPlugin implements BundleListener,
 			ECViewVaadinSynchronizer ecViewVaadinSynchronizer) {
 		idePreviewHandler.setSynchronizer(ecViewVaadinSynchronizer);
 		mobilePreviewHandler.setSynchronizer(ecViewVaadinSynchronizer);
-	}
-
-	/**
-	 * Tries to find the resource traversing all projects contained in the
-	 * workspace.
-	 * 
-	 * @param uri
-	 * @return
-	 */
-	public void initI18nCache() {
-		IWorkspace ws = workspaceProvider.get();
-		ws.addResourceChangeListener(this);
-		try {
-			iterateContainer(ws.getRoot());
-		} catch (CoreException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	private void iterateContainer(IContainer container) throws CoreException,
-			IOException {
-		IResource[] members = container.members();
-		for (IResource member : members) {
-			if (member instanceof IContainer) {
-				iterateContainer((IContainer) member);
-			} else if (member instanceof IFile) {
-				processFile((IFile) member);
-			}
-		}
-	}
-
-	private void processFile(IFile member) throws IOException {
-		URL url = member.getLocationURI().toURL();
-		System.out.println(url.toString());
-		if (url.toString().endsWith(".i18n_de")) {
-			loadProperties(url);
-		}
-	}
-
-	/**
-	 * Load the new properties.
-	 * 
-	 * @param url
-	 * @throws IOException
-	 */
-	protected void loadProperties(URL url) throws IOException {
-		Properties props = new Properties();
-		props.load(url.openStream());
-		i18nProperties.put(url.toString(), props);
-	}
-
-	@Override
-	public void resourceChanged(IResourceChangeEvent event) {
-		try {
-			switch (event.getType()) {
-			case IResourceChangeEvent.POST_CHANGE:
-				iterateDelta(event.getDelta());
-				break;
-			case IResourceChangeEvent.PRE_CLOSE:
-			case IResourceChangeEvent.PRE_DELETE:
-			}
-		} catch (MalformedURLException e) {
-		} catch (IOException e) {
-		} catch (CoreException e) {
-		}
-	}
-
-	private void iterateDelta(IResourceDelta delta) throws CoreException,
-			IOException {
-		for (IResourceDelta member : delta.getAffectedChildren()) {
-			IResource affected = member.getResource();
-			if (affected instanceof IContainer) {
-				iterateDelta((IResourceDelta) member);
-			} else if (affected instanceof IFile) {
-				processFile((IFile) affected);
-			}
-		}
 	}
 
 }
