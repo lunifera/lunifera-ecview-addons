@@ -2,6 +2,7 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.xbase.XExpression;
 
@@ -15,6 +16,7 @@ import org.eclipse.xtext.xbase.XExpression;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiXbaseValidator#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiXbaseValidator#getJvmType <em>Jvm Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiXbaseValidator#getErrorCodes <em>Error Codes</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,5 +76,21 @@ public interface UiXbaseValidator extends UiValidator {
 	 * @generated
 	 */
 	void setJvmType(JvmTypeReference value);
+
+	/**
+	 * Returns the value of the '<em><b>Error Codes</b></em>' containment reference list.
+	 * The list contents are of type {@link org.lunifera.ecview.semantic.uimodel.UiErrorCode}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Error Codes</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Error Codes</em>' containment reference list.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiXbaseValidator_ErrorCodes()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<UiErrorCode> getErrorCodes();
 
 } // UiXbaseValidator

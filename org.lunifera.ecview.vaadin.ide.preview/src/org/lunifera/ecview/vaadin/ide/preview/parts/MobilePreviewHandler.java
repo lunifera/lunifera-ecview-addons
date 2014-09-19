@@ -7,9 +7,9 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.emf.ecore.EObject;
-import org.lunifera.ecview.core.common.model.core.YView;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
+import org.lunifera.ecview.core.common.model.core.YView;
 import org.lunifera.ecview.dsl.derivedstate.UiModelUtil;
 import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.vaadin.ide.preview.Activator;
@@ -142,7 +142,7 @@ public class MobilePreviewHandler {
 	public synchronized boolean isLinkedWithEditor() {
 		return linkedWithEditor;
 	}
-	 
+
 	/**
 	 * True, if the preview should show layout bounds.
 	 * 
@@ -165,7 +165,6 @@ public class MobilePreviewHandler {
 	public boolean isShowLayoutBounds() {
 		return showLayoutBounds;
 	}
-
 
 	/**
 	 * Is called to select the given eObject in the Xtext editor

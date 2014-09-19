@@ -149,6 +149,11 @@ import org.lunifera.ecview.semantic.uimodel.UiSplitpanel
 import org.lunifera.ecview.core.^extension.model.^extension.YSplitPanel
 import org.lunifera.ecview.core.^extension.model.^extension.YPanel
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment
+import org.lunifera.ecview.semantic.uimodel.UiDateFormat
+import org.lunifera.ecview.core.^extension.model.datatypes.YDateTimeFormat
+import org.lunifera.ecview.core.^extension.model.datatypes.YDateTimeResolution
+import org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
@@ -159,6 +164,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	BindableTypeProvider typeOfBoundPropertyProvider;
 	@Inject
 	TypeHelper typeHelper;
+	
+	@Inject extension IQualifiedNameProvider;
 
 	final Stack<EObject> viewContext = new Stack
 	final List<YView> views = newArrayList()
@@ -999,6 +1006,36 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		yField.columns += yColumn
 	}
+	
+	def YDateTimeFormat toYDateTimeFormat(UiDateFormat format) {
+		switch (format) {
+			case DATE:
+				return YDateTimeFormat.DATE
+			case DATE_TIME:
+				return YDateTimeFormat.DATE_TIME
+			case TIME:
+				return YDateTimeFormat.TIME
+		}
+	}
+	
+	def YDateTimeResolution toYDateTimeResolution(UiDateTimeResolution value) {
+		switch (value) {
+			case SECOND:
+				return YDateTimeResolution.SECOND
+			case MINUTE:
+				return YDateTimeResolution.MINUTE
+			case HOUR:
+				return YDateTimeResolution.HOUR
+			case DAY:
+				return YDateTimeResolution.DAY
+			case MONTH:
+				return YDateTimeResolution.MONTH
+			case YEAR:
+				return YDateTimeResolution.YEAR
+			case UNDEFINED:
+				return YDateTimeResolution.UNDEFINED
+		}
+	}
 
 	def YFlatAlignment toYFlatAlignment(UiFlatAlignment uiAlign) {
 		switch (uiAlign) {
@@ -1079,7 +1116,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	def dispatch void map(UiMaxLengthValidator eObject) {
 		val YMaxLengthValidator newValidator = factory.createMaxLengthValidator
 		newValidator.maxLength = eObject.maxLength
-
+		newValidator.errorCode = eObject.errorCode?.fullyQualifiedName?.toString
+		newValidator.defaultErrorMessage = eObject.errorCode?.defaultMessage
 		eObject.associateUi(newValidator)
 
 		val YField yField = peek
@@ -1091,6 +1129,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	def dispatch void map(UiMinLengthValidator eObject) {
 		val YMinLengthValidator newValidator = factory.createMinLengthValidator
 		newValidator.minLength = eObject.minLength
+		newValidator.errorCode = eObject.errorCode?.fullyQualifiedName?.toString
+		newValidator.defaultErrorMessage = eObject.errorCode?.defaultMessage
 
 		eObject.associateUi(newValidator)
 
@@ -1103,6 +1143,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	def dispatch void map(UiRegexpValidator eObject) {
 		val YRegexpValidator newValidator = factory.createRegexpValidator
 		newValidator.regExpression = eObject.regExpression
+		newValidator.errorCode = eObject.errorCode?.fullyQualifiedName?.toString
+		newValidator.defaultErrorMessage = eObject.errorCode?.defaultMessage
 
 		eObject.associateUi(newValidator)
 
@@ -1172,8 +1214,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		decimalField.datatype = dt
 		decimalField.orphanDatatypes += dt
 
-		dt.grouping = object.grouping
-		dt.markNegative = object.markNegative
+		dt.grouping = !object.noGrouping
+		dt.markNegative = !object.noMarkNegative
 		dt.precision = object.precision
 
 		object.associateUi(decimalField)
@@ -1216,6 +1258,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		dateTime.name = object.name
 		dateTime.label = object.name
 		dateTime.labelI18nKey = object.toI18nKey
+		dateTime.dateFormat = object.dateFormat.toYDateTimeFormat
+		dateTime.resolution = object.resolution.toYDateTimeResolution
 
 		object.associateUi(dateTime)
 
@@ -1297,8 +1341,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		field.datatype = dt
 		field.orphanDatatypes += dt
 
-		dt.grouping = object.grouping
-		dt.markNegative = object.markNegative
+		dt.grouping = !object.noGrouping
+		dt.markNegative = !object.noMarkNegative
 		object.associateUi(field)
 
 		return field

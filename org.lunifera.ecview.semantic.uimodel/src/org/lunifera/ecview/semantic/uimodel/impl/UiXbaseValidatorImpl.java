@@ -2,14 +2,19 @@
  */
 package org.lunifera.ecview.semantic.uimodel.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.xbase.XExpression;
+import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
@@ -27,6 +32,7 @@ import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiXbaseValidatorImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiXbaseValidatorImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiXbaseValidatorImpl#getJvmType <em>Jvm Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiXbaseValidatorImpl#getErrorCodes <em>Error Codes</em>}</li>
  * </ul>
  * </p>
  *
@@ -102,6 +108,16 @@ public class UiXbaseValidatorImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected JvmTypeReference jvmType;
+
+	/**
+	 * The cached value of the '{@link #getErrorCodes() <em>Error Codes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getErrorCodes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UiErrorCode> errorCodes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -367,6 +383,18 @@ public class UiXbaseValidatorImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<UiErrorCode> getErrorCodes() {
+		if (errorCodes == null) {
+			errorCodes = new EObjectContainmentEList.Resolving<UiErrorCode>(UiErrorCode.class, this, UiModelPackage.UI_XBASE_VALIDATOR__ERROR_CODES);
+		}
+		return errorCodes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -376,6 +404,8 @@ public class UiXbaseValidatorImpl extends MinimalEObjectImpl.Container implement
 				return basicSetExpression(null, msgs);
 			case UiModelPackage.UI_XBASE_VALIDATOR__JVM_TYPE:
 				return basicSetJvmType(null, msgs);
+			case UiModelPackage.UI_XBASE_VALIDATOR__ERROR_CODES:
+				return ((InternalEList<?>)getErrorCodes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -401,6 +431,8 @@ public class UiXbaseValidatorImpl extends MinimalEObjectImpl.Container implement
 			case UiModelPackage.UI_XBASE_VALIDATOR__JVM_TYPE:
 				if (resolve) return getJvmType();
 				return basicGetJvmType();
+			case UiModelPackage.UI_XBASE_VALIDATOR__ERROR_CODES:
+				return getErrorCodes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -410,6 +442,7 @@ public class UiXbaseValidatorImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -427,6 +460,10 @@ public class UiXbaseValidatorImpl extends MinimalEObjectImpl.Container implement
 				return;
 			case UiModelPackage.UI_XBASE_VALIDATOR__JVM_TYPE:
 				setJvmType((JvmTypeReference)newValue);
+				return;
+			case UiModelPackage.UI_XBASE_VALIDATOR__ERROR_CODES:
+				getErrorCodes().clear();
+				getErrorCodes().addAll((Collection<? extends UiErrorCode>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -455,6 +492,9 @@ public class UiXbaseValidatorImpl extends MinimalEObjectImpl.Container implement
 			case UiModelPackage.UI_XBASE_VALIDATOR__JVM_TYPE:
 				setJvmType((JvmTypeReference)null);
 				return;
+			case UiModelPackage.UI_XBASE_VALIDATOR__ERROR_CODES:
+				getErrorCodes().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -477,6 +517,8 @@ public class UiXbaseValidatorImpl extends MinimalEObjectImpl.Container implement
 				return expression != null;
 			case UiModelPackage.UI_XBASE_VALIDATOR__JVM_TYPE:
 				return jvmType != null;
+			case UiModelPackage.UI_XBASE_VALIDATOR__ERROR_CODES:
+				return errorCodes != null && !errorCodes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -28,11 +28,14 @@ import org.lunifera.ecview.semantic.uimodel.UiCommand;
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
 import org.lunifera.ecview.semantic.uimodel.UiContext;
 import org.lunifera.ecview.semantic.uimodel.UiDateField;
+import org.lunifera.ecview.semantic.uimodel.UiDateFormat;
+import org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution;
 import org.lunifera.ecview.semantic.uimodel.UiDecimalField;
 import org.lunifera.ecview.semantic.uimodel.UiDialog;
 import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
 import org.lunifera.ecview.semantic.uimodel.UiField;
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
@@ -838,6 +841,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass uiErrorCodeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum uiFlatAlignmentEEnum = null;
 
 	/**
@@ -853,6 +863,20 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EEnum uiSelectionTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum uiDateFormatEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum uiDateTimeResolutionEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -2112,7 +2136,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUiNumericField_Grouping() {
+	public EAttribute getUiNumericField_NoGrouping() {
 		return (EAttribute)uiNumericFieldEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2121,7 +2145,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUiNumericField_MarkNegative() {
+	public EAttribute getUiNumericField_NoMarkNegative() {
 		return (EAttribute)uiNumericFieldEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -2373,6 +2397,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getUiMaxLengthValidator_ErrorCode() {
+		return (EReference)uiMaxLengthValidatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiMinLengthValidator() {
 		return uiMinLengthValidatorEClass;
 	}
@@ -2391,6 +2424,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getUiMinLengthValidator_ErrorCode() {
+		return (EReference)uiMinLengthValidatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiRegexpValidator() {
 		return uiRegexpValidatorEClass;
 	}
@@ -2402,6 +2444,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EAttribute getUiRegexpValidator_RegExpression() {
 		return (EAttribute)uiRegexpValidatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiRegexpValidator_ErrorCode() {
+		return (EReference)uiRegexpValidatorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2429,6 +2480,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiXbaseValidator_JvmType() {
 		return (EReference)uiXbaseValidatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiXbaseValidator_ErrorCodes() {
+		return (EReference)uiXbaseValidatorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2922,7 +2982,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUiDecimalField_Grouping() {
+	public EAttribute getUiDecimalField_NoGrouping() {
 		return (EAttribute)uiDecimalFieldEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -2931,7 +2991,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUiDecimalField_MarkNegative() {
+	public EAttribute getUiDecimalField_NoMarkNegative() {
 		return (EAttribute)uiDecimalFieldEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -2987,6 +3047,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EClass getUiDateField() {
 		return uiDateFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiDateField_DateFormat() {
+		return (EAttribute)uiDateFieldEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiDateField_Resolution() {
+		return (EAttribute)uiDateFieldEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3147,6 +3225,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiErrorCode() {
+		return uiErrorCodeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiErrorCode_DefaultMessage() {
+		return (EAttribute)uiErrorCodeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getUiFlatAlignment() {
 		return uiFlatAlignmentEEnum;
 	}
@@ -3167,6 +3263,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EEnum getUiSelectionType() {
 		return uiSelectionTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getUiDateFormat() {
+		return uiDateFormatEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getUiDateTimeResolution() {
+		return uiDateTimeResolutionEEnum;
 	}
 
 	/**
@@ -3378,8 +3492,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiColumnsAssignmentEClass, UI_COLUMNS_ASSIGNMENT__COLUMNS);
 
 		uiNumericFieldEClass = createEClass(UI_NUMERIC_FIELD);
-		createEAttribute(uiNumericFieldEClass, UI_NUMERIC_FIELD__GROUPING);
-		createEAttribute(uiNumericFieldEClass, UI_NUMERIC_FIELD__MARK_NEGATIVE);
+		createEAttribute(uiNumericFieldEClass, UI_NUMERIC_FIELD__NO_GROUPING);
+		createEAttribute(uiNumericFieldEClass, UI_NUMERIC_FIELD__NO_MARK_NEGATIVE);
 
 		uiCheckBoxEClass = createEClass(UI_CHECK_BOX);
 
@@ -3419,16 +3533,20 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiMaxLengthValidatorEClass = createEClass(UI_MAX_LENGTH_VALIDATOR);
 		createEAttribute(uiMaxLengthValidatorEClass, UI_MAX_LENGTH_VALIDATOR__MAX_LENGTH);
+		createEReference(uiMaxLengthValidatorEClass, UI_MAX_LENGTH_VALIDATOR__ERROR_CODE);
 
 		uiMinLengthValidatorEClass = createEClass(UI_MIN_LENGTH_VALIDATOR);
 		createEAttribute(uiMinLengthValidatorEClass, UI_MIN_LENGTH_VALIDATOR__MIN_LENGTH);
+		createEReference(uiMinLengthValidatorEClass, UI_MIN_LENGTH_VALIDATOR__ERROR_CODE);
 
 		uiRegexpValidatorEClass = createEClass(UI_REGEXP_VALIDATOR);
 		createEAttribute(uiRegexpValidatorEClass, UI_REGEXP_VALIDATOR__REG_EXPRESSION);
+		createEReference(uiRegexpValidatorEClass, UI_REGEXP_VALIDATOR__ERROR_CODE);
 
 		uiXbaseValidatorEClass = createEClass(UI_XBASE_VALIDATOR);
 		createEReference(uiXbaseValidatorEClass, UI_XBASE_VALIDATOR__EXPRESSION);
 		createEReference(uiXbaseValidatorEClass, UI_XBASE_VALIDATOR__JVM_TYPE);
+		createEReference(uiXbaseValidatorEClass, UI_XBASE_VALIDATOR__ERROR_CODES);
 
 		uiValidatorAliasEClass = createEClass(UI_VALIDATOR_ALIAS);
 		createEAttribute(uiValidatorAliasEClass, UI_VALIDATOR_ALIAS__ALIAS);
@@ -3509,8 +3627,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiDecimalFieldEClass = createEClass(UI_DECIMAL_FIELD);
 		createEAttribute(uiDecimalFieldEClass, UI_DECIMAL_FIELD__PRECISION);
-		createEAttribute(uiDecimalFieldEClass, UI_DECIMAL_FIELD__GROUPING);
-		createEAttribute(uiDecimalFieldEClass, UI_DECIMAL_FIELD__MARK_NEGATIVE);
+		createEAttribute(uiDecimalFieldEClass, UI_DECIMAL_FIELD__NO_GROUPING);
+		createEAttribute(uiDecimalFieldEClass, UI_DECIMAL_FIELD__NO_MARK_NEGATIVE);
 
 		uiTextAreaEClass = createEClass(UI_TEXT_AREA);
 
@@ -3520,6 +3638,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiOptionsGroupEClass, UI_OPTIONS_GROUP__ITEM_CAPTION_PROPERTY);
 
 		uiDateFieldEClass = createEClass(UI_DATE_FIELD);
+		createEAttribute(uiDateFieldEClass, UI_DATE_FIELD__DATE_FORMAT);
+		createEAttribute(uiDateFieldEClass, UI_DATE_FIELD__RESOLUTION);
 
 		uiBrowserEClass = createEClass(UI_BROWSER);
 
@@ -3545,10 +3665,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiPanelEClass, UI_PANEL__CONTENT);
 		createEAttribute(uiPanelEClass, UI_PANEL__CONTENT_ALIGNMENT);
 
+		uiErrorCodeEClass = createEClass(UI_ERROR_CODE);
+		createEAttribute(uiErrorCodeEClass, UI_ERROR_CODE__DEFAULT_MESSAGE);
+
 		// Create enums
 		uiFlatAlignmentEEnum = createEEnum(UI_FLAT_ALIGNMENT);
 		uiAlignmentEEnum = createEEnum(UI_ALIGNMENT);
 		uiSelectionTypeEEnum = createEEnum(UI_SELECTION_TYPE);
+		uiDateFormatEEnum = createEEnum(UI_DATE_FORMAT);
+		uiDateTimeResolutionEEnum = createEEnum(UI_DATE_TIME_RESOLUTION);
 	}
 
 	/**
@@ -3693,6 +3818,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiSplitpanelAssigmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
 		uiSplitpanelEClass.getESuperTypes().add(this.getUiLayout());
 		uiPanelEClass.getESuperTypes().add(this.getUiLayout());
+		uiErrorCodeEClass.getESuperTypes().add(this.getUiNamedElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(uiNamedElementEClass, UiNamedElement.class, "UiNamedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3876,8 +4002,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiColumnsAssignment_Columns(), this.getUiColumn(), null, "columns", null, 0, -1, UiColumnsAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiNumericFieldEClass, UiNumericField.class, "UiNumericField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getUiNumericField_Grouping(), ecorePackage.getEBoolean(), "grouping", "true", 0, 1, UiNumericField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getUiNumericField_MarkNegative(), ecorePackage.getEBoolean(), "markNegative", "true", 0, 1, UiNumericField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiNumericField_NoGrouping(), ecorePackage.getEBoolean(), "noGrouping", "false", 0, 1, UiNumericField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiNumericField_NoMarkNegative(), ecorePackage.getEBoolean(), "noMarkNegative", "false", 0, 1, UiNumericField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiCheckBoxEClass, UiCheckBox.class, "UiCheckBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3917,16 +4043,20 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiMaxLengthValidatorEClass, UiMaxLengthValidator.class, "UiMaxLengthValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiMaxLengthValidator_MaxLength(), ecorePackage.getEInt(), "maxLength", null, 0, 1, UiMaxLengthValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiMaxLengthValidator_ErrorCode(), this.getUiErrorCode(), null, "errorCode", null, 0, 1, UiMaxLengthValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiMinLengthValidatorEClass, UiMinLengthValidator.class, "UiMinLengthValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiMinLengthValidator_MinLength(), ecorePackage.getEInt(), "minLength", null, 0, 1, UiMinLengthValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiMinLengthValidator_ErrorCode(), this.getUiErrorCode(), null, "errorCode", null, 0, 1, UiMinLengthValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiRegexpValidatorEClass, UiRegexpValidator.class, "UiRegexpValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiRegexpValidator_RegExpression(), ecorePackage.getEString(), "regExpression", null, 0, 1, UiRegexpValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiRegexpValidator_ErrorCode(), this.getUiErrorCode(), null, "errorCode", null, 0, 1, UiRegexpValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiXbaseValidatorEClass, UiXbaseValidator.class, "UiXbaseValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiXbaseValidator_Expression(), theXbasePackage.getXExpression(), null, "expression", null, 0, 1, UiXbaseValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiXbaseValidator_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, UiXbaseValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiXbaseValidator_ErrorCodes(), this.getUiErrorCode(), null, "errorCodes", null, 0, -1, UiXbaseValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiValidatorAliasEClass, UiValidatorAlias.class, "UiValidatorAlias", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiValidatorAlias_Alias(), ecorePackage.getEString(), "alias", null, 1, 1, UiValidatorAlias.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4007,8 +4137,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiDecimalFieldEClass, UiDecimalField.class, "UiDecimalField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiDecimalField_Precision(), ecorePackage.getEInt(), "precision", "2", 0, 1, UiDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getUiDecimalField_Grouping(), ecorePackage.getEBoolean(), "grouping", "true", 0, 1, UiDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getUiDecimalField_MarkNegative(), ecorePackage.getEBoolean(), "markNegative", "true", 0, 1, UiDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiDecimalField_NoGrouping(), ecorePackage.getEBoolean(), "noGrouping", "false", 0, 1, UiDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiDecimalField_NoMarkNegative(), ecorePackage.getEBoolean(), "noMarkNegative", "false", 0, 1, UiDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiTextAreaEClass, UiTextArea.class, "UiTextArea", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4018,6 +4148,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiOptionsGroup_ItemCaptionProperty(), theTypesPackage.getJvmOperation(), null, "itemCaptionProperty", null, 0, 1, UiOptionsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiDateFieldEClass, UiDateField.class, "UiDateField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUiDateField_DateFormat(), this.getUiDateFormat(), "dateFormat", "DATE", 0, 1, UiDateField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiDateField_Resolution(), this.getUiDateTimeResolution(), "resolution", "UNDEFINED", 0, 1, UiDateField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiBrowserEClass, UiBrowser.class, "UiBrowser", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4042,6 +4174,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiPanelEClass, UiPanel.class, "UiPanel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiPanel_Content(), this.getUiEmbeddable(), null, "content", null, 0, 1, UiPanel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiPanel_ContentAlignment(), this.getUiAlignment(), "contentAlignment", null, 0, 1, UiPanel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiErrorCodeEClass, UiErrorCode.class, "UiErrorCode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUiErrorCode_DefaultMessage(), ecorePackage.getEString(), "defaultMessage", null, 0, 1, UiErrorCode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(uiFlatAlignmentEEnum, UiFlatAlignment.class, "UiFlatAlignment");
@@ -4072,6 +4207,20 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		addEEnumLiteral(uiSelectionTypeEEnum, UiSelectionType.NONE);
 		addEEnumLiteral(uiSelectionTypeEEnum, UiSelectionType.SINGLE);
 		addEEnumLiteral(uiSelectionTypeEEnum, UiSelectionType.MULTI);
+
+		initEEnum(uiDateFormatEEnum, UiDateFormat.class, "UiDateFormat");
+		addEEnumLiteral(uiDateFormatEEnum, UiDateFormat.DATE);
+		addEEnumLiteral(uiDateFormatEEnum, UiDateFormat.TIME);
+		addEEnumLiteral(uiDateFormatEEnum, UiDateFormat.DATE_TIME);
+
+		initEEnum(uiDateTimeResolutionEEnum, UiDateTimeResolution.class, "UiDateTimeResolution");
+		addEEnumLiteral(uiDateTimeResolutionEEnum, UiDateTimeResolution.SECOND);
+		addEEnumLiteral(uiDateTimeResolutionEEnum, UiDateTimeResolution.MINUTE);
+		addEEnumLiteral(uiDateTimeResolutionEEnum, UiDateTimeResolution.HOUR);
+		addEEnumLiteral(uiDateTimeResolutionEEnum, UiDateTimeResolution.DAY);
+		addEEnumLiteral(uiDateTimeResolutionEEnum, UiDateTimeResolution.MONTH);
+		addEEnumLiteral(uiDateTimeResolutionEEnum, UiDateTimeResolution.YEAR);
+		addEEnumLiteral(uiDateTimeResolutionEEnum, UiDateTimeResolution.UNDEFINED);
 
 		// Create resource
 		createResource(eNS_URI);

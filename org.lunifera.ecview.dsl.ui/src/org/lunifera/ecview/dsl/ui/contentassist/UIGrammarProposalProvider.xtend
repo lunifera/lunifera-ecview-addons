@@ -5,12 +5,11 @@ package org.lunifera.ecview.dsl.ui.contentassist
 
 import com.google.inject.Inject
 import java.util.List
-import java.util.Locale
+import org.eclipse.core.resources.IProject
 import org.eclipse.emf.ecore.EObject
-import org.eclipse.jdt.core.IJavaProject
 import org.eclipse.jface.viewers.StyledString
 import org.eclipse.xtext.Assignment
-import org.eclipse.xtext.common.types.access.jdt.IJavaProjectProvider
+import org.eclipse.xtext.Keyword
 import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
@@ -18,7 +17,6 @@ import org.lunifera.ecview.semantic.uimodel.UiModel
 import org.lunifera.ide.core.api.i18n.II18nRegistry
 import org.lunifera.ide.core.api.i18n.II18nRegistry.Proposal
 import org.lunifera.ide.core.ui.util.CoreUiUtil
-import org.eclipse.core.resources.IProject
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
@@ -35,7 +33,7 @@ class UIGrammarProposalProvider extends AbstractUIGrammarProposalProvider {
 
 		val IProject project = util.getProject(model)
 		val searchString = context.prefix.replaceAll("\"", "")
-		val List<Proposal> proposals = i18nRegistry.findProposals(project, util.locale,
+		val List<Proposal> proposals = i18nRegistry.findContentProposals(project, util.locale,
 			findPackage(model), searchString);
 
 		val int replacementOffset = context.getReplaceRegion().getOffset();
@@ -85,5 +83,9 @@ class UIGrammarProposalProvider extends AbstractUIGrammarProposalProvider {
 			append(proposal.locale.toLanguageTag, StyledString.DECORATIONS_STYLER).append(" - ").append(
 				proposal.i18nKey, StyledString.DECORATIONS_STYLER);
 		return displayText;
+	}
+	
+	override boolean isKeywordWorthyToPropose(Keyword keyword) {
+		return true;
 	}
 }

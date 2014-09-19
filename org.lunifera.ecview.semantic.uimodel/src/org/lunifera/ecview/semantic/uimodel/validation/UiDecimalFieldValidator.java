@@ -15,6 +15,10 @@ public interface UiDecimalFieldValidator {
 	boolean validate();
 
 	boolean validatePrecision(int value);
+	boolean validateNoGrouping(boolean value);
+
+	boolean validateNoMarkNegative(boolean value);
+
 	boolean validateGrouping(boolean value);
 	boolean validateMarkNegative(boolean value);
 }

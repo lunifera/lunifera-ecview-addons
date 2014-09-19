@@ -263,10 +263,10 @@
         eType="#//UiColumn" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiNumericField" eSuperTypes="#//UiField">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grouping" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="markNegative" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="noGrouping" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="noMarkNegative" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiCheckBox" eSuperTypes="#//UiField"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiVisibilityProcessable" abstract="true">
@@ -316,18 +316,26 @@
       eSuperTypes="#//UiRawBindable #//UiI18nInfoable"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiMaxLengthValidator" eSuperTypes="#//UiValidator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="errorCode" eType="#//UiErrorCode"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiMinLengthValidator" eSuperTypes="#//UiValidator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="errorCode" eType="#//UiErrorCode"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiRegexpValidator" eSuperTypes="#//UiValidator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="regExpression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="errorCode" eType="#//UiErrorCode"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiXbaseValidator" eSuperTypes="#//UiValidator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="errorCodes" upperBound="-1"
+        eType="#//UiErrorCode" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiValidatorAlias" eSuperTypes="#//UiRootElements">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -426,10 +434,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="UiDecimalField" eSuperTypes="#//UiField">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="precision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="2"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grouping" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="markNegative" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="noGrouping" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="noMarkNegative" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiTextArea" eSuperTypes="#//UiField"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiOptionsGroup" eSuperTypes="#//UiField #//UiTypeProvider">
@@ -438,7 +446,26 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemImageProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemCaptionProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiDateField" eSuperTypes="#//UiField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiDateField" eSuperTypes="#//UiField">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateFormat" eType="#//UiDateFormat"
+        defaultValueLiteral="DATE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolution" eType="#//UiDateTimeResolution"
+        defaultValueLiteral="UNDEFINED"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UiDateFormat">
+    <eLiterals name="DATE"/>
+    <eLiterals name="TIME" value="1" literal="TIME"/>
+    <eLiterals name="DATE_TIME" value="2" literal="DATE_TIME"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UiDateTimeResolution">
+    <eLiterals name="SECOND" literal="SECOND"/>
+    <eLiterals name="MINUTE" value="1" literal="MINUTE"/>
+    <eLiterals name="HOUR" value="2" literal="HOUR"/>
+    <eLiterals name="DAY" value="3" literal="DAY"/>
+    <eLiterals name="MONTH" value="4" literal="MONTH"/>
+    <eLiterals name="YEAR" value="5" literal="YEAR"/>
+    <eLiterals name="UNDEFINED" value="6" literal="UNDEFINED"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiBrowser" eSuperTypes="#//UiField"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiProgressBar" eSuperTypes="#//UiField"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiI18nInfo">
@@ -466,5 +493,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//UiEmbeddable"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contentAlignment" eType="#//UiAlignment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiErrorCode" eSuperTypes="#//UiNamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultMessage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

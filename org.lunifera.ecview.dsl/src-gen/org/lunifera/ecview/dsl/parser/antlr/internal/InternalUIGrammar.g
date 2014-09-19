@@ -5205,32 +5205,120 @@ ruleUiDateField returns [EObject current=null]
     	newLeafNode(otherlv_2, grammarAccess.getUiDateFieldAccess().getLeftParenthesisKeyword_2_0());
     }
 (
+
+(
+	{ 
+	  getUnorderedGroupHelper().enter(grammarAccess.getUiDateFieldAccess().getUnorderedGroup_2_1());
+	}
+	(
+		(
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getUiDateFieldAccess().getUnorderedGroup_2_1(), 0)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getUiDateFieldAccess().getUnorderedGroup_2_1(), 0);
+	 				}
+					({true}?=>(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiDateFieldAccess().getI18nInfoUiI18nInfoParserRuleCall_2_1_0()); 
+	        newCompositeNode(grammarAccess.getUiDateFieldAccess().getDateFormatUiDateFormatEnumRuleCall_2_1_0_0()); 
 	    }
-		lv_i18nInfo_3_0=ruleUiI18nInfo		{
+		lv_dateFormat_4_0=ruleUiDateFormat		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiDateFieldRule());
+	        }
+       		set(
+       			$current, 
+       			"dateFormat",
+        		lv_dateFormat_4_0, 
+        		"UiDateFormat");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getUiDateFieldAccess().getUnorderedGroup_2_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getUiDateFieldAccess().getUnorderedGroup_2_1(), 1)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getUiDateFieldAccess().getUnorderedGroup_2_1(), 1);
+	 				}
+					({true}?=>(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiDateFieldAccess().getResolutionUiDateTimeResolutionEnumRuleCall_2_1_1_0()); 
+	    }
+		lv_resolution_5_0=ruleUiDateTimeResolution		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiDateFieldRule());
+	        }
+       		set(
+       			$current, 
+       			"resolution",
+        		lv_resolution_5_0, 
+        		"UiDateTimeResolution");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getUiDateFieldAccess().getUnorderedGroup_2_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getUiDateFieldAccess().getUnorderedGroup_2_1(), 2)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getUiDateFieldAccess().getUnorderedGroup_2_1(), 2);
+	 				}
+					({true}?=>(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiDateFieldAccess().getI18nInfoUiI18nInfoParserRuleCall_2_1_2_0()); 
+	    }
+		lv_i18nInfo_6_0=ruleUiI18nInfo		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiDateFieldRule());
 	        }
        		set(
        			$current, 
        			"i18nInfo",
-        		lv_i18nInfo_3_0, 
+        		lv_i18nInfo_6_0, 
         		"UiI18nInfo");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_4=')' 
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getUiDateFieldAccess().getUnorderedGroup_2_1());
+	 				}
+ 				)
+			)  
+
+		)*	
+	)
+)
+	{ 
+	  getUnorderedGroupHelper().leave(grammarAccess.getUiDateFieldAccess().getUnorderedGroup_2_1());
+	}
+
+)	otherlv_7=')' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getUiDateFieldAccess().getRightParenthesisKeyword_2_2());
+    	newLeafNode(otherlv_7, grammarAccess.getUiDateFieldAccess().getRightParenthesisKeyword_2_2());
     }
 )?(
 (
-		lv_name_5_0=RULE_ID
+		lv_name_8_0=RULE_ID
 		{
-			newLeafNode(lv_name_5_0, grammarAccess.getUiDateFieldAccess().getNameIDTerminalRuleCall_3_0()); 
+			newLeafNode(lv_name_8_0, grammarAccess.getUiDateFieldAccess().getNameIDTerminalRuleCall_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -5239,28 +5327,28 @@ ruleUiDateField returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_5_0, 
+        		lv_name_8_0, 
         		"ID");
 	    }
 
 )
-)?(	otherlv_6='{' 
+)?(	otherlv_9='{' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getUiDateFieldAccess().getLeftCurlyBracketKeyword_4_0());
+    	newLeafNode(otherlv_9, grammarAccess.getUiDateFieldAccess().getLeftCurlyBracketKeyword_4_0());
     }
 ((
 (
 		{ 
 	        newCompositeNode(grammarAccess.getUiDateFieldAccess().getValidatorsUiValidatorParserRuleCall_4_1_0_0()); 
 	    }
-		lv_validators_7_0=ruleUiValidator		{
+		lv_validators_10_0=ruleUiValidator		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiDateFieldRule());
 	        }
        		add(
        			$current, 
        			"validators",
-        		lv_validators_7_0, 
+        		lv_validators_10_0, 
         		"UiValidator");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -5272,14 +5360,14 @@ ruleUiDateField returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getUiDateFieldAccess().getBindingsUiBindingParserRuleCall_4_1_1_0()); 
 	    }
-		lv_bindings_8_0=ruleUiBinding		{
+		lv_bindings_11_0=ruleUiBinding		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiDateFieldRule());
 	        }
        		add(
        			$current, 
        			"bindings",
-        		lv_bindings_8_0, 
+        		lv_bindings_11_0, 
         		"UiBinding");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -5290,22 +5378,22 @@ ruleUiDateField returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getUiDateFieldAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_4_2_0()); 
 	    }
-		lv_processorAssignment_9_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignment_12_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiDateFieldRule());
 	        }
        		set(
        			$current, 
        			"processorAssignment",
-        		lv_processorAssignment_9_0, 
+        		lv_processorAssignment_12_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_10='}' 
+)?	otherlv_13='}' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getUiDateFieldAccess().getRightCurlyBracketKeyword_4_3());
+    	newLeafNode(otherlv_13, grammarAccess.getUiDateFieldAccess().getRightCurlyBracketKeyword_4_3());
     }
 )?)
 ;
@@ -6836,16 +6924,16 @@ ruleUiDecimalField returns [EObject current=null]
 	 				}
 					({true}?=>(
 (
-		lv_grouping_4_0=	'grouping' 
+		lv_noGrouping_4_0=	'noGrouping' 
     {
-        newLeafNode(lv_grouping_4_0, grammarAccess.getUiDecimalFieldAccess().getGroupingGroupingKeyword_2_1_0_0());
+        newLeafNode(lv_noGrouping_4_0, grammarAccess.getUiDecimalFieldAccess().getNoGroupingNoGroupingKeyword_2_1_0_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getUiDecimalFieldRule());
 	        }
-       		setWithLastConsumed($current, "grouping", true, "grouping");
+       		setWithLastConsumed($current, "noGrouping", true, "noGrouping");
 	    }
 
 )
@@ -6863,16 +6951,16 @@ ruleUiDecimalField returns [EObject current=null]
 	 				}
 					({true}?=>(
 (
-		lv_markNegative_5_0=	'markNegative' 
+		lv_noMarkNegative_5_0=	'noMarkNegative' 
     {
-        newLeafNode(lv_markNegative_5_0, grammarAccess.getUiDecimalFieldAccess().getMarkNegativeMarkNegativeKeyword_2_1_1_0());
+        newLeafNode(lv_noMarkNegative_5_0, grammarAccess.getUiDecimalFieldAccess().getNoMarkNegativeNoMarkNegativeKeyword_2_1_1_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getUiDecimalFieldRule());
 	        }
-       		setWithLastConsumed($current, "markNegative", true, "markNegative");
+       		setWithLastConsumed($current, "noMarkNegative", true, "noMarkNegative");
 	    }
 
 )
@@ -8017,16 +8105,16 @@ ruleUiNumericField returns [EObject current=null]
 	 				}
 					({true}?=>(
 (
-		lv_grouping_4_0=	'grouping' 
+		lv_noGrouping_4_0=	'noGrouping' 
     {
-        newLeafNode(lv_grouping_4_0, grammarAccess.getUiNumericFieldAccess().getGroupingGroupingKeyword_2_1_0_0());
+        newLeafNode(lv_noGrouping_4_0, grammarAccess.getUiNumericFieldAccess().getNoGroupingNoGroupingKeyword_2_1_0_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getUiNumericFieldRule());
 	        }
-       		setWithLastConsumed($current, "grouping", true, "grouping");
+       		setWithLastConsumed($current, "noGrouping", true, "noGrouping");
 	    }
 
 )
@@ -8044,16 +8132,16 @@ ruleUiNumericField returns [EObject current=null]
 	 				}
 					({true}?=>(
 (
-		lv_markNegative_5_0=	'markNegative' 
+		lv_noMarkNegative_5_0=	'noMarkNegative' 
     {
-        newLeafNode(lv_markNegative_5_0, grammarAccess.getUiNumericFieldAccess().getMarkNegativeMarkNegativeKeyword_2_1_1_0());
+        newLeafNode(lv_noMarkNegative_5_0, grammarAccess.getUiNumericFieldAccess().getNoMarkNegativeNoMarkNegativeKeyword_2_1_1_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getUiNumericFieldRule());
 	        }
-       		setWithLastConsumed($current, "markNegative", true, "markNegative");
+       		setWithLastConsumed($current, "noMarkNegative", true, "noMarkNegative");
 	    }
 
 )
@@ -8455,10 +8543,28 @@ ruleUiMaxLengthValidator returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_5=')' 
+)	otherlv_5=')' 
     {
     	newLeafNode(otherlv_5, grammarAccess.getUiMaxLengthValidatorAccess().getRightParenthesisKeyword_5());
     }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMaxLengthValidatorAccess().getErrorCodeUiErrorCodeParserRuleCall_6_0()); 
+	    }
+		lv_errorCode_6_0=ruleUiErrorCode		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMaxLengthValidatorRule());
+	        }
+       		set(
+       			$current, 
+       			"errorCode",
+        		lv_errorCode_6_0, 
+        		"UiErrorCode");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
 )?)
 ;
 
@@ -8530,10 +8636,28 @@ ruleUiMinLengthValidator returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_5=')' 
+)	otherlv_5=')' 
     {
     	newLeafNode(otherlv_5, grammarAccess.getUiMinLengthValidatorAccess().getRightParenthesisKeyword_5());
     }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMinLengthValidatorAccess().getErrorCodeUiErrorCodeParserRuleCall_6_0()); 
+	    }
+		lv_errorCode_6_0=ruleUiErrorCode		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMinLengthValidatorRule());
+	        }
+       		set(
+       			$current, 
+       			"errorCode",
+        		lv_errorCode_6_0, 
+        		"UiErrorCode");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
 )?)
 ;
 
@@ -8605,10 +8729,28 @@ ruleUiRegexpValidator returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_5=')' 
+)	otherlv_5=')' 
     {
     	newLeafNode(otherlv_5, grammarAccess.getUiRegexpValidatorAccess().getRightParenthesisKeyword_5());
     }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiRegexpValidatorAccess().getErrorCodeUiErrorCodeParserRuleCall_6_0()); 
+	    }
+		lv_errorCode_6_0=ruleUiErrorCode		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiRegexpValidatorRule());
+	        }
+       		set(
+       			$current, 
+       			"errorCode",
+        		lv_errorCode_6_0, 
+        		"UiErrorCode");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
 )?)
 ;
 
@@ -8658,7 +8800,7 @@ ruleUiXbaseValidator returns [EObject current=null]
 	    }
 
 )
-)?	otherlv_3='(' 
+)	otherlv_3='(' 
     {
     	newLeafNode(otherlv_3, grammarAccess.getUiXbaseValidatorAccess().getLeftParenthesisKeyword_3());
     }
@@ -8687,18 +8829,97 @@ ruleUiXbaseValidator returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiXbaseValidatorAccess().getExpressionXBlockExpressionParserRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getUiXbaseValidatorAccess().getErrorCodesUiErrorCodeParserRuleCall_6_0()); 
 	    }
-		lv_expression_6_0=ruleXBlockExpression		{
+		lv_errorCodes_6_0=ruleUiErrorCode		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiXbaseValidatorRule());
+	        }
+       		add(
+       			$current, 
+       			"errorCodes",
+        		lv_errorCodes_6_0, 
+        		"UiErrorCode");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiXbaseValidatorAccess().getExpressionXBlockExpressionParserRuleCall_7_0()); 
+	    }
+		lv_expression_7_0=ruleXBlockExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiXbaseValidatorRule());
 	        }
        		set(
        			$current, 
        			"expression",
-        		lv_expression_6_0, 
+        		lv_expression_7_0, 
         		"XBlockExpression");
 	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?)
+;
+
+
+
+
+
+// Entry rule entryRuleUiErrorCode
+entryRuleUiErrorCode returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiErrorCodeRule()); }
+	 iv_ruleUiErrorCode=ruleUiErrorCode 
+	 { $current=$iv_ruleUiErrorCode.current; } 
+	 EOF 
+;
+
+// Rule UiErrorCode
+ruleUiErrorCode returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='code' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getUiErrorCodeAccess().getCodeKeyword_0());
+    }
+(
+(
+		lv_name_1_0=RULE_ID
+		{
+			newLeafNode(lv_name_1_0, grammarAccess.getUiErrorCodeAccess().getNameIDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiErrorCodeRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"ID");
+	    }
+
+)
+)(
+(
+		lv_defaultMessage_2_0=RULE_STRING
+		{
+			newLeafNode(lv_defaultMessage_2_0, grammarAccess.getUiErrorCodeAccess().getDefaultMessageSTRINGTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiErrorCodeRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"defaultMessage",
+        		lv_defaultMessage_2_0, 
+        		"STRING");
 	    }
 
 )
@@ -14830,6 +15051,80 @@ ruleQualifiedNameInStaticImport returns [AntlrDatatypeRuleToken current=new Antl
     ;
 
 
+
+
+
+// Rule UiDateFormat
+ruleUiDateFormat returns [Enumerator current=null] 
+    @init { enterRule(); }
+    @after { leaveRule(); }:
+((	enumLiteral_0='date' 
+	{
+        $current = grammarAccess.getUiDateFormatAccess().getDATEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getUiDateFormatAccess().getDATEEnumLiteralDeclaration_0()); 
+    }
+)
+    |(	enumLiteral_1='datetime' 
+	{
+        $current = grammarAccess.getUiDateFormatAccess().getDATE_TIMEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getUiDateFormatAccess().getDATE_TIMEEnumLiteralDeclaration_1()); 
+    }
+)
+    |(	enumLiteral_2='time' 
+	{
+        $current = grammarAccess.getUiDateFormatAccess().getTIMEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getUiDateFormatAccess().getTIMEEnumLiteralDeclaration_2()); 
+    }
+));
+
+
+
+// Rule UiDateTimeResolution
+ruleUiDateTimeResolution returns [Enumerator current=null] 
+    @init { enterRule(); }
+    @after { leaveRule(); }:
+((	enumLiteral_0='undefined' 
+	{
+        $current = grammarAccess.getUiDateTimeResolutionAccess().getUNDEFINEDEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getUiDateTimeResolutionAccess().getUNDEFINEDEnumLiteralDeclaration_0()); 
+    }
+)
+    |(	enumLiteral_1='second' 
+	{
+        $current = grammarAccess.getUiDateTimeResolutionAccess().getSECONDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getUiDateTimeResolutionAccess().getSECONDEnumLiteralDeclaration_1()); 
+    }
+)
+    |(	enumLiteral_2='minute' 
+	{
+        $current = grammarAccess.getUiDateTimeResolutionAccess().getMINUTEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getUiDateTimeResolutionAccess().getMINUTEEnumLiteralDeclaration_2()); 
+    }
+)
+    |(	enumLiteral_3='hour' 
+	{
+        $current = grammarAccess.getUiDateTimeResolutionAccess().getHOUREnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_3, grammarAccess.getUiDateTimeResolutionAccess().getHOUREnumLiteralDeclaration_3()); 
+    }
+)
+    |(	enumLiteral_4='day' 
+	{
+        $current = grammarAccess.getUiDateTimeResolutionAccess().getDAYEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_4, grammarAccess.getUiDateTimeResolutionAccess().getDAYEnumLiteralDeclaration_4()); 
+    }
+)
+    |(	enumLiteral_5='month' 
+	{
+        $current = grammarAccess.getUiDateTimeResolutionAccess().getMONTHEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_5, grammarAccess.getUiDateTimeResolutionAccess().getMONTHEnumLiteralDeclaration_5()); 
+    }
+)
+    |(	enumLiteral_6='year' 
+	{
+        $current = grammarAccess.getUiDateTimeResolutionAccess().getYEAREnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_6, grammarAccess.getUiDateTimeResolutionAccess().getYEAREnumLiteralDeclaration_6()); 
+    }
+));
 
 
 

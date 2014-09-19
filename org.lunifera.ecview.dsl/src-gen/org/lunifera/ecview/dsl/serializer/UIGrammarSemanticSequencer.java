@@ -75,6 +75,7 @@ import org.lunifera.ecview.semantic.uimodel.UiDecimalField;
 import org.lunifera.ecview.semantic.uimodel.UiDialog;
 import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiGridLayout;
@@ -314,6 +315,12 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 			case UiModelPackage.UI_DIALOG_SEARCH_FIELD_ASSIGNMENT:
 				if(context == grammarAccess.getUiDialogSearchFieldAssignmentRule()) {
 					sequence_UiDialogSearchFieldAssignment(context, (UiDialogSearchFieldAssignment) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_ERROR_CODE:
+				if(context == grammarAccess.getUiErrorCodeRule()) {
+					sequence_UiErrorCode(context, (UiErrorCode) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1897,7 +1904,11 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (i18nInfo=UiI18nInfo? name=ID? ((validators+=UiValidator | bindings+=UiBinding)* processorAssignment=UiVisibilityProcessorAssignment?)?)
+	 *     (
+	 *         (dateFormat=UiDateFormat? resolution=UiDateTimeResolution? i18nInfo=UiI18nInfo?)? 
+	 *         name=ID? 
+	 *         ((validators+=UiValidator | bindings+=UiBinding)* processorAssignment=UiVisibilityProcessorAssignment?)?
+	 *     )
 	 */
 	protected void sequence_UiDateField(EObject context, UiDateField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1907,7 +1918,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (grouping?='grouping'? markNegative?='markNegative'? precision=INT? i18nInfo=UiI18nInfo?)? 
+	 *         (noGrouping?='noGrouping'? noMarkNegative?='noMarkNegative'? precision=INT? i18nInfo=UiI18nInfo?)? 
 	 *         name=ID? 
 	 *         ((validators+=UiValidator | bindings+=UiBinding)* processorAssignment=UiVisibilityProcessorAssignment?)?
 	 *     )
@@ -1947,6 +1958,15 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *     )
 	 */
 	protected void sequence_UiDialog(EObject context, UiDialog semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID defaultMessage=STRING?)
+	 */
+	protected void sequence_UiErrorCode(EObject context, UiErrorCode semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2093,7 +2113,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? maxLength=INT)
+	 *     (name=ID? maxLength=INT errorCode=UiErrorCode?)
 	 */
 	protected void sequence_UiMaxLengthValidator(EObject context, UiMaxLengthValidator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2102,7 +2122,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? minLength=INT)
+	 *     (name=ID? minLength=INT errorCode=UiErrorCode?)
 	 */
 	protected void sequence_UiMinLengthValidator(EObject context, UiMinLengthValidator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2249,7 +2269,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (grouping?='grouping'? markNegative?='markNegative'? i18nInfo=UiI18nInfo?)? 
+	 *         (noGrouping?='noGrouping'? noMarkNegative?='noMarkNegative'? i18nInfo=UiI18nInfo?)? 
 	 *         name=ID? 
 	 *         ((validators+=UiValidator | bindings+=UiBinding)* processorAssignment=UiVisibilityProcessorAssignment?)?
 	 *     )
@@ -2345,7 +2365,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? regExpression=STRING)
+	 *     (name=ID? regExpression=STRING errorCode=UiErrorCode?)
 	 */
 	protected void sequence_UiRegexpValidator(EObject context, UiRegexpValidator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2585,7 +2605,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? jvmType=JvmTypeReference expression=XBlockExpression?)
+	 *     (name=ID jvmType=JvmTypeReference errorCodes+=UiErrorCode* expression=XBlockExpression?)
 	 */
 	protected void sequence_UiXbaseValidator(EObject context, UiXbaseValidator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

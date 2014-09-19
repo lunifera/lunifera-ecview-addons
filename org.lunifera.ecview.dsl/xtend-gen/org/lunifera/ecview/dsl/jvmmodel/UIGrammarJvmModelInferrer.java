@@ -2,10 +2,12 @@ package org.lunifera.ecview.dsl.jvmmodel;
 
 import com.google.inject.Inject;
 import java.util.Arrays;
+import java.util.Locale;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtend2.lib.StringConcatenationClient;
+import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmFormalParameter;
 import org.eclipse.xtext.common.types.JvmGenericType;
 import org.eclipse.xtext.common.types.JvmMember;
@@ -23,8 +25,11 @@ import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
+import org.lunifera.ecview.core.common.context.II18nService;
+import org.lunifera.ecview.core.common.disposal.AbstractDisposable;
 import org.lunifera.ecview.core.common.validation.IStatus;
 import org.lunifera.ecview.core.common.validation.IValidator;
+import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 
 /**
@@ -60,10 +65,21 @@ public class UIGrammarJvmModelInferrer extends AbstractModelInferrer {
       public void apply(final JvmGenericType it) {
         UIGrammarJvmModelInferrer.this.associator.associatePrimary(element, it);
         EList<JvmTypeReference> _superTypes = it.getSuperTypes();
-        JvmTypeReference _newTypeRef = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, IValidator.class, null);
+        JvmTypeReference _newTypeRef = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, AbstractDisposable.class, null);
         UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _newTypeRef);
+        EList<JvmTypeReference> _superTypes_1 = it.getSuperTypes();
+        JvmTypeReference _newTypeRef_1 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, IValidator.class, null);
+        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes_1, _newTypeRef_1);
         EList<JvmMember> _members = it.getMembers();
-        JvmTypeReference _newTypeRef_1 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, Void.TYPE);
+        JvmTypeReference _newTypeRef_2 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, II18nService.class);
+        JvmField _field = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toField(element, "i18nService", _newTypeRef_2);
+        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmField>operator_add(_members, _field);
+        EList<JvmMember> _members_1 = it.getMembers();
+        JvmTypeReference _newTypeRef_3 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, Locale.class);
+        JvmField _field_1 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toField(element, "locale", _newTypeRef_3);
+        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmField>operator_add(_members_1, _field_1);
+        EList<JvmMember> _members_2 = it.getMembers();
+        JvmTypeReference _newTypeRef_4 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, Void.TYPE);
         final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
           public void apply(final JvmOperation it) {
             EList<JvmFormalParameter> _parameters = it.getParameters();
@@ -79,10 +95,10 @@ public class UIGrammarJvmModelInferrer extends AbstractModelInferrer {
             UIGrammarJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _client);
           }
         };
-        JvmOperation _method = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(element, "updateParameter", _newTypeRef_1, _function);
-        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
-        EList<JvmMember> _members_1 = it.getMembers();
-        JvmTypeReference _newTypeRef_2 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, Class.class);
+        JvmOperation _method = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(element, "updateParameter", _newTypeRef_4, _function);
+        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _method);
+        EList<JvmMember> _members_3 = it.getMembers();
+        JvmTypeReference _newTypeRef_5 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, Class.class);
         final Procedure1<JvmOperation> _function_1 = new Procedure1<JvmOperation>() {
           public void apply(final JvmOperation it) {
             StringConcatenationClient _client = new StringConcatenationClient() {
@@ -98,11 +114,61 @@ public class UIGrammarJvmModelInferrer extends AbstractModelInferrer {
             UIGrammarJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _client);
           }
         };
-        JvmOperation _method_1 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(element, "getType", _newTypeRef_2, _function_1);
-        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _method_1);
-        EList<JvmMember> _members_2 = it.getMembers();
-        JvmTypeReference _newTypeRef_3 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, IStatus.class);
-        final Procedure1<JvmOperation> _function_2 = new Procedure1<JvmOperation>() {
+        JvmOperation _method_1 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(element, "getType", _newTypeRef_5, _function_1);
+        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _method_1);
+        EList<JvmMember> _members_4 = it.getMembers();
+        JvmTypeReference _newTypeRef_6 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, II18nService.class);
+        JvmOperation _setter = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toSetter(element, "i18nService", _newTypeRef_6);
+        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_4, _setter);
+        EList<JvmMember> _members_5 = it.getMembers();
+        JvmTypeReference _newTypeRef_7 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, Locale.class);
+        JvmOperation _setter_1 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toSetter(element, "locale", _newTypeRef_7);
+        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_5, _setter_1);
+        EList<UiErrorCode> _errorCodes = element.getErrorCodes();
+        for (final UiErrorCode errorCode : _errorCodes) {
+          EList<JvmMember> _members_6 = it.getMembers();
+          String _name = errorCode.getName();
+          String _firstUpper = null;
+          if (_name!=null) {
+            _firstUpper=StringExtensions.toFirstUpper(_name);
+          }
+          String _plus = ("get" + _firstUpper);
+          JvmTypeReference _newTypeRef_8 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, String.class);
+          final Procedure1<JvmOperation> _function_2 = new Procedure1<JvmOperation>() {
+            public void apply(final JvmOperation it) {
+              it.setVisibility(JvmVisibility.PRIVATE);
+              StringConcatenationClient _client = new StringConcatenationClient() {
+                @Override
+                protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                  _builder.append("String result = i18nService.getValue(\"");
+                  QualifiedName _fullyQualifiedName = UIGrammarJvmModelInferrer.this._iQualifiedNameProvider.getFullyQualifiedName(errorCode);
+                  String _string = _fullyQualifiedName.toString();
+                  _builder.append(_string, "");
+                  _builder.append("\", locale);");
+                  _builder.newLineIfNotEmpty();
+                  _builder.append("if(result == null || result.equals(\"\")) {");
+                  _builder.newLine();
+                  _builder.append("\t");
+                  _builder.append("result = \"");
+                  String _defaultMessage = errorCode.getDefaultMessage();
+                  _builder.append(_defaultMessage, "\t");
+                  _builder.append("\";");
+                  _builder.newLineIfNotEmpty();
+                  _builder.append("}");
+                  _builder.newLine();
+                  _builder.append("return result;");
+                  _builder.newLine();
+                }
+              };
+              UIGrammarJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _client);
+            }
+          };
+          JvmOperation _method_2 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(element, _plus, _newTypeRef_8, _function_2);
+          UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_6, _method_2);
+        }
+        EList<JvmMember> _members_7 = it.getMembers();
+        JvmTypeReference _newTypeRef_9 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, IStatus.class);
+        final Procedure1<JvmOperation> _function_3 = new Procedure1<JvmOperation>() {
           public void apply(final JvmOperation it) {
             EList<JvmFormalParameter> _parameters = it.getParameters();
             JvmTypeReference _newTypeRef = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, Object.class);
@@ -131,11 +197,11 @@ public class UIGrammarJvmModelInferrer extends AbstractModelInferrer {
             UIGrammarJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _client);
           }
         };
-        JvmOperation _method_2 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(element, "validateValue", _newTypeRef_3, _function_2);
-        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _method_2);
-        EList<JvmMember> _members_3 = it.getMembers();
-        JvmTypeReference _newTypeRef_4 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, IStatus.class);
-        final Procedure1<JvmOperation> _function_3 = new Procedure1<JvmOperation>() {
+        JvmOperation _method_3 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(element, "validateValue", _newTypeRef_9, _function_3);
+        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_7, _method_3);
+        EList<JvmMember> _members_8 = it.getMembers();
+        JvmTypeReference _newTypeRef_10 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, IStatus.class);
+        final Procedure1<JvmOperation> _function_4 = new Procedure1<JvmOperation>() {
           public void apply(final JvmOperation it) {
             it.setVisibility(JvmVisibility.PRIVATE);
             EList<JvmFormalParameter> _parameters = it.getParameters();
@@ -147,11 +213,11 @@ public class UIGrammarJvmModelInferrer extends AbstractModelInferrer {
             UIGrammarJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _expression);
           }
         };
-        JvmOperation _method_3 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(element, "doValidateValue", _newTypeRef_4, _function_3);
-        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _method_3);
-        EList<JvmMember> _members_4 = it.getMembers();
-        JvmTypeReference _newTypeRef_5 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, IStatus.class);
-        final Procedure1<JvmOperation> _function_4 = new Procedure1<JvmOperation>() {
+        JvmOperation _method_4 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(element, "doValidateValue", _newTypeRef_10, _function_4);
+        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_8, _method_4);
+        EList<JvmMember> _members_9 = it.getMembers();
+        JvmTypeReference _newTypeRef_11 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, IStatus.class);
+        final Procedure1<JvmOperation> _function_5 = new Procedure1<JvmOperation>() {
           public void apply(final JvmOperation it) {
             StringConcatenation _builder = new StringConcatenation();
             _builder.append("Returns an IStatus with serverity ERROR.");
@@ -182,11 +248,11 @@ public class UIGrammarJvmModelInferrer extends AbstractModelInferrer {
             UIGrammarJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _client);
           }
         };
-        JvmOperation _method_4 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(element, "error", _newTypeRef_5, _function_4);
-        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_4, _method_4);
-        EList<JvmMember> _members_5 = it.getMembers();
-        JvmTypeReference _newTypeRef_6 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, IStatus.class);
-        final Procedure1<JvmOperation> _function_5 = new Procedure1<JvmOperation>() {
+        JvmOperation _method_5 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(element, "error", _newTypeRef_11, _function_5);
+        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_9, _method_5);
+        EList<JvmMember> _members_10 = it.getMembers();
+        JvmTypeReference _newTypeRef_12 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, IStatus.class);
+        final Procedure1<JvmOperation> _function_6 = new Procedure1<JvmOperation>() {
           public void apply(final JvmOperation it) {
             StringConcatenation _builder = new StringConcatenation();
             _builder.append("Returns an IStatus with serverity WARNING.");
@@ -217,8 +283,23 @@ public class UIGrammarJvmModelInferrer extends AbstractModelInferrer {
             UIGrammarJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _client);
           }
         };
-        JvmOperation _method_5 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(element, "warning", _newTypeRef_6, _function_5);
-        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_5, _method_5);
+        JvmOperation _method_6 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(element, "warning", _newTypeRef_12, _function_6);
+        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_10, _method_6);
+        EList<JvmMember> _members_11 = it.getMembers();
+        JvmTypeReference _newTypeRef_13 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, Void.TYPE);
+        final Procedure1<JvmOperation> _function_7 = new Procedure1<JvmOperation>() {
+          public void apply(final JvmOperation it) {
+            it.setVisibility(JvmVisibility.PROTECTED);
+            StringConcatenationClient _client = new StringConcatenationClient() {
+              @Override
+              protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+              }
+            };
+            UIGrammarJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _client);
+          }
+        };
+        JvmOperation _method_7 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(element, "internalDispose", _newTypeRef_13, _function_7);
+        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_11, _method_7);
       }
     };
     _accept.initializeLater(_function);

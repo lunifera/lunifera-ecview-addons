@@ -7,6 +7,7 @@ import org.eclipse.xtext.xbase.scoping.XbaseQualifiedNameProvider;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiValidator;
@@ -57,9 +58,21 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 			if (validatorAlias.getName() == null) {
 				return QualifiedName.create("notDefined");
 			} else {
-				// return converter.toQualifiedName(String.format("%s.%s",
-				// getPackage(validatorAlias), validatorAlias.getName()));
-				return converter.toQualifiedName(validatorAlias.getName());
+				return converter.toQualifiedName(String.format("%s.%s",
+						getPackage(validatorAlias), validatorAlias.getName()));
+				// return converter.toQualifiedName(validatorAlias.getName());
+			}
+		} else if (obj instanceof UiErrorCode) {
+			UiErrorCode code = (UiErrorCode) obj;
+			if (code.getName() == null) {
+				return QualifiedName.create("notDefined");
+			} else {
+				UiValidator yValidator = (UiValidator) code.eContainer();
+				return converter
+						.toQualifiedName(String.format("%s.%s.%s",
+								getPackage(code), yValidator.getName(),
+								code.getName()));
+				// return converter.toQualifiedName(validatorAlias.getName());
 			}
 		} else if (obj instanceof UiBeanSlot) {
 			UiBeanSlot uiBeanSlot = (UiBeanSlot) obj;

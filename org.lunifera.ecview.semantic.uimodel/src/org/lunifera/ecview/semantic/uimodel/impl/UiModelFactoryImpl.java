@@ -215,6 +215,7 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_SPLITPANEL_ASSIGMENT: return createUiSplitpanelAssigment();
 			case UiModelPackage.UI_SPLITPANEL: return createUiSplitpanel();
 			case UiModelPackage.UI_PANEL: return createUiPanel();
+			case UiModelPackage.UI_ERROR_CODE: return createUiErrorCode();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -234,6 +235,10 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 				return createUiAlignmentFromString(eDataType, initialValue);
 			case UiModelPackage.UI_SELECTION_TYPE:
 				return createUiSelectionTypeFromString(eDataType, initialValue);
+			case UiModelPackage.UI_DATE_FORMAT:
+				return createUiDateFormatFromString(eDataType, initialValue);
+			case UiModelPackage.UI_DATE_TIME_RESOLUTION:
+				return createUiDateTimeResolutionFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -253,6 +258,10 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 				return convertUiAlignmentToString(eDataType, instanceValue);
 			case UiModelPackage.UI_SELECTION_TYPE:
 				return convertUiSelectionTypeToString(eDataType, instanceValue);
+			case UiModelPackage.UI_DATE_FORMAT:
+				return convertUiDateFormatToString(eDataType, instanceValue);
+			case UiModelPackage.UI_DATE_TIME_RESOLUTION:
+				return convertUiDateTimeResolutionToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -1073,6 +1082,16 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiErrorCode createUiErrorCode() {
+		UiErrorCodeImpl uiErrorCode = new UiErrorCodeImpl();
+		return uiErrorCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiFlatAlignment createUiFlatAlignmentFromString(EDataType eDataType, String initialValue) {
 		UiFlatAlignment result = UiFlatAlignment.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -1125,6 +1144,46 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	 * @generated
 	 */
 	public String convertUiSelectionTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiDateFormat createUiDateFormatFromString(EDataType eDataType, String initialValue) {
+		UiDateFormat result = UiDateFormat.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertUiDateFormatToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiDateTimeResolution createUiDateTimeResolutionFromString(EDataType eDataType, String initialValue) {
+		UiDateTimeResolution result = UiDateTimeResolution.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertUiDateTimeResolutionToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

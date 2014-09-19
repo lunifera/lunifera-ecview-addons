@@ -21,11 +21,11 @@
 
 	<groupId>org.lunifera.ecview</groupId>
 	<artifactId>org.lunifera.ecview.p2</artifactId>
-<version>0.7.3-SNAPSHOT</version>
+	<version>0.7.3-SNAPSHOT</version>
 	<packaging>eclipse-repository</packaging>
 
 	<properties>
-		<lunifera.deployment.p2.label>lunifera-ecview-addons</lunifera.deployment.p2.label>
+		<lunifera.deployment.p2.label>lunifera-ecview</lunifera.deployment.p2.label>
 	</properties>
 
 	<pluginRepositories>

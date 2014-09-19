@@ -19,10 +19,13 @@ import org.eclipse.xtext.common.types.JvmGenericType;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeReference;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.resource.DerivedStateAwareResource;
 import org.eclipse.xtext.xbase.jvmmodel.JvmModelAssociator;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -57,6 +60,8 @@ import org.lunifera.ecview.core.common.model.validation.YMaxLengthValidator;
 import org.lunifera.ecview.core.common.model.validation.YMinLengthValidator;
 import org.lunifera.ecview.core.common.model.validation.YRegexpValidator;
 import org.lunifera.ecview.core.common.model.validation.YValidator;
+import org.lunifera.ecview.core.extension.model.datatypes.YDateTimeFormat;
+import org.lunifera.ecview.core.extension.model.datatypes.YDateTimeResolution;
 import org.lunifera.ecview.core.extension.model.datatypes.YDecimalDatatype;
 import org.lunifera.ecview.core.extension.model.datatypes.YNumericDatatype;
 import org.lunifera.ecview.core.extension.model.datatypes.YTextDatatype;
@@ -111,11 +116,14 @@ import org.lunifera.ecview.semantic.uimodel.UiComboBox;
 import org.lunifera.ecview.semantic.uimodel.UiCommand;
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
 import org.lunifera.ecview.semantic.uimodel.UiDateField;
+import org.lunifera.ecview.semantic.uimodel.UiDateFormat;
+import org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution;
 import org.lunifera.ecview.semantic.uimodel.UiDecimalField;
 import org.lunifera.ecview.semantic.uimodel.UiDialog;
 import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
 import org.lunifera.ecview.semantic.uimodel.UiField;
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
@@ -317,6 +325,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   @Inject
   private TypeHelper typeHelper;
+  
+  @Inject
+  @Extension
+  private IQualifiedNameProvider _iQualifiedNameProvider;
   
   private final Stack<EObject> viewContext = new Stack<EObject>();
   
@@ -1433,6 +1445,46 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     _columns.add(yColumn);
   }
   
+  public YDateTimeFormat toYDateTimeFormat(final UiDateFormat format) {
+    if (format != null) {
+      switch (format) {
+        case DATE:
+          return YDateTimeFormat.DATE;
+        case DATE_TIME:
+          return YDateTimeFormat.DATE_TIME;
+        case TIME:
+          return YDateTimeFormat.TIME;
+        default:
+          break;
+      }
+    }
+    return null;
+  }
+  
+  public YDateTimeResolution toYDateTimeResolution(final UiDateTimeResolution value) {
+    if (value != null) {
+      switch (value) {
+        case SECOND:
+          return YDateTimeResolution.SECOND;
+        case MINUTE:
+          return YDateTimeResolution.MINUTE;
+        case HOUR:
+          return YDateTimeResolution.HOUR;
+        case DAY:
+          return YDateTimeResolution.DAY;
+        case MONTH:
+          return YDateTimeResolution.MONTH;
+        case YEAR:
+          return YDateTimeResolution.YEAR;
+        case UNDEFINED:
+          return YDateTimeResolution.UNDEFINED;
+        default:
+          break;
+      }
+    }
+    return null;
+  }
+  
   public YFlatAlignment toYFlatAlignment(final UiFlatAlignment uiAlign) {
     if (uiAlign != null) {
       switch (uiAlign) {
@@ -1530,6 +1582,22 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final YMaxLengthValidator newValidator = this.factory.createMaxLengthValidator();
     int _maxLength = eObject.getMaxLength();
     newValidator.setMaxLength(_maxLength);
+    UiErrorCode _errorCode = eObject.getErrorCode();
+    QualifiedName _fullyQualifiedName = null;
+    if (_errorCode!=null) {
+      _fullyQualifiedName=this._iQualifiedNameProvider.getFullyQualifiedName(_errorCode);
+    }
+    String _string = null;
+    if (_fullyQualifiedName!=null) {
+      _string=_fullyQualifiedName.toString();
+    }
+    newValidator.setErrorCode(_string);
+    UiErrorCode _errorCode_1 = eObject.getErrorCode();
+    String _defaultMessage = null;
+    if (_errorCode_1!=null) {
+      _defaultMessage=_errorCode_1.getDefaultMessage();
+    }
+    newValidator.setDefaultErrorMessage(_defaultMessage);
     this.associateUi(eObject, newValidator);
     final YField yField = this.<YField>peek();
     boolean _notEquals = (!Objects.equal(yField, null));
@@ -1543,6 +1611,22 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final YMinLengthValidator newValidator = this.factory.createMinLengthValidator();
     int _minLength = eObject.getMinLength();
     newValidator.setMinLength(_minLength);
+    UiErrorCode _errorCode = eObject.getErrorCode();
+    QualifiedName _fullyQualifiedName = null;
+    if (_errorCode!=null) {
+      _fullyQualifiedName=this._iQualifiedNameProvider.getFullyQualifiedName(_errorCode);
+    }
+    String _string = null;
+    if (_fullyQualifiedName!=null) {
+      _string=_fullyQualifiedName.toString();
+    }
+    newValidator.setErrorCode(_string);
+    UiErrorCode _errorCode_1 = eObject.getErrorCode();
+    String _defaultMessage = null;
+    if (_errorCode_1!=null) {
+      _defaultMessage=_errorCode_1.getDefaultMessage();
+    }
+    newValidator.setDefaultErrorMessage(_defaultMessage);
     this.associateUi(eObject, newValidator);
     final YField yField = this.<YField>peek();
     boolean _notEquals = (!Objects.equal(yField, null));
@@ -1556,6 +1640,22 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final YRegexpValidator newValidator = this.factory.createRegexpValidator();
     String _regExpression = eObject.getRegExpression();
     newValidator.setRegExpression(_regExpression);
+    UiErrorCode _errorCode = eObject.getErrorCode();
+    QualifiedName _fullyQualifiedName = null;
+    if (_errorCode!=null) {
+      _fullyQualifiedName=this._iQualifiedNameProvider.getFullyQualifiedName(_errorCode);
+    }
+    String _string = null;
+    if (_fullyQualifiedName!=null) {
+      _string=_fullyQualifiedName.toString();
+    }
+    newValidator.setErrorCode(_string);
+    UiErrorCode _errorCode_1 = eObject.getErrorCode();
+    String _defaultMessage = null;
+    if (_errorCode_1!=null) {
+      _defaultMessage=_errorCode_1.getDefaultMessage();
+    }
+    newValidator.setDefaultErrorMessage(_defaultMessage);
     this.associateUi(eObject, newValidator);
     final YField yField = this.<YField>peek();
     boolean _notEquals = (!Objects.equal(yField, null));
@@ -1649,10 +1749,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     decimalField.setDatatype(dt);
     EList<YDatatype> _orphanDatatypes = decimalField.getOrphanDatatypes();
     _orphanDatatypes.add(dt);
-    boolean _isGrouping = object.isGrouping();
-    dt.setGrouping(_isGrouping);
-    boolean _isMarkNegative = object.isMarkNegative();
-    dt.setMarkNegative(_isMarkNegative);
+    boolean _isNoGrouping = object.isNoGrouping();
+    boolean _not = (!_isNoGrouping);
+    dt.setGrouping(_not);
+    boolean _isNoMarkNegative = object.isNoMarkNegative();
+    boolean _not_1 = (!_isNoMarkNegative);
+    dt.setMarkNegative(_not_1);
     int _precision = object.getPrecision();
     dt.setPrecision(_precision);
     this.associateUi(object, decimalField);
@@ -1721,6 +1823,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     dateTime.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     dateTime.setLabelI18nKey(_i18nKey);
+    UiDateFormat _dateFormat = object.getDateFormat();
+    YDateTimeFormat _yDateTimeFormat = this.toYDateTimeFormat(_dateFormat);
+    dateTime.setDateFormat(_yDateTimeFormat);
+    UiDateTimeResolution _resolution = object.getResolution();
+    YDateTimeResolution _yDateTimeResolution = this.toYDateTimeResolution(_resolution);
+    dateTime.setResolution(_yDateTimeResolution);
     this.associateUi(object, dateTime);
     return dateTime;
   }
@@ -1826,10 +1934,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     field.setDatatype(dt);
     EList<YDatatype> _orphanDatatypes = field.getOrphanDatatypes();
     _orphanDatatypes.add(dt);
-    boolean _isGrouping = object.isGrouping();
-    dt.setGrouping(_isGrouping);
-    boolean _isMarkNegative = object.isMarkNegative();
-    dt.setMarkNegative(_isMarkNegative);
+    boolean _isNoGrouping = object.isNoGrouping();
+    boolean _not = (!_isNoGrouping);
+    dt.setGrouping(_not);
+    boolean _isNoMarkNegative = object.isNoMarkNegative();
+    boolean _not_1 = (!_isNoMarkNegative);
+    dt.setMarkNegative(_not_1);
     this.associateUi(object, field);
     return field;
   }

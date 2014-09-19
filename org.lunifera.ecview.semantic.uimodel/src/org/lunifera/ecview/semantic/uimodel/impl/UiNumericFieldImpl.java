@@ -33,8 +33,8 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiNumericFieldImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiNumericFieldImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiNumericFieldImpl#getValidators <em>Validators</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiNumericFieldImpl#isGrouping <em>Grouping</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiNumericFieldImpl#isMarkNegative <em>Mark Negative</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiNumericFieldImpl#isNoGrouping <em>No Grouping</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiNumericFieldImpl#isNoMarkNegative <em>No Mark Negative</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,42 +107,41 @@ public class UiNumericFieldImpl extends UiVisibilityProcessableImpl implements U
 	protected EList<UiValidator> validators;
 
 	/**
-	 * The default value of the '{@link #isGrouping() <em>Grouping</em>}' attribute.
+	 * The default value of the '{@link #isNoGrouping() <em>No Grouping</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isGrouping()
+	 * @see #isNoGrouping()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean GROUPING_EDEFAULT = true;
+	protected static final boolean NO_GROUPING_EDEFAULT = false;
 	/**
-	 * The cached value of the '{@link #isGrouping() <em>Grouping</em>}' attribute.
+	 * The cached value of the '{@link #isNoGrouping() <em>No Grouping</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isGrouping()
+	 * @see #isNoGrouping()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean grouping = GROUPING_EDEFAULT;
+	protected boolean noGrouping = NO_GROUPING_EDEFAULT;
 	/**
-	 * The default value of the '{@link #isMarkNegative() <em>Mark Negative</em>}' attribute.
+	 * The default value of the '{@link #isNoMarkNegative() <em>No Mark Negative</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isMarkNegative()
+	 * @see #isNoMarkNegative()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean MARK_NEGATIVE_EDEFAULT = true;
+	protected static final boolean NO_MARK_NEGATIVE_EDEFAULT = false;
 	/**
-	 * The cached value of the '{@link #isMarkNegative() <em>Mark Negative</em>}' attribute.
+	 * The cached value of the '{@link #isNoMarkNegative() <em>No Mark Negative</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isMarkNegative()
+	 * @see #isNoMarkNegative()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean markNegative = MARK_NEGATIVE_EDEFAULT;
-
+	protected boolean noMarkNegative = NO_MARK_NEGATIVE_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -299,8 +298,8 @@ public class UiNumericFieldImpl extends UiVisibilityProcessableImpl implements U
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isGrouping() {
-		return grouping;
+	public boolean isNoGrouping() {
+		return noGrouping;
 	}
 
 	/**
@@ -308,11 +307,11 @@ public class UiNumericFieldImpl extends UiVisibilityProcessableImpl implements U
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGrouping(boolean newGrouping) {
-		boolean oldGrouping = grouping;
-		grouping = newGrouping;
+	public void setNoGrouping(boolean newNoGrouping) {
+		boolean oldNoGrouping = noGrouping;
+		noGrouping = newNoGrouping;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_NUMERIC_FIELD__GROUPING, oldGrouping, grouping));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_NUMERIC_FIELD__NO_GROUPING, oldNoGrouping, noGrouping));
 	}
 
 	/**
@@ -320,8 +319,8 @@ public class UiNumericFieldImpl extends UiVisibilityProcessableImpl implements U
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isMarkNegative() {
-		return markNegative;
+	public boolean isNoMarkNegative() {
+		return noMarkNegative;
 	}
 
 	/**
@@ -329,11 +328,11 @@ public class UiNumericFieldImpl extends UiVisibilityProcessableImpl implements U
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMarkNegative(boolean newMarkNegative) {
-		boolean oldMarkNegative = markNegative;
-		markNegative = newMarkNegative;
+	public void setNoMarkNegative(boolean newNoMarkNegative) {
+		boolean oldNoMarkNegative = noMarkNegative;
+		noMarkNegative = newNoMarkNegative;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_NUMERIC_FIELD__MARK_NEGATIVE, oldMarkNegative, markNegative));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_NUMERIC_FIELD__NO_MARK_NEGATIVE, oldNoMarkNegative, noMarkNegative));
 	}
 
 	/**
@@ -373,10 +372,10 @@ public class UiNumericFieldImpl extends UiVisibilityProcessableImpl implements U
 				return getBindings();
 			case UiModelPackage.UI_NUMERIC_FIELD__VALIDATORS:
 				return getValidators();
-			case UiModelPackage.UI_NUMERIC_FIELD__GROUPING:
-				return isGrouping();
-			case UiModelPackage.UI_NUMERIC_FIELD__MARK_NEGATIVE:
-				return isMarkNegative();
+			case UiModelPackage.UI_NUMERIC_FIELD__NO_GROUPING:
+				return isNoGrouping();
+			case UiModelPackage.UI_NUMERIC_FIELD__NO_MARK_NEGATIVE:
+				return isNoMarkNegative();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -407,11 +406,11 @@ public class UiNumericFieldImpl extends UiVisibilityProcessableImpl implements U
 				getValidators().clear();
 				getValidators().addAll((Collection<? extends UiValidator>)newValue);
 				return;
-			case UiModelPackage.UI_NUMERIC_FIELD__GROUPING:
-				setGrouping((Boolean)newValue);
+			case UiModelPackage.UI_NUMERIC_FIELD__NO_GROUPING:
+				setNoGrouping((Boolean)newValue);
 				return;
-			case UiModelPackage.UI_NUMERIC_FIELD__MARK_NEGATIVE:
-				setMarkNegative((Boolean)newValue);
+			case UiModelPackage.UI_NUMERIC_FIELD__NO_MARK_NEGATIVE:
+				setNoMarkNegative((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -440,11 +439,11 @@ public class UiNumericFieldImpl extends UiVisibilityProcessableImpl implements U
 			case UiModelPackage.UI_NUMERIC_FIELD__VALIDATORS:
 				getValidators().clear();
 				return;
-			case UiModelPackage.UI_NUMERIC_FIELD__GROUPING:
-				setGrouping(GROUPING_EDEFAULT);
+			case UiModelPackage.UI_NUMERIC_FIELD__NO_GROUPING:
+				setNoGrouping(NO_GROUPING_EDEFAULT);
 				return;
-			case UiModelPackage.UI_NUMERIC_FIELD__MARK_NEGATIVE:
-				setMarkNegative(MARK_NEGATIVE_EDEFAULT);
+			case UiModelPackage.UI_NUMERIC_FIELD__NO_MARK_NEGATIVE:
+				setNoMarkNegative(NO_MARK_NEGATIVE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -468,10 +467,10 @@ public class UiNumericFieldImpl extends UiVisibilityProcessableImpl implements U
 				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_NUMERIC_FIELD__VALIDATORS:
 				return validators != null && !validators.isEmpty();
-			case UiModelPackage.UI_NUMERIC_FIELD__GROUPING:
-				return grouping != GROUPING_EDEFAULT;
-			case UiModelPackage.UI_NUMERIC_FIELD__MARK_NEGATIVE:
-				return markNegative != MARK_NEGATIVE_EDEFAULT;
+			case UiModelPackage.UI_NUMERIC_FIELD__NO_GROUPING:
+				return noGrouping != NO_GROUPING_EDEFAULT;
+			case UiModelPackage.UI_NUMERIC_FIELD__NO_MARK_NEGATIVE:
+				return noMarkNegative != NO_MARK_NEGATIVE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -546,10 +545,10 @@ public class UiNumericFieldImpl extends UiVisibilityProcessableImpl implements U
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
-		result.append(", grouping: ");
-		result.append(grouping);
-		result.append(", markNegative: ");
-		result.append(markNegative);
+		result.append(", noGrouping: ");
+		result.append(noGrouping);
+		result.append(", noMarkNegative: ");
+		result.append(noMarkNegative);
 		result.append(')');
 		return result.toString();
 	}

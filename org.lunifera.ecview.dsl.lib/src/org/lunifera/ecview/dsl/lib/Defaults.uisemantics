@@ -509,3 +509,18 @@ element Switch {
 	}
 }
 
+element ProgressBar {  
+	uri view:UiProgressBar
+	
+	bindings {
+		endpoint value String
+		endpoint editable Boolean
+		endpoint visible Boolean
+	}
+	
+	visibility {
+		endpoint cssClass Boolean
+		endpoint visible Boolean
+	}
+}  
+

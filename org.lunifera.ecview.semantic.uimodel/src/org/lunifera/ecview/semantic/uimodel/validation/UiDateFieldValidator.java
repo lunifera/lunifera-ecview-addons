@@ -4,6 +4,9 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
+import org.lunifera.ecview.semantic.uimodel.UiDateFormat;
+import org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution;
+
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiDateField}.
@@ -13,5 +16,9 @@ package org.lunifera.ecview.semantic.uimodel.validation;
  */
 public interface UiDateFieldValidator {
 	boolean validate();
+
+	boolean validateDateFormat(UiDateFormat value);
+
+	boolean validateResolution(UiDateTimeResolution value);
 
 }

@@ -3555,22 +3555,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_NUMERIC_FIELD__VALIDATORS = UI_FIELD__VALIDATORS;
 
 	/**
-	 * The feature id for the '<em><b>Grouping</b></em>' attribute.
+	 * The feature id for the '<em><b>No Grouping</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_NUMERIC_FIELD__GROUPING = UI_FIELD_FEATURE_COUNT + 0;
+	int UI_NUMERIC_FIELD__NO_GROUPING = UI_FIELD_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Mark Negative</b></em>' attribute.
+	 * The feature id for the '<em><b>No Mark Negative</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_NUMERIC_FIELD__MARK_NEGATIVE = UI_FIELD_FEATURE_COUNT + 1;
+	int UI_NUMERIC_FIELD__NO_MARK_NEGATIVE = UI_FIELD_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Ui Numeric Field</em>' class.
@@ -4006,13 +4006,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_MAX_LENGTH_VALIDATOR__MAX_LENGTH = UI_VALIDATOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Error Code</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MAX_LENGTH_VALIDATOR__ERROR_CODE = UI_VALIDATOR_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Ui Max Length Validator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_MAX_LENGTH_VALIDATOR_FEATURE_COUNT = UI_VALIDATOR_FEATURE_COUNT + 1;
+	int UI_MAX_LENGTH_VALIDATOR_FEATURE_COUNT = UI_VALIDATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4051,13 +4060,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_MIN_LENGTH_VALIDATOR__MIN_LENGTH = UI_VALIDATOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Error Code</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MIN_LENGTH_VALIDATOR__ERROR_CODE = UI_VALIDATOR_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Ui Min Length Validator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_MIN_LENGTH_VALIDATOR_FEATURE_COUNT = UI_VALIDATOR_FEATURE_COUNT + 1;
+	int UI_MIN_LENGTH_VALIDATOR_FEATURE_COUNT = UI_VALIDATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4096,13 +4114,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_REGEXP_VALIDATOR__REG_EXPRESSION = UI_VALIDATOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Error Code</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_REGEXP_VALIDATOR__ERROR_CODE = UI_VALIDATOR_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Ui Regexp Validator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_REGEXP_VALIDATOR_FEATURE_COUNT = UI_VALIDATOR_FEATURE_COUNT + 1;
+	int UI_REGEXP_VALIDATOR_FEATURE_COUNT = UI_VALIDATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4150,13 +4177,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_XBASE_VALIDATOR__JVM_TYPE = UI_VALIDATOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Error Codes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_XBASE_VALIDATOR__ERROR_CODES = UI_VALIDATOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Ui Xbase Validator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_XBASE_VALIDATOR_FEATURE_COUNT = UI_VALIDATOR_FEATURE_COUNT + 2;
+	int UI_XBASE_VALIDATOR_FEATURE_COUNT = UI_VALIDATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5710,22 +5746,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_DECIMAL_FIELD__PRECISION = UI_FIELD_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Grouping</b></em>' attribute.
+	 * The feature id for the '<em><b>No Grouping</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_DECIMAL_FIELD__GROUPING = UI_FIELD_FEATURE_COUNT + 1;
+	int UI_DECIMAL_FIELD__NO_GROUPING = UI_FIELD_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Mark Negative</b></em>' attribute.
+	 * The feature id for the '<em><b>No Mark Negative</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_DECIMAL_FIELD__MARK_NEGATIVE = UI_FIELD_FEATURE_COUNT + 2;
+	int UI_DECIMAL_FIELD__NO_MARK_NEGATIVE = UI_FIELD_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Ui Decimal Field</em>' class.
@@ -5983,13 +6019,31 @@ public interface UiModelPackage extends EPackage {
 	int UI_DATE_FIELD__VALIDATORS = UI_FIELD__VALIDATORS;
 
 	/**
+	 * The feature id for the '<em><b>Date Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DATE_FIELD__DATE_FORMAT = UI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Resolution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DATE_FIELD__RESOLUTION = UI_FIELD_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Ui Date Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_DATE_FIELD_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 0;
+	int UI_DATE_FIELD_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBrowserImpl <em>Ui Browser</em>}' class.
@@ -6431,6 +6485,52 @@ public interface UiModelPackage extends EPackage {
 	int UI_PANEL_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiErrorCodeImpl <em>Ui Error Code</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiErrorCodeImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiErrorCode()
+	 * @generated
+	 */
+	int UI_ERROR_CODE = 101;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_ERROR_CODE__ID = UI_NAMED_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_ERROR_CODE__NAME = UI_NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Default Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_ERROR_CODE__DEFAULT_MESSAGE = UI_NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Error Code</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_ERROR_CODE_FEATURE_COUNT = UI_NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6438,7 +6538,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiFlatAlignment()
 	 * @generated
 	 */
-	int UI_FLAT_ALIGNMENT = 101;
+	int UI_FLAT_ALIGNMENT = 102;
 
 
 	/**
@@ -6449,7 +6549,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiAlignment()
 	 * @generated
 	 */
-	int UI_ALIGNMENT = 102;
+	int UI_ALIGNMENT = 103;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiSelectionType <em>Ui Selection Type</em>}' enum.
@@ -6459,7 +6559,29 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSelectionType()
 	 * @generated
 	 */
-	int UI_SELECTION_TYPE = 103;
+	int UI_SELECTION_TYPE = 104;
+
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiDateFormat <em>Ui Date Format</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDateFormat
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDateFormat()
+	 * @generated
+	 */
+	int UI_DATE_FORMAT = 105;
+
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution <em>Ui Date Time Resolution</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDateTimeResolution()
+	 * @generated
+	 */
+	int UI_DATE_TIME_RESOLUTION = 106;
 
 
 	/**
@@ -7017,6 +7139,17 @@ public interface UiModelPackage extends EPackage {
 	EAttribute getUiMaxLengthValidator_MaxLength();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator#getErrorCode <em>Error Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Error Code</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator#getErrorCode()
+	 * @see #getUiMaxLengthValidator()
+	 * @generated
+	 */
+	EReference getUiMaxLengthValidator_ErrorCode();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator <em>Ui Min Length Validator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7038,6 +7171,17 @@ public interface UiModelPackage extends EPackage {
 	EAttribute getUiMinLengthValidator_MinLength();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator#getErrorCode <em>Error Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Error Code</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator#getErrorCode()
+	 * @see #getUiMinLengthValidator()
+	 * @generated
+	 */
+	EReference getUiMinLengthValidator_ErrorCode();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiRegexpValidator <em>Ui Regexp Validator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7057,6 +7201,17 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getUiRegexpValidator_RegExpression();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiRegexpValidator#getErrorCode <em>Error Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Error Code</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRegexpValidator#getErrorCode()
+	 * @see #getUiRegexpValidator()
+	 * @generated
+	 */
+	EReference getUiRegexpValidator_ErrorCode();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiXbaseValidator <em>Ui Xbase Validator</em>}'.
@@ -7089,6 +7244,17 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUiXbaseValidator_JvmType();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiXbaseValidator#getErrorCodes <em>Error Codes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Error Codes</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiXbaseValidator#getErrorCodes()
+	 * @see #getUiXbaseValidator()
+	 * @generated
+	 */
+	EReference getUiXbaseValidator_ErrorCodes();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiBindingExpression <em>Ui Binding Expression</em>}'.
@@ -7960,26 +8126,26 @@ public interface UiModelPackage extends EPackage {
 	EClass getUiNumericField();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiNumericField#isGrouping <em>Grouping</em>}'.
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiNumericField#isNoGrouping <em>No Grouping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Grouping</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiNumericField#isGrouping()
+	 * @return the meta object for the attribute '<em>No Grouping</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiNumericField#isNoGrouping()
 	 * @see #getUiNumericField()
 	 * @generated
 	 */
-	EAttribute getUiNumericField_Grouping();
+	EAttribute getUiNumericField_NoGrouping();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiNumericField#isMarkNegative <em>Mark Negative</em>}'.
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiNumericField#isNoMarkNegative <em>No Mark Negative</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Mark Negative</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiNumericField#isMarkNegative()
+	 * @return the meta object for the attribute '<em>No Mark Negative</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiNumericField#isNoMarkNegative()
 	 * @see #getUiNumericField()
 	 * @generated
 	 */
-	EAttribute getUiNumericField_MarkNegative();
+	EAttribute getUiNumericField_NoMarkNegative();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiCheckBox <em>Ui Check Box</em>}'.
@@ -8719,26 +8885,26 @@ public interface UiModelPackage extends EPackage {
 	EAttribute getUiDecimalField_Precision();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiDecimalField#isGrouping <em>Grouping</em>}'.
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiDecimalField#isNoGrouping <em>No Grouping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Grouping</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiDecimalField#isGrouping()
+	 * @return the meta object for the attribute '<em>No Grouping</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDecimalField#isNoGrouping()
 	 * @see #getUiDecimalField()
 	 * @generated
 	 */
-	EAttribute getUiDecimalField_Grouping();
+	EAttribute getUiDecimalField_NoGrouping();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiDecimalField#isMarkNegative <em>Mark Negative</em>}'.
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiDecimalField#isNoMarkNegative <em>No Mark Negative</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Mark Negative</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiDecimalField#isMarkNegative()
+	 * @return the meta object for the attribute '<em>No Mark Negative</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDecimalField#isNoMarkNegative()
 	 * @see #getUiDecimalField()
 	 * @generated
 	 */
-	EAttribute getUiDecimalField_MarkNegative();
+	EAttribute getUiDecimalField_NoMarkNegative();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiTextArea <em>Ui Text Area</em>}'.
@@ -8802,6 +8968,28 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUiDateField();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiDateField#getDateFormat <em>Date Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Date Format</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDateField#getDateFormat()
+	 * @see #getUiDateField()
+	 * @generated
+	 */
+	EAttribute getUiDateField_DateFormat();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiDateField#getResolution <em>Resolution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Resolution</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDateField#getResolution()
+	 * @see #getUiDateField()
+	 * @generated
+	 */
+	EAttribute getUiDateField_Resolution();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiBrowser <em>Ui Browser</em>}'.
@@ -8984,6 +9172,27 @@ public interface UiModelPackage extends EPackage {
 	EAttribute getUiPanel_ContentAlignment();
 
 	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiErrorCode <em>Ui Error Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Error Code</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiErrorCode
+	 * @generated
+	 */
+	EClass getUiErrorCode();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiErrorCode#getDefaultMessage <em>Default Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Message</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiErrorCode#getDefaultMessage()
+	 * @see #getUiErrorCode()
+	 * @generated
+	 */
+	EAttribute getUiErrorCode_DefaultMessage();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiSearchField <em>Ui Search Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9107,6 +9316,26 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getUiSelectionType();
+
+	/**
+	 * Returns the meta object for enum '{@link org.lunifera.ecview.semantic.uimodel.UiDateFormat <em>Ui Date Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Ui Date Format</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDateFormat
+	 * @generated
+	 */
+	EEnum getUiDateFormat();
+
+	/**
+	 * Returns the meta object for enum '{@link org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution <em>Ui Date Time Resolution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Ui Date Time Resolution</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution
+	 * @generated
+	 */
+	EEnum getUiDateTimeResolution();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -9583,6 +9812,14 @@ public interface UiModelPackage extends EPackage {
 		EAttribute UI_MAX_LENGTH_VALIDATOR__MAX_LENGTH = eINSTANCE.getUiMaxLengthValidator_MaxLength();
 
 		/**
+		 * The meta object literal for the '<em><b>Error Code</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_MAX_LENGTH_VALIDATOR__ERROR_CODE = eINSTANCE.getUiMaxLengthValidator_ErrorCode();
+
+		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMinLengthValidatorImpl <em>Ui Min Length Validator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9601,6 +9838,14 @@ public interface UiModelPackage extends EPackage {
 		EAttribute UI_MIN_LENGTH_VALIDATOR__MIN_LENGTH = eINSTANCE.getUiMinLengthValidator_MinLength();
 
 		/**
+		 * The meta object literal for the '<em><b>Error Code</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_MIN_LENGTH_VALIDATOR__ERROR_CODE = eINSTANCE.getUiMinLengthValidator_ErrorCode();
+
+		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiRegexpValidatorImpl <em>Ui Regexp Validator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9617,6 +9862,14 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UI_REGEXP_VALIDATOR__REG_EXPRESSION = eINSTANCE.getUiRegexpValidator_RegExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Error Code</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_REGEXP_VALIDATOR__ERROR_CODE = eINSTANCE.getUiRegexpValidator_ErrorCode();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiXbaseValidatorImpl <em>Ui Xbase Validator</em>}' class.
@@ -9643,6 +9896,14 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_XBASE_VALIDATOR__JVM_TYPE = eINSTANCE.getUiXbaseValidator_JvmType();
+
+		/**
+		 * The meta object literal for the '<em><b>Error Codes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_XBASE_VALIDATOR__ERROR_CODES = eINSTANCE.getUiXbaseValidator_ErrorCodes();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiBindingExpression <em>Ui Binding Expression</em>}' class.
@@ -10367,20 +10628,20 @@ public interface UiModelPackage extends EPackage {
 		EClass UI_NUMERIC_FIELD = eINSTANCE.getUiNumericField();
 
 		/**
-		 * The meta object literal for the '<em><b>Grouping</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>No Grouping</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute UI_NUMERIC_FIELD__GROUPING = eINSTANCE.getUiNumericField_Grouping();
+		EAttribute UI_NUMERIC_FIELD__NO_GROUPING = eINSTANCE.getUiNumericField_NoGrouping();
 
 		/**
-		 * The meta object literal for the '<em><b>Mark Negative</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>No Mark Negative</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute UI_NUMERIC_FIELD__MARK_NEGATIVE = eINSTANCE.getUiNumericField_MarkNegative();
+		EAttribute UI_NUMERIC_FIELD__NO_MARK_NEGATIVE = eINSTANCE.getUiNumericField_NoMarkNegative();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiCheckBoxImpl <em>Ui Check Box</em>}' class.
@@ -11089,20 +11350,20 @@ public interface UiModelPackage extends EPackage {
 		EAttribute UI_DECIMAL_FIELD__PRECISION = eINSTANCE.getUiDecimalField_Precision();
 
 		/**
-		 * The meta object literal for the '<em><b>Grouping</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>No Grouping</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute UI_DECIMAL_FIELD__GROUPING = eINSTANCE.getUiDecimalField_Grouping();
+		EAttribute UI_DECIMAL_FIELD__NO_GROUPING = eINSTANCE.getUiDecimalField_NoGrouping();
 
 		/**
-		 * The meta object literal for the '<em><b>Mark Negative</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>No Mark Negative</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute UI_DECIMAL_FIELD__MARK_NEGATIVE = eINSTANCE.getUiDecimalField_MarkNegative();
+		EAttribute UI_DECIMAL_FIELD__NO_MARK_NEGATIVE = eINSTANCE.getUiDecimalField_NoMarkNegative();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextAreaImpl <em>Ui Text Area</em>}' class.
@@ -11157,6 +11418,22 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UI_DATE_FIELD = eINSTANCE.getUiDateField();
+
+		/**
+		 * The meta object literal for the '<em><b>Date Format</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_DATE_FIELD__DATE_FORMAT = eINSTANCE.getUiDateField_DateFormat();
+
+		/**
+		 * The meta object literal for the '<em><b>Resolution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_DATE_FIELD__RESOLUTION = eINSTANCE.getUiDateField_Resolution();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiBrowserImpl <em>Ui Browser</em>}' class.
@@ -11309,6 +11586,24 @@ public interface UiModelPackage extends EPackage {
 		EAttribute UI_PANEL__CONTENT_ALIGNMENT = eINSTANCE.getUiPanel_ContentAlignment();
 
 		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiErrorCodeImpl <em>Ui Error Code</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiErrorCodeImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiErrorCode()
+		 * @generated
+		 */
+		EClass UI_ERROR_CODE = eINSTANCE.getUiErrorCode();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Message</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_ERROR_CODE__DEFAULT_MESSAGE = eINSTANCE.getUiErrorCode_DefaultMessage();
+
+		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -11337,6 +11632,26 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum UI_SELECTION_TYPE = eINSTANCE.getUiSelectionType();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiDateFormat <em>Ui Date Format</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.UiDateFormat
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDateFormat()
+		 * @generated
+		 */
+		EEnum UI_DATE_FORMAT = eINSTANCE.getUiDateFormat();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution <em>Ui Date Time Resolution</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDateTimeResolution()
+		 * @generated
+		 */
+		EEnum UI_DATE_TIME_RESOLUTION = eINSTANCE.getUiDateTimeResolution();
 
 	}
 

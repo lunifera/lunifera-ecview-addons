@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiDateField;
+import org.lunifera.ecview.semantic.uimodel.UiDateFormat;
+import org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
@@ -33,6 +35,8 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiDateFieldImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiDateFieldImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiDateFieldImpl#getValidators <em>Validators</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiDateFieldImpl#getDateFormat <em>Date Format</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiDateFieldImpl#getResolution <em>Resolution</em>}</li>
  * </ul>
  * </p>
  *
@@ -108,6 +112,46 @@ public class UiDateFieldImpl extends UiVisibilityProcessableImpl implements UiDa
 	 * @ordered
 	 */
 	protected EList<UiValidator> validators;
+
+	/**
+	 * The default value of the '{@link #getDateFormat() <em>Date Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDateFormat()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final UiDateFormat DATE_FORMAT_EDEFAULT = UiDateFormat.DATE;
+
+	/**
+	 * The cached value of the '{@link #getDateFormat() <em>Date Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDateFormat()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiDateFormat dateFormat = DATE_FORMAT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getResolution() <em>Resolution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final UiDateTimeResolution RESOLUTION_EDEFAULT = UiDateTimeResolution.UNDEFINED;
+
+	/**
+	 * The cached value of the '{@link #getResolution() <em>Resolution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiDateTimeResolution resolution = RESOLUTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -265,6 +309,48 @@ public class UiDateFieldImpl extends UiVisibilityProcessableImpl implements UiDa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiDateFormat getDateFormat() {
+		return dateFormat;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDateFormat(UiDateFormat newDateFormat) {
+		UiDateFormat oldDateFormat = dateFormat;
+		dateFormat = newDateFormat == null ? DATE_FORMAT_EDEFAULT : newDateFormat;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_DATE_FIELD__DATE_FORMAT, oldDateFormat, dateFormat));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiDateTimeResolution getResolution() {
+		return resolution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setResolution(UiDateTimeResolution newResolution) {
+		UiDateTimeResolution oldResolution = resolution;
+		resolution = newResolution == null ? RESOLUTION_EDEFAULT : newResolution;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_DATE_FIELD__RESOLUTION, oldResolution, resolution));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -297,6 +383,10 @@ public class UiDateFieldImpl extends UiVisibilityProcessableImpl implements UiDa
 				return getBindings();
 			case UiModelPackage.UI_DATE_FIELD__VALIDATORS:
 				return getValidators();
+			case UiModelPackage.UI_DATE_FIELD__DATE_FORMAT:
+				return getDateFormat();
+			case UiModelPackage.UI_DATE_FIELD__RESOLUTION:
+				return getResolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -327,6 +417,12 @@ public class UiDateFieldImpl extends UiVisibilityProcessableImpl implements UiDa
 				getValidators().clear();
 				getValidators().addAll((Collection<? extends UiValidator>)newValue);
 				return;
+			case UiModelPackage.UI_DATE_FIELD__DATE_FORMAT:
+				setDateFormat((UiDateFormat)newValue);
+				return;
+			case UiModelPackage.UI_DATE_FIELD__RESOLUTION:
+				setResolution((UiDateTimeResolution)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -354,6 +450,12 @@ public class UiDateFieldImpl extends UiVisibilityProcessableImpl implements UiDa
 			case UiModelPackage.UI_DATE_FIELD__VALIDATORS:
 				getValidators().clear();
 				return;
+			case UiModelPackage.UI_DATE_FIELD__DATE_FORMAT:
+				setDateFormat(DATE_FORMAT_EDEFAULT);
+				return;
+			case UiModelPackage.UI_DATE_FIELD__RESOLUTION:
+				setResolution(RESOLUTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -376,6 +478,10 @@ public class UiDateFieldImpl extends UiVisibilityProcessableImpl implements UiDa
 				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_DATE_FIELD__VALIDATORS:
 				return validators != null && !validators.isEmpty();
+			case UiModelPackage.UI_DATE_FIELD__DATE_FORMAT:
+				return dateFormat != DATE_FORMAT_EDEFAULT;
+			case UiModelPackage.UI_DATE_FIELD__RESOLUTION:
+				return resolution != RESOLUTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -450,6 +556,10 @@ public class UiDateFieldImpl extends UiVisibilityProcessableImpl implements UiDa
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", dateFormat: ");
+		result.append(dateFormat);
+		result.append(", resolution: ");
+		result.append(resolution);
 		result.append(')');
 		return result.toString();
 	}

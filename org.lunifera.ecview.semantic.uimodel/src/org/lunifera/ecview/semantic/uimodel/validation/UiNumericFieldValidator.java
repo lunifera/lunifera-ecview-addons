@@ -14,6 +14,10 @@ package org.lunifera.ecview.semantic.uimodel.validation;
 public interface UiNumericFieldValidator {
 	boolean validate();
 
+	boolean validateNoGrouping(boolean value);
+
+	boolean validateNoMarkNegative(boolean value);
+
 	boolean validateGrouping(boolean value);
 	boolean validateMarkNegative(boolean value);
 }

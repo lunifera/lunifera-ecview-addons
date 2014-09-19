@@ -18,6 +18,7 @@ import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiComboBoxElement
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiDateFieldElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiDecimalFieldElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiDialogElements;
+import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiErrorCodeElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiFormLayoutElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiGridLayoutElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiHorizontalLayoutElements;
@@ -167,7 +168,9 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		configureUiOpenDialog(c, f.getUiOpenDialogCommandAccess());
 		// searchWithCommand
 		configureUiSearchWithCommand(c, f.getUiSearchWithDialogCommandAccess());
-		
+		// errorCodes
+		configureUiErrorCode(c, f.getUiErrorCodeAccess());
+				
 		for (Keyword kw : f.findKeywords("{")) {
 			c.setSpace(" ").before(kw);
 			c.setLinewrap(1).after(kw);
@@ -216,7 +219,11 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		for (Keyword kw : ga.findKeywords("]")) {
 			c.setNoSpace().before(kw);
 		}
+	}
 
+	private void configureUiErrorCode(FormattingConfig c,
+			UiErrorCodeElements ele) {
+		c.setLinewrap(1, 1, 2).before(ele.getCodeKeyword_0());
 	}
 
 	private void configureUiSearchWithCommand(FormattingConfig c,

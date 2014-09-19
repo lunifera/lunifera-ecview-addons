@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
@@ -24,6 +25,7 @@ import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMaxLengthValidatorImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMaxLengthValidatorImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMaxLengthValidatorImpl#getMaxLength <em>Max Length</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMaxLengthValidatorImpl#getErrorCode <em>Error Code</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,6 +96,16 @@ public class UiMaxLengthValidatorImpl extends MinimalEObjectImpl.Container imple
 	 * @ordered
 	 */
 	protected int maxLength = MAX_LENGTH_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getErrorCode() <em>Error Code</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getErrorCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiErrorCode errorCode;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -248,11 +260,79 @@ public class UiMaxLengthValidatorImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiErrorCode getErrorCode() {
+		if (errorCode != null && errorCode.eIsProxy()) {
+			InternalEObject oldErrorCode = (InternalEObject)errorCode;
+			errorCode = (UiErrorCode)eResolveProxy(oldErrorCode);
+			if (errorCode != oldErrorCode) {
+				InternalEObject newErrorCode = (InternalEObject)errorCode;
+				NotificationChain msgs = oldErrorCode.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_MAX_LENGTH_VALIDATOR__ERROR_CODE, null, null);
+				if (newErrorCode.eInternalContainer() == null) {
+					msgs = newErrorCode.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_MAX_LENGTH_VALIDATOR__ERROR_CODE, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_MAX_LENGTH_VALIDATOR__ERROR_CODE, oldErrorCode, errorCode));
+			}
+		}
+		return errorCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiErrorCode basicGetErrorCode() {
+		return errorCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetErrorCode(UiErrorCode newErrorCode, NotificationChain msgs) {
+		UiErrorCode oldErrorCode = errorCode;
+		errorCode = newErrorCode;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_MAX_LENGTH_VALIDATOR__ERROR_CODE, oldErrorCode, newErrorCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setErrorCode(UiErrorCode newErrorCode) {
+		if (newErrorCode != errorCode) {
+			NotificationChain msgs = null;
+			if (errorCode != null)
+				msgs = ((InternalEObject)errorCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_MAX_LENGTH_VALIDATOR__ERROR_CODE, null, msgs);
+			if (newErrorCode != null)
+				msgs = ((InternalEObject)newErrorCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_MAX_LENGTH_VALIDATOR__ERROR_CODE, null, msgs);
+			msgs = basicSetErrorCode(newErrorCode, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_MAX_LENGTH_VALIDATOR__ERROR_CODE, newErrorCode, newErrorCode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case UiModelPackage.UI_MAX_LENGTH_VALIDATOR__I18N_INFO:
 				return basicSetI18nInfo(null, msgs);
+			case UiModelPackage.UI_MAX_LENGTH_VALIDATOR__ERROR_CODE:
+				return basicSetErrorCode(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -274,6 +354,9 @@ public class UiMaxLengthValidatorImpl extends MinimalEObjectImpl.Container imple
 				return basicGetI18nInfo();
 			case UiModelPackage.UI_MAX_LENGTH_VALIDATOR__MAX_LENGTH:
 				return getMaxLength();
+			case UiModelPackage.UI_MAX_LENGTH_VALIDATOR__ERROR_CODE:
+				if (resolve) return getErrorCode();
+				return basicGetErrorCode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -297,6 +380,9 @@ public class UiMaxLengthValidatorImpl extends MinimalEObjectImpl.Container imple
 				return;
 			case UiModelPackage.UI_MAX_LENGTH_VALIDATOR__MAX_LENGTH:
 				setMaxLength((Integer)newValue);
+				return;
+			case UiModelPackage.UI_MAX_LENGTH_VALIDATOR__ERROR_CODE:
+				setErrorCode((UiErrorCode)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -322,6 +408,9 @@ public class UiMaxLengthValidatorImpl extends MinimalEObjectImpl.Container imple
 			case UiModelPackage.UI_MAX_LENGTH_VALIDATOR__MAX_LENGTH:
 				setMaxLength(MAX_LENGTH_EDEFAULT);
 				return;
+			case UiModelPackage.UI_MAX_LENGTH_VALIDATOR__ERROR_CODE:
+				setErrorCode((UiErrorCode)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -342,6 +431,8 @@ public class UiMaxLengthValidatorImpl extends MinimalEObjectImpl.Container imple
 				return i18nInfo != null;
 			case UiModelPackage.UI_MAX_LENGTH_VALIDATOR__MAX_LENGTH:
 				return maxLength != MAX_LENGTH_EDEFAULT;
+			case UiModelPackage.UI_MAX_LENGTH_VALIDATOR__ERROR_CODE:
+				return errorCode != null;
 		}
 		return super.eIsSet(featureID);
 	}

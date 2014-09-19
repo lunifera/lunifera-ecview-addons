@@ -751,6 +751,15 @@ public interface UiModelFactory extends EFactory {
 	UiPanel createUiPanel();
 
 	/**
+	 * Returns a new object of class '<em>Ui Error Code</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Error Code</em>'.
+	 * @generated
+	 */
+	UiErrorCode createUiErrorCode();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

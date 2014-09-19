@@ -10,8 +10,6 @@
 package org.lunifera.ecview.vaadin.ide.preview.parts;
 
 import org.eclipse.emf.ecore.EObject;
-import org.lunifera.ecview.core.common.model.core.YDeviceType;
-import org.lunifera.ecview.core.common.model.core.YView;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -29,15 +27,14 @@ import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.model.IXtextModelListener;
 import org.eclipse.xtext.util.ITextRegion;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+import org.lunifera.ecview.core.common.model.core.YDeviceType;
+import org.lunifera.ecview.core.common.model.core.YView;
 import org.lunifera.ecview.dsl.derivedstate.UiModelUtil;
 import org.lunifera.ecview.vaadin.ide.preview.Activator;
 
 import com.google.inject.Singleton;
 
 /**
- * Synchronizes the railroad diagram view with the active editor.
- * 
- * @author Jan Koehnlein - Initial contribution and API
  */
 @Singleton
 public class ECViewVaadinSynchronizer implements IPartListener,
@@ -51,14 +48,16 @@ public class ECViewVaadinSynchronizer implements IPartListener,
 	public void start(IWorkbenchPartSite site) {
 		updateView(site.getPage().getActiveEditor());
 		site.getWorkbenchWindow().getPartService().addPartListener(this);
-		Activator.getDefault().setSynchronizer(this);
+		Activator.getIDEPreviewHandler().setSynchronizer(this);
+		Activator.getMobilePreviewHandler().setSynchronizer(this);
 	}
 
 	public void stop(IWorkbenchPartSite site) {
 		site.getWorkbenchWindow().getPartService().removePartListener(this);
 		lastActiveDocument = null;
 		lastActiveEditor = null;
-		Activator.getDefault().setSynchronizer(null);
+		Activator.getIDEPreviewHandler().setSynchronizer(null);
+		Activator.getMobilePreviewHandler().setSynchronizer(null);
 	}
 
 	public void selectInXtextEditor(EObject element) {

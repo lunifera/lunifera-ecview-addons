@@ -25,6 +25,7 @@ import java.util.Map;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.lunifera.ecview.core.common.context.I18nAdapter;
 import org.lunifera.ecview.core.common.context.II18nService;
 import org.lunifera.ecview.core.common.context.IViewContext;
@@ -77,6 +78,8 @@ public class EcviewPreviewUI extends UI {
 	private ECViewTypeProviderAdapter classLoadingHelper = new ECViewTypeProviderAdapter();
 	private Component selectedComponent;
 
+	private boolean worksWithCopy;
+
 	@Override
 	protected void init(VaadinRequest request) {
 		setErrorHandler(new ErrorHandler() {
@@ -92,8 +95,7 @@ public class EcviewPreviewUI extends UI {
 		});
 
 		if (!Activator.getIDEPreviewHandler().setPreviewUI(this)) {
-			close();
-			return;
+			worksWithCopy = true;
 		}
 
 		setStyleName(Reindeer.LAYOUT_BLUE);
@@ -103,6 +105,10 @@ public class EcviewPreviewUI extends UI {
 		layout.setSizeFull();
 		setContent(layout);
 
+		modelChanged();
+	}
+
+	protected void refresh(VaadinRequest request) {
 		modelChanged();
 	}
 
@@ -140,6 +146,10 @@ public class EcviewPreviewUI extends UI {
 
 						YView view = Activator.getIDEPreviewHandler()
 								.getActiveView();
+						if (worksWithCopy) {
+							view = EcoreUtil.copy(view);
+						}
+
 						context = renderer.render(layout, view, params);
 
 						registerBeans(view);
@@ -253,6 +263,10 @@ public class EcviewPreviewUI extends UI {
 
 	public void error(String value) {
 		Notification.show(value, Notification.Type.ERROR_MESSAGE);
+	}
+
+	public void warn(String value) {
+		Notification.show(value, Notification.Type.WARNING_MESSAGE);
 	}
 
 	/**

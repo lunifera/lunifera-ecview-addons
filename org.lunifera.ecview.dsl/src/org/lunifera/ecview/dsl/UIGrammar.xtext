@@ -344,13 +344,25 @@ UiTextArea returns UiTextArea:
 
 UiDateField returns UiDateField:
 	{UiDateField}
-	'datefield' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID?
+	'datefield'
+	('('
+	((dateFormat=UiDateFormat)?
+	& (resolution=UiDateTimeResolution)?
+	& (i18nInfo=UiI18nInfo)?)
+	')')?
+	name=ID?
 	('{'
 	(validators+=UiValidator
 	|
 	bindings+=UiBinding)*
 	(processorAssignment=UiVisibilityProcessorAssignment)?
 	'}')?;
+
+enum UiDateFormat:
+	DATE="date" | DATE_TIME="datetime" | TIME="time";
+
+enum UiDateTimeResolution:
+	UNDEFINED="undefined" | SECOND="second" | MINUTE="minute" | HOUR="hour" | DAY="day" | MONTH="month" | YEAR="year";
 
 UiBrowser returns UiBrowser:
 	{UiBrowser}
@@ -441,8 +453,8 @@ UiDecimalField returns UiDecimalField:
 	{UiDecimalField}
 	'decimalField'
 	('('
-	((grouping?='grouping')?
-	& (markNegative?='markNegative')?
+	((noGrouping?='noGrouping')?
+	& (noMarkNegative?='noMarkNegative')?
 	& ('precision=' precision=INT)?
 	& (i18nInfo=UiI18nInfo)?)
 	')')?
@@ -519,8 +531,8 @@ UiNumericField:
 	{UiNumericField}
 	'numericField'
 	('('
-	((grouping?='grouping')?
-	& (markNegative?='markNegative')?
+	((noGrouping?='noGrouping')?
+	& (noMarkNegative?='noMarkNegative')?
 	& (i18nInfo=UiI18nInfo)?)
 	')')?
 	name=ID?
@@ -546,19 +558,24 @@ UiValidator:
 
 UiMaxLengthValidator returns UiMaxLengthValidator:
 	{UiMaxLengthValidator}
-	'MaxLengthValidator' (name=ID)? '(' maxLength=INT ')'?;
+	'MaxLengthValidator' (name=ID)? '(' maxLength=INT ')' (errorCode=UiErrorCode)?;
 
 UiMinLengthValidator returns UiMinLengthValidator:
 	{UiMinLengthValidator}
-	'MinLengthValidator' (name=ID)? '(' minLength=INT ')'?;
+	'MinLengthValidator' (name=ID)? '(' minLength=INT ')' (errorCode=UiErrorCode)?;
 
 UiRegexpValidator returns UiRegexpValidator:
 	{UiRegexpValidator}
-	'RegexValidator' (name=ID)? '(' regExpression=STRING ')'?;
+	'RegexValidator' (name=ID)? '(' regExpression=STRING ')' (errorCode=UiErrorCode)?;
 
 UiXbaseValidator returns UiXbaseValidator:
 	{UiXbaseValidator}
-	'Expression' name=ID? '(' jvmType=JvmTypeReference ')' expression=XBlockExpression?;
+	'Expression' name=ID '(' jvmType=JvmTypeReference ')'
+	(errorCodes+=UiErrorCode*)
+	expression=XBlockExpression?;
+
+UiErrorCode:
+	'code' name=ID (defaultMessage=STRING)?;
 
 UiVisibilityProcessor:
 	{UiVisibilityProcessor}

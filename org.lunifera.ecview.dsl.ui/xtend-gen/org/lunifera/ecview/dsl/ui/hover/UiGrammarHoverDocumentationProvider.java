@@ -13,16 +13,23 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.documentation.IEObjectDocumentationProvider;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.ui.editor.hover.html.XtextElementLinks;
+import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.ui.hover.HoverLinkHelper;
 import org.eclipse.xtext.xbase.ui.hover.XbaseDeclarativeHoverSignatureProvider;
 import org.eclipse.xtext.xbase.ui.hover.XbaseHoverDocumentationProvider;
 import org.lunifera.ecview.dsl.scope.BindableTypeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
+import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
+import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
+import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
 import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
 import org.lunifera.ecview.semantic.uisemantics.UxBindingableOption;
 import org.lunifera.ide.core.api.i18n.II18nRegistry;
@@ -44,6 +51,10 @@ public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentation
   
   @Inject
   private CoreUiUtil util;
+  
+  @Inject
+  @Extension
+  private IQualifiedNameProvider fqnProvider;
   
   public String computeDocumentation(final EObject object) {
     final String superDocu = super.computeDocumentation(object);
@@ -128,8 +139,31 @@ public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentation
     return sb.toString();
   }
   
+  protected String _getCustomDocumentation(final UiErrorCode object) {
+    final StringBuilder sb = new StringBuilder();
+    String _computeDocumentation = super.computeDocumentation(object);
+    sb.append(_computeDocumentation);
+    sb.append("<h3>I18n Info</h3>");
+    final QualifiedName fqn = this.fqnProvider.getFullyQualifiedName(object);
+    final QualifiedName pkg = fqn.skipLast(1);
+    String _string = fqn.toString();
+    String _plus = ("Key: " + _string);
+    String _plus_1 = (_plus + "<p>");
+    sb.append(_plus_1);
+    IProject javaProject = this.util.getProject(object);
+    IProject _project = javaProject.getProject();
+    Locale _locale = this.util.getLocale();
+    String _string_1 = pkg.toString();
+    String _string_2 = fqn.toString();
+    final List<II18nRegistry.Proposal> proposals = this.i18nRegistry.findStrictKeyMatchingProposals(_project, _locale, _string_1, _string_2);
+    CharSequence _i18nLocaleDocumentation = this.getI18nLocaleDocumentation(proposals);
+    String _string_3 = _i18nLocaleDocumentation.toString();
+    sb.append(_string_3);
+    return sb.toString();
+  }
+  
   /**
-   * Returns the default i18n docu for an embeddable.
+   * Returns the default i18n docu for an named element.
    */
   public String getI18nDefaultDocumentation(final UiNamedElement model) {
     IProject javaProject = this.util.getProject(model);
@@ -138,7 +172,7 @@ public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentation
     String key = ((packageName + ".") + _name);
     IProject _project = javaProject.getProject();
     Locale _locale = this.util.getLocale();
-    final List<II18nRegistry.Proposal> proposals = this.i18nRegistry.findProposals(_project, _locale, packageName, key);
+    final List<II18nRegistry.Proposal> proposals = this.i18nRegistry.findStrictKeyMatchingProposals(_project, _locale, packageName, key);
     String result = (("Key: " + key) + "<p>");
     CharSequence _i18nLocaleDocumentation = this.getI18nLocaleDocumentation(proposals);
     String _string = _i18nLocaleDocumentation.toString();
@@ -150,6 +184,87 @@ public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentation
     JvmType _type = _jvmType.getType();
     String _computeLinkToElement = this.computeLinkToElement(_type);
     return ("<p><b>provides:</b> " + _computeLinkToElement);
+  }
+  
+  protected String _getCustomDocumentation(final UiMinLengthValidator object) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<p><b>Template variables for i18n: </b>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("<ul>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("<li><i>${value}</i> - the input of the validation</li>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("<li><i>${minLength}</i> - the defined min length</li>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("<li><i>${currentLength}</i> - the length of the input value</li>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("</ul>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("<br>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("Example: <i>\"The min length of ${minLength} is not reached by ${value} with a length of ${currentLength}\"</i>");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  protected String _getCustomDocumentation(final UiMaxLengthValidator object) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<p><b>Template variables for i18n: </b>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("<ul>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("<li><i>${value}</i> - the input of the validation</li>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("<li><i>${maxLength}</i> - the defined max length</li>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("<li><i>${currentLength}</i> - the length of the input value</li>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("</ul>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("<br>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("Example: <i>\"The max length of ${maxLength} is exceeded by ${value} with a length of ${currentLength}\"</i>");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  protected String _getCustomDocumentation(final UiRegexpValidator object) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<p><b>Template variables for i18n: </b>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("<ul>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("<li><i>${value}</i> - the input of the validation</li>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("<li><i>${regex}</i> - the defined regular expression</li>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("</ul>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("<br>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("Example: <i>\"The ${value} does not macht the pattern ${regex}\"</i>");
+    _builder.newLine();
+    return _builder.toString();
   }
   
   protected String _getCustomDocumentation(final UiI18nInfo model) {
@@ -166,7 +281,7 @@ public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentation
     IProject _project = javaProject.getProject();
     Locale _locale = this.util.getLocale();
     String _key_1 = model.getKey();
-    final List<II18nRegistry.Proposal> proposals = this.i18nRegistry.findProposals(_project, _locale, packageName, _key_1);
+    final List<II18nRegistry.Proposal> proposals = this.i18nRegistry.findStrictKeyMatchingProposals(_project, _locale, packageName, _key_1);
     CharSequence _i18nLocaleDocumentation = this.getI18nLocaleDocumentation(proposals);
     return _i18nLocaleDocumentation.toString();
   }
@@ -297,12 +412,20 @@ public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentation
   }
   
   public String getCustomDocumentation(final EObject object) {
-    if (object instanceof UiBeanSlot) {
+    if (object instanceof UiMaxLengthValidator) {
+      return _getCustomDocumentation((UiMaxLengthValidator)object);
+    } else if (object instanceof UiMinLengthValidator) {
+      return _getCustomDocumentation((UiMinLengthValidator)object);
+    } else if (object instanceof UiRegexpValidator) {
+      return _getCustomDocumentation((UiRegexpValidator)object);
+    } else if (object instanceof UiBeanSlot) {
       return _getCustomDocumentation((UiBeanSlot)object);
     } else if (object instanceof UiEmbeddable) {
       return _getCustomDocumentation((UiEmbeddable)object);
     } else if (object instanceof UiTabAssignment) {
       return _getCustomDocumentation((UiTabAssignment)object);
+    } else if (object instanceof UiErrorCode) {
+      return _getCustomDocumentation((UiErrorCode)object);
     } else if (object instanceof UxBindingableOption) {
       return _getCustomDocumentation((UxBindingableOption)object);
     } else if (object instanceof UiI18nInfo) {

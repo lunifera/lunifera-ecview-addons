@@ -11,8 +11,8 @@ package org.lunifera.ecview.semantic.uimodel;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiNumericField#isGrouping <em>Grouping</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiNumericField#isMarkNegative <em>Mark Negative</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiNumericField#isNoGrouping <em>No Grouping</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiNumericField#isNoMarkNegative <em>No Mark Negative</em>}</li>
  * </ul>
  * </p>
  *
@@ -23,56 +23,56 @@ package org.lunifera.ecview.semantic.uimodel;
 public interface UiNumericField extends UiField {
 
 	/**
-	 * Returns the value of the '<em><b>Grouping</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
+	 * Returns the value of the '<em><b>No Grouping</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Grouping</em>' attribute isn't clear,
+	 * If the meaning of the '<em>No Grouping</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Grouping</em>' attribute.
-	 * @see #setGrouping(boolean)
-	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiNumericField_Grouping()
-	 * @model default="true"
+	 * @return the value of the '<em>No Grouping</em>' attribute.
+	 * @see #setNoGrouping(boolean)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiNumericField_NoGrouping()
+	 * @model default="false"
 	 * @generated
 	 */
-	boolean isGrouping();
+	boolean isNoGrouping();
 
 	/**
-	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiNumericField#isGrouping <em>Grouping</em>}' attribute.
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiNumericField#isNoGrouping <em>No Grouping</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Grouping</em>' attribute.
-	 * @see #isGrouping()
+	 * @param value the new value of the '<em>No Grouping</em>' attribute.
+	 * @see #isNoGrouping()
 	 * @generated
 	 */
-	void setGrouping(boolean value);
+	void setNoGrouping(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Mark Negative</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
+	 * Returns the value of the '<em><b>No Mark Negative</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Mark Negative</em>' attribute isn't clear,
+	 * If the meaning of the '<em>No Mark Negative</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mark Negative</em>' attribute.
-	 * @see #setMarkNegative(boolean)
-	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiNumericField_MarkNegative()
-	 * @model default="true"
+	 * @return the value of the '<em>No Mark Negative</em>' attribute.
+	 * @see #setNoMarkNegative(boolean)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiNumericField_NoMarkNegative()
+	 * @model default="false"
 	 * @generated
 	 */
-	boolean isMarkNegative();
+	boolean isNoMarkNegative();
 
 	/**
-	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiNumericField#isMarkNegative <em>Mark Negative</em>}' attribute.
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiNumericField#isNoMarkNegative <em>No Mark Negative</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Mark Negative</em>' attribute.
-	 * @see #isMarkNegative()
+	 * @param value the new value of the '<em>No Mark Negative</em>' attribute.
+	 * @see #isNoMarkNegative()
 	 * @generated
 	 */
-	void setMarkNegative(boolean value);
+	void setNoMarkNegative(boolean value);
 } // UiNumericField

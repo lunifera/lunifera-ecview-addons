@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.Region;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
@@ -38,7 +39,7 @@ public class UIGrammarProposalProvider extends AbstractUIGrammarProposalProvider
     final String searchString = _prefix.replaceAll("\"", "");
     Locale _locale = this.util.getLocale();
     String _findPackage = this.findPackage(model);
-    final List<II18nRegistry.Proposal> proposals = this.i18nRegistry.findProposals(project, _locale, _findPackage, searchString);
+    final List<II18nRegistry.Proposal> proposals = this.i18nRegistry.findContentProposals(project, _locale, _findPackage, searchString);
     Region _replaceRegion = context.getReplaceRegion();
     final int replacementOffset = _replaceRegion.getOffset();
     Region _replaceRegion_1 = context.getReplaceRegion();
@@ -136,5 +137,9 @@ public class UIGrammarProposalProvider extends AbstractUIGrammarProposalProvider
     String _i18nKey = proposal.getI18nKey();
     final StyledString displayText = _append_2.append(_i18nKey, StyledString.DECORATIONS_STYLER);
     return displayText;
+  }
+  
+  public boolean isKeywordWorthyToPropose(final Keyword keyword) {
+    return true;
   }
 }

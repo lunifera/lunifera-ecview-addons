@@ -188,8 +188,8 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference columns : UiColumn<<0..*>>
 
   Class UiNumericField -> UiField
-    Attribute grouping : EBoolean
-    Attribute markNegative : EBoolean
+    Attribute noGrouping : EBoolean
+    Attribute noMarkNegative : EBoolean
 
   Class UiCheckBox -> UiField
 
@@ -229,16 +229,20 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiMaxLengthValidator -> UiValidator
     Attribute maxLength : EInt
+    Reference errorCode : UiErrorCode
 
   Class UiMinLengthValidator -> UiValidator
     Attribute minLength : EInt
+    Reference errorCode : UiErrorCode
 
   Class UiRegexpValidator -> UiValidator
     Attribute regExpression : EString
+    Reference errorCode : UiErrorCode
 
   Class UiXbaseValidator -> UiValidator
     Reference expression : XExpression
     Reference jvmType : JvmTypeReference
+    Reference errorCodes : UiErrorCode<<0..*>>
 
   Class UiValidatorAlias -> UiRootElements
     Attribute alias : EString<<1..1>>
@@ -319,8 +323,8 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiDecimalField -> UiField
     Attribute precision : EInt
-    Attribute grouping : EBoolean
-    Attribute markNegative : EBoolean
+    Attribute noGrouping : EBoolean
+    Attribute noMarkNegative : EBoolean
 
   Class UiTextArea -> UiField
 
@@ -330,6 +334,8 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference itemCaptionProperty : JvmOperation
 
   Class UiDateField -> UiField
+    Attribute dateFormat : UiDateFormat
+    Attribute resolution : UiDateTimeResolution
 
   Class UiBrowser -> UiField
 
@@ -354,6 +360,9 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiPanel -> UiLayout
     Reference content : UiEmbeddable
     Attribute contentAlignment : UiAlignment
+
+  Class UiErrorCode -> UiNamedElement
+    Attribute defaultMessage : EString
 
   Enum UiFlatAlignment
     Literal LEFT = 0
@@ -383,3 +392,17 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Literal NONE = 0
     Literal SINGLE = 1
     Literal MULTI = 2
+
+  Enum UiDateFormat
+    Literal DATE = 0
+    Literal TIME = 1
+    Literal DATE_TIME = 2
+
+  Enum UiDateTimeResolution
+    Literal SECOND = 0
+    Literal MINUTE = 1
+    Literal HOUR = 2
+    Literal DAY = 3
+    Literal MONTH = 4
+    Literal YEAR = 5
+    Literal UNDEFINED = 6
