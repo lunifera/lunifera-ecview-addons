@@ -1415,8 +1415,6 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	def dispatch YGridLayout create(UiGridLayout object) {
 		val YGridLayout layout = factory.createGridLayout
 		layout.name = object.name
-		layout.fillHorizontal = object.fillHorizontal
-		layout.fillVertical = object.fillVertical
 		layout.columns = object.columns
 		layout.labelI18nKey = object.toI18nKey
 		
@@ -1431,8 +1429,6 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
-		layout.fillHorizontal = object.fillHorizontal
-		layout.fillVertical = object.fillVertical
 
 		object.associateUi(layout)
 
@@ -1444,7 +1440,6 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
-		layout.fillHorizontal = object.fillHorizontal
 
 		object.associateUi(layout)
 
@@ -1474,13 +1469,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		return layout
 	}
 	
-	
 	def dispatch YVerticalLayout create(UiVerticalLayout object) {
 		val YVerticalLayout layout = factory.createVerticalLayout
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
-		layout.fillVertical = object.fillVertical
 
 		object.associateUi(layout)
 

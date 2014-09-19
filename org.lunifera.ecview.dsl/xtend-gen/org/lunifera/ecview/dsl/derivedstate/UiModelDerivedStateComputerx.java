@@ -2035,10 +2035,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final YGridLayout layout = this.factory.createGridLayout();
     String _name = object.getName();
     layout.setName(_name);
-    boolean _isFillHorizontal = object.isFillHorizontal();
-    layout.setFillHorizontal(_isFillHorizontal);
-    boolean _isFillVertical = object.isFillVertical();
-    layout.setFillVertical(_isFillVertical);
     int _columns = object.getColumns();
     layout.setColumns(_columns);
     String _i18nKey = this.toI18nKey(object);
@@ -2055,10 +2051,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     layout.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     layout.setLabelI18nKey(_i18nKey);
-    boolean _isFillHorizontal = object.isFillHorizontal();
-    layout.setFillHorizontal(_isFillHorizontal);
-    boolean _isFillVertical = object.isFillVertical();
-    layout.setFillVertical(_isFillVertical);
     this.associateUi(object, layout);
     return layout;
   }
@@ -2071,8 +2063,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     layout.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     layout.setLabelI18nKey(_i18nKey);
-    boolean _isFillHorizontal = object.isFillHorizontal();
-    layout.setFillHorizontal(_isFillHorizontal);
     this.associateUi(object, layout);
     return layout;
   }
@@ -2111,8 +2101,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     layout.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     layout.setLabelI18nKey(_i18nKey);
-    boolean _isFillVertical = object.isFillVertical();
-    layout.setFillVertical(_isFillVertical);
     this.associateUi(object, layout);
     return layout;
   }

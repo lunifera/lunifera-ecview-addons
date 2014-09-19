@@ -121,8 +121,6 @@ UiGridLayout returns UiGridLayout:
 	'gridlayout'
 	('('
 	(('columns=' columns=INT)?
-	& (fillHorizontal?='fill-h')?
-	& (fillVertical?='fill-v')?
 	& (i18nInfo=UiI18nInfo)?)
 	')')?
 	name=ID?
@@ -143,9 +141,7 @@ UiFormLayout:
 	{UiFormLayout}
 	'form'
 	('('
-	((fillVertical?='fill-v')?
-	& (fillHorizontal?='fill-h')?
-	& (i18nInfo=UiI18nInfo)?)
+	(i18nInfo=UiI18nInfo)?
 	')')?
 	name=ID?
 	'{'
@@ -161,8 +157,7 @@ UiVerticalLayout:
 	{UiVerticalLayout}
 	'verticalLayout'
 	('('
-	((fillVertical?='fill-v')?
-	& (i18nInfo=UiI18nInfo)?)
+	(i18nInfo=UiI18nInfo)?
 	')')?
 	name=ID?
 	'{'
@@ -178,8 +173,7 @@ UiHorizontalLayout:
 	{UiHorizontalLayout}
 	'horizontalLayout'
 	('('
-	((fillHorizontal?='fill-h')?
-	& (i18nInfo=UiI18nInfo)?)
+	(i18nInfo=UiI18nInfo)?
 	')')?
 	name=ID?
 	'{'

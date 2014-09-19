@@ -2427,31 +2427,13 @@ public interface UiModelPackage extends EPackage {
 	int UI_GRID_LAYOUT__COLUMNS = UI_LAYOUT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Fill Horizontal</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT__FILL_HORIZONTAL = UI_LAYOUT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Fill Vertical</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_GRID_LAYOUT__FILL_VERTICAL = UI_LAYOUT_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>Ui Grid Layout</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_GRID_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 4;
+	int UI_GRID_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2553,22 +2535,13 @@ public interface UiModelPackage extends EPackage {
 	int UI_HORIZONTAL_LAYOUT__CONTENTS = UI_LAYOUT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Fill Horizontal</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_HORIZONTAL_LAYOUT__FILL_HORIZONTAL = UI_LAYOUT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Ui Horizontal Layout</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_HORIZONTAL_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 2;
+	int UI_HORIZONTAL_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2670,22 +2643,13 @@ public interface UiModelPackage extends EPackage {
 	int UI_VERTICAL_LAYOUT__CONTENTS = UI_LAYOUT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Fill Vertical</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_VERTICAL_LAYOUT__FILL_VERTICAL = UI_LAYOUT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Ui Vertical Layout</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VERTICAL_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 2;
+	int UI_VERTICAL_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2778,31 +2742,13 @@ public interface UiModelPackage extends EPackage {
 	int UI_FORM_LAYOUT__CONTENTS = UI_LAYOUT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Fill Vertical</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_FORM_LAYOUT__FILL_VERTICAL = UI_LAYOUT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Fill Horizontal</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_FORM_LAYOUT__FILL_HORIZONTAL = UI_LAYOUT_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Ui Form Layout</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_FORM_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 3;
+	int UI_FORM_LAYOUT_FEATURE_COUNT = UI_LAYOUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignment</b></em>' containment reference.
@@ -7591,28 +7537,6 @@ public interface UiModelPackage extends EPackage {
 	EAttribute getUiGridLayout_Columns();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout#isFillHorizontal <em>Fill Horizontal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Fill Horizontal</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiGridLayout#isFillHorizontal()
-	 * @see #getUiGridLayout()
-	 * @generated
-	 */
-	EAttribute getUiGridLayout_FillHorizontal();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout#isFillVertical <em>Fill Vertical</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Fill Vertical</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiGridLayout#isFillVertical()
-	 * @see #getUiGridLayout()
-	 * @generated
-	 */
-	EAttribute getUiGridLayout_FillVertical();
-
-	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment <em>Ui Horizontal Layout Assigment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7664,17 +7588,6 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUiHorizontalLayout_Contents();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout#isFillHorizontal <em>Fill Horizontal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Fill Horizontal</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout#isFillHorizontal()
-	 * @see #getUiHorizontalLayout()
-	 * @generated
-	 */
-	EAttribute getUiHorizontalLayout_FillHorizontal();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment <em>Ui Vertical Layout Assigment</em>}'.
@@ -7730,17 +7643,6 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiVerticalLayout_Contents();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiVerticalLayout#isFillVertical <em>Fill Vertical</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Fill Vertical</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiVerticalLayout#isFillVertical()
-	 * @see #getUiVerticalLayout()
-	 * @generated
-	 */
-	EAttribute getUiVerticalLayout_FillVertical();
-
-	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment <em>Ui Form Layout Assigment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7781,28 +7683,6 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUiFormLayout_Contents();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiFormLayout#isFillVertical <em>Fill Vertical</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Fill Vertical</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiFormLayout#isFillVertical()
-	 * @see #getUiFormLayout()
-	 * @generated
-	 */
-	EAttribute getUiFormLayout_FillVertical();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiFormLayout#isFillHorizontal <em>Fill Horizontal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Fill Horizontal</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiFormLayout#isFillHorizontal()
-	 * @see #getUiFormLayout()
-	 * @generated
-	 */
-	EAttribute getUiFormLayout_FillHorizontal();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiTextField <em>Ui Text Field</em>}'.
@@ -10198,22 +10078,6 @@ public interface UiModelPackage extends EPackage {
 		EAttribute UI_GRID_LAYOUT__COLUMNS = eINSTANCE.getUiGridLayout_Columns();
 
 		/**
-		 * The meta object literal for the '<em><b>Fill Horizontal</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute UI_GRID_LAYOUT__FILL_HORIZONTAL = eINSTANCE.getUiGridLayout_FillHorizontal();
-
-		/**
-		 * The meta object literal for the '<em><b>Fill Vertical</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute UI_GRID_LAYOUT__FILL_VERTICAL = eINSTANCE.getUiGridLayout_FillVertical();
-
-		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiHorizontalLayoutAssigmentImpl <em>Ui Horizontal Layout Assigment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -10256,14 +10120,6 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_HORIZONTAL_LAYOUT__CONTENTS = eINSTANCE.getUiHorizontalLayout_Contents();
-
-		/**
-		 * The meta object literal for the '<em><b>Fill Horizontal</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute UI_HORIZONTAL_LAYOUT__FILL_HORIZONTAL = eINSTANCE.getUiHorizontalLayout_FillHorizontal();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiVerticalLayoutAssigmentImpl <em>Ui Vertical Layout Assigment</em>}' class.
@@ -10310,14 +10166,6 @@ public interface UiModelPackage extends EPackage {
 		EReference UI_VERTICAL_LAYOUT__CONTENTS = eINSTANCE.getUiVerticalLayout_Contents();
 
 		/**
-		 * The meta object literal for the '<em><b>Fill Vertical</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute UI_VERTICAL_LAYOUT__FILL_VERTICAL = eINSTANCE.getUiVerticalLayout_FillVertical();
-
-		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiFormLayoutAssigmentImpl <em>Ui Form Layout Assigment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -10352,22 +10200,6 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_FORM_LAYOUT__CONTENTS = eINSTANCE.getUiFormLayout_Contents();
-
-		/**
-		 * The meta object literal for the '<em><b>Fill Vertical</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute UI_FORM_LAYOUT__FILL_VERTICAL = eINSTANCE.getUiFormLayout_FillVertical();
-
-		/**
-		 * The meta object literal for the '<em><b>Fill Horizontal</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute UI_FORM_LAYOUT__FILL_HORIZONTAL = eINSTANCE.getUiFormLayout_FillHorizontal();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl <em>Ui Text Field</em>}' class.

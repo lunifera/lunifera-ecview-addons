@@ -33,8 +33,6 @@ import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl#getContents <em>Contents</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl#getColumns <em>Columns</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl#isFillHorizontal <em>Fill Horizontal</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl#isFillVertical <em>Fill Vertical</em>}</li>
  * </ul>
  * </p>
  *
@@ -123,43 +121,6 @@ public class UiGridLayoutImpl extends UiVisibilityProcessableImpl implements UiG
 	 * @ordered
 	 */
 	protected int columns = COLUMNS_EDEFAULT;
-	/**
-	 * The default value of the '{@link #isFillHorizontal() <em>Fill Horizontal</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isFillHorizontal()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean FILL_HORIZONTAL_EDEFAULT = false;
-	/**
-	 * The cached value of the '{@link #isFillHorizontal() <em>Fill Horizontal</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isFillHorizontal()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean fillHorizontal = FILL_HORIZONTAL_EDEFAULT;
-	/**
-	 * The default value of the '{@link #isFillVertical() <em>Fill Vertical</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isFillVertical()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean FILL_VERTICAL_EDEFAULT = false;
-	/**
-	 * The cached value of the '{@link #isFillVertical() <em>Fill Vertical</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isFillVertical()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean fillVertical = FILL_VERTICAL_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -337,48 +298,6 @@ public class UiGridLayoutImpl extends UiVisibilityProcessableImpl implements UiG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isFillHorizontal() {
-		return fillHorizontal;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFillHorizontal(boolean newFillHorizontal) {
-		boolean oldFillHorizontal = fillHorizontal;
-		fillHorizontal = newFillHorizontal;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_GRID_LAYOUT__FILL_HORIZONTAL, oldFillHorizontal, fillHorizontal));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isFillVertical() {
-		return fillVertical;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFillVertical(boolean newFillVertical) {
-		boolean oldFillVertical = fillVertical;
-		fillVertical = newFillVertical;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_GRID_LAYOUT__FILL_VERTICAL, oldFillVertical, fillVertical));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -413,10 +332,6 @@ public class UiGridLayoutImpl extends UiVisibilityProcessableImpl implements UiG
 				return getContents();
 			case UiModelPackage.UI_GRID_LAYOUT__COLUMNS:
 				return getColumns();
-			case UiModelPackage.UI_GRID_LAYOUT__FILL_HORIZONTAL:
-				return isFillHorizontal();
-			case UiModelPackage.UI_GRID_LAYOUT__FILL_VERTICAL:
-				return isFillVertical();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -450,12 +365,6 @@ public class UiGridLayoutImpl extends UiVisibilityProcessableImpl implements UiG
 			case UiModelPackage.UI_GRID_LAYOUT__COLUMNS:
 				setColumns((Integer)newValue);
 				return;
-			case UiModelPackage.UI_GRID_LAYOUT__FILL_HORIZONTAL:
-				setFillHorizontal((Boolean)newValue);
-				return;
-			case UiModelPackage.UI_GRID_LAYOUT__FILL_VERTICAL:
-				setFillVertical((Boolean)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -486,12 +395,6 @@ public class UiGridLayoutImpl extends UiVisibilityProcessableImpl implements UiG
 			case UiModelPackage.UI_GRID_LAYOUT__COLUMNS:
 				setColumns(COLUMNS_EDEFAULT);
 				return;
-			case UiModelPackage.UI_GRID_LAYOUT__FILL_HORIZONTAL:
-				setFillHorizontal(FILL_HORIZONTAL_EDEFAULT);
-				return;
-			case UiModelPackage.UI_GRID_LAYOUT__FILL_VERTICAL:
-				setFillVertical(FILL_VERTICAL_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -516,10 +419,6 @@ public class UiGridLayoutImpl extends UiVisibilityProcessableImpl implements UiG
 				return contents != null && !contents.isEmpty();
 			case UiModelPackage.UI_GRID_LAYOUT__COLUMNS:
 				return columns != COLUMNS_EDEFAULT;
-			case UiModelPackage.UI_GRID_LAYOUT__FILL_HORIZONTAL:
-				return fillHorizontal != FILL_HORIZONTAL_EDEFAULT;
-			case UiModelPackage.UI_GRID_LAYOUT__FILL_VERTICAL:
-				return fillVertical != FILL_VERTICAL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -596,10 +495,6 @@ public class UiGridLayoutImpl extends UiVisibilityProcessableImpl implements UiG
 		result.append(name);
 		result.append(", columns: ");
 		result.append(columns);
-		result.append(", fillHorizontal: ");
-		result.append(fillHorizontal);
-		result.append(", fillVertical: ");
-		result.append(fillVertical);
 		result.append(')');
 		return result.toString();
 	}

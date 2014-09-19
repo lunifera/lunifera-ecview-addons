@@ -1982,13 +1982,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         (fillVertical?='fill-v'? fillHorizontal?='fill-h'? i18nInfo=UiI18nInfo?)? 
-	 *         name=ID? 
-	 *         contents+=UiFormLayoutAssigment* 
-	 *         bindings+=UiBinding* 
-	 *         processorAssignment=UiVisibilityProcessorAssignment?
-	 *     )
+	 *     (i18nInfo=UiI18nInfo? name=ID? contents+=UiFormLayoutAssigment* bindings+=UiBinding* processorAssignment=UiVisibilityProcessorAssignment?)
 	 */
 	protected void sequence_UiFormLayout(EObject context, UiFormLayout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2007,7 +2001,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (columns=INT? fillHorizontal?='fill-h'? fillVertical?='fill-v'? i18nInfo=UiI18nInfo?)? 
+	 *         (columns=INT? i18nInfo=UiI18nInfo?)? 
 	 *         name=ID? 
 	 *         contents+=UiGridLayoutAssigment* 
 	 *         bindings+=UiBinding* 
@@ -2030,13 +2024,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         (fillHorizontal?='fill-h'? i18nInfo=UiI18nInfo?)? 
-	 *         name=ID? 
-	 *         contents+=UiHorizontalLayoutAssigment* 
-	 *         bindings+=UiBinding* 
-	 *         processorAssignment=UiVisibilityProcessorAssignment?
-	 *     )
+	 *     (i18nInfo=UiI18nInfo? name=ID? contents+=UiHorizontalLayoutAssigment* bindings+=UiBinding* processorAssignment=UiVisibilityProcessorAssignment?)
 	 */
 	protected void sequence_UiHorizontalLayout(EObject context, UiHorizontalLayout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2540,13 +2528,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         (fillVertical?='fill-v'? i18nInfo=UiI18nInfo?)? 
-	 *         name=ID? 
-	 *         contents+=UiVerticalLayoutAssigment* 
-	 *         bindings+=UiBinding* 
-	 *         processorAssignment=UiVisibilityProcessorAssignment?
-	 *     )
+	 *     (i18nInfo=UiI18nInfo? name=ID? contents+=UiVerticalLayoutAssigment* bindings+=UiBinding* processorAssignment=UiVisibilityProcessorAssignment?)
 	 */
 	protected void sequence_UiVerticalLayout(EObject context, UiVerticalLayout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

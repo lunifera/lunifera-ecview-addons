@@ -14,8 +14,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout#getContents <em>Contents</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout#getColumns <em>Columns</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout#isFillHorizontal <em>Fill Horizontal</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout#isFillVertical <em>Fill Vertical</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,59 +63,5 @@ public interface UiGridLayout extends UiLayout {
 	 * @generated
 	 */
 	void setColumns(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Fill Horizontal</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Fill Horizontal</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Fill Horizontal</em>' attribute.
-	 * @see #setFillHorizontal(boolean)
-	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiGridLayout_FillHorizontal()
-	 * @model default="false"
-	 * @generated
-	 */
-	boolean isFillHorizontal();
-
-	/**
-	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout#isFillHorizontal <em>Fill Horizontal</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Fill Horizontal</em>' attribute.
-	 * @see #isFillHorizontal()
-	 * @generated
-	 */
-	void setFillHorizontal(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Fill Vertical</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Fill Vertical</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Fill Vertical</em>' attribute.
-	 * @see #setFillVertical(boolean)
-	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiGridLayout_FillVertical()
-	 * @model default="false"
-	 * @generated
-	 */
-	boolean isFillVertical();
-
-	/**
-	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout#isFillVertical <em>Fill Vertical</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Fill Vertical</em>' attribute.
-	 * @see #isFillVertical()
-	 * @generated
-	 */
-	void setFillVertical(boolean value);
 
 } // UiGridLayout

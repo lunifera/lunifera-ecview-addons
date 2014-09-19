@@ -123,8 +123,6 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiGridLayout -> UiLayout
     Reference contents : UiGridLayoutAssigment<<0..*>>
     Attribute columns : EInt
-    Attribute fillHorizontal : EBoolean
-    Attribute fillVertical : EBoolean
 
   Class UiHorizontalLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
@@ -132,7 +130,6 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiHorizontalLayout -> UiLayout
     Reference contents : UiHorizontalLayoutAssigment<<0..*>>
-    Attribute fillHorizontal : EBoolean
 
   Class UiVerticalLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
@@ -140,15 +137,12 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiVerticalLayout -> UiLayout
     Reference contents : UiVerticalLayoutAssigment<<0..*>>
-    Attribute fillVertical : EBoolean
 
   Class UiFormLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
 
   Class UiFormLayout -> UiLayout
     Reference contents : UiFormLayoutAssigment<<0..*>>
-    Attribute fillVertical : EBoolean
-    Attribute fillHorizontal : EBoolean
 
   Class UiTextField -> UiField
     Attribute maxLength : EInt
