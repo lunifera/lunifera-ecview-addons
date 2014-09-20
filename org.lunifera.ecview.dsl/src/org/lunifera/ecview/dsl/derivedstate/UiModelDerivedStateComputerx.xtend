@@ -1849,31 +1849,26 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		/**
 		 * The type of the bound property. For nested bindings it is the last element available
 		 */
-		@Property
 		private JvmType typeOfBoundProperty
 
 		/**
 		 * The type of the binding. For nested bindings it is the element before the bound property
 		 */
-		@Property
 		private JvmType typeForBinding
 
 		/**
 		 * The deepest JvmOperation in the hierarchy. This field is used to bind.
 		 */
-		@Property
 		private JvmOperation deepestJvmField
 
 		/**
 		 * The nested path using dot notation.
 		 */
-		@Property
 		private StringBuilder path = new StringBuilder
 
 		/**
 		 * The element the binding should be installed on
 		 */
-		@Property
 		private EObject bindingRoot
 
 		/**
