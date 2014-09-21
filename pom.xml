@@ -46,6 +46,7 @@
 		<module>org.lunifera.ecview.uisemantics.ui</module>
 		<module>org.lunifera.ecview.vaadin.ide.preview</module>
 		<module>org.lunifera.ecview.xtext.builder.participant</module>
+		<module>org.lunifera.ecview.xtext.builder.participant.i18n</module>
 
 		<module>org.lunifera.ecview.feature.ide</module>
 		<module>org.lunifera.ecview.feature.runtime</module>
