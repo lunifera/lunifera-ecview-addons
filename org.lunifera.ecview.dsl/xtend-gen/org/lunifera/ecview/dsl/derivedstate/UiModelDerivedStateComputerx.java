@@ -194,8 +194,8 @@ import org.lunifera.mobile.vaadin.ecview.model.VMTab;
 import org.lunifera.mobile.vaadin.ecview.model.VMTabSheet;
 import org.lunifera.mobile.vaadin.ecview.model.VMVerticalComponentGroup;
 import org.lunifera.mobile.vaadin.ecview.model.VaadinMobileFactory;
-import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoader;
-import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderFactory;
+import org.lunifera.xtext.builder.types.loader.api.ITypeLoader;
+import org.lunifera.xtext.builder.types.loader.api.ITypeLoaderFactory;
 
 @SuppressWarnings("all")
 public class UiModelDerivedStateComputerx extends JvmModelAssociator {
@@ -203,97 +203,27 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     /**
      * The type of the bound property. For nested bindings it is the last element available
      */
-    private JvmType _typeOfBoundProperty;
-    
-    /**
-     * The type of the bound property. For nested bindings it is the last element available
-     */
-    public JvmType getTypeOfBoundProperty() {
-      return this._typeOfBoundProperty;
-    }
-    
-    /**
-     * The type of the bound property. For nested bindings it is the last element available
-     */
-    public void setTypeOfBoundProperty(final JvmType typeOfBoundProperty) {
-      this._typeOfBoundProperty = typeOfBoundProperty;
-    }
+    private JvmType typeOfBoundProperty;
     
     /**
      * The type of the binding. For nested bindings it is the element before the bound property
      */
-    private JvmType _typeForBinding;
-    
-    /**
-     * The type of the binding. For nested bindings it is the element before the bound property
-     */
-    public JvmType getTypeForBinding() {
-      return this._typeForBinding;
-    }
-    
-    /**
-     * The type of the binding. For nested bindings it is the element before the bound property
-     */
-    public void setTypeForBinding(final JvmType typeForBinding) {
-      this._typeForBinding = typeForBinding;
-    }
+    private JvmType typeForBinding;
     
     /**
      * The deepest JvmOperation in the hierarchy. This field is used to bind.
      */
-    private JvmOperation _deepestJvmField;
-    
-    /**
-     * The deepest JvmOperation in the hierarchy. This field is used to bind.
-     */
-    public JvmOperation getDeepestJvmField() {
-      return this._deepestJvmField;
-    }
-    
-    /**
-     * The deepest JvmOperation in the hierarchy. This field is used to bind.
-     */
-    public void setDeepestJvmField(final JvmOperation deepestJvmField) {
-      this._deepestJvmField = deepestJvmField;
-    }
+    private JvmOperation deepestJvmField;
     
     /**
      * The nested path using dot notation.
      */
-    private StringBuilder _path = new StringBuilder();
-    
-    /**
-     * The nested path using dot notation.
-     */
-    public StringBuilder getPath() {
-      return this._path;
-    }
-    
-    /**
-     * The nested path using dot notation.
-     */
-    public void setPath(final StringBuilder path) {
-      this._path = path;
-    }
+    private StringBuilder path = new StringBuilder();
     
     /**
      * The element the binding should be installed on
      */
-    private EObject _bindingRoot;
-    
-    /**
-     * The element the binding should be installed on
-     */
-    public EObject getBindingRoot() {
-      return this._bindingRoot;
-    }
-    
-    /**
-     * The element the binding should be installed on
-     */
-    public void setBindingRoot(final EObject bindingRoot) {
-      this._bindingRoot = bindingRoot;
-    }
+    private EObject bindingRoot;
     
     /**
      * Append the segment to the path.
@@ -303,22 +233,19 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       if (_isNullOrEmpty) {
         return;
       }
-      StringBuilder _path = this.getPath();
-      int _length = _path.length();
+      int _length = this.path.length();
       boolean _greaterThan = (_length > 0);
       if (_greaterThan) {
-        StringBuilder _path_1 = this.getPath();
-        _path_1.append(".");
+        this.path.append(".");
       }
-      StringBuilder _path_2 = this.getPath();
-      _path_2.append(segment);
+      this.path.append(segment);
     }
   }
   
   @Inject
-  private IJdtTypeLoaderFactory typeLoaderFactory;
+  private ITypeLoaderFactory typeLoaderFactory;
   
-  private IJdtTypeLoader typeLoader;
+  private ITypeLoader typeLoader;
   
   @Inject
   private BindableTypeProvider typeOfBoundPropertyProvider;
@@ -372,8 +299,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     super.installDerivedState(resource, preLinkingPhase);
     this.resource = resource;
     ResourceSet _resourceSet = resource.getResourceSet();
-    IJdtTypeLoader _createJdtTypeLoader = this.typeLoaderFactory.createJdtTypeLoader(_resourceSet);
-    this.typeLoader = _createJdtTypeLoader;
+    ITypeLoader _createTypeLoader = this.typeLoaderFactory.createTypeLoader(_resourceSet);
+    this.typeLoader = _createTypeLoader;
     EList<EObject> _contents = resource.getContents();
     boolean _isEmpty = _contents.isEmpty();
     if (_isEmpty) {
@@ -2275,32 +2202,24 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     YValueBindingEndpoint result = null;
     final UiModelDerivedStateComputerx.BindingInfo info = new UiModelDerivedStateComputerx.BindingInfo();
     this.collectBindingInfo(epDef, info);
-    EObject _bindingRoot = info.getBindingRoot();
-    if ((_bindingRoot instanceof UiBeanSlot)) {
-      EObject _bindingRoot_1 = info.getBindingRoot();
-      final UiBeanSlot uiBeanSlot = ((UiBeanSlot) _bindingRoot_1);
+    if ((info.bindingRoot instanceof UiBeanSlot)) {
+      final UiBeanSlot uiBeanSlot = ((UiBeanSlot) info.bindingRoot);
       final YBeanSlot yBeanSlot = this.<YBeanSlot>associatedUi(uiBeanSlot);
       final YBeanSlotValueBindingEndpoint ep = this.factory.createBeanSlotValueBindingEndpoint();
       ep.setBeanSlot(yBeanSlot);
-      StringBuilder _path = info.getPath();
-      String _string = _path.toString();
+      String _string = info.path.toString();
       ep.setAttributePath(_string);
       result = ep;
     } else {
-      EObject _bindingRoot_2 = info.getBindingRoot();
-      if ((_bindingRoot_2 instanceof UiEmbeddable)) {
-        EObject _bindingRoot_3 = info.getBindingRoot();
-        final YElement yElement = this.<YElement>associatedUi(_bindingRoot_3);
+      if ((info.bindingRoot instanceof UiEmbeddable)) {
+        final YElement yElement = this.<YElement>associatedUi(info.bindingRoot);
         final YECViewModelValueBindingEndpoint ep_1 = this.factory.createECViewModelValueBindingEndpoint();
         ep_1.setElement(yElement);
-        StringBuilder _path_1 = info.getPath();
-        String _string_1 = _path_1.toString();
+        String _string_1 = info.path.toString();
         ep_1.setPropertyPath(_string_1);
-        JvmType _typeForBinding = info.getTypeForBinding();
-        boolean _notEquals = (!Objects.equal(_typeForBinding, null));
+        boolean _notEquals = (!Objects.equal(info.typeForBinding, null));
         if (_notEquals) {
-          JvmType _typeForBinding_1 = info.getTypeForBinding();
-          String _qualifiedName = _typeForBinding_1.getQualifiedName();
+          String _qualifiedName = info.typeForBinding.getQualifiedName();
           ep_1.setTypeQualifiedName(_qualifiedName);
           Resource _eResource = epDef.eResource();
           ResourceSet _resourceSet = _eResource.getResourceSet();
@@ -2326,10 +2245,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
         }
         result = ep_1;
       } else {
-        EObject _bindingRoot_4 = info.getBindingRoot();
-        if ((_bindingRoot_4 instanceof UiMobileNavigationCommand)) {
-          EObject _bindingRoot_5 = info.getBindingRoot();
-          final UiMobileNavigationCommand command = ((UiMobileNavigationCommand) _bindingRoot_5);
+        if ((info.bindingRoot instanceof UiMobileNavigationCommand)) {
+          final UiMobileNavigationCommand command = ((UiMobileNavigationCommand) info.bindingRoot);
           final VMNavigationCommand yCommand = VaadinMobileFactory.eINSTANCE.createVMNavigationCommand();
           YCommandSet _commandSet = this.currentView.getCommandSet();
           _commandSet.addCommand(yCommand);
@@ -2343,10 +2260,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
           YECViewModelValueBindingEndpoint _createNavigationValueEndpoint = yCommand.createNavigationValueEndpoint();
           result = _createNavigationValueEndpoint;
         } else {
-          EObject _bindingRoot_6 = info.getBindingRoot();
-          if ((_bindingRoot_6 instanceof UiOpenDialogCommand)) {
-            EObject _bindingRoot_7 = info.getBindingRoot();
-            final UiOpenDialogCommand command_1 = ((UiOpenDialogCommand) _bindingRoot_7);
+          if ((info.bindingRoot instanceof UiOpenDialogCommand)) {
+            final UiOpenDialogCommand command_1 = ((UiOpenDialogCommand) info.bindingRoot);
             final YOpenDialogCommand yCommand_1 = CoreModelFactory.eINSTANCE.createYOpenDialogCommand();
             YCommandSet _commandSet_1 = this.currentView.getCommandSet();
             _commandSet_1.addCommand(yCommand_1);
@@ -2357,10 +2272,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
             YECViewModelValueBindingEndpoint _createTriggerDialogEndpoint = yCommand_1.createTriggerDialogEndpoint();
             result = _createTriggerDialogEndpoint;
           } else {
-            EObject _bindingRoot_8 = info.getBindingRoot();
-            if ((_bindingRoot_8 instanceof UiSearchWithDialogCommand)) {
-              EObject _bindingRoot_9 = info.getBindingRoot();
-              final UiSearchWithDialogCommand command_2 = ((UiSearchWithDialogCommand) _bindingRoot_9);
+            if ((info.bindingRoot instanceof UiSearchWithDialogCommand)) {
+              final UiSearchWithDialogCommand command_2 = ((UiSearchWithDialogCommand) info.bindingRoot);
               final YOpenDialogCommand yCommand_2 = CoreModelFactory.eINSTANCE.createYOpenDialogCommand();
               YCommandSet _commandSet_2 = this.currentView.getCommandSet();
               _commandSet_2.addCommand(yCommand_2);
@@ -2406,32 +2319,24 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     YListBindingEndpoint result = null;
     final UiModelDerivedStateComputerx.BindingInfo info = new UiModelDerivedStateComputerx.BindingInfo();
     this.collectBindingInfo(epDef, info);
-    EObject _bindingRoot = info.getBindingRoot();
-    if ((_bindingRoot instanceof UiBeanSlot)) {
-      EObject _bindingRoot_1 = info.getBindingRoot();
-      final UiBeanSlot uiBeanSlot = ((UiBeanSlot) _bindingRoot_1);
+    if ((info.bindingRoot instanceof UiBeanSlot)) {
+      final UiBeanSlot uiBeanSlot = ((UiBeanSlot) info.bindingRoot);
       final YBeanSlot yBeanSlot = this.<YBeanSlot>associatedUi(uiBeanSlot);
       final YBeanSlotListBindingEndpoint ep = this.factory.createBeanSlotListBindingEndpoint();
       ep.setBeanSlot(yBeanSlot);
-      StringBuilder _path = info.getPath();
-      String _string = _path.toString();
+      String _string = info.path.toString();
       ep.setAttributePath(_string);
       result = ep;
     } else {
-      EObject _bindingRoot_2 = info.getBindingRoot();
-      if ((_bindingRoot_2 instanceof UiEmbeddable)) {
-        EObject _bindingRoot_3 = info.getBindingRoot();
-        final YEmbeddable yElement = this.<YEmbeddable>associatedUi(_bindingRoot_3);
+      if ((info.bindingRoot instanceof UiEmbeddable)) {
+        final YEmbeddable yElement = this.<YEmbeddable>associatedUi(info.bindingRoot);
         final YECViewModelListBindingEndpoint ep_1 = this.factory.createECViewModelListBindingEndpoint();
         ep_1.setElement(yElement);
-        StringBuilder _path_1 = info.getPath();
-        String _string_1 = _path_1.toString();
+        String _string_1 = info.path.toString();
         ep_1.setPropertyPath(_string_1);
-        JvmType _typeForBinding = info.getTypeForBinding();
-        boolean _notEquals = (!Objects.equal(_typeForBinding, null));
+        boolean _notEquals = (!Objects.equal(info.typeForBinding, null));
         if (_notEquals) {
-          JvmType _typeForBinding_1 = info.getTypeForBinding();
-          String _qualifiedName = _typeForBinding_1.getQualifiedName();
+          String _qualifiedName = info.typeForBinding.getQualifiedName();
           ep_1.setTypeQualifiedName(_qualifiedName);
           Resource _eResource = epDef.eResource();
           ResourceSet _resourceSet = _eResource.getResourceSet();
@@ -2478,15 +2383,14 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       info.appendPath(_pathString);
       UiPathSegment _path_2 = assignment.getPath();
       JvmType _typeofLastSegment = _path_2.getTypeofLastSegment();
-      info.setTypeOfBoundProperty(_typeofLastSegment);
+      info.typeOfBoundProperty = _typeofLastSegment;
       UiPathSegment _path_3 = assignment.getPath();
       JvmOperation _operationofLastSegment = _path_3.getOperationofLastSegment();
-      info.setDeepestJvmField(_operationofLastSegment);
+      info.deepestJvmField = _operationofLastSegment;
       UiPathSegment _path_4 = assignment.getPath();
       final JvmType pathType = _path_4.getTypeofSecondLastSegment();
       boolean _and = false;
-      JvmType _typeForBinding = info.getTypeForBinding();
-      boolean _equals = Objects.equal(_typeForBinding, null);
+      boolean _equals = Objects.equal(info.typeForBinding, null);
       if (!_equals) {
         _and = false;
       } else {
@@ -2494,19 +2398,19 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
         _and = _notEquals_3;
       }
       if (_and) {
-        info.setTypeForBinding(pathType);
+        info.typeForBinding = pathType;
       }
     }
   }
   
   protected void _collectBindingInfo(final UiBeanSlot slot, final UiModelDerivedStateComputerx.BindingInfo info) {
-    info.setBindingRoot(slot);
+    info.bindingRoot = slot;
     JvmTypeReference _jvmType = slot.getJvmType();
     JvmType _type = null;
     if (_jvmType!=null) {
       _type=_jvmType.getType();
     }
-    info.setTypeForBinding(_type);
+    info.typeForBinding = _type;
   }
   
   protected void _collectBindingInfo(final UiBindingEndpointAlias alias, final UiModelDerivedStateComputerx.BindingInfo info) {
@@ -2516,22 +2420,30 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected void _collectBindingInfo(final UiTypedBindableDef definition, final UiModelDerivedStateComputerx.BindingInfo info) {
     JvmType _type = this.typeOfBoundPropertyProvider.getType(definition);
-    info.setTypeForBinding(_type);
+    info.typeForBinding = _type;
     UiRawBindable _rawBindableOfLastSegment = definition.getRawBindableOfLastSegment();
-    info.setBindingRoot(_rawBindableOfLastSegment);
+    info.bindingRoot = _rawBindableOfLastSegment;
     final UxEndpointDef bindingMethod = definition.getMethod();
     boolean _notEquals = (!Objects.equal(bindingMethod, null));
     if (_notEquals) {
-      String _name = bindingMethod.getName();
-      info.appendPath(_name);
+      String _targetName = bindingMethod.getTargetName();
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_targetName);
+      boolean _not = (!_isNullOrEmpty);
+      if (_not) {
+        String _targetName_1 = bindingMethod.getTargetName();
+        info.appendPath(_targetName_1);
+      } else {
+        String _name = bindingMethod.getName();
+        info.appendPath(_name);
+      }
     }
   }
   
   protected void _collectBindingInfo(final UiCommandBindableDef definition, final UiModelDerivedStateComputerx.BindingInfo info) {
     JvmType _type = this.typeOfBoundPropertyProvider.getType(definition);
-    info.setTypeForBinding(_type);
+    info.typeForBinding = _type;
     UiCommand _command = definition.getCommand();
-    info.setBindingRoot(_command);
+    info.bindingRoot = _command;
   }
   
   protected void _collectBindingInfo(final UiBindingExpression definition, final UiModelDerivedStateComputerx.BindingInfo info) {

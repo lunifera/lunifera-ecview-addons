@@ -136,8 +136,6 @@ import org.lunifera.mobile.vaadin.ecview.model.VMTab
 import org.lunifera.mobile.vaadin.ecview.model.VMTabSheet
 import org.lunifera.mobile.vaadin.ecview.model.VMVerticalComponentGroup
 import org.lunifera.mobile.vaadin.ecview.model.VaadinMobileFactory
-import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoader
-import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderFactory
 
 import static org.lunifera.ecview.semantic.uimodel.UiFlatAlignment.*
 import static org.lunifera.ecview.semantic.uimodel.UiSelectionType.*
@@ -154,12 +152,14 @@ import org.lunifera.ecview.core.^extension.model.datatypes.YDateTimeFormat
 import org.lunifera.ecview.core.^extension.model.datatypes.YDateTimeResolution
 import org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution
 import org.eclipse.xtext.naming.IQualifiedNameProvider
+import org.lunifera.xtext.builder.types.loader.api.ITypeLoaderFactory
+import org.lunifera.xtext.builder.types.loader.api.ITypeLoader
 
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	@Inject
-	IJdtTypeLoaderFactory typeLoaderFactory;
-	private IJdtTypeLoader typeLoader
+	ITypeLoaderFactory typeLoaderFactory;
+	private ITypeLoader typeLoader
 	@Inject
 	BindableTypeProvider typeOfBoundPropertyProvider;
 	@Inject
@@ -199,7 +199,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		super.installDerivedState(resource, preLinkingPhase)
 		this.resource = resource;
-		this.typeLoader = typeLoaderFactory.createJdtTypeLoader(resource.resourceSet)
+		this.typeLoader = typeLoaderFactory.createTypeLoader(resource.resourceSet)
 
 		if (resource.getContents().isEmpty()) {
 			return;
@@ -1782,7 +1782,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		info.bindingRoot = definition.rawBindableOfLastSegment
 		val bindingMethod = definition.method
 		if (bindingMethod != null) {
-			info.appendPath(bindingMethod.name)
+			if(!bindingMethod.targetName.nullOrEmpty){
+				info.appendPath(bindingMethod.targetName)
+			}else{
+				info.appendPath(bindingMethod.name)
+			}
 		}
 	}
 
@@ -1849,31 +1853,26 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		/**
 		 * The type of the bound property. For nested bindings it is the last element available
 		 */
-		@Property
 		private JvmType typeOfBoundProperty
 
 		/**
 		 * The type of the binding. For nested bindings it is the element before the bound property
 		 */
-		@Property
 		private JvmType typeForBinding
 
 		/**
 		 * The deepest JvmOperation in the hierarchy. This field is used to bind.
 		 */
-		@Property
 		private JvmOperation deepestJvmField
 
 		/**
 		 * The nested path using dot notation.
 		 */
-		@Property
 		private StringBuilder path = new StringBuilder
 
 		/**
 		 * The element the binding should be installed on
 		 */
-		@Property
 		private EObject bindingRoot
 
 		/**

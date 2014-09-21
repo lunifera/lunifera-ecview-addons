@@ -2,18 +2,20 @@ package org.lunifera.ecview.dsl.scope;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.lunifera.ecview.core.common.model.core.YBeanSlot;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.common.types.util.TypeReferences;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider;
+import org.lunifera.ecview.core.common.model.core.YBeanSlot;
+import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTable;
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperty;
 import org.lunifera.ecview.semantic.uimodel.impl.UiPathSegmentImpl;
@@ -90,12 +92,12 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 					.eContainer();
 			JvmTypeReference expectedType = typeProvider
 					.getTypeReference(parent);
-
 			if (expectedType == null) {
 				return IScope.NULLSCOPE;
 			} else {
 				return new BindingPathScope(expectedType.getType());
 			}
+			// }
 		} else {
 			UiPathSegment parent = (UiPathSegment) segment.eContainer();
 			if (parent.getGetter().getReturnType() == null) {

@@ -410,6 +410,15 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUxEndpointDef_TargetName() {
+		return (EAttribute)uxEndpointDefEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUxValueBindingEndpointDef() {
 		return uxValueBindingEndpointDefEClass;
 	}
@@ -555,6 +564,7 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 		createEAttribute(uxEndpointDefEClass, UX_ENDPOINT_DEF__NAME);
 		createEReference(uxEndpointDefEClass, UX_ENDPOINT_DEF__JVM_TYPE);
 		createEAttribute(uxEndpointDefEClass, UX_ENDPOINT_DEF__LISTBINDING);
+		createEAttribute(uxEndpointDefEClass, UX_ENDPOINT_DEF__TARGET_NAME);
 
 		uxBindingableOptionEClass = createEClass(UX_BINDINGABLE_OPTION);
 
@@ -640,6 +650,7 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 		initEAttribute(getUxEndpointDef_Name(), ecorePackage.getEString(), "name", null, 0, 1, UxEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUxEndpointDef_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, UxEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUxEndpointDef_Listbinding(), ecorePackage.getEBoolean(), "listbinding", null, 0, 1, UxEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUxEndpointDef_TargetName(), ecorePackage.getEString(), "targetName", null, 0, 1, UxEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uxBindingableOptionEClass, UxBindingableOption.class, "UxBindingableOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

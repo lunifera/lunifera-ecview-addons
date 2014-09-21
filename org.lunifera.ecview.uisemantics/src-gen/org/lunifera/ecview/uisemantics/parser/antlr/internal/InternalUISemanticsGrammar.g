@@ -824,7 +824,29 @@ ruleUxBindingableOption returns [EObject current=null]
 	    }
 
 )
-))
+)(	otherlv_5='target' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getUxBindingableOptionAccess().getTargetKeyword_5_0());
+    }
+(
+(
+		lv_targetName_6_0=RULE_ID
+		{
+			newLeafNode(lv_targetName_6_0, grammarAccess.getUxBindingableOptionAccess().getTargetNameIDTerminalRuleCall_5_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUxBindingableOptionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"targetName",
+        		lv_targetName_6_0, 
+        		"ID");
+	    }
+
+)
+))?)
 ;
 
 

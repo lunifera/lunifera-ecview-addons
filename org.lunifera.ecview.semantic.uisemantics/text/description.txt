@@ -48,6 +48,7 @@ Package uisemantics <http://www.lunifera.org/ecview/dsl/uimodel/semantics>
     Attribute name : EString
     Reference jvmType : JvmTypeReference
     Attribute listbinding : EBoolean
+    Attribute targetName : EString
 
   Class UxBindingableOption -> UxEndpointDef
 

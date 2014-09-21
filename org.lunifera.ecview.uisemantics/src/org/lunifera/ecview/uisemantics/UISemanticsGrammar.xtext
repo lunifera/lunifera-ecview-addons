@@ -54,7 +54,7 @@ UxAvailableVisibilityOptions returns semantic::UxAvailableVisibilityOptions:
 	bindings+=UxVisibleableOption*;
 
 UxBindingableOption returns semantic::UxBindingableOption:
-	(final?='final')? (listbinding?='list')? 'endpoint' name=ID jvmType=JvmTypeReference;
+	(final?='final')? (listbinding?='list')? 'endpoint' name=ID jvmType=JvmTypeReference ('target' targetName=ID)?;
 
 UxVisibleableOption returns semantic::UxVisibleableOption:
 	'endpoint' name=ID jvmType=JvmTypeReference;

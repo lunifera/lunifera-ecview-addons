@@ -1263,7 +1263,7 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (final?='final'? listbinding?='list'? name=ID jvmType=JvmTypeReference)
+	 *     (final?='final'? listbinding?='list'? name=ID jvmType=JvmTypeReference targetName=ID?)
 	 */
 	protected void sequence_UxBindingableOption(EObject context, UxBindingableOption semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

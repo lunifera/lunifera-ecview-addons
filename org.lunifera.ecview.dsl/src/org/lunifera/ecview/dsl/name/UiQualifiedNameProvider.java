@@ -12,6 +12,7 @@ import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiValidator;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias;
+import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperty;
 
@@ -25,23 +26,27 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 
 	@Override
 	public QualifiedName getFullyQualifiedName(EObject obj) {
-		if (obj instanceof UiEmbeddable) {
+		if (obj instanceof UiView) {
+			UiView yView = (UiView) obj;
+			if (yView.getName() == null) {
+				return QualifiedName.create("notDefined");
+			} else {
+				return converter.toQualifiedName(String.format("%s.%s",
+						getPackage(yView), yView.getName()));
+			}
+		} else if (obj instanceof UiEmbeddable) {
 			UiEmbeddable yEmb = (UiEmbeddable) obj;
 			if (yEmb.getName() == null) {
 				return QualifiedName.create("notDefined");
 			} else {
 				return converter.toQualifiedName(String.format("%s.%s",
 						getPackage(yEmb), yEmb.getName()));
-				// return QualifiedName.create(yEmb.getName());
 			}
 		} else if (obj instanceof UiBindingEndpointAlias) {
 			UiBindingEndpointAlias uiBindingEndpoint = (UiBindingEndpointAlias) obj;
 			if (uiBindingEndpoint.getAlias() == null) {
 				return QualifiedName.create("notDefined");
 			} else {
-				// return converter.toQualifiedName(String.format("%s.%s",
-				// getPackage(uiBindingEndpoint),
-				// uiBindingEndpoint.getAlias()));
 				return converter.toQualifiedName(uiBindingEndpoint.getAlias());
 			}
 		} else if (obj instanceof UiValidatorAlias) {
@@ -49,8 +54,6 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 			if (validatorAlias.getAlias() == null) {
 				return QualifiedName.create("notDefined");
 			} else {
-				// return converter.toQualifiedName(String.format("%s.%s",
-				// getPackage(validatorAlias), validatorAlias.getAlias()));
 				return converter.toQualifiedName(validatorAlias.getAlias());
 			}
 		} else if (obj instanceof UiValidator) {
@@ -60,7 +63,6 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 			} else {
 				return converter.toQualifiedName(String.format("%s.%s",
 						getPackage(validatorAlias), validatorAlias.getName()));
-				// return converter.toQualifiedName(validatorAlias.getName());
 			}
 		} else if (obj instanceof UiErrorCode) {
 			UiErrorCode code = (UiErrorCode) obj;
@@ -72,15 +74,12 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 						.toQualifiedName(String.format("%s.%s.%s",
 								getPackage(code), yValidator.getName(),
 								code.getName()));
-				// return converter.toQualifiedName(validatorAlias.getName());
 			}
 		} else if (obj instanceof UiBeanSlot) {
 			UiBeanSlot uiBeanSlot = (UiBeanSlot) obj;
 			if (uiBeanSlot.getName() == null) {
 				return QualifiedName.create("notDefined");
 			} else {
-				// return converter.toQualifiedName(String.format("%s.%s",
-				// getPackage(uiBeanSlot), uiBeanSlot.getName()));
 				return converter.toQualifiedName(uiBeanSlot.getName());
 			}
 		} else if (obj instanceof UiValidatorAlias) {
@@ -88,8 +87,6 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 			if (uiValidator.getName() == null) {
 				return QualifiedName.create("notDefined");
 			} else {
-				// return converter.toQualifiedName(String.format("%s.%s",
-				// getPackage(uiValidator), uiValidator.getName()));
 				return converter.toQualifiedName(uiValidator.getName());
 			}
 		} else if (obj instanceof UiVisibilityProcessor) {
@@ -97,8 +94,6 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 			if (uiProcessor.getName() == null) {
 				return QualifiedName.create("notDefined");
 			} else {
-				// return converter.toQualifiedName(String.format("%s.%s",
-				// getPackage(uiProcessor), uiProcessor.getName()));
 				return converter.toQualifiedName(uiProcessor.getName());
 			}
 		} else if (obj instanceof UiVisibilityProperty) {

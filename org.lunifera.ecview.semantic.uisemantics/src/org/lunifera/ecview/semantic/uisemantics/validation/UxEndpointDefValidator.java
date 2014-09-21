@@ -19,4 +19,6 @@ public interface UxEndpointDefValidator {
 	boolean validateName(String value);
 	boolean validateJvmType(JvmTypeReference value);
 	boolean validateListbinding(boolean value);
+
+	boolean validateTargetName(String value);
 }

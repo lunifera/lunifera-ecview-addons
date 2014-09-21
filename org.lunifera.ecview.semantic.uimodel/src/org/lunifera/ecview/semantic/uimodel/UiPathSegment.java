@@ -5,6 +5,7 @@ package org.lunifera.ecview.semantic.uimodel;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
+import org.eclipse.xtext.common.types.JvmTypeReference;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -90,6 +91,14 @@ public interface UiPathSegment extends EObject {
 	 */
 	public JvmType getTypeofLastSegment();
 	
+	
+	/**
+	 * Returns the type reference of the last segment.
+	 * 
+	 * @return
+	 */
+	public JvmTypeReference getTypeReferenceOfLastSegment();
+	
 	/**
 	 * Returns the type of the second last segment.
 	 * 
@@ -103,5 +112,12 @@ public interface UiPathSegment extends EObject {
 	 * @return
 	 */
 	public JvmOperation getOperationofLastSegment();
+	
+	/**
+	 * Returns the last segment.
+	 * 
+	 * @return
+	 */
+	public UiPathSegment getLastSegment();
 	
 } // UiPathSegment

@@ -491,12 +491,16 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Assignment cJvmTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_4_0 = (RuleCall)cJvmTypeAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cTargetKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cTargetNameAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cTargetNameIDTerminalRuleCall_5_1_0 = (RuleCall)cTargetNameAssignment_5_1.eContents().get(0);
 		
 		//UxBindingableOption returns semantic::UxBindingableOption:
-		//	final?="final"? listbinding?="list"? "endpoint" name=ID jvmType=JvmTypeReference;
+		//	final?="final"? listbinding?="list"? "endpoint" name=ID jvmType=JvmTypeReference ("target" targetName=ID)?;
 		public ParserRule getRule() { return rule; }
 
-		//final?="final"? listbinding?="list"? "endpoint" name=ID jvmType=JvmTypeReference
+		//final?="final"? listbinding?="list"? "endpoint" name=ID jvmType=JvmTypeReference ("target" targetName=ID)?
 		public Group getGroup() { return cGroup; }
 
 		//final?="final"?
@@ -525,6 +529,18 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 
 		//JvmTypeReference
 		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_4_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_4_0; }
+
+		//("target" targetName=ID)?
+		public Group getGroup_5() { return cGroup_5; }
+
+		//"target"
+		public Keyword getTargetKeyword_5_0() { return cTargetKeyword_5_0; }
+
+		//targetName=ID
+		public Assignment getTargetNameAssignment_5_1() { return cTargetNameAssignment_5_1; }
+
+		//ID
+		public RuleCall getTargetNameIDTerminalRuleCall_5_1_0() { return cTargetNameIDTerminalRuleCall_5_1_0; }
 	}
 
 	public class UxVisibleableOptionElements extends AbstractParserRuleElementFinder {
@@ -706,7 +722,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	}
 
 	//UxBindingableOption returns semantic::UxBindingableOption:
-	//	final?="final"? listbinding?="list"? "endpoint" name=ID jvmType=JvmTypeReference;
+	//	final?="final"? listbinding?="list"? "endpoint" name=ID jvmType=JvmTypeReference ("target" targetName=ID)?;
 	public UxBindingableOptionElements getUxBindingableOptionAccess() {
 		return (pUxBindingableOption != null) ? pUxBindingableOption : (pUxBindingableOption = new UxBindingableOptionElements());
 	}

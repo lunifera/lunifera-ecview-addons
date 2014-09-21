@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
+import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
@@ -288,6 +289,16 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 					.getReturnType().getType() : null;
 		}
 	}
+	
+	@Override
+	public JvmTypeReference getTypeReferenceOfLastSegment() {
+		UiPathSegment child = getPath();
+		if (child != null) {
+			return child.getTypeReferenceOfLastSegment();
+		} else {
+			return getGetter() != null ? getGetter().getReturnType() : null;
+		}
+	}
 
 	@Override
 	public JvmType getTypeofSecondLastSegment() {
@@ -315,6 +326,16 @@ public class UiPathSegmentImpl extends MinimalEObjectImpl.Container implements
 			return child.getOperationofLastSegment();
 		} else {
 			return getGetter();
+		}
+	}
+	
+	@Override
+	public UiPathSegment getLastSegment() {
+		UiPathSegment child = getPath();
+		if (child != null) {
+			return child.getLastSegment();
+		} else {
+			return this;
 		}
 	}
 

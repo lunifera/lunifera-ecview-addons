@@ -5367,6 +5367,7 @@ rule__UxBindingableOption__Group__4
     }
 :
 	rule__UxBindingableOption__Group__4__Impl
+	rule__UxBindingableOption__Group__5
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -5389,10 +5390,103 @@ finally {
 }
 
 
+rule__UxBindingableOption__Group__5
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UxBindingableOption__Group__5__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UxBindingableOption__Group__5__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUxBindingableOptionAccess().getGroup_5()); }
+(rule__UxBindingableOption__Group_5__0)?
+{ after(grammarAccess.getUxBindingableOptionAccess().getGroup_5()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+rule__UxBindingableOption__Group_5__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UxBindingableOption__Group_5__0__Impl
+	rule__UxBindingableOption__Group_5__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UxBindingableOption__Group_5__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUxBindingableOptionAccess().getTargetKeyword_5_0()); }
+
+	'target' 
+
+{ after(grammarAccess.getUxBindingableOptionAccess().getTargetKeyword_5_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__UxBindingableOption__Group_5__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UxBindingableOption__Group_5__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UxBindingableOption__Group_5__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUxBindingableOptionAccess().getTargetNameAssignment_5_1()); }
+(rule__UxBindingableOption__TargetNameAssignment_5_1)
+{ after(grammarAccess.getUxBindingableOptionAccess().getTargetNameAssignment_5_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
 
 
 
@@ -18673,6 +18767,21 @@ rule__UxBindingableOption__JvmTypeAssignment_4
 (
 { before(grammarAccess.getUxBindingableOptionAccess().getJvmTypeJvmTypeReferenceParserRuleCall_4_0()); }
 	ruleJvmTypeReference{ after(grammarAccess.getUxBindingableOptionAccess().getJvmTypeJvmTypeReferenceParserRuleCall_4_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UxBindingableOption__TargetNameAssignment_5_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUxBindingableOptionAccess().getTargetNameIDTerminalRuleCall_5_1_0()); }
+	RULE_ID{ after(grammarAccess.getUxBindingableOptionAccess().getTargetNameIDTerminalRuleCall_5_1_0()); }
 )
 
 ;

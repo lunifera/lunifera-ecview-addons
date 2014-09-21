@@ -126,6 +126,78 @@ public class UIGrammarProposalProvider extends AbstractUIGrammarProposalProvider
     return "";
   }
   
+  public void completeUiMaxLengthValidator_MaxLength(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    StyledString _styledString = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal = this.doCreateProposal("1", _styledString, null, 0, context);
+    acceptor.accept(_doCreateProposal);
+    StyledString _styledString_1 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_1 = this.doCreateProposal("2", _styledString_1, null, 0, context);
+    acceptor.accept(_doCreateProposal_1);
+    StyledString _styledString_2 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_2 = this.doCreateProposal("3", _styledString_2, null, 0, context);
+    acceptor.accept(_doCreateProposal_2);
+    StyledString _styledString_3 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_3 = this.doCreateProposal("4", _styledString_3, null, 0, context);
+    acceptor.accept(_doCreateProposal_3);
+    StyledString _styledString_4 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_4 = this.doCreateProposal("10", _styledString_4, null, 0, context);
+    acceptor.accept(_doCreateProposal_4);
+    StyledString _styledString_5 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_5 = this.doCreateProposal("12", _styledString_5, null, 0, context);
+    acceptor.accept(_doCreateProposal_5);
+    StyledString _styledString_6 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_6 = this.doCreateProposal("15", _styledString_6, null, 0, context);
+    acceptor.accept(_doCreateProposal_6);
+    StyledString _styledString_7 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_7 = this.doCreateProposal("20", _styledString_7, null, 0, context);
+    acceptor.accept(_doCreateProposal_7);
+    StyledString _styledString_8 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_8 = this.doCreateProposal("25", _styledString_8, null, 0, context);
+    acceptor.accept(_doCreateProposal_8);
+    StyledString _styledString_9 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_9 = this.doCreateProposal("125", _styledString_9, null, 0, context);
+    acceptor.accept(_doCreateProposal_9);
+  }
+  
+  public void completeUiMinLengthValidator_MinLength(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    StyledString _styledString = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal = this.doCreateProposal("1", _styledString, null, 0, context);
+    acceptor.accept(_doCreateProposal);
+    StyledString _styledString_1 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_1 = this.doCreateProposal("2", _styledString_1, null, 0, context);
+    acceptor.accept(_doCreateProposal_1);
+    StyledString _styledString_2 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_2 = this.doCreateProposal("3", _styledString_2, null, 0, context);
+    acceptor.accept(_doCreateProposal_2);
+    StyledString _styledString_3 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_3 = this.doCreateProposal("4", _styledString_3, null, 0, context);
+    acceptor.accept(_doCreateProposal_3);
+    StyledString _styledString_4 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_4 = this.doCreateProposal("10", _styledString_4, null, 0, context);
+    acceptor.accept(_doCreateProposal_4);
+    StyledString _styledString_5 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_5 = this.doCreateProposal("12", _styledString_5, null, 0, context);
+    acceptor.accept(_doCreateProposal_5);
+    StyledString _styledString_6 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_6 = this.doCreateProposal("15", _styledString_6, null, 0, context);
+    acceptor.accept(_doCreateProposal_6);
+    StyledString _styledString_7 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_7 = this.doCreateProposal("20", _styledString_7, null, 0, context);
+    acceptor.accept(_doCreateProposal_7);
+    StyledString _styledString_8 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_8 = this.doCreateProposal("25", _styledString_8, null, 0, context);
+    acceptor.accept(_doCreateProposal_8);
+    StyledString _styledString_9 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_9 = this.doCreateProposal("125", _styledString_9, null, 0, context);
+    acceptor.accept(_doCreateProposal_9);
+  }
+  
+  public void completeUiRegexpValidator_RegExpression(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    StyledString _styledString = new StyledString("any regular expression");
+    ConfigurableCompletionProposal _doCreateProposal = this.doCreateProposal("*abc", _styledString, null, 0, context);
+    acceptor.accept(_doCreateProposal);
+  }
+  
   public StyledString displayString(final II18nRegistry.Proposal proposal) {
     String _i18nValue = proposal.getI18nValue();
     StyledString _styledString = new StyledString(_i18nValue, StyledString.QUALIFIER_STYLER);

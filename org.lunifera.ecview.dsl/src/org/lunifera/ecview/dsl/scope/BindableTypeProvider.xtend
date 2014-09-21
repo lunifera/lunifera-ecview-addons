@@ -12,7 +12,9 @@ import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef
+import org.lunifera.ecview.semantic.uimodel.UiPathSegment
 import org.lunifera.ecview.semantic.uimodel.UiTypeProvider
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindable
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef
 
 @Singleton
@@ -46,14 +48,20 @@ class BindableTypeProvider {
 	def dispatch JvmTypeReference doGetTypeReference(UiBeanSlot beanSlot) {
 		return beanSlot.jvmType
 	}
-	 
+
 	def dispatch JvmTypeReference doGetTypeReference(UiBindingEndpointAlias alias) {
-		return alias.endpoint.doGetTypeReference
+		val UiBindingEndpointAssignment aliasEP = alias.getEndpoint() as UiBindingEndpointAssignment;
+		return aliasEP.getPath().getTypeReferenceOfLastSegment();
 	}
 
 	def dispatch JvmTypeReference doGetTypeReference(UiBindingEndpointAssignment epDef) {
 		if (epDef.typedBindableAlias != null) {
-			return epDef.typedBindableAlias.doGetTypeReference
+			val UiTypedBindable alias = epDef.getTypedBindableAlias() as UiTypedBindable;
+			if (alias instanceof UiBindingEndpointAlias) {
+				alias.doGetTypeReference
+			} else {
+				return epDef.typedBindableAlias.doGetTypeReference
+			}
 		} else if (epDef.typedBindableDef != null) {
 			return epDef.typedBindableDef.doGetTypeReference
 		}
@@ -66,14 +74,14 @@ class BindableTypeProvider {
 	def dispatch JvmTypeReference doGetTypeReference(UiCommandBindableDef epDef) {
 		val UiBindingEndpointAssignment assignment = epDef.eContainer() as UiBindingEndpointAssignment
 		val UiBinding binding = assignment.eContainer() as UiBinding
-		
+
 		// epDef is source bindable
-		if(binding.source == assignment){
-			val UiBindingExpression targetDef =	binding.target 
-			return targetDef.getTypeReference(true)			
-		}else{
-			val UiBindingExpression sourceDef =	binding.source 
-			return sourceDef.getTypeReference(true)		
+		if (binding.source == assignment) {
+			val UiBindingExpression targetDef = binding.target
+			return targetDef.getTypeReference(true)
+		} else {
+			val UiBindingExpression sourceDef = binding.source
+			return sourceDef.getTypeReference(true)
 		}
 	}
 
@@ -102,5 +110,9 @@ class BindableTypeProvider {
 
 	def dispatch JvmTypeReference doGetTypeReference(UiTypeProvider provider) {
 		return provider.jvmType
+	}
+
+	def dispatch JvmTypeReference doGetTypeReference(UiPathSegment path) {
+		return path.typeofLastSegment.typeReference
 	}
 }

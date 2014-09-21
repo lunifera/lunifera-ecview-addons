@@ -11,13 +11,16 @@
 package org.lunifera.ecview.xtext.builder.participant.impl;
 
 import org.lunifera.ecview.dsl.UIGrammarBundleSpaceStandaloneSetup;
+import org.lunifera.ecview.uisemantics.UISemanticsGrammarBundleSpaceStandaloneSetup;
 
 /**
  * A helper class to setup the Xtext grammars properly.
  */
+@SuppressWarnings("restriction")
 public class StandaloneGrammarsSetup {
 
 	public static void setup() {
+		UISemanticsGrammarBundleSpaceStandaloneSetup.doSetup();
 		UIGrammarBundleSpaceStandaloneSetup.doSetup();
 	}
 

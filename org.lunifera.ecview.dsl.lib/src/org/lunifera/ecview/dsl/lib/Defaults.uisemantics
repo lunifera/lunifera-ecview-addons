@@ -123,9 +123,9 @@ element CheckBox {
 element Button {
 	uri view:UiButton
 	 
-	bindings { 
-		endpoint value Boolean
-		endpoint editable Boolean
+	bindings {
+		endpoint click Long target lastClickTime
+		endpoint enabled Boolean
 		endpoint visible Boolean
 	}
 	
@@ -140,6 +140,7 @@ element NumericField {
 	bindings {
 		endpoint value Integer
 		endpoint editable Boolean
+		endpoint enabled Boolean
 		endpoint visible Boolean
 	}
 	

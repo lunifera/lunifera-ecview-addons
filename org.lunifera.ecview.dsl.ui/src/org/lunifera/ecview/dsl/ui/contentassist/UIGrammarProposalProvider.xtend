@@ -17,6 +17,7 @@ import org.lunifera.ecview.semantic.uimodel.UiModel
 import org.lunifera.ide.core.api.i18n.II18nRegistry
 import org.lunifera.ide.core.api.i18n.II18nRegistry.Proposal
 import org.lunifera.ide.core.ui.util.CoreUiUtil
+import org.eclipse.swt.graphics.Image
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
@@ -33,29 +34,30 @@ class UIGrammarProposalProvider extends AbstractUIGrammarProposalProvider {
 
 		val IProject project = util.getProject(model)
 		val searchString = context.prefix.replaceAll("\"", "")
-		val List<Proposal> proposals = i18nRegistry.findContentProposals(project, util.locale,
-			findPackage(model), searchString);
+		val List<Proposal> proposals = i18nRegistry.findContentProposals(project, util.locale, findPackage(model),
+			searchString);
 
 		val int replacementOffset = context.getReplaceRegion().getOffset();
 		val int replacementLength = context.getReplaceRegion().getLength() + 1;
 
 		val relativePath = searchString.startsWith(".")
 		for (proposal : proposals) {
-			val ConfigurableCompletionProposal result = doCreateProposal("\"" + proposal.toReplacementString(relativePath) + "\"",
-				proposal.displayString(), null, replacementOffset, replacementLength);
+			val ConfigurableCompletionProposal result = doCreateProposal(
+				"\"" + proposal.toReplacementString(relativePath) + "\"", proposal.displayString(), null,
+				replacementOffset, replacementLength);
 			result.setPriority(1);
 			result.setMatcher(context.getMatcher());
 			result.setReplaceContextLength(context.getReplaceContextLength());
 			acceptor.accept(result)
 		}
 	}
-	
-	def String toReplacementString(Proposal proposal, boolean relative){
-		if(!relative){
+
+	def String toReplacementString(Proposal proposal, boolean relative) {
+		if (!relative) {
 			return proposal.i18nKey
-		}else{
+		} else {
 			val String[] pathTokens = proposal.i18nKey.split('\\.')
-			return if(pathTokens.length > 0) ("." + pathTokens.get(pathTokens.length -1)) else ""
+			return if(pathTokens.length > 0) ("." + pathTokens.get(pathTokens.length - 1)) else ""
 		}
 	}
 
@@ -78,13 +80,46 @@ class UIGrammarProposalProvider extends AbstractUIGrammarProposalProvider {
 		return ""
 	}
 
+	override void completeUiMaxLengthValidator_MaxLength(EObject model, Assignment assignment,
+		ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		acceptor.accept(doCreateProposal("1", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("2", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("3", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("4", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("10", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("12", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("15", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("20", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("25", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("125", new StyledString("any numer"), null, 0, context))
+	}
+
+	override void completeUiMinLengthValidator_MinLength(EObject model, Assignment assignment,
+		ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		acceptor.accept(doCreateProposal("1", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("2", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("3", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("4", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("10", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("12", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("15", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("20", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("25", new StyledString("any numer"), null, 0, context))
+		acceptor.accept(doCreateProposal("125", new StyledString("any numer"), null, 0, context))
+	}
+
+	override void completeUiRegexpValidator_RegExpression(EObject model, Assignment assignment,
+		ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		acceptor.accept(doCreateProposal("*abc", new StyledString("any regular expression"), null, 0, context))
+	}
+
 	def StyledString displayString(Proposal proposal) {
 		val StyledString displayText = new StyledString(proposal.i18nValue, StyledString.QUALIFIER_STYLER).append(" : ").
 			append(proposal.locale.toLanguageTag, StyledString.DECORATIONS_STYLER).append(" - ").append(
 				proposal.i18nKey, StyledString.DECORATIONS_STYLER);
 		return displayText;
 	}
-	
+
 	override boolean isKeywordWorthyToPropose(Keyword keyword) {
 		return true;
 	}

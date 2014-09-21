@@ -6,10 +6,15 @@ package org.lunifera.ecview.dsl.ui;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.lunifera.ecview.dsl.ui.hover.UiGrammarHoverDocumentationProvider;
 import org.lunifera.ide.core.api.i18n.II18nRegistry;
+import org.lunifera.xtext.builder.types.loader.api.ITypeLoaderFactory;
+import org.lunifera.xtext.builder.types.loader.api.ITypeLoaderProvider;
 import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderFactory;
 import org.lunifera.xtext.builder.ui.access.jdt.IJdtTypeLoaderProvider;
 import org.lunifera.xtext.builder.ui.access.jdt.impl.JdtTypeLoaderFactory;
 import org.lunifera.xtext.builder.ui.access.jdt.impl.JdtTypeLoaderProvider;
+
+import com.google.inject.Binder;
+import com.google.inject.Singleton;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -21,12 +26,18 @@ public class UIGrammarUiModule extends
 		super(plugin);
 	}
 
-	public Class<? extends IJdtTypeLoaderFactory> bindIJdtTypeLoaderFactory() {
-		return JdtTypeLoaderFactory.class;
+	public void configureITypeLoaderFactory(Binder binder) {
+		binder.bind(ITypeLoaderFactory.class).to(JdtTypeLoaderFactory.class)
+				.in(Singleton.class);
+		binder.bind(IJdtTypeLoaderFactory.class).to(JdtTypeLoaderFactory.class)
+				.in(Singleton.class);
 	}
 
-	public Class<? extends IJdtTypeLoaderProvider> bindIJdtTypeLoaderProvider() {
-		return JdtTypeLoaderProvider.class;
+	public void configureITypeLoaderProvider(Binder binder) {
+		binder.bind(ITypeLoaderProvider.class).to(JdtTypeLoaderProvider.class)
+				.in(Singleton.class);
+		binder.bind(IJdtTypeLoaderProvider.class)
+				.to(JdtTypeLoaderProvider.class).in(Singleton.class);
 	}
 
 	public Class<? extends org.eclipse.xtext.ui.editor.hover.html.IEObjectHoverDocumentationProvider> bindIEObjectHoverDocumentationProvider() {

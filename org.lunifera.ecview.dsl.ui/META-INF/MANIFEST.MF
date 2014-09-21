@@ -25,7 +25,8 @@ Require-Bundle: org.eclipse.xtext.ui,
  org.lunifera.ecview.semantic.uimodel;bundle-version="0.7.3",
  org.lunifera.ide.core.api;bundle-version="0.7.3",
  org.lunifera.ide.core.ui.shared;bundle-version="0.7.3",
- org.lunifera.ide.core.ui;bundle-version="0.7.3"
+ org.lunifera.ide.core.ui;bundle-version="0.7.3",
+ org.lunifera.xtext.builder.types.loader.api;bundle-version="0.8.3"
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

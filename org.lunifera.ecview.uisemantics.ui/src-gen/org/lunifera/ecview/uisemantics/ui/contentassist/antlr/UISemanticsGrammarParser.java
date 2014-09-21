@@ -94,6 +94,7 @@ public class UISemanticsGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUxAvailableBindingsAccess().getGroup(), "rule__UxAvailableBindings__Group__0");
 					put(grammarAccess.getUxAvailableVisibilityOptionsAccess().getGroup(), "rule__UxAvailableVisibilityOptions__Group__0");
 					put(grammarAccess.getUxBindingableOptionAccess().getGroup(), "rule__UxBindingableOption__Group__0");
+					put(grammarAccess.getUxBindingableOptionAccess().getGroup_5(), "rule__UxBindingableOption__Group_5__0");
 					put(grammarAccess.getUxVisibleableOptionAccess().getGroup(), "rule__UxVisibleableOption__Group__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_0(), "rule__XAssignment__Group_0__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_1(), "rule__XAssignment__Group_1__0");
@@ -291,6 +292,7 @@ public class UISemanticsGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUxBindingableOptionAccess().getListbindingAssignment_1(), "rule__UxBindingableOption__ListbindingAssignment_1");
 					put(grammarAccess.getUxBindingableOptionAccess().getNameAssignment_3(), "rule__UxBindingableOption__NameAssignment_3");
 					put(grammarAccess.getUxBindingableOptionAccess().getJvmTypeAssignment_4(), "rule__UxBindingableOption__JvmTypeAssignment_4");
+					put(grammarAccess.getUxBindingableOptionAccess().getTargetNameAssignment_5_1(), "rule__UxBindingableOption__TargetNameAssignment_5_1");
 					put(grammarAccess.getUxVisibleableOptionAccess().getNameAssignment_1(), "rule__UxVisibleableOption__NameAssignment_1");
 					put(grammarAccess.getUxVisibleableOptionAccess().getJvmTypeAssignment_2(), "rule__UxVisibleableOption__JvmTypeAssignment_2");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_0_1(), "rule__XAssignment__FeatureAssignment_0_1");
