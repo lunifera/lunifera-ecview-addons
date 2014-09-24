@@ -51,6 +51,7 @@ import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiValidatorAssign
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiVerticalLayoutElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiViewSetElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiVisibilityProcessorElements;
+import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiXbaseVisibilityRuleElements;
 
 import com.google.inject.Inject;
 
@@ -162,6 +163,7 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		configureUiLabel(c, f.getUiLabelAccess());
 		// Visibility
 		configureUiVisibility(c, f.getUiVisibilityProcessorAccess());
+		configureUiVisibilityRule(c, f.getUiXbaseVisibilityRuleAccess());
 		// fireOn
 		configureUiFireOn(c, f.getUiChangeTriggerAccess());
 		// openDialog
@@ -251,20 +253,12 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap(1, 1, 2).before(ele.getChangeTriggersAssignment_4_1());
 		c.setLinewrap(1, 1, 2).before(ele.getDataUsedAssignment_4_0());
 		c.setLinewrap(1, 1, 2).before(ele.getImportedElementsAssignment_4_2());
-		c.setLinewrap(1, 1, 2).before(ele.getRuleUiXbaseVisibilityRuleParserRuleCall_5_0());
-		// // Brackets
-		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3());
-		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_6_1());
-		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_5());
-		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_6_3());
-		//
-		// // Indentation
-		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3());
-		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_6_1());
-		// c.setIndentationDecrement().before(
-		// ele.getRightCurlyBracketKeyword_5());
-		// c.setIndentationDecrement().before(
-		// ele.getRightCurlyBracketKeyword_6_3());
+		c.setLinewrap(1, 2, 3).before(ele.getRuleAssignment_5());
+	}
+
+	private void configureUiVisibilityRule(FormattingConfig c,
+			UiXbaseVisibilityRuleElements ele) {
+		c.setLinewrap(1, 1, 2).around(ele.getRule());
 	}
 
 	private void configureUiLabel(FormattingConfig c, UiLabelElements ele) {
