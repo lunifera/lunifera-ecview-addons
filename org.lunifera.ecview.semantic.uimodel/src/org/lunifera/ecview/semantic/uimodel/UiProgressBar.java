@@ -13,5 +13,5 @@ package org.lunifera.ecview.semantic.uimodel;
  * @model
  * @generated
  */
-public interface UiProgressBar extends UiField {
+public interface UiProgressBar extends UiField, UiMobileField {
 } // UiProgressBar

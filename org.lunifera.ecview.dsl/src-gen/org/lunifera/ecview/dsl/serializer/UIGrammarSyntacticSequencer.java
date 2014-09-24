@@ -52,6 +52,7 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_UiLabel___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
 	protected AbstractElementAlias match_UiList___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
 	protected AbstractElementAlias match_UiMobileHorizontalButtonGroup___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
+	protected AbstractElementAlias match_UiMobileHorizontalLayout___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
 	protected AbstractElementAlias match_UiMobileNavigationButton___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
 	protected AbstractElementAlias match_UiMobileNavigationPage_SemicolonKeyword_5_2_q;
 	protected AbstractElementAlias match_UiMobileNavigationPage___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
@@ -59,6 +60,7 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_UiMobileSwitch___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
 	protected AbstractElementAlias match_UiMobileTabSheet___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
 	protected AbstractElementAlias match_UiMobileVerticalComponentGroup___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
+	protected AbstractElementAlias match_UiMobileVerticalLayout___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
 	protected AbstractElementAlias match_UiMobileView_SemicolonKeyword_3_2_q;
 	protected AbstractElementAlias match_UiNumericField___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q;
 	protected AbstractElementAlias match_UiNumericField___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
@@ -128,6 +130,7 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_UiLabel___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiLabelAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiLabelAccess().getRightParenthesisKeyword_2_2()));
 		match_UiList___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiListAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiListAccess().getRightParenthesisKeyword_2_2()));
 		match_UiMobileHorizontalButtonGroup___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiMobileHorizontalButtonGroupAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiMobileHorizontalButtonGroupAccess().getRightParenthesisKeyword_2_2()));
+		match_UiMobileHorizontalLayout___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiMobileHorizontalLayoutAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiMobileHorizontalLayoutAccess().getRightParenthesisKeyword_2_2()));
 		match_UiMobileNavigationButton___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiMobileNavigationButtonAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiMobileNavigationButtonAccess().getRightParenthesisKeyword_2_2()));
 		match_UiMobileNavigationPage_SemicolonKeyword_5_2_q = new TokenAlias(false, true, grammarAccess.getUiMobileNavigationPageAccess().getSemicolonKeyword_5_2());
 		match_UiMobileNavigationPage___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiMobileNavigationPageAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiMobileNavigationPageAccess().getRightParenthesisKeyword_2_2()));
@@ -135,6 +138,7 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_UiMobileSwitch___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiMobileSwitchAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiMobileSwitchAccess().getRightParenthesisKeyword_2_2()));
 		match_UiMobileTabSheet___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiMobileTabSheetAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiMobileTabSheetAccess().getRightParenthesisKeyword_2_2()));
 		match_UiMobileVerticalComponentGroup___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiMobileVerticalComponentGroupAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiMobileVerticalComponentGroupAccess().getRightParenthesisKeyword_2_2()));
+		match_UiMobileVerticalLayout___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiMobileVerticalLayoutAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiMobileVerticalLayoutAccess().getRightParenthesisKeyword_2_2()));
 		match_UiMobileView_SemicolonKeyword_3_2_q = new TokenAlias(false, true, grammarAccess.getUiMobileViewAccess().getSemicolonKeyword_3_2());
 		match_UiNumericField___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiNumericFieldAccess().getLeftCurlyBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getUiNumericFieldAccess().getRightCurlyBracketKeyword_4_3()));
 		match_UiNumericField___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiNumericFieldAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiNumericFieldAccess().getRightParenthesisKeyword_2_2()));
@@ -273,6 +277,8 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_UiList___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiMobileHorizontalButtonGroup___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q.equals(syntax))
 				emit_UiMobileHorizontalButtonGroup___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UiMobileHorizontalLayout___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q.equals(syntax))
+				emit_UiMobileHorizontalLayout___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiMobileNavigationButton___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q.equals(syntax))
 				emit_UiMobileNavigationButton___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiMobileNavigationPage_SemicolonKeyword_5_2_q.equals(syntax))
@@ -287,6 +293,8 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_UiMobileTabSheet___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiMobileVerticalComponentGroup___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q.equals(syntax))
 				emit_UiMobileVerticalComponentGroup___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UiMobileVerticalLayout___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q.equals(syntax))
+				emit_UiMobileVerticalLayout___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiMobileView_SemicolonKeyword_3_2_q.equals(syntax))
 				emit_UiMobileView_SemicolonKeyword_3_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiNumericField___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q.equals(syntax))
@@ -629,6 +637,14 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Syntax:
 	 *     ('(' ')')?
 	 */
+	protected void emit_UiMobileHorizontalLayout___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     ('(' ')')?
+	 */
 	protected void emit_UiMobileNavigationButton___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
@@ -678,6 +694,14 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('(' ')')?
 	 */
 	protected void emit_UiMobileVerticalComponentGroup___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     ('(' ')')?
+	 */
+	protected void emit_UiMobileVerticalLayout___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

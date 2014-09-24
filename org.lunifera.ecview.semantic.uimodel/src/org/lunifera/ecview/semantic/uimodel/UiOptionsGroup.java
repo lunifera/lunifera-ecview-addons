@@ -22,7 +22,7 @@ import org.eclipse.xtext.common.types.JvmOperation;
  * @model
  * @generated
  */
-public interface UiOptionsGroup extends UiField, UiTypeProvider {
+public interface UiOptionsGroup extends UiField, UiTypeProvider, UiMobileField {
 	/**
 	 * Returns the value of the '<em><b>Selection Type</b></em>' attribute.
 	 * The default value is <code>"SINGLE"</code>.

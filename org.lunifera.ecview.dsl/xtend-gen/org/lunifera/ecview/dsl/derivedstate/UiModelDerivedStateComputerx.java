@@ -2801,223 +2801,223 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     }
   }
   
-  public void map(final EObject eObject) {
-    if (eObject instanceof UiHorizontalButtonGroup) {
-      _map((UiHorizontalButtonGroup)eObject);
+  public void map(final EObject object) {
+    if (object instanceof UiButton) {
+      _map((UiButton)object);
       return;
-    } else if (eObject instanceof UiMobileNavigationButton) {
-      _map((UiMobileNavigationButton)eObject);
+    } else if (object instanceof UiComboBox) {
+      _map((UiComboBox)object);
       return;
-    } else if (eObject instanceof UiMobileNavigationPage) {
-      _map((UiMobileNavigationPage)eObject);
+    } else if (object instanceof UiHorizontalButtonGroup) {
+      _map((UiHorizontalButtonGroup)object);
       return;
-    } else if (eObject instanceof UiVerticalComponentGroup) {
-      _map((UiVerticalComponentGroup)eObject);
+    } else if (object instanceof UiHorizontalLayout) {
+      _map((UiHorizontalLayout)object);
       return;
-    } else if (eObject instanceof UiButton) {
-      _map((UiButton)eObject);
+    } else if (object instanceof UiImage) {
+      _map((UiImage)object);
       return;
-    } else if (eObject instanceof UiColumn) {
-      _map((UiColumn)eObject);
+    } else if (object instanceof UiMobileNavigationButton) {
+      _map((UiMobileNavigationButton)object);
       return;
-    } else if (eObject instanceof UiComboBox) {
-      _map((UiComboBox)eObject);
+    } else if (object instanceof UiMobileNavigationPage) {
+      _map((UiMobileNavigationPage)object);
       return;
-    } else if (eObject instanceof UiFormLayout) {
-      _map((UiFormLayout)eObject);
+    } else if (object instanceof UiOptionsGroup) {
+      _map((UiOptionsGroup)object);
       return;
-    } else if (eObject instanceof UiGridLayout) {
-      _map((UiGridLayout)eObject);
+    } else if (object instanceof UiTable) {
+      _map((UiTable)object);
       return;
-    } else if (eObject instanceof UiHorizontalLayout) {
-      _map((UiHorizontalLayout)eObject);
+    } else if (object instanceof UiVerticalComponentGroup) {
+      _map((UiVerticalComponentGroup)object);
       return;
-    } else if (eObject instanceof UiIDEView) {
-      _map((UiIDEView)eObject);
+    } else if (object instanceof UiVerticalLayout) {
+      _map((UiVerticalLayout)object);
       return;
-    } else if (eObject instanceof UiImage) {
-      _map((UiImage)eObject);
+    } else if (object instanceof UiColumn) {
+      _map((UiColumn)object);
       return;
-    } else if (eObject instanceof UiMobileTabAssignment) {
-      _map((UiMobileTabAssignment)eObject);
+    } else if (object instanceof UiFormLayout) {
+      _map((UiFormLayout)object);
       return;
-    } else if (eObject instanceof UiMobileTabSheet) {
-      _map((UiMobileTabSheet)eObject);
+    } else if (object instanceof UiGridLayout) {
+      _map((UiGridLayout)object);
       return;
-    } else if (eObject instanceof UiMobileView) {
-      _map((UiMobileView)eObject);
+    } else if (object instanceof UiIDEView) {
+      _map((UiIDEView)object);
       return;
-    } else if (eObject instanceof UiOptionsGroup) {
-      _map((UiOptionsGroup)eObject);
+    } else if (object instanceof UiMobileTabAssignment) {
+      _map((UiMobileTabAssignment)object);
       return;
-    } else if (eObject instanceof UiPanel) {
-      _map((UiPanel)eObject);
+    } else if (object instanceof UiMobileTabSheet) {
+      _map((UiMobileTabSheet)object);
       return;
-    } else if (eObject instanceof UiSplitpanel) {
-      _map((UiSplitpanel)eObject);
+    } else if (object instanceof UiMobileView) {
+      _map((UiMobileView)object);
       return;
-    } else if (eObject instanceof UiTable) {
-      _map((UiTable)eObject);
+    } else if (object instanceof UiPanel) {
+      _map((UiPanel)object);
       return;
-    } else if (eObject instanceof UiVerticalLayout) {
-      _map((UiVerticalLayout)eObject);
+    } else if (object instanceof UiSplitpanel) {
+      _map((UiSplitpanel)object);
       return;
-    } else if (eObject instanceof UiDialog) {
-      _map((UiDialog)eObject);
+    } else if (object instanceof UiDialog) {
+      _map((UiDialog)object);
       return;
-    } else if (eObject instanceof UiMaxLengthValidator) {
-      _map((UiMaxLengthValidator)eObject);
+    } else if (object instanceof UiMaxLengthValidator) {
+      _map((UiMaxLengthValidator)object);
       return;
-    } else if (eObject instanceof UiMinLengthValidator) {
-      _map((UiMinLengthValidator)eObject);
+    } else if (object instanceof UiMinLengthValidator) {
+      _map((UiMinLengthValidator)object);
       return;
-    } else if (eObject instanceof UiRegexpValidator) {
-      _map((UiRegexpValidator)eObject);
+    } else if (object instanceof UiRegexpValidator) {
+      _map((UiRegexpValidator)object);
       return;
-    } else if (eObject instanceof UiSearchDialog) {
-      _map((UiSearchDialog)eObject);
+    } else if (object instanceof UiSearchDialog) {
+      _map((UiSearchDialog)object);
       return;
-    } else if (eObject instanceof UiTabSheet) {
-      _map((UiTabSheet)eObject);
+    } else if (object instanceof UiTabSheet) {
+      _map((UiTabSheet)object);
       return;
-    } else if (eObject instanceof UiView) {
-      _map((UiView)eObject);
+    } else if (object instanceof UiView) {
+      _map((UiView)object);
       return;
-    } else if (eObject instanceof UiXbaseValidator) {
-      _map((UiXbaseValidator)eObject);
+    } else if (object instanceof UiXbaseValidator) {
+      _map((UiXbaseValidator)object);
       return;
-    } else if (eObject instanceof UiBeanSlot) {
-      _map((UiBeanSlot)eObject);
+    } else if (object instanceof UiBeanSlot) {
+      _map((UiBeanSlot)object);
       return;
-    } else if (eObject instanceof UiBindingEndpointAlias) {
-      _map((UiBindingEndpointAlias)eObject);
+    } else if (object instanceof UiBindingEndpointAlias) {
+      _map((UiBindingEndpointAlias)object);
       return;
-    } else if (eObject instanceof UiBindingEndpointAssignment) {
-      _map((UiBindingEndpointAssignment)eObject);
+    } else if (object instanceof UiBindingEndpointAssignment) {
+      _map((UiBindingEndpointAssignment)object);
       return;
-    } else if (eObject instanceof UiDialogAssignment) {
-      _map((UiDialogAssignment)eObject);
+    } else if (object instanceof UiDialogAssignment) {
+      _map((UiDialogAssignment)object);
       return;
-    } else if (eObject instanceof UiDialogSearchFieldAssignment) {
-      _map((UiDialogSearchFieldAssignment)eObject);
+    } else if (object instanceof UiDialogSearchFieldAssignment) {
+      _map((UiDialogSearchFieldAssignment)object);
       return;
-    } else if (eObject instanceof UiFormLayoutAssigment) {
-      _map((UiFormLayoutAssigment)eObject);
+    } else if (object instanceof UiFormLayoutAssigment) {
+      _map((UiFormLayoutAssigment)object);
       return;
-    } else if (eObject instanceof UiGridLayoutAssigment) {
-      _map((UiGridLayoutAssigment)eObject);
+    } else if (object instanceof UiGridLayoutAssigment) {
+      _map((UiGridLayoutAssigment)object);
       return;
-    } else if (eObject instanceof UiHorizontalButtonGroupAssigment) {
-      _map((UiHorizontalButtonGroupAssigment)eObject);
+    } else if (object instanceof UiHorizontalButtonGroupAssigment) {
+      _map((UiHorizontalButtonGroupAssigment)object);
       return;
-    } else if (eObject instanceof UiHorizontalLayoutAssigment) {
-      _map((UiHorizontalLayoutAssigment)eObject);
+    } else if (object instanceof UiHorizontalLayoutAssigment) {
+      _map((UiHorizontalLayoutAssigment)object);
       return;
-    } else if (eObject instanceof UiMobileNavigationPageAssignment) {
-      _map((UiMobileNavigationPageAssignment)eObject);
+    } else if (object instanceof UiMobileNavigationPageAssignment) {
+      _map((UiMobileNavigationPageAssignment)object);
       return;
-    } else if (eObject instanceof UiSplitpanelAssigment) {
-      _map((UiSplitpanelAssigment)eObject);
+    } else if (object instanceof UiSplitpanelAssigment) {
+      _map((UiSplitpanelAssigment)object);
       return;
-    } else if (eObject instanceof UiTabAssignment) {
-      _map((UiTabAssignment)eObject);
+    } else if (object instanceof UiTabAssignment) {
+      _map((UiTabAssignment)object);
       return;
-    } else if (eObject instanceof UiValidatorAlias) {
-      _map((UiValidatorAlias)eObject);
+    } else if (object instanceof UiValidatorAlias) {
+      _map((UiValidatorAlias)object);
       return;
-    } else if (eObject instanceof UiVerticalComponentGroupAssigment) {
-      _map((UiVerticalComponentGroupAssigment)eObject);
+    } else if (object instanceof UiVerticalComponentGroupAssigment) {
+      _map((UiVerticalComponentGroupAssigment)object);
       return;
-    } else if (eObject instanceof UiVerticalLayoutAssigment) {
-      _map((UiVerticalLayoutAssigment)eObject);
+    } else if (object instanceof UiVerticalLayoutAssigment) {
+      _map((UiVerticalLayoutAssigment)object);
       return;
-    } else if (eObject instanceof UiModel) {
-      _map((UiModel)eObject);
+    } else if (object instanceof UiModel) {
+      _map((UiModel)object);
       return;
-    } else if (eObject instanceof UiValidatorAssignment) {
-      _map((UiValidatorAssignment)eObject);
+    } else if (object instanceof UiValidatorAssignment) {
+      _map((UiValidatorAssignment)object);
       return;
-    } else if (eObject instanceof UiValidatorDef) {
-      _map((UiValidatorDef)eObject);
+    } else if (object instanceof UiValidatorDef) {
+      _map((UiValidatorDef)object);
       return;
-    } else if (eObject instanceof UiVisibilityProcessor) {
-      _map((UiVisibilityProcessor)eObject);
+    } else if (object instanceof UiVisibilityProcessor) {
+      _map((UiVisibilityProcessor)object);
       return;
-    } else if (eObject instanceof UiBinding) {
-      _map((UiBinding)eObject);
+    } else if (object instanceof UiBinding) {
+      _map((UiBinding)object);
       return;
-    } else if (eObject instanceof UiPathSegment) {
-      _map((UiPathSegment)eObject);
+    } else if (object instanceof UiPathSegment) {
+      _map((UiPathSegment)object);
       return;
-    } else if (eObject instanceof UiPoint) {
-      _map((UiPoint)eObject);
+    } else if (object instanceof UiPoint) {
+      _map((UiPoint)object);
       return;
-    } else if (eObject instanceof UiVisibilityProcessorAssignment) {
-      _map((UiVisibilityProcessorAssignment)eObject);
+    } else if (object instanceof UiVisibilityProcessorAssignment) {
+      _map((UiVisibilityProcessorAssignment)object);
       return;
-    } else if (eObject != null) {
-      _map(eObject);
+    } else if (object != null) {
+      _map(object);
       return;
-    } else if (eObject == null) {
+    } else if (object == null) {
       _map((Void)null);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(eObject).toString());
+        Arrays.<Object>asList(object).toString());
     }
   }
   
   public YEmbeddable create(final UiEmbeddable object) {
-    if (object instanceof UiHorizontalButtonGroup) {
-      return _create((UiHorizontalButtonGroup)object);
-    } else if (object instanceof UiMobileNavigationButton) {
-      return _create((UiMobileNavigationButton)object);
-    } else if (object instanceof UiSwitch) {
-      return _create((UiSwitch)object);
-    } else if (object instanceof UiVerticalComponentGroup) {
-      return _create((UiVerticalComponentGroup)object);
-    } else if (object instanceof UiBrowser) {
+    if (object instanceof UiBrowser) {
       return _create((UiBrowser)object);
     } else if (object instanceof UiButton) {
       return _create((UiButton)object);
-    } else if (object instanceof UiCheckBox) {
-      return _create((UiCheckBox)object);
     } else if (object instanceof UiComboBox) {
       return _create((UiComboBox)object);
     } else if (object instanceof UiDateField) {
       return _create((UiDateField)object);
     } else if (object instanceof UiDecimalField) {
       return _create((UiDecimalField)object);
-    } else if (object instanceof UiFormLayout) {
-      return _create((UiFormLayout)object);
-    } else if (object instanceof UiGridLayout) {
-      return _create((UiGridLayout)object);
+    } else if (object instanceof UiHorizontalButtonGroup) {
+      return _create((UiHorizontalButtonGroup)object);
     } else if (object instanceof UiHorizontalLayout) {
       return _create((UiHorizontalLayout)object);
     } else if (object instanceof UiImage) {
       return _create((UiImage)object);
     } else if (object instanceof UiLabel) {
       return _create((UiLabel)object);
-    } else if (object instanceof UiMobileTabSheet) {
-      return _create((UiMobileTabSheet)object);
+    } else if (object instanceof UiMobileNavigationButton) {
+      return _create((UiMobileNavigationButton)object);
     } else if (object instanceof UiNumericField) {
       return _create((UiNumericField)object);
     } else if (object instanceof UiOptionsGroup) {
       return _create((UiOptionsGroup)object);
-    } else if (object instanceof UiPanel) {
-      return _create((UiPanel)object);
     } else if (object instanceof UiProgressBar) {
       return _create((UiProgressBar)object);
-    } else if (object instanceof UiSplitpanel) {
-      return _create((UiSplitpanel)object);
+    } else if (object instanceof UiSwitch) {
+      return _create((UiSwitch)object);
     } else if (object instanceof UiTable) {
       return _create((UiTable)object);
     } else if (object instanceof UiTextArea) {
       return _create((UiTextArea)object);
     } else if (object instanceof UiTextField) {
       return _create((UiTextField)object);
+    } else if (object instanceof UiVerticalComponentGroup) {
+      return _create((UiVerticalComponentGroup)object);
     } else if (object instanceof UiVerticalLayout) {
       return _create((UiVerticalLayout)object);
+    } else if (object instanceof UiCheckBox) {
+      return _create((UiCheckBox)object);
+    } else if (object instanceof UiFormLayout) {
+      return _create((UiFormLayout)object);
+    } else if (object instanceof UiGridLayout) {
+      return _create((UiGridLayout)object);
+    } else if (object instanceof UiMobileTabSheet) {
+      return _create((UiMobileTabSheet)object);
+    } else if (object instanceof UiPanel) {
+      return _create((UiPanel)object);
+    } else if (object instanceof UiSplitpanel) {
+      return _create((UiSplitpanel)object);
     } else if (object instanceof UiTabSheet) {
       return _create((UiTabSheet)object);
     } else if (object != null) {

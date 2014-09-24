@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
+import org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiMobileField;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
@@ -405,6 +407,16 @@ public class UiProgressBarImpl extends UiVisibilityProcessableImpl implements Ui
 				default: return -1;
 			}
 		}
+		if (baseClass == UiMobileEmbeddable.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiMobileField.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -430,6 +442,16 @@ public class UiProgressBarImpl extends UiVisibilityProcessableImpl implements Ui
 		if (baseClass == UiI18nInfoable.class) {
 			switch (baseFeatureID) {
 				case UiModelPackage.UI_I1_8N_INFOABLE__I18N_INFO: return UiModelPackage.UI_PROGRESS_BAR__I18N_INFO;
+				default: return -1;
+			}
+		}
+		if (baseClass == UiMobileEmbeddable.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiMobileField.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

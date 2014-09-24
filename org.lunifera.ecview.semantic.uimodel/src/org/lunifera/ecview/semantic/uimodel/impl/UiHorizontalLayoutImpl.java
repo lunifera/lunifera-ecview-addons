@@ -16,6 +16,8 @@ import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
+import org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiMobileLayout;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
@@ -404,6 +406,16 @@ public class UiHorizontalLayoutImpl extends UiVisibilityProcessableImpl implemen
 				default: return -1;
 			}
 		}
+		if (baseClass == UiMobileEmbeddable.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiMobileLayout.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -429,6 +441,16 @@ public class UiHorizontalLayoutImpl extends UiVisibilityProcessableImpl implemen
 		if (baseClass == UiI18nInfoable.class) {
 			switch (baseFeatureID) {
 				case UiModelPackage.UI_I1_8N_INFOABLE__I18N_INFO: return UiModelPackage.UI_HORIZONTAL_LAYOUT__I18N_INFO;
+				default: return -1;
+			}
+		}
+		if (baseClass == UiMobileEmbeddable.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiMobileLayout.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

@@ -115,7 +115,7 @@ UiMobileView returns UiMobileView:
 	((beanSlots+=UiBeanSlot)
 	|
 	(bindingEndpointAlias+=UiBindingEndpointAlias))*
-	content=UiEmbeddable ('align' contentAlignment=UiAlignment)?
+	content=UiMobileEmbeddable ('align' contentAlignment=UiAlignment)?
 	((bindingEndpointAlias+=UiBindingEndpointAlias)
 	|
 	(bindings+=UiBinding)
@@ -181,6 +181,22 @@ UiVerticalLayout:
 UiVerticalLayoutAssigment:
 	element=UiEmbeddable ('align' alignment=UiAlignment)?;
 
+UiMobileVerticalLayout returns UiVerticalLayout:
+	{UiVerticalLayout}
+	'mobileVerticalLayout'
+	('('
+	(i18nInfo=UiI18nInfo)?
+	')')?
+	name=ID?
+	'{'
+	(contents+=UiMobileVerticalLayoutAssigment)*
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}';
+
+UiMobileVerticalLayoutAssigment returns UiVerticalLayoutAssigment:
+	element=UiMobileEmbeddable ('align' alignment=UiAlignment)?;
+
 UiHorizontalLayout:
 	{UiHorizontalLayout}
 	'horizontalLayout'
@@ -196,6 +212,22 @@ UiHorizontalLayout:
 
 UiHorizontalLayoutAssigment returns UiHorizontalLayoutAssigment:
 	element=UiEmbeddable ('align' alignment=UiAlignment)?;
+	
+UiMobileHorizontalLayout returns UiHorizontalLayout:
+	{UiHorizontalLayout}
+	'mobileHorizontalLayout'
+	('('
+	(i18nInfo=UiI18nInfo)?
+	')')?
+	name=ID?
+	'{'
+	(contents+=UiMobileHorizontalLayoutAssigment)*
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}';
+
+UiMobileHorizontalLayoutAssigment returns UiHorizontalLayoutAssigment:
+	element=UiMobileEmbeddable ('align' alignment=UiAlignment)?;
 
 UiMobileHorizontalButtonGroup returns UiHorizontalButtonGroup:
 	{UiHorizontalButtonGroup}
@@ -208,7 +240,7 @@ UiMobileHorizontalButtonGroup returns UiHorizontalButtonGroup:
 	'}';
 
 UiMobileHorizontalButtonGroupAssigment returns UiHorizontalButtonGroupAssigment:
-	element=UiEmbeddable;
+	element=UiMobileEmbeddable;
 
 UiMobileVerticalComponentGroup returns UiVerticalComponentGroup:
 	{UiVerticalComponentGroup}
@@ -222,7 +254,7 @@ UiMobileVerticalComponentGroup returns UiVerticalComponentGroup:
 	'}';
 
 UiMobileVerticalComponentGroupAssigment returns UiVerticalComponentGroupAssigment:
-	element=UiEmbeddable;
+	element=UiMobileEmbeddable;
 
 UiMobileTabSheet:
 	{UiMobileTabSheet}
@@ -236,7 +268,7 @@ UiMobileTabSheet:
 	'}';
 
 UiMobileTabAssignment:
-	'tab' (name=ID)? element=UiEmbeddable;
+	'tab' (name=ID)? element=UiMobileEmbeddable;
 
 UiTabSheet:
 	{UiTabSheet}
@@ -312,7 +344,7 @@ UiMobileNavigationPage:
 	'}';
 
 UiMobileNavigationPageAssignment:
-	element=UiEmbeddable;
+	element=UiMobileEmbeddable;
 
 UiPoint returns UiPoint:
 	x=INT '/' y=INT;
@@ -508,16 +540,17 @@ UiColumn returns UiColumn:
 	'column' getter=[JvmOperation] ('icon' iconName=STRING)? (';')?;
 
 UiEmbeddable:
-	UiLayout | UiField | UiAction | UiTabSheet | UiMobileEmbeddable;
+	UiLayout | UiField | UiAction | UiTabSheet;
 
 UiMobileEmbeddable:
 	UiMobileLayout | UiMobileField | UiMobileTabSheet | UiMobileAction;
 
 UiMobileLayout:
-	UiMobileHorizontalButtonGroup | UiMobileVerticalComponentGroup | UiMobileNavigationPage;
+	UiMobileHorizontalButtonGroup | UiMobileVerticalComponentGroup | UiMobileNavigationPage | UiMobileHorizontalLayout | UiMobileVerticalLayout;
 
 UiMobileField:
-	UiMobileSwitch;
+	UiMobileSwitch | UiTextField | UiNumericField | UiTable | UiComboBox | UiImage | UiSearchField | UiLabel |
+	UiDecimalField | UiTextArea | UiDateField | UiBrowser | UiProgressBar | UiOptionsGroup;
 
 UiLayout:
 	UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout | UiSplitpanel | UiPanel;
@@ -531,7 +564,7 @@ UiAction:
 	UiButton;
 
 UiMobileAction:
-	UiMobileNavigationButton;
+	UiMobileNavigationButton | UiButton;
 
 UiNumericField:
 	{UiNumericField}

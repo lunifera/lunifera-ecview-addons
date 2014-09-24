@@ -13,5 +13,5 @@ package org.lunifera.ecview.semantic.uimodel;
  * @model
  * @generated
  */
-public interface UiLabel extends UiField {
+public interface UiLabel extends UiField, UiMobileField {
 } // UiLabel

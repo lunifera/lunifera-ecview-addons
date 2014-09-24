@@ -20,7 +20,7 @@ package org.lunifera.ecview.semantic.uimodel;
  * @model
  * @generated
  */
-public interface UiNumericField extends UiField {
+public interface UiNumericField extends UiField, UiMobileField {
 
 	/**
 	 * Returns the value of the '<em><b>No Grouping</b></em>' attribute.

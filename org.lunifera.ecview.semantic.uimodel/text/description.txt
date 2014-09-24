@@ -136,14 +136,14 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference element : UiEmbeddable
     Attribute alignment : UiAlignment
 
-  Class UiHorizontalLayout -> UiLayout
+  Class UiHorizontalLayout -> UiLayout, UiMobileLayout
     Reference contents : UiHorizontalLayoutAssigment<<0..*>>
 
   Class UiVerticalLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
     Attribute alignment : UiAlignment
 
-  Class UiVerticalLayout -> UiLayout
+  Class UiVerticalLayout -> UiLayout, UiMobileLayout
     Reference contents : UiVerticalLayoutAssigment<<0..*>>
 
   Class UiFormLayoutAssigment -> UiLayoutAssignment
@@ -152,24 +152,24 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiFormLayout -> UiLayout
     Reference contents : UiFormLayoutAssigment<<0..*>>
 
-  Class UiTextField -> UiField
+  Class UiTextField -> UiField, UiMobileField
     Attribute maxLength : EInt
     Attribute minLength : EInt
     Attribute regex : EString
 
-  Class UiImage -> UiField
+  Class UiImage -> UiField, UiMobileField
     Attribute value : EString
 
   Class UiList -> UiField, UiTypeProvider
     Attribute selectionType : UiSelectionType<<1..1>>
     Reference itemImageProperty : JvmOperation
 
-  Class UiTable -> UiField, UiTypeProvider
+  Class UiTable -> UiField, UiTypeProvider, UiMobileField
     Reference columnAssignment : UiColumnsAssignment
     Attribute selectionType : UiSelectionType<<1..1>>
     Reference itemImageProperty : JvmOperation
 
-  Class UiComboBox -> UiField, UiTypeProvider
+  Class UiComboBox -> UiField, UiTypeProvider, UiMobileField
     Reference itemCaptionProperty : JvmOperation
     Reference itemImageProperty : JvmOperation
 
@@ -189,7 +189,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiColumnsAssignment -> UiField
     Reference columns : UiColumn<<0..*>>
 
-  Class UiNumericField -> UiField
+  Class UiNumericField -> UiField, UiMobileField
     Attribute noGrouping : EBoolean
     Attribute noMarkNegative : EBoolean
 
@@ -266,7 +266,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiHorizontalButtonGroup -> UiMobileLayout
     Reference contents : UiHorizontalButtonGroupAssigment<<0..*>>
 
-  Class UiButton -> UiAction, UiI18nInfoable
+  Class UiButton -> UiAction, UiI18nInfoable, UiMobileAction
 
   Class UiSwitch -> UiMobileField
 
@@ -309,7 +309,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiOpenDialogCommand -> UiCommand
     Reference dialog : UiDialog
 
-  Class UiSearchField -> UiField
+  Class UiSearchField -> UiField, UiMobileField
     Reference property : JvmField
 
   Class UiSearchDialog -> UiEmbeddable, UiTypeProvider
@@ -322,27 +322,27 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiSearchWithDialogCommand -> UiCommand
     Reference dialog : UiSearchDialog
 
-  Class UiLabel -> UiField
+  Class UiLabel -> UiField, UiMobileField
 
-  Class UiDecimalField -> UiField
+  Class UiDecimalField -> UiField, UiMobileField
     Attribute precision : EInt
     Attribute noGrouping : EBoolean
     Attribute noMarkNegative : EBoolean
 
-  Class UiTextArea -> UiField
+  Class UiTextArea -> UiField, UiMobileField
 
-  Class UiOptionsGroup -> UiField, UiTypeProvider
+  Class UiOptionsGroup -> UiField, UiTypeProvider, UiMobileField
     Attribute selectionType : UiSelectionType
     Reference itemImageProperty : JvmOperation
     Reference itemCaptionProperty : JvmOperation
 
-  Class UiDateField -> UiField
+  Class UiDateField -> UiField, UiMobileField
     Attribute dateFormat : UiDateFormat
     Attribute resolution : UiDateTimeResolution
 
-  Class UiBrowser -> UiField
+  Class UiBrowser -> UiField, UiMobileField
 
-  Class UiProgressBar -> UiField
+  Class UiProgressBar -> UiField, UiMobileField
 
   Class UiI18nInfo
     Attribute key : EString

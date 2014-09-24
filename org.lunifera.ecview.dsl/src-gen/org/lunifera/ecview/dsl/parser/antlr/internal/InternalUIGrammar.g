@@ -1824,9 +1824,9 @@ ruleUiMobileView returns [EObject current=null]
 ))*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiMobileViewAccess().getContentUiEmbeddableParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getUiMobileViewAccess().getContentUiMobileEmbeddableParserRuleCall_5_0()); 
 	    }
-		lv_content_8_0=ruleUiEmbeddable		{
+		lv_content_8_0=ruleUiMobileEmbeddable		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileViewRule());
 	        }
@@ -1834,7 +1834,7 @@ ruleUiMobileView returns [EObject current=null]
        			$current, 
        			"content",
         		lv_content_8_0, 
-        		"UiEmbeddable");
+        		"UiMobileEmbeddable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2669,6 +2669,204 @@ ruleUiVerticalLayoutAssigment returns [EObject current=null]
 
 
 
+// Entry rule entryRuleUiMobileVerticalLayout
+entryRuleUiMobileVerticalLayout returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiMobileVerticalLayoutRule()); }
+	 iv_ruleUiMobileVerticalLayout=ruleUiMobileVerticalLayout 
+	 { $current=$iv_ruleUiMobileVerticalLayout.current; } 
+	 EOF 
+;
+
+// Rule UiMobileVerticalLayout
+ruleUiMobileVerticalLayout returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUiMobileVerticalLayoutAccess().getUiVerticalLayoutAction_0(),
+            $current);
+    }
+)	otherlv_1='mobileVerticalLayout' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiMobileVerticalLayoutAccess().getMobileVerticalLayoutKeyword_1());
+    }
+(	otherlv_2='(' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getUiMobileVerticalLayoutAccess().getLeftParenthesisKeyword_2_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileVerticalLayoutAccess().getI18nInfoUiI18nInfoParserRuleCall_2_1_0()); 
+	    }
+		lv_i18nInfo_3_0=ruleUiI18nInfo		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileVerticalLayoutRule());
+	        }
+       		set(
+       			$current, 
+       			"i18nInfo",
+        		lv_i18nInfo_3_0, 
+        		"UiI18nInfo");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?	otherlv_4=')' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getUiMobileVerticalLayoutAccess().getRightParenthesisKeyword_2_2());
+    }
+)?(
+(
+		lv_name_5_0=RULE_ID
+		{
+			newLeafNode(lv_name_5_0, grammarAccess.getUiMobileVerticalLayoutAccess().getNameIDTerminalRuleCall_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiMobileVerticalLayoutRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_5_0, 
+        		"ID");
+	    }
+
+)
+)?	otherlv_6='{' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getUiMobileVerticalLayoutAccess().getLeftCurlyBracketKeyword_4());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileVerticalLayoutAccess().getContentsUiMobileVerticalLayoutAssigmentParserRuleCall_5_0()); 
+	    }
+		lv_contents_7_0=ruleUiMobileVerticalLayoutAssigment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileVerticalLayoutRule());
+	        }
+       		add(
+       			$current, 
+       			"contents",
+        		lv_contents_7_0, 
+        		"UiMobileVerticalLayoutAssigment");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileVerticalLayoutAccess().getBindingsUiBindingParserRuleCall_6_0()); 
+	    }
+		lv_bindings_8_0=ruleUiBinding		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileVerticalLayoutRule());
+	        }
+       		add(
+       			$current, 
+       			"bindings",
+        		lv_bindings_8_0, 
+        		"UiBinding");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileVerticalLayoutAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
+	    }
+		lv_processorAssignments_9_0=ruleUiVisibilityProcessorAssignment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileVerticalLayoutRule());
+	        }
+       		add(
+       			$current, 
+       			"processorAssignments",
+        		lv_processorAssignments_9_0, 
+        		"UiVisibilityProcessorAssignment");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_10='}' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getUiMobileVerticalLayoutAccess().getRightCurlyBracketKeyword_8());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleUiMobileVerticalLayoutAssigment
+entryRuleUiMobileVerticalLayoutAssigment returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiMobileVerticalLayoutAssigmentRule()); }
+	 iv_ruleUiMobileVerticalLayoutAssigment=ruleUiMobileVerticalLayoutAssigment 
+	 { $current=$iv_ruleUiMobileVerticalLayoutAssigment.current; } 
+	 EOF 
+;
+
+// Rule UiMobileVerticalLayoutAssigment
+ruleUiMobileVerticalLayoutAssigment returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileVerticalLayoutAssigmentAccess().getElementUiMobileEmbeddableParserRuleCall_0_0()); 
+	    }
+		lv_element_0_0=ruleUiMobileEmbeddable		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileVerticalLayoutAssigmentRule());
+	        }
+       		set(
+       			$current, 
+       			"element",
+        		lv_element_0_0, 
+        		"UiMobileEmbeddable");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_1='align' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiMobileVerticalLayoutAssigmentAccess().getAlignKeyword_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileVerticalLayoutAssigmentAccess().getAlignmentUiAlignmentEnumRuleCall_1_1_0()); 
+	    }
+		lv_alignment_2_0=ruleUiAlignment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileVerticalLayoutAssigmentRule());
+	        }
+       		set(
+       			$current, 
+       			"alignment",
+        		lv_alignment_2_0, 
+        		"UiAlignment");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?)
+;
+
+
+
+
+
 // Entry rule entryRuleUiHorizontalLayout
 entryRuleUiHorizontalLayout returns [EObject current=null] 
 	:
@@ -2867,6 +3065,204 @@ ruleUiHorizontalLayoutAssigment returns [EObject current=null]
 
 
 
+// Entry rule entryRuleUiMobileHorizontalLayout
+entryRuleUiMobileHorizontalLayout returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiMobileHorizontalLayoutRule()); }
+	 iv_ruleUiMobileHorizontalLayout=ruleUiMobileHorizontalLayout 
+	 { $current=$iv_ruleUiMobileHorizontalLayout.current; } 
+	 EOF 
+;
+
+// Rule UiMobileHorizontalLayout
+ruleUiMobileHorizontalLayout returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUiMobileHorizontalLayoutAccess().getUiHorizontalLayoutAction_0(),
+            $current);
+    }
+)	otherlv_1='mobileHorizontalLayout' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiMobileHorizontalLayoutAccess().getMobileHorizontalLayoutKeyword_1());
+    }
+(	otherlv_2='(' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getUiMobileHorizontalLayoutAccess().getLeftParenthesisKeyword_2_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileHorizontalLayoutAccess().getI18nInfoUiI18nInfoParserRuleCall_2_1_0()); 
+	    }
+		lv_i18nInfo_3_0=ruleUiI18nInfo		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileHorizontalLayoutRule());
+	        }
+       		set(
+       			$current, 
+       			"i18nInfo",
+        		lv_i18nInfo_3_0, 
+        		"UiI18nInfo");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?	otherlv_4=')' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getUiMobileHorizontalLayoutAccess().getRightParenthesisKeyword_2_2());
+    }
+)?(
+(
+		lv_name_5_0=RULE_ID
+		{
+			newLeafNode(lv_name_5_0, grammarAccess.getUiMobileHorizontalLayoutAccess().getNameIDTerminalRuleCall_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiMobileHorizontalLayoutRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_5_0, 
+        		"ID");
+	    }
+
+)
+)?	otherlv_6='{' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getUiMobileHorizontalLayoutAccess().getLeftCurlyBracketKeyword_4());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileHorizontalLayoutAccess().getContentsUiMobileHorizontalLayoutAssigmentParserRuleCall_5_0()); 
+	    }
+		lv_contents_7_0=ruleUiMobileHorizontalLayoutAssigment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileHorizontalLayoutRule());
+	        }
+       		add(
+       			$current, 
+       			"contents",
+        		lv_contents_7_0, 
+        		"UiMobileHorizontalLayoutAssigment");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileHorizontalLayoutAccess().getBindingsUiBindingParserRuleCall_6_0()); 
+	    }
+		lv_bindings_8_0=ruleUiBinding		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileHorizontalLayoutRule());
+	        }
+       		add(
+       			$current, 
+       			"bindings",
+        		lv_bindings_8_0, 
+        		"UiBinding");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileHorizontalLayoutAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
+	    }
+		lv_processorAssignments_9_0=ruleUiVisibilityProcessorAssignment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileHorizontalLayoutRule());
+	        }
+       		add(
+       			$current, 
+       			"processorAssignments",
+        		lv_processorAssignments_9_0, 
+        		"UiVisibilityProcessorAssignment");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_10='}' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getUiMobileHorizontalLayoutAccess().getRightCurlyBracketKeyword_8());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleUiMobileHorizontalLayoutAssigment
+entryRuleUiMobileHorizontalLayoutAssigment returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiMobileHorizontalLayoutAssigmentRule()); }
+	 iv_ruleUiMobileHorizontalLayoutAssigment=ruleUiMobileHorizontalLayoutAssigment 
+	 { $current=$iv_ruleUiMobileHorizontalLayoutAssigment.current; } 
+	 EOF 
+;
+
+// Rule UiMobileHorizontalLayoutAssigment
+ruleUiMobileHorizontalLayoutAssigment returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileHorizontalLayoutAssigmentAccess().getElementUiMobileEmbeddableParserRuleCall_0_0()); 
+	    }
+		lv_element_0_0=ruleUiMobileEmbeddable		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileHorizontalLayoutAssigmentRule());
+	        }
+       		set(
+       			$current, 
+       			"element",
+        		lv_element_0_0, 
+        		"UiMobileEmbeddable");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_1='align' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiMobileHorizontalLayoutAssigmentAccess().getAlignKeyword_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileHorizontalLayoutAssigmentAccess().getAlignmentUiAlignmentEnumRuleCall_1_1_0()); 
+	    }
+		lv_alignment_2_0=ruleUiAlignment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileHorizontalLayoutAssigmentRule());
+	        }
+       		set(
+       			$current, 
+       			"alignment",
+        		lv_alignment_2_0, 
+        		"UiAlignment");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?)
+;
+
+
+
+
+
 // Entry rule entryRuleUiMobileHorizontalButtonGroup
 entryRuleUiMobileHorizontalButtonGroup returns [EObject current=null] 
 	:
@@ -3003,9 +3399,9 @@ ruleUiMobileHorizontalButtonGroupAssigment returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiMobileHorizontalButtonGroupAssigmentAccess().getElementUiEmbeddableParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getUiMobileHorizontalButtonGroupAssigmentAccess().getElementUiMobileEmbeddableParserRuleCall_0()); 
 	    }
-		lv_element_0_0=ruleUiEmbeddable		{
+		lv_element_0_0=ruleUiMobileEmbeddable		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileHorizontalButtonGroupAssigmentRule());
 	        }
@@ -3013,7 +3409,7 @@ ruleUiMobileHorizontalButtonGroupAssigment returns [EObject current=null]
        			$current, 
        			"element",
         		lv_element_0_0, 
-        		"UiEmbeddable");
+        		"UiMobileEmbeddable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3179,9 +3575,9 @@ ruleUiMobileVerticalComponentGroupAssigment returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiMobileVerticalComponentGroupAssigmentAccess().getElementUiEmbeddableParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getUiMobileVerticalComponentGroupAssigmentAccess().getElementUiMobileEmbeddableParserRuleCall_0()); 
 	    }
-		lv_element_0_0=ruleUiEmbeddable		{
+		lv_element_0_0=ruleUiMobileEmbeddable		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileVerticalComponentGroupAssigmentRule());
 	        }
@@ -3189,7 +3585,7 @@ ruleUiMobileVerticalComponentGroupAssigment returns [EObject current=null]
        			$current, 
        			"element",
         		lv_element_0_0, 
-        		"UiEmbeddable");
+        		"UiMobileEmbeddable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3377,9 +3773,9 @@ ruleUiMobileTabAssignment returns [EObject current=null]
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiMobileTabAssignmentAccess().getElementUiEmbeddableParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getUiMobileTabAssignmentAccess().getElementUiMobileEmbeddableParserRuleCall_2_0()); 
 	    }
-		lv_element_2_0=ruleUiEmbeddable		{
+		lv_element_2_0=ruleUiMobileEmbeddable		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileTabAssignmentRule());
 	        }
@@ -3387,7 +3783,7 @@ ruleUiMobileTabAssignment returns [EObject current=null]
        			$current, 
        			"element",
         		lv_element_2_0, 
-        		"UiEmbeddable");
+        		"UiMobileEmbeddable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4629,9 +5025,9 @@ ruleUiMobileNavigationPageAssignment returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getElementUiEmbeddableParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getElementUiMobileEmbeddableParserRuleCall_0()); 
 	    }
-		lv_element_0_0=ruleUiEmbeddable		{
+		lv_element_0_0=ruleUiMobileEmbeddable		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileNavigationPageAssignmentRule());
 	        }
@@ -4639,7 +5035,7 @@ ruleUiMobileNavigationPageAssignment returns [EObject current=null]
        			$current, 
        			"element",
         		lv_element_0_0, 
-        		"UiEmbeddable");
+        		"UiMobileEmbeddable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -7521,16 +7917,6 @@ ruleUiEmbeddable returns [EObject current=null]
         $current = $this_UiTabSheet_3.current; 
         afterParserOrEnumRuleCall();
     }
-
-    |
-    { 
-        newCompositeNode(grammarAccess.getUiEmbeddableAccess().getUiMobileEmbeddableParserRuleCall_4()); 
-    }
-    this_UiMobileEmbeddable_4=ruleUiMobileEmbeddable
-    { 
-        $current = $this_UiMobileEmbeddable_4.current; 
-        afterParserOrEnumRuleCall();
-    }
 )
 ;
 
@@ -7641,6 +8027,26 @@ ruleUiMobileLayout returns [EObject current=null]
         $current = $this_UiMobileNavigationPage_2.current; 
         afterParserOrEnumRuleCall();
     }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileLayoutAccess().getUiMobileHorizontalLayoutParserRuleCall_3()); 
+    }
+    this_UiMobileHorizontalLayout_3=ruleUiMobileHorizontalLayout
+    { 
+        $current = $this_UiMobileHorizontalLayout_3.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileLayoutAccess().getUiMobileVerticalLayoutParserRuleCall_4()); 
+    }
+    this_UiMobileVerticalLayout_4=ruleUiMobileVerticalLayout
+    { 
+        $current = $this_UiMobileVerticalLayout_4.current; 
+        afterParserOrEnumRuleCall();
+    }
 )
 ;
 
@@ -7662,9 +8068,9 @@ ruleUiMobileField returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-
+(
     { 
-        newCompositeNode(grammarAccess.getUiMobileFieldAccess().getUiMobileSwitchParserRuleCall()); 
+        newCompositeNode(grammarAccess.getUiMobileFieldAccess().getUiMobileSwitchParserRuleCall_0()); 
     }
     this_UiMobileSwitch_0=ruleUiMobileSwitch
     { 
@@ -7672,6 +8078,136 @@ ruleUiMobileField returns [EObject current=null]
         afterParserOrEnumRuleCall();
     }
 
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileFieldAccess().getUiTextFieldParserRuleCall_1()); 
+    }
+    this_UiTextField_1=ruleUiTextField
+    { 
+        $current = $this_UiTextField_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileFieldAccess().getUiNumericFieldParserRuleCall_2()); 
+    }
+    this_UiNumericField_2=ruleUiNumericField
+    { 
+        $current = $this_UiNumericField_2.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileFieldAccess().getUiTableParserRuleCall_3()); 
+    }
+    this_UiTable_3=ruleUiTable
+    { 
+        $current = $this_UiTable_3.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileFieldAccess().getUiComboBoxParserRuleCall_4()); 
+    }
+    this_UiComboBox_4=ruleUiComboBox
+    { 
+        $current = $this_UiComboBox_4.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileFieldAccess().getUiImageParserRuleCall_5()); 
+    }
+    this_UiImage_5=ruleUiImage
+    { 
+        $current = $this_UiImage_5.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileFieldAccess().getUiSearchFieldParserRuleCall_6()); 
+    }
+    this_UiSearchField_6=ruleUiSearchField
+    { 
+        $current = $this_UiSearchField_6.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileFieldAccess().getUiLabelParserRuleCall_7()); 
+    }
+    this_UiLabel_7=ruleUiLabel
+    { 
+        $current = $this_UiLabel_7.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileFieldAccess().getUiDecimalFieldParserRuleCall_8()); 
+    }
+    this_UiDecimalField_8=ruleUiDecimalField
+    { 
+        $current = $this_UiDecimalField_8.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileFieldAccess().getUiTextAreaParserRuleCall_9()); 
+    }
+    this_UiTextArea_9=ruleUiTextArea
+    { 
+        $current = $this_UiTextArea_9.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileFieldAccess().getUiDateFieldParserRuleCall_10()); 
+    }
+    this_UiDateField_10=ruleUiDateField
+    { 
+        $current = $this_UiDateField_10.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileFieldAccess().getUiBrowserParserRuleCall_11()); 
+    }
+    this_UiBrowser_11=ruleUiBrowser
+    { 
+        $current = $this_UiBrowser_11.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileFieldAccess().getUiProgressBarParserRuleCall_12()); 
+    }
+    this_UiProgressBar_12=ruleUiProgressBar
+    { 
+        $current = $this_UiProgressBar_12.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileFieldAccess().getUiOptionsGroupParserRuleCall_13()); 
+    }
+    this_UiOptionsGroup_13=ruleUiOptionsGroup
+    { 
+        $current = $this_UiOptionsGroup_13.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
 ;
 
 
@@ -7972,9 +8508,9 @@ ruleUiMobileAction returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-
+(
     { 
-        newCompositeNode(grammarAccess.getUiMobileActionAccess().getUiMobileNavigationButtonParserRuleCall()); 
+        newCompositeNode(grammarAccess.getUiMobileActionAccess().getUiMobileNavigationButtonParserRuleCall_0()); 
     }
     this_UiMobileNavigationButton_0=ruleUiMobileNavigationButton
     { 
@@ -7982,6 +8518,16 @@ ruleUiMobileAction returns [EObject current=null]
         afterParserOrEnumRuleCall();
     }
 
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileActionAccess().getUiButtonParserRuleCall_1()); 
+    }
+    this_UiButton_1=ruleUiButton
+    { 
+        $current = $this_UiButton_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
 ;
 
 

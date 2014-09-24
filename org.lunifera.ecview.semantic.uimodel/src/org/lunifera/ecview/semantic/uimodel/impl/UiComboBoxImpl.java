@@ -17,6 +17,8 @@ import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiComboBox;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
+import org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiMobileField;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
@@ -623,6 +625,16 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 				default: return -1;
 			}
 		}
+		if (baseClass == UiMobileEmbeddable.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiMobileField.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -654,6 +666,16 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 		if (baseClass == UiTypeProvider.class) {
 			switch (baseFeatureID) {
 				case UiModelPackage.UI_TYPE_PROVIDER__JVM_TYPE: return UiModelPackage.UI_COMBO_BOX__JVM_TYPE;
+				default: return -1;
+			}
+		}
+		if (baseClass == UiMobileEmbeddable.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiMobileField.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

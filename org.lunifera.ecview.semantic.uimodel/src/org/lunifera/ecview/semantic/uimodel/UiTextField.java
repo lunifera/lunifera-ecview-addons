@@ -21,7 +21,7 @@ package org.lunifera.ecview.semantic.uimodel;
  * @model
  * @generated
  */
-public interface UiTextField extends UiField {
+public interface UiTextField extends UiField, UiMobileField {
 
 	/**
 	 * Returns the value of the '<em><b>Max Length</b></em>' attribute.

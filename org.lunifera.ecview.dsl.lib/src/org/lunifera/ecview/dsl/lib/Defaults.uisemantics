@@ -514,7 +514,7 @@ element ProgressBar {
 	uri view:UiProgressBar
 	
 	bindings {
-		endpoint value String
+		endpoint value float
 		endpoint editable Boolean
 		endpoint visible Boolean
 	}

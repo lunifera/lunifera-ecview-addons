@@ -23,7 +23,7 @@ import org.eclipse.xtext.common.types.JvmOperation;
  * @model
  * @generated
  */
-public interface UiTable extends UiField, UiTypeProvider {
+public interface UiTable extends UiField, UiTypeProvider, UiMobileField {
 	/**
 	 * Returns the value of the '<em><b>Column Assignment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

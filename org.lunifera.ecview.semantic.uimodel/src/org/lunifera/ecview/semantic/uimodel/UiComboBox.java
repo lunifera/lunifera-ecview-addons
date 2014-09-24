@@ -22,7 +22,7 @@ import org.eclipse.xtext.common.types.JvmOperation;
  * @model
  * @generated
  */
-public interface UiComboBox extends UiField, UiTypeProvider {
+public interface UiComboBox extends UiField, UiTypeProvider, UiMobileField {
 	/**
 	 * Returns the value of the '<em><b>Item Caption Property</b></em>' reference.
 	 * <!-- begin-user-doc -->

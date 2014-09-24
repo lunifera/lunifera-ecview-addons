@@ -19,7 +19,7 @@ package org.lunifera.ecview.semantic.uimodel;
  * @model
  * @generated
  */
-public interface UiImage extends UiField {
+public interface UiImage extends UiField, UiMobileField {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->

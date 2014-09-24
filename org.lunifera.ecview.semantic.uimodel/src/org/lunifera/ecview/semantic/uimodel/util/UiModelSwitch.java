@@ -409,7 +409,9 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_HORIZONTAL_LAYOUT: {
 				UiHorizontalLayout uiHorizontalLayout = (UiHorizontalLayout)theEObject;
 				T result = caseUiHorizontalLayout(uiHorizontalLayout);
+				if (result == null) result = caseUiMobileLayout(uiHorizontalLayout);
 				if (result == null) result = caseUiLayout(uiHorizontalLayout);
+				if (result == null) result = caseUiMobileEmbeddable(uiHorizontalLayout);
 				if (result == null) result = caseUiEmbeddable(uiHorizontalLayout);
 				if (result == null) result = caseUiVisibilityProcessable(uiHorizontalLayout);
 				if (result == null) result = caseUiRawBindable(uiHorizontalLayout);
@@ -430,7 +432,9 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_VERTICAL_LAYOUT: {
 				UiVerticalLayout uiVerticalLayout = (UiVerticalLayout)theEObject;
 				T result = caseUiVerticalLayout(uiVerticalLayout);
+				if (result == null) result = caseUiMobileLayout(uiVerticalLayout);
 				if (result == null) result = caseUiLayout(uiVerticalLayout);
+				if (result == null) result = caseUiMobileEmbeddable(uiVerticalLayout);
 				if (result == null) result = caseUiEmbeddable(uiVerticalLayout);
 				if (result == null) result = caseUiVisibilityProcessable(uiVerticalLayout);
 				if (result == null) result = caseUiRawBindable(uiVerticalLayout);
@@ -463,7 +467,9 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_TEXT_FIELD: {
 				UiTextField uiTextField = (UiTextField)theEObject;
 				T result = caseUiTextField(uiTextField);
+				if (result == null) result = caseUiMobileField(uiTextField);
 				if (result == null) result = caseUiField(uiTextField);
+				if (result == null) result = caseUiMobileEmbeddable(uiTextField);
 				if (result == null) result = caseUiEmbeddable(uiTextField);
 				if (result == null) result = caseUiVisibilityProcessable(uiTextField);
 				if (result == null) result = caseUiRawBindable(uiTextField);
@@ -475,7 +481,9 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_IMAGE: {
 				UiImage uiImage = (UiImage)theEObject;
 				T result = caseUiImage(uiImage);
+				if (result == null) result = caseUiMobileField(uiImage);
 				if (result == null) result = caseUiField(uiImage);
+				if (result == null) result = caseUiMobileEmbeddable(uiImage);
 				if (result == null) result = caseUiEmbeddable(uiImage);
 				if (result == null) result = caseUiVisibilityProcessable(uiImage);
 				if (result == null) result = caseUiRawBindable(uiImage);
@@ -500,8 +508,10 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_TABLE: {
 				UiTable uiTable = (UiTable)theEObject;
 				T result = caseUiTable(uiTable);
-				if (result == null) result = caseUiField(uiTable);
 				if (result == null) result = caseUiTypeProvider(uiTable);
+				if (result == null) result = caseUiMobileField(uiTable);
+				if (result == null) result = caseUiField(uiTable);
+				if (result == null) result = caseUiMobileEmbeddable(uiTable);
 				if (result == null) result = caseUiEmbeddable(uiTable);
 				if (result == null) result = caseUiVisibilityProcessable(uiTable);
 				if (result == null) result = caseUiRawBindable(uiTable);
@@ -513,8 +523,10 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_COMBO_BOX: {
 				UiComboBox uiComboBox = (UiComboBox)theEObject;
 				T result = caseUiComboBox(uiComboBox);
-				if (result == null) result = caseUiField(uiComboBox);
 				if (result == null) result = caseUiTypeProvider(uiComboBox);
+				if (result == null) result = caseUiMobileField(uiComboBox);
+				if (result == null) result = caseUiField(uiComboBox);
+				if (result == null) result = caseUiMobileEmbeddable(uiComboBox);
 				if (result == null) result = caseUiEmbeddable(uiComboBox);
 				if (result == null) result = caseUiVisibilityProcessable(uiComboBox);
 				if (result == null) result = caseUiRawBindable(uiComboBox);
@@ -556,7 +568,9 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_NUMERIC_FIELD: {
 				UiNumericField uiNumericField = (UiNumericField)theEObject;
 				T result = caseUiNumericField(uiNumericField);
+				if (result == null) result = caseUiMobileField(uiNumericField);
 				if (result == null) result = caseUiField(uiNumericField);
+				if (result == null) result = caseUiMobileEmbeddable(uiNumericField);
 				if (result == null) result = caseUiEmbeddable(uiNumericField);
 				if (result == null) result = caseUiVisibilityProcessable(uiNumericField);
 				if (result == null) result = caseUiRawBindable(uiNumericField);
@@ -735,7 +749,9 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_BUTTON: {
 				UiButton uiButton = (UiButton)theEObject;
 				T result = caseUiButton(uiButton);
+				if (result == null) result = caseUiMobileAction(uiButton);
 				if (result == null) result = caseUiAction(uiButton);
+				if (result == null) result = caseUiMobileEmbeddable(uiButton);
 				if (result == null) result = caseUiEmbeddable(uiButton);
 				if (result == null) result = caseUiVisibilityProcessable(uiButton);
 				if (result == null) result = caseUiRawBindable(uiButton);
@@ -897,7 +913,9 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_SEARCH_FIELD: {
 				UiSearchField uiSearchField = (UiSearchField)theEObject;
 				T result = caseUiSearchField(uiSearchField);
+				if (result == null) result = caseUiMobileField(uiSearchField);
 				if (result == null) result = caseUiField(uiSearchField);
+				if (result == null) result = caseUiMobileEmbeddable(uiSearchField);
 				if (result == null) result = caseUiEmbeddable(uiSearchField);
 				if (result == null) result = caseUiVisibilityProcessable(uiSearchField);
 				if (result == null) result = caseUiRawBindable(uiSearchField);
@@ -938,7 +956,9 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_LABEL: {
 				UiLabel uiLabel = (UiLabel)theEObject;
 				T result = caseUiLabel(uiLabel);
+				if (result == null) result = caseUiMobileField(uiLabel);
 				if (result == null) result = caseUiField(uiLabel);
+				if (result == null) result = caseUiMobileEmbeddable(uiLabel);
 				if (result == null) result = caseUiEmbeddable(uiLabel);
 				if (result == null) result = caseUiVisibilityProcessable(uiLabel);
 				if (result == null) result = caseUiRawBindable(uiLabel);
@@ -950,7 +970,9 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_DECIMAL_FIELD: {
 				UiDecimalField uiDecimalField = (UiDecimalField)theEObject;
 				T result = caseUiDecimalField(uiDecimalField);
+				if (result == null) result = caseUiMobileField(uiDecimalField);
 				if (result == null) result = caseUiField(uiDecimalField);
+				if (result == null) result = caseUiMobileEmbeddable(uiDecimalField);
 				if (result == null) result = caseUiEmbeddable(uiDecimalField);
 				if (result == null) result = caseUiVisibilityProcessable(uiDecimalField);
 				if (result == null) result = caseUiRawBindable(uiDecimalField);
@@ -962,7 +984,9 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_TEXT_AREA: {
 				UiTextArea uiTextArea = (UiTextArea)theEObject;
 				T result = caseUiTextArea(uiTextArea);
+				if (result == null) result = caseUiMobileField(uiTextArea);
 				if (result == null) result = caseUiField(uiTextArea);
+				if (result == null) result = caseUiMobileEmbeddable(uiTextArea);
 				if (result == null) result = caseUiEmbeddable(uiTextArea);
 				if (result == null) result = caseUiVisibilityProcessable(uiTextArea);
 				if (result == null) result = caseUiRawBindable(uiTextArea);
@@ -974,8 +998,10 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_OPTIONS_GROUP: {
 				UiOptionsGroup uiOptionsGroup = (UiOptionsGroup)theEObject;
 				T result = caseUiOptionsGroup(uiOptionsGroup);
-				if (result == null) result = caseUiField(uiOptionsGroup);
 				if (result == null) result = caseUiTypeProvider(uiOptionsGroup);
+				if (result == null) result = caseUiMobileField(uiOptionsGroup);
+				if (result == null) result = caseUiField(uiOptionsGroup);
+				if (result == null) result = caseUiMobileEmbeddable(uiOptionsGroup);
 				if (result == null) result = caseUiEmbeddable(uiOptionsGroup);
 				if (result == null) result = caseUiVisibilityProcessable(uiOptionsGroup);
 				if (result == null) result = caseUiRawBindable(uiOptionsGroup);
@@ -987,7 +1013,9 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_DATE_FIELD: {
 				UiDateField uiDateField = (UiDateField)theEObject;
 				T result = caseUiDateField(uiDateField);
+				if (result == null) result = caseUiMobileField(uiDateField);
 				if (result == null) result = caseUiField(uiDateField);
+				if (result == null) result = caseUiMobileEmbeddable(uiDateField);
 				if (result == null) result = caseUiEmbeddable(uiDateField);
 				if (result == null) result = caseUiVisibilityProcessable(uiDateField);
 				if (result == null) result = caseUiRawBindable(uiDateField);
@@ -999,7 +1027,9 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_BROWSER: {
 				UiBrowser uiBrowser = (UiBrowser)theEObject;
 				T result = caseUiBrowser(uiBrowser);
+				if (result == null) result = caseUiMobileField(uiBrowser);
 				if (result == null) result = caseUiField(uiBrowser);
+				if (result == null) result = caseUiMobileEmbeddable(uiBrowser);
 				if (result == null) result = caseUiEmbeddable(uiBrowser);
 				if (result == null) result = caseUiVisibilityProcessable(uiBrowser);
 				if (result == null) result = caseUiRawBindable(uiBrowser);
@@ -1011,7 +1041,9 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_PROGRESS_BAR: {
 				UiProgressBar uiProgressBar = (UiProgressBar)theEObject;
 				T result = caseUiProgressBar(uiProgressBar);
+				if (result == null) result = caseUiMobileField(uiProgressBar);
 				if (result == null) result = caseUiField(uiProgressBar);
+				if (result == null) result = caseUiMobileEmbeddable(uiProgressBar);
 				if (result == null) result = caseUiEmbeddable(uiProgressBar);
 				if (result == null) result = caseUiVisibilityProcessable(uiProgressBar);
 				if (result == null) result = caseUiRawBindable(uiProgressBar);

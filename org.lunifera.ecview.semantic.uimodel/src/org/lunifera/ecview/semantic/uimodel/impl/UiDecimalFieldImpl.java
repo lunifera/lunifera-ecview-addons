@@ -16,6 +16,8 @@ import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiDecimalField;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
+import org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiMobileField;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
@@ -561,6 +563,16 @@ public class UiDecimalFieldImpl extends UiVisibilityProcessableImpl implements U
 				default: return -1;
 			}
 		}
+		if (baseClass == UiMobileEmbeddable.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiMobileField.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -586,6 +598,16 @@ public class UiDecimalFieldImpl extends UiVisibilityProcessableImpl implements U
 		if (baseClass == UiI18nInfoable.class) {
 			switch (baseFeatureID) {
 				case UiModelPackage.UI_I1_8N_INFOABLE__I18N_INFO: return UiModelPackage.UI_DECIMAL_FIELD__I18N_INFO;
+				default: return -1;
+			}
+		}
+		if (baseClass == UiMobileEmbeddable.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiMobileField.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

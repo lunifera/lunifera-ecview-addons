@@ -13,5 +13,5 @@ package org.lunifera.ecview.semantic.uimodel;
  * @model
  * @generated
  */
-public interface UiBrowser extends UiField {
+public interface UiBrowser extends UiField, UiMobileField {
 } // UiBrowser

@@ -20,7 +20,7 @@ package org.lunifera.ecview.semantic.uimodel;
  * @model
  * @generated
  */
-public interface UiDateField extends UiField {
+public interface UiDateField extends UiField, UiMobileField {
 
 	/**
 	 * Returns the value of the '<em><b>Date Format</b></em>' attribute.

@@ -184,7 +184,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="#//UiAlignment"
         defaultValueLiteral="UNDEFINED"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiHorizontalLayout" eSuperTypes="#//UiLayout">
+  <eClassifiers xsi:type="ecore:EClass" name="UiHorizontalLayout" eSuperTypes="#//UiLayout #//UiMobileLayout">
     <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
         eType="#//UiHorizontalLayoutAssigment" containment="true"/>
   </eClassifiers>
@@ -193,7 +193,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="#//UiAlignment"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiVerticalLayout" eSuperTypes="#//UiLayout">
+  <eClassifiers xsi:type="ecore:EClass" name="UiVerticalLayout" eSuperTypes="#//UiLayout #//UiMobileLayout">
     <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
         eType="#//UiVerticalLayoutAssigment" containment="true"/>
   </eClassifiers>
@@ -205,14 +205,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
         eType="#//UiFormLayoutAssigment" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiTextField" eSuperTypes="#//UiField">
+  <eClassifiers xsi:type="ecore:EClass" name="UiTextField" eSuperTypes="#//UiField #//UiMobileField">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="-1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="-1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="regex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiImage" eSuperTypes="#//UiField">
+  <eClassifiers xsi:type="ecore:EClass" name="UiImage" eSuperTypes="#//UiField #//UiMobileField">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="UiSelectionType">
@@ -225,14 +225,14 @@
         eType="#//UiSelectionType" defaultValueLiteral="SINGLE"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemImageProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiTable" eSuperTypes="#//UiField #//UiTypeProvider">
+  <eClassifiers xsi:type="ecore:EClass" name="UiTable" eSuperTypes="#//UiField #//UiTypeProvider #//UiMobileField">
     <eStructuralFeatures xsi:type="ecore:EReference" name="columnAssignment" eType="#//UiColumnsAssignment"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionType" lowerBound="1"
         eType="#//UiSelectionType" defaultValueLiteral="SINGLE"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemImageProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiComboBox" eSuperTypes="#//UiField #//UiTypeProvider">
+  <eClassifiers xsi:type="ecore:EClass" name="UiComboBox" eSuperTypes="#//UiField #//UiTypeProvider #//UiMobileField">
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemCaptionProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemImageProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
   </eClassifiers>
@@ -260,7 +260,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//UiColumn" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiNumericField" eSuperTypes="#//UiField">
+  <eClassifiers xsi:type="ecore:EClass" name="UiNumericField" eSuperTypes="#//UiField #//UiMobileField">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="noGrouping" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="noMarkNegative" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -360,7 +360,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
         eType="#//UiHorizontalButtonGroupAssigment" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiButton" eSuperTypes="#//UiAction #//UiI18nInfoable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiButton" eSuperTypes="#//UiAction #//UiI18nInfoable #//UiMobileAction"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiSwitch" eSuperTypes="#//UiMobileField"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiVerticalComponentGroupAssigment" eSuperTypes="#//UiLayoutAssignment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
@@ -412,7 +412,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="dialog" eType="#//UiDialog"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiSearchField" eSuperTypes="#//UiField">
+  <eClassifiers xsi:type="ecore:EClass" name="UiSearchField" eSuperTypes="#//UiField #//UiMobileField">
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmField"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiSearchDialog" eSuperTypes="#//UiEmbeddable #//UiTypeProvider">
@@ -429,8 +429,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="dialog" eType="#//UiSearchDialog"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiLabel" eSuperTypes="#//UiField"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiDecimalField" eSuperTypes="#//UiField">
+  <eClassifiers xsi:type="ecore:EClass" name="UiLabel" eSuperTypes="#//UiField #//UiMobileField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiDecimalField" eSuperTypes="#//UiField #//UiMobileField">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="precision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="2"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="noGrouping" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -438,14 +438,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="noMarkNegative" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiTextArea" eSuperTypes="#//UiField"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiOptionsGroup" eSuperTypes="#//UiField #//UiTypeProvider">
+  <eClassifiers xsi:type="ecore:EClass" name="UiTextArea" eSuperTypes="#//UiField #//UiMobileField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiOptionsGroup" eSuperTypes="#//UiField #//UiTypeProvider #//UiMobileField">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionType" eType="#//UiSelectionType"
         defaultValueLiteral="SINGLE"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemImageProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemCaptionProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiDateField" eSuperTypes="#//UiField">
+  <eClassifiers xsi:type="ecore:EClass" name="UiDateField" eSuperTypes="#//UiField #//UiMobileField">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateFormat" eType="#//UiDateFormat"
         defaultValueLiteral="DATE"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolution" eType="#//UiDateTimeResolution"
@@ -465,8 +465,8 @@
     <eLiterals name="YEAR" value="5" literal="YEAR"/>
     <eLiterals name="UNDEFINED" value="6" literal="UNDEFINED"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiBrowser" eSuperTypes="#//UiField"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiProgressBar" eSuperTypes="#//UiField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiBrowser" eSuperTypes="#//UiField #//UiMobileField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UiProgressBar" eSuperTypes="#//UiField #//UiMobileField"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiI18nInfo">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

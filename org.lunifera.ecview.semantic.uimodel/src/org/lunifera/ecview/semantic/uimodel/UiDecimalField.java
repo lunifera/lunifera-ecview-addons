@@ -21,7 +21,7 @@ package org.lunifera.ecview.semantic.uimodel;
  * @model
  * @generated
  */
-public interface UiDecimalField extends UiField {
+public interface UiDecimalField extends UiField, UiMobileField {
 
 	/**
 	 * Returns the value of the '<em><b>Precision</b></em>' attribute.

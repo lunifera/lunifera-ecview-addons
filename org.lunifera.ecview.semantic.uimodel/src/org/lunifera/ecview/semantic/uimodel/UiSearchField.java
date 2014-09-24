@@ -21,7 +21,7 @@ import org.eclipse.xtext.common.types.JvmField;
  * @model
  * @generated
  */
-public interface UiSearchField extends UiField {
+public interface UiSearchField extends UiField, UiMobileField {
 
 	/**
 	 * Returns the value of the '<em><b>Property</b></em>' reference.
