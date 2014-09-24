@@ -2,12 +2,14 @@
  */
 package org.lunifera.ecview.semantic.uimodel.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessable;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
@@ -19,7 +21,7 @@ import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessableImpl#getProcessorAssignment <em>Processor Assignment</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessableImpl#getProcessorAssignments <em>Processor Assignments</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,15 +29,14 @@ import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
  */
 public abstract class UiVisibilityProcessableImpl extends MinimalEObjectImpl.Container implements UiVisibilityProcessable {
 	/**
-	 * The cached value of the '{@link #getProcessorAssignment() <em>Processor Assignment</em>}' containment reference.
+	 * The cached value of the '{@link #getProcessorAssignments() <em>Processor Assignments</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProcessorAssignment()
+	 * @see #getProcessorAssignments()
 	 * @generated
 	 * @ordered
 	 */
-	protected UiVisibilityProcessorAssignment processorAssignment;
-
+	protected EList<UiVisibilityProcessorAssignment> processorAssignments;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -60,65 +61,11 @@ public abstract class UiVisibilityProcessableImpl extends MinimalEObjectImpl.Con
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UiVisibilityProcessorAssignment getProcessorAssignment() {
-		if (processorAssignment != null && processorAssignment.eIsProxy()) {
-			InternalEObject oldProcessorAssignment = (InternalEObject)processorAssignment;
-			processorAssignment = (UiVisibilityProcessorAssignment)eResolveProxy(oldProcessorAssignment);
-			if (processorAssignment != oldProcessorAssignment) {
-				InternalEObject newProcessorAssignment = (InternalEObject)processorAssignment;
-				NotificationChain msgs = oldProcessorAssignment.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENT, null, null);
-				if (newProcessorAssignment.eInternalContainer() == null) {
-					msgs = newProcessorAssignment.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENT, null, msgs);
-				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENT, oldProcessorAssignment, processorAssignment));
-			}
+	public EList<UiVisibilityProcessorAssignment> getProcessorAssignments() {
+		if (processorAssignments == null) {
+			processorAssignments = new EObjectContainmentEList.Resolving<UiVisibilityProcessorAssignment>(UiVisibilityProcessorAssignment.class, this, UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENTS);
 		}
-		return processorAssignment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiVisibilityProcessorAssignment basicGetProcessorAssignment() {
-		return processorAssignment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProcessorAssignment(UiVisibilityProcessorAssignment newProcessorAssignment, NotificationChain msgs) {
-		UiVisibilityProcessorAssignment oldProcessorAssignment = processorAssignment;
-		processorAssignment = newProcessorAssignment;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENT, oldProcessorAssignment, newProcessorAssignment);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProcessorAssignment(UiVisibilityProcessorAssignment newProcessorAssignment) {
-		if (newProcessorAssignment != processorAssignment) {
-			NotificationChain msgs = null;
-			if (processorAssignment != null)
-				msgs = ((InternalEObject)processorAssignment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENT, null, msgs);
-			if (newProcessorAssignment != null)
-				msgs = ((InternalEObject)newProcessorAssignment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENT, null, msgs);
-			msgs = basicSetProcessorAssignment(newProcessorAssignment, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENT, newProcessorAssignment, newProcessorAssignment));
+		return processorAssignments;
 	}
 
 	/**
@@ -129,8 +76,8 @@ public abstract class UiVisibilityProcessableImpl extends MinimalEObjectImpl.Con
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENT:
-				return basicSetProcessorAssignment(null, msgs);
+			case UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENTS:
+				return ((InternalEList<?>)getProcessorAssignments()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -143,9 +90,8 @@ public abstract class UiVisibilityProcessableImpl extends MinimalEObjectImpl.Con
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENT:
-				if (resolve) return getProcessorAssignment();
-				return basicGetProcessorAssignment();
+			case UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENTS:
+				return getProcessorAssignments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -155,11 +101,13 @@ public abstract class UiVisibilityProcessableImpl extends MinimalEObjectImpl.Con
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENT:
-				setProcessorAssignment((UiVisibilityProcessorAssignment)newValue);
+			case UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENTS:
+				getProcessorAssignments().clear();
+				getProcessorAssignments().addAll((Collection<? extends UiVisibilityProcessorAssignment>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -173,8 +121,8 @@ public abstract class UiVisibilityProcessableImpl extends MinimalEObjectImpl.Con
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENT:
-				setProcessorAssignment((UiVisibilityProcessorAssignment)null);
+			case UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENTS:
+				getProcessorAssignments().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -188,8 +136,8 @@ public abstract class UiVisibilityProcessableImpl extends MinimalEObjectImpl.Con
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENT:
-				return processorAssignment != null;
+			case UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENTS:
+				return processorAssignments != null && !processorAssignments.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

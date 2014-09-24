@@ -31,12 +31,16 @@ import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
+import org.lunifera.ecview.core.common.model.binding.BindingFactory;
+import org.lunifera.ecview.core.common.model.binding.YBinding;
 import org.lunifera.ecview.core.common.model.binding.YBindingSet;
 import org.lunifera.ecview.core.common.model.binding.YBindingUpdateStrategy;
 import org.lunifera.ecview.core.common.model.binding.YECViewModelListBindingEndpoint;
 import org.lunifera.ecview.core.common.model.binding.YECViewModelValueBindingEndpoint;
 import org.lunifera.ecview.core.common.model.binding.YListBindingEndpoint;
+import org.lunifera.ecview.core.common.model.binding.YValueBinding;
 import org.lunifera.ecview.core.common.model.binding.YValueBindingEndpoint;
+import org.lunifera.ecview.core.common.model.binding.YVisibilityProcessorValueBindingEndpoint;
 import org.lunifera.ecview.core.common.model.core.CoreModelFactory;
 import org.lunifera.ecview.core.common.model.core.YAlignment;
 import org.lunifera.ecview.core.common.model.core.YBeanSlot;
@@ -60,6 +64,8 @@ import org.lunifera.ecview.core.common.model.validation.YMaxLengthValidator;
 import org.lunifera.ecview.core.common.model.validation.YMinLengthValidator;
 import org.lunifera.ecview.core.common.model.validation.YRegexpValidator;
 import org.lunifera.ecview.core.common.model.validation.YValidator;
+import org.lunifera.ecview.core.common.model.visibility.VisibilityFactory;
+import org.lunifera.ecview.core.common.model.visibility.YVisibilityProcessor;
 import org.lunifera.ecview.core.extension.model.datatypes.YDateTimeFormat;
 import org.lunifera.ecview.core.extension.model.datatypes.YDateTimeResolution;
 import org.lunifera.ecview.core.extension.model.datatypes.YDecimalDatatype;
@@ -99,6 +105,7 @@ import org.lunifera.ecview.core.extension.model.extension.YVerticalLayoutCellSty
 import org.lunifera.ecview.core.extension.model.extension.util.SimpleExtensionModelFactory;
 import org.lunifera.ecview.dsl.derivedstate.TypeHelper;
 import org.lunifera.ecview.dsl.derivedstate.UiGrammarElementAdapter;
+import org.lunifera.ecview.dsl.derivedstate.UiModelUtil;
 import org.lunifera.ecview.dsl.extensions.OperationExtensions;
 import org.lunifera.ecview.dsl.scope.BindableTypeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiAlignment;
@@ -109,6 +116,7 @@ import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
 import org.lunifera.ecview.semantic.uimodel.UiBrowser;
 import org.lunifera.ecview.semantic.uimodel.UiButton;
+import org.lunifera.ecview.semantic.uimodel.UiChangeTrigger;
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.UiColumn;
 import org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment;
@@ -182,6 +190,8 @@ import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroupAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout;
 import org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiView;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 import org.lunifera.mobile.vaadin.ecview.model.VMHorizontalButtonGroup;
@@ -277,6 +287,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   private List<UiBinding> temporaryPendingBindings = CollectionLiterals.<UiBinding>newArrayList();
   
+  private List<UiVisibilityProcessorAssignment> pendingVisibilityProcessors = CollectionLiterals.<UiVisibilityProcessorAssignment>newArrayList();
+  
   public void associateUi(final EObject grammarElement, final EObject uiElement) {
     this.grammarToUiAssociations.put(grammarElement, uiElement);
     this.uiToGrammarAssociations.put(uiElement, grammarElement);
@@ -331,6 +343,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       this.views.clear();
       this.viewContext.clear();
       this.pendingBindings.clear();
+      this.pendingVisibilityProcessors.clear();
     }
     this.typeLoader.dispose();
     this.typeLoader = null;
@@ -457,43 +470,57 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = object.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    final Procedure1<UiVisibilityProcessorAssignment> _function_3 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiVisibilityProcessor _processor = it.getProcessor();
+        UiModelDerivedStateComputerx.this.map(_processor);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(this.pendingVisibilityProcessors, _function_3);
     ArrayList<UiBinding> _newArrayList = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
     this.temporaryPendingBindings = _newArrayList;
     this.pendingBindings.clear();
-    final Procedure1<UiBinding> _function_2 = new Procedure1<UiBinding>() {
+    final Procedure1<UiBinding> _function_4 = new Procedure1<UiBinding>() {
       public void apply(final UiBinding it) {
         UiModelDerivedStateComputerx.this.install(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_2);
+    IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_4);
     boolean _isEmpty = this.pendingBindings.isEmpty();
     if (_isEmpty) {
       EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
-      final Procedure1<UiValidatorAssignment> _function_3 = new Procedure1<UiValidatorAssignment>() {
+      final Procedure1<UiValidatorAssignment> _function_5 = new Procedure1<UiValidatorAssignment>() {
         public void apply(final UiValidatorAssignment it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_3);
+      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_5);
       this.<Object>pop();
       this.currentView = null;
     } else {
       ArrayList<UiBinding> _newArrayList_1 = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
       this.temporaryPendingBindings = _newArrayList_1;
       this.pendingBindings.clear();
-      final Procedure1<UiBinding> _function_4 = new Procedure1<UiBinding>() {
+      final Procedure1<UiBinding> _function_6 = new Procedure1<UiBinding>() {
         public void apply(final UiBinding it) {
           UiModelDerivedStateComputerx.this.install(it);
         }
       };
-      IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_4);
+      IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_6);
       EList<UiValidatorAssignment> _validatorAssignments_1 = object.getValidatorAssignments();
-      final Procedure1<UiValidatorAssignment> _function_5 = new Procedure1<UiValidatorAssignment>() {
+      final Procedure1<UiValidatorAssignment> _function_7 = new Procedure1<UiValidatorAssignment>() {
         public void apply(final UiValidatorAssignment it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments_1, _function_5);
+      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments_1, _function_7);
       this.<Object>pop();
       this.currentView = null;
     }
@@ -524,19 +551,33 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
-    final Procedure1<UiBinding> _function_2 = new Procedure1<UiBinding>() {
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = object.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    final Procedure1<UiVisibilityProcessorAssignment> _function_3 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiVisibilityProcessor _processor = it.getProcessor();
+        UiModelDerivedStateComputerx.this.map(_processor);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(this.pendingVisibilityProcessors, _function_3);
+    final Procedure1<UiBinding> _function_4 = new Procedure1<UiBinding>() {
       public void apply(final UiBinding it) {
         UiModelDerivedStateComputerx.this.install(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(this.pendingBindings, _function_2);
+    IterableExtensions.<UiBinding>forEach(this.pendingBindings, _function_4);
     EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
-    final Procedure1<UiValidatorAssignment> _function_3 = new Procedure1<UiValidatorAssignment>() {
+    final Procedure1<UiValidatorAssignment> _function_5 = new Procedure1<UiValidatorAssignment>() {
       public void apply(final UiValidatorAssignment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_3);
+    IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_5);
     this.<Object>pop();
     this.currentView = null;
   }
@@ -562,6 +603,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
     this.<Object>pop();
   }
   
@@ -610,6 +658,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
     this.<Object>pop();
   }
   
@@ -661,6 +716,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
     this.<Object>pop();
   }
   
@@ -699,6 +761,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.map(_firstContent);
     UiSplitpanelAssigment _secondContent = eObject.getSecondContent();
     this.map(_secondContent);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function);
     this.<Object>pop();
   }
   
@@ -760,6 +829,20 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments_1 = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_3 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments_1, _function_3);
     this.<Object>pop();
   }
   
@@ -829,6 +912,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
     this.<Object>pop();
   }
   
@@ -856,6 +946,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       IterableExtensions.<UiValidator>forEach(_validators, _function);
       this.<Object>pop();
     }
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_1 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_1);
     this.<Object>pop();
   }
   
@@ -916,6 +1013,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
     this.<Object>pop();
   }
   
@@ -960,6 +1064,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       };
       IterableExtensions.<UiBinding>forEach(_bindings_1, _function_1);
     }
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
     this.<Object>pop();
   }
   
@@ -1003,6 +1114,20 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       };
       IterableExtensions.<UiBinding>forEach(_bindings_1, _function);
     }
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_1 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments_1 = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments_1, _function_2);
     this.<Object>pop();
   }
   
@@ -1150,6 +1275,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
     this.<Object>pop();
   }
   
@@ -1234,6 +1366,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       };
       IterableExtensions.<UiBinding>forEach(_bindings_2, _function_1);
     }
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
     this.<Object>pop();
   }
   
@@ -1263,6 +1402,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       };
       IterableExtensions.<UiBinding>forEach(_bindings_1, _function_1);
     }
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
     this.<Object>pop();
   }
   
@@ -1297,6 +1443,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       };
       IterableExtensions.<UiBinding>forEach(_bindings_1, _function);
     }
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_1 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_1);
     this.<Object>pop();
   }
   
@@ -1309,6 +1462,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiBinding>forEach(_bindings, _function);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = object.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_1 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_1);
   }
   
   protected void _map(final UiMobileNavigationButton object) {
@@ -1334,6 +1494,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiBinding>forEach(_bindings, _function);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = object.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_1 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_1);
     this.<Object>pop();
   }
   
@@ -1505,6 +1672,59 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     }
   }
   
+  protected void _map(final UiVisibilityProcessorAssignment eObject) {
+    this.pendingVisibilityProcessors.add(eObject);
+  }
+  
+  protected void _map(final UiVisibilityProcessor eObject) {
+    final YVisibilityProcessor yProcessor = VisibilityFactory.eINSTANCE.createYVisibilityProcessor();
+    Resource _eResource = eObject.eResource();
+    ResourceSet _resourceSet = _eResource.getResourceSet();
+    QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(eObject);
+    String _string = _fullyQualifiedName.toString();
+    Class<?> _loadClass = this.loadClass(_resourceSet, _string);
+    yProcessor.setDelegate(_loadClass);
+    QualifiedName _fullyQualifiedName_1 = this._iQualifiedNameProvider.getFullyQualifiedName(eObject);
+    String _string_1 = _fullyQualifiedName_1.toString();
+    yProcessor.setDelegateQualifiedName(_string_1);
+    EList<YVisibilityProcessor> _visibilityProcessors = this.currentView.getVisibilityProcessors();
+    _visibilityProcessors.add(yProcessor);
+    EList<UiChangeTrigger> _changeTriggers = eObject.getChangeTriggers();
+    for (final UiChangeTrigger trigger : _changeTriggers) {
+      {
+        UiBindingExpression _endpoint = trigger.getEndpoint();
+        final YValueBindingEndpoint sourceEP = this.createValueBindingEndpoint(((UiBindingEndpointAssignment) _endpoint));
+        final YVisibilityProcessorValueBindingEndpoint targetEP = BindingFactory.eINSTANCE.createYVisibilityProcessorValueBindingEndpoint();
+        String _alias = trigger.getAlias();
+        targetEP.setProperty(_alias);
+        final YValueBinding binding = BindingFactory.eINSTANCE.createYValueBinding();
+        binding.setTargetEndpoint(targetEP);
+        binding.setModelEndpoint(sourceEP);
+        binding.setModelToTargetStrategy(YBindingUpdateStrategy.UPDATE);
+        binding.setTargetToModelStrategy(YBindingUpdateStrategy.NEVER);
+        EList<YBinding> _triggersOn = yProcessor.getTriggersOn();
+        _triggersOn.add(binding);
+      }
+    }
+    EList<UiBindingEndpointAlias> _dataUsed = eObject.getDataUsed();
+    for (final UiBindingEndpointAlias dataUsed : _dataUsed) {
+      {
+        UiBindingExpression _endpoint = dataUsed.getEndpoint();
+        final YValueBindingEndpoint sourceEP = this.createValueBindingEndpoint(((UiBindingEndpointAssignment) _endpoint));
+        final YVisibilityProcessorValueBindingEndpoint targetEP = BindingFactory.eINSTANCE.createYVisibilityProcessorValueBindingEndpoint();
+        String _alias = dataUsed.getAlias();
+        targetEP.setProperty(_alias);
+        final YValueBinding binding = BindingFactory.eINSTANCE.createYValueBinding();
+        binding.setTargetEndpoint(targetEP);
+        binding.setModelEndpoint(sourceEP);
+        binding.setModelToTargetStrategy(YBindingUpdateStrategy.UPDATE);
+        binding.setTargetToModelStrategy(YBindingUpdateStrategy.NEVER);
+        EList<YBinding> _dataUsed_1 = yProcessor.getDataUsed();
+        _dataUsed_1.add(binding);
+      }
+    }
+  }
+  
   protected void _map(final UiMaxLengthValidator eObject) {
     final YMaxLengthValidator newValidator = this.factory.createMaxLengthValidator();
     int _maxLength = eObject.getMaxLength();
@@ -1632,6 +1852,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiTextField object) {
     final YTextField textField = this.factory.createTextField();
+    String _pathId = UiModelUtil.getPathId(object);
+    textField.setId(_pathId);
     String _name = object.getName();
     textField.setName(_name);
     String _name_1 = object.getName();
@@ -1654,6 +1876,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiLabel object) {
     final YLabel label = this.factory.createLabel();
+    String _pathId = UiModelUtil.getPathId(object);
+    label.setId(_pathId);
     String _name = object.getName();
     label.setName(_name);
     String _name_1 = object.getName();
@@ -1666,6 +1890,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiDecimalField object) {
     final YDecimalField decimalField = this.factory.createDecimalField();
+    String _pathId = UiModelUtil.getPathId(object);
+    decimalField.setId(_pathId);
     String _name = object.getName();
     decimalField.setName(_name);
     String _name_1 = object.getName();
@@ -1690,6 +1916,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiTextArea object) {
     final YTextArea textArea = this.factory.createTextArea();
+    String _pathId = UiModelUtil.getPathId(object);
+    textArea.setId(_pathId);
     String _name = object.getName();
     textArea.setName(_name);
     String _name_1 = object.getName();
@@ -1702,6 +1930,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiOptionsGroup object) {
     final YOptionsGroup optionsGroup = this.factory.createOptionsGroup();
+    String _pathId = UiModelUtil.getPathId(object);
+    optionsGroup.setId(_pathId);
     String _name = object.getName();
     optionsGroup.setName(_name);
     String _name_1 = object.getName();
@@ -1744,6 +1974,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiDateField object) {
     final YDateTime dateTime = this.factory.createDateTime();
+    String _pathId = UiModelUtil.getPathId(object);
+    dateTime.setId(_pathId);
     String _name = object.getName();
     dateTime.setName(_name);
     String _name_1 = object.getName();
@@ -1762,6 +1994,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiBrowser object) {
     final YBrowser browser = this.factory.createBrowser();
+    String _pathId = UiModelUtil.getPathId(object);
+    browser.setId(_pathId);
     String _name = object.getName();
     browser.setName(_name);
     String _name_1 = object.getName();
@@ -1774,6 +2008,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiProgressBar object) {
     final YProgressBar progressBar = this.factory.createProgressBar();
+    String _pathId = UiModelUtil.getPathId(object);
+    progressBar.setId(_pathId);
     String _name = object.getName();
     progressBar.setName(_name);
     String _name_1 = object.getName();
@@ -1786,6 +2022,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiImage object) {
     final YImage image = this.factory.createImage();
+    String _pathId = UiModelUtil.getPathId(object);
+    image.setId(_pathId);
     String _name = object.getName();
     image.setName(_name);
     String _name_1 = object.getName();
@@ -1800,6 +2038,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiTable object) {
     final YTable table = this.factory.createTable();
+    String _pathId = UiModelUtil.getPathId(object);
+    table.setId(_pathId);
     String _name = object.getName();
     table.setName(_name);
     String _name_1 = object.getName();
@@ -1851,6 +2091,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiNumericField object) {
     final YNumericField field = this.factory.createNumericField();
+    String _pathId = UiModelUtil.getPathId(object);
+    field.setId(_pathId);
     String _name = object.getName();
     field.setName(_name);
     String _name_1 = object.getName();
@@ -1873,6 +2115,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiCheckBox object) {
     final YCheckBox field = this.factory.createCheckBox();
+    String _pathId = UiModelUtil.getPathId(object);
+    field.setId(_pathId);
     String _name = object.getName();
     field.setName(_name);
     String _name_1 = object.getName();
@@ -1885,6 +2129,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YButton _create(final UiButton object) {
     final YButton field = this.factory.createButton();
+    String _pathId = UiModelUtil.getPathId(object);
+    field.setId(_pathId);
     String _name = object.getName();
     field.setName(_name);
     String _name_1 = object.getName();
@@ -1897,6 +2143,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected VMNavigationButton _create(final UiMobileNavigationButton object) {
     final VMNavigationButton field = VaadinMobileFactory.eINSTANCE.createVMNavigationButton();
+    String _pathId = UiModelUtil.getPathId(object);
+    field.setId(_pathId);
     String _name = object.getName();
     field.setName(_name);
     String _name_1 = object.getName();
@@ -1909,6 +2157,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiComboBox object) {
     final YComboBox field = this.factory.createComboBox();
+    String _pathId = UiModelUtil.getPathId(object);
+    field.setId(_pathId);
     String _name = object.getName();
     field.setName(_name);
     String _name_1 = object.getName();
@@ -1948,6 +2198,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiSwitch object) {
     final VMSwitch field = VaadinMobileFactory.eINSTANCE.createVMSwitch();
+    String _pathId = UiModelUtil.getPathId(object);
+    field.setId(_pathId);
     String _name = object.getName();
     field.setName(_name);
     String _name_1 = object.getName();
@@ -1960,6 +2212,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YGridLayout _create(final UiGridLayout object) {
     final YGridLayout layout = this.factory.createGridLayout();
+    String _pathId = UiModelUtil.getPathId(object);
+    layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
     int _columns = object.getColumns();
@@ -1984,6 +2238,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YHorizontalLayout _create(final UiHorizontalLayout object) {
     final YHorizontalLayout layout = this.factory.createHorizontalLayout();
+    String _pathId = UiModelUtil.getPathId(object);
+    layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
     String _name_1 = object.getName();
@@ -1996,6 +2252,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YSplitPanel _create(final UiSplitpanel object) {
     final YSplitPanel layout = this.factory.createSplitPanel();
+    String _pathId = UiModelUtil.getPathId(object);
+    layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
     String _name_1 = object.getName();
@@ -2022,6 +2280,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YVerticalLayout _create(final UiVerticalLayout object) {
     final YVerticalLayout layout = this.factory.createVerticalLayout();
+    String _pathId = UiModelUtil.getPathId(object);
+    layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
     String _name_1 = object.getName();
@@ -2034,6 +2294,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected VMHorizontalButtonGroup _create(final UiHorizontalButtonGroup object) {
     final VMHorizontalButtonGroup layout = VaadinMobileFactory.eINSTANCE.createVMHorizontalButtonGroup();
+    String _pathId = UiModelUtil.getPathId(object);
+    layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
     String _name_1 = object.getName();
@@ -2046,6 +2308,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected VMVerticalComponentGroup _create(final UiVerticalComponentGroup object) {
     final VMVerticalComponentGroup layout = VaadinMobileFactory.eINSTANCE.createVMVerticalComponentGroup();
+    String _pathId = UiModelUtil.getPathId(object);
+    layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
     String _name_1 = object.getName();
@@ -2058,6 +2322,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YTabSheet _create(final UiTabSheet object) {
     final YTabSheet layout = this.factory.createTabSheet();
+    String _pathId = UiModelUtil.getPathId(object);
+    layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
     String _name_1 = object.getName();
@@ -2070,6 +2336,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected VMTabSheet _create(final UiMobileTabSheet object) {
     final VMTabSheet layout = VaadinMobileFactory.eINSTANCE.createVMTabSheet();
+    String _pathId = UiModelUtil.getPathId(object);
+    layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
     String _name_1 = object.getName();
@@ -2672,6 +2940,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     } else if (eObject instanceof UiValidatorDef) {
       _map((UiValidatorDef)eObject);
       return;
+    } else if (eObject instanceof UiVisibilityProcessor) {
+      _map((UiVisibilityProcessor)eObject);
+      return;
     } else if (eObject instanceof UiBinding) {
       _map((UiBinding)eObject);
       return;
@@ -2680,6 +2951,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return;
     } else if (eObject instanceof UiPoint) {
       _map((UiPoint)eObject);
+      return;
+    } else if (eObject instanceof UiVisibilityProcessorAssignment) {
+      _map((UiVisibilityProcessorAssignment)eObject);
       return;
     } else if (eObject != null) {
       _map(eObject);

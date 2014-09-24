@@ -100,6 +100,8 @@ import org.lunifera.ecview.semantic.uimodel.UiTextField;
 import org.lunifera.ecview.semantic.uimodel.UiTypeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawType;
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawTypeAlias;
 import org.lunifera.ecview.semantic.uimodel.UiValidator;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAssignment;
@@ -289,6 +291,20 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiTypedBindableDefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiTypedBindableRawTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiTypedBindableRawTypeAliasEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1497,6 +1513,60 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiTypedBindableRawType() {
+		return uiTypedBindableRawTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiTypedBindableRawType_RawBindable() {
+		return (EReference)uiTypedBindableRawTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiTypedBindableRawType_RawBindablePath() {
+		return (EReference)uiTypedBindableRawTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiTypedBindableRawTypeAlias() {
+		return uiTypedBindableRawTypeAliasEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiTypedBindableRawTypeAlias_Alias() {
+		return (EAttribute)uiTypedBindableRawTypeAliasEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiTypedBindableRawTypeAlias_Type() {
+		return (EReference)uiTypedBindableRawTypeAliasEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiCommandBindableDef() {
 		return uiCommandBindableDefEClass;
 	}
@@ -2118,7 +2188,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUiVisibilityProcessable_ProcessorAssignment() {
+	public EReference getUiVisibilityProcessable_ProcessorAssignments() {
 		return (EReference)uiVisibilityProcessableEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2136,7 +2206,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUiVisibilityProcessor_BindingAlias() {
+	public EReference getUiVisibilityProcessor_DataUsed() {
 		return (EReference)uiVisibilityProcessorEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2145,7 +2215,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUiVisibilityProcessor_ChangeTrigger() {
+	public EReference getUiVisibilityProcessor_ChangeTriggers() {
 		return (EReference)uiVisibilityProcessorEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -2154,7 +2224,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUiVisibilityProcessor_Rule() {
+	public EReference getUiVisibilityProcessor_ImportedElements() {
 		return (EReference)uiVisibilityProcessorEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -2163,7 +2233,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUiVisibilityProcessor_PropertiesAssignment() {
+	public EReference getUiVisibilityProcessor_Rule() {
 		return (EReference)uiVisibilityProcessorEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -2237,6 +2307,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiChangeTrigger_EndpointAlias() {
 		return (EReference)uiChangeTriggerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiChangeTrigger_Alias() {
+		return (EAttribute)uiChangeTriggerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3341,6 +3420,14 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiTypedBindableDefEClass, UI_TYPED_BINDABLE_DEF__RAW_BINDABLE_PATH);
 		createEReference(uiTypedBindableDefEClass, UI_TYPED_BINDABLE_DEF__METHOD);
 
+		uiTypedBindableRawTypeEClass = createEClass(UI_TYPED_BINDABLE_RAW_TYPE);
+		createEReference(uiTypedBindableRawTypeEClass, UI_TYPED_BINDABLE_RAW_TYPE__RAW_BINDABLE);
+		createEReference(uiTypedBindableRawTypeEClass, UI_TYPED_BINDABLE_RAW_TYPE__RAW_BINDABLE_PATH);
+
+		uiTypedBindableRawTypeAliasEClass = createEClass(UI_TYPED_BINDABLE_RAW_TYPE_ALIAS);
+		createEAttribute(uiTypedBindableRawTypeAliasEClass, UI_TYPED_BINDABLE_RAW_TYPE_ALIAS__ALIAS);
+		createEReference(uiTypedBindableRawTypeAliasEClass, UI_TYPED_BINDABLE_RAW_TYPE_ALIAS__TYPE);
+
 		uiCommandBindableDefEClass = createEClass(UI_COMMAND_BINDABLE_DEF);
 		createEReference(uiCommandBindableDefEClass, UI_COMMAND_BINDABLE_DEF__COMMAND);
 
@@ -3438,17 +3525,17 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiCheckBoxEClass = createEClass(UI_CHECK_BOX);
 
 		uiVisibilityProcessableEClass = createEClass(UI_VISIBILITY_PROCESSABLE);
-		createEReference(uiVisibilityProcessableEClass, UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENT);
+		createEReference(uiVisibilityProcessableEClass, UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENTS);
 
 		uiVisibilityProcessorAssignmentEClass = createEClass(UI_VISIBILITY_PROCESSOR_ASSIGNMENT);
 		createEReference(uiVisibilityProcessorAssignmentEClass, UI_VISIBILITY_PROCESSOR_ASSIGNMENT__PROCESSOR);
 		createEReference(uiVisibilityProcessorAssignmentEClass, UI_VISIBILITY_PROCESSOR_ASSIGNMENT__PROCESSOR_ALIAS);
 
 		uiVisibilityProcessorEClass = createEClass(UI_VISIBILITY_PROCESSOR);
-		createEReference(uiVisibilityProcessorEClass, UI_VISIBILITY_PROCESSOR__BINDING_ALIAS);
-		createEReference(uiVisibilityProcessorEClass, UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER);
+		createEReference(uiVisibilityProcessorEClass, UI_VISIBILITY_PROCESSOR__DATA_USED);
+		createEReference(uiVisibilityProcessorEClass, UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGERS);
+		createEReference(uiVisibilityProcessorEClass, UI_VISIBILITY_PROCESSOR__IMPORTED_ELEMENTS);
 		createEReference(uiVisibilityProcessorEClass, UI_VISIBILITY_PROCESSOR__RULE);
-		createEReference(uiVisibilityProcessorEClass, UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT);
 
 		uiVisibilityProcessorDefEClass = createEClass(UI_VISIBILITY_PROCESSOR_DEF);
 		createEReference(uiVisibilityProcessorDefEClass, UI_VISIBILITY_PROCESSOR_DEF__PROCESSOR);
@@ -3456,6 +3543,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiChangeTriggerEClass = createEClass(UI_CHANGE_TRIGGER);
 		createEReference(uiChangeTriggerEClass, UI_CHANGE_TRIGGER__ENDPOINT);
 		createEReference(uiChangeTriggerEClass, UI_CHANGE_TRIGGER__ENDPOINT_ALIAS);
+		createEAttribute(uiChangeTriggerEClass, UI_CHANGE_TRIGGER__ALIAS);
 
 		uiVisibilityRuleEClass = createEClass(UI_VISIBILITY_RULE);
 
@@ -3654,6 +3742,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiContextEClass.getESuperTypes().add(this.getUiRootElements());
 		uiViewSetEClass.getESuperTypes().add(this.getUiContext());
 		uiViewEClass.getESuperTypes().add(this.getUiContext());
+		uiViewEClass.getESuperTypes().add(this.getUiVisibilityProcessable());
 		uiViewEClass.getESuperTypes().add(this.getUiRawBindable());
 		uiDialogEClass.getESuperTypes().add(this.getUiEmbeddable());
 		uiDialogEClass.getESuperTypes().add(this.getUiTypeProvider());
@@ -3670,6 +3759,10 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiTypedBindableEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiTypedBindableDefEClass.getESuperTypes().add(this.getUiTypedBindable());
 		uiTypedBindableDefEClass.getESuperTypes().add(this.getUiBindingExpression());
+		uiTypedBindableRawTypeEClass.getESuperTypes().add(this.getUiTypedBindable());
+		uiTypedBindableRawTypeEClass.getESuperTypes().add(this.getUiBindingExpression());
+		uiTypedBindableRawTypeAliasEClass.getESuperTypes().add(this.getUiTypedBindable());
+		uiTypedBindableRawTypeAliasEClass.getESuperTypes().add(this.getUiBindingExpression());
 		uiCommandBindableDefEClass.getESuperTypes().add(this.getUiTypedBindable());
 		uiCommandBindableDefEClass.getESuperTypes().add(this.getUiBindingExpression());
 		uiEmbeddableEClass.getESuperTypes().add(this.getUiVisibilityProcessable());
@@ -3845,6 +3938,14 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiTypedBindableDef_RawBindablePath(), this.getUiRawBindablePathSegment(), null, "rawBindablePath", null, 0, 1, UiTypedBindableDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiTypedBindableDef_Method(), theUiSemanticsPackage.getUxEndpointDef(), null, "method", null, 0, 1, UiTypedBindableDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(uiTypedBindableRawTypeEClass, UiTypedBindableRawType.class, "UiTypedBindableRawType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiTypedBindableRawType_RawBindable(), this.getUiRawBindable(), null, "rawBindable", null, 0, 1, UiTypedBindableRawType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiTypedBindableRawType_RawBindablePath(), this.getUiRawBindablePathSegment(), null, "rawBindablePath", null, 0, 1, UiTypedBindableRawType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiTypedBindableRawTypeAliasEClass, UiTypedBindableRawTypeAlias.class, "UiTypedBindableRawTypeAlias", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUiTypedBindableRawTypeAlias_Alias(), ecorePackage.getEString(), "alias", null, 1, 1, UiTypedBindableRawTypeAlias.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiTypedBindableRawTypeAlias_Type(), this.getUiBindingExpression(), null, "type", null, 1, 1, UiTypedBindableRawTypeAlias.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(uiCommandBindableDefEClass, UiCommandBindableDef.class, "UiCommandBindableDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiCommandBindableDef_Command(), this.getUiCommand(), null, "command", null, 0, 1, UiCommandBindableDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3942,17 +4043,17 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiCheckBoxEClass, UiCheckBox.class, "UiCheckBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(uiVisibilityProcessableEClass, UiVisibilityProcessable.class, "UiVisibilityProcessable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUiVisibilityProcessable_ProcessorAssignment(), this.getUiVisibilityProcessorAssignment(), null, "processorAssignment", null, 0, 1, UiVisibilityProcessable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiVisibilityProcessable_ProcessorAssignments(), this.getUiVisibilityProcessorAssignment(), null, "processorAssignments", null, 0, -1, UiVisibilityProcessable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiVisibilityProcessorAssignmentEClass, UiVisibilityProcessorAssignment.class, "UiVisibilityProcessorAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiVisibilityProcessorAssignment_Processor(), this.getUiVisibilityProcessor(), null, "processor", null, 0, 1, UiVisibilityProcessorAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiVisibilityProcessorAssignment_ProcessorAlias(), this.getUiVisibilityProcessor(), null, "processorAlias", null, 0, 1, UiVisibilityProcessorAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiVisibilityProcessorEClass, UiVisibilityProcessor.class, "UiVisibilityProcessor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUiVisibilityProcessor_BindingAlias(), this.getUiBindingEndpointAlias(), null, "bindingAlias", null, 0, -1, UiVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUiVisibilityProcessor_ChangeTrigger(), this.getUiChangeTrigger(), null, "changeTrigger", null, 0, -1, UiVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiVisibilityProcessor_DataUsed(), this.getUiBindingEndpointAlias(), null, "dataUsed", null, 0, -1, UiVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiVisibilityProcessor_ChangeTriggers(), this.getUiChangeTrigger(), null, "changeTriggers", null, 0, -1, UiVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiVisibilityProcessor_ImportedElements(), this.getUiBindingExpression(), null, "importedElements", null, 0, -1, UiVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiVisibilityProcessor_Rule(), this.getUiVisibilityRule(), null, "rule", null, 0, 1, UiVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUiVisibilityProcessor_PropertiesAssignment(), this.getUiVisibilityPropertiesAssignment(), null, "propertiesAssignment", null, 0, 1, UiVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiVisibilityProcessorDefEClass, UiVisibilityProcessorDef.class, "UiVisibilityProcessorDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiVisibilityProcessorDef_Processor(), this.getUiVisibilityProcessor(), null, "processor", null, 0, 1, UiVisibilityProcessorDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3960,6 +4061,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiChangeTriggerEClass, UiChangeTrigger.class, "UiChangeTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiChangeTrigger_Endpoint(), this.getUiBindingExpression(), null, "endpoint", null, 0, 1, UiChangeTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiChangeTrigger_EndpointAlias(), this.getUiBindingEndpointAlias(), null, "endpointAlias", null, 0, 1, UiChangeTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiChangeTrigger_Alias(), ecorePackage.getEString(), "alias", null, 0, 1, UiChangeTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiVisibilityRuleEClass, UiVisibilityRule.class, "UiVisibilityRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

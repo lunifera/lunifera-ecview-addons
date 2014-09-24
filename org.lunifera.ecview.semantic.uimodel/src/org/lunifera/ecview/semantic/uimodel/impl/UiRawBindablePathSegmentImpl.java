@@ -249,5 +249,23 @@ public class UiRawBindablePathSegmentImpl extends MinimalEObjectImpl.Container
 			return getRawBindable();
 		}
 	}
+	
+	@Override
+	public String toPathString() {
+		String result = "";
+		UiRawBindablePathSegment child = getPath();
+		if (child != null) {
+			result = child.toPathString();
+			if (result != null) {
+				result = getRawBindable().getName() + "." + result;
+			} else {
+				result = getRawBindable().getName();
+			}
+		} else {
+			return getRawBindable().getName();
+		}
+
+		return result;
+	}
 
 } // UiRawBindablePathSegmentImpl

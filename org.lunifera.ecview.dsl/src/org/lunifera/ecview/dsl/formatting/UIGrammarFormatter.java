@@ -170,7 +170,7 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		configureUiSearchWithCommand(c, f.getUiSearchWithDialogCommandAccess());
 		// errorCodes
 		configureUiErrorCode(c, f.getUiErrorCodeAccess());
-				
+
 		for (Keyword kw : f.findKeywords("{")) {
 			c.setSpace(" ").before(kw);
 			c.setLinewrap(1).after(kw);
@@ -248,8 +248,10 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 			UiVisibilityProcessorElements ele) {
 		// Keywords
 		c.setLinewrap(1, 1, 2).before(ele.getVisibilityKeyword_1());
-		c.setLinewrap(1, 1, 2).before(ele.getUsesKeyword_6_0());
-		c.setLinewrap(1, 1, 2).before(ele.getActivationKeyword_7_0());
+		c.setLinewrap(1, 1, 2).before(ele.getChangeTriggersAssignment_4_1());
+		c.setLinewrap(1, 1, 2).before(ele.getDataUsedAssignment_4_0());
+		c.setLinewrap(1, 1, 2).before(ele.getImportedElementsAssignment_4_2());
+		c.setLinewrap(1, 1, 2).before(ele.getRuleUiXbaseVisibilityRuleParserRuleCall_5_0());
 		// // Brackets
 		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3());
 		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_6_1());
@@ -395,7 +397,7 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap(1, 1, 2).before(ele.getProgressbarKeyword_1());
 		c.setLinewrap(1, 1, 2).before(ele.getValidatorsAssignment_4_1_0());
 		c.setLinewrap(1, 1, 2).before(
-				ele.getProcessorAssignmentAssignment_4_2());
+				ele.getProcessorAssignmentsAssignment_4_2());
 		// Brackets
 		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
 		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_3());
@@ -515,6 +517,8 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		// Keyword
 		c.setLinewrap(1).before(ele.getIdeviewKeyword_0());
 		c.setLinewrap(1, 1, 2).before(ele.getViewsetKeyword_3_0());
+		c.setLinewrap(1, 1, 2).before(
+				ele.getProcessorAssignmentsAssignment_7_3());
 		// Brackets
 		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_2());
 		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());
@@ -528,6 +532,8 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		// Keyword
 		c.setLinewrap(1, 1, 2).before(ele.getMobileKeyword_0());
 		c.setLinewrap(1, 1, 2).before(ele.getViewsetKeyword_3_0());
+		c.setLinewrap(1, 1, 2).before(
+				ele.getProcessorAssignmentsAssignment_7_3());
 		// Brackets
 		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_2());
 		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());

@@ -1030,6 +1030,141 @@ ruleUiTypedBindableDef returns [EObject current=null]
 
 
 
+// Entry rule entryRuleUiTypedBindableRawType
+entryRuleUiTypedBindableRawType returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiTypedBindableRawTypeRule()); }
+	 iv_ruleUiTypedBindableRawType=ruleUiTypedBindableRawType 
+	 { $current=$iv_ruleUiTypedBindableRawType.current; } 
+	 EOF 
+;
+
+// Rule UiTypedBindableRawType
+ruleUiTypedBindableRawType returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUiTypedBindableRawTypeAccess().getUiTypedBindableRawTypeAction_0(),
+            $current);
+    }
+)	otherlv_1='[' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiTypedBindableRawTypeAccess().getLeftSquareBracketKeyword_1());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiTypedBindableRawTypeRule());
+	        }
+        }
+	otherlv_2=RULE_ID
+	{
+		newLeafNode(otherlv_2, grammarAccess.getUiTypedBindableRawTypeAccess().getRawBindableUiRawBindableCrossReference_2_0()); 
+	}
+
+)
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiTypedBindableRawTypeAccess().getRawBindablePathUiRawBindablePathSegmentParserRuleCall_3_0()); 
+	    }
+		lv_rawBindablePath_3_0=ruleUiRawBindablePathSegment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiTypedBindableRawTypeRule());
+	        }
+       		set(
+       			$current, 
+       			"rawBindablePath",
+        		lv_rawBindablePath_3_0, 
+        		"UiRawBindablePathSegment");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?	otherlv_4=']' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getUiTypedBindableRawTypeAccess().getRightSquareBracketKeyword_4());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleUiTypedBindableRawTypeAlias
+entryRuleUiTypedBindableRawTypeAlias returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiTypedBindableRawTypeAliasRule()); }
+	 iv_ruleUiTypedBindableRawTypeAlias=ruleUiTypedBindableRawTypeAlias 
+	 { $current=$iv_ruleUiTypedBindableRawTypeAlias.current; } 
+	 EOF 
+;
+
+// Rule UiTypedBindableRawTypeAlias
+ruleUiTypedBindableRawTypeAlias returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='ui' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getUiTypedBindableRawTypeAliasAccess().getUiKeyword_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiTypedBindableRawTypeAliasAccess().getTypeUiTypedBindableRawTypeParserRuleCall_1_0()); 
+	    }
+		lv_type_1_0=ruleUiTypedBindableRawType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiTypedBindableRawTypeAliasRule());
+	        }
+       		set(
+       			$current, 
+       			"type",
+        		lv_type_1_0, 
+        		"UiTypedBindableRawType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_2='as' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getUiTypedBindableRawTypeAliasAccess().getAsKeyword_2());
+    }
+(
+(
+		lv_alias_3_0=RULE_ID
+		{
+			newLeafNode(lv_alias_3_0, grammarAccess.getUiTypedBindableRawTypeAliasAccess().getAliasIDTerminalRuleCall_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiTypedBindableRawTypeAliasRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"alias",
+        		lv_alias_3_0, 
+        		"ID");
+	    }
+
+)
+)(	otherlv_4=';' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getUiTypedBindableRawTypeAliasAccess().getSemicolonKeyword_4());
+    }
+)?)
+;
+
+
+
+
+
 // Entry rule entryRuleUiRawBindablePathSegment
 entryRuleUiRawBindablePathSegment returns [EObject current=null] 
 	:
@@ -1558,9 +1693,28 @@ ruleUiIDEView returns [EObject current=null]
 	    }
 
 )
-))*	otherlv_14='}' 
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiIDEViewAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_7_3_0()); 
+	    }
+		lv_processorAssignments_14_0=ruleUiVisibilityProcessorAssignment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiIDEViewRule());
+	        }
+       		add(
+       			$current, 
+       			"processorAssignments",
+        		lv_processorAssignments_14_0, 
+        		"UiVisibilityProcessorAssignment");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*	otherlv_15='}' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getUiIDEViewAccess().getRightCurlyBracketKeyword_8());
+    	newLeafNode(otherlv_15, grammarAccess.getUiIDEViewAccess().getRightCurlyBracketKeyword_8());
     }
 )
 ;
@@ -1763,9 +1917,28 @@ ruleUiMobileView returns [EObject current=null]
 	    }
 
 )
-))*	otherlv_14='}' 
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileViewAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_7_3_0()); 
+	    }
+		lv_processorAssignments_14_0=ruleUiVisibilityProcessorAssignment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileViewRule());
+	        }
+       		add(
+       			$current, 
+       			"processorAssignments",
+        		lv_processorAssignments_14_0, 
+        		"UiVisibilityProcessorAssignment");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*	otherlv_15='}' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getUiMobileViewAccess().getRightCurlyBracketKeyword_8());
+    	newLeafNode(otherlv_15, grammarAccess.getUiMobileViewAccess().getRightCurlyBracketKeyword_8());
     }
 )
 ;
@@ -1990,22 +2163,22 @@ ruleUiGridLayout returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiGridLayoutAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getUiGridLayoutAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
 	    }
-		lv_processorAssignment_12_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_12_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiGridLayoutRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_12_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_12_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_13='}' 
+)*	otherlv_13='}' 
     {
     	newLeafNode(otherlv_13, grammarAccess.getUiGridLayoutAccess().getRightCurlyBracketKeyword_8());
     }
@@ -2233,22 +2406,22 @@ ruleUiFormLayout returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiFormLayoutAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getUiFormLayoutAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
 	    }
-		lv_processorAssignment_9_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_9_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiFormLayoutRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_9_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_9_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_10='}' 
+)*	otherlv_10='}' 
     {
     	newLeafNode(otherlv_10, grammarAccess.getUiFormLayoutAccess().getRightCurlyBracketKeyword_8());
     }
@@ -2409,22 +2582,22 @@ ruleUiVerticalLayout returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiVerticalLayoutAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getUiVerticalLayoutAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
 	    }
-		lv_processorAssignment_9_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_9_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiVerticalLayoutRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_9_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_9_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_10='}' 
+)*	otherlv_10='}' 
     {
     	newLeafNode(otherlv_10, grammarAccess.getUiVerticalLayoutAccess().getRightCurlyBracketKeyword_8());
     }
@@ -2607,22 +2780,22 @@ ruleUiHorizontalLayout returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiHorizontalLayoutAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getUiHorizontalLayoutAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
 	    }
-		lv_processorAssignment_9_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_9_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiHorizontalLayoutRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_9_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_9_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_10='}' 
+)*	otherlv_10='}' 
     {
     	newLeafNode(otherlv_10, grammarAccess.getUiHorizontalLayoutAccess().getRightCurlyBracketKeyword_8());
     }
@@ -2787,22 +2960,22 @@ ruleUiMobileHorizontalButtonGroup returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiMobileHorizontalButtonGroupAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getUiMobileHorizontalButtonGroupAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_6_0()); 
 	    }
-		lv_processorAssignment_8_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_8_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileHorizontalButtonGroupRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_8_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_8_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_9='}' 
+)*	otherlv_9='}' 
     {
     	newLeafNode(otherlv_9, grammarAccess.getUiMobileHorizontalButtonGroupAccess().getRightCurlyBracketKeyword_7());
     }
@@ -2963,22 +3136,22 @@ ruleUiMobileVerticalComponentGroup returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiMobileVerticalComponentGroupAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getUiMobileVerticalComponentGroupAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
 	    }
-		lv_processorAssignment_9_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_9_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileVerticalComponentGroupRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_9_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_9_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_10='}' 
+)*	otherlv_10='}' 
     {
     	newLeafNode(otherlv_10, grammarAccess.getUiMobileVerticalComponentGroupAccess().getRightCurlyBracketKeyword_8());
     }
@@ -3139,22 +3312,22 @@ ruleUiMobileTabSheet returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiMobileTabSheetAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getUiMobileTabSheetAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
 	    }
-		lv_processorAssignment_9_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_9_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileTabSheetRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_9_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_9_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_10='}' 
+)*	otherlv_10='}' 
     {
     	newLeafNode(otherlv_10, grammarAccess.getUiMobileTabSheetAccess().getRightCurlyBracketKeyword_8());
     }
@@ -3337,22 +3510,22 @@ ruleUiTabSheet returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiTabSheetAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getUiTabSheetAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
 	    }
-		lv_processorAssignment_9_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_9_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiTabSheetRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_9_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_9_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_10='}' 
+)*	otherlv_10='}' 
     {
     	newLeafNode(otherlv_10, grammarAccess.getUiTabSheetAccess().getRightCurlyBracketKeyword_8());
     }
@@ -3630,22 +3803,22 @@ ruleUiSplitpanel returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiSplitpanelAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getUiSplitpanelAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_6_0()); 
 	    }
-		lv_processorAssignment_14_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_14_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiSplitpanelRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_14_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_14_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_15='}' 
+)*	otherlv_15='}' 
     {
     	newLeafNode(otherlv_15, grammarAccess.getUiSplitpanelAccess().getRightCurlyBracketKeyword_7());
     }
@@ -3804,22 +3977,22 @@ ruleUiPanel returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiPanelAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getUiPanelAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
 	    }
-		lv_processorAssignment_9_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_9_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiPanelRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_9_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_9_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_10='}' 
+)*	otherlv_10='}' 
     {
     	newLeafNode(otherlv_10, grammarAccess.getUiPanelAccess().getRightCurlyBracketKeyword_8());
     }
@@ -3971,22 +4144,22 @@ ruleUiDialog returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiDialogAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_8_0()); 
+	        newCompositeNode(grammarAccess.getUiDialogAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_8_0()); 
 	    }
-		lv_processorAssignment_13_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_13_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiDialogRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_13_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_13_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_14='}' 
+)*	otherlv_14='}' 
     {
     	newLeafNode(otherlv_14, grammarAccess.getUiDialogAccess().getRightCurlyBracketKeyword_9());
     }
@@ -4211,22 +4384,22 @@ ruleUiSearchDialog returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiSearchDialogAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_9_0()); 
+	        newCompositeNode(grammarAccess.getUiSearchDialogAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_9_0()); 
 	    }
-		lv_processorAssignment_18_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_18_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiSearchDialogRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_18_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_18_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_19='}' 
+)*	otherlv_19='}' 
     {
     	newLeafNode(otherlv_19, grammarAccess.getUiSearchDialogAccess().getRightCurlyBracketKeyword_10());
     }
@@ -4413,22 +4586,22 @@ ruleUiMobileNavigationPage returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiMobileNavigationPageAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_8_0()); 
+	        newCompositeNode(grammarAccess.getUiMobileNavigationPageAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_8_0()); 
 	    }
-		lv_processorAssignment_12_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_12_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileNavigationPageRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_12_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_12_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_13='}' 
+)*	otherlv_13='}' 
     {
     	newLeafNode(otherlv_13, grammarAccess.getUiMobileNavigationPageAccess().getRightCurlyBracketKeyword_9());
     }
@@ -4722,22 +4895,22 @@ ruleUiTextField returns [EObject current=null]
 ))*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiTextFieldAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_4_2_0()); 
+	        newCompositeNode(grammarAccess.getUiTextFieldAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_2_0()); 
 	    }
-		lv_processorAssignment_16_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_16_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiTextFieldRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_16_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_16_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_17='}' 
+)*	otherlv_17='}' 
     {
     	newLeafNode(otherlv_17, grammarAccess.getUiTextFieldAccess().getRightCurlyBracketKeyword_4_3());
     }
@@ -4904,22 +5077,22 @@ ruleUiTextArea returns [EObject current=null]
 ))*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiTextAreaAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_4_2_0()); 
+	        newCompositeNode(grammarAccess.getUiTextAreaAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_2_0()); 
 	    }
-		lv_processorAssignment_9_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_9_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiTextAreaRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_9_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_9_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_10='}' 
+)*	otherlv_10='}' 
     {
     	newLeafNode(otherlv_10, grammarAccess.getUiTextAreaAccess().getRightCurlyBracketKeyword_4_3());
     }
@@ -5130,22 +5303,22 @@ ruleUiDateField returns [EObject current=null]
 ))*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiDateFieldAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_4_2_0()); 
+	        newCompositeNode(grammarAccess.getUiDateFieldAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_2_0()); 
 	    }
-		lv_processorAssignment_12_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_12_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiDateFieldRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_12_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_12_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_13='}' 
+)*	otherlv_13='}' 
     {
     	newLeafNode(otherlv_13, grammarAccess.getUiDateFieldAccess().getRightCurlyBracketKeyword_4_3());
     }
@@ -5268,22 +5441,22 @@ ruleUiBrowser returns [EObject current=null]
 ))*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiBrowserAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_4_2_0()); 
+	        newCompositeNode(grammarAccess.getUiBrowserAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_2_0()); 
 	    }
-		lv_processorAssignment_9_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_9_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiBrowserRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_9_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_9_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_10='}' 
+)*	otherlv_10='}' 
     {
     	newLeafNode(otherlv_10, grammarAccess.getUiBrowserAccess().getRightCurlyBracketKeyword_4_3());
     }
@@ -5406,22 +5579,22 @@ ruleUiProgressBar returns [EObject current=null]
 ))*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiProgressBarAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_4_2_0()); 
+	        newCompositeNode(grammarAccess.getUiProgressBarAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_2_0()); 
 	    }
-		lv_processorAssignment_9_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_9_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiProgressBarRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_9_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_9_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_10='}' 
+)*	otherlv_10='}' 
     {
     	newLeafNode(otherlv_10, grammarAccess.getUiProgressBarAccess().getRightCurlyBracketKeyword_4_3());
     }
@@ -5551,22 +5724,22 @@ ruleUiImage returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiImageAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_4_3_0()); 
+	        newCompositeNode(grammarAccess.getUiImageAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_3_0()); 
 	    }
-		lv_processorAssignment_11_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_11_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiImageRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_11_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_11_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_12='}' 
+)*	otherlv_12='}' 
     {
     	newLeafNode(otherlv_12, grammarAccess.getUiImageAccess().getRightCurlyBracketKeyword_4_4());
     }
@@ -5907,22 +6080,22 @@ ruleUiTable returns [EObject current=null]
 ))*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiTableAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_4_4_0()); 
+	        newCompositeNode(grammarAccess.getUiTableAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_4_0()); 
 	    }
-		lv_processorAssignment_20_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_20_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiTableRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_20_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_20_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_21='}' 
+)*	otherlv_21='}' 
     {
     	newLeafNode(otherlv_21, grammarAccess.getUiTableAccess().getRightCurlyBracketKeyword_4_5());
     }
@@ -6165,22 +6338,22 @@ ruleUiComboBox returns [EObject current=null]
 ))*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiComboBoxAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_4_3_0()); 
+	        newCompositeNode(grammarAccess.getUiComboBoxAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_3_0()); 
 	    }
-		lv_processorAssignment_19_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_19_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiComboBoxRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_19_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_19_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_20='}' 
+)*	otherlv_20='}' 
     {
     	newLeafNode(otherlv_20, grammarAccess.getUiComboBoxAccess().getRightCurlyBracketKeyword_4_4());
     }
@@ -6452,22 +6625,22 @@ ruleUiMobileSwitch returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiMobileSwitchAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_4_1_0()); 
+	        newCompositeNode(grammarAccess.getUiMobileSwitchAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_1_0()); 
 	    }
-		lv_processorAssignment_7_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_7_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileSwitchRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_7_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_7_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?((
+)*((
 (
 		{ 
 	        newCompositeNode(grammarAccess.getUiMobileSwitchAccess().getValidatorsUiValidatorParserRuleCall_4_2_0_0()); 
@@ -6590,22 +6763,22 @@ ruleUiLabel returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiLabelAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_4_1_0()); 
+	        newCompositeNode(grammarAccess.getUiLabelAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_1_0()); 
 	    }
-		lv_processorAssignment_7_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_7_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiLabelRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_7_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_7_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?(
+)*(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getUiLabelAccess().getBindingsUiBindingParserRuleCall_4_2_0()); 
@@ -6862,22 +7035,22 @@ ruleUiDecimalField returns [EObject current=null]
 ))*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiDecimalFieldAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_4_2_0()); 
+	        newCompositeNode(grammarAccess.getUiDecimalFieldAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_2_0()); 
 	    }
-		lv_processorAssignment_14_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_14_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiDecimalFieldRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_14_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_14_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_15='}' 
+)*	otherlv_15='}' 
     {
     	newLeafNode(otherlv_15, grammarAccess.getUiDecimalFieldAccess().getRightCurlyBracketKeyword_4_3());
     }
@@ -7142,22 +7315,22 @@ ruleUiOptionsGroup returns [EObject current=null]
 ))*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiOptionsGroupAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_4_3_0()); 
+	        newCompositeNode(grammarAccess.getUiOptionsGroupAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_3_0()); 
 	    }
-		lv_processorAssignment_18_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_18_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiOptionsGroupRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_18_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_18_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_19='}' 
+)*	otherlv_19='}' 
     {
     	newLeafNode(otherlv_19, grammarAccess.getUiOptionsGroupAccess().getRightCurlyBracketKeyword_4_4());
     }
@@ -8009,22 +8182,22 @@ ruleUiNumericField returns [EObject current=null]
 ))*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiNumericFieldAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_4_2_0()); 
+	        newCompositeNode(grammarAccess.getUiNumericFieldAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_2_0()); 
 	    }
-		lv_processorAssignment_12_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_12_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiNumericFieldRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_12_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_12_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_13='}' 
+)*	otherlv_13='}' 
     {
     	newLeafNode(otherlv_13, grammarAccess.getUiNumericFieldAccess().getRightCurlyBracketKeyword_4_3());
     }
@@ -8147,22 +8320,22 @@ ruleUiCheckBox returns [EObject current=null]
 ))*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiCheckBoxAccess().getProcessorAssignmentUiVisibilityProcessorAssignmentParserRuleCall_4_2_0()); 
+	        newCompositeNode(grammarAccess.getUiCheckBoxAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_2_0()); 
 	    }
-		lv_processorAssignment_9_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_9_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiCheckBoxRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"processorAssignment",
-        		lv_processorAssignment_9_0, 
+       			"processorAssignments",
+        		lv_processorAssignments_9_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_10='}' 
+)*	otherlv_10='}' 
     {
     	newLeafNode(otherlv_10, grammarAccess.getUiCheckBoxAccess().getRightCurlyBracketKeyword_4_3());
     }
@@ -8726,53 +8899,23 @@ ruleUiVisibilityProcessor returns [EObject current=null]
 	    }
 
 )
-)?	otherlv_3='{' 
+)	otherlv_3='{' 
     {
     	newLeafNode(otherlv_3, grammarAccess.getUiVisibilityProcessorAccess().getLeftCurlyBracketKeyword_3());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getUiVisibilityProcessorAccess().getPropertiesAssignmentUiVisibilityPropertiesAssignmentParserRuleCall_4_0()); 
-	    }
-		lv_propertiesAssignment_4_0=ruleUiVisibilityPropertiesAssignment		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getUiVisibilityProcessorRule());
-	        }
-       		set(
-       			$current, 
-       			"propertiesAssignment",
-        		lv_propertiesAssignment_4_0, 
-        		"UiVisibilityPropertiesAssignment");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)	otherlv_5='}' 
-    {
-    	newLeafNode(otherlv_5, grammarAccess.getUiVisibilityProcessorAccess().getRightCurlyBracketKeyword_5());
-    }
-(	otherlv_6='uses' 
-    {
-    	newLeafNode(otherlv_6, grammarAccess.getUiVisibilityProcessorAccess().getUsesKeyword_6_0());
-    }
-	otherlv_7='{' 
-    {
-    	newLeafNode(otherlv_7, grammarAccess.getUiVisibilityProcessorAccess().getLeftCurlyBracketKeyword_6_1());
     }
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiVisibilityProcessorAccess().getBindingAliasUiBindingEndpointAliasParserRuleCall_6_2_0_0()); 
+	        newCompositeNode(grammarAccess.getUiVisibilityProcessorAccess().getDataUsedUiBindingEndpointAliasParserRuleCall_4_0_0()); 
 	    }
-		lv_bindingAlias_8_0=ruleUiBindingEndpointAlias		{
+		lv_dataUsed_4_0=ruleUiBindingEndpointAlias		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiVisibilityProcessorRule());
 	        }
        		add(
        			$current, 
-       			"bindingAlias",
-        		lv_bindingAlias_8_0, 
+       			"dataUsed",
+        		lv_dataUsed_4_0, 
         		"UiBindingEndpointAlias");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -8782,48 +8925,63 @@ ruleUiVisibilityProcessor returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiVisibilityProcessorAccess().getChangeTriggerUiChangeTriggerParserRuleCall_6_2_1_0()); 
+	        newCompositeNode(grammarAccess.getUiVisibilityProcessorAccess().getChangeTriggersUiChangeTriggerParserRuleCall_4_1_0()); 
 	    }
-		lv_changeTrigger_9_0=ruleUiChangeTrigger		{
+		lv_changeTriggers_5_0=ruleUiChangeTrigger		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiVisibilityProcessorRule());
 	        }
        		add(
        			$current, 
-       			"changeTrigger",
-        		lv_changeTrigger_9_0, 
+       			"changeTriggers",
+        		lv_changeTriggers_5_0, 
         		"UiChangeTrigger");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_10='}' 
-    {
-    	newLeafNode(otherlv_10, grammarAccess.getUiVisibilityProcessorAccess().getRightCurlyBracketKeyword_6_3());
-    }
-)?(	otherlv_11='activation' 
-    {
-    	newLeafNode(otherlv_11, grammarAccess.getUiVisibilityProcessorAccess().getActivationKeyword_7_0());
-    }
-(
+)
+    |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiVisibilityProcessorAccess().getRuleUiXbaseVisibilityRuleParserRuleCall_7_1_0()); 
+	        newCompositeNode(grammarAccess.getUiVisibilityProcessorAccess().getImportedElementsUiTypedBindableRawTypeAliasParserRuleCall_4_2_0()); 
 	    }
-		lv_rule_12_0=ruleUiXbaseVisibilityRule		{
+		lv_importedElements_6_0=ruleUiTypedBindableRawTypeAlias		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiVisibilityProcessorRule());
+	        }
+       		add(
+       			$current, 
+       			"importedElements",
+        		lv_importedElements_6_0, 
+        		"UiTypedBindableRawTypeAlias");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiVisibilityProcessorAccess().getRuleUiXbaseVisibilityRuleParserRuleCall_5_0()); 
+	    }
+		lv_rule_7_0=ruleUiXbaseVisibilityRule		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiVisibilityProcessorRule());
 	        }
        		set(
        			$current, 
        			"rule",
-        		lv_rule_12_0, 
+        		lv_rule_7_0, 
         		"UiXbaseVisibilityRule");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))?)
+)?	otherlv_8='}' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getUiVisibilityProcessorAccess().getRightCurlyBracketKeyword_6());
+    }
+)
 ;
 
 
@@ -8869,112 +9027,6 @@ ruleUiXbaseVisibilityRule returns [EObject current=null]
 
 
 
-// Entry rule entryRuleUiVisibilityPropertiesAssignment
-entryRuleUiVisibilityPropertiesAssignment returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getUiVisibilityPropertiesAssignmentRule()); }
-	 iv_ruleUiVisibilityPropertiesAssignment=ruleUiVisibilityPropertiesAssignment 
-	 { $current=$iv_ruleUiVisibilityPropertiesAssignment.current; } 
-	 EOF 
-;
-
-// Rule UiVisibilityPropertiesAssignment
-ruleUiVisibilityPropertiesAssignment returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-((
-    {
-        $current = forceCreateModelElement(
-            grammarAccess.getUiVisibilityPropertiesAssignmentAccess().getUiVisibilityPropertiesAssignmentAction_0(),
-            $current);
-    }
-)(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getUiVisibilityPropertiesAssignmentAccess().getPropertiesUiVisibilityPropertyParserRuleCall_1_0()); 
-	    }
-		lv_properties_1_0=ruleUiVisibilityProperty		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getUiVisibilityPropertiesAssignmentRule());
-	        }
-       		add(
-       			$current, 
-       			"properties",
-        		lv_properties_1_0, 
-        		"UiVisibilityProperty");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)*)
-;
-
-
-
-
-
-// Entry rule entryRuleUiVisibilityProperty
-entryRuleUiVisibilityProperty returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getUiVisibilityPropertyRule()); }
-	 iv_ruleUiVisibilityProperty=ruleUiVisibilityProperty 
-	 { $current=$iv_ruleUiVisibilityProperty.current; } 
-	 EOF 
-;
-
-// Rule UiVisibilityProperty
-ruleUiVisibilityProperty returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-((
-(
-		{ 
-	        newCompositeNode(grammarAccess.getUiVisibilityPropertyAccess().getBindableDefUiTypedBindableDefParserRuleCall_0_0()); 
-	    }
-		lv_bindableDef_0_0=ruleUiTypedBindableDef		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getUiVisibilityPropertyRule());
-	        }
-       		set(
-       			$current, 
-       			"bindableDef",
-        		lv_bindableDef_0_0, 
-        		"UiTypedBindableDef");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)	otherlv_1='=' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getUiVisibilityPropertyAccess().getEqualsSignKeyword_1());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getUiVisibilityPropertyAccess().getAssignmentExpressionXAssignmentParserRuleCall_2_0()); 
-	    }
-		lv_assignmentExpression_2_0=ruleXAssignment		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getUiVisibilityPropertyRule());
-	        }
-       		set(
-       			$current, 
-       			"assignmentExpression",
-        		lv_assignmentExpression_2_0, 
-        		"XAssignment");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))
-;
-
-
-
-
-
 // Entry rule entryRuleUiChangeTrigger
 entryRuleUiChangeTrigger returns [EObject current=null] 
 	:
@@ -9011,7 +9063,33 @@ ruleUiChangeTrigger returns [EObject current=null]
 	    }
 
 )
-))
+)	otherlv_2='as' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getUiChangeTriggerAccess().getAsKeyword_2());
+    }
+(
+(
+		lv_alias_3_0=RULE_ID
+		{
+			newLeafNode(lv_alias_3_0, grammarAccess.getUiChangeTriggerAccess().getAliasIDTerminalRuleCall_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiChangeTriggerRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"alias",
+        		lv_alias_3_0, 
+        		"ID");
+	    }
+
+)
+)(	otherlv_4=';' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getUiChangeTriggerAccess().getSemicolonKeyword_4());
+    }
+)?)
 ;
 
 

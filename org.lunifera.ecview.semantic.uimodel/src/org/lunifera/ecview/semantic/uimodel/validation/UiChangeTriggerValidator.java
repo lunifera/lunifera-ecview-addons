@@ -18,4 +18,6 @@ public interface UiChangeTriggerValidator {
 
 	boolean validateEndpoint(UiBindingExpression value);
 	boolean validateEndpointAlias(UiBindingEndpointAlias value);
+
+	boolean validateAlias(String value);
 }

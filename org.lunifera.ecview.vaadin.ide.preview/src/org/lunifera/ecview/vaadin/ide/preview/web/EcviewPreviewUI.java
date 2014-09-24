@@ -32,6 +32,7 @@ import org.lunifera.ecview.core.common.context.IViewContext;
 import org.lunifera.ecview.core.common.model.core.YBeanSlot;
 import org.lunifera.ecview.core.common.model.core.YView;
 import org.lunifera.ecview.core.common.model.validation.ValidationPackage;
+import org.lunifera.ecview.core.common.model.visibility.VisibilityPackage;
 import org.lunifera.ecview.core.common.services.IWidgetAssocationsService;
 import org.lunifera.ecview.core.common.tooling.IWidgetMouseClickService;
 import org.lunifera.ecview.core.common.types.ITypeProviderService;
@@ -293,6 +294,9 @@ public class EcviewPreviewUI extends UI {
 			if (clazz instanceof EClass) {
 
 				if (clazz == ValidationPackage.Literals.YCLASS_DELEGATE_VALIDATOR) {
+					return Activator.getDefault().getXtextUtilService()
+							.reloadClass(qualifiedName);
+				}else if (clazz == VisibilityPackage.Literals.YVISIBILITY_PROCESSOR) {
 					return Activator.getDefault().getXtextUtilService()
 							.reloadClass(qualifiedName);
 				}

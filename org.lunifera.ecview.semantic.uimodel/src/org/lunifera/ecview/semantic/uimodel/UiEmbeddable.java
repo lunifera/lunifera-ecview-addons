@@ -38,4 +38,5 @@ public interface UiEmbeddable extends UiVisibilityProcessable, UiRawBindable, Ui
 	 * @generated
 	 */
 	EList<UiBinding> getBindings();
+	
 } // UiEmbeddable

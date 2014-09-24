@@ -2,6 +2,7 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -12,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessable#getProcessorAssignment <em>Processor Assignment</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessable#getProcessorAssignments <em>Processor Assignments</em>}</li>
  * </ul>
  * </p>
  *
@@ -22,29 +23,19 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface UiVisibilityProcessable extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Processor Assignment</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Processor Assignments</b></em>' containment reference list.
+	 * The list contents are of type {@link org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Processor Assignment</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Processor Assignments</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Processor Assignment</em>' containment reference.
-	 * @see #setProcessorAssignment(UiVisibilityProcessorAssignment)
-	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiVisibilityProcessable_ProcessorAssignment()
+	 * @return the value of the '<em>Processor Assignments</em>' containment reference list.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiVisibilityProcessable_ProcessorAssignments()
 	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
-	UiVisibilityProcessorAssignment getProcessorAssignment();
-
-	/**
-	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessable#getProcessorAssignment <em>Processor Assignment</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Processor Assignment</em>' containment reference.
-	 * @see #getProcessorAssignment()
-	 * @generated
-	 */
-	void setProcessorAssignment(UiVisibilityProcessorAssignment value);
+	EList<UiVisibilityProcessorAssignment> getProcessorAssignments();
 
 } // UiVisibilityProcessable

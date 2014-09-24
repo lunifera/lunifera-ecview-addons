@@ -114,7 +114,7 @@ element CheckBox {
 		endpoint underline Boolean
 		endpoint visible Boolean
 	}
-	
+
 	validator {
 		property validators
 	}

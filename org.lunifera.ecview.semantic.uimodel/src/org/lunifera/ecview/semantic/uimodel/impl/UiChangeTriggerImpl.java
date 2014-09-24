@@ -22,6 +22,7 @@ import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiChangeTriggerImpl#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiChangeTriggerImpl#getEndpointAlias <em>Endpoint Alias</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiChangeTriggerImpl#getAlias <em>Alias</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,6 +48,26 @@ public class UiChangeTriggerImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected UiBindingEndpointAlias endpointAlias;
+
+	/**
+	 * The default value of the '{@link #getAlias() <em>Alias</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlias()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ALIAS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAlias() <em>Alias</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlias()
+	 * @generated
+	 * @ordered
+	 */
+	protected String alias = ALIAS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -176,6 +197,27 @@ public class UiChangeTriggerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getAlias() {
+		return alias;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAlias(String newAlias) {
+		String oldAlias = alias;
+		alias = newAlias;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_CHANGE_TRIGGER__ALIAS, oldAlias, alias));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -199,6 +241,8 @@ public class UiChangeTriggerImpl extends MinimalEObjectImpl.Container implements
 			case UiModelPackage.UI_CHANGE_TRIGGER__ENDPOINT_ALIAS:
 				if (resolve) return getEndpointAlias();
 				return basicGetEndpointAlias();
+			case UiModelPackage.UI_CHANGE_TRIGGER__ALIAS:
+				return getAlias();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -216,6 +260,9 @@ public class UiChangeTriggerImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case UiModelPackage.UI_CHANGE_TRIGGER__ENDPOINT_ALIAS:
 				setEndpointAlias((UiBindingEndpointAlias)newValue);
+				return;
+			case UiModelPackage.UI_CHANGE_TRIGGER__ALIAS:
+				setAlias((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -235,6 +282,9 @@ public class UiChangeTriggerImpl extends MinimalEObjectImpl.Container implements
 			case UiModelPackage.UI_CHANGE_TRIGGER__ENDPOINT_ALIAS:
 				setEndpointAlias((UiBindingEndpointAlias)null);
 				return;
+			case UiModelPackage.UI_CHANGE_TRIGGER__ALIAS:
+				setAlias(ALIAS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -251,8 +301,26 @@ public class UiChangeTriggerImpl extends MinimalEObjectImpl.Container implements
 				return endpoint != null;
 			case UiModelPackage.UI_CHANGE_TRIGGER__ENDPOINT_ALIAS:
 				return endpointAlias != null;
+			case UiModelPackage.UI_CHANGE_TRIGGER__ALIAS:
+				return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (alias: ");
+		result.append(alias);
+		result.append(')');
+		return result.toString();
 	}
 
 } //UiChangeTriggerImpl

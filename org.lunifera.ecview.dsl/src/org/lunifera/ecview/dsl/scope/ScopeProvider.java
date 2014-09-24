@@ -9,13 +9,11 @@ import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider;
 import org.lunifera.ecview.core.common.model.core.YBeanSlot;
-import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTable;
-import org.lunifera.ecview.semantic.uimodel.UiTypedBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperty;
 import org.lunifera.ecview.semantic.uimodel.impl.UiPathSegmentImpl;
@@ -54,6 +52,8 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 			return new BindingEndpointDefRawBindableScope(context, nameProvider);
 		} else if (reference == UiModelPackage.Literals.UI_RAW_BINDABLE_PATH_SEGMENT__RAW_BINDABLE) {
 			return new RawBindablePathRawBindableScope(context, nameProvider);
+		} else if (reference == UiModelPackage.Literals.UI_TYPED_BINDABLE_RAW_TYPE__RAW_BINDABLE) {
+			return new TypedBindableRawTypeScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_BINDING_ENDPOINT_ASSIGNMENT__PATH) {
 			return createBindingEndpointDefPathScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_PATH_SEGMENT__GETTER) {

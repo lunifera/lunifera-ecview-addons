@@ -8,5 +8,8 @@ Bundle-ClassPath: .
 Bundle-SymbolicName: org.lunifera.ecview.dsl.lib;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.lunifera.ecview.semantic.uimodel;bundle-version="0.7.3",
- org.lunifera.ecview.uisemantics;bundle-version="0.7.3"
+ org.lunifera.ecview.uisemantics;bundle-version="0.7.3",
+ org.lunifera.dsl.datatype.lib;bundle-version="0.7.3",
+ org.lunifera.ecview.core.common;bundle-version="0.7.3"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.lunifera.ecview.dsl.lib

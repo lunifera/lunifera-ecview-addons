@@ -154,6 +154,14 @@ import org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.lunifera.xtext.builder.types.loader.api.ITypeLoaderFactory
 import org.lunifera.xtext.builder.types.loader.api.ITypeLoader
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor
+import org.lunifera.ecview.core.common.model.visibility.YVisibilityProcessor
+import org.lunifera.ecview.core.common.model.visibility.VisibilityFactory
+import org.lunifera.ecview.core.common.model.core.util.CoreModelAdapterFactory
+import org.lunifera.ecview.core.common.model.binding.BindingFactory
+import org.lunifera.ecview.core.common.model.binding.YVisibilityProcessorValueBindingEndpoint
+import org.lunifera.ecview.core.common.model.binding.YValueBinding
 
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
@@ -179,6 +187,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	DerivedStateAwareResource resource
 	List<UiBinding> pendingBindings = newArrayList()
 	List<UiBinding> temporaryPendingBindings = newArrayList()
+	List<UiVisibilityProcessorAssignment> pendingVisibilityProcessors = newArrayList()
+
 
 	def void associateUi(EObject grammarElement, EObject uiElement) {
 		grammarToUiAssociations.put(grammarElement, uiElement)
@@ -224,6 +234,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			views.clear
 			viewContext.clear
 			pendingBindings.clear
+			pendingVisibilityProcessors.clear
 		}
 
 		this.typeLoader.dispose
@@ -293,6 +304,15 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		object.content.map
 		
 		object.bindings.forEach[it.map]
+		
+		object.processorAssignments.forEach [
+			it.map
+		]
+		
+		// process the visibility processors
+		pendingVisibilityProcessors.forEach[
+			it.processor.map
+		]
 
 		// install all bindings
 		temporaryPendingBindings = newArrayList(pendingBindings)
@@ -336,6 +356,15 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		object.content
 		object.bindings.forEach[it.map]
 
+		object.processorAssignments.forEach [
+			it.map
+		]
+		
+		// process the visibility processors
+		pendingVisibilityProcessors.forEach[
+			it.processor.map
+		]
+
 		// install all bindings
 		pendingBindings.forEach [
 			it.install
@@ -360,6 +389,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		]
 
 		eObject.bindings.forEach [
+			it.map
+		]
+		
+		eObject.processorAssignments.forEach [
 			it.map
 		]
 
@@ -399,6 +432,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		]
 
 		eObject.bindings.forEach [
+			it.map
+		]
+		
+		eObject.processorAssignments.forEach [
 			it.map
 		]
 
@@ -443,6 +480,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		eObject.bindings.forEach [
 			it.map
 		]
+		
+		eObject.processorAssignments.forEach [
+			it.map
+		]
 
 		pop
 	}
@@ -478,6 +519,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		eObject.firstContent.map
 		eObject.secondContent.map
 
+		eObject.processorAssignments.forEach [
+			it.map
+		]
+	
 		pop
 	}
 
@@ -532,6 +577,14 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		}
 
 		eObject.bindings.forEach [
+			it.map
+		]
+		
+		eObject.processorAssignments.forEach [
+			it.map
+		]
+		
+		eObject.processorAssignments.forEach [
 			it.map
 		]
 
@@ -595,6 +648,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		eObject.bindings.forEach [
 			it.map
 		]
+		
+		eObject.processorAssignments.forEach [
+			it.map
+		]
 
 		pop
 	}
@@ -621,6 +678,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			]
 			pop
 		}
+		
+		eObject.processorAssignments.forEach [
+			it.map
+		]
 
 		pop
 
@@ -672,6 +733,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			it.map
 		]
 
+		eObject.processorAssignments.forEach [
+			it.map
+		]
+
 		pop
 	}
 
@@ -708,6 +773,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 				it.map
 			]
 		}
+		
+		eObject.processorAssignments.forEach [
+			it.map
+		]
 
 		pop
 	}
@@ -736,6 +805,14 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 				it.map
 			]
 		}
+		
+		eObject.processorAssignments.forEach [
+			it.map
+		]
+		
+		eObject.processorAssignments.forEach [
+			it.map
+		]
 
 		pop
 	}
@@ -844,6 +921,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		eObject.bindings.forEach [
 			it.map
 		]
+		
+		eObject.processorAssignments.forEach[
+			it.map
+		]
 
 		pop
 	}
@@ -864,7 +945,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			]
 			pop
 		}
-
+		
 	}
 
 	def dispatch void map(UiFormLayout eObject) {
@@ -915,6 +996,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 				it.map
 			]
 		}
+		
+		eObject.processorAssignments.forEach [
+			it.map
+		]
 
 		pop
 	}
@@ -934,6 +1019,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 				it.map
 			]
 		}
+		
+		eObject.processorAssignments.forEach [
+			it.map
+		]
 
 		pop
 	}
@@ -960,6 +1049,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 				it.map
 			]
 		}
+		
+		eObject.processorAssignments.forEach [
+			it.map
+		]
 
 		pop
 	}
@@ -970,6 +1063,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		object.bindings.forEach [
 			it.map
 		]
+		
+		object.processorAssignments.forEach [
+			it.map
+		]
+		
 	}
 
 	def dispatch void map(UiMobileNavigationButton object) {
@@ -983,6 +1081,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		}
 
 		object.bindings.forEach [
+			it.map
+		]
+		
+		object.processorAssignments.forEach [
 			it.map
 		]
 
@@ -1112,6 +1214,47 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	//		eObject.validator.map
 	}
+	
+	
+	def dispatch void map(UiVisibilityProcessorAssignment eObject) {
+		// must be installed after all UI elements have been created
+		pendingVisibilityProcessors += eObject
+	}
+	
+	def dispatch void map(UiVisibilityProcessor eObject) {
+		val YVisibilityProcessor yProcessor = VisibilityFactory.eINSTANCE.createYVisibilityProcessor
+		yProcessor.delegate=loadClass(eObject.eResource.resourceSet, eObject.fullyQualifiedName.toString)
+		yProcessor.delegateQualifiedName = eObject.fullyQualifiedName.toString
+		currentView.visibilityProcessors += yProcessor
+		
+		for(trigger : eObject.changeTriggers){
+			val YValueBindingEndpoint sourceEP = (trigger.endpoint as UiBindingEndpointAssignment).createValueBindingEndpoint()
+			val YVisibilityProcessorValueBindingEndpoint targetEP = BindingFactory.eINSTANCE.createYVisibilityProcessorValueBindingEndpoint
+			targetEP.property = trigger.alias
+			
+			// create a new binding
+			val YValueBinding binding = BindingFactory.eINSTANCE.createYValueBinding();
+			binding.setTargetEndpoint(targetEP);
+			binding.setModelEndpoint(sourceEP);
+			binding.setModelToTargetStrategy(YBindingUpdateStrategy.UPDATE);
+			binding.setTargetToModelStrategy(YBindingUpdateStrategy.NEVER);
+			yProcessor.triggersOn += binding
+		}
+		
+		for(dataUsed : eObject.dataUsed){
+			val YValueBindingEndpoint sourceEP = (dataUsed.endpoint as UiBindingEndpointAssignment).createValueBindingEndpoint()
+			val YVisibilityProcessorValueBindingEndpoint targetEP = BindingFactory.eINSTANCE.createYVisibilityProcessorValueBindingEndpoint
+			targetEP.property = dataUsed.alias
+			
+			// create a new binding
+			val YValueBinding binding = BindingFactory.eINSTANCE.createYValueBinding();
+			binding.setTargetEndpoint(targetEP);
+			binding.setModelEndpoint(sourceEP);
+			binding.setModelToTargetStrategy(YBindingUpdateStrategy.UPDATE);
+			binding.setTargetToModelStrategy(YBindingUpdateStrategy.NEVER);
+			yProcessor.dataUsed += binding
+		}
+	}
 
 	def dispatch void map(UiMaxLengthValidator eObject) {
 		val YMaxLengthValidator newValidator = factory.createMaxLengthValidator
@@ -1177,6 +1320,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiTextField object) {
 		val YTextField textField = factory.createTextField
+		textField.id = UiModelUtil.getPathId(object)
 		textField.name = object.name
 		textField.label = object.name
 		textField.labelI18nKey = object.toI18nKey
@@ -1195,6 +1339,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiLabel object) {
 		val YLabel label = factory.createLabel
+		label.id = UiModelUtil.getPathId(object)
 		label.name = object.name
 		label.label = object.name
 		label.labelI18nKey = object.toI18nKey
@@ -1206,6 +1351,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiDecimalField object) {
 		val YDecimalField decimalField = factory.createDecimalField
+		decimalField.id = UiModelUtil.getPathId(object)
 		decimalField.name = object.name
 		decimalField.label = object.name
 		decimalField.labelI18nKey = object.toI18nKey
@@ -1225,6 +1371,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiTextArea object) {
 		val YTextArea textArea = factory.createTextArea
+		textArea.id = UiModelUtil.getPathId(object)
 		textArea.name = object.name
 		textArea.label = object.name
 		textArea.labelI18nKey = object.toI18nKey
@@ -1236,6 +1383,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiOptionsGroup object) {
 		val YOptionsGroup optionsGroup = factory.createOptionsGroup
+		optionsGroup.id = UiModelUtil.getPathId(object)
 		optionsGroup.name = object.name
 		optionsGroup.label = object.name
 		optionsGroup.labelI18nKey = object.toI18nKey
@@ -1255,6 +1403,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiDateField object) {
 		val YDateTime dateTime = factory.createDateTime
+		dateTime.id = UiModelUtil.getPathId(object)
 		dateTime.name = object.name
 		dateTime.label = object.name
 		dateTime.labelI18nKey = object.toI18nKey
@@ -1268,6 +1417,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiBrowser object) {
 		val YBrowser browser = factory.createBrowser
+		browser.id = UiModelUtil.getPathId(object)
 		browser.name = object.name
 		browser.label = object.name
 		browser.labelI18nKey = object.toI18nKey
@@ -1279,6 +1429,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiProgressBar object) {
 		val YProgressBar progressBar = factory.createProgressBar
+		progressBar.id = UiModelUtil.getPathId(object)
 		progressBar.name = object.name
 		progressBar.label = object.name
 		progressBar.labelI18nKey = object.toI18nKey
@@ -1290,6 +1441,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiImage object) {
 		val YImage image = factory.createImage
+		image.id = UiModelUtil.getPathId(object)
 		image.name = object.name
 		image.label = object.name
 		image.labelI18nKey = object.toI18nKey
@@ -1303,6 +1455,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiTable object) {
 		val YTable table = factory.createTable
+		table.id = UiModelUtil.getPathId(object)
 		table.name = object.name
 		table.label = object.name
 		table.labelI18nKey = object.toI18nKey
@@ -1333,6 +1486,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiNumericField object) {
 		val YNumericField field = factory.createNumericField
+		field.id = UiModelUtil.getPathId(object)
 		field.name = object.name
 		field.label = object.name
 		field.labelI18nKey = object.toI18nKey
@@ -1350,6 +1504,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiCheckBox object) {
 		val YCheckBox field = factory.createCheckBox
+		field.id = UiModelUtil.getPathId(object)
 		field.name = object.name
 		field.label = object.name
 		field.labelI18nKey = object.toI18nKey
@@ -1361,6 +1516,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	
 	def dispatch YButton create(UiButton object) {
 		val YButton field = factory.createButton
+		field.id = UiModelUtil.getPathId(object)
 		field.name = object.name
 		field.label = object.name
 		field.labelI18nKey = object.toI18nKey
@@ -1372,6 +1528,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	
 	def dispatch VMNavigationButton create(UiMobileNavigationButton object) {
 		val VMNavigationButton field = VaadinMobileFactory.eINSTANCE.createVMNavigationButton
+		field.id = UiModelUtil.getPathId(object)
 		field.name = object.name
 		field.label = object.name
 		field.labelI18nKey = object.toI18nKey
@@ -1383,6 +1540,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiComboBox object) {
 		val YComboBox field = factory.createComboBox
+		field.id = UiModelUtil.getPathId(object)
 		field.name = object.name
 		field.label = object.name
 		field.labelI18nKey = object.toI18nKey
@@ -1402,6 +1560,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiSwitch object) {
 		val VMSwitch field = VaadinMobileFactory.eINSTANCE.createVMSwitch
+		field.id = UiModelUtil.getPathId(object)
 		field.name = object.name
 		field.label = object.name
 		field.labelI18nKey = object.toI18nKey
@@ -1414,6 +1573,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	
 	def dispatch YGridLayout create(UiGridLayout object) {
 		val YGridLayout layout = factory.createGridLayout
+		layout.id = UiModelUtil.getPathId(object)
 		layout.name = object.name
 		layout.columns = object.columns
 		layout.labelI18nKey = object.toI18nKey
@@ -1437,6 +1597,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	
 	def dispatch YHorizontalLayout create(UiHorizontalLayout object) {
 		val YHorizontalLayout layout = factory.createHorizontalLayout
+		layout.id = UiModelUtil.getPathId(object)
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
@@ -1448,6 +1609,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	
 	def dispatch YSplitPanel create(UiSplitpanel object) {
 		val YSplitPanel layout = factory.createSplitPanel
+		layout.id = UiModelUtil.getPathId(object)
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
@@ -1471,6 +1633,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	
 	def dispatch YVerticalLayout create(UiVerticalLayout object) {
 		val YVerticalLayout layout = factory.createVerticalLayout
+		layout.id = UiModelUtil.getPathId(object)
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
@@ -1482,6 +1645,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	
 	def dispatch VMHorizontalButtonGroup create(UiHorizontalButtonGroup object) {
 		val VMHorizontalButtonGroup layout = VaadinMobileFactory.eINSTANCE.createVMHorizontalButtonGroup
+		layout.id = UiModelUtil.getPathId(object)
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
@@ -1493,6 +1657,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	
 	def dispatch VMVerticalComponentGroup create(UiVerticalComponentGroup object) {
 		val VMVerticalComponentGroup layout = VaadinMobileFactory.eINSTANCE.createVMVerticalComponentGroup
+		layout.id = UiModelUtil.getPathId(object)
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
@@ -1504,6 +1669,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	
 	def dispatch YTabSheet create(UiTabSheet object) {
 		val YTabSheet layout = factory.createTabSheet
+		layout.id = UiModelUtil.getPathId(object)
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
@@ -1515,6 +1681,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	 
 	def dispatch VMTabSheet create(UiMobileTabSheet object) {
 		val VMTabSheet layout = VaadinMobileFactory.eINSTANCE.createVMTabSheet
+		layout.id = UiModelUtil.getPathId(object)
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey

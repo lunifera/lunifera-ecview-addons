@@ -29,8 +29,20 @@ import org.lunifera.ecview.core.common.context.II18nService;
 import org.lunifera.ecview.core.common.disposal.AbstractDisposable;
 import org.lunifera.ecview.core.common.validation.IStatus;
 import org.lunifera.ecview.core.common.validation.IValidator;
+import org.lunifera.ecview.core.common.visibility.IVisibilityHandler;
+import org.lunifera.ecview.core.common.visibility.IVisibilityManager;
+import org.lunifera.ecview.core.common.visibility.IVisibilityProcessor;
+import org.lunifera.ecview.dsl.scope.BindableTypeResolver;
+import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
+import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
+import org.lunifera.ecview.semantic.uimodel.UiChangeTrigger;
 import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawType;
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawTypeAlias;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityRule;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
+import org.lunifera.ecview.semantic.uimodel.UiXbaseVisibilityRule;
 
 /**
  * <p>Infers a JVM model from the source model.</p>
@@ -56,6 +68,9 @@ public class UIGrammarJvmModelInferrer extends AbstractModelInferrer {
   
   @Inject
   private TypeReferences references;
+  
+  @Inject
+  private BindableTypeResolver typeResolver;
   
   protected void _infer(final UiXbaseValidator element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
     String _validatorName = this.getValidatorName(element);
@@ -305,6 +320,195 @@ public class UIGrammarJvmModelInferrer extends AbstractModelInferrer {
     _accept.initializeLater(_function);
   }
   
+  protected void _infer(final UiVisibilityProcessor element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+    String _processorName = this.getProcessorName(element);
+    JvmGenericType _class = this._jvmTypesBuilder.toClass(element, _processorName);
+    IJvmDeclaredTypeAcceptor.IPostIndexingInitializing<JvmGenericType> _accept = acceptor.<JvmGenericType>accept(_class);
+    final Procedure1<JvmGenericType> _function = new Procedure1<JvmGenericType>() {
+      public void apply(final JvmGenericType it) {
+        UIGrammarJvmModelInferrer.this.associator.associatePrimary(element, it);
+        EList<JvmTypeReference> _superTypes = it.getSuperTypes();
+        JvmTypeReference _newTypeRef = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, IVisibilityProcessor.class, null);
+        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _newTypeRef);
+        EList<UiBindingExpression> _importedElements = element.getImportedElements();
+        for (final UiBindingExpression uiInclude : _importedElements) {
+          {
+            final UiTypedBindableRawTypeAlias temp = ((UiTypedBindableRawTypeAlias) uiInclude);
+            EList<JvmMember> _members = it.getMembers();
+            String _alias = temp.getAlias();
+            JvmTypeReference _newTypeRef_1 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, IVisibilityHandler.class);
+            JvmField _field = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toField(uiInclude, _alias, _newTypeRef_1);
+            UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmField>operator_add(_members, _field);
+          }
+        }
+        EList<UiBindingEndpointAlias> _dataUsed = element.getDataUsed();
+        for (final UiBindingEndpointAlias dataUsed : _dataUsed) {
+          {
+            final UiBindingEndpointAlias temp = ((UiBindingEndpointAlias) dataUsed);
+            EList<JvmMember> _members = it.getMembers();
+            String _alias = temp.getAlias();
+            JvmTypeReference _resolveTypeReference = UIGrammarJvmModelInferrer.this.typeResolver.resolveTypeReference(temp);
+            JvmField _field = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toField(dataUsed, _alias, _resolveTypeReference);
+            UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmField>operator_add(_members, _field);
+          }
+        }
+        EList<UiChangeTrigger> _changeTriggers = element.getChangeTriggers();
+        for (final UiChangeTrigger dataUsed_1 : _changeTriggers) {
+          {
+            final UiChangeTrigger temp = ((UiChangeTrigger) dataUsed_1);
+            EList<JvmMember> _members = it.getMembers();
+            String _alias = temp.getAlias();
+            UiBindingExpression _endpoint = temp.getEndpoint();
+            JvmTypeReference _resolveTypeReference = UIGrammarJvmModelInferrer.this.typeResolver.resolveTypeReference(_endpoint);
+            JvmField _field = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toField(dataUsed_1, _alias, _resolveTypeReference);
+            UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmField>operator_add(_members, _field);
+          }
+        }
+        EList<JvmMember> _members = it.getMembers();
+        JvmTypeReference _newTypeRef_1 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, Void.TYPE);
+        final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
+          public void apply(final JvmOperation it) {
+            EList<JvmFormalParameter> _parameters = it.getParameters();
+            JvmTypeReference _newTypeRef = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, IVisibilityManager.class);
+            JvmFormalParameter _parameter = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toParameter(element, "manager", _newTypeRef);
+            UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+            StringConcatenationClient _client = new StringConcatenationClient() {
+              @Override
+              protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                {
+                  EList<UiBindingExpression> _importedElements = element.getImportedElements();
+                  for(final UiBindingExpression uiInclude : _importedElements) {
+                    final UiTypedBindableRawTypeAlias temp = ((UiTypedBindableRawTypeAlias) uiInclude);
+                    _builder.newLineIfNotEmpty();
+                    String _alias = temp.getAlias();
+                    _builder.append(_alias, "");
+                    _builder.append(" = manager.getById(\"");
+                    String _pathString = UIGrammarJvmModelInferrer.this.toPathString(temp);
+                    _builder.append(_pathString, "");
+                    _builder.append("\");");
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+              }
+            };
+            UIGrammarJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _client);
+          }
+        };
+        JvmOperation _method = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(element, "init", _newTypeRef_1, _function);
+        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
+        EList<JvmMember> _members_1 = it.getMembers();
+        JvmTypeReference _newTypeRef_2 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, Void.TYPE);
+        final Procedure1<JvmOperation> _function_1 = new Procedure1<JvmOperation>() {
+          public void apply(final JvmOperation it) {
+            StringConcatenationClient _client = new StringConcatenationClient() {
+              @Override
+              protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                _builder.append("doFire();");
+                _builder.newLine();
+                _builder.newLine();
+                {
+                  EList<UiBindingExpression> _importedElements = element.getImportedElements();
+                  for(final UiBindingExpression uiInclude : _importedElements) {
+                    final UiTypedBindableRawTypeAlias temp = ((UiTypedBindableRawTypeAlias) uiInclude);
+                    _builder.newLineIfNotEmpty();
+                    String _alias = temp.getAlias();
+                    _builder.append(_alias, "");
+                    _builder.append(".apply();");
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+              }
+            };
+            UIGrammarJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _client);
+          }
+        };
+        JvmOperation _method_1 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(element, "fire", _newTypeRef_2, _function_1);
+        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _method_1);
+        EList<JvmMember> _members_2 = it.getMembers();
+        JvmTypeReference _newTypeRef_3 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, Void.TYPE);
+        final Procedure1<JvmOperation> _function_2 = new Procedure1<JvmOperation>() {
+          public void apply(final JvmOperation it) {
+            UiVisibilityRule _rule = element.getRule();
+            final UiXbaseVisibilityRule rule = ((UiXbaseVisibilityRule) _rule);
+            XExpression _expression = rule.getExpression();
+            UIGrammarJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _expression);
+          }
+        };
+        JvmOperation _method_2 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(element, "doFire", _newTypeRef_3, _function_2);
+        UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _method_2);
+        EList<UiBindingEndpointAlias> _dataUsed_1 = element.getDataUsed();
+        for (final UiBindingEndpointAlias dataUsed_2 : _dataUsed_1) {
+          {
+            final UiBindingEndpointAlias temp = ((UiBindingEndpointAlias) dataUsed_2);
+            EList<JvmMember> _members_3 = it.getMembers();
+            String _alias = temp.getAlias();
+            JvmTypeReference _resolveTypeReference = UIGrammarJvmModelInferrer.this.typeResolver.resolveTypeReference(temp);
+            JvmOperation _getter = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toGetter(dataUsed_2, _alias, _resolveTypeReference);
+            UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _getter);
+            EList<JvmMember> _members_4 = it.getMembers();
+            String _alias_1 = temp.getAlias();
+            JvmTypeReference _resolveTypeReference_1 = UIGrammarJvmModelInferrer.this.typeResolver.resolveTypeReference(temp);
+            JvmOperation _setter = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toSetter(dataUsed_2, _alias_1, _resolveTypeReference_1);
+            UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_4, _setter);
+          }
+        }
+        EList<UiChangeTrigger> _changeTriggers_1 = element.getChangeTriggers();
+        for (final UiChangeTrigger changeTrigger : _changeTriggers_1) {
+          {
+            final UiChangeTrigger temp = ((UiChangeTrigger) changeTrigger);
+            EList<JvmMember> _members_3 = it.getMembers();
+            String _alias = temp.getAlias();
+            UiBindingExpression _endpoint = temp.getEndpoint();
+            JvmTypeReference _resolveTypeReference = UIGrammarJvmModelInferrer.this.typeResolver.resolveTypeReference(_endpoint);
+            JvmOperation _getter = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toGetter(changeTrigger, _alias, _resolveTypeReference);
+            UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _getter);
+            EList<JvmMember> _members_4 = it.getMembers();
+            String _alias_1 = temp.getAlias();
+            JvmTypeReference _newTypeRef_4 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, Void.TYPE);
+            final Procedure1<JvmOperation> _function_3 = new Procedure1<JvmOperation>() {
+              public void apply(final JvmOperation it) {
+                it.setVisibility(JvmVisibility.PUBLIC);
+                String _alias = temp.getAlias();
+                String _firstUpper = null;
+                if (_alias!=null) {
+                  _firstUpper=StringExtensions.toFirstUpper(_alias);
+                }
+                String _plus = ("set" + _firstUpper);
+                it.setSimpleName(_plus);
+                EList<JvmFormalParameter> _parameters = it.getParameters();
+                String _alias_1 = temp.getAlias();
+                UiBindingExpression _endpoint = temp.getEndpoint();
+                JvmTypeReference _resolveTypeReference = UIGrammarJvmModelInferrer.this.typeResolver.resolveTypeReference(_endpoint);
+                JvmFormalParameter _parameter = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toParameter(element, _alias_1, _resolveTypeReference);
+                UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+                StringConcatenationClient _client = new StringConcatenationClient() {
+                  @Override
+                  protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                    _builder.append("this.");
+                    String _alias = temp.getAlias();
+                    _builder.append(_alias, "");
+                    _builder.append("=");
+                    String _alias_1 = temp.getAlias();
+                    _builder.append(_alias_1, "");
+                    _builder.append(";");
+                    _builder.newLineIfNotEmpty();
+                    _builder.newLine();
+                    _builder.append("fire();");
+                    _builder.newLine();
+                  }
+                };
+                UIGrammarJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _client);
+              }
+            };
+            JvmOperation _method_3 = UIGrammarJvmModelInferrer.this._jvmTypesBuilder.toMethod(changeTrigger, _alias_1, _newTypeRef_4, _function_3);
+            UIGrammarJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_4, _method_3);
+          }
+        }
+      }
+    };
+    _accept.initializeLater(_function);
+  }
+  
   /**
    * Returns the name of the validator
    */
@@ -321,9 +525,38 @@ public class UIGrammarJvmModelInferrer extends AbstractModelInferrer {
     return newFqn.toString();
   }
   
+  /**
+   * Returns the name of the validator
+   */
+  public String getProcessorName(final UiVisibilityProcessor element) {
+    final QualifiedName fqn = this._iQualifiedNameProvider.getFullyQualifiedName(element);
+    boolean _isEmpty = fqn.isEmpty();
+    if (_isEmpty) {
+      return "UnderConstruction";
+    }
+    QualifiedName _skipLast = fqn.skipLast(1);
+    String _lastSegment = fqn.getLastSegment();
+    String _firstUpper = StringExtensions.toFirstUpper(_lastSegment);
+    final QualifiedName newFqn = _skipLast.append(_firstUpper);
+    return newFqn.toString();
+  }
+  
+  public String toPathString(final UiTypedBindableRawTypeAlias alias) {
+    UiBindingExpression _type = alias.getType();
+    final UiTypedBindableRawType type = ((UiTypedBindableRawType) _type);
+    String _pathString = null;
+    if (type!=null) {
+      _pathString=type.toPathString();
+    }
+    return _pathString;
+  }
+  
   public void infer(final EObject element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
     if (element instanceof UiXbaseValidator) {
       _infer((UiXbaseValidator)element, acceptor, isPreIndexingPhase);
+      return;
+    } else if (element instanceof UiVisibilityProcessor) {
+      _infer((UiVisibilityProcessor)element, acceptor, isPreIndexingPhase);
       return;
     } else if (element != null) {
       _infer(element, acceptor, isPreIndexingPhase);

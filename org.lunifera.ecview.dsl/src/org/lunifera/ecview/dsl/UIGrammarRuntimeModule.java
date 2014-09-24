@@ -45,11 +45,9 @@ public class UIGrammarRuntimeModule extends
 	public Class<? extends org.eclipse.xtext.naming.IQualifiedNameProvider> bindIQualifiedNameProvider() {
 		return UiQualifiedNameProvider.class;
 	}
-	
+
 	// contributed by org.eclipse.xtext.generator.formatting.FormatterFragment
 	public Class<? extends org.eclipse.xtext.formatting.IFormatter> bindIFormatter() {
 		return org.lunifera.ecview.dsl.formatting.UIGrammarFormatter.class;
 	}
-
-
 }

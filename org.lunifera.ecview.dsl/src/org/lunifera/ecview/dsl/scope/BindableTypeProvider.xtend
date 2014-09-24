@@ -17,6 +17,11 @@ import org.lunifera.ecview.semantic.uimodel.UiTypeProvider
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindable
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef
 
+/**
+ * Provider returns the type for the requested bindable, but does NOT resolve the whole path!
+ * The provider is used for scoping issues. There is also a type resolver. It will resolve the
+ * type at the end of the path.
+ */
 @Singleton
 class BindableTypeProvider {
 
@@ -56,12 +61,7 @@ class BindableTypeProvider {
 
 	def dispatch JvmTypeReference doGetTypeReference(UiBindingEndpointAssignment epDef) {
 		if (epDef.typedBindableAlias != null) {
-			val UiTypedBindable alias = epDef.getTypedBindableAlias() as UiTypedBindable;
-			if (alias instanceof UiBindingEndpointAlias) {
-				alias.doGetTypeReference
-			} else {
 				return epDef.typedBindableAlias.doGetTypeReference
-			}
 		} else if (epDef.typedBindableDef != null) {
 			return epDef.typedBindableDef.doGetTypeReference
 		}
@@ -110,9 +110,5 @@ class BindableTypeProvider {
 
 	def dispatch JvmTypeReference doGetTypeReference(UiTypeProvider provider) {
 		return provider.jvmType
-	}
-
-	def dispatch JvmTypeReference doGetTypeReference(UiPathSegment path) {
-		return path.typeofLastSegment.typeReference
 	}
 }

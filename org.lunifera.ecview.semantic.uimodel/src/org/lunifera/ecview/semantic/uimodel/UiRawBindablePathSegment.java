@@ -81,4 +81,11 @@ public interface UiRawBindablePathSegment extends EObject {
 	 */
 	public UiRawBindable getRawBindableOfLastSegment();
 
+	/**
+	 * Returns the path of this object as a DOT separated String.
+	 * 
+	 * @return
+	 */
+	public String toPathString();
+
 } // UiRawBindablePathSegment

@@ -15,9 +15,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.lunifera.ecview.semantic.uimodel.UiAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
+import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.semantic.uimodel.UiViewSet;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessable;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +29,7 @@ import org.lunifera.ecview.semantic.uimodel.UiViewSet;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getProcessorAssignments <em>Processor Assignments</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getViewSet <em>View Set</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getContentAlignment <em>Content Alignment</em>}</li>
@@ -36,6 +40,15 @@ import org.lunifera.ecview.semantic.uimodel.UiViewSet;
  * @generated
  */
 public class UiViewImpl extends UiContextImpl implements UiView {
+	/**
+	 * The cached value of the '{@link #getProcessorAssignments() <em>Processor Assignments</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProcessorAssignments()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UiVisibilityProcessorAssignment> processorAssignments;
 	/**
 	 * The cached value of the '{@link #getViewSet() <em>View Set</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -98,6 +111,18 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	@Override
 	protected EClass eStaticClass() {
 		return UiModelPackage.Literals.UI_VIEW;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<UiVisibilityProcessorAssignment> getProcessorAssignments() {
+		if (processorAssignments == null) {
+			processorAssignments = new EObjectContainmentEList.Resolving<UiVisibilityProcessorAssignment>(UiVisibilityProcessorAssignment.class, this, UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS);
+		}
+		return processorAssignments;
 	}
 
 	/**
@@ -245,6 +270,8 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS:
+				return ((InternalEList<?>)getProcessorAssignments()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_VIEW__CONTENT:
 				return basicSetContent(null, msgs);
 			case UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS:
@@ -261,6 +288,8 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS:
+				return getProcessorAssignments();
 			case UiModelPackage.UI_VIEW__VIEW_SET:
 				if (resolve) return getViewSet();
 				return basicGetViewSet();
@@ -284,6 +313,10 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS:
+				getProcessorAssignments().clear();
+				getProcessorAssignments().addAll((Collection<? extends UiVisibilityProcessorAssignment>)newValue);
+				return;
 			case UiModelPackage.UI_VIEW__VIEW_SET:
 				setViewSet((UiViewSet)newValue);
 				return;
@@ -309,6 +342,9 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS:
+				getProcessorAssignments().clear();
+				return;
 			case UiModelPackage.UI_VIEW__VIEW_SET:
 				setViewSet((UiViewSet)null);
 				return;
@@ -333,6 +369,8 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS:
+				return processorAssignments != null && !processorAssignments.isEmpty();
 			case UiModelPackage.UI_VIEW__VIEW_SET:
 				return viewSet != null;
 			case UiModelPackage.UI_VIEW__CONTENT:
@@ -343,6 +381,48 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 				return validatorAssignments != null && !validatorAssignments.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == UiVisibilityProcessable.class) {
+			switch (derivedFeatureID) {
+				case UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS: return UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == UiRawBindable.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == UiVisibilityProcessable.class) {
+			switch (baseFeatureID) {
+				case UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENTS: return UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == UiRawBindable.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

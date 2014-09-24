@@ -14,6 +14,7 @@ import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindableProvider;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawType;
 import org.lunifera.ecview.semantic.uimodel.UiView;
 
 public class RawBindablePathRawBindableScope extends AbstractScope {
@@ -31,13 +32,14 @@ public class RawBindablePathRawBindableScope extends AbstractScope {
 	@Override
 	protected Iterable<IEObjectDescription> getAllLocalElements() {
 		if (context instanceof UiRawBindablePathSegment) {
-
 			EObject expected = null;
 			EObject parent = context.eContainer();
 			if (parent instanceof UiTypedBindableDef) {
 				expected = ((UiTypedBindableDef) parent).getRawBindable();
 			} else if (parent instanceof UiRawBindablePathSegment) {
 				expected = ((UiRawBindablePathSegment) parent).getRawBindable();
+			} else if (parent instanceof UiTypedBindableRawType) {
+				expected = ((UiTypedBindableRawType) parent).getRawBindable();
 			}
 
 			List<IEObjectDescription> result = collectRawBindables(expected);

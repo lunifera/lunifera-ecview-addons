@@ -10,6 +10,7 @@ import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawType;
 import org.lunifera.ecview.semantic.uimodel.UiValidator;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias;
 import org.lunifera.ecview.semantic.uimodel.UiView;
@@ -49,6 +50,14 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 			} else {
 				return converter.toQualifiedName(uiBindingEndpoint.getAlias());
 			}
+		} else if (obj instanceof UiTypedBindableRawType) {
+			UiTypedBindableRawType uiBindingEndpoint = (UiTypedBindableRawType) obj;
+			if (uiBindingEndpoint.getRawBindable() == null) {
+				return QualifiedName.create("notDefined");
+			} else {
+				return converter.toQualifiedName(uiBindingEndpoint
+						.toPathString());
+			}
 		} else if (obj instanceof UiValidatorAlias) {
 			UiValidatorAlias validatorAlias = (UiValidatorAlias) obj;
 			if (validatorAlias.getAlias() == null) {
@@ -63,6 +72,14 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 			} else {
 				return converter.toQualifiedName(String.format("%s.%s",
 						getPackage(validatorAlias), validatorAlias.getName()));
+			}
+		} else if (obj instanceof UiVisibilityProcessor) {
+			UiVisibilityProcessor processor = (UiVisibilityProcessor) obj;
+			if (processor.getName() == null) {
+				return QualifiedName.create("notDefined");
+			} else {
+				return converter.toQualifiedName(String.format("%s.%s",
+						getPackage(processor), processor.getName()));
 			}
 		} else if (obj instanceof UiErrorCode) {
 			UiErrorCode code = (UiErrorCode) obj;

@@ -21,6 +21,11 @@ import org.lunifera.ecview.semantic.uimodel.UiTypedBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 
+/**
+ * Provider returns the type for the requested bindable, but does NOT resolve the whole path!
+ * The provider is used for scoping issues. There is also a type resolver. It will resolve the
+ * type at the end of the path.
+ */
 @Singleton
 @SuppressWarnings("all")
 public class BindableTypeProvider {
@@ -119,24 +124,11 @@ public class BindableTypeProvider {
   }
   
   protected JvmTypeReference _doGetTypeReference(final UiBindingEndpointAssignment epDef) {
-    JvmTypeReference _xifexpression = null;
     UiTypedBindable _typedBindableAlias = epDef.getTypedBindableAlias();
     boolean _notEquals = (!Objects.equal(_typedBindableAlias, null));
     if (_notEquals) {
-      JvmTypeReference _xblockexpression = null;
-      {
-        UiTypedBindable _typedBindableAlias_1 = epDef.getTypedBindableAlias();
-        final UiTypedBindable alias = ((UiTypedBindable) _typedBindableAlias_1);
-        JvmTypeReference _xifexpression_1 = null;
-        if ((alias instanceof UiBindingEndpointAlias)) {
-          _xifexpression_1 = this.doGetTypeReference(alias);
-        } else {
-          UiTypedBindable _typedBindableAlias_2 = epDef.getTypedBindableAlias();
-          return this.doGetTypeReference(_typedBindableAlias_2);
-        }
-        _xblockexpression = _xifexpression_1;
-      }
-      _xifexpression = _xblockexpression;
+      UiTypedBindable _typedBindableAlias_1 = epDef.getTypedBindableAlias();
+      return this.doGetTypeReference(_typedBindableAlias_1);
     } else {
       UiBindingExpression _typedBindableDef = epDef.getTypedBindableDef();
       boolean _notEquals_1 = (!Objects.equal(_typedBindableDef, null));
@@ -145,7 +137,7 @@ public class BindableTypeProvider {
         return this.doGetTypeReference(_typedBindableDef_1);
       }
     }
-    return _xifexpression;
+    return null;
   }
   
   protected JvmTypeReference _doGetTypeReference(final EObject object) {
@@ -215,11 +207,6 @@ public class BindableTypeProvider {
     return provider.getJvmType();
   }
   
-  protected JvmTypeReference _doGetTypeReference(final UiPathSegment path) {
-    JvmType _typeofLastSegment = path.getTypeofLastSegment();
-    return this.getTypeReference(_typeofLastSegment);
-  }
-  
   public JvmTypeReference doGetTypeReference(final EObject beanSlot) {
     if (beanSlot instanceof UiBeanSlot) {
       return _doGetTypeReference((UiBeanSlot)beanSlot);
@@ -233,8 +220,6 @@ public class BindableTypeProvider {
       return _doGetTypeReference((UiTypedBindableDef)beanSlot);
     } else if (beanSlot instanceof UiBindingExpression) {
       return _doGetTypeReference((UiBindingExpression)beanSlot);
-    } else if (beanSlot instanceof UiPathSegment) {
-      return _doGetTypeReference((UiPathSegment)beanSlot);
     } else if (beanSlot instanceof UiTypeProvider) {
       return _doGetTypeReference((UiTypeProvider)beanSlot);
     } else if (beanSlot != null) {

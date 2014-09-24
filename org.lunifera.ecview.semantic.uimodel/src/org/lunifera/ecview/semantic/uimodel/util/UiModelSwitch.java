@@ -6,102 +6,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.lunifera.ecview.semantic.uimodel.*;
-import org.lunifera.ecview.semantic.uimodel.UiAction;
-import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
-import org.lunifera.ecview.semantic.uimodel.UiBinding;
-import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
-import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
-import org.lunifera.ecview.semantic.uimodel.UiBrowser;
-import org.lunifera.ecview.semantic.uimodel.UiButton;
-import org.lunifera.ecview.semantic.uimodel.UiChangeTrigger;
-import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
-import org.lunifera.ecview.semantic.uimodel.UiColumn;
-import org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiComboBox;
-import org.lunifera.ecview.semantic.uimodel.UiCommand;
-import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
-import org.lunifera.ecview.semantic.uimodel.UiContext;
-import org.lunifera.ecview.semantic.uimodel.UiDateField;
-import org.lunifera.ecview.semantic.uimodel.UiDecimalField;
-import org.lunifera.ecview.semantic.uimodel.UiDialog;
-import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
-import org.lunifera.ecview.semantic.uimodel.UiField;
-import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
-import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment;
-import org.lunifera.ecview.semantic.uimodel.UiGridLayout;
-import org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment;
-import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup;
-import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroupAssigment;
-import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout;
-import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment;
-import org.lunifera.ecview.semantic.uimodel.UiIDEView;
-import org.lunifera.ecview.semantic.uimodel.UiImage;
-import org.lunifera.ecview.semantic.uimodel.UiImports;
-import org.lunifera.ecview.semantic.uimodel.UiLabel;
-import org.lunifera.ecview.semantic.uimodel.UiLayout;
-import org.lunifera.ecview.semantic.uimodel.UiLayoutAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiList;
-import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
-import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
-import org.lunifera.ecview.semantic.uimodel.UiMobileAction;
-import org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable;
-import org.lunifera.ecview.semantic.uimodel.UiMobileField;
-import org.lunifera.ecview.semantic.uimodel.UiMobileLayout;
-import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton;
-import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationCommand;
-import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationHandler;
-import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage;
-import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet;
-import org.lunifera.ecview.semantic.uimodel.UiMobileView;
-import org.lunifera.ecview.semantic.uimodel.UiModel;
-import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
-import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
-import org.lunifera.ecview.semantic.uimodel.UiNumericField;
-import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
-import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup;
-import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
-import org.lunifera.ecview.semantic.uimodel.UiPoint;
-import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
-import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
-import org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment;
-import org.lunifera.ecview.semantic.uimodel.UiRawBindableProvider;
-import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
-import org.lunifera.ecview.semantic.uimodel.UiRootElements;
-import org.lunifera.ecview.semantic.uimodel.UiSearchDialog;
-import org.lunifera.ecview.semantic.uimodel.UiSearchField;
-import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
-import org.lunifera.ecview.semantic.uimodel.UiSwitch;
-import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiTabSheet;
-import org.lunifera.ecview.semantic.uimodel.UiTable;
-import org.lunifera.ecview.semantic.uimodel.UiTextArea;
-import org.lunifera.ecview.semantic.uimodel.UiTextField;
-import org.lunifera.ecview.semantic.uimodel.UiTypeProvider;
-import org.lunifera.ecview.semantic.uimodel.UiTypedBindable;
-import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
-import org.lunifera.ecview.semantic.uimodel.UiValidator;
-import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias;
-import org.lunifera.ecview.semantic.uimodel.UiValidatorAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiValidatorDef;
-import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup;
-import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroupAssigment;
-import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout;
-import org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment;
-import org.lunifera.ecview.semantic.uimodel.UiView;
-import org.lunifera.ecview.semantic.uimodel.UiViewSet;
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessable;
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor;
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityPropertiesAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperty;
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityRule;
-import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
-import org.lunifera.ecview.semantic.uimodel.UiXbaseVisibilityRule;
 
 /**
  * <!-- begin-user-doc -->
@@ -201,6 +105,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				UiView uiView = (UiView)theEObject;
 				T result = caseUiView(uiView);
 				if (result == null) result = caseUiContext(uiView);
+				if (result == null) result = caseUiVisibilityProcessable(uiView);
 				if (result == null) result = caseUiRawBindable(uiView);
 				if (result == null) result = caseUiRootElements(uiView);
 				if (result == null) result = caseUiNamedElement(uiView);
@@ -233,6 +138,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiIDEView(uiIDEView);
 				if (result == null) result = caseUiView(uiIDEView);
 				if (result == null) result = caseUiContext(uiIDEView);
+				if (result == null) result = caseUiVisibilityProcessable(uiIDEView);
 				if (result == null) result = caseUiRawBindable(uiIDEView);
 				if (result == null) result = caseUiRootElements(uiIDEView);
 				if (result == null) result = caseUiNamedElement(uiIDEView);
@@ -244,6 +150,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiMobileView(uiMobileView);
 				if (result == null) result = caseUiView(uiMobileView);
 				if (result == null) result = caseUiContext(uiMobileView);
+				if (result == null) result = caseUiVisibilityProcessable(uiMobileView);
 				if (result == null) result = caseUiRawBindable(uiMobileView);
 				if (result == null) result = caseUiRootElements(uiMobileView);
 				if (result == null) result = caseUiNamedElement(uiMobileView);
@@ -338,6 +245,24 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiTypedBindable(uiTypedBindableDef);
 				if (result == null) result = caseUiBindingExpression(uiTypedBindableDef);
 				if (result == null) result = caseUiNamedElement(uiTypedBindableDef);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_TYPED_BINDABLE_RAW_TYPE: {
+				UiTypedBindableRawType uiTypedBindableRawType = (UiTypedBindableRawType)theEObject;
+				T result = caseUiTypedBindableRawType(uiTypedBindableRawType);
+				if (result == null) result = caseUiTypedBindable(uiTypedBindableRawType);
+				if (result == null) result = caseUiBindingExpression(uiTypedBindableRawType);
+				if (result == null) result = caseUiNamedElement(uiTypedBindableRawType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_TYPED_BINDABLE_RAW_TYPE_ALIAS: {
+				UiTypedBindableRawTypeAlias uiTypedBindableRawTypeAlias = (UiTypedBindableRawTypeAlias)theEObject;
+				T result = caseUiTypedBindableRawTypeAlias(uiTypedBindableRawTypeAlias);
+				if (result == null) result = caseUiTypedBindable(uiTypedBindableRawTypeAlias);
+				if (result == null) result = caseUiBindingExpression(uiTypedBindableRawTypeAlias);
+				if (result == null) result = caseUiNamedElement(uiTypedBindableRawTypeAlias);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1493,6 +1418,36 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiTypedBindableDef(UiTypedBindableDef object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Typed Bindable Raw Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Typed Bindable Raw Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiTypedBindableRawType(UiTypedBindableRawType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Typed Bindable Raw Type Alias</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Typed Bindable Raw Type Alias</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiTypedBindableRawTypeAlias(UiTypedBindableRawTypeAlias object) {
 		return null;
 	}
 

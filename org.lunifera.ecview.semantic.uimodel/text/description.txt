@@ -26,7 +26,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiViewSet -> UiContext
 
-  Class UiView -> UiContext, UiRawBindable
+  Class UiView -> UiContext, UiVisibilityProcessable, UiRawBindable
     Reference viewSet : UiViewSet
     Reference content : UiEmbeddable
     Attribute contentAlignment : UiAlignment
@@ -90,6 +90,14 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference rawBindable : UiRawBindable
     Reference rawBindablePath : UiRawBindablePathSegment
     Reference method : UxEndpointDef
+
+  Class UiTypedBindableRawType -> UiTypedBindable, UiBindingExpression
+    Reference rawBindable : UiRawBindable
+    Reference rawBindablePath : UiRawBindablePathSegment
+
+  Class UiTypedBindableRawTypeAlias -> UiTypedBindable, UiBindingExpression
+    Attribute alias : EString<<1..1>>
+    Reference type : UiBindingExpression<<1..1>>
 
   Class UiCommandBindableDef -> UiTypedBindable, UiBindingExpression
     Reference command : UiCommand
@@ -188,17 +196,17 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiCheckBox -> UiField
 
   Class UiVisibilityProcessable
-    Reference processorAssignment : UiVisibilityProcessorAssignment
+    Reference processorAssignments : UiVisibilityProcessorAssignment<<0..*>>
 
   Class UiVisibilityProcessorAssignment
     Reference processor : UiVisibilityProcessor
     Reference processorAlias : UiVisibilityProcessor
 
   Class UiVisibilityProcessor -> UiNamedElement
-    Reference bindingAlias : UiBindingEndpointAlias<<0..*>>
-    Reference changeTrigger : UiChangeTrigger<<0..*>>
+    Reference dataUsed : UiBindingEndpointAlias<<0..*>>
+    Reference changeTriggers : UiChangeTrigger<<0..*>>
+    Reference importedElements : UiBindingExpression<<0..*>>
     Reference rule : UiVisibilityRule
-    Reference propertiesAssignment : UiVisibilityPropertiesAssignment
 
   Class UiVisibilityProcessorDef -> UiRootElements
     Reference processor : UiVisibilityProcessor
@@ -206,6 +214,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiChangeTrigger
     Reference endpoint : UiBindingExpression
     Reference endpointAlias : UiBindingEndpointAlias
+    Attribute alias : EString
 
   Class UiVisibilityRule -> UiNamedElement
 

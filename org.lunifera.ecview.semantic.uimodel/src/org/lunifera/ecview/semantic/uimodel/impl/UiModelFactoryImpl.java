@@ -151,6 +151,8 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_PATH_SEGMENT: return createUiPathSegment();
 			case UiModelPackage.UI_RAW_BINDABLE_PATH_SEGMENT: return createUiRawBindablePathSegment();
 			case UiModelPackage.UI_TYPED_BINDABLE_DEF: return createUiTypedBindableDef();
+			case UiModelPackage.UI_TYPED_BINDABLE_RAW_TYPE: return createUiTypedBindableRawType();
+			case UiModelPackage.UI_TYPED_BINDABLE_RAW_TYPE_ALIAS: return createUiTypedBindableRawTypeAlias();
 			case UiModelPackage.UI_COMMAND_BINDABLE_DEF: return createUiCommandBindableDef();
 			case UiModelPackage.UI_ACTION: return createUiAction();
 			case UiModelPackage.UI_MOBILE_ACTION: return createUiMobileAction();
@@ -435,6 +437,26 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiTypedBindableDef createUiTypedBindableDef() {
 		UiTypedBindableDefImpl uiTypedBindableDef = new UiTypedBindableDefImpl();
 		return uiTypedBindableDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiTypedBindableRawType createUiTypedBindableRawType() {
+		UiTypedBindableRawTypeImpl uiTypedBindableRawType = new UiTypedBindableRawTypeImpl();
+		return uiTypedBindableRawType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiTypedBindableRawTypeAlias createUiTypedBindableRawTypeAlias() {
+		UiTypedBindableRawTypeAliasImpl uiTypedBindableRawTypeAlias = new UiTypedBindableRawTypeAliasImpl();
+		return uiTypedBindableRawTypeAlias;
 	}
 
 	/**

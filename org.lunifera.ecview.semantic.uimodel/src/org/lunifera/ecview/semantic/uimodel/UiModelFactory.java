@@ -211,6 +211,24 @@ public interface UiModelFactory extends EFactory {
 	UiTypedBindableDef createUiTypedBindableDef();
 
 	/**
+	 * Returns a new object of class '<em>Ui Typed Bindable Raw Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Typed Bindable Raw Type</em>'.
+	 * @generated
+	 */
+	UiTypedBindableRawType createUiTypedBindableRawType();
+
+	/**
+	 * Returns a new object of class '<em>Ui Typed Bindable Raw Type Alias</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Typed Bindable Raw Type Alias</em>'.
+	 * @generated
+	 */
+	UiTypedBindableRawTypeAlias createUiTypedBindableRawTypeAlias();
+
+	/**
 	 * Returns a new object of class '<em>Ui Command Bindable Def</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
