@@ -3,7 +3,6 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -12,7 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmOperation;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
@@ -121,7 +120,7 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 	 * @generated
 	 * @ordered
 	 */
-	protected JvmField property;
+	protected JvmOperation property;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -279,10 +278,10 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JvmField getProperty() {
+	public JvmOperation getProperty() {
 		if (property != null && property.eIsProxy()) {
 			InternalEObject oldProperty = (InternalEObject)property;
-			property = (JvmField)eResolveProxy(oldProperty);
+			property = (JvmOperation)eResolveProxy(oldProperty);
 			if (property != oldProperty) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_SEARCH_FIELD__PROPERTY, oldProperty, property));
@@ -296,7 +295,7 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JvmField basicGetProperty() {
+	public JvmOperation basicGetProperty() {
 		return property;
 	}
 
@@ -305,8 +304,8 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProperty(JvmField newProperty) {
-		JvmField oldProperty = property;
+	public void setProperty(JvmOperation newProperty) {
+		JvmOperation oldProperty = property;
 		property = newProperty;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_SEARCH_FIELD__PROPERTY, oldProperty, property));
@@ -383,7 +382,7 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 				getValidators().addAll((Collection<? extends UiValidator>)newValue);
 				return;
 			case UiModelPackage.UI_SEARCH_FIELD__PROPERTY:
-				setProperty((JvmField)newValue);
+				setProperty((JvmOperation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -413,7 +412,7 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 				getValidators().clear();
 				return;
 			case UiModelPackage.UI_SEARCH_FIELD__PROPERTY:
-				setProperty((JvmField)null);
+				setProperty((JvmOperation)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -112,6 +112,7 @@ import org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
 import org.lunifera.ecview.semantic.uimodel.UiSearchDialog;
 import org.lunifera.ecview.semantic.uimodel.UiSearchField;
+import org.lunifera.ecview.semantic.uimodel.UiSearchPanel;
 import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanel;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment;
@@ -600,6 +601,14 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 				   context == grammarAccess.getUiMobileFieldRule() ||
 				   context == grammarAccess.getUiSearchFieldRule()) {
 					sequence_UiSearchField(context, (UiSearchField) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_SEARCH_PANEL:
+				if(context == grammarAccess.getUiEmbeddableRule() ||
+				   context == grammarAccess.getUiLayoutRule() ||
+				   context == grammarAccess.getUiSearchPanelRule()) {
+					sequence_UiSearchPanel(context, (UiSearchPanel) semanticObject); 
 					return; 
 				}
 				else break;
@@ -2479,9 +2488,25 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     property=[JvmField|ID]
+	 *     property=[JvmOperation|ID]
 	 */
 	protected void sequence_UiSearchField(EObject context, UiSearchField semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         i18nInfo=UiI18nInfo? 
+	 *         name=ID? 
+	 *         jvmType=JvmTypeReference 
+	 *         contents+=UiSearchField* 
+	 *         bindings+=UiBinding* 
+	 *         processorAssignments+=UiVisibilityProcessorAssignment*
+	 *     )
+	 */
+	protected void sequence_UiSearchPanel(EObject context, UiSearchPanel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

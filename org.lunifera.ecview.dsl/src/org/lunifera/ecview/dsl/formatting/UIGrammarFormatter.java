@@ -40,6 +40,7 @@ import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiOptionsGroupEle
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiProgressBarElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiSearchDialogElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiSearchFieldElements;
+import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiSearchPanelElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiSearchWithDialogCommandElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiTabAssignmentElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiTabSheetElements;
@@ -144,6 +145,8 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		// HorizontalButtonGroup
 		configureUiHorizontalButtonGroup(c,
 				f.getUiMobileHorizontalButtonGroupAccess());
+		// SearchPanel
+		configureUiSearchPanel(c, f.getUiSearchPanelAccess());
 		// VerticalGroup
 		configureUiVerticalGroup(c, f.getUiMobileVerticalComponentGroupAccess());
 		// Button
@@ -288,6 +291,12 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 			UiHorizontalLayoutElements ele) {
 		// Keywords
 		c.setLinewrap(1, 1, 2).before(ele.getHorizontalLayoutKeyword_1());
+	}
+
+	private void configureUiSearchPanel(FormattingConfig c,
+			UiSearchPanelElements ele) {
+		// Keywords
+		c.setLinewrap(1, 1, 2).before(ele.getSearchPanelKeyword_1());
 	}
 
 	private void configureUiVerticalLayout(FormattingConfig c,

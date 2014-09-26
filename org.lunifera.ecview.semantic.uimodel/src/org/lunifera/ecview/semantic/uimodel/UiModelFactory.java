@@ -310,6 +310,15 @@ public interface UiModelFactory extends EFactory {
 	UiFormLayout createUiFormLayout();
 
 	/**
+	 * Returns a new object of class '<em>Ui Search Panel</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Search Panel</em>'.
+	 * @generated
+	 */
+	UiSearchPanel createUiSearchPanel();
+
+	/**
 	 * Returns a new object of class '<em>Ui Text Field</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

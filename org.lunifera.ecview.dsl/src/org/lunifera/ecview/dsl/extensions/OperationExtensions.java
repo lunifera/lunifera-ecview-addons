@@ -18,6 +18,9 @@ public class OperationExtensions {
 	 * @return
 	 */
 	public static String toPropertyName(String simpleName) {
+		if (simpleName == null) {
+			return null;
+		}
 		String tempName = null;
 		if (isSetter(simpleName)) {
 			tempName = StringExtensions.toFirstLower(simpleName.replaceFirst(

@@ -10,7 +10,7 @@ ideview LocaleSample {
 		tab localesTab form {  
 			combo locales {
 				type LocaleBean;
-				
+
 				captionField localeName
 				imageField iconName
 			  

@@ -10,7 +10,7 @@ ideview LocaleSample {
 		textfield input
 		checkbox dialogue
 	}
-	
+
 	bind [LocaleSample.dialogue].value --> openDialog dialog dialogue { 
 	type String
 	form { 
@@ -18,4 +18,5 @@ ideview LocaleSample {
 	} 
 	bind [LocaleSample.input].value <--> [this.output].value
 	}
-}  
+}
+ 

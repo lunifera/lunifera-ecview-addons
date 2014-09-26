@@ -168,6 +168,8 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiMobileHorizontalButtonGroupAccess().getGroup_2(), "rule__UiMobileHorizontalButtonGroup__Group_2__0");
 					put(grammarAccess.getUiMobileVerticalComponentGroupAccess().getGroup(), "rule__UiMobileVerticalComponentGroup__Group__0");
 					put(grammarAccess.getUiMobileVerticalComponentGroupAccess().getGroup_2(), "rule__UiMobileVerticalComponentGroup__Group_2__0");
+					put(grammarAccess.getUiSearchPanelAccess().getGroup(), "rule__UiSearchPanel__Group__0");
+					put(grammarAccess.getUiSearchPanelAccess().getGroup_2(), "rule__UiSearchPanel__Group_2__0");
 					put(grammarAccess.getUiMobileTabSheetAccess().getGroup(), "rule__UiMobileTabSheet__Group__0");
 					put(grammarAccess.getUiMobileTabSheetAccess().getGroup_2(), "rule__UiMobileTabSheet__Group_2__0");
 					put(grammarAccess.getUiMobileTabAssignmentAccess().getGroup(), "rule__UiMobileTabAssignment__Group__0");
@@ -555,6 +557,12 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiMobileVerticalComponentGroupAccess().getBindingsAssignment_6(), "rule__UiMobileVerticalComponentGroup__BindingsAssignment_6");
 					put(grammarAccess.getUiMobileVerticalComponentGroupAccess().getProcessorAssignmentsAssignment_7(), "rule__UiMobileVerticalComponentGroup__ProcessorAssignmentsAssignment_7");
 					put(grammarAccess.getUiMobileVerticalComponentGroupAssigmentAccess().getElementAssignment(), "rule__UiMobileVerticalComponentGroupAssigment__ElementAssignment");
+					put(grammarAccess.getUiSearchPanelAccess().getI18nInfoAssignment_2_1(), "rule__UiSearchPanel__I18nInfoAssignment_2_1");
+					put(grammarAccess.getUiSearchPanelAccess().getNameAssignment_3(), "rule__UiSearchPanel__NameAssignment_3");
+					put(grammarAccess.getUiSearchPanelAccess().getJvmTypeAssignment_6(), "rule__UiSearchPanel__JvmTypeAssignment_6");
+					put(grammarAccess.getUiSearchPanelAccess().getContentsAssignment_8(), "rule__UiSearchPanel__ContentsAssignment_8");
+					put(grammarAccess.getUiSearchPanelAccess().getBindingsAssignment_9(), "rule__UiSearchPanel__BindingsAssignment_9");
+					put(grammarAccess.getUiSearchPanelAccess().getProcessorAssignmentsAssignment_10(), "rule__UiSearchPanel__ProcessorAssignmentsAssignment_10");
 					put(grammarAccess.getUiMobileTabSheetAccess().getI18nInfoAssignment_2_1(), "rule__UiMobileTabSheet__I18nInfoAssignment_2_1");
 					put(grammarAccess.getUiMobileTabSheetAccess().getNameAssignment_3(), "rule__UiMobileTabSheet__NameAssignment_3");
 					put(grammarAccess.getUiMobileTabSheetAccess().getTabsAssignment_5(), "rule__UiMobileTabSheet__TabsAssignment_5");

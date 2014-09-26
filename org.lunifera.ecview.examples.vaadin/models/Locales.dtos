@@ -1,35 +1,27 @@
 package org.lunifera.ecview.examples {
-	
+
 	datatype Locale jvmType Locale;
-	 
+
 	dto Locales {
-		ref LocaleBean[*] locales opposite parent;
-		 
+		ref LocaleBean [ * ] locales opposite parent;
+
 		def void ecviewInitialize() {
-			for (Locale locale : Locale.getAvailableLocales().filter[!it.displayCountry.empty]) {
-				
-				var String iconPath = "icons/flags/"
-						+ locale.getCountry().toLowerCase() + ".gif";
-						
-				val bean = new LocaleBean()
-				bean.locale = locale
-				bean.localeName = locale.displayCountry
-				bean.iconName = iconPath
-				bean.language = locale.getDisplayLanguage()
-				bean.someDouble = new Random().nextDouble
-				internalAddToLocales(bean) 
+			for(Locale locale:Locale.getAvailableLocales().filter [!it.displayCountry.empty]){
+					var String iconPath = "icons/flags/" + locale.getCountry().toLowerCase() + ".gif";
+					val bean = new LocaleBean() bean.locale = locale bean.localeName = locale.displayCountry bean.iconName = iconPath
+					bean.language = locale.getDisplayLanguage() bean.someDouble = new Random().nextDouble internalAddToLocales(bean)
+				}
 			}
 		}
-	}
-	
-	dto LocaleBean {
-		ref Locales parent opposite locales;
-		
-		var Locale locale;
-		var String localeName;
-		var String iconName;
-		var String language;
-		var Double someDouble;
-	}
 
-} 
+		dto LocaleBean {
+			ref Locales parent opposite locales;
+
+			var Locale locale;
+			var String localeName;
+			var String iconName;
+			var String language;
+			var Double someDouble;
+		}
+
+	} 

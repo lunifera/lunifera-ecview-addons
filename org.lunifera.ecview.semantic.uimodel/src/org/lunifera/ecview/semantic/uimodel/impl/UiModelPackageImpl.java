@@ -87,6 +87,7 @@ import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
 import org.lunifera.ecview.semantic.uimodel.UiSearchDialog;
 import org.lunifera.ecview.semantic.uimodel.UiSearchField;
+import org.lunifera.ecview.semantic.uimodel.UiSearchPanel;
 import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanel;
@@ -431,6 +432,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiFormLayoutEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiSearchPanelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1875,6 +1883,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiFormLayout_Contents() {
 		return (EReference)uiFormLayoutEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiSearchPanel() {
+		return uiSearchPanelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiSearchPanel_Contents() {
+		return (EReference)uiSearchPanelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3481,6 +3507,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiFormLayoutEClass = createEClass(UI_FORM_LAYOUT);
 		createEReference(uiFormLayoutEClass, UI_FORM_LAYOUT__CONTENTS);
 
+		uiSearchPanelEClass = createEClass(UI_SEARCH_PANEL);
+		createEReference(uiSearchPanelEClass, UI_SEARCH_PANEL__CONTENTS);
+
 		uiTextFieldEClass = createEClass(UI_TEXT_FIELD);
 		createEAttribute(uiTextFieldEClass, UI_TEXT_FIELD__MAX_LENGTH);
 		createEAttribute(uiTextFieldEClass, UI_TEXT_FIELD__MIN_LENGTH);
@@ -3790,6 +3819,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiVerticalLayoutEClass.getESuperTypes().add(this.getUiMobileLayout());
 		uiFormLayoutAssigmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
 		uiFormLayoutEClass.getESuperTypes().add(this.getUiLayout());
+		uiSearchPanelEClass.getESuperTypes().add(this.getUiLayout());
+		uiSearchPanelEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiTextFieldEClass.getESuperTypes().add(this.getUiField());
 		uiTextFieldEClass.getESuperTypes().add(this.getUiMobileField());
 		uiImageEClass.getESuperTypes().add(this.getUiField());
@@ -4015,6 +4046,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiFormLayoutEClass, UiFormLayout.class, "UiFormLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiFormLayout_Contents(), this.getUiFormLayoutAssigment(), null, "contents", null, 0, -1, UiFormLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(uiSearchPanelEClass, UiSearchPanel.class, "UiSearchPanel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiSearchPanel_Contents(), this.getUiSearchField(), null, "contents", null, 0, -1, UiSearchPanel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(uiTextFieldEClass, UiTextField.class, "UiTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiTextField_MaxLength(), ecorePackage.getEInt(), "maxLength", "-1", 0, 1, UiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiTextField_MinLength(), ecorePackage.getEInt(), "minLength", "-1", 0, 1, UiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4173,7 +4207,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiOpenDialogCommand_Dialog(), this.getUiDialog(), null, "dialog", null, 0, 1, UiOpenDialogCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiSearchFieldEClass, UiSearchField.class, "UiSearchField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUiSearchField_Property(), theTypesPackage.getJvmField(), null, "property", null, 0, 1, UiSearchField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiSearchField_Property(), theTypesPackage.getJvmOperation(), null, "property", null, 0, 1, UiSearchField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiSearchDialogEClass, UiSearchDialog.class, "UiSearchDialog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiSearchDialog_SearchFields(), this.getUiDialogSearchFieldAssignment(), null, "searchFields", null, 0, -1, UiSearchDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

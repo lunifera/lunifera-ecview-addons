@@ -5,6 +5,7 @@
 package org.lunifera.ecview.semantic.uimodel.validation;
 
 import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmOperation;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiSearchField}.
@@ -14,6 +15,8 @@ import org.eclipse.xtext.common.types.JvmField;
  */
 public interface UiSearchFieldValidator {
 	boolean validate();
+
+	boolean validateProperty(JvmOperation value);
 
 	boolean validateProperty(JvmField value);
 }

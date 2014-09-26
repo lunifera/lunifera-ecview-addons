@@ -256,6 +256,21 @@ UiMobileVerticalComponentGroup returns UiVerticalComponentGroup:
 UiMobileVerticalComponentGroupAssigment returns UiVerticalComponentGroupAssigment:
 	element=UiMobileEmbeddable;
 
+UiSearchPanel:
+	{UiSearchPanel}
+	'searchPanel'
+	('('
+	(i18nInfo=UiI18nInfo)?
+	')')?
+	name=ID?
+	'{'
+	'type' jvmType=JvmTypeReference (';')?
+	
+	(contents+=UiSearchField)*
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}';
+
 UiMobileTabSheet:
 	{UiMobileTabSheet}
 	'mobileTab'
@@ -368,7 +383,7 @@ UiTextField returns UiTextField:
 
 UiSearchField:
 	{UiSearchField}
-	'searchfield' property=[JvmField];
+	'searchfield' property=[JvmOperation];
 
 UiTextArea returns UiTextArea:
 	{UiTextArea}
@@ -553,7 +568,7 @@ UiMobileField:
 	UiDecimalField | UiTextArea | UiDateField | UiBrowser | UiProgressBar | UiOptionsGroup;
 
 UiLayout:
-	UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout | UiSplitpanel | UiPanel;
+	UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout | UiSplitpanel | UiPanel | UiSearchPanel;
 
 UiField:
 	UiTextField | UiList | UiNumericField | UiCheckBox | UiTable | UiComboBox | UiImage | UiSearchField | UiLabel |

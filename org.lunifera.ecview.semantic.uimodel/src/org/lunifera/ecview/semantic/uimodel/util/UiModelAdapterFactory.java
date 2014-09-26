@@ -237,6 +237,10 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiFormLayoutAdapter();
 			}
 			@Override
+			public Adapter caseUiSearchPanel(UiSearchPanel object) {
+				return createUiSearchPanelAdapter();
+			}
+			@Override
 			public Adapter caseUiTextField(UiTextField object) {
 				return createUiTextFieldAdapter();
 			}
@@ -1099,6 +1103,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiFormLayoutAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiSearchPanel <em>Ui Search Panel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSearchPanel
+	 * @generated
+	 */
+	public Adapter createUiSearchPanelAdapter() {
 		return null;
 	}
 

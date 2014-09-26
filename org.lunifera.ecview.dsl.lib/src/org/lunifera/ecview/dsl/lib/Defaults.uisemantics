@@ -9,19 +9,6 @@ element TextField {
 		endpoint visible Boolean
 	}
 	
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
-	 
 	validator {
 		property validators
 	} 
@@ -36,19 +23,6 @@ element DateField {
 		endpoint visible Boolean
 	}
 	
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
-	 
 	validator {
 		property validators
 	} 
@@ -78,19 +52,7 @@ element Image {
 		endpoint editable Boolean
 		endpoint visible Boolean
 	}
-	
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
+
 }  
     
 element CheckBox {
@@ -102,19 +64,6 @@ element CheckBox {
 		endpoint visible Boolean
 	}
 	
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
-
 	validator {
 		property validators
 	}
@@ -144,19 +93,6 @@ element NumericField {
 		endpoint visible Boolean
 	}
 	
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
-	
 	validator {
 		property validators
 	}
@@ -170,19 +106,6 @@ element DecimalField {
 		endpoint editable Boolean
 		endpoint visible Boolean
 		endpoint locale Locale
-	}
-	
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
 	}
 	
 	validator {
@@ -200,19 +123,6 @@ element List {
 		endpoint multiSelection Object
 	}
 	
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
-
 	validator {
 		property validators
 	}
@@ -229,19 +139,6 @@ element Table {
 		endpoint multiSelection Object
 	}
 
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
-	
 	validator {
 		property validators
 	}
@@ -258,19 +155,6 @@ element OptionsGroup {
 		endpoint multiSelection Object
 	}
 
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
-	
 	validator {
 		property validators
 	}
@@ -288,19 +172,6 @@ element ComboBox {
 		endpoint multiSelection Object
 	}
 
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
-	
 	validator {
 		property validators
 	}
@@ -314,19 +185,6 @@ element MobileNavigationPage {
 		final endpoint value Object
 	}
 
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
-	
 	validator {
 		property validators
 	}
@@ -341,18 +199,6 @@ element GridLayout {
 		endpoint columns Integer
 	}
 	
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
 }
 
 element Dialog {
@@ -364,18 +210,6 @@ element Dialog {
 		endpoint value Object
 	}
 	
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
 }
 
 element VerticalLayout {
@@ -386,18 +220,6 @@ element VerticalLayout {
 		endpoint visible Boolean
 	}
 	
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
 }
 
 element VerticalGroup {
@@ -408,18 +230,6 @@ element VerticalGroup {
 		endpoint visible Boolean
 	}
 	
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
 }
 
 element SearchField {
@@ -429,18 +239,6 @@ element SearchField {
 		endpoint value String
 	}
 	
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
 }
 
 element Form {
@@ -451,18 +249,6 @@ element Form {
 		endpoint visible Boolean
 	}
 	
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
 }
 
 element VerticalGroup {
@@ -473,18 +259,6 @@ element VerticalGroup {
 		endpoint visible Boolean
 	}
 	
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
 }
 
 element Switch {
@@ -496,18 +270,6 @@ element Switch {
 		endpoint value Boolean
 	}
 	
-	visibility {
-		endpoint background String
-		endpoint foreground String
-		endpoint bold Boolean
-		endpoint cssClass Boolean
-		endpoint editable Boolean
-		endpoint enabled Boolean
-		endpoint italic Boolean
-		endpoint strikthrough Boolean
-		endpoint underline Boolean
-		endpoint visible Boolean
-	}
 }
 
 element ProgressBar {  
@@ -518,10 +280,36 @@ element ProgressBar {
 		endpoint editable Boolean
 		endpoint visible Boolean
 	}
-	
-	visibility {
-		endpoint cssClass Boolean
-		endpoint visible Boolean
-	}
-}  
+}
 
+/**
+ * Search panel is a layout where SearchFields can be put in. A search panel
+ * needs to be <code>typed</code>. So you have to specify a <code>JvmType</code>
+ * for its <code>type-property</code>. The type property is the <code>java class</code>
+ * you want to query for. For instance JPA, JDBC,... 
+ */
+element SearchPanel {
+	uri view:UiSearchPanel
+
+	bindings {
+		/*
+		 * If <code>any kind of value</code> is passed to this property, the 
+		 * search panel will collect the filter from it's search fields
+		 * and puts the properly prepared filter to it's filter property.<br>
+		 * To get an instance of the filter, just bind the <code>#filter</code> 
+		 * property of this panel to any search target.<br>
+		 * The type of returned filter depends on the used UI-Kit.
+		 */  
+		endpoint applyFilter Object
+		
+		/**
+		 * This property contains a properly prepared filter. The search panel
+		 * will assemble a filter based on the contained search fields. <br>
+		 * Assembling filter is triggered by the <code>#applyFilter</code>
+		 * property.
+		 * <br>
+		 * The type of returned filter depends on the used UI-Kit.
+		 */
+		endpoint filter Object
+	}
+}

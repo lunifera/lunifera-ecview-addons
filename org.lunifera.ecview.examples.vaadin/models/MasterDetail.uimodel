@@ -4,7 +4,7 @@ import org.lunifera.ecview.examples.*;
 
 ideview MasterDetailSample {
 	datasource ds : Source
-	
+
 	horizontalLayout {  
 		verticalLayout mLayout {
 			label Master

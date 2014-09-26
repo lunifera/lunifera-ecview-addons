@@ -3,6 +3,7 @@ package org.lunifera.ecview.dsl.scope;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.common.types.JvmTypeReference;
+import org.eclipse.xtext.common.types.JvmUnknownTypeReference;
 import org.eclipse.xtext.common.types.util.TypeReferences;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider;
@@ -135,7 +136,7 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 	 */
 	private IScope createJvmOperationScope(EObject context) {
 		JvmTypeReference expectedType = findExpectedType(context);
-		if (expectedType == null) {
+		if (expectedType == null || expectedType instanceof JvmUnknownTypeReference) {
 			return IScope.NULLSCOPE;
 		} else {
 			return new BindingPathScope(expectedType.getType());

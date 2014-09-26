@@ -152,6 +152,9 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiFormLayout -> UiLayout
     Reference contents : UiFormLayoutAssigment<<0..*>>
 
+  Class UiSearchPanel -> UiLayout, UiTypeProvider
+    Reference contents : UiSearchField<<0..*>>
+
   Class UiTextField -> UiField, UiMobileField
     Attribute maxLength : EInt
     Attribute minLength : EInt
@@ -310,7 +313,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference dialog : UiDialog
 
   Class UiSearchField -> UiField, UiMobileField
-    Reference property : JvmField
+    Reference property : JvmOperation
 
   Class UiSearchDialog -> UiEmbeddable, UiTypeProvider
     Reference searchFields : UiDialogSearchFieldAssignment<<0..*>>

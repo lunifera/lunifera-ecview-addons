@@ -2,7 +2,7 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
-import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmOperation;
 
 
 /**
@@ -32,12 +32,12 @@ public interface UiSearchField extends UiField, UiMobileField {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Property</em>' reference.
-	 * @see #setProperty(JvmField)
+	 * @see #setProperty(JvmOperation)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiSearchField_Property()
 	 * @model
 	 * @generated
 	 */
-	JvmField getProperty();
+	JvmOperation getProperty();
 
 	/**
 	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiSearchField#getProperty <em>Property</em>}' reference.
@@ -47,5 +47,5 @@ public interface UiSearchField extends UiField, UiMobileField {
 	 * @see #getProperty()
 	 * @generated
 	 */
-	void setProperty(JvmField value);
+	void setProperty(JvmOperation value);
 } // UiSearchField

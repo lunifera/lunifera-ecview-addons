@@ -1,0 +1,17 @@
+package org.lunifera.ecview.dsl.lib {
+	
+	datatype ECViewColor jvmType org.lunifera.ecview.core.common.visibility.Color;
+	
+	dto VisibilityOptions {
+		var ECViewColor foregroundColor;
+		var ECViewColor backgroundColor;
+		var boolean editable;
+		var boolean enabled;
+		var boolean visible;
+		var boolean bold;
+		var boolean border;
+		var boolean italic;
+		var boolean strikethrough;
+		var boolean underline;
+	}
+}

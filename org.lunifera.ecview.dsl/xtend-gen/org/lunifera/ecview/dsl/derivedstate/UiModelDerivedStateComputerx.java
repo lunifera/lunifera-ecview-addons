@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmGenericType;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
@@ -92,6 +91,7 @@ import org.lunifera.ecview.core.extension.model.extension.YNumericSearchField;
 import org.lunifera.ecview.core.extension.model.extension.YOptionsGroup;
 import org.lunifera.ecview.core.extension.model.extension.YPanel;
 import org.lunifera.ecview.core.extension.model.extension.YProgressBar;
+import org.lunifera.ecview.core.extension.model.extension.YSearchPanel;
 import org.lunifera.ecview.core.extension.model.extension.YSelectionType;
 import org.lunifera.ecview.core.extension.model.extension.YSplitPanel;
 import org.lunifera.ecview.core.extension.model.extension.YTab;
@@ -169,6 +169,7 @@ import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
 import org.lunifera.ecview.semantic.uimodel.UiSearchDialog;
 import org.lunifera.ecview.semantic.uimodel.UiSearchField;
+import org.lunifera.ecview.semantic.uimodel.UiSearchPanel;
 import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanel;
@@ -359,7 +360,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return ((A) _pop);
   }
   
-  public String toI18nKey(final UiEmbeddable embeddable) {
+  protected String _toI18nKey(final UiEmbeddable embeddable) {
     boolean _and = false;
     UiI18nInfo _i18nInfo = embeddable.getI18nInfo();
     boolean _notEquals = (!Objects.equal(_i18nInfo, null));
@@ -388,7 +389,41 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return ((this.currentPackage + ".") + _name);
   }
   
-  public String toI18nKey(final UiTabAssignment embeddable) {
+  protected String _toI18nKey(final UiSearchField embeddable) {
+    boolean _and = false;
+    UiI18nInfo _i18nInfo = embeddable.getI18nInfo();
+    boolean _notEquals = (!Objects.equal(_i18nInfo, null));
+    if (!_notEquals) {
+      _and = false;
+    } else {
+      UiI18nInfo _i18nInfo_1 = embeddable.getI18nInfo();
+      String _key = _i18nInfo_1.getKey();
+      boolean _notEquals_1 = (!Objects.equal(_key, null));
+      _and = _notEquals_1;
+    }
+    if (_and) {
+      UiI18nInfo _i18nInfo_2 = embeddable.getI18nInfo();
+      String _key_1 = _i18nInfo_2.getKey();
+      boolean _startsWith = _key_1.startsWith(".");
+      if (_startsWith) {
+        UiI18nInfo _i18nInfo_3 = embeddable.getI18nInfo();
+        String _key_2 = _i18nInfo_3.getKey();
+        return (this.currentPackage + _key_2);
+      } else {
+        UiI18nInfo _i18nInfo_4 = embeddable.getI18nInfo();
+        return _i18nInfo_4.getKey();
+      }
+    }
+    JvmOperation _property = embeddable.getProperty();
+    String _simpleName = null;
+    if (_property!=null) {
+      _simpleName=_property.getSimpleName();
+    }
+    String _propertyName = OperationExtensions.toPropertyName(_simpleName);
+    return ((this.currentPackage + ".") + _propertyName);
+  }
+  
+  protected String _toI18nKey(final UiTabAssignment embeddable) {
     boolean _and = false;
     UiI18nInfo _i18nInfo = embeddable.getI18nInfo();
     boolean _notEquals = (!Objects.equal(_i18nInfo, null));
@@ -752,6 +787,49 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       IterableExtensions.<UiValidator>forEach(_validators, _function);
       this.<Object>pop();
     }
+  }
+  
+  protected void _map(final UiSearchPanel eObject) {
+    final YSearchPanel yPanel = this.<YSearchPanel>associatedUi(eObject);
+    this.push(yPanel);
+    EList<UiSearchField> _contents = eObject.getContents();
+    final Procedure1<UiSearchField> _function = new Procedure1<UiSearchField>() {
+      public void apply(final UiSearchField it) {
+        final YEmbeddable newField = UiModelDerivedStateComputerx.this.create(it);
+        boolean _equals = Objects.equal(newField, null);
+        if (_equals) {
+          return;
+        }
+        yPanel.addElement(newField);
+        UiModelDerivedStateComputerx.this.map(it);
+        UiModelDerivedStateComputerx.this.push(newField);
+        final UiField yField = ((UiField) it);
+        EList<UiValidator> _validators = yField.getValidators();
+        final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+          public void apply(final UiValidator it) {
+            UiModelDerivedStateComputerx.this.map(it);
+          }
+        };
+        IterableExtensions.<UiValidator>forEach(_validators, _function);
+        UiModelDerivedStateComputerx.this.<Object>pop();
+      }
+    };
+    IterableExtensions.<UiSearchField>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    this.<Object>pop();
   }
   
   protected void _map(final UiSplitpanel eObject) {
@@ -1139,9 +1217,14 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     dialog.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(eObject);
     dialog.setLabelI18nKey(_i18nKey);
-    JvmTypeReference _jvmType = eObject.getJvmType();
-    boolean _notEquals = (!Objects.equal(_jvmType, null));
+    final YOpenDialogCommand command = this.<YOpenDialogCommand>peek();
+    boolean _notEquals = (!Objects.equal(command, null));
     if (_notEquals) {
+      command.setDialog(dialog);
+    }
+    JvmTypeReference _jvmType = eObject.getJvmType();
+    boolean _notEquals_1 = (!Objects.equal(_jvmType, null));
+    if (_notEquals_1) {
       JvmTypeReference _jvmType_1 = eObject.getJvmType();
       String _qualifiedName = _jvmType_1.getQualifiedName();
       dialog.setTypeQualifiedName(_qualifiedName);
@@ -1184,8 +1267,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     }
     this.<Object>pop();
     EList<UiBinding> _bindings_1 = eObject.getBindings();
-    boolean _notEquals_1 = (!Objects.equal(_bindings_1, null));
-    if (_notEquals_1) {
+    boolean _notEquals_2 = (!Objects.equal(_bindings_1, null));
+    if (_notEquals_2) {
       EList<UiBinding> _bindings_2 = eObject.getBindings();
       final Procedure1<UiBinding> _function_2 = new Procedure1<UiBinding>() {
         public void apply(final UiBinding it) {
@@ -1217,21 +1300,24 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     }
   }
   
+  protected void _map(final UiSearchField eObject) {
+  }
+  
   protected void _map(final UiDialogSearchFieldAssignment eObject) {
     final YLayout layout = this.<YLayout>peek();
     final UiSearchField element = eObject.getElement();
-    final JvmField property = element.getProperty();
+    final JvmOperation property = element.getProperty();
     boolean _notEquals = (!Objects.equal(property, null));
     if (_notEquals) {
-      JvmTypeReference _type = null;
+      JvmTypeReference _returnType = null;
       if (property!=null) {
-        _type=property.getType();
+        _returnType=property.getReturnType();
       }
-      JvmType _type_1 = null;
-      if (_type!=null) {
-        _type_1=_type.getType();
+      JvmType _type = null;
+      if (_returnType!=null) {
+        _type=_returnType.getType();
       }
-      final JvmType type = _type_1;
+      final JvmType type = _type;
       YField newField = null;
       boolean _isString = this.typeHelper.isString(type);
       if (_isString) {
@@ -1329,6 +1415,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final YFormLayout layout = this.<YFormLayout>peek();
     final UiEmbeddable element = eObject.getElement();
     final YEmbeddable newField = this.create(element);
+    boolean _equals = Objects.equal(newField, null);
+    if (_equals) {
+      return;
+    }
     layout.addElement(newField);
     this.map(element);
     if ((element instanceof UiField)) {
@@ -2073,6 +2163,44 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return table;
   }
   
+  protected YField _create(final UiSearchField eObject) {
+    final JvmOperation property = eObject.getProperty();
+    boolean _notEquals = (!Objects.equal(property, null));
+    if (_notEquals) {
+      JvmTypeReference _returnType = null;
+      if (property!=null) {
+        _returnType=property.getReturnType();
+      }
+      JvmType _type = null;
+      if (_returnType!=null) {
+        _type=_returnType.getType();
+      }
+      final JvmType type = _type;
+      YField newField = null;
+      boolean _isString = this.typeHelper.isString(type);
+      if (_isString) {
+        YTextSearchField _createYTextSearchField = ExtensionModelFactory.eINSTANCE.createYTextSearchField();
+        newField = _createYTextSearchField;
+      } else {
+        boolean _isNumber = this.typeHelper.isNumber(type);
+        if (_isNumber) {
+          YNumericSearchField _createYNumericSearchField = ExtensionModelFactory.eINSTANCE.createYNumericSearchField();
+          newField = _createYNumericSearchField;
+        } else {
+          boolean _isBoolean = this.typeHelper.isBoolean(type);
+          if (_isBoolean) {
+            YBooleanSearchField _createYBooleanSearchField = ExtensionModelFactory.eINSTANCE.createYBooleanSearchField();
+            newField = _createYBooleanSearchField;
+          }
+        }
+      }
+      String _i18nKey = this.toI18nKey(eObject);
+      newField.setLabelI18nKey(_i18nKey);
+      return newField;
+    }
+    return null;
+  }
+  
   public YSelectionType convert(final UiSelectionType type) {
     if (type != null) {
       switch (type) {
@@ -2238,6 +2366,20 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YHorizontalLayout _create(final UiHorizontalLayout object) {
     final YHorizontalLayout layout = this.factory.createHorizontalLayout();
+    String _pathId = UiModelUtil.getPathId(object);
+    layout.setId(_pathId);
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    this.associateUi(object, layout);
+    return layout;
+  }
+  
+  protected YSearchPanel _create(final UiSearchPanel object) {
+    final YSearchPanel layout = ExtensionModelFactory.eINSTANCE.createYSearchPanel();
     String _pathId = UiModelUtil.getPathId(object);
     layout.setId(_pathId);
     String _name = object.getName();
@@ -2801,6 +2943,19 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     }
   }
   
+  public String toI18nKey(final EObject embeddable) {
+    if (embeddable instanceof UiSearchField) {
+      return _toI18nKey((UiSearchField)embeddable);
+    } else if (embeddable instanceof UiEmbeddable) {
+      return _toI18nKey((UiEmbeddable)embeddable);
+    } else if (embeddable instanceof UiTabAssignment) {
+      return _toI18nKey((UiTabAssignment)embeddable);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(embeddable).toString());
+    }
+  }
+  
   public void map(final EObject object) {
     if (object instanceof UiButton) {
       _map((UiButton)object);
@@ -2825,6 +2980,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return;
     } else if (object instanceof UiOptionsGroup) {
       _map((UiOptionsGroup)object);
+      return;
+    } else if (object instanceof UiSearchField) {
+      _map((UiSearchField)object);
       return;
     } else if (object instanceof UiTable) {
       _map((UiTable)object);
@@ -2858,6 +3016,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return;
     } else if (object instanceof UiPanel) {
       _map((UiPanel)object);
+      return;
+    } else if (object instanceof UiSearchPanel) {
+      _map((UiSearchPanel)object);
       return;
     } else if (object instanceof UiSplitpanel) {
       _map((UiSplitpanel)object);
@@ -2994,6 +3155,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return _create((UiOptionsGroup)object);
     } else if (object instanceof UiProgressBar) {
       return _create((UiProgressBar)object);
+    } else if (object instanceof UiSearchField) {
+      return _create((UiSearchField)object);
     } else if (object instanceof UiSwitch) {
       return _create((UiSwitch)object);
     } else if (object instanceof UiTable) {
@@ -3016,6 +3179,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return _create((UiMobileTabSheet)object);
     } else if (object instanceof UiPanel) {
       return _create((UiPanel)object);
+    } else if (object instanceof UiSearchPanel) {
+      return _create((UiSearchPanel)object);
     } else if (object instanceof UiSplitpanel) {
       return _create((UiSplitpanel)object);
     } else if (object instanceof UiTabSheet) {

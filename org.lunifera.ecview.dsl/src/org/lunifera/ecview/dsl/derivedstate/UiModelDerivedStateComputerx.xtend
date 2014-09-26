@@ -162,6 +162,9 @@ import org.lunifera.ecview.core.common.model.core.util.CoreModelAdapterFactory
 import org.lunifera.ecview.core.common.model.binding.BindingFactory
 import org.lunifera.ecview.core.common.model.binding.YVisibilityProcessorValueBindingEndpoint
 import org.lunifera.ecview.core.common.model.binding.YValueBinding
+import org.lunifera.ecview.core.^extension.model.^extension.YSearchPanel
+import org.lunifera.ecview.semantic.uimodel.UiSearchPanel
+import org.lunifera.ecview.semantic.uimodel.UiSearchField
 
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
@@ -172,7 +175,6 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	BindableTypeProvider typeOfBoundPropertyProvider;
 	@Inject
 	TypeHelper typeHelper;
-	
 	@Inject extension IQualifiedNameProvider;
 
 	final Stack<EObject> viewContext = new Stack
@@ -249,7 +251,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		viewContext.pop as A
 	}
 
-	def String toI18nKey(UiEmbeddable embeddable) {
+	def dispatch String toI18nKey(UiEmbeddable embeddable) {
 		if (embeddable.i18nInfo != null && embeddable.i18nInfo.key != null) {
 			if (embeddable.i18nInfo.key.startsWith(".")) {
 
@@ -261,8 +263,20 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		}
 		return currentPackage + "." + embeddable.name
 	}
+	
+	def dispatch String toI18nKey(UiSearchField embeddable) {
+		if (embeddable.i18nInfo != null && embeddable.i18nInfo.key != null) {
+			if (embeddable.i18nInfo.key.startsWith(".")) {
+				// attache the current package
+				return currentPackage + embeddable.i18nInfo.key
+			} else {
+				return embeddable.i18nInfo.key;
+			}
+		}
+		return currentPackage + "." + OperationExtensions.toPropertyName(embeddable.property?.simpleName)
+	}
 
-	def String toI18nKey(UiTabAssignment embeddable) {
+	def dispatch String toI18nKey(UiTabAssignment embeddable) {
 		if (embeddable.i18nInfo != null && embeddable.i18nInfo.key != null) {
 			if (embeddable.i18nInfo.key.startsWith(".")) {
 
@@ -509,7 +523,39 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			]
 			pop
 		}
+	}
+	
+	def dispatch void map(UiSearchPanel eObject) {
+		val YSearchPanel yPanel = eObject.associatedUi
+		yPanel.push
 
+		eObject.contents.forEach [
+			val newField = it.create
+			if(newField == null){
+				return
+			}
+			
+			yPanel.addElement(newField)
+	
+			it.map
+	
+			newField.push
+			val UiField yField = it as UiField
+			yField.validators.forEach [
+				it.map
+			]
+			pop
+		]
+
+		eObject.bindings.forEach [
+			it.map
+		]
+		
+		eObject.processorAssignments.forEach [
+			it.map
+		]
+
+		pop
 	}
 	
 	def dispatch void map(UiSplitpanel eObject) {
@@ -823,6 +869,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		dialog.label = eObject.name
 		dialog.labelI18nKey = eObject.toI18nKey
 
+		val YOpenDialogCommand command = peek
+		if(command != null){
+			command.dialog = dialog
+		}
+
 		if (eObject.jvmType != null) {
 			dialog.typeQualifiedName = eObject.jvmType.qualifiedName
 			dialog.type = loadClass(eObject.eResource.resourceSet, eObject.jvmType.qualifiedName)
@@ -885,15 +936,19 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			pop
 		}
 	}
+	
+	def dispatch void map(UiSearchField eObject) {
+		// nothing to do
+	}
 
 	def dispatch void map(UiDialogSearchFieldAssignment eObject) {
 
 		val YLayout layout = peek
 		val element = eObject.element
 
-		val JvmField property = element.property
+		val JvmOperation property = element.property
 		if (property != null) {
-			val JvmType type = property?.type?.type;
+			val JvmType type = property?.returnType?.type;
 
 			var YField newField = null
 			if (typeHelper.isString(type)) {
@@ -968,6 +1023,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val YFormLayout layout = peek
 		val element = eObject.element
 		val newField = element.create
+		if(newField == null){
+			return
+		}
 		layout.addElement(newField)
 		
 		element.map
@@ -1472,6 +1530,25 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		return table
 	}
+	
+	def dispatch YField create(UiSearchField eObject) {
+		val JvmOperation property = eObject.property
+		if (property != null) {
+			val JvmType type = property?.returnType?.type;
+
+			var YField newField = null
+			if (typeHelper.isString(type)) {
+				newField = ExtensionModelFactory.eINSTANCE.createYTextSearchField
+			} else if (typeHelper.isNumber(type)) {
+				newField = ExtensionModelFactory.eINSTANCE.createYNumericSearchField
+			} else if (typeHelper.isBoolean(type)) {
+				newField = ExtensionModelFactory.eINSTANCE.createYBooleanSearchField
+			}
+			newField.labelI18nKey = eObject.toI18nKey
+			
+			return newField
+		}
+	}
 
 	def YSelectionType convert(UiSelectionType type) {
 		switch (type) {
@@ -1597,6 +1674,18 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	
 	def dispatch YHorizontalLayout create(UiHorizontalLayout object) {
 		val YHorizontalLayout layout = factory.createHorizontalLayout
+		layout.id = UiModelUtil.getPathId(object)
+		layout.name = object.name
+		layout.label = object.name
+		layout.labelI18nKey = object.toI18nKey
+
+		object.associateUi(layout)
+
+		return layout
+	}
+	
+	def dispatch YSearchPanel create(UiSearchPanel object) {
+		val YSearchPanel layout = ExtensionModelFactory.eINSTANCE.createYSearchPanel
 		layout.id = UiModelUtil.getPathId(object)
 		layout.name = object.name
 		layout.label = object.name

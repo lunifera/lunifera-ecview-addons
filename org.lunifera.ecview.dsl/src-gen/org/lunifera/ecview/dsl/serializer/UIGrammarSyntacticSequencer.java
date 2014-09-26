@@ -71,6 +71,8 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_UiProgressBar___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
 	protected AbstractElementAlias match_UiSearchDialog___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
 	protected AbstractElementAlias match_UiSearchDialog___SearchKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q;
+	protected AbstractElementAlias match_UiSearchPanel_SemicolonKeyword_7_q;
+	protected AbstractElementAlias match_UiSearchPanel___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
 	protected AbstractElementAlias match_UiSplitpanel___LeftParenthesisKeyword_1_0_RightParenthesisKeyword_1_2__q;
 	protected AbstractElementAlias match_UiTabSheet___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
 	protected AbstractElementAlias match_UiTable_SemicolonKeyword_4_1_0_2_q;
@@ -149,6 +151,8 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_UiProgressBar___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiProgressBarAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiProgressBarAccess().getRightParenthesisKeyword_2_2()));
 		match_UiSearchDialog___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiSearchDialogAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiSearchDialogAccess().getRightParenthesisKeyword_2_2()));
 		match_UiSearchDialog___SearchKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiSearchDialogAccess().getSearchKeyword_6_0()), new TokenAlias(false, false, grammarAccess.getUiSearchDialogAccess().getLeftCurlyBracketKeyword_6_1()), new TokenAlias(false, false, grammarAccess.getUiSearchDialogAccess().getRightCurlyBracketKeyword_6_3()));
+		match_UiSearchPanel_SemicolonKeyword_7_q = new TokenAlias(false, true, grammarAccess.getUiSearchPanelAccess().getSemicolonKeyword_7());
+		match_UiSearchPanel___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiSearchPanelAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiSearchPanelAccess().getRightParenthesisKeyword_2_2()));
 		match_UiSplitpanel___LeftParenthesisKeyword_1_0_RightParenthesisKeyword_1_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiSplitpanelAccess().getLeftParenthesisKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getUiSplitpanelAccess().getRightParenthesisKeyword_1_2()));
 		match_UiTabSheet___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiTabSheetAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiTabSheetAccess().getRightParenthesisKeyword_2_2()));
 		match_UiTable_SemicolonKeyword_4_1_0_2_q = new TokenAlias(false, true, grammarAccess.getUiTableAccess().getSemicolonKeyword_4_1_0_2());
@@ -315,6 +319,10 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_UiSearchDialog___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiSearchDialog___SearchKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q.equals(syntax))
 				emit_UiSearchDialog___SearchKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UiSearchPanel_SemicolonKeyword_7_q.equals(syntax))
+				emit_UiSearchPanel_SemicolonKeyword_7_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UiSearchPanel___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q.equals(syntax))
+				emit_UiSearchPanel___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiSplitpanel___LeftParenthesisKeyword_1_0_RightParenthesisKeyword_1_2__q.equals(syntax))
 				emit_UiSplitpanel___LeftParenthesisKeyword_1_0_RightParenthesisKeyword_1_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiTabSheet___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q.equals(syntax))
@@ -782,6 +790,22 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('search' '{' '}')?
 	 */
 	protected void emit_UiSearchDialog___SearchKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     ';'?
+	 */
+	protected void emit_UiSearchPanel_SemicolonKeyword_7_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     ('(' ')')?
+	 */
+	protected void emit_UiSearchPanel___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

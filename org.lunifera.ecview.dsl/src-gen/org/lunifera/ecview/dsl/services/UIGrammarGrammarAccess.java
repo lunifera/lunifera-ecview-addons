@@ -2122,6 +2122,104 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getElementUiMobileEmbeddableParserRuleCall_0() { return cElementUiMobileEmbeddableParserRuleCall_0; }
 	}
 
+	public class UiSearchPanelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiSearchPanel");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cUiSearchPanelAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cSearchPanelKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cI18nInfoAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cI18nInfoUiI18nInfoParserRuleCall_2_1_0 = (RuleCall)cI18nInfoAssignment_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cTypeKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cJvmTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_6_0 = (RuleCall)cJvmTypeAssignment_6.eContents().get(0);
+		private final Keyword cSemicolonKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cContentsAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cContentsUiSearchFieldParserRuleCall_8_0 = (RuleCall)cContentsAssignment_8.eContents().get(0);
+		private final Assignment cBindingsAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cBindingsUiBindingParserRuleCall_9_0 = (RuleCall)cBindingsAssignment_9.eContents().get(0);
+		private final Assignment cProcessorAssignmentsAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_10_0 = (RuleCall)cProcessorAssignmentsAssignment_10.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		
+		//UiSearchPanel:
+		//	{UiSearchPanel} "searchPanel" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? "{" "type" jvmType=JvmTypeReference ";"?
+		//	contents+=UiSearchField* bindings+=UiBinding* processorAssignments+=UiVisibilityProcessorAssignment* "}";
+		public ParserRule getRule() { return rule; }
+
+		//{UiSearchPanel} "searchPanel" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? "{" "type" jvmType=JvmTypeReference ";"?
+		//contents+=UiSearchField* bindings+=UiBinding* processorAssignments+=UiVisibilityProcessorAssignment* "}"
+		public Group getGroup() { return cGroup; }
+
+		//{UiSearchPanel}
+		public Action getUiSearchPanelAction_0() { return cUiSearchPanelAction_0; }
+
+		//"searchPanel"
+		public Keyword getSearchPanelKeyword_1() { return cSearchPanelKeyword_1; }
+
+		//("(" i18nInfo=UiI18nInfo? ")")?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
+
+		//i18nInfo=UiI18nInfo?
+		public Assignment getI18nInfoAssignment_2_1() { return cI18nInfoAssignment_2_1; }
+
+		//UiI18nInfo
+		public RuleCall getI18nInfoUiI18nInfoParserRuleCall_2_1_0() { return cI18nInfoUiI18nInfoParserRuleCall_2_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_2_2() { return cRightParenthesisKeyword_2_2; }
+
+		//name=ID?
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+
+		//"type"
+		public Keyword getTypeKeyword_5() { return cTypeKeyword_5; }
+
+		//jvmType=JvmTypeReference
+		public Assignment getJvmTypeAssignment_6() { return cJvmTypeAssignment_6; }
+
+		//JvmTypeReference
+		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_6_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_6_0; }
+
+		//";"?
+		public Keyword getSemicolonKeyword_7() { return cSemicolonKeyword_7; }
+
+		//contents+=UiSearchField*
+		public Assignment getContentsAssignment_8() { return cContentsAssignment_8; }
+
+		//UiSearchField
+		public RuleCall getContentsUiSearchFieldParserRuleCall_8_0() { return cContentsUiSearchFieldParserRuleCall_8_0; }
+
+		//bindings+=UiBinding*
+		public Assignment getBindingsAssignment_9() { return cBindingsAssignment_9; }
+
+		//UiBinding
+		public RuleCall getBindingsUiBindingParserRuleCall_9_0() { return cBindingsUiBindingParserRuleCall_9_0; }
+
+		//processorAssignments+=UiVisibilityProcessorAssignment*
+		public Assignment getProcessorAssignmentsAssignment_10() { return cProcessorAssignmentsAssignment_10; }
+
+		//UiVisibilityProcessorAssignment
+		public RuleCall getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_10_0() { return cProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_10_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
+	}
+
 	public class UiMobileTabSheetElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiMobileTabSheet");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -3158,14 +3256,14 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cUiSearchFieldAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cSearchfieldKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cPropertyAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cPropertyJvmFieldCrossReference_2_0 = (CrossReference)cPropertyAssignment_2.eContents().get(0);
-		private final RuleCall cPropertyJvmFieldIDTerminalRuleCall_2_0_1 = (RuleCall)cPropertyJvmFieldCrossReference_2_0.eContents().get(1);
+		private final CrossReference cPropertyJvmOperationCrossReference_2_0 = (CrossReference)cPropertyAssignment_2.eContents().get(0);
+		private final RuleCall cPropertyJvmOperationIDTerminalRuleCall_2_0_1 = (RuleCall)cPropertyJvmOperationCrossReference_2_0.eContents().get(1);
 		
 		//UiSearchField:
-		//	{UiSearchField} "searchfield" property=[JvmField];
+		//	{UiSearchField} "searchfield" property=[JvmOperation];
 		public ParserRule getRule() { return rule; }
 
-		//{UiSearchField} "searchfield" property=[JvmField]
+		//{UiSearchField} "searchfield" property=[JvmOperation]
 		public Group getGroup() { return cGroup; }
 
 		//{UiSearchField}
@@ -3174,14 +3272,14 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"searchfield"
 		public Keyword getSearchfieldKeyword_1() { return cSearchfieldKeyword_1; }
 
-		//property=[JvmField]
+		//property=[JvmOperation]
 		public Assignment getPropertyAssignment_2() { return cPropertyAssignment_2; }
 
-		//[JvmField]
-		public CrossReference getPropertyJvmFieldCrossReference_2_0() { return cPropertyJvmFieldCrossReference_2_0; }
+		//[JvmOperation]
+		public CrossReference getPropertyJvmOperationCrossReference_2_0() { return cPropertyJvmOperationCrossReference_2_0; }
 
 		//ID
-		public RuleCall getPropertyJvmFieldIDTerminalRuleCall_2_0_1() { return cPropertyJvmFieldIDTerminalRuleCall_2_0_1; }
+		public RuleCall getPropertyJvmOperationIDTerminalRuleCall_2_0_1() { return cPropertyJvmOperationIDTerminalRuleCall_2_0_1; }
 	}
 
 	public class UiTextAreaElements extends AbstractParserRuleElementFinder {
@@ -3409,67 +3507,64 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_2_0 = (RuleCall)cProcessorAssignmentsAssignment_4_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
 		
-		//UiBrowser:
-		//	{UiBrowser} "browser" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? ("{" (validators+=UiValidator | bindings+=UiBinding)*
-		//	processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#XtextFragmentProvider_org.lunifera.ecview.dsl.UIGrammar/UiBrowser'
 		public ParserRule getRule() { return rule; }
 
-		//{UiBrowser} "browser" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? ("{" (validators+=UiValidator | bindings+=UiBinding)*
-		//processorAssignments+=UiVisibilityProcessorAssignment* "}")?
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives'
 		public Group getGroup() { return cGroup; }
 
-		//{UiBrowser}
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.0'
 		public Action getUiBrowserAction_0() { return cUiBrowserAction_0; }
 
-		//"browser"
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.1'
 		public Keyword getBrowserKeyword_1() { return cBrowserKeyword_1; }
 
-		//("(" i18nInfo=UiI18nInfo? ")")?
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.2'
 		public Group getGroup_2() { return cGroup_2; }
 
-		//"("
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.2/@elements.0'
 		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
 
-		//i18nInfo=UiI18nInfo?
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.2/@elements.1'
 		public Assignment getI18nInfoAssignment_2_1() { return cI18nInfoAssignment_2_1; }
 
-		//UiI18nInfo
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.2/@elements.1/@terminal'
 		public RuleCall getI18nInfoUiI18nInfoParserRuleCall_2_1_0() { return cI18nInfoUiI18nInfoParserRuleCall_2_1_0; }
 
-		//")"
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.2/@elements.2'
 		public Keyword getRightParenthesisKeyword_2_2() { return cRightParenthesisKeyword_2_2; }
 
-		//name=ID?
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.3'
 		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 
-		//ID
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.3/@terminal'
 		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 
-		//("{" (validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4'
 		public Group getGroup_4() { return cGroup_4; }
 
-		//"{"
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4/@elements.0'
 		public Keyword getLeftCurlyBracketKeyword_4_0() { return cLeftCurlyBracketKeyword_4_0; }
 
-		//(validators+=UiValidator | bindings+=UiBinding)*
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4/@elements.1'
 		public Alternatives getAlternatives_4_1() { return cAlternatives_4_1; }
 
-		//validators+=UiValidator
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4/@elements.1/@elements.0'
 		public Assignment getValidatorsAssignment_4_1_0() { return cValidatorsAssignment_4_1_0; }
 
-		//UiValidator
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4/@elements.1/@elements.0/@terminal'
 		public RuleCall getValidatorsUiValidatorParserRuleCall_4_1_0_0() { return cValidatorsUiValidatorParserRuleCall_4_1_0_0; }
 
-		//bindings+=UiBinding
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4/@elements.1/@elements.1'
 		public Assignment getBindingsAssignment_4_1_1() { return cBindingsAssignment_4_1_1; }
 
-		//UiBinding
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4/@elements.1/@elements.1/@terminal'
 		public RuleCall getBindingsUiBindingParserRuleCall_4_1_1_0() { return cBindingsUiBindingParserRuleCall_4_1_1_0; }
 
-		//processorAssignments+=UiVisibilityProcessorAssignment*
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4/@elements.2'
 		public Assignment getProcessorAssignmentsAssignment_4_2() { return cProcessorAssignmentsAssignment_4_2; }
 
-		//UiVisibilityProcessorAssignment
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4/@elements.2/@terminal'
 		public RuleCall getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_2_0() { return cProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_2_0; }
 
 		//"}"
@@ -4909,12 +5004,13 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUiVerticalLayoutParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cUiSplitpanelParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cUiPanelParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cUiSearchPanelParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//UiLayout:
-		//	UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout | UiSplitpanel | UiPanel;
+		//	UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout | UiSplitpanel | UiPanel | UiSearchPanel;
 		public ParserRule getRule() { return rule; }
 
-		//UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout | UiSplitpanel | UiPanel
+		//UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout | UiSplitpanel | UiPanel | UiSearchPanel
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//UiGridLayout
@@ -4934,6 +5030,9 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 		//UiPanel
 		public RuleCall getUiPanelParserRuleCall_5() { return cUiPanelParserRuleCall_5; }
+
+		//UiSearchPanel
+		public RuleCall getUiSearchPanelParserRuleCall_6() { return cUiSearchPanelParserRuleCall_6; }
 	}
 
 	public class UiFieldElements extends AbstractParserRuleElementFinder {
@@ -5990,6 +6089,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private UiMobileHorizontalButtonGroupAssigmentElements pUiMobileHorizontalButtonGroupAssigment;
 	private UiMobileVerticalComponentGroupElements pUiMobileVerticalComponentGroup;
 	private UiMobileVerticalComponentGroupAssigmentElements pUiMobileVerticalComponentGroupAssigment;
+	private UiSearchPanelElements pUiSearchPanel;
 	private UiMobileTabSheetElements pUiMobileTabSheet;
 	private UiMobileTabAssignmentElements pUiMobileTabAssignment;
 	private UiTabSheetElements pUiTabSheet;
@@ -6527,6 +6627,17 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getUiMobileVerticalComponentGroupAssigmentAccess().getRule();
 	}
 
+	//UiSearchPanel:
+	//	{UiSearchPanel} "searchPanel" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? "{" "type" jvmType=JvmTypeReference ";"?
+	//	contents+=UiSearchField* bindings+=UiBinding* processorAssignments+=UiVisibilityProcessorAssignment* "}";
+	public UiSearchPanelElements getUiSearchPanelAccess() {
+		return (pUiSearchPanel != null) ? pUiSearchPanel : (pUiSearchPanel = new UiSearchPanelElements());
+	}
+	
+	public ParserRule getUiSearchPanelRule() {
+		return getUiSearchPanelAccess().getRule();
+	}
+
 	//UiMobileTabSheet:
 	//	{UiMobileTabSheet} "mobileTab" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? "{" tabs+=UiMobileTabAssignment*
 	//	bindings+=UiBinding* processorAssignments+=UiVisibilityProcessorAssignment* "}";
@@ -6690,7 +6801,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiSearchField:
-	//	{UiSearchField} "searchfield" property=[JvmField];
+	//	{UiSearchField} "searchfield" property=[JvmOperation];
 	public UiSearchFieldElements getUiSearchFieldAccess() {
 		return (pUiSearchField != null) ? pUiSearchField : (pUiSearchField = new UiSearchFieldElements());
 	}
@@ -6965,7 +7076,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiLayout:
-	//	UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout | UiSplitpanel | UiPanel;
+	//	UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout | UiSplitpanel | UiPanel | UiSearchPanel;
 	public UiLayoutElements getUiLayoutAccess() {
 		return (pUiLayout != null) ? pUiLayout : (pUiLayout = new UiLayoutElements());
 	}
