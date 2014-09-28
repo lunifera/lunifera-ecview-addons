@@ -14,6 +14,7 @@ import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
+import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTypeProvider;
@@ -207,6 +208,10 @@ public class BindableTypeProvider {
     return provider.getJvmType();
   }
   
+  protected JvmTypeReference _doGetTypeReference(final UiNestedProperty property) {
+    return property.getTypeReferenceofGetter();
+  }
+  
   public JvmTypeReference doGetTypeReference(final EObject beanSlot) {
     if (beanSlot instanceof UiBeanSlot) {
       return _doGetTypeReference((UiBeanSlot)beanSlot);
@@ -218,6 +223,8 @@ public class BindableTypeProvider {
       return _doGetTypeReference((UiCommandBindableDef)beanSlot);
     } else if (beanSlot instanceof UiTypedBindableDef) {
       return _doGetTypeReference((UiTypedBindableDef)beanSlot);
+    } else if (beanSlot instanceof UiNestedProperty) {
+      return _doGetTypeReference((UiNestedProperty)beanSlot);
     } else if (beanSlot instanceof UiBindingExpression) {
       return _doGetTypeReference((UiBindingExpression)beanSlot);
     } else if (beanSlot instanceof UiTypeProvider) {

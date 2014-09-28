@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.xtext.common.types.JvmOperation;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
@@ -19,6 +18,7 @@ import org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiMobileField;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
+import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiSearchField;
 import org.lunifera.ecview.semantic.uimodel.UiValidator;
@@ -113,14 +113,14 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 	protected EList<UiValidator> validators;
 
 	/**
-	 * The cached value of the '{@link #getProperty() <em>Property</em>}' reference.
+	 * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProperty()
 	 * @generated
 	 * @ordered
 	 */
-	protected JvmOperation property;
+	protected UiNestedProperty property;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -278,11 +278,17 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JvmOperation getProperty() {
+	public UiNestedProperty getProperty() {
 		if (property != null && property.eIsProxy()) {
 			InternalEObject oldProperty = (InternalEObject)property;
-			property = (JvmOperation)eResolveProxy(oldProperty);
+			property = (UiNestedProperty)eResolveProxy(oldProperty);
 			if (property != oldProperty) {
+				InternalEObject newProperty = (InternalEObject)property;
+				NotificationChain msgs = oldProperty.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_SEARCH_FIELD__PROPERTY, null, null);
+				if (newProperty.eInternalContainer() == null) {
+					msgs = newProperty.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_SEARCH_FIELD__PROPERTY, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_SEARCH_FIELD__PROPERTY, oldProperty, property));
 			}
@@ -295,7 +301,7 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JvmOperation basicGetProperty() {
+	public UiNestedProperty basicGetProperty() {
 		return property;
 	}
 
@@ -304,11 +310,33 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProperty(JvmOperation newProperty) {
-		JvmOperation oldProperty = property;
+	public NotificationChain basicSetProperty(UiNestedProperty newProperty, NotificationChain msgs) {
+		UiNestedProperty oldProperty = property;
 		property = newProperty;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_SEARCH_FIELD__PROPERTY, oldProperty, property));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_SEARCH_FIELD__PROPERTY, oldProperty, newProperty);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProperty(UiNestedProperty newProperty) {
+		if (newProperty != property) {
+			NotificationChain msgs = null;
+			if (property != null)
+				msgs = ((InternalEObject)property).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_SEARCH_FIELD__PROPERTY, null, msgs);
+			if (newProperty != null)
+				msgs = ((InternalEObject)newProperty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_SEARCH_FIELD__PROPERTY, null, msgs);
+			msgs = basicSetProperty(newProperty, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_SEARCH_FIELD__PROPERTY, newProperty, newProperty));
 	}
 
 	/**
@@ -325,6 +353,8 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_SEARCH_FIELD__VALIDATORS:
 				return ((InternalEList<?>)getValidators()).basicRemove(otherEnd, msgs);
+			case UiModelPackage.UI_SEARCH_FIELD__PROPERTY:
+				return basicSetProperty(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -382,7 +412,7 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 				getValidators().addAll((Collection<? extends UiValidator>)newValue);
 				return;
 			case UiModelPackage.UI_SEARCH_FIELD__PROPERTY:
-				setProperty((JvmOperation)newValue);
+				setProperty((UiNestedProperty)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -412,7 +442,7 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 				getValidators().clear();
 				return;
 			case UiModelPackage.UI_SEARCH_FIELD__PROPERTY:
-				setProperty((JvmOperation)null);
+				setProperty((UiNestedProperty)null);
 				return;
 		}
 		super.eUnset(featureID);

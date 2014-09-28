@@ -52,6 +52,12 @@ UiBindingEndpointAssignment returns UiBindingExpression:
 UiPathSegment returns UiPathSegment:
 	{UiPathSegment}
 	'.' getter=[JvmOperation] path=(UiPathSegment)?;
+	
+UiNestedProperty: 
+	{UiNestedProperty}
+	getter=[JvmOperation] path=(UiPathSegment)?
+;
+
 
 UiTypedBindableDef returns UiBindingExpression:
 	{UiTypedBindableDef}
@@ -383,7 +389,7 @@ UiTextField returns UiTextField:
 
 UiSearchField:
 	{UiSearchField}
-	'searchfield' property=[JvmOperation];
+	'searchfield' property=UiNestedProperty;
 
 UiTextArea returns UiTextArea:
 	{UiTextArea}
@@ -552,7 +558,7 @@ UiColumnsAssignment:
 
 UiColumn returns UiColumn:
 	{UiColumn}
-	'column' getter=[JvmOperation] ('icon' iconName=STRING)? (';')?;
+	'column' property=UiNestedProperty ('icon' iconName=STRING)? (';')?;
 
 UiEmbeddable:
 	UiLayout | UiField | UiAction | UiTabSheet;

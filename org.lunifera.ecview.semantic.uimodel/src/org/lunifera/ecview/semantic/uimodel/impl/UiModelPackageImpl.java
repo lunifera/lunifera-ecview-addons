@@ -73,6 +73,7 @@ import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiModelFactory;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
+import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
 import org.lunifera.ecview.semantic.uimodel.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup;
@@ -257,6 +258,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiPathSegmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiNestedPropertyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1431,6 +1439,33 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiNestedProperty() {
+		return uiNestedPropertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiNestedProperty_Path() {
+		return (EReference)uiNestedPropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiNestedProperty_Getter() {
+		return (EReference)uiNestedPropertyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiRawBindable() {
 		return uiRawBindableEClass;
 	}
@@ -2079,17 +2114,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUiColumn_Getter() {
-		return (EReference)uiColumnEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getUiColumn_IconName() {
-		return (EAttribute)uiColumnEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)uiColumnEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2098,7 +2124,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	public EAttribute getUiColumn_Visible() {
-		return (EAttribute)uiColumnEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)uiColumnEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2107,7 +2133,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	public EAttribute getUiColumn_Orderable() {
-		return (EAttribute)uiColumnEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)uiColumnEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2116,7 +2142,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	public EAttribute getUiColumn_Collapsed() {
-		return (EAttribute)uiColumnEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)uiColumnEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2125,7 +2151,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	public EAttribute getUiColumn_Collapsible() {
-		return (EAttribute)uiColumnEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)uiColumnEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2134,7 +2160,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	public EAttribute getUiColumn_Alignment() {
-		return (EAttribute)uiColumnEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)uiColumnEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -2143,7 +2169,16 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	public EAttribute getUiColumn_ExpandRatio() {
-		return (EAttribute)uiColumnEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)uiColumnEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiColumn_Property() {
+		return (EReference)uiColumnEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -3431,6 +3466,10 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiPathSegmentEClass, UI_PATH_SEGMENT__PATH);
 		createEReference(uiPathSegmentEClass, UI_PATH_SEGMENT__GETTER);
 
+		uiNestedPropertyEClass = createEClass(UI_NESTED_PROPERTY);
+		createEReference(uiNestedPropertyEClass, UI_NESTED_PROPERTY__PATH);
+		createEReference(uiNestedPropertyEClass, UI_NESTED_PROPERTY__GETTER);
+
 		uiRawBindableEClass = createEClass(UI_RAW_BINDABLE);
 
 		uiRawBindableProviderEClass = createEClass(UI_RAW_BINDABLE_PROVIDER);
@@ -3535,7 +3574,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiTypeProviderEClass, UI_TYPE_PROVIDER__JVM_TYPE);
 
 		uiColumnEClass = createEClass(UI_COLUMN);
-		createEReference(uiColumnEClass, UI_COLUMN__GETTER);
 		createEAttribute(uiColumnEClass, UI_COLUMN__ICON_NAME);
 		createEAttribute(uiColumnEClass, UI_COLUMN__VISIBLE);
 		createEAttribute(uiColumnEClass, UI_COLUMN__ORDERABLE);
@@ -3543,6 +3581,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEAttribute(uiColumnEClass, UI_COLUMN__COLLAPSIBLE);
 		createEAttribute(uiColumnEClass, UI_COLUMN__ALIGNMENT);
 		createEAttribute(uiColumnEClass, UI_COLUMN__EXPAND_RATIO);
+		createEReference(uiColumnEClass, UI_COLUMN__PROPERTY);
 
 		uiColumnsAssignmentEClass = createEClass(UI_COLUMNS_ASSIGNMENT);
 		createEReference(uiColumnsAssignmentEClass, UI_COLUMNS_ASSIGNMENT__COLUMNS);
@@ -3784,6 +3823,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiBindingEndpointAliasEClass.getESuperTypes().add(this.getUiTypedBindable());
 		uiBindingEndpointAssignmentEClass.getESuperTypes().add(this.getUiTypedBindable());
 		uiBindingEndpointAssignmentEClass.getESuperTypes().add(this.getUiBindingExpression());
+		uiNestedPropertyEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiRawBindableEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiTypedBindableEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiTypedBindableDefEClass.getESuperTypes().add(this.getUiTypedBindable());
@@ -3970,6 +4010,10 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiPathSegment_Path(), this.getUiPathSegment(), null, "path", null, 0, 1, UiPathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiPathSegment_Getter(), theTypesPackage.getJvmOperation(), null, "getter", null, 0, 1, UiPathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(uiNestedPropertyEClass, UiNestedProperty.class, "UiNestedProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiNestedProperty_Path(), this.getUiPathSegment(), null, "path", null, 0, 1, UiNestedProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiNestedProperty_Getter(), theTypesPackage.getJvmOperation(), null, "getter", null, 0, 1, UiNestedProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(uiRawBindableEClass, UiRawBindable.class, "UiRawBindable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(uiRawBindableProviderEClass, UiRawBindableProvider.class, "UiRawBindableProvider", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4074,7 +4118,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiTypeProvider_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, UiTypeProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiColumnEClass, UiColumn.class, "UiColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUiColumn_Getter(), theTypesPackage.getJvmOperation(), null, "getter", null, 0, 1, UiColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiColumn_IconName(), ecorePackage.getEString(), "iconName", null, 0, 1, UiColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiColumn_Visible(), ecorePackage.getEBoolean(), "visible", "true", 0, 1, UiColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiColumn_Orderable(), ecorePackage.getEBoolean(), "orderable", "true", 0, 1, UiColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4082,6 +4125,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEAttribute(getUiColumn_Collapsible(), ecorePackage.getEBoolean(), "collapsible", "true", 0, 1, UiColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiColumn_Alignment(), this.getUiFlatAlignment(), "alignment", "LEFT", 0, 1, UiColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiColumn_ExpandRatio(), ecorePackage.getEFloat(), "expandRatio", "-1.0f", 0, 1, UiColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiColumn_Property(), this.getUiNestedProperty(), null, "property", null, 0, 1, UiColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiColumnsAssignmentEClass, UiColumnsAssignment.class, "UiColumnsAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiColumnsAssignment_Columns(), this.getUiColumn(), null, "columns", null, 0, -1, UiColumnsAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4207,7 +4251,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiOpenDialogCommand_Dialog(), this.getUiDialog(), null, "dialog", null, 0, 1, UiOpenDialogCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiSearchFieldEClass, UiSearchField.class, "UiSearchField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUiSearchField_Property(), theTypesPackage.getJvmOperation(), null, "property", null, 0, 1, UiSearchField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiSearchField_Property(), this.getUiNestedProperty(), null, "property", null, 0, 1, UiSearchField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiSearchDialogEClass, UiSearchDialog.class, "UiSearchDialog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiSearchDialog_SearchFields(), this.getUiDialogSearchFieldAssignment(), null, "searchFields", null, 0, -1, UiSearchDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

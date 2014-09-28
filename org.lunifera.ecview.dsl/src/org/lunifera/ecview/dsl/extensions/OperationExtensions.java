@@ -80,6 +80,10 @@ public class OperationExtensions {
 			if (operation.getVisibility() != JvmVisibility.PUBLIC) {
 				continue;
 			}
+			
+			if (!operation.getParameters().isEmpty()) {
+				continue;
+			}
 
 			String propertyName = toPropertyName(operation.getSimpleName());
 			if (filterName != null && !filterName.equals(propertyName)) {

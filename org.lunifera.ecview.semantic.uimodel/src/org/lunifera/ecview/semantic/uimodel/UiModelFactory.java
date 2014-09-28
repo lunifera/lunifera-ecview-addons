@@ -139,6 +139,15 @@ public interface UiModelFactory extends EFactory {
 	UiPathSegment createUiPathSegment();
 
 	/**
+	 * Returns a new object of class '<em>Ui Nested Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Nested Property</em>'.
+	 * @generated
+	 */
+	UiNestedProperty createUiNestedProperty();
+
+	/**
 	 * Returns a new object of class '<em>Ui Raw Bindable Path Segment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

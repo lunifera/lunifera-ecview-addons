@@ -34,10 +34,12 @@ Require-Bundle: org.eclipse.xtext;bundle-version="[2.6.2,2.7.0)";visibility:=ree
  org.lunifera.xtext.builder.types.loader.runtime;bundle-version="0.8.3",
  org.lunifera.ecview.dsl.lib;bundle-version="0.7.3"
 Import-Package: org.apache.log4j,
- org.eclipse.xtext.xbase.lib
+ org.eclipse.xtext.xbase.lib,
+ org.slf4j;version="1.7.2"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.lunifera.ecview.dsl;x-internal:=true,
  org.lunifera.ecview.dsl.derivedstate;x-internal:=true,
+ org.lunifera.ecview.dsl.extensions;x-internal:=true,
  org.lunifera.ecview.dsl.formatting;x-internal:=true,
  org.lunifera.ecview.dsl.jvmmodel;x-internal:=true,
  org.lunifera.ecview.dsl.name;x-internal:=true,

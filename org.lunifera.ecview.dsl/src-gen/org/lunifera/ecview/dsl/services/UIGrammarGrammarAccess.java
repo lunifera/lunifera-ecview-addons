@@ -551,6 +551,42 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getPathUiPathSegmentParserRuleCall_3_0() { return cPathUiPathSegmentParserRuleCall_3_0; }
 	}
 
+	public class UiNestedPropertyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiNestedProperty");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cUiNestedPropertyAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cGetterAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cGetterJvmOperationCrossReference_1_0 = (CrossReference)cGetterAssignment_1.eContents().get(0);
+		private final RuleCall cGetterJvmOperationIDTerminalRuleCall_1_0_1 = (RuleCall)cGetterJvmOperationCrossReference_1_0.eContents().get(1);
+		private final Assignment cPathAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cPathUiPathSegmentParserRuleCall_2_0 = (RuleCall)cPathAssignment_2.eContents().get(0);
+		
+		//UiNestedProperty:
+		//	{UiNestedProperty} getter=[JvmOperation] path=UiPathSegment?;
+		public ParserRule getRule() { return rule; }
+
+		//{UiNestedProperty} getter=[JvmOperation] path=UiPathSegment?
+		public Group getGroup() { return cGroup; }
+
+		//{UiNestedProperty}
+		public Action getUiNestedPropertyAction_0() { return cUiNestedPropertyAction_0; }
+
+		//getter=[JvmOperation]
+		public Assignment getGetterAssignment_1() { return cGetterAssignment_1; }
+
+		//[JvmOperation]
+		public CrossReference getGetterJvmOperationCrossReference_1_0() { return cGetterJvmOperationCrossReference_1_0; }
+
+		//ID
+		public RuleCall getGetterJvmOperationIDTerminalRuleCall_1_0_1() { return cGetterJvmOperationIDTerminalRuleCall_1_0_1; }
+
+		//path=UiPathSegment?
+		public Assignment getPathAssignment_2() { return cPathAssignment_2; }
+
+		//UiPathSegment
+		public RuleCall getPathUiPathSegmentParserRuleCall_2_0() { return cPathUiPathSegmentParserRuleCall_2_0; }
+	}
+
 	public class UiTypedBindableDefElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiTypedBindableDef");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -3256,14 +3292,13 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cUiSearchFieldAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cSearchfieldKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cPropertyAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cPropertyJvmOperationCrossReference_2_0 = (CrossReference)cPropertyAssignment_2.eContents().get(0);
-		private final RuleCall cPropertyJvmOperationIDTerminalRuleCall_2_0_1 = (RuleCall)cPropertyJvmOperationCrossReference_2_0.eContents().get(1);
+		private final RuleCall cPropertyUiNestedPropertyParserRuleCall_2_0 = (RuleCall)cPropertyAssignment_2.eContents().get(0);
 		
 		//UiSearchField:
-		//	{UiSearchField} "searchfield" property=[JvmOperation];
+		//	{UiSearchField} "searchfield" property=UiNestedProperty;
 		public ParserRule getRule() { return rule; }
 
-		//{UiSearchField} "searchfield" property=[JvmOperation]
+		//{UiSearchField} "searchfield" property=UiNestedProperty
 		public Group getGroup() { return cGroup; }
 
 		//{UiSearchField}
@@ -3272,14 +3307,11 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"searchfield"
 		public Keyword getSearchfieldKeyword_1() { return cSearchfieldKeyword_1; }
 
-		//property=[JvmOperation]
+		//property=UiNestedProperty
 		public Assignment getPropertyAssignment_2() { return cPropertyAssignment_2; }
 
-		//[JvmOperation]
-		public CrossReference getPropertyJvmOperationCrossReference_2_0() { return cPropertyJvmOperationCrossReference_2_0; }
-
-		//ID
-		public RuleCall getPropertyJvmOperationIDTerminalRuleCall_2_0_1() { return cPropertyJvmOperationIDTerminalRuleCall_2_0_1; }
+		//UiNestedProperty
+		public RuleCall getPropertyUiNestedPropertyParserRuleCall_2_0() { return cPropertyUiNestedPropertyParserRuleCall_2_0; }
 	}
 
 	public class UiTextAreaElements extends AbstractParserRuleElementFinder {
@@ -3507,64 +3539,67 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_2_0 = (RuleCall)cProcessorAssignmentsAssignment_4_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
 		
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#XtextFragmentProvider_org.lunifera.ecview.dsl.UIGrammar/UiBrowser'
+		//UiBrowser:
+		//	{UiBrowser} "browser" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? ("{" (validators+=UiValidator | bindings+=UiBinding)*
+		//	processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 		public ParserRule getRule() { return rule; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives'
+		//{UiBrowser} "browser" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? ("{" (validators+=UiValidator | bindings+=UiBinding)*
+		//processorAssignments+=UiVisibilityProcessorAssignment* "}")?
 		public Group getGroup() { return cGroup; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.0'
+		//{UiBrowser}
 		public Action getUiBrowserAction_0() { return cUiBrowserAction_0; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.1'
+		//"browser"
 		public Keyword getBrowserKeyword_1() { return cBrowserKeyword_1; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.2'
+		//("(" i18nInfo=UiI18nInfo? ")")?
 		public Group getGroup_2() { return cGroup_2; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.2/@elements.0'
+		//"("
 		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.2/@elements.1'
+		//i18nInfo=UiI18nInfo?
 		public Assignment getI18nInfoAssignment_2_1() { return cI18nInfoAssignment_2_1; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.2/@elements.1/@terminal'
+		//UiI18nInfo
 		public RuleCall getI18nInfoUiI18nInfoParserRuleCall_2_1_0() { return cI18nInfoUiI18nInfoParserRuleCall_2_1_0; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.2/@elements.2'
+		//")"
 		public Keyword getRightParenthesisKeyword_2_2() { return cRightParenthesisKeyword_2_2; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.3'
+		//name=ID?
 		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.3/@terminal'
+		//ID
 		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4'
+		//("{" (validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?
 		public Group getGroup_4() { return cGroup_4; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4/@elements.0'
+		//"{"
 		public Keyword getLeftCurlyBracketKeyword_4_0() { return cLeftCurlyBracketKeyword_4_0; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4/@elements.1'
+		//(validators+=UiValidator | bindings+=UiBinding)*
 		public Alternatives getAlternatives_4_1() { return cAlternatives_4_1; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4/@elements.1/@elements.0'
+		//validators+=UiValidator
 		public Assignment getValidatorsAssignment_4_1_0() { return cValidatorsAssignment_4_1_0; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4/@elements.1/@elements.0/@terminal'
+		//UiValidator
 		public RuleCall getValidatorsUiValidatorParserRuleCall_4_1_0_0() { return cValidatorsUiValidatorParserRuleCall_4_1_0_0; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4/@elements.1/@elements.1'
+		//bindings+=UiBinding
 		public Assignment getBindingsAssignment_4_1_1() { return cBindingsAssignment_4_1_1; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4/@elements.1/@elements.1/@terminal'
+		//UiBinding
 		public RuleCall getBindingsUiBindingParserRuleCall_4_1_1_0() { return cBindingsUiBindingParserRuleCall_4_1_1_0; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4/@elements.2'
+		//processorAssignments+=UiVisibilityProcessorAssignment*
 		public Assignment getProcessorAssignmentsAssignment_4_2() { return cProcessorAssignmentsAssignment_4_2; }
 
-		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/lunifera/ecview/dsl/UIGrammar.xtext#/0/@rules.63/@alternatives/@elements.4/@elements.2/@terminal'
+		//UiVisibilityProcessorAssignment
 		public RuleCall getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_2_0() { return cProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_4_2_0; }
 
 		//"}"
@@ -4788,9 +4823,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cUiColumnAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cColumnKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cGetterAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cGetterJvmOperationCrossReference_2_0 = (CrossReference)cGetterAssignment_2.eContents().get(0);
-		private final RuleCall cGetterJvmOperationIDTerminalRuleCall_2_0_1 = (RuleCall)cGetterJvmOperationCrossReference_2_0.eContents().get(1);
+		private final Assignment cPropertyAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cPropertyUiNestedPropertyParserRuleCall_2_0 = (RuleCall)cPropertyAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cIconKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cIconNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
@@ -4798,10 +4832,10 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//UiColumn:
-		//	{UiColumn} "column" getter=[JvmOperation] ("icon" iconName=STRING)? ";"?;
+		//	{UiColumn} "column" property=UiNestedProperty ("icon" iconName=STRING)? ";"?;
 		public ParserRule getRule() { return rule; }
 
-		//{UiColumn} "column" getter=[JvmOperation] ("icon" iconName=STRING)? ";"?
+		//{UiColumn} "column" property=UiNestedProperty ("icon" iconName=STRING)? ";"?
 		public Group getGroup() { return cGroup; }
 
 		//{UiColumn}
@@ -4810,14 +4844,11 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"column"
 		public Keyword getColumnKeyword_1() { return cColumnKeyword_1; }
 
-		//getter=[JvmOperation]
-		public Assignment getGetterAssignment_2() { return cGetterAssignment_2; }
+		//property=UiNestedProperty
+		public Assignment getPropertyAssignment_2() { return cPropertyAssignment_2; }
 
-		//[JvmOperation]
-		public CrossReference getGetterJvmOperationCrossReference_2_0() { return cGetterJvmOperationCrossReference_2_0; }
-
-		//ID
-		public RuleCall getGetterJvmOperationIDTerminalRuleCall_2_0_1() { return cGetterJvmOperationIDTerminalRuleCall_2_0_1; }
+		//UiNestedProperty
+		public RuleCall getPropertyUiNestedPropertyParserRuleCall_2_0() { return cPropertyUiNestedPropertyParserRuleCall_2_0; }
 
 		//("icon" iconName=STRING)?
 		public Group getGroup_3() { return cGroup_3; }
@@ -6059,6 +6090,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private UiBindingElements pUiBinding;
 	private UiBindingEndpointAssignmentElements pUiBindingEndpointAssignment;
 	private UiPathSegmentElements pUiPathSegment;
+	private UiNestedPropertyElements pUiNestedProperty;
 	private UiTypedBindableDefElements pUiTypedBindableDef;
 	private UiTypedBindableRawTypeElements pUiTypedBindableRawType;
 	private UiTypedBindableRawTypeAliasElements pUiTypedBindableRawTypeAlias;
@@ -6306,6 +6338,16 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getUiPathSegmentRule() {
 		return getUiPathSegmentAccess().getRule();
+	}
+
+	//UiNestedProperty:
+	//	{UiNestedProperty} getter=[JvmOperation] path=UiPathSegment?;
+	public UiNestedPropertyElements getUiNestedPropertyAccess() {
+		return (pUiNestedProperty != null) ? pUiNestedProperty : (pUiNestedProperty = new UiNestedPropertyElements());
+	}
+	
+	public ParserRule getUiNestedPropertyRule() {
+		return getUiNestedPropertyAccess().getRule();
 	}
 
 	//UiTypedBindableDef returns UiBindingExpression:
@@ -6801,7 +6843,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiSearchField:
-	//	{UiSearchField} "searchfield" property=[JvmOperation];
+	//	{UiSearchField} "searchfield" property=UiNestedProperty;
 	public UiSearchFieldElements getUiSearchFieldAccess() {
 		return (pUiSearchField != null) ? pUiSearchField : (pUiSearchField = new UiSearchFieldElements());
 	}
@@ -7024,7 +7066,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiColumn:
-	//	{UiColumn} "column" getter=[JvmOperation] ("icon" iconName=STRING)? ";"?;
+	//	{UiColumn} "column" property=UiNestedProperty ("icon" iconName=STRING)? ";"?;
 	public UiColumnElements getUiColumnAccess() {
 		return (pUiColumn != null) ? pUiColumn : (pUiColumn = new UiColumnElements());
 	}

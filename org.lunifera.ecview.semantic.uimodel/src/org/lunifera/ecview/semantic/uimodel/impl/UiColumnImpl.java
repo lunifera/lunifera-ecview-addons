@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.xtext.common.types.JvmOperation;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiColumn;
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
@@ -19,6 +18,7 @@ import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
+import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiValidator;
 
@@ -34,7 +34,6 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#getValidators <em>Validators</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#getGetter <em>Getter</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#getIconName <em>Icon Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#isVisible <em>Visible</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#isOrderable <em>Orderable</em>}</li>
@@ -42,6 +41,7 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#isCollapsible <em>Collapsible</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#getAlignment <em>Alignment</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#getExpandRatio <em>Expand Ratio</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiColumnImpl#getProperty <em>Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -117,16 +117,6 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 	 * @ordered
 	 */
 	protected EList<UiValidator> validators;
-
-	/**
-	 * The cached value of the '{@link #getGetter() <em>Getter</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGetter()
-	 * @generated
-	 * @ordered
-	 */
-	protected JvmOperation getter;
 
 	/**
 	 * The default value of the '{@link #getIconName() <em>Icon Name</em>}' attribute.
@@ -267,6 +257,16 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 	 * @ordered
 	 */
 	protected float expandRatio = EXPAND_RATIO_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiNestedProperty property;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -424,44 +424,6 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JvmOperation getGetter() {
-		if (getter != null && getter.eIsProxy()) {
-			InternalEObject oldGetter = (InternalEObject)getter;
-			getter = (JvmOperation)eResolveProxy(oldGetter);
-			if (getter != oldGetter) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_COLUMN__GETTER, oldGetter, getter));
-			}
-		}
-		return getter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public JvmOperation basicGetGetter() {
-		return getter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGetter(JvmOperation newGetter) {
-		JvmOperation oldGetter = getter;
-		getter = newGetter;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_COLUMN__GETTER, oldGetter, getter));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getIconName() {
 		return iconName;
 	}
@@ -609,6 +571,72 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiNestedProperty getProperty() {
+		if (property != null && property.eIsProxy()) {
+			InternalEObject oldProperty = (InternalEObject)property;
+			property = (UiNestedProperty)eResolveProxy(oldProperty);
+			if (property != oldProperty) {
+				InternalEObject newProperty = (InternalEObject)property;
+				NotificationChain msgs = oldProperty.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_COLUMN__PROPERTY, null, null);
+				if (newProperty.eInternalContainer() == null) {
+					msgs = newProperty.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_COLUMN__PROPERTY, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_COLUMN__PROPERTY, oldProperty, property));
+			}
+		}
+		return property;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiNestedProperty basicGetProperty() {
+		return property;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProperty(UiNestedProperty newProperty, NotificationChain msgs) {
+		UiNestedProperty oldProperty = property;
+		property = newProperty;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_COLUMN__PROPERTY, oldProperty, newProperty);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProperty(UiNestedProperty newProperty) {
+		if (newProperty != property) {
+			NotificationChain msgs = null;
+			if (property != null)
+				msgs = ((InternalEObject)property).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_COLUMN__PROPERTY, null, msgs);
+			if (newProperty != null)
+				msgs = ((InternalEObject)newProperty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_COLUMN__PROPERTY, null, msgs);
+			msgs = basicSetProperty(newProperty, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_COLUMN__PROPERTY, newProperty, newProperty));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -618,6 +646,8 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_COLUMN__VALIDATORS:
 				return ((InternalEList<?>)getValidators()).basicRemove(otherEnd, msgs);
+			case UiModelPackage.UI_COLUMN__PROPERTY:
+				return basicSetProperty(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -641,9 +671,6 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 				return getBindings();
 			case UiModelPackage.UI_COLUMN__VALIDATORS:
 				return getValidators();
-			case UiModelPackage.UI_COLUMN__GETTER:
-				if (resolve) return getGetter();
-				return basicGetGetter();
 			case UiModelPackage.UI_COLUMN__ICON_NAME:
 				return getIconName();
 			case UiModelPackage.UI_COLUMN__VISIBLE:
@@ -658,6 +685,9 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 				return getAlignment();
 			case UiModelPackage.UI_COLUMN__EXPAND_RATIO:
 				return getExpandRatio();
+			case UiModelPackage.UI_COLUMN__PROPERTY:
+				if (resolve) return getProperty();
+				return basicGetProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -688,9 +718,6 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 				getValidators().clear();
 				getValidators().addAll((Collection<? extends UiValidator>)newValue);
 				return;
-			case UiModelPackage.UI_COLUMN__GETTER:
-				setGetter((JvmOperation)newValue);
-				return;
 			case UiModelPackage.UI_COLUMN__ICON_NAME:
 				setIconName((String)newValue);
 				return;
@@ -711,6 +738,9 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 				return;
 			case UiModelPackage.UI_COLUMN__EXPAND_RATIO:
 				setExpandRatio((Float)newValue);
+				return;
+			case UiModelPackage.UI_COLUMN__PROPERTY:
+				setProperty((UiNestedProperty)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -739,9 +769,6 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 			case UiModelPackage.UI_COLUMN__VALIDATORS:
 				getValidators().clear();
 				return;
-			case UiModelPackage.UI_COLUMN__GETTER:
-				setGetter((JvmOperation)null);
-				return;
 			case UiModelPackage.UI_COLUMN__ICON_NAME:
 				setIconName(ICON_NAME_EDEFAULT);
 				return;
@@ -762,6 +789,9 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 				return;
 			case UiModelPackage.UI_COLUMN__EXPAND_RATIO:
 				setExpandRatio(EXPAND_RATIO_EDEFAULT);
+				return;
+			case UiModelPackage.UI_COLUMN__PROPERTY:
+				setProperty((UiNestedProperty)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -785,8 +815,6 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_COLUMN__VALIDATORS:
 				return validators != null && !validators.isEmpty();
-			case UiModelPackage.UI_COLUMN__GETTER:
-				return getter != null;
 			case UiModelPackage.UI_COLUMN__ICON_NAME:
 				return ICON_NAME_EDEFAULT == null ? iconName != null : !ICON_NAME_EDEFAULT.equals(iconName);
 			case UiModelPackage.UI_COLUMN__VISIBLE:
@@ -801,6 +829,8 @@ public class UiColumnImpl extends UiVisibilityProcessableImpl implements UiColum
 				return alignment != ALIGNMENT_EDEFAULT;
 			case UiModelPackage.UI_COLUMN__EXPAND_RATIO:
 				return expandRatio != EXPAND_RATIO_EDEFAULT;
+			case UiModelPackage.UI_COLUMN__PROPERTY:
+				return property != null;
 		}
 		return super.eIsSet(featureID);
 	}

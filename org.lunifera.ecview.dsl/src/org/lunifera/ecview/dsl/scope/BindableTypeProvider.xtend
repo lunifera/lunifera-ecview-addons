@@ -12,9 +12,8 @@ import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef
-import org.lunifera.ecview.semantic.uimodel.UiPathSegment
+import org.lunifera.ecview.semantic.uimodel.UiNestedProperty
 import org.lunifera.ecview.semantic.uimodel.UiTypeProvider
-import org.lunifera.ecview.semantic.uimodel.UiTypedBindable
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef
 
 /**
@@ -110,5 +109,9 @@ class BindableTypeProvider {
 
 	def dispatch JvmTypeReference doGetTypeReference(UiTypeProvider provider) {
 		return provider.jvmType
+	}
+	
+	def dispatch JvmTypeReference doGetTypeReference(UiNestedProperty property) {
+		return property.typeReferenceofGetter
 	}
 }

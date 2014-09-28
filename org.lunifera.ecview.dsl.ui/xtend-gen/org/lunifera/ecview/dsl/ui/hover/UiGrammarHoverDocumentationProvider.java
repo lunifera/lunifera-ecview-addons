@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Locale;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -14,12 +15,14 @@ import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.documentation.IEObjectDocumentationProvider;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
-import org.eclipse.xtext.naming.QualifiedName;
+import org.eclipse.xtext.resource.IEObjectDescription;
+import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.ui.editor.hover.html.XtextElementLinks;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.ui.hover.HoverLinkHelper;
 import org.eclipse.xtext.xbase.ui.hover.XbaseDeclarativeHoverSignatureProvider;
 import org.eclipse.xtext.xbase.ui.hover.XbaseHoverDocumentationProvider;
+import org.lunifera.ecview.dsl.extensions.I18nKeyProvider;
 import org.lunifera.ecview.dsl.scope.BindableTypeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
@@ -31,7 +34,10 @@ import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
 import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
+import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 import org.lunifera.ecview.semantic.uisemantics.UxBindingableOption;
+import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
+import org.lunifera.ecview.semantic.uisemantics.UxElementURI;
 import org.lunifera.ide.core.api.i18n.II18nRegistry;
 import org.lunifera.ide.core.ui.util.CoreUiUtil;
 
@@ -41,7 +47,7 @@ public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentation
   private XbaseDeclarativeHoverSignatureProvider hoverSignatureProvider;
   
   @Inject
-  protected IEObjectDocumentationProvider documentationProvider;
+  private IEObjectDocumentationProvider documentationProvider;
   
   @Inject
   private BindableTypeProvider typeProvider;
@@ -53,8 +59,15 @@ public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentation
   private CoreUiUtil util;
   
   @Inject
+  private IResourceDescriptions descriptions;
+  
+  @Inject
   @Extension
   private IQualifiedNameProvider fqnProvider;
+  
+  @Inject
+  @Extension
+  private I18nKeyProvider _i18nKeyProvider;
   
   public String computeDocumentation(final EObject object) {
     final String superDocu = super.computeDocumentation(object);
@@ -79,9 +92,14 @@ public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentation
     final StringBuilder sb = new StringBuilder();
     String _computeDocumentation = super.computeDocumentation(object);
     sb.append(_computeDocumentation);
-    final JvmType type = this.typeProvider.getType(object);
-    boolean _notEquals = (!Objects.equal(type, null));
+    final String semanticDocu = this.getSemanticElementDocumentation(object);
+    boolean _notEquals = (!Objects.equal(semanticDocu, null));
     if (_notEquals) {
+      sb.append(semanticDocu);
+    }
+    final JvmType type = this.typeProvider.getType(object);
+    boolean _notEquals_1 = (!Objects.equal(type, null));
+    if (_notEquals_1) {
       sb.append("<p>type: ");
       String _computeLinkToElement = this.computeLinkToElement(type);
       sb.append(_computeLinkToElement);
@@ -90,8 +108,8 @@ public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentation
     sb.append("<h3>I18n Info</h3>");
     boolean _and = false;
     UiI18nInfo _i18nInfo = object.getI18nInfo();
-    boolean _notEquals_1 = (!Objects.equal(_i18nInfo, null));
-    if (!_notEquals_1) {
+    boolean _notEquals_2 = (!Objects.equal(_i18nInfo, null));
+    if (!_notEquals_2) {
       _and = false;
     } else {
       UiI18nInfo _i18nInfo_1 = object.getI18nInfo();
@@ -144,21 +162,16 @@ public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentation
     String _computeDocumentation = super.computeDocumentation(object);
     sb.append(_computeDocumentation);
     sb.append("<h3>I18n Info</h3>");
-    final QualifiedName fqn = this.fqnProvider.getFullyQualifiedName(object);
-    final QualifiedName pkg = fqn.skipLast(1);
-    String _string = fqn.toString();
-    String _plus = ("Key: " + _string);
-    String _plus_1 = (_plus + "<p>");
-    sb.append(_plus_1);
+    final String i18nKey = this._i18nKeyProvider.toI18nKey(object);
+    sb.append((("Key: " + i18nKey) + "<p>"));
+    String packageName = this.findPackage(object);
     IProject javaProject = this.util.getProject(object);
     IProject _project = javaProject.getProject();
     Locale _locale = this.util.getLocale();
-    String _string_1 = pkg.toString();
-    String _string_2 = fqn.toString();
-    final List<II18nRegistry.Proposal> proposals = this.i18nRegistry.findStrictKeyMatchingProposals(_project, _locale, _string_1, _string_2);
+    final List<II18nRegistry.Proposal> proposals = this.i18nRegistry.findStrictKeyMatchingProposals(_project, _locale, packageName, i18nKey);
     CharSequence _i18nLocaleDocumentation = this.getI18nLocaleDocumentation(proposals);
-    String _string_3 = _i18nLocaleDocumentation.toString();
-    sb.append(_string_3);
+    String _string = _i18nLocaleDocumentation.toString();
+    sb.append(_string);
     return sb.toString();
   }
   
@@ -167,13 +180,12 @@ public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentation
    */
   public String getI18nDefaultDocumentation(final UiNamedElement model) {
     IProject javaProject = this.util.getProject(model);
+    final String i18nKey = this._i18nKeyProvider.toI18nKey(model);
     String packageName = this.findPackage(model);
-    String _name = model.getName();
-    String key = ((packageName + ".") + _name);
     IProject _project = javaProject.getProject();
     Locale _locale = this.util.getLocale();
-    final List<II18nRegistry.Proposal> proposals = this.i18nRegistry.findStrictKeyMatchingProposals(_project, _locale, packageName, key);
-    String result = (("Key: " + key) + "<p>");
+    final List<II18nRegistry.Proposal> proposals = this.i18nRegistry.findStrictKeyMatchingProposals(_project, _locale, packageName, i18nKey);
+    String result = (("Key: " + i18nKey) + "<p>");
     CharSequence _i18nLocaleDocumentation = this.getI18nLocaleDocumentation(proposals);
     String _string = _i18nLocaleDocumentation.toString();
     return (result + _string);
@@ -409,6 +421,26 @@ public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentation
     URI _uRI = EcoreUtil.getURI(jvmElement);
     String _createLinkWithLabel = HoverLinkHelper.createLinkWithLabel(XtextElementLinks.XTEXTDOC_SCHEME, _uRI, signature);
     return (imageURL + _createLinkWithLabel);
+  }
+  
+  public String getSemanticElementDocumentation(final UiEmbeddable embeddable) {
+    Iterable<IEObjectDescription> _exportedObjectsByType = this.descriptions.getExportedObjectsByType(UiSemanticsPackage.Literals.UX_ELEMENT_DEFINITION);
+    for (final IEObjectDescription des : _exportedObjectsByType) {
+      {
+        EObject _eObjectOrProxy = des.getEObjectOrProxy();
+        UxElementDefinition element = ((UxElementDefinition) _eObjectOrProxy);
+        EObject _resolve = EcoreUtil.resolve(element, embeddable);
+        element = ((UxElementDefinition) _resolve);
+        UxElementURI _uri = element.getUri();
+        EClass _eClass = _uri.getEClass();
+        EClass _eClass_1 = embeddable.eClass();
+        boolean _isSuperTypeOf = _eClass.isSuperTypeOf(_eClass_1);
+        if (_isSuperTypeOf) {
+          return this.documentationProvider.getDocumentation(element);
+        }
+      }
+    }
+    return null;
   }
   
   public String getCustomDocumentation(final EObject object) {

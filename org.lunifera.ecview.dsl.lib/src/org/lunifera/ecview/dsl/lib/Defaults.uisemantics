@@ -128,7 +128,7 @@ element List {
 	}
 }
 
-element Table {  
+element Table {
 	uri view:UiTable
 	
 	bindings {
@@ -137,6 +137,7 @@ element Table {
 		endpoint visible Boolean
 		list endpoint collection Object
 		endpoint multiSelection Object
+		endpoint filter Object
 	}
 
 	validator {

@@ -38,6 +38,47 @@ public class TypeHelper {
 	}
 
 	/**
+	 * Returns the qualified name of the given numeric type. Throws exception,
+	 * if the given type is not a valid number.
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public String toNumericQualifiedName(JvmType type) {
+		return toNumericType(type).getName();
+	}
+
+	/**
+	 * Returns the class file of the given numeric type. Throws exception, if
+	 * the given type is not a valid number.
+	 * 
+	 * @param type
+	 * @return
+	 */
+	public Class<? extends Number> toNumericType(JvmType type) {
+		if (typeReferences.is(type, Byte.class)
+				|| typeReferences.is(type, Byte.TYPE)) {
+			return Byte.class;
+		} else if (typeReferences.is(type, Short.class)
+				|| typeReferences.is(type, Short.TYPE)) {
+			return Short.class;
+		} else if (typeReferences.is(type, Integer.class)
+				|| typeReferences.is(type, Integer.TYPE)) {
+			return Integer.class;
+		} else if (typeReferences.is(type, Long.class)
+				|| typeReferences.is(type, Long.TYPE)) {
+			return Long.class;
+		} else if (typeReferences.is(type, Float.class)
+				|| typeReferences.is(type, Float.TYPE)) {
+			return Float.class;
+		} else if (typeReferences.is(type, Double.class)
+				|| typeReferences.is(type, Double.TYPE)) {
+			return Double.class;
+		}
+		throw new IllegalArgumentException(type + " is not a valid number type");
+	}
+
+	/**
 	 * Returns true, if the type is boolean
 	 * 
 	 * @param type

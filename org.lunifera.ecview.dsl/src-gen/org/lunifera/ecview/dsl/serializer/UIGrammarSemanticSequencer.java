@@ -101,6 +101,7 @@ import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet;
 import org.lunifera.ecview.semantic.uimodel.UiMobileView;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
+import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
 import org.lunifera.ecview.semantic.uimodel.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup;
@@ -515,6 +516,12 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 			case UiModelPackage.UI_MODEL:
 				if(context == grammarAccess.getUiModelRule()) {
 					sequence_UiModel(context, (UiModel) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_NESTED_PROPERTY:
+				if(context == grammarAccess.getUiNestedPropertyRule()) {
+					sequence_UiNestedProperty(context, (UiNestedProperty) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1909,7 +1916,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (getter=[JvmOperation|ID] iconName=STRING?)
+	 *     (property=UiNestedProperty iconName=STRING?)
 	 */
 	protected void sequence_UiColumn(EObject context, UiColumn semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2365,6 +2372,15 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (getter=[JvmOperation|ID] path=UiPathSegment?)
+	 */
+	protected void sequence_UiNestedProperty(EObject context, UiNestedProperty semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         (noGrouping?='noGrouping'? noMarkNegative?='noMarkNegative'? i18nInfo=UiI18nInfo?)? 
 	 *         name=ID? 
@@ -2488,7 +2504,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     property=[JvmOperation|ID]
+	 *     property=UiNestedProperty
 	 */
 	protected void sequence_UiSearchField(EObject context, UiSearchField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

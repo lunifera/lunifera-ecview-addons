@@ -213,6 +213,13 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_NESTED_PROPERTY: {
+				UiNestedProperty uiNestedProperty = (UiNestedProperty)theEObject;
+				T result = caseUiNestedProperty(uiNestedProperty);
+				if (result == null) result = caseUiNamedElement(uiNestedProperty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case UiModelPackage.UI_RAW_BINDABLE: {
 				UiRawBindable uiRawBindable = (UiRawBindable)theEObject;
 				T result = caseUiRawBindable(uiRawBindable);
@@ -1388,6 +1395,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiPathSegment(UiPathSegment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Nested Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Nested Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiNestedProperty(UiNestedProperty object) {
 		return null;
 	}
 

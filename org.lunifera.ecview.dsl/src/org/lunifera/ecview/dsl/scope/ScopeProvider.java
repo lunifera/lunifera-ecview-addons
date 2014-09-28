@@ -12,6 +12,7 @@ import org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider;
 import org.lunifera.ecview.core.common.model.core.YBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
+import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTable;
@@ -51,6 +52,12 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 			}
 		} else if (reference == UiModelPackage.Literals.UI_TYPED_BINDABLE_DEF__RAW_BINDABLE) {
 			return new BindingEndpointDefRawBindableScope(context, nameProvider);
+		} else if (reference == UiModelPackage.Literals.UI_NESTED_PROPERTY__GETTER) {
+			if (context instanceof UiNestedProperty) {
+				return createJvmOperationScope((UiNestedProperty) context);
+			} else {
+				return createJvmOperationScope(context);
+			}
 		} else if (reference == UiModelPackage.Literals.UI_RAW_BINDABLE_PATH_SEGMENT__RAW_BINDABLE) {
 			return new RawBindablePathRawBindableScope(context, nameProvider);
 		} else if (reference == UiModelPackage.Literals.UI_TYPED_BINDABLE_RAW_TYPE__RAW_BINDABLE) {
@@ -59,8 +66,12 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 			return createBindingEndpointDefPathScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_PATH_SEGMENT__GETTER) {
 			return createPathSegmentJvmOperationScope(context);
-		} else if (reference == UiModelPackage.Literals.UI_COLUMN__GETTER) {
-			return createUiColumnJvmOperationScope(context);
+		} else if (reference == UiModelPackage.Literals.UI_COLUMN__PROPERTY) {
+			if (context instanceof UiNestedProperty) {
+				return createJvmOperationScope((UiNestedProperty) context);
+			} else {
+				return createJvmOperationScope(context);
+			}
 		} else if (reference == UiModelPackage.Literals.UI_COMBO_BOX__ITEM_CAPTION_PROPERTY) {
 			return createJvmOperationScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_COMBO_BOX__ITEM_IMAGE_PROPERTY) {
@@ -91,6 +102,16 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 		if (segment.eContainer() instanceof UiBindingEndpointAssignment) {
 			UiBindingEndpointAssignment parent = (UiBindingEndpointAssignment) segment
 					.eContainer();
+			JvmTypeReference expectedType = typeProvider
+					.getTypeReference(parent);
+			if (expectedType == null) {
+				return IScope.NULLSCOPE;
+			} else {
+				return new BindingPathScope(expectedType.getType());
+			}
+			// }
+		} else if (segment.eContainer() instanceof UiNestedProperty) {
+			UiNestedProperty parent = (UiNestedProperty) segment.eContainer();
 			JvmTypeReference expectedType = typeProvider
 					.getTypeReference(parent);
 			if (expectedType == null) {
@@ -136,7 +157,25 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 	 */
 	private IScope createJvmOperationScope(EObject context) {
 		JvmTypeReference expectedType = findExpectedType(context);
-		if (expectedType == null || expectedType instanceof JvmUnknownTypeReference) {
+		if (expectedType == null
+				|| expectedType instanceof JvmUnknownTypeReference) {
+			return IScope.NULLSCOPE;
+		} else {
+			return new BindingPathScope(expectedType.getType());
+		}
+	}
+
+	/**
+	 * Creates a scope that returns the jvm fields available for the current
+	 * state.
+	 * 
+	 * @param context
+	 * @return
+	 */
+	private IScope createJvmOperationScope(UiNestedProperty context) {
+		JvmTypeReference expectedType = findExpectedType(context.eContainer());
+		if (expectedType == null
+				|| expectedType instanceof JvmUnknownTypeReference) {
 			return IScope.NULLSCOPE;
 		} else {
 			return new BindingPathScope(expectedType.getType());

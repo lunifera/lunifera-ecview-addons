@@ -2,7 +2,6 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
-import org.eclipse.xtext.common.types.JvmOperation;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +11,6 @@ import org.eclipse.xtext.common.types.JvmOperation;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiColumn#getGetter <em>Getter</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiColumn#getIconName <em>Icon Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiColumn#isVisible <em>Visible</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiColumn#isOrderable <em>Orderable</em>}</li>
@@ -20,6 +18,7 @@ import org.eclipse.xtext.common.types.JvmOperation;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiColumn#isCollapsible <em>Collapsible</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiColumn#getAlignment <em>Alignment</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiColumn#getExpandRatio <em>Expand Ratio</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiColumn#getProperty <em>Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -28,32 +27,6 @@ import org.eclipse.xtext.common.types.JvmOperation;
  * @generated
  */
 public interface UiColumn extends UiField {
-	/**
-	 * Returns the value of the '<em><b>Getter</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Getter</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Getter</em>' reference.
-	 * @see #setGetter(JvmOperation)
-	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiColumn_Getter()
-	 * @model
-	 * @generated
-	 */
-	JvmOperation getGetter();
-
-	/**
-	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiColumn#getGetter <em>Getter</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Getter</em>' reference.
-	 * @see #getGetter()
-	 * @generated
-	 */
-	void setGetter(JvmOperation value);
-
 	/**
 	 * Returns the value of the '<em><b>Icon Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -244,5 +217,31 @@ public interface UiColumn extends UiField {
 	 * @generated
 	 */
 	void setExpandRatio(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Property</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Property</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Property</em>' containment reference.
+	 * @see #setProperty(UiNestedProperty)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiColumn_Property()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	UiNestedProperty getProperty();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiColumn#getProperty <em>Property</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Property</em>' containment reference.
+	 * @see #getProperty()
+	 * @generated
+	 */
+	void setProperty(UiNestedProperty value);
 
 } // UiColumn

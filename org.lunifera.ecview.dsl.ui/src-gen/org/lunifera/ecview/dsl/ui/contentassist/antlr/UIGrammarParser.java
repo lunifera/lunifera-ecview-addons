@@ -124,6 +124,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiBindingEndpointAssignmentAccess().getGroup_1(), "rule__UiBindingEndpointAssignment__Group_1__0");
 					put(grammarAccess.getUiBindingEndpointAssignmentAccess().getGroup_2(), "rule__UiBindingEndpointAssignment__Group_2__0");
 					put(grammarAccess.getUiPathSegmentAccess().getGroup(), "rule__UiPathSegment__Group__0");
+					put(grammarAccess.getUiNestedPropertyAccess().getGroup(), "rule__UiNestedProperty__Group__0");
 					put(grammarAccess.getUiTypedBindableDefAccess().getGroup(), "rule__UiTypedBindableDef__Group__0");
 					put(grammarAccess.getUiTypedBindableDefAccess().getGroup_1(), "rule__UiTypedBindableDef__Group_1__0");
 					put(grammarAccess.getUiTypedBindableRawTypeAccess().getGroup(), "rule__UiTypedBindableRawType__Group__0");
@@ -469,6 +470,8 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiBindingEndpointAssignmentAccess().getPathAssignment_2_2(), "rule__UiBindingEndpointAssignment__PathAssignment_2_2");
 					put(grammarAccess.getUiPathSegmentAccess().getGetterAssignment_2(), "rule__UiPathSegment__GetterAssignment_2");
 					put(grammarAccess.getUiPathSegmentAccess().getPathAssignment_3(), "rule__UiPathSegment__PathAssignment_3");
+					put(grammarAccess.getUiNestedPropertyAccess().getGetterAssignment_1(), "rule__UiNestedProperty__GetterAssignment_1");
+					put(grammarAccess.getUiNestedPropertyAccess().getPathAssignment_2(), "rule__UiNestedProperty__PathAssignment_2");
 					put(grammarAccess.getUiTypedBindableDefAccess().getRawBindableAssignment_1_1(), "rule__UiTypedBindableDef__RawBindableAssignment_1_1");
 					put(grammarAccess.getUiTypedBindableDefAccess().getRawBindablePathAssignment_1_2(), "rule__UiTypedBindableDef__RawBindablePathAssignment_1_2");
 					put(grammarAccess.getUiTypedBindableDefAccess().getMethodAssignment_1_5(), "rule__UiTypedBindableDef__MethodAssignment_1_5");
@@ -702,7 +705,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiOptionsGroupAccess().getBindingsAssignment_4_2_1(), "rule__UiOptionsGroup__BindingsAssignment_4_2_1");
 					put(grammarAccess.getUiOptionsGroupAccess().getProcessorAssignmentsAssignment_4_3(), "rule__UiOptionsGroup__ProcessorAssignmentsAssignment_4_3");
 					put(grammarAccess.getUiColumnsAssignmentAccess().getColumnsAssignment_3(), "rule__UiColumnsAssignment__ColumnsAssignment_3");
-					put(grammarAccess.getUiColumnAccess().getGetterAssignment_2(), "rule__UiColumn__GetterAssignment_2");
+					put(grammarAccess.getUiColumnAccess().getPropertyAssignment_2(), "rule__UiColumn__PropertyAssignment_2");
 					put(grammarAccess.getUiColumnAccess().getIconNameAssignment_3_1(), "rule__UiColumn__IconNameAssignment_3_1");
 					put(grammarAccess.getUiNumericFieldAccess().getNoGroupingAssignment_2_1_0(), "rule__UiNumericField__NoGroupingAssignment_2_1_0");
 					put(grammarAccess.getUiNumericFieldAccess().getNoMarkNegativeAssignment_2_1_1(), "rule__UiNumericField__NoMarkNegativeAssignment_2_1_1");

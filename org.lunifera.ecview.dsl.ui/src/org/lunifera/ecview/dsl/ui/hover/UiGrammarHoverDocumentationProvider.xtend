@@ -28,26 +28,26 @@ import static org.eclipse.xtext.xbase.ui.hover.HoverLinkHelper.*
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator
+import org.eclipse.xtext.resource.IResourceDescriptions
+import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage
+import org.eclipse.xtext.resource.IEObjectDescription
+import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition
+import org.lunifera.ecview.dsl.extensions.I18nKeyProvider
 
 class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentationProvider {
 
-	@Inject
-	private XbaseDeclarativeHoverSignatureProvider hoverSignatureProvider;
+	@Inject XbaseDeclarativeHoverSignatureProvider hoverSignatureProvider;
 
-	@Inject
-	protected IEObjectDocumentationProvider documentationProvider;
+	@Inject	IEObjectDocumentationProvider documentationProvider;
 
-	@Inject
-	private BindableTypeProvider typeProvider;
+	@Inject	BindableTypeProvider typeProvider;
 
-	@Inject
-	II18nRegistry i18nRegistry
-
-	@Inject
-	CoreUiUtil util;
-
-	@Inject
-	extension IQualifiedNameProvider fqnProvider
+	@Inject	II18nRegistry i18nRegistry
+	@Inject	CoreUiUtil util;
+	@Inject IResourceDescriptions descriptions
+	
+	@Inject extension IQualifiedNameProvider fqnProvider
+	@Inject	extension I18nKeyProvider
 
 	override String computeDocumentation(EObject object) {
 		val superDocu = super.computeDocumentation(object)
@@ -67,6 +67,11 @@ class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentationProvide
 	def dispatch String getCustomDocumentation(UiEmbeddable object) {
 		val StringBuilder sb = new StringBuilder
 		sb.append(super.computeDocumentation(object))
+
+		val String semanticDocu = object.semanticElementDocumentation
+		if(semanticDocu != null){
+			sb.append(semanticDocu)
+		}
 
 		val JvmType type = typeProvider.getType(object)
 		if (type != null) {
@@ -108,13 +113,13 @@ class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentationProvide
 		// Add the i18n documentation
 		sb.append("<h3>I18n Info</h3>")
 	
-		val fqn = object.fullyQualifiedName
-		val pkg = fqn.skipLast(1)
+		val i18nKey = object.toI18nKey
+		sb.append("Key: " + i18nKey + "<p>")
 		
-		sb.append("Key: " + fqn.toString + "<p>")
+		var String packageName = object.findPackage
 		var IProject javaProject = util.getProject(object)
 		val List<Proposal> proposals = i18nRegistry.findStrictKeyMatchingProposals(javaProject.project, util.locale,
-			pkg.toString, fqn.toString);
+			packageName, i18nKey);
 		sb.append(proposals.getI18nLocaleDocumentation.toString)
 
 		return sb.toString
@@ -125,13 +130,13 @@ class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentationProvide
 	 **/
 	def String getI18nDefaultDocumentation(UiNamedElement model) {
 		var IProject javaProject = util.getProject(model)
-
+		val i18nKey = model.toI18nKey
 		var String packageName = model.findPackage
-		var String key = packageName + "." + model.getName
+		
 		val List<Proposal> proposals = i18nRegistry.findStrictKeyMatchingProposals(javaProject.project, util.locale,
-			packageName, key);
+			packageName, i18nKey);
 
-		var String result = "Key: " + key + "<p>"
+		var String result = "Key: " + i18nKey + "<p>"
 		return result + proposals.getI18nLocaleDocumentation.toString
 	}
 
@@ -236,6 +241,19 @@ class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentationProvide
 		val String signature = hoverSignatureProvider.getDerivedOrSourceSignature(jvmElement);
 		return imageURL +
 			createLinkWithLabel(XtextElementLinks.XTEXTDOC_SCHEME, EcoreUtil.getURI(jvmElement), signature);
+	}
+	
+	def String getSemanticElementDocumentation(UiEmbeddable embeddable){
+		for (IEObjectDescription des : descriptions
+				.getExportedObjectsByType(UiSemanticsPackage.Literals.UX_ELEMENT_DEFINITION)) {
+			var UxElementDefinition element = des.getEObjectOrProxy() as UxElementDefinition;
+			element = EcoreUtil.resolve(element,
+					embeddable) as UxElementDefinition;
+			if (element.getUri().getEClass().isSuperTypeOf(embeddable.eClass())) {
+				return documentationProvider.getDocumentation(element)
+			}
+		}
+		return null
 	}
 
 }

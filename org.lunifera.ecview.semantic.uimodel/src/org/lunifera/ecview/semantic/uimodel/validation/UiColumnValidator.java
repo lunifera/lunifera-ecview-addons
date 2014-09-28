@@ -7,6 +7,7 @@ package org.lunifera.ecview.semantic.uimodel.validation;
 import org.eclipse.xtext.common.types.JvmOperation;
 
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
+import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiColumn}.
@@ -25,4 +26,6 @@ public interface UiColumnValidator {
 	boolean validateCollapsible(boolean value);
 	boolean validateAlignment(UiFlatAlignment value);
 	boolean validateExpandRatio(float value);
+
+	boolean validateProperty(UiNestedProperty value);
 }

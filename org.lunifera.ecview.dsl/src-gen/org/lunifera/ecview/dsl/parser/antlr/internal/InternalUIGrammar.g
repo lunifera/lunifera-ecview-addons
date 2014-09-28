@@ -947,6 +947,64 @@ ruleUiPathSegment returns [EObject current=null]
 
 
 
+// Entry rule entryRuleUiNestedProperty
+entryRuleUiNestedProperty returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiNestedPropertyRule()); }
+	 iv_ruleUiNestedProperty=ruleUiNestedProperty 
+	 { $current=$iv_ruleUiNestedProperty.current; } 
+	 EOF 
+;
+
+// Rule UiNestedProperty
+ruleUiNestedProperty returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUiNestedPropertyAccess().getUiNestedPropertyAction_0(),
+            $current);
+    }
+)(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiNestedPropertyRule());
+	        }
+        }
+	otherlv_1=RULE_ID
+	{
+		newLeafNode(otherlv_1, grammarAccess.getUiNestedPropertyAccess().getGetterJvmOperationCrossReference_1_0()); 
+	}
+
+)
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiNestedPropertyAccess().getPathUiPathSegmentParserRuleCall_2_0()); 
+	    }
+		lv_path_2_0=ruleUiPathSegment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiNestedPropertyRule());
+	        }
+       		set(
+       			$current, 
+       			"path",
+        		lv_path_2_0, 
+        		"UiPathSegment");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?)
+;
+
+
+
+
+
 // Entry rule entryRuleUiTypedBindableDef
 entryRuleUiTypedBindableDef returns [EObject current=null] 
 	:
@@ -5506,15 +5564,20 @@ ruleUiSearchField returns [EObject current=null]
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getUiSearchFieldRule());
+		{ 
+	        newCompositeNode(grammarAccess.getUiSearchFieldAccess().getPropertyUiNestedPropertyParserRuleCall_2_0()); 
+	    }
+		lv_property_2_0=ruleUiNestedProperty		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiSearchFieldRule());
 	        }
-        }
-	otherlv_2=RULE_ID
-	{
-		newLeafNode(otherlv_2, grammarAccess.getUiSearchFieldAccess().getPropertyJvmOperationCrossReference_2_0()); 
-	}
+       		set(
+       			$current, 
+       			"property",
+        		lv_property_2_0, 
+        		"UiNestedProperty");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 ))
@@ -7983,15 +8046,20 @@ ruleUiColumn returns [EObject current=null]
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getUiColumnRule());
+		{ 
+	        newCompositeNode(grammarAccess.getUiColumnAccess().getPropertyUiNestedPropertyParserRuleCall_2_0()); 
+	    }
+		lv_property_2_0=ruleUiNestedProperty		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiColumnRule());
 	        }
-        }
-	otherlv_2=RULE_ID
-	{
-		newLeafNode(otherlv_2, grammarAccess.getUiColumnAccess().getGetterJvmOperationCrossReference_2_0()); 
-	}
+       		set(
+       			$current, 
+       			"property",
+        		lv_property_2_0, 
+        		"UiNestedProperty");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 )(	otherlv_3='icon' 
