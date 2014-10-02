@@ -16,7 +16,7 @@
 	<parent>
 		<groupId>org.lunifera.ecview</groupId>
 		<artifactId>org.lunifera.ecview.parent</artifactId>
-		<version>0.7.3-SNAPSHOT</version>
+		<version>0.7.4</version>
 		<relativePath>../org.lunifera.ecview.parent/pom.xml</relativePath>
 	</parent>
 
