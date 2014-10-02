@@ -11,7 +11,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmTypeReference;
+import org.lunifera.ecview.semantic.uimodel.UiBinding;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
 import org.lunifera.ecview.semantic.uimodel.UiList;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
@@ -29,9 +33,12 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getI18nInfo <em>I1 8n Info</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getValidators <em>Validators</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getJvmType <em>Jvm Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getSelectionType <em>Selection Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getItemImageProperty <em>Item Image Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,6 +83,24 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 	protected String name = NAME_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getI18nInfo() <em>I1 8n Info</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getI18nInfo()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiI18nInfo i18nInfo;
+	/**
+	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBindings()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UiBinding> bindings;
+	/**
 	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,6 +138,16 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 	 * @ordered
 	 */
 	protected UiSelectionType selectionType = SELECTION_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getItemImageProperty() <em>Item Image Property</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItemImageProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected JvmOperation itemImageProperty;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,6 +208,84 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_LIST__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<UiBinding> getBindings() {
+		if (bindings == null) {
+			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_LIST__BINDINGS);
+		}
+		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiI18nInfo getI18nInfo() {
+		if (i18nInfo != null && i18nInfo.eIsProxy()) {
+			InternalEObject oldI18nInfo = (InternalEObject)i18nInfo;
+			i18nInfo = (UiI18nInfo)eResolveProxy(oldI18nInfo);
+			if (i18nInfo != oldI18nInfo) {
+				InternalEObject newI18nInfo = (InternalEObject)i18nInfo;
+				NotificationChain msgs = oldI18nInfo.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_LIST__I18N_INFO, null, null);
+				if (newI18nInfo.eInternalContainer() == null) {
+					msgs = newI18nInfo.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_LIST__I18N_INFO, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_LIST__I18N_INFO, oldI18nInfo, i18nInfo));
+			}
+		}
+		return i18nInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiI18nInfo basicGetI18nInfo() {
+		return i18nInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetI18nInfo(UiI18nInfo newI18nInfo, NotificationChain msgs) {
+		UiI18nInfo oldI18nInfo = i18nInfo;
+		i18nInfo = newI18nInfo;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_LIST__I18N_INFO, oldI18nInfo, newI18nInfo);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setI18nInfo(UiI18nInfo newI18nInfo) {
+		if (newI18nInfo != i18nInfo) {
+			NotificationChain msgs = null;
+			if (i18nInfo != null)
+				msgs = ((InternalEObject)i18nInfo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_LIST__I18N_INFO, null, msgs);
+			if (newI18nInfo != null)
+				msgs = ((InternalEObject)newI18nInfo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_LIST__I18N_INFO, null, msgs);
+			msgs = basicSetI18nInfo(newI18nInfo, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_LIST__I18N_INFO, newI18nInfo, newI18nInfo));
 	}
 
 	/**
@@ -279,9 +392,51 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public JvmOperation getItemImageProperty() {
+		if (itemImageProperty != null && itemImageProperty.eIsProxy()) {
+			InternalEObject oldItemImageProperty = (InternalEObject)itemImageProperty;
+			itemImageProperty = (JvmOperation)eResolveProxy(oldItemImageProperty);
+			if (itemImageProperty != oldItemImageProperty) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_LIST__ITEM_IMAGE_PROPERTY, oldItemImageProperty, itemImageProperty));
+			}
+		}
+		return itemImageProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JvmOperation basicGetItemImageProperty() {
+		return itemImageProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setItemImageProperty(JvmOperation newItemImageProperty) {
+		JvmOperation oldItemImageProperty = itemImageProperty;
+		itemImageProperty = newItemImageProperty;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_LIST__ITEM_IMAGE_PROPERTY, oldItemImageProperty, itemImageProperty));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case UiModelPackage.UI_LIST__I18N_INFO:
+				return basicSetI18nInfo(null, msgs);
+			case UiModelPackage.UI_LIST__BINDINGS:
+				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_LIST__VALIDATORS:
 				return ((InternalEList<?>)getValidators()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_LIST__JVM_TYPE:
@@ -302,6 +457,11 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 				return getId();
 			case UiModelPackage.UI_LIST__NAME:
 				return getName();
+			case UiModelPackage.UI_LIST__I18N_INFO:
+				if (resolve) return getI18nInfo();
+				return basicGetI18nInfo();
+			case UiModelPackage.UI_LIST__BINDINGS:
+				return getBindings();
 			case UiModelPackage.UI_LIST__VALIDATORS:
 				return getValidators();
 			case UiModelPackage.UI_LIST__JVM_TYPE:
@@ -309,6 +469,9 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 				return basicGetJvmType();
 			case UiModelPackage.UI_LIST__SELECTION_TYPE:
 				return getSelectionType();
+			case UiModelPackage.UI_LIST__ITEM_IMAGE_PROPERTY:
+				if (resolve) return getItemImageProperty();
+				return basicGetItemImageProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -328,6 +491,13 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 			case UiModelPackage.UI_LIST__NAME:
 				setName((String)newValue);
 				return;
+			case UiModelPackage.UI_LIST__I18N_INFO:
+				setI18nInfo((UiI18nInfo)newValue);
+				return;
+			case UiModelPackage.UI_LIST__BINDINGS:
+				getBindings().clear();
+				getBindings().addAll((Collection<? extends UiBinding>)newValue);
+				return;
 			case UiModelPackage.UI_LIST__VALIDATORS:
 				getValidators().clear();
 				getValidators().addAll((Collection<? extends UiValidator>)newValue);
@@ -337,6 +507,9 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 				return;
 			case UiModelPackage.UI_LIST__SELECTION_TYPE:
 				setSelectionType((UiSelectionType)newValue);
+				return;
+			case UiModelPackage.UI_LIST__ITEM_IMAGE_PROPERTY:
+				setItemImageProperty((JvmOperation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -356,6 +529,12 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 			case UiModelPackage.UI_LIST__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case UiModelPackage.UI_LIST__I18N_INFO:
+				setI18nInfo((UiI18nInfo)null);
+				return;
+			case UiModelPackage.UI_LIST__BINDINGS:
+				getBindings().clear();
+				return;
 			case UiModelPackage.UI_LIST__VALIDATORS:
 				getValidators().clear();
 				return;
@@ -364,6 +543,9 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 				return;
 			case UiModelPackage.UI_LIST__SELECTION_TYPE:
 				setSelectionType(SELECTION_TYPE_EDEFAULT);
+				return;
+			case UiModelPackage.UI_LIST__ITEM_IMAGE_PROPERTY:
+				setItemImageProperty((JvmOperation)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -381,12 +563,18 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case UiModelPackage.UI_LIST__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiModelPackage.UI_LIST__I18N_INFO:
+				return i18nInfo != null;
+			case UiModelPackage.UI_LIST__BINDINGS:
+				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_LIST__VALIDATORS:
 				return validators != null && !validators.isEmpty();
 			case UiModelPackage.UI_LIST__JVM_TYPE:
 				return jvmType != null;
 			case UiModelPackage.UI_LIST__SELECTION_TYPE:
 				return selectionType != SELECTION_TYPE_EDEFAULT;
+			case UiModelPackage.UI_LIST__ITEM_IMAGE_PROPERTY:
+				return itemImageProperty != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -407,6 +595,12 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 		}
 		if (baseClass == UiRawBindable.class) {
 			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiI18nInfoable.class) {
+			switch (derivedFeatureID) {
+				case UiModelPackage.UI_LIST__I18N_INFO: return UiModelPackage.UI_I1_8N_INFOABLE__I18N_INFO;
 				default: return -1;
 			}
 		}
@@ -435,6 +629,12 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 		}
 		if (baseClass == UiRawBindable.class) {
 			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiI18nInfoable.class) {
+			switch (baseFeatureID) {
+				case UiModelPackage.UI_I1_8N_INFOABLE__I18N_INFO: return UiModelPackage.UI_LIST__I18N_INFO;
 				default: return -1;
 			}
 		}

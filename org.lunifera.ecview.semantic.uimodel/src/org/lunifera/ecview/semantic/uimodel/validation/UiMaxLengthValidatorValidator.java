@@ -4,6 +4,8 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
+import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
+
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator}.
@@ -15,4 +17,6 @@ public interface UiMaxLengthValidatorValidator {
 	boolean validate();
 
 	boolean validateMaxLength(int value);
+
+	boolean validateErrorCode(UiErrorCode value);
 }

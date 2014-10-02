@@ -4,7 +4,9 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperties;
+import org.eclipse.emf.common.util.EList;
+
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperty;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiVisibilityPropertiesAssignment}.
@@ -15,6 +17,5 @@ import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperties;
 public interface UiVisibilityPropertiesAssignmentValidator {
 	boolean validate();
 
-	boolean validateProperties(UiVisibilityProperties value);
-	boolean validatePropertyAlias(UiVisibilityProperties value);
+	boolean validateProperties(EList<UiVisibilityProperty> value);
 }

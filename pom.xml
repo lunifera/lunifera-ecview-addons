@@ -14,12 +14,13 @@
 
 	<parent>
 		<groupId>org.lunifera.releng.maven</groupId>
-		<artifactId>org.lunifera.releng.maven.parent.tycho.aggregator</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<artifactId>lunifera-releng-maven-parent-tycho</artifactId>
+		<version>0.10.1-SNAPSHOT</version>
 	</parent>
 
 	<groupId>org.lunifera.ecview</groupId>
 	<artifactId>org.lunifera.ecview.aggregator</artifactId>
+	<version>0.7.4</version>
 	<packaging>pom</packaging>
 
 	<url>${distribution.site.url}</url>
@@ -33,36 +34,32 @@
 
 	<modules>
 		<module>org.lunifera.ecview.parent</module>
-		
+
+		<module>org.lunifera.ecview.dsl</module>
+		<module>org.lunifera.ecview.dsl.ui</module>
+		<module>org.lunifera.ecview.dsl.lib</module>
+		<module>org.lunifera.ecview.eclipse.ui.examples</module>
+<!-- 		<module>org.lunifera.ecview.examples.vaadin</module> -->
+		<module>org.lunifera.ecview.semantic.uimodel</module>
+		<module>org.lunifera.ecview.semantic.uisemantics</module>
+		<module>org.lunifera.ecview.uisemantics</module>
+		<module>org.lunifera.ecview.uisemantics.ui</module>
+		<module>org.lunifera.ecview.vaadin.ide.preview</module>
+		<module>org.lunifera.ecview.xtext.builder.participant</module>
+		<module>org.lunifera.ecview.xtext.builder.participant.i18n</module>
+
+		<module>org.lunifera.ecview.feature.ide</module>
+		<module>org.lunifera.ecview.feature.runtime</module>
+		<module>org.lunifera.ecview.feature.runtimeonly</module>
 	</modules>
 
 	<profiles>
 		<profile>
-			<id>build.features</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-			<modules>
-				<module>org.lunifera.ecview.feature.runtime</module>
-			</modules>
-		</profile>
-
-		<profile>
 			<id>build.p2</id>
 			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-			<build>
-				<defaultGoal>clean verify</defaultGoal>
-			</build>
-			<modules>
-				<module>org.lunifera.ecview.p2</module>
-			</modules>
-		</profile>
-		<profile>
-			<id>stage.p2</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>lunifera.build.p2</name>
+				</property>
 			</activation>
 			<modules>
 				<module>org.lunifera.ecview.p2</module>
@@ -100,5 +97,4 @@
 			</build>
 		</profile>
 	</profiles>
-<version>0.8.0</version>
 </project>

@@ -4,7 +4,9 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
-import org.lunifera.ecview.semantic.uimodel.UiColumnAssignments;
+import org.eclipse.xtext.common.types.JvmOperation;
+
+import org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
 
 /**
@@ -16,6 +18,7 @@ import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
 public interface UiTableValidator {
 	boolean validate();
 
-	boolean validateColumnAssignment(UiColumnAssignments value);
+	boolean validateColumnAssignment(UiColumnsAssignment value);
 	boolean validateSelectionType(UiSelectionType value);
+	boolean validateItemImageProperty(JvmOperation value);
 }

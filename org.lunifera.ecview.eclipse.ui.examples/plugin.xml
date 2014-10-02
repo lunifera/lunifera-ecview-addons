@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.ui.newWizards">
+		<category id="org.lunifera.dsl.Examples" 
+				  name="Lunifera DSL Examples" 
+				  parentCategory="org.eclipse.ui.Examples" />
+	</extension>
+
+   <!-- ========= org.lunifera.dsl.examples.EntityExamples ========= -->
+	<extension point="org.eclipse.ui.newWizards">
+		<wizard	id="org.lunifera.ecview.examples.UiGrammarSamples" 
+			name="UIGrammar Samples" 
+			class="org.eclipse.emf.common.ui.wizard.ExampleInstallerWizard" 
+			category="org.eclipse.ui.Examples/org.lunifera.dsl.Examples"
+			icon="icons/Lunifera_16.png" 
+			project="true">
+			<description>Installs the Lunifera UiGrammar samples</description>
+		</wizard>
+	</extension>
+	<extension point="org.eclipse.emf.common.ui.examples">
+	  <example wizardID="org.lunifera.ecview.examples.UiGrammarSamples" pageImage="icons/Lunifera_16.png">
+		 <projectDescriptor name="org.lunifera.ecview.examples.vaadin" contentURI="contents/org.lunifera.ecview.examples.vaadin.zip" description="A hands-on tutorial to learn the Lunifera UiGrammar."/>
+	  </example>
+   </extension>
+</plugin>

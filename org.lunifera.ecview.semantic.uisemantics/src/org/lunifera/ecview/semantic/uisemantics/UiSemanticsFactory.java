@@ -67,42 +67,6 @@ public interface UiSemanticsFactory extends EFactory {
 	UxAvailableBindings createUxAvailableBindings();
 
 	/**
-	 * Returns a new object of class '<em>Ux Endpoint Def</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ux Endpoint Def</em>'.
-	 * @generated
-	 */
-	UxEndpointDef createUxEndpointDef();
-
-	/**
-	 * Returns a new object of class '<em>Ux Value Binding Endpoint Def</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ux Value Binding Endpoint Def</em>'.
-	 * @generated
-	 */
-	UxValueBindingEndpointDef createUxValueBindingEndpointDef();
-
-	/**
-	 * Returns a new object of class '<em>Ux List Binding Endpoint Def</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ux List Binding Endpoint Def</em>'.
-	 * @generated
-	 */
-	UxListBindingEndpointDef createUxListBindingEndpointDef();
-
-	/**
-	 * Returns a new object of class '<em>Ux Set Binding Endpoint Def</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ux Set Binding Endpoint Def</em>'.
-	 * @generated
-	 */
-	UxSetBindingEndpointDef createUxSetBindingEndpointDef();
-
-	/**
 	 * Returns a new object of class '<em>Ux Available Visibility Options</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -112,13 +76,13 @@ public interface UiSemanticsFactory extends EFactory {
 	UxAvailableVisibilityOptions createUxAvailableVisibilityOptions();
 
 	/**
-	 * Returns a new object of class '<em>Ux Visibility Option</em>'.
+	 * Returns a new object of class '<em>Ux Value Binding Endpoint Def</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ux Visibility Option</em>'.
+	 * @return a new object of class '<em>Ux Value Binding Endpoint Def</em>'.
 	 * @generated
 	 */
-	UxVisibilityOption createUxVisibilityOption();
+	UxValueBindingEndpointDef createUxValueBindingEndpointDef();
 
 	/**
 	 * Returns a new object of class '<em>Ux Available Validator Properties</em>'.
@@ -137,6 +101,24 @@ public interface UiSemanticsFactory extends EFactory {
 	 * @generated
 	 */
 	UxValidatorProperty createUxValidatorProperty();
+
+	/**
+	 * Returns a new object of class '<em>Ux Bindingable Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ux Bindingable Option</em>'.
+	 * @generated
+	 */
+	UxBindingableOption createUxBindingableOption();
+
+	/**
+	 * Returns a new object of class '<em>Ux Visibleable Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ux Visibleable Option</em>'.
+	 * @generated
+	 */
+	UxVisibleableOption createUxVisibleableOption();
 
 	/**
 	 * Returns a new object of class '<em>Ux Import Section Declaration</em>'.

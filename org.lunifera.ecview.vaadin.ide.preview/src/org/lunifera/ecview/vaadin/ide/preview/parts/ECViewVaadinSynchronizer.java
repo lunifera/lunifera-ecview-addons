@@ -10,7 +10,6 @@
 package org.lunifera.ecview.vaadin.ide.preview.parts;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -27,25 +26,19 @@ import org.eclipse.xtext.ui.editor.XtextSourceViewer;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.model.IXtextModelListener;
 import org.eclipse.xtext.util.ITextRegion;
-import org.eclipse.xtext.util.TextRegion;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+import org.lunifera.ecview.core.common.model.core.YDeviceType;
+import org.lunifera.ecview.core.common.model.core.YView;
 import org.lunifera.ecview.dsl.derivedstate.UiModelUtil;
 import org.lunifera.ecview.vaadin.ide.preview.Activator;
 
-import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 /**
- * Synchronizes the railroad diagram view with the active editor.
- * 
- * @author Jan Koehnlein - Initial contribution and API
  */
 @Singleton
 public class ECViewVaadinSynchronizer implements IPartListener,
 		IXtextModelListener, ISelectionChangedListener {
-
-	@Inject
-	private ECViewVaadinPreviewPart view;
 
 	private IXtextDocument lastActiveDocument;
 	private XtextEditor lastActiveEditor;
@@ -55,17 +48,20 @@ public class ECViewVaadinSynchronizer implements IPartListener,
 	public void start(IWorkbenchPartSite site) {
 		updateView(site.getPage().getActiveEditor());
 		site.getWorkbenchWindow().getPartService().addPartListener(this);
-		Activator.getDefault().setSynchronizer(this);
+		Activator.getIDEPreviewHandler().setSynchronizer(this);
+		Activator.getMobilePreviewHandler().setSynchronizer(this);
 	}
 
 	public void stop(IWorkbenchPartSite site) {
 		site.getWorkbenchWindow().getPartService().removePartListener(this);
 		lastActiveDocument = null;
 		lastActiveEditor = null;
-		Activator.getDefault().setSynchronizer(null);
+		Activator.getIDEPreviewHandler().setSynchronizer(null);
+		Activator.getMobilePreviewHandler().setSynchronizer(null);
 	}
 
 	public void selectInXtextEditor(EObject element) {
+		@SuppressWarnings("restriction")
 		EObject grammarElement = UiModelUtil.getUiGrammarElement(element);
 		if (grammarElement != null) {
 			CompositeNodeWithSemanticElement node = (CompositeNodeWithSemanticElement) NodeModelUtils
@@ -107,7 +103,8 @@ public class ECViewVaadinSynchronizer implements IPartListener,
 
 				lastActiveDocument = xtextDocument;
 				lastActiveEditor = xtextEditor;
-				viewer = (XtextSourceViewer) lastActiveEditor.getInternalSourceViewer();
+				viewer = (XtextSourceViewer) lastActiveEditor
+						.getInternalSourceViewer();
 				lastActiveDocument.addModelListener(this);
 				viewer.addPostSelectionChangedListener(this);
 				lastActiveDocument
@@ -136,12 +133,22 @@ public class ECViewVaadinSynchronizer implements IPartListener,
 	}
 
 	public void modelChanged(XtextResource resource) {
+		if (resource == null) {
+			return;
+		}
 		if (resource.getContents().size() < 2) {
 			return;
 		}
 		for (EObject e : resource.getContents()) {
 			if (e instanceof YView) {
-				Activator.getDefault().setActiveViewFromXtextEditor((YView) e);
+				YView view = (YView) e;
+				if (view.getDeviceType() == YDeviceType.MOBILE) {
+					Activator.getMobilePreviewHandler()
+							.setActiveViewFromXtextEditor(view);
+				} else {
+					Activator.getIDEPreviewHandler()
+							.setActiveViewFromXtextEditor(view);
+				}
 				break;
 			}
 		}
@@ -152,12 +159,12 @@ public class ECViewVaadinSynchronizer implements IPartListener,
 		final ISelection selection = event.getSelection();
 		if (selection instanceof ITextSelection) {
 			ITextSelection textSelection = (ITextSelection) selection;
-//			ITextRegion selectedTextRegion = new TextRegion(
-//					textSelection.getOffset(), textSelection.getLength());
-//			Object input = viewer.getInput();
+			// ITextRegion selectedTextRegion = new TextRegion(
+			// textSelection.getOffset(), textSelection.getLength());
+			// Object input = viewer.getInput();
 
-//			Activator.getDefault().selectInVaadinPreview(textSelection,
-//					lastActiveDocument);
+			// Activator.getDefault().selectInVaadinPreview(textSelection,
+			// lastActiveDocument);
 		}
 	}
 }

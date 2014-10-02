@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface UiMobileNavigationPage extends UiMobileLayout {
+public interface UiMobileNavigationPage extends UiMobileLayout, UiTypeProvider, UiMobileNavigationHandler {
 
 	/**
 	 * Returns the value of the '<em><b>Contents</b></em>' containment reference list.

@@ -1,0 +1,10 @@
+package org.my.test
+
+import org.lunifera.ecview.dsl.lib.*;
+
+ideview My {
+	verticalLayout my {
+		textfield firstname
+		textfield lastname
+	}
+}

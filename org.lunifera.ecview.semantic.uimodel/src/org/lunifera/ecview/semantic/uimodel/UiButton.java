@@ -13,5 +13,5 @@ package org.lunifera.ecview.semantic.uimodel;
  * @model
  * @generated
  */
-public interface UiButton extends UiAction {
+public interface UiButton extends UiAction, UiI18nInfoable, UiMobileAction {
 } // UiButton

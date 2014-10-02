@@ -1,0 +1,98 @@
+package org.lunifera.examples.ecview.uimodels
+
+import org.lunifera.examples.ecview.*;
+import org.lunifera.ecview.dsl.lib.*;
+import org.lunifera.ecview.core.common.^visibility.*;
+
+ideview PersonView {
+  
+	datasource ds:Person
+	datasource countryService:CountryService
+	datasource buttonCallback:ButtonCallback
+	dataAlias ds.homeAddress as homeAddress
+	dataAlias ds.companyAddress as companyAddress
+
+	verticalLayout {
+		form {
+			textfield firstname
+			textfield lastname
+			checkbox enabled
+
+			bind ds.firstname <--> [this.firstname].value
+			bind ds.lastname <--> [this.lastname].value
+		}
+  
+		horizontalLayout {
+			panel HomeAddress {
+				content form {
+					textfield street
+					textfield city
+					numericField postalcode
+					combo country {
+						type Country
+						imageField imagePath
+						captionField name
+					}
+					bind homeAddress.street <--> [this.street].value
+					bind homeAddress.city <--> [this.city].value
+					bind homeAddress.postalcode <--> [this.postalcode].value
+					bind list countryService.countries --> [this.country].collection
+					bind homeAddress.country <--> [this.country].selection
+				}
+			}
+			panel CompanyAddress {
+				content form {
+					textfield street
+					textfield city
+					numericField postalcode
+					combo country {
+						type Country
+						imageField imagePath
+						captionField name
+					}
+
+					bind companyAddress.street <--> [this.street].value
+					bind companyAddress.city <--> [this.city].value
+					bind companyAddress.postalcode <--> [this.postalcode].value
+					bind list countryService.countries --> [this.country].collection
+					bind companyAddress.country <--> [this.country].selection
+				}
+			}
+		}
+
+		horizontalLayout {
+			button previous
+			button next
+
+			bind [this.next].click --> buttonCallback.nextPerson
+			bind [this.previous].click --> buttonCallback.previousPerson
+			bind buttonCallback.hasNext --> [this.next].enabled
+			bind buttonCallback.hasPrevious --> [this.previous].enabled
+
+			visibility SomeOptions {
+				ui [PersonView.firstname] as firstnameField
+				fireOn ds.lastname as lastname
+				fireOn [PersonView.enabled].value as state 
+				  
+				{
+					firstnameField.reset 
+					
+					firstnameField.editable = state 
+					
+					if(state) {
+						firstnameField.backgroundColor = Color.RED
+					}
+					if(lastname.equals("Riegel")) {
+						firstnameField.foregroundColor = Color.YELLOW
+					}
+					if(lastname.equals("Edler")) {
+						firstnameField.italic = true
+					}
+					if(lastname.equals("Pirchner")) {
+						firstnameField.strikethrough = true
+					}
+				}
+			}
+		}
+	}
+} 

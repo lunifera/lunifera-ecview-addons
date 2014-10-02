@@ -26,10 +26,17 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiViewSet -> UiContext
 
-  Class UiView -> UiContext
+  Class UiView -> UiContext, UiVisibilityProcessable, UiRawBindable
     Reference viewSet : UiViewSet
     Reference content : UiEmbeddable
+    Attribute contentAlignment : UiAlignment
     Reference validatorAssignments : UiValidatorAssignment<<0..*>>
+
+  Class UiDialog -> UiEmbeddable, UiTypeProvider, UiI18nInfoable
+    Reference content : UiDialogAssignment
+
+  Class UiDialogAssignment -> UiLayoutAssignment
+    Reference element : UiEmbeddable
 
   Class UiIDEView -> UiView
 
@@ -41,6 +48,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiBeanSlot -> UiTypedBindable
     Reference jvmType : JvmTypeReference
+    Reference eClass : EClass
 
   Class UiRootElements -> UiNamedElement
 
@@ -65,23 +73,48 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Attribute listBinding : EBoolean
 
   Class UiPathSegment
-    Reference jvmField : JvmField
     Reference path : UiPathSegment
+    Reference getter : JvmOperation
+
+  Class UiNestedProperty -> UiNamedElement
+    Reference path : UiPathSegment
+    Reference getter : JvmOperation
 
   Class UiRawBindable -> UiNamedElement
+
+  Class UiRawBindableProvider
+
+  Class UiRawBindablePathSegment
+    Reference rawBindable : UiRawBindable
+    Reference path : UiRawBindablePathSegment
 
   Class UiTypedBindable -> UiNamedElement
 
   Class UiTypedBindableDef -> UiTypedBindable, UiBindingExpression
     Reference rawBindable : UiRawBindable
+    Reference rawBindablePath : UiRawBindablePathSegment
     Reference method : UxEndpointDef
 
-  Class UiEmbeddable -> UiVisibilityProcessable, UiRawBindable
+  Class UiTypedBindableRawType -> UiTypedBindable, UiBindingExpression
+    Reference rawBindable : UiRawBindable
+    Reference rawBindablePath : UiRawBindablePathSegment
+
+  Class UiTypedBindableRawTypeAlias -> UiTypedBindable, UiBindingExpression
+    Attribute alias : EString<<1..1>>
+    Reference type : UiBindingExpression<<1..1>>
+
+  Class UiCommandBindableDef -> UiTypedBindable, UiBindingExpression
+    Reference command : UiCommand
+
+  Class UiEmbeddable -> UiVisibilityProcessable, UiRawBindable, UiI18nInfoable
+    Reference bindings : UiBinding<<0..*>>
 
   Class UiField -> UiEmbeddable
     Reference validators : UiValidator<<0..*>>
 
   Class UiLayout -> UiEmbeddable
+
+  Class UiLayoutAssignment -> UiNamedElement, UiRawBindableProvider
 
   Class UiAction -> UiEmbeddable
 
@@ -93,46 +126,64 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiMobileAction -> UiMobileEmbeddable, UiAction
 
-  Class UiGridLayoutAssigment
+  Class UiGridLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
     Reference from : UiPoint
     Reference to : UiPoint
+    Attribute alignment : UiAlignment
 
   Class UiGridLayout -> UiLayout
     Reference contents : UiGridLayoutAssigment<<0..*>>
+    Attribute columns : EInt
 
-  Class UiHorizontalLayoutAssigment
+  Class UiHorizontalLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
+    Attribute alignment : UiAlignment
 
-  Class UiHorizontalLayout -> UiLayout
+  Class UiHorizontalLayout -> UiLayout, UiMobileLayout
     Reference contents : UiHorizontalLayoutAssigment<<0..*>>
 
-  Class UiVerticalLayoutAssigment
+  Class UiVerticalLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
+    Attribute alignment : UiAlignment
 
-  Class UiVerticalLayout -> UiLayout
+  Class UiVerticalLayout -> UiLayout, UiMobileLayout
     Reference contents : UiVerticalLayoutAssigment<<0..*>>
 
-  Class UiFormLayoutAssigment
+  Class UiFormLayoutAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
 
   Class UiFormLayout -> UiLayout
     Reference contents : UiFormLayoutAssigment<<0..*>>
 
-  Class UiTextField -> UiField
+  Class UiSearchPanel -> UiLayout, UiTypeProvider
+    Reference contents : UiSearchField<<0..*>>
+
+  Class UiTextField -> UiField, UiMobileField
+    Attribute maxLength : EInt
+    Attribute minLength : EInt
+    Attribute regex : EString
+
+  Class UiImage -> UiField, UiMobileField
+    Attribute value : EString
 
   Class UiList -> UiField, UiTypeProvider
     Attribute selectionType : UiSelectionType<<1..1>>
+    Reference itemImageProperty : JvmOperation
 
-  Class UiTable -> UiField, UiTypeProvider
-    Reference columnAssignment : UiColumnAssignments
+  Class UiTable -> UiField, UiTypeProvider, UiMobileField
+    Reference columnAssignment : UiColumnsAssignment
     Attribute selectionType : UiSelectionType<<1..1>>
+    Reference itemImageProperty : JvmOperation
+
+  Class UiComboBox -> UiField, UiTypeProvider, UiMobileField
+    Reference itemCaptionProperty : JvmOperation
+    Reference itemImageProperty : JvmOperation
 
   Class UiTypeProvider
     Reference jvmType : JvmTypeReference
 
   Class UiColumn -> UiField
-    Reference jvmField : JvmField
     Attribute iconName : EString
     Attribute visible : EBoolean
     Attribute orderable : EBoolean
@@ -140,62 +191,68 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Attribute collapsible : EBoolean
     Attribute alignment : UiFlatAlignment
     Attribute expandRatio : EFloat
+    Reference property : UiNestedProperty
 
-  Class UiColumnAssignments -> UiField
+  Class UiColumnsAssignment -> UiField
     Reference columns : UiColumn<<0..*>>
 
-  Class UiNumericField -> UiField
+  Class UiNumericField -> UiField, UiMobileField
+    Attribute noGrouping : EBoolean
+    Attribute noMarkNegative : EBoolean
 
   Class UiCheckBox -> UiField
 
   Class UiVisibilityProcessable
-    Reference processorAssignment : UiVisibilityProcessorAssignment
-
-  Class UiVisibilityProcessor -> UiNamedElement
-    Reference bindingAlias : UiBindingEndpointAlias<<0..*>>
-    Reference changeTrigger : UiChangeTrigger<<0..*>>
-    Reference rule : UiVisibilityRule
-    Reference propertiesAssignment : UiVisibilityPropertiesAssignment
-
-  Class UiVisibilityProcessorDef -> UiRootElements
-    Reference processor : UiVisibilityProcessor
+    Reference processorAssignments : UiVisibilityProcessorAssignment<<0..*>>
 
   Class UiVisibilityProcessorAssignment
     Reference processor : UiVisibilityProcessor
     Reference processorAlias : UiVisibilityProcessor
 
+  Class UiVisibilityProcessor -> UiNamedElement
+    Reference dataUsed : UiBindingEndpointAlias<<0..*>>
+    Reference changeTriggers : UiChangeTrigger<<0..*>>
+    Reference importedElements : UiBindingExpression<<0..*>>
+    Reference rule : UiVisibilityRule
+
+  Class UiVisibilityProcessorDef -> UiRootElements
+    Reference processor : UiVisibilityProcessor
+
   Class UiChangeTrigger
     Reference endpoint : UiBindingExpression
     Reference endpointAlias : UiBindingEndpointAlias
+    Attribute alias : EString
 
   Class UiVisibilityRule -> UiNamedElement
 
   Class UiXbaseVisibilityRule -> UiVisibilityRule
     Reference expression : XExpression
 
-  Class UiVisibilityProperties -> UiNamedElement
-
-  Class UiVisibilityPropertiesDef -> UiRootElements
-    Reference properties : UiVisibilityProperties
-
   Class UiVisibilityPropertiesAssignment
-    Reference properties : UiVisibilityProperties
-    Reference propertyAlias : UiVisibilityProperties
+    Reference properties : UiVisibilityProperty<<0..*>>
 
-  Class UiValidator -> UiRawBindable
+  Class UiVisibilityProperty -> UiNamedElement
+    Reference bindableDef : UiBindingExpression
+    Reference assignmentExpression : XExpression
+
+  Class UiValidator -> UiRawBindable, UiI18nInfoable
 
   Class UiMaxLengthValidator -> UiValidator
     Attribute maxLength : EInt
+    Reference errorCode : UiErrorCode
 
   Class UiMinLengthValidator -> UiValidator
     Attribute minLength : EInt
+    Reference errorCode : UiErrorCode
 
   Class UiRegexpValidator -> UiValidator
     Attribute regExpression : EString
+    Reference errorCode : UiErrorCode
 
   Class UiXbaseValidator -> UiValidator
     Reference expression : XExpression
     Reference jvmType : JvmTypeReference
+    Reference errorCodes : UiErrorCode<<0..*>>
 
   Class UiValidatorAlias -> UiRootElements
     Attribute alias : EString<<1..1>>
@@ -210,17 +267,17 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference validator : UiValidator
     Reference jvmType : JvmTypeReference
 
-  Class UiHorizontalButtonGroupAssigment
+  Class UiHorizontalButtonGroupAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
 
   Class UiHorizontalButtonGroup -> UiMobileLayout
     Reference contents : UiHorizontalButtonGroupAssigment<<0..*>>
 
-  Class UiButton -> UiAction
+  Class UiButton -> UiAction, UiI18nInfoable, UiMobileAction
 
   Class UiSwitch -> UiMobileField
 
-  Class UiVerticalComponentGroupAssigment
+  Class UiVerticalComponentGroupAssigment -> UiLayoutAssignment
     Reference element : UiEmbeddable
 
   Class UiVerticalComponentGroup -> UiMobileLayout
@@ -229,31 +286,133 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiMobileTabSheet -> UiMobileEmbeddable
     Reference tabs : UiMobileTabAssignment<<0..*>>
 
-  Class UiMobileTabAssignment -> UiMobileEmbeddable
+  Class UiMobileTabAssignment -> UiMobileEmbeddable, UiI18nInfoable
     Reference element : UiEmbeddable
 
   Class UiTabSheet -> UiEmbeddable
     Reference tabs : UiTabAssignment<<0..*>>
 
-  Class UiTabAssignment -> UiEmbeddable
+  Class UiTabAssignment -> UiLayoutAssignment, UiI18nInfoable
     Reference element : UiEmbeddable
 
-  Class UiMobileNavigationPage -> UiMobileLayout
+  Class UiMobileNavigationHandler
+
+  Class UiMobileNavigationPage -> UiMobileLayout, UiTypeProvider, UiMobileNavigationHandler
     Reference contents : UiMobileNavigationPageAssignment<<0..*>>
 
-  Class UiMobileNavigationPageAssignment -> UiMobileAction
+  Class UiMobileNavigationPageAssignment -> UiLayoutAssignment
     Reference element : UiEmbeddable
 
   Class UiMobileNavigationButton -> UiMobileAction
     Reference targetPage : UiMobileNavigationPage
     Reference targetPageAlias : UiMobileNavigationPage
 
+  Class UiCommand -> UiNamedElement
+
+  Class UiMobileNavigationCommand -> UiCommand
+    Reference targetPage : UiMobileNavigationPage
+    Reference targetPageAlias : UiMobileNavigationPage
+
+  Class UiOpenDialogCommand -> UiCommand
+    Reference dialog : UiDialog
+
+  Class UiSearchField -> UiField, UiMobileField
+    Reference property : UiNestedProperty
+
+  Class UiSearchDialog -> UiEmbeddable, UiTypeProvider
+    Reference searchFields : UiDialogSearchFieldAssignment<<0..*>>
+    Reference content : UiDialogAssignment
+
+  Class UiDialogSearchFieldAssignment -> UiLayoutAssignment
+    Reference element : UiSearchField
+
+  Class UiSearchWithDialogCommand -> UiCommand
+    Reference dialog : UiSearchDialog
+
+  Class UiLabel -> UiField, UiMobileField
+
+  Class UiDecimalField -> UiField, UiMobileField
+    Attribute precision : EInt
+    Attribute noGrouping : EBoolean
+    Attribute noMarkNegative : EBoolean
+
+  Class UiTextArea -> UiField, UiMobileField
+
+  Class UiOptionsGroup -> UiField, UiTypeProvider, UiMobileField
+    Attribute selectionType : UiSelectionType
+    Reference itemImageProperty : JvmOperation
+    Reference itemCaptionProperty : JvmOperation
+
+  Class UiDateField -> UiField, UiMobileField
+    Attribute dateFormat : UiDateFormat
+    Attribute resolution : UiDateTimeResolution
+
+  Class UiBrowser -> UiField, UiMobileField
+
+  Class UiProgressBar -> UiField, UiMobileField
+
+  Class UiI18nInfo
+    Attribute key : EString
+
+  Class UiI18nInfoable
+    Reference i18nInfo : UiI18nInfo
+
+  Class UiSplitpanelAssigment -> UiLayoutAssignment
+    Reference element : UiEmbeddable
+    Attribute alignment : UiAlignment
+
+  Class UiSplitpanel -> UiLayout
+    Reference firstContent : UiSplitpanelAssigment
+    Reference secondContent : UiSplitpanelAssigment
+    Attribute splitPosition : EInt
+    Attribute horizontal : EBoolean
+
+  Class UiPanel -> UiLayout
+    Reference content : UiEmbeddable
+    Attribute contentAlignment : UiAlignment
+
+  Class UiErrorCode -> UiNamedElement
+    Attribute defaultMessage : EString
+
   Enum UiFlatAlignment
     Literal LEFT = 0
     Literal CENTER = 1
     Literal RIGHT = 2
 
+  Enum UiAlignment
+    Literal UNDEFINED = 0
+    Literal BOTTOM_LEFT = 1
+    Literal BOTTOM_CENTER = 2
+    Literal BOTTOM_RIGHT = 3
+    Literal BOTTOM_FILL = 4
+    Literal MIDDLE_LEFT = 5
+    Literal MIDDLE_CENTER = 6
+    Literal MIDDLE_RIGHT = 7
+    Literal MIDDLE_FILL = 8
+    Literal TOP_LEFT = 9
+    Literal TOP_CENTER = 10
+    Literal TOP_RIGHT = 11
+    Literal TOP_FILL = 12
+    Literal FILL_FILL = 13
+    Literal FILL_LEFT = 14
+    Literal FILL_CENTER = 15
+    Literal FILL_RIGHT = 16
+
   Enum UiSelectionType
     Literal NONE = 0
     Literal SINGLE = 1
     Literal MULTI = 2
+
+  Enum UiDateFormat
+    Literal DATE = 0
+    Literal TIME = 1
+    Literal DATE_TIME = 2
+
+  Enum UiDateTimeResolution
+    Literal SECOND = 0
+    Literal MINUTE = 1
+    Literal HOUR = 2
+    Literal DAY = 3
+    Literal MONTH = 4
+    Literal YEAR = 5
+    Literal UNDEFINED = 6

@@ -19,7 +19,7 @@ package org.lunifera.ecview.semantic.uimodel;
  * @model
  * @generated
  */
-public interface UiMobileTabAssignment extends UiMobileEmbeddable {
+public interface UiMobileTabAssignment extends UiMobileEmbeddable, UiI18nInfoable {
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

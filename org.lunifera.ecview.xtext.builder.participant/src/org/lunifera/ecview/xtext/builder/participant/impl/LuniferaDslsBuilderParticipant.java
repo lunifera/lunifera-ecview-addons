@@ -18,9 +18,12 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
-import org.eclipse.emf.ecp.ecview.common.model.core.YView;
-import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.lunifera.ecview.core.common.model.core.CoreModelPackage;
+import org.lunifera.ecview.core.common.model.core.YView;
+import org.lunifera.ecview.core.common.model.core.YViewSet;
+import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
+import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.xtext.builder.participant.IECViewAddonsMetadataService;
 import org.lunifera.xtext.builder.metadata.services.AbstractBuilderParticipant;
 import org.lunifera.xtext.builder.metadata.services.IBuilderParticipant;
@@ -67,6 +70,8 @@ public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
 		List<URL> results = new ArrayList<URL>();
 		BundleWiring wiring = suspect.adapt(BundleWiring.class);
 		results.addAll(wiring.findEntries("/", "*.uimodel",
+				BundleWiring.LISTRESOURCES_RECURSE));
+		results.addAll(wiring.findEntries("/", "*.uisemantics",
 				BundleWiring.LISTRESOURCES_RECURSE));
 
 		Set<String> fragments = new HashSet<String>();
@@ -119,8 +124,14 @@ public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
 
 		@Override
 		public YView getViewMetadata(String modelName) {
-			return (YView) metadataBuilderService.getMetadata(modelName,
-					CoreModelPackage.Literals.YVIEW);
+			UiView uiView = (UiView) metadataBuilderService.getMetadata(
+					modelName, UiModelPackage.Literals.UI_IDE_VIEW);
+			if (uiView == null) {
+				return null;
+			}
+
+			return (YView) EcoreUtil.copy(uiView.eResource().getContents()
+					.get(1));
 		}
 
 		@Override

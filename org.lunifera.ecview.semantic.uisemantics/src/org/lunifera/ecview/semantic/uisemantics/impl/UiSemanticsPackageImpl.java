@@ -15,17 +15,16 @@ import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableBindings;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableValidatorProperties;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions;
+import org.lunifera.ecview.semantic.uisemantics.UxBindingableOption;
 import org.lunifera.ecview.semantic.uisemantics.UxEPackageImport;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxElementURI;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 import org.lunifera.ecview.semantic.uisemantics.UxImportSectionDeclaration;
-import org.lunifera.ecview.semantic.uisemantics.UxListBindingEndpointDef;
 import org.lunifera.ecview.semantic.uisemantics.UxModel;
-import org.lunifera.ecview.semantic.uisemantics.UxSetBindingEndpointDef;
 import org.lunifera.ecview.semantic.uisemantics.UxValidatorProperty;
 import org.lunifera.ecview.semantic.uisemantics.UxValueBindingEndpointDef;
-import org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption;
+import org.lunifera.ecview.semantic.uisemantics.UxVisibleableOption;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,6 +73,13 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass uxAvailableVisibilityOptionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass uxEndpointDefEClass = null;
 
 	/**
@@ -88,34 +94,6 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass uxListBindingEndpointDefEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass uxSetBindingEndpointDefEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass uxAvailableVisibilityOptionsEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass uxVisibilityOptionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass uxAvailableValidatorPropertiesEClass = null;
 
 	/**
@@ -124,6 +102,20 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	 * @generated
 	 */
 	private EClass uxValidatorPropertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uxBindingableOptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uxVisibleableOptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -355,6 +347,24 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUxAvailableVisibilityOptions() {
+		return uxAvailableVisibilityOptionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUxAvailableVisibilityOptions_Bindings() {
+		return (EReference)uxAvailableVisibilityOptionsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUxEndpointDef() {
 		return uxEndpointDefEClass;
 	}
@@ -400,71 +410,17 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUxEndpointDef_TargetName() {
+		return (EAttribute)uxEndpointDefEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUxValueBindingEndpointDef() {
 		return uxValueBindingEndpointDefEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUxListBindingEndpointDef() {
-		return uxListBindingEndpointDefEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUxSetBindingEndpointDef() {
-		return uxSetBindingEndpointDefEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUxAvailableVisibilityOptions() {
-		return uxAvailableVisibilityOptionsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUxAvailableVisibilityOptions_Options() {
-		return (EReference)uxAvailableVisibilityOptionsEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUxVisibilityOption() {
-		return uxVisibilityOptionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUxVisibilityOption_Name() {
-		return (EAttribute)uxVisibilityOptionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUxVisibilityOption_JvmType() {
-		return (EReference)uxVisibilityOptionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -501,6 +457,24 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	 */
 	public EAttribute getUxValidatorProperty_Name() {
 		return (EAttribute)uxValidatorPropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUxBindingableOption() {
+		return uxBindingableOptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUxVisibleableOption() {
+		return uxVisibleableOptionEClass;
 	}
 
 	/**
@@ -574,30 +548,27 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 		uxAvailableBindingsEClass = createEClass(UX_AVAILABLE_BINDINGS);
 		createEReference(uxAvailableBindingsEClass, UX_AVAILABLE_BINDINGS__BINDINGS);
 
-		uxEndpointDefEClass = createEClass(UX_ENDPOINT_DEF);
-		createEAttribute(uxEndpointDefEClass, UX_ENDPOINT_DEF__FINAL);
-		createEAttribute(uxEndpointDefEClass, UX_ENDPOINT_DEF__NAME);
-		createEReference(uxEndpointDefEClass, UX_ENDPOINT_DEF__JVM_TYPE);
-		createEAttribute(uxEndpointDefEClass, UX_ENDPOINT_DEF__LISTBINDING);
+		uxAvailableVisibilityOptionsEClass = createEClass(UX_AVAILABLE_VISIBILITY_OPTIONS);
+		createEReference(uxAvailableVisibilityOptionsEClass, UX_AVAILABLE_VISIBILITY_OPTIONS__BINDINGS);
 
 		uxValueBindingEndpointDefEClass = createEClass(UX_VALUE_BINDING_ENDPOINT_DEF);
-
-		uxListBindingEndpointDefEClass = createEClass(UX_LIST_BINDING_ENDPOINT_DEF);
-
-		uxSetBindingEndpointDefEClass = createEClass(UX_SET_BINDING_ENDPOINT_DEF);
-
-		uxAvailableVisibilityOptionsEClass = createEClass(UX_AVAILABLE_VISIBILITY_OPTIONS);
-		createEReference(uxAvailableVisibilityOptionsEClass, UX_AVAILABLE_VISIBILITY_OPTIONS__OPTIONS);
-
-		uxVisibilityOptionEClass = createEClass(UX_VISIBILITY_OPTION);
-		createEAttribute(uxVisibilityOptionEClass, UX_VISIBILITY_OPTION__NAME);
-		createEReference(uxVisibilityOptionEClass, UX_VISIBILITY_OPTION__JVM_TYPE);
 
 		uxAvailableValidatorPropertiesEClass = createEClass(UX_AVAILABLE_VALIDATOR_PROPERTIES);
 		createEReference(uxAvailableValidatorPropertiesEClass, UX_AVAILABLE_VALIDATOR_PROPERTIES__PROPERTIES);
 
 		uxValidatorPropertyEClass = createEClass(UX_VALIDATOR_PROPERTY);
 		createEAttribute(uxValidatorPropertyEClass, UX_VALIDATOR_PROPERTY__NAME);
+
+		uxEndpointDefEClass = createEClass(UX_ENDPOINT_DEF);
+		createEAttribute(uxEndpointDefEClass, UX_ENDPOINT_DEF__FINAL);
+		createEAttribute(uxEndpointDefEClass, UX_ENDPOINT_DEF__NAME);
+		createEReference(uxEndpointDefEClass, UX_ENDPOINT_DEF__JVM_TYPE);
+		createEAttribute(uxEndpointDefEClass, UX_ENDPOINT_DEF__LISTBINDING);
+		createEAttribute(uxEndpointDefEClass, UX_ENDPOINT_DEF__TARGET_NAME);
+
+		uxBindingableOptionEClass = createEClass(UX_BINDINGABLE_OPTION);
+
+		uxVisibleableOptionEClass = createEClass(UX_VISIBLEABLE_OPTION);
 	}
 
 	/**
@@ -634,8 +605,8 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 		// Add supertypes to classes
 		uxImportSectionDeclarationEClass.getESuperTypes().add(theXtypePackage.getXImportDeclaration());
 		uxValueBindingEndpointDefEClass.getESuperTypes().add(this.getUxEndpointDef());
-		uxListBindingEndpointDefEClass.getESuperTypes().add(this.getUxEndpointDef());
-		uxSetBindingEndpointDefEClass.getESuperTypes().add(this.getUxEndpointDef());
+		uxBindingableOptionEClass.getESuperTypes().add(this.getUxEndpointDef());
+		uxVisibleableOptionEClass.getESuperTypes().add(this.getUxEndpointDef());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(uxModelEClass, UxModel.class, "UxModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -661,32 +632,29 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 		initEReference(getUxElementURI_EClass(), ecorePackage.getEClass(), null, "eClass", null, 0, 1, UxElementURI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uxAvailableBindingsEClass, UxAvailableBindings.class, "UxAvailableBindings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUxAvailableBindings_Bindings(), this.getUxEndpointDef(), null, "bindings", null, 0, -1, UxAvailableBindings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(uxEndpointDefEClass, UxEndpointDef.class, "UxEndpointDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getUxEndpointDef_Final(), ecorePackage.getEBoolean(), "final", null, 0, 1, UxEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getUxEndpointDef_Name(), ecorePackage.getEString(), "name", null, 0, 1, UxEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUxEndpointDef_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, UxEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getUxEndpointDef_Listbinding(), ecorePackage.getEBoolean(), "listbinding", null, 0, 1, UxEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(uxValueBindingEndpointDefEClass, UxValueBindingEndpointDef.class, "UxValueBindingEndpointDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(uxListBindingEndpointDefEClass, UxListBindingEndpointDef.class, "UxListBindingEndpointDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(uxSetBindingEndpointDefEClass, UxSetBindingEndpointDef.class, "UxSetBindingEndpointDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUxAvailableBindings_Bindings(), this.getUxBindingableOption(), null, "bindings", null, 0, -1, UxAvailableBindings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uxAvailableVisibilityOptionsEClass, UxAvailableVisibilityOptions.class, "UxAvailableVisibilityOptions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUxAvailableVisibilityOptions_Options(), this.getUxVisibilityOption(), null, "options", null, 0, -1, UxAvailableVisibilityOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUxAvailableVisibilityOptions_Bindings(), this.getUxVisibleableOption(), null, "bindings", null, 0, -1, UxAvailableVisibilityOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(uxVisibilityOptionEClass, UxVisibilityOption.class, "UxVisibilityOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getUxVisibilityOption_Name(), ecorePackage.getEString(), "name", null, 0, 1, UxVisibilityOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUxVisibilityOption_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, UxVisibilityOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(uxValueBindingEndpointDefEClass, UxValueBindingEndpointDef.class, "UxValueBindingEndpointDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(uxAvailableValidatorPropertiesEClass, UxAvailableValidatorProperties.class, "UxAvailableValidatorProperties", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUxAvailableValidatorProperties_Properties(), this.getUxValidatorProperty(), null, "properties", null, 0, -1, UxAvailableValidatorProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uxValidatorPropertyEClass, UxValidatorProperty.class, "UxValidatorProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUxValidatorProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, UxValidatorProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uxEndpointDefEClass, UxEndpointDef.class, "UxEndpointDef", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUxEndpointDef_Final(), ecorePackage.getEBoolean(), "final", null, 0, 1, UxEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUxEndpointDef_Name(), ecorePackage.getEString(), "name", null, 0, 1, UxEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUxEndpointDef_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, UxEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUxEndpointDef_Listbinding(), ecorePackage.getEBoolean(), "listbinding", null, 0, 1, UxEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUxEndpointDef_TargetName(), ecorePackage.getEString(), "targetName", null, 0, 1, UxEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uxBindingableOptionEClass, UxBindingableOption.class, "UxBindingableOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uxVisibleableOptionEClass, UxVisibleableOption.class, "UxVisibleableOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

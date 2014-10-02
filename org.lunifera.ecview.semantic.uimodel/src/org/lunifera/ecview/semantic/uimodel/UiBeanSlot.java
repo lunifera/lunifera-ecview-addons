@@ -2,6 +2,7 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 
 /**
@@ -13,6 +14,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBeanSlot#getJvmType <em>Jvm Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBeanSlot#getEClass <em>EClass</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,5 +48,31 @@ public interface UiBeanSlot extends UiTypedBindable {
 	 * @generated
 	 */
 	void setJvmType(JvmTypeReference value);
+
+	/**
+	 * Returns the value of the '<em><b>EClass</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>EClass</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>EClass</em>' containment reference.
+	 * @see #setEClass(EClass)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiBeanSlot_EClass()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EClass getEClass();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiBeanSlot#getEClass <em>EClass</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>EClass</em>' containment reference.
+	 * @see #getEClass()
+	 * @generated
+	 */
+	void setEClass(EClass value);
 
 } // UiBeanSlot

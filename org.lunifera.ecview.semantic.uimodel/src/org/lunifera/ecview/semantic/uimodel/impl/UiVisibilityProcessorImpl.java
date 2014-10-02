@@ -3,26 +3,20 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
+import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
 import org.lunifera.ecview.semantic.uimodel.UiChangeTrigger;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor;
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityPropertiesAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityRule;
 
 /**
@@ -34,10 +28,10 @@ import org.lunifera.ecview.semantic.uimodel.UiVisibilityRule;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorImpl#getBindingAlias <em>Binding Alias</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorImpl#getChangeTrigger <em>Change Trigger</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorImpl#getDataUsed <em>Data Used</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorImpl#getChangeTriggers <em>Change Triggers</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorImpl#getImportedElements <em>Imported Elements</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorImpl#getRule <em>Rule</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiVisibilityProcessorImpl#getPropertiesAssignment <em>Properties Assignment</em>}</li>
  * </ul>
  * </p>
  *
@@ -85,24 +79,34 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getBindingAlias() <em>Binding Alias</em>}' containment reference list.
+	 * The cached value of the '{@link #getDataUsed() <em>Data Used</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBindingAlias()
+	 * @see #getDataUsed()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<UiBindingEndpointAlias> bindingAlias;
+	protected EList<UiBindingEndpointAlias> dataUsed;
 
 	/**
-	 * The cached value of the '{@link #getChangeTrigger() <em>Change Trigger</em>}' containment reference list.
+	 * The cached value of the '{@link #getChangeTriggers() <em>Change Triggers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChangeTrigger()
+	 * @see #getChangeTriggers()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<UiChangeTrigger> changeTrigger;
+	protected EList<UiChangeTrigger> changeTriggers;
+
+	/**
+	 * The cached value of the '{@link #getImportedElements() <em>Imported Elements</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImportedElements()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UiBindingExpression> importedElements;
 
 	/**
 	 * The cached value of the '{@link #getRule() <em>Rule</em>}' containment reference.
@@ -113,16 +117,6 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 	 * @ordered
 	 */
 	protected UiVisibilityRule rule;
-
-	/**
-	 * The cached value of the '{@link #getPropertiesAssignment() <em>Properties Assignment</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPropertiesAssignment()
-	 * @generated
-	 * @ordered
-	 */
-	protected UiVisibilityPropertiesAssignment propertiesAssignment;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -190,11 +184,11 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<UiBindingEndpointAlias> getBindingAlias() {
-		if (bindingAlias == null) {
-			bindingAlias = new EObjectContainmentEList.Resolving<UiBindingEndpointAlias>(UiBindingEndpointAlias.class, this, UiModelPackage.UI_VISIBILITY_PROCESSOR__BINDING_ALIAS);
+	public EList<UiBindingEndpointAlias> getDataUsed() {
+		if (dataUsed == null) {
+			dataUsed = new EObjectContainmentEList.Resolving<UiBindingEndpointAlias>(UiBindingEndpointAlias.class, this, UiModelPackage.UI_VISIBILITY_PROCESSOR__DATA_USED);
 		}
-		return bindingAlias;
+		return dataUsed;
 	}
 
 	/**
@@ -202,11 +196,23 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<UiChangeTrigger> getChangeTrigger() {
-		if (changeTrigger == null) {
-			changeTrigger = new EObjectContainmentEList.Resolving<UiChangeTrigger>(UiChangeTrigger.class, this, UiModelPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER);
+	public EList<UiChangeTrigger> getChangeTriggers() {
+		if (changeTriggers == null) {
+			changeTriggers = new EObjectContainmentEList.Resolving<UiChangeTrigger>(UiChangeTrigger.class, this, UiModelPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGERS);
 		}
-		return changeTrigger;
+		return changeTriggers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<UiBindingExpression> getImportedElements() {
+		if (importedElements == null) {
+			importedElements = new EObjectContainmentEList.Resolving<UiBindingExpression>(UiBindingExpression.class, this, UiModelPackage.UI_VISIBILITY_PROCESSOR__IMPORTED_ELEMENTS);
+		}
+		return importedElements;
 	}
 
 	/**
@@ -280,83 +286,17 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UiVisibilityPropertiesAssignment getPropertiesAssignment() {
-		if (propertiesAssignment != null && propertiesAssignment.eIsProxy()) {
-			InternalEObject oldPropertiesAssignment = (InternalEObject)propertiesAssignment;
-			propertiesAssignment = (UiVisibilityPropertiesAssignment)eResolveProxy(oldPropertiesAssignment);
-			if (propertiesAssignment != oldPropertiesAssignment) {
-				InternalEObject newPropertiesAssignment = (InternalEObject)propertiesAssignment;
-				NotificationChain msgs = oldPropertiesAssignment.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT, null, null);
-				if (newPropertiesAssignment.eInternalContainer() == null) {
-					msgs = newPropertiesAssignment.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT, null, msgs);
-				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT, oldPropertiesAssignment, propertiesAssignment));
-			}
-		}
-		return propertiesAssignment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UiVisibilityPropertiesAssignment basicGetPropertiesAssignment() {
-		return propertiesAssignment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPropertiesAssignment(UiVisibilityPropertiesAssignment newPropertiesAssignment, NotificationChain msgs) {
-		UiVisibilityPropertiesAssignment oldPropertiesAssignment = propertiesAssignment;
-		propertiesAssignment = newPropertiesAssignment;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT, oldPropertiesAssignment, newPropertiesAssignment);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPropertiesAssignment(UiVisibilityPropertiesAssignment newPropertiesAssignment) {
-		if (newPropertiesAssignment != propertiesAssignment) {
-			NotificationChain msgs = null;
-			if (propertiesAssignment != null)
-				msgs = ((InternalEObject)propertiesAssignment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT, null, msgs);
-			if (newPropertiesAssignment != null)
-				msgs = ((InternalEObject)newPropertiesAssignment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT, null, msgs);
-			msgs = basicSetPropertiesAssignment(newPropertiesAssignment, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT, newPropertiesAssignment, newPropertiesAssignment));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case UiModelPackage.UI_VISIBILITY_PROCESSOR__BINDING_ALIAS:
-				return ((InternalEList<?>)getBindingAlias()).basicRemove(otherEnd, msgs);
-			case UiModelPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER:
-				return ((InternalEList<?>)getChangeTrigger()).basicRemove(otherEnd, msgs);
+			case UiModelPackage.UI_VISIBILITY_PROCESSOR__DATA_USED:
+				return ((InternalEList<?>)getDataUsed()).basicRemove(otherEnd, msgs);
+			case UiModelPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGERS:
+				return ((InternalEList<?>)getChangeTriggers()).basicRemove(otherEnd, msgs);
+			case UiModelPackage.UI_VISIBILITY_PROCESSOR__IMPORTED_ELEMENTS:
+				return ((InternalEList<?>)getImportedElements()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR__RULE:
 				return basicSetRule(null, msgs);
-			case UiModelPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT:
-				return basicSetPropertiesAssignment(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -373,16 +313,15 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 				return getId();
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR__NAME:
 				return getName();
-			case UiModelPackage.UI_VISIBILITY_PROCESSOR__BINDING_ALIAS:
-				return getBindingAlias();
-			case UiModelPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER:
-				return getChangeTrigger();
+			case UiModelPackage.UI_VISIBILITY_PROCESSOR__DATA_USED:
+				return getDataUsed();
+			case UiModelPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGERS:
+				return getChangeTriggers();
+			case UiModelPackage.UI_VISIBILITY_PROCESSOR__IMPORTED_ELEMENTS:
+				return getImportedElements();
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR__RULE:
 				if (resolve) return getRule();
 				return basicGetRule();
-			case UiModelPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT:
-				if (resolve) return getPropertiesAssignment();
-				return basicGetPropertiesAssignment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -402,19 +341,20 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR__NAME:
 				setName((String)newValue);
 				return;
-			case UiModelPackage.UI_VISIBILITY_PROCESSOR__BINDING_ALIAS:
-				getBindingAlias().clear();
-				getBindingAlias().addAll((Collection<? extends UiBindingEndpointAlias>)newValue);
+			case UiModelPackage.UI_VISIBILITY_PROCESSOR__DATA_USED:
+				getDataUsed().clear();
+				getDataUsed().addAll((Collection<? extends UiBindingEndpointAlias>)newValue);
 				return;
-			case UiModelPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER:
-				getChangeTrigger().clear();
-				getChangeTrigger().addAll((Collection<? extends UiChangeTrigger>)newValue);
+			case UiModelPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGERS:
+				getChangeTriggers().clear();
+				getChangeTriggers().addAll((Collection<? extends UiChangeTrigger>)newValue);
+				return;
+			case UiModelPackage.UI_VISIBILITY_PROCESSOR__IMPORTED_ELEMENTS:
+				getImportedElements().clear();
+				getImportedElements().addAll((Collection<? extends UiBindingExpression>)newValue);
 				return;
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR__RULE:
 				setRule((UiVisibilityRule)newValue);
-				return;
-			case UiModelPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT:
-				setPropertiesAssignment((UiVisibilityPropertiesAssignment)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -434,17 +374,17 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case UiModelPackage.UI_VISIBILITY_PROCESSOR__BINDING_ALIAS:
-				getBindingAlias().clear();
+			case UiModelPackage.UI_VISIBILITY_PROCESSOR__DATA_USED:
+				getDataUsed().clear();
 				return;
-			case UiModelPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER:
-				getChangeTrigger().clear();
+			case UiModelPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGERS:
+				getChangeTriggers().clear();
+				return;
+			case UiModelPackage.UI_VISIBILITY_PROCESSOR__IMPORTED_ELEMENTS:
+				getImportedElements().clear();
 				return;
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR__RULE:
 				setRule((UiVisibilityRule)null);
-				return;
-			case UiModelPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT:
-				setPropertiesAssignment((UiVisibilityPropertiesAssignment)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -462,14 +402,14 @@ public class UiVisibilityProcessorImpl extends MinimalEObjectImpl.Container impl
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case UiModelPackage.UI_VISIBILITY_PROCESSOR__BINDING_ALIAS:
-				return bindingAlias != null && !bindingAlias.isEmpty();
-			case UiModelPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGER:
-				return changeTrigger != null && !changeTrigger.isEmpty();
+			case UiModelPackage.UI_VISIBILITY_PROCESSOR__DATA_USED:
+				return dataUsed != null && !dataUsed.isEmpty();
+			case UiModelPackage.UI_VISIBILITY_PROCESSOR__CHANGE_TRIGGERS:
+				return changeTriggers != null && !changeTriggers.isEmpty();
+			case UiModelPackage.UI_VISIBILITY_PROCESSOR__IMPORTED_ELEMENTS:
+				return importedElements != null && !importedElements.isEmpty();
 			case UiModelPackage.UI_VISIBILITY_PROCESSOR__RULE:
 				return rule != null;
-			case UiModelPackage.UI_VISIBILITY_PROCESSOR__PROPERTIES_ASSIGNMENT:
-				return propertiesAssignment != null;
 		}
 		return super.eIsSet(featureID);
 	}

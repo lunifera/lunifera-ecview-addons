@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface UiHorizontalLayout extends UiLayout {
+public interface UiHorizontalLayout extends UiLayout, UiMobileLayout {
 	/**
 	 * Returns the value of the '<em><b>Contents</b></em>' containment reference list.
 	 * The list contents are of type {@link org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment}.

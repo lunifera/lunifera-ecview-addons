@@ -4,16 +4,15 @@ package org.lunifera.ecview.semantic.uimodel.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
-import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
-import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
+import org.lunifera.ecview.semantic.uimodel.UiRawBindableProvider;
 import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
 
 /**
@@ -25,13 +24,14 @@ import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTabAssignmentImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTabAssignmentImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTabAssignmentImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTabAssignmentImpl#getElement <em>Element</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class UiTabAssignmentImpl extends UiVisibilityProcessableImpl implements UiTabAssignment {
+public class UiTabAssignmentImpl extends MinimalEObjectImpl.Container implements UiTabAssignment {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -71,6 +71,16 @@ public class UiTabAssignmentImpl extends UiVisibilityProcessableImpl implements 
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getI18nInfo() <em>I1 8n Info</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getI18nInfo()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiI18nInfo i18nInfo;
 
 	/**
 	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference.
@@ -214,9 +224,77 @@ public class UiTabAssignmentImpl extends UiVisibilityProcessableImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiI18nInfo getI18nInfo() {
+		if (i18nInfo != null && i18nInfo.eIsProxy()) {
+			InternalEObject oldI18nInfo = (InternalEObject)i18nInfo;
+			i18nInfo = (UiI18nInfo)eResolveProxy(oldI18nInfo);
+			if (i18nInfo != oldI18nInfo) {
+				InternalEObject newI18nInfo = (InternalEObject)i18nInfo;
+				NotificationChain msgs = oldI18nInfo.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_TAB_ASSIGNMENT__I18N_INFO, null, null);
+				if (newI18nInfo.eInternalContainer() == null) {
+					msgs = newI18nInfo.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_TAB_ASSIGNMENT__I18N_INFO, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_TAB_ASSIGNMENT__I18N_INFO, oldI18nInfo, i18nInfo));
+			}
+		}
+		return i18nInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiI18nInfo basicGetI18nInfo() {
+		return i18nInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetI18nInfo(UiI18nInfo newI18nInfo, NotificationChain msgs) {
+		UiI18nInfo oldI18nInfo = i18nInfo;
+		i18nInfo = newI18nInfo;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_TAB_ASSIGNMENT__I18N_INFO, oldI18nInfo, newI18nInfo);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setI18nInfo(UiI18nInfo newI18nInfo) {
+		if (newI18nInfo != i18nInfo) {
+			NotificationChain msgs = null;
+			if (i18nInfo != null)
+				msgs = ((InternalEObject)i18nInfo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_TAB_ASSIGNMENT__I18N_INFO, null, msgs);
+			if (newI18nInfo != null)
+				msgs = ((InternalEObject)newI18nInfo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_TAB_ASSIGNMENT__I18N_INFO, null, msgs);
+			msgs = basicSetI18nInfo(newI18nInfo, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_TAB_ASSIGNMENT__I18N_INFO, newI18nInfo, newI18nInfo));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case UiModelPackage.UI_TAB_ASSIGNMENT__I18N_INFO:
+				return basicSetI18nInfo(null, msgs);
 			case UiModelPackage.UI_TAB_ASSIGNMENT__ELEMENT:
 				return basicSetElement(null, msgs);
 		}
@@ -235,6 +313,9 @@ public class UiTabAssignmentImpl extends UiVisibilityProcessableImpl implements 
 				return getId();
 			case UiModelPackage.UI_TAB_ASSIGNMENT__NAME:
 				return getName();
+			case UiModelPackage.UI_TAB_ASSIGNMENT__I18N_INFO:
+				if (resolve) return getI18nInfo();
+				return basicGetI18nInfo();
 			case UiModelPackage.UI_TAB_ASSIGNMENT__ELEMENT:
 				if (resolve) return getElement();
 				return basicGetElement();
@@ -247,6 +328,7 @@ public class UiTabAssignmentImpl extends UiVisibilityProcessableImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -255,6 +337,9 @@ public class UiTabAssignmentImpl extends UiVisibilityProcessableImpl implements 
 				return;
 			case UiModelPackage.UI_TAB_ASSIGNMENT__NAME:
 				setName((String)newValue);
+				return;
+			case UiModelPackage.UI_TAB_ASSIGNMENT__I18N_INFO:
+				setI18nInfo((UiI18nInfo)newValue);
 				return;
 			case UiModelPackage.UI_TAB_ASSIGNMENT__ELEMENT:
 				setElement((UiEmbeddable)newValue);
@@ -277,6 +362,9 @@ public class UiTabAssignmentImpl extends UiVisibilityProcessableImpl implements 
 			case UiModelPackage.UI_TAB_ASSIGNMENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case UiModelPackage.UI_TAB_ASSIGNMENT__I18N_INFO:
+				setI18nInfo((UiI18nInfo)null);
+				return;
 			case UiModelPackage.UI_TAB_ASSIGNMENT__ELEMENT:
 				setElement((UiEmbeddable)null);
 				return;
@@ -296,6 +384,8 @@ public class UiTabAssignmentImpl extends UiVisibilityProcessableImpl implements 
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case UiModelPackage.UI_TAB_ASSIGNMENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiModelPackage.UI_TAB_ASSIGNMENT__I18N_INFO:
+				return i18nInfo != null;
 			case UiModelPackage.UI_TAB_ASSIGNMENT__ELEMENT:
 				return element != null;
 		}
@@ -309,15 +399,14 @@ public class UiTabAssignmentImpl extends UiVisibilityProcessableImpl implements 
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == UiNamedElement.class) {
+		if (baseClass == UiRawBindableProvider.class) {
 			switch (derivedFeatureID) {
-				case UiModelPackage.UI_TAB_ASSIGNMENT__ID: return UiModelPackage.UI_NAMED_ELEMENT__ID;
-				case UiModelPackage.UI_TAB_ASSIGNMENT__NAME: return UiModelPackage.UI_NAMED_ELEMENT__NAME;
 				default: return -1;
 			}
 		}
-		if (baseClass == UiRawBindable.class) {
+		if (baseClass == UiI18nInfoable.class) {
 			switch (derivedFeatureID) {
+				case UiModelPackage.UI_TAB_ASSIGNMENT__I18N_INFO: return UiModelPackage.UI_I1_8N_INFOABLE__I18N_INFO;
 				default: return -1;
 			}
 		}
@@ -331,15 +420,14 @@ public class UiTabAssignmentImpl extends UiVisibilityProcessableImpl implements 
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == UiNamedElement.class) {
+		if (baseClass == UiRawBindableProvider.class) {
 			switch (baseFeatureID) {
-				case UiModelPackage.UI_NAMED_ELEMENT__ID: return UiModelPackage.UI_TAB_ASSIGNMENT__ID;
-				case UiModelPackage.UI_NAMED_ELEMENT__NAME: return UiModelPackage.UI_TAB_ASSIGNMENT__NAME;
 				default: return -1;
 			}
 		}
-		if (baseClass == UiRawBindable.class) {
+		if (baseClass == UiI18nInfoable.class) {
 			switch (baseFeatureID) {
+				case UiModelPackage.UI_I1_8N_INFOABLE__I18N_INFO: return UiModelPackage.UI_TAB_ASSIGNMENT__I18N_INFO;
 				default: return -1;
 			}
 		}

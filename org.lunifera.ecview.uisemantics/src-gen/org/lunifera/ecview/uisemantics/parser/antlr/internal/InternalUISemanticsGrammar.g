@@ -507,112 +507,6 @@ ruleUxElementDefinition returns [EObject current=null]
 
 
 
-// Entry rule entryRuleUxAvailableVisibilityOptions
-entryRuleUxAvailableVisibilityOptions returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getUxAvailableVisibilityOptionsRule()); }
-	 iv_ruleUxAvailableVisibilityOptions=ruleUxAvailableVisibilityOptions 
-	 { $current=$iv_ruleUxAvailableVisibilityOptions.current; } 
-	 EOF 
-;
-
-// Rule UxAvailableVisibilityOptions
-ruleUxAvailableVisibilityOptions returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-((
-    {
-        $current = forceCreateModelElement(
-            grammarAccess.getUxAvailableVisibilityOptionsAccess().getUxAvailableVisibilityOptionsAction_0(),
-            $current);
-    }
-)(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getUxAvailableVisibilityOptionsAccess().getOptionsUxVisibilityOptionParserRuleCall_1_0()); 
-	    }
-		lv_options_1_0=ruleUxVisibilityOption		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getUxAvailableVisibilityOptionsRule());
-	        }
-       		add(
-       			$current, 
-       			"options",
-        		lv_options_1_0, 
-        		"UxVisibilityOption");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)*)
-;
-
-
-
-
-
-// Entry rule entryRuleUxVisibilityOption
-entryRuleUxVisibilityOption returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getUxVisibilityOptionRule()); }
-	 iv_ruleUxVisibilityOption=ruleUxVisibilityOption 
-	 { $current=$iv_ruleUxVisibilityOption.current; } 
-	 EOF 
-;
-
-// Rule UxVisibilityOption
-ruleUxVisibilityOption returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-(	otherlv_0='endpoint' 
-    {
-    	newLeafNode(otherlv_0, grammarAccess.getUxVisibilityOptionAccess().getEndpointKeyword_0());
-    }
-(
-(
-		lv_name_1_0=RULE_ID
-		{
-			newLeafNode(lv_name_1_0, grammarAccess.getUxVisibilityOptionAccess().getNameIDTerminalRuleCall_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getUxVisibilityOptionRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"name",
-        		lv_name_1_0, 
-        		"ID");
-	    }
-
-)
-)(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getUxVisibilityOptionAccess().getJvmTypeJvmTypeReferenceParserRuleCall_2_0()); 
-	    }
-		lv_jvmType_2_0=ruleJvmTypeReference		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getUxVisibilityOptionRule());
-	        }
-       		set(
-       			$current, 
-       			"jvmType",
-        		lv_jvmType_2_0, 
-        		"JvmTypeReference");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))
-;
-
-
-
-
-
 // Entry rule entryRuleUxAvailableValidatorProperties
 entryRuleUxAvailableValidatorProperties returns [EObject current=null] 
 	:
@@ -779,9 +673,9 @@ ruleUxAvailableBindings returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUxAvailableBindingsAccess().getBindingsUxEndpointDefParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getUxAvailableBindingsAccess().getBindingsUxBindingableOptionParserRuleCall_1_0()); 
 	    }
-		lv_bindings_1_0=ruleUxEndpointDef		{
+		lv_bindings_1_0=ruleUxBindingableOption		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUxAvailableBindingsRule());
 	        }
@@ -789,7 +683,7 @@ ruleUxAvailableBindings returns [EObject current=null]
        			$current, 
        			"bindings",
         		lv_bindings_1_0, 
-        		"UxEndpointDef");
+        		"UxBindingableOption");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -801,47 +695,62 @@ ruleUxAvailableBindings returns [EObject current=null]
 
 
 
-// Entry rule entryRuleUxEndpointDef
-entryRuleUxEndpointDef returns [EObject current=null] 
+// Entry rule entryRuleUxAvailableVisibilityOptions
+entryRuleUxAvailableVisibilityOptions returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getUxEndpointDefRule()); }
-	 iv_ruleUxEndpointDef=ruleUxEndpointDef 
-	 { $current=$iv_ruleUxEndpointDef.current; } 
+	{ newCompositeNode(grammarAccess.getUxAvailableVisibilityOptionsRule()); }
+	 iv_ruleUxAvailableVisibilityOptions=ruleUxAvailableVisibilityOptions 
+	 { $current=$iv_ruleUxAvailableVisibilityOptions.current; } 
 	 EOF 
 ;
 
-// Rule UxEndpointDef
-ruleUxEndpointDef returns [EObject current=null] 
+// Rule UxAvailableVisibilityOptions
+ruleUxAvailableVisibilityOptions returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-
-    { 
-        newCompositeNode(grammarAccess.getUxEndpointDefAccess().getUxValueBindingEndpointDefParserRuleCall()); 
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUxAvailableVisibilityOptionsAccess().getUxAvailableVisibilityOptionsAction_0(),
+            $current);
     }
-    this_UxValueBindingEndpointDef_0=ruleUxValueBindingEndpointDef
-    { 
-        $current = $this_UxValueBindingEndpointDef_0.current; 
-        afterParserOrEnumRuleCall();
-    }
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUxAvailableVisibilityOptionsAccess().getBindingsUxVisibleableOptionParserRuleCall_1_0()); 
+	    }
+		lv_bindings_1_0=ruleUxVisibleableOption		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUxAvailableVisibilityOptionsRule());
+	        }
+       		add(
+       			$current, 
+       			"bindings",
+        		lv_bindings_1_0, 
+        		"UxVisibleableOption");
+	        afterParserOrEnumRuleCall();
+	    }
 
+)
+)*)
 ;
 
 
 
 
 
-// Entry rule entryRuleUxValueBindingEndpointDef
-entryRuleUxValueBindingEndpointDef returns [EObject current=null] 
+// Entry rule entryRuleUxBindingableOption
+entryRuleUxBindingableOption returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getUxValueBindingEndpointDefRule()); }
-	 iv_ruleUxValueBindingEndpointDef=ruleUxValueBindingEndpointDef 
-	 { $current=$iv_ruleUxValueBindingEndpointDef.current; } 
+	{ newCompositeNode(grammarAccess.getUxBindingableOptionRule()); }
+	 iv_ruleUxBindingableOption=ruleUxBindingableOption 
+	 { $current=$iv_ruleUxBindingableOption.current; } 
 	 EOF 
 ;
 
-// Rule UxValueBindingEndpointDef
-ruleUxValueBindingEndpointDef returns [EObject current=null] 
+// Rule UxBindingableOption
+ruleUxBindingableOption returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
@@ -849,12 +758,12 @@ ruleUxValueBindingEndpointDef returns [EObject current=null]
 (
 		lv_final_0_0=	'final' 
     {
-        newLeafNode(lv_final_0_0, grammarAccess.getUxValueBindingEndpointDefAccess().getFinalFinalKeyword_0_0());
+        newLeafNode(lv_final_0_0, grammarAccess.getUxBindingableOptionAccess().getFinalFinalKeyword_0_0());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getUxValueBindingEndpointDefRule());
+	            $current = createModelElement(grammarAccess.getUxBindingableOptionRule());
 	        }
        		setWithLastConsumed($current, "final", true, "final");
 	    }
@@ -864,12 +773,12 @@ ruleUxValueBindingEndpointDef returns [EObject current=null]
 (
 		lv_listbinding_1_0=	'list' 
     {
-        newLeafNode(lv_listbinding_1_0, grammarAccess.getUxValueBindingEndpointDefAccess().getListbindingListKeyword_1_0());
+        newLeafNode(lv_listbinding_1_0, grammarAccess.getUxBindingableOptionAccess().getListbindingListKeyword_1_0());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getUxValueBindingEndpointDefRule());
+	            $current = createModelElement(grammarAccess.getUxBindingableOptionRule());
 	        }
        		setWithLastConsumed($current, "listbinding", true, "list");
 	    }
@@ -877,17 +786,17 @@ ruleUxValueBindingEndpointDef returns [EObject current=null]
 )
 )?	otherlv_2='endpoint' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getUxValueBindingEndpointDefAccess().getEndpointKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getUxBindingableOptionAccess().getEndpointKeyword_2());
     }
 (
 (
 		lv_name_3_0=RULE_ID
 		{
-			newLeafNode(lv_name_3_0, grammarAccess.getUxValueBindingEndpointDefAccess().getNameIDTerminalRuleCall_3_0()); 
+			newLeafNode(lv_name_3_0, grammarAccess.getUxBindingableOptionAccess().getNameIDTerminalRuleCall_3_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getUxValueBindingEndpointDefRule());
+	            $current = createModelElement(grammarAccess.getUxBindingableOptionRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -900,16 +809,99 @@ ruleUxValueBindingEndpointDef returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUxValueBindingEndpointDefAccess().getJvmTypeJvmTypeReferenceParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getUxBindingableOptionAccess().getJvmTypeJvmTypeReferenceParserRuleCall_4_0()); 
 	    }
 		lv_jvmType_4_0=ruleJvmTypeReference		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getUxValueBindingEndpointDefRule());
+	            $current = createModelElementForParent(grammarAccess.getUxBindingableOptionRule());
 	        }
        		set(
        			$current, 
        			"jvmType",
         		lv_jvmType_4_0, 
+        		"JvmTypeReference");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_5='target' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getUxBindingableOptionAccess().getTargetKeyword_5_0());
+    }
+(
+(
+		lv_targetName_6_0=RULE_ID
+		{
+			newLeafNode(lv_targetName_6_0, grammarAccess.getUxBindingableOptionAccess().getTargetNameIDTerminalRuleCall_5_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUxBindingableOptionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"targetName",
+        		lv_targetName_6_0, 
+        		"ID");
+	    }
+
+)
+))?)
+;
+
+
+
+
+
+// Entry rule entryRuleUxVisibleableOption
+entryRuleUxVisibleableOption returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUxVisibleableOptionRule()); }
+	 iv_ruleUxVisibleableOption=ruleUxVisibleableOption 
+	 { $current=$iv_ruleUxVisibleableOption.current; } 
+	 EOF 
+;
+
+// Rule UxVisibleableOption
+ruleUxVisibleableOption returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='endpoint' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getUxVisibleableOptionAccess().getEndpointKeyword_0());
+    }
+(
+(
+		lv_name_1_0=RULE_ID
+		{
+			newLeafNode(lv_name_1_0, grammarAccess.getUxVisibleableOptionAccess().getNameIDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUxVisibleableOptionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"ID");
+	    }
+
+)
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUxVisibleableOptionAccess().getJvmTypeJvmTypeReferenceParserRuleCall_2_0()); 
+	    }
+		lv_jvmType_2_0=ruleJvmTypeReference		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUxVisibleableOptionRule());
+	        }
+       		set(
+       			$current, 
+       			"jvmType",
+        		lv_jvmType_2_0, 
         		"JvmTypeReference");
 	        afterParserOrEnumRuleCall();
 	    }

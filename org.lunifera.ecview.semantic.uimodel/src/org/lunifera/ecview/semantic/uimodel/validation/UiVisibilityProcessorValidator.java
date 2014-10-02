@@ -7,6 +7,7 @@ package org.lunifera.ecview.semantic.uimodel.validation;
 import org.eclipse.emf.common.util.EList;
 
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
+import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
 import org.lunifera.ecview.semantic.uimodel.UiChangeTrigger;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityPropertiesAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityRule;
@@ -19,6 +20,12 @@ import org.lunifera.ecview.semantic.uimodel.UiVisibilityRule;
  */
 public interface UiVisibilityProcessorValidator {
 	boolean validate();
+
+	boolean validateDataUsed(EList<UiBindingEndpointAlias> value);
+
+	boolean validateChangeTriggers(EList<UiChangeTrigger> value);
+
+	boolean validateImportedElements(EList<UiBindingExpression> value);
 
 	boolean validateBindingAlias(EList<UiBindingEndpointAlias> value);
 	boolean validateChangeTrigger(EList<UiChangeTrigger> value);

@@ -2,14 +2,21 @@
  */
 package org.lunifera.ecview.semantic.uimodel.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.xbase.XExpression;
+import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 
@@ -22,8 +29,10 @@ import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiXbaseValidatorImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiXbaseValidatorImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiXbaseValidatorImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiXbaseValidatorImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiXbaseValidatorImpl#getJvmType <em>Jvm Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiXbaseValidatorImpl#getErrorCodes <em>Error Codes</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,6 +80,16 @@ public class UiXbaseValidatorImpl extends MinimalEObjectImpl.Container implement
 	protected String name = NAME_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getI18nInfo() <em>I1 8n Info</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getI18nInfo()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiI18nInfo i18nInfo;
+
+	/**
 	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -89,6 +108,16 @@ public class UiXbaseValidatorImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected JvmTypeReference jvmType;
+
+	/**
+	 * The cached value of the '{@link #getErrorCodes() <em>Error Codes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getErrorCodes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UiErrorCode> errorCodes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,6 +178,72 @@ public class UiXbaseValidatorImpl extends MinimalEObjectImpl.Container implement
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_XBASE_VALIDATOR__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiI18nInfo getI18nInfo() {
+		if (i18nInfo != null && i18nInfo.eIsProxy()) {
+			InternalEObject oldI18nInfo = (InternalEObject)i18nInfo;
+			i18nInfo = (UiI18nInfo)eResolveProxy(oldI18nInfo);
+			if (i18nInfo != oldI18nInfo) {
+				InternalEObject newI18nInfo = (InternalEObject)i18nInfo;
+				NotificationChain msgs = oldI18nInfo.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_XBASE_VALIDATOR__I18N_INFO, null, null);
+				if (newI18nInfo.eInternalContainer() == null) {
+					msgs = newI18nInfo.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_XBASE_VALIDATOR__I18N_INFO, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_XBASE_VALIDATOR__I18N_INFO, oldI18nInfo, i18nInfo));
+			}
+		}
+		return i18nInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiI18nInfo basicGetI18nInfo() {
+		return i18nInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetI18nInfo(UiI18nInfo newI18nInfo, NotificationChain msgs) {
+		UiI18nInfo oldI18nInfo = i18nInfo;
+		i18nInfo = newI18nInfo;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_XBASE_VALIDATOR__I18N_INFO, oldI18nInfo, newI18nInfo);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setI18nInfo(UiI18nInfo newI18nInfo) {
+		if (newI18nInfo != i18nInfo) {
+			NotificationChain msgs = null;
+			if (i18nInfo != null)
+				msgs = ((InternalEObject)i18nInfo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_XBASE_VALIDATOR__I18N_INFO, null, msgs);
+			if (newI18nInfo != null)
+				msgs = ((InternalEObject)newI18nInfo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_XBASE_VALIDATOR__I18N_INFO, null, msgs);
+			msgs = basicSetI18nInfo(newI18nInfo, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_XBASE_VALIDATOR__I18N_INFO, newI18nInfo, newI18nInfo));
 	}
 
 	/**
@@ -288,13 +383,29 @@ public class UiXbaseValidatorImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<UiErrorCode> getErrorCodes() {
+		if (errorCodes == null) {
+			errorCodes = new EObjectContainmentEList.Resolving<UiErrorCode>(UiErrorCode.class, this, UiModelPackage.UI_XBASE_VALIDATOR__ERROR_CODES);
+		}
+		return errorCodes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case UiModelPackage.UI_XBASE_VALIDATOR__I18N_INFO:
+				return basicSetI18nInfo(null, msgs);
 			case UiModelPackage.UI_XBASE_VALIDATOR__EXPRESSION:
 				return basicSetExpression(null, msgs);
 			case UiModelPackage.UI_XBASE_VALIDATOR__JVM_TYPE:
 				return basicSetJvmType(null, msgs);
+			case UiModelPackage.UI_XBASE_VALIDATOR__ERROR_CODES:
+				return ((InternalEList<?>)getErrorCodes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -311,12 +422,17 @@ public class UiXbaseValidatorImpl extends MinimalEObjectImpl.Container implement
 				return getId();
 			case UiModelPackage.UI_XBASE_VALIDATOR__NAME:
 				return getName();
+			case UiModelPackage.UI_XBASE_VALIDATOR__I18N_INFO:
+				if (resolve) return getI18nInfo();
+				return basicGetI18nInfo();
 			case UiModelPackage.UI_XBASE_VALIDATOR__EXPRESSION:
 				if (resolve) return getExpression();
 				return basicGetExpression();
 			case UiModelPackage.UI_XBASE_VALIDATOR__JVM_TYPE:
 				if (resolve) return getJvmType();
 				return basicGetJvmType();
+			case UiModelPackage.UI_XBASE_VALIDATOR__ERROR_CODES:
+				return getErrorCodes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -326,6 +442,7 @@ public class UiXbaseValidatorImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -335,11 +452,18 @@ public class UiXbaseValidatorImpl extends MinimalEObjectImpl.Container implement
 			case UiModelPackage.UI_XBASE_VALIDATOR__NAME:
 				setName((String)newValue);
 				return;
+			case UiModelPackage.UI_XBASE_VALIDATOR__I18N_INFO:
+				setI18nInfo((UiI18nInfo)newValue);
+				return;
 			case UiModelPackage.UI_XBASE_VALIDATOR__EXPRESSION:
 				setExpression((XExpression)newValue);
 				return;
 			case UiModelPackage.UI_XBASE_VALIDATOR__JVM_TYPE:
 				setJvmType((JvmTypeReference)newValue);
+				return;
+			case UiModelPackage.UI_XBASE_VALIDATOR__ERROR_CODES:
+				getErrorCodes().clear();
+				getErrorCodes().addAll((Collection<? extends UiErrorCode>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -359,11 +483,17 @@ public class UiXbaseValidatorImpl extends MinimalEObjectImpl.Container implement
 			case UiModelPackage.UI_XBASE_VALIDATOR__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case UiModelPackage.UI_XBASE_VALIDATOR__I18N_INFO:
+				setI18nInfo((UiI18nInfo)null);
+				return;
 			case UiModelPackage.UI_XBASE_VALIDATOR__EXPRESSION:
 				setExpression((XExpression)null);
 				return;
 			case UiModelPackage.UI_XBASE_VALIDATOR__JVM_TYPE:
 				setJvmType((JvmTypeReference)null);
+				return;
+			case UiModelPackage.UI_XBASE_VALIDATOR__ERROR_CODES:
+				getErrorCodes().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -381,12 +511,48 @@ public class UiXbaseValidatorImpl extends MinimalEObjectImpl.Container implement
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case UiModelPackage.UI_XBASE_VALIDATOR__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiModelPackage.UI_XBASE_VALIDATOR__I18N_INFO:
+				return i18nInfo != null;
 			case UiModelPackage.UI_XBASE_VALIDATOR__EXPRESSION:
 				return expression != null;
 			case UiModelPackage.UI_XBASE_VALIDATOR__JVM_TYPE:
 				return jvmType != null;
+			case UiModelPackage.UI_XBASE_VALIDATOR__ERROR_CODES:
+				return errorCodes != null && !errorCodes.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == UiI18nInfoable.class) {
+			switch (derivedFeatureID) {
+				case UiModelPackage.UI_XBASE_VALIDATOR__I18N_INFO: return UiModelPackage.UI_I1_8N_INFOABLE__I18N_INFO;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == UiI18nInfoable.class) {
+			switch (baseFeatureID) {
+				case UiModelPackage.UI_I1_8N_INFOABLE__I18N_INFO: return UiModelPackage.UI_XBASE_VALIDATOR__I18N_INFO;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

@@ -4,6 +4,8 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
+import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.xtext.common.types.JvmTypeReference;
 
 /**
@@ -16,4 +18,7 @@ public interface UiBeanSlotValidator {
 	boolean validate();
 
 	boolean validateJvmType(JvmTypeReference value);
+	boolean validateEClass(EClass value);
+
+	boolean validateEclass(EClass value);
 }

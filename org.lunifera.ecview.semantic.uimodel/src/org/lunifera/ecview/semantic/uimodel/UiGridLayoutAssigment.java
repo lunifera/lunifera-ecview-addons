@@ -2,7 +2,6 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment#getElement <em>Element</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment#getFrom <em>From</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment#getTo <em>To</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment#getAlignment <em>Alignment</em>}</li>
  * </ul>
  * </p>
  *
@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface UiGridLayoutAssigment extends EObject {
+public interface UiGridLayoutAssigment extends UiLayoutAssignment {
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -100,5 +100,34 @@ public interface UiGridLayoutAssigment extends EObject {
 	 * @generated
 	 */
 	void setTo(UiPoint value);
+
+	/**
+	 * Returns the value of the '<em><b>Alignment</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.lunifera.ecview.semantic.uimodel.UiAlignment}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Alignment</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Alignment</em>' attribute.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiAlignment
+	 * @see #setAlignment(UiAlignment)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiGridLayoutAssigment_Alignment()
+	 * @model
+	 * @generated
+	 */
+	UiAlignment getAlignment();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment#getAlignment <em>Alignment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Alignment</em>' attribute.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiAlignment
+	 * @see #getAlignment()
+	 * @generated
+	 */
+	void setAlignment(UiAlignment value);
 
 } // UiGridLayoutAssigment

@@ -4,11 +4,8 @@ package org.lunifera.ecview.semantic.uimodel.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.lunifera.ecview.semantic.uimodel.*;
 
 /**
@@ -92,6 +89,14 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiViewAdapter();
 			}
 			@Override
+			public Adapter caseUiDialog(UiDialog object) {
+				return createUiDialogAdapter();
+			}
+			@Override
+			public Adapter caseUiDialogAssignment(UiDialogAssignment object) {
+				return createUiDialogAssignmentAdapter();
+			}
+			@Override
 			public Adapter caseUiIDEView(UiIDEView object) {
 				return createUiIDEViewAdapter();
 			}
@@ -132,8 +137,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiPathSegmentAdapter();
 			}
 			@Override
+			public Adapter caseUiNestedProperty(UiNestedProperty object) {
+				return createUiNestedPropertyAdapter();
+			}
+			@Override
 			public Adapter caseUiRawBindable(UiRawBindable object) {
 				return createUiRawBindableAdapter();
+			}
+			@Override
+			public Adapter caseUiRawBindableProvider(UiRawBindableProvider object) {
+				return createUiRawBindableProviderAdapter();
+			}
+			@Override
+			public Adapter caseUiRawBindablePathSegment(UiRawBindablePathSegment object) {
+				return createUiRawBindablePathSegmentAdapter();
 			}
 			@Override
 			public Adapter caseUiTypedBindable(UiTypedBindable object) {
@@ -142,6 +159,18 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUiTypedBindableDef(UiTypedBindableDef object) {
 				return createUiTypedBindableDefAdapter();
+			}
+			@Override
+			public Adapter caseUiTypedBindableRawType(UiTypedBindableRawType object) {
+				return createUiTypedBindableRawTypeAdapter();
+			}
+			@Override
+			public Adapter caseUiTypedBindableRawTypeAlias(UiTypedBindableRawTypeAlias object) {
+				return createUiTypedBindableRawTypeAliasAdapter();
+			}
+			@Override
+			public Adapter caseUiCommandBindableDef(UiCommandBindableDef object) {
+				return createUiCommandBindableDefAdapter();
 			}
 			@Override
 			public Adapter caseUiEmbeddable(UiEmbeddable object) {
@@ -154,6 +183,10 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUiLayout(UiLayout object) {
 				return createUiLayoutAdapter();
+			}
+			@Override
+			public Adapter caseUiLayoutAssignment(UiLayoutAssignment object) {
+				return createUiLayoutAssignmentAdapter();
 			}
 			@Override
 			public Adapter caseUiAction(UiAction object) {
@@ -208,8 +241,16 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiFormLayoutAdapter();
 			}
 			@Override
+			public Adapter caseUiSearchPanel(UiSearchPanel object) {
+				return createUiSearchPanelAdapter();
+			}
+			@Override
 			public Adapter caseUiTextField(UiTextField object) {
 				return createUiTextFieldAdapter();
+			}
+			@Override
+			public Adapter caseUiImage(UiImage object) {
+				return createUiImageAdapter();
 			}
 			@Override
 			public Adapter caseUiList(UiList object) {
@@ -220,6 +261,10 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiTableAdapter();
 			}
 			@Override
+			public Adapter caseUiComboBox(UiComboBox object) {
+				return createUiComboBoxAdapter();
+			}
+			@Override
 			public Adapter caseUiTypeProvider(UiTypeProvider object) {
 				return createUiTypeProviderAdapter();
 			}
@@ -228,8 +273,8 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiColumnAdapter();
 			}
 			@Override
-			public Adapter caseUiColumnAssignments(UiColumnAssignments object) {
-				return createUiColumnAssignmentsAdapter();
+			public Adapter caseUiColumnsAssignment(UiColumnsAssignment object) {
+				return createUiColumnsAssignmentAdapter();
 			}
 			@Override
 			public Adapter caseUiNumericField(UiNumericField object) {
@@ -244,16 +289,16 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiVisibilityProcessableAdapter();
 			}
 			@Override
+			public Adapter caseUiVisibilityProcessorAssignment(UiVisibilityProcessorAssignment object) {
+				return createUiVisibilityProcessorAssignmentAdapter();
+			}
+			@Override
 			public Adapter caseUiVisibilityProcessor(UiVisibilityProcessor object) {
 				return createUiVisibilityProcessorAdapter();
 			}
 			@Override
 			public Adapter caseUiVisibilityProcessorDef(UiVisibilityProcessorDef object) {
 				return createUiVisibilityProcessorDefAdapter();
-			}
-			@Override
-			public Adapter caseUiVisibilityProcessorAssignment(UiVisibilityProcessorAssignment object) {
-				return createUiVisibilityProcessorAssignmentAdapter();
 			}
 			@Override
 			public Adapter caseUiChangeTrigger(UiChangeTrigger object) {
@@ -268,16 +313,12 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiXbaseVisibilityRuleAdapter();
 			}
 			@Override
-			public Adapter caseUiVisibilityProperties(UiVisibilityProperties object) {
-				return createUiVisibilityPropertiesAdapter();
-			}
-			@Override
-			public Adapter caseUiVisibilityPropertiesDef(UiVisibilityPropertiesDef object) {
-				return createUiVisibilityPropertiesDefAdapter();
-			}
-			@Override
 			public Adapter caseUiVisibilityPropertiesAssignment(UiVisibilityPropertiesAssignment object) {
 				return createUiVisibilityPropertiesAssignmentAdapter();
+			}
+			@Override
+			public Adapter caseUiVisibilityProperty(UiVisibilityProperty object) {
+				return createUiVisibilityPropertyAdapter();
 			}
 			@Override
 			public Adapter caseUiValidator(UiValidator object) {
@@ -352,6 +393,10 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiTabAssignmentAdapter();
 			}
 			@Override
+			public Adapter caseUiMobileNavigationHandler(UiMobileNavigationHandler object) {
+				return createUiMobileNavigationHandlerAdapter();
+			}
+			@Override
 			public Adapter caseUiMobileNavigationPage(UiMobileNavigationPage object) {
 				return createUiMobileNavigationPageAdapter();
 			}
@@ -362,6 +407,86 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUiMobileNavigationButton(UiMobileNavigationButton object) {
 				return createUiMobileNavigationButtonAdapter();
+			}
+			@Override
+			public Adapter caseUiCommand(UiCommand object) {
+				return createUiCommandAdapter();
+			}
+			@Override
+			public Adapter caseUiMobileNavigationCommand(UiMobileNavigationCommand object) {
+				return createUiMobileNavigationCommandAdapter();
+			}
+			@Override
+			public Adapter caseUiOpenDialogCommand(UiOpenDialogCommand object) {
+				return createUiOpenDialogCommandAdapter();
+			}
+			@Override
+			public Adapter caseUiSearchField(UiSearchField object) {
+				return createUiSearchFieldAdapter();
+			}
+			@Override
+			public Adapter caseUiSearchDialog(UiSearchDialog object) {
+				return createUiSearchDialogAdapter();
+			}
+			@Override
+			public Adapter caseUiDialogSearchFieldAssignment(UiDialogSearchFieldAssignment object) {
+				return createUiDialogSearchFieldAssignmentAdapter();
+			}
+			@Override
+			public Adapter caseUiSearchWithDialogCommand(UiSearchWithDialogCommand object) {
+				return createUiSearchWithDialogCommandAdapter();
+			}
+			@Override
+			public Adapter caseUiLabel(UiLabel object) {
+				return createUiLabelAdapter();
+			}
+			@Override
+			public Adapter caseUiDecimalField(UiDecimalField object) {
+				return createUiDecimalFieldAdapter();
+			}
+			@Override
+			public Adapter caseUiTextArea(UiTextArea object) {
+				return createUiTextAreaAdapter();
+			}
+			@Override
+			public Adapter caseUiOptionsGroup(UiOptionsGroup object) {
+				return createUiOptionsGroupAdapter();
+			}
+			@Override
+			public Adapter caseUiDateField(UiDateField object) {
+				return createUiDateFieldAdapter();
+			}
+			@Override
+			public Adapter caseUiBrowser(UiBrowser object) {
+				return createUiBrowserAdapter();
+			}
+			@Override
+			public Adapter caseUiProgressBar(UiProgressBar object) {
+				return createUiProgressBarAdapter();
+			}
+			@Override
+			public Adapter caseUiI18nInfo(UiI18nInfo object) {
+				return createUiI18nInfoAdapter();
+			}
+			@Override
+			public Adapter caseUiI18nInfoable(UiI18nInfoable object) {
+				return createUiI18nInfoableAdapter();
+			}
+			@Override
+			public Adapter caseUiSplitpanelAssigment(UiSplitpanelAssigment object) {
+				return createUiSplitpanelAssigmentAdapter();
+			}
+			@Override
+			public Adapter caseUiSplitpanel(UiSplitpanel object) {
+				return createUiSplitpanelAdapter();
+			}
+			@Override
+			public Adapter caseUiPanel(UiPanel object) {
+				return createUiPanelAdapter();
+			}
+			@Override
+			public Adapter caseUiErrorCode(UiErrorCode object) {
+				return createUiErrorCodeAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -440,6 +565,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiViewSet <em>Ui View Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiViewSet
+	 * @generated
+	 */
+	public Adapter createUiViewSetAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiView <em>Ui View</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -450,6 +589,34 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiViewAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiDialog <em>Ui Dialog</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDialog
+	 * @generated
+	 */
+	public Adapter createUiDialogAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiDialogAssignment <em>Ui Dialog Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDialogAssignment
+	 * @generated
+	 */
+	public Adapter createUiDialogAssignmentAdapter() {
 		return null;
 	}
 
@@ -492,6 +659,48 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiPointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiBeanSlot <em>Ui Bean Slot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBeanSlot
+	 * @generated
+	 */
+	public Adapter createUiBeanSlotAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiRootElements <em>Ui Root Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRootElements
+	 * @generated
+	 */
+	public Adapter createUiRootElementsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiBindingExpression <em>Ui Binding Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBindingExpression
+	 * @generated
+	 */
+	public Adapter createUiBindingExpressionAdapter() {
 		return null;
 	}
 
@@ -552,114 +761,58 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiBeanSlot <em>Ui Bean Slot</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiNestedProperty <em>Ui Nested Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiBeanSlot
+	 * @see org.lunifera.ecview.semantic.uimodel.UiNestedProperty
 	 * @generated
 	 */
-	public Adapter createUiBeanSlotAdapter() {
+	public Adapter createUiNestedPropertyAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiViewSet <em>Ui View Set</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiRawBindable <em>Ui Raw Bindable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiViewSet
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRawBindable
 	 * @generated
 	 */
-	public Adapter createUiViewSetAdapter() {
+	public Adapter createUiRawBindableAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiRootElements <em>Ui Root Elements</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiRawBindableProvider <em>Ui Raw Bindable Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiRootElements
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRawBindableProvider
 	 * @generated
 	 */
-	public Adapter createUiRootElementsAdapter() {
+	public Adapter createUiRawBindableProviderAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator <em>Ui Max Length Validator</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment <em>Ui Raw Bindable Path Segment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment
 	 * @generated
 	 */
-	public Adapter createUiMaxLengthValidatorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator <em>Ui Min Length Validator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator
-	 * @generated
-	 */
-	public Adapter createUiMinLengthValidatorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiRegexpValidator <em>Ui Regexp Validator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiRegexpValidator
-	 * @generated
-	 */
-	public Adapter createUiRegexpValidatorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiXbaseValidator <em>Ui Xbase Validator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiXbaseValidator
-	 * @generated
-	 */
-	public Adapter createUiXbaseValidatorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiBindingExpression <em>Ui Binding Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiBindingExpression
-	 * @generated
-	 */
-	public Adapter createUiBindingExpressionAdapter() {
+	public Adapter createUiRawBindablePathSegmentAdapter() {
 		return null;
 	}
 
@@ -692,16 +845,44 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiRawBindable <em>Ui Raw Bindable</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawType <em>Ui Typed Bindable Raw Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiRawBindable
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawType
 	 * @generated
 	 */
-	public Adapter createUiRawBindableAdapter() {
+	public Adapter createUiTypedBindableRawTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawTypeAlias <em>Ui Typed Bindable Raw Type Alias</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawTypeAlias
+	 * @generated
+	 */
+	public Adapter createUiTypedBindableRawTypeAliasAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef <em>Ui Command Bindable Def</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef
+	 * @generated
+	 */
+	public Adapter createUiCommandBindableDefAdapter() {
 		return null;
 	}
 
@@ -744,6 +925,34 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiLayoutAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiLayoutAssignment <em>Ui Layout Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiLayoutAssignment
+	 * @generated
+	 */
+	public Adapter createUiLayoutAssignmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiAction <em>Ui Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiAction
+	 * @generated
+	 */
+	public Adapter createUiActionAdapter() {
 		return null;
 	}
 
@@ -800,20 +1009,6 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiMobileActionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiValidator <em>Ui Validator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiValidator
-	 * @generated
-	 */
-	public Adapter createUiValidatorAdapter() {
 		return null;
 	}
 
@@ -930,6 +1125,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiSearchPanel <em>Ui Search Panel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSearchPanel
+	 * @generated
+	 */
+	public Adapter createUiSearchPanelAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiTextField <em>Ui Text Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -940,6 +1149,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiTextFieldAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiImage <em>Ui Image</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiImage
+	 * @generated
+	 */
+	public Adapter createUiImageAdapter() {
 		return null;
 	}
 
@@ -972,6 +1195,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiComboBox <em>Ui Combo Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiComboBox
+	 * @generated
+	 */
+	public Adapter createUiComboBoxAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiTypeProvider <em>Ui Type Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1000,16 +1237,16 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiColumnAssignments <em>Ui Column Assignments</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment <em>Ui Columns Assignment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiColumnAssignments
+	 * @see org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment
 	 * @generated
 	 */
-	public Adapter createUiColumnAssignmentsAdapter() {
+	public Adapter createUiColumnsAssignmentAdapter() {
 		return null;
 	}
 
@@ -1140,34 +1377,6 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiVisibilityProperties <em>Ui Visibility Properties</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiVisibilityProperties
-	 * @generated
-	 */
-	public Adapter createUiVisibilityPropertiesAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiVisibilityPropertiesDef <em>Ui Visibility Properties Def</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiVisibilityPropertiesDef
-	 * @generated
-	 */
-	public Adapter createUiVisibilityPropertiesDefAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiVisibilityPropertiesAssignment <em>Ui Visibility Properties Assignment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1178,6 +1387,90 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiVisibilityPropertiesAssignmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiVisibilityProperty <em>Ui Visibility Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiVisibilityProperty
+	 * @generated
+	 */
+	public Adapter createUiVisibilityPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiValidator <em>Ui Validator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiValidator
+	 * @generated
+	 */
+	public Adapter createUiValidatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator <em>Ui Max Length Validator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator
+	 * @generated
+	 */
+	public Adapter createUiMaxLengthValidatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator <em>Ui Min Length Validator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator
+	 * @generated
+	 */
+	public Adapter createUiMinLengthValidatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiRegexpValidator <em>Ui Regexp Validator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRegexpValidator
+	 * @generated
+	 */
+	public Adapter createUiRegexpValidatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiXbaseValidator <em>Ui Xbase Validator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiXbaseValidator
+	 * @generated
+	 */
+	public Adapter createUiXbaseValidatorAdapter() {
 		return null;
 	}
 
@@ -1248,20 +1541,6 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiHorizontalButtonGroupAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiAction <em>Ui Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiAction
-	 * @generated
-	 */
-	public Adapter createUiActionAdapter() {
 		return null;
 	}
 
@@ -1378,6 +1657,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationHandler <em>Ui Mobile Navigation Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationHandler
+	 * @generated
+	 */
+	public Adapter createUiMobileNavigationHandlerAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage <em>Ui Mobile Navigation Page</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1416,6 +1709,286 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiMobileNavigationButtonAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiCommand <em>Ui Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiCommand
+	 * @generated
+	 */
+	public Adapter createUiCommandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationCommand <em>Ui Mobile Navigation Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationCommand
+	 * @generated
+	 */
+	public Adapter createUiMobileNavigationCommandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand <em>Ui Open Dialog Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand
+	 * @generated
+	 */
+	public Adapter createUiOpenDialogCommandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiSearchField <em>Ui Search Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSearchField
+	 * @generated
+	 */
+	public Adapter createUiSearchFieldAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiSearchDialog <em>Ui Search Dialog</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSearchDialog
+	 * @generated
+	 */
+	public Adapter createUiSearchDialogAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment <em>Ui Dialog Search Field Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment
+	 * @generated
+	 */
+	public Adapter createUiDialogSearchFieldAssignmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand <em>Ui Search With Dialog Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand
+	 * @generated
+	 */
+	public Adapter createUiSearchWithDialogCommandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiLabel <em>Ui Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiLabel
+	 * @generated
+	 */
+	public Adapter createUiLabelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiDecimalField <em>Ui Decimal Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDecimalField
+	 * @generated
+	 */
+	public Adapter createUiDecimalFieldAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiTextArea <em>Ui Text Area</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiTextArea
+	 * @generated
+	 */
+	public Adapter createUiTextAreaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiOptionsGroup <em>Ui Options Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiOptionsGroup
+	 * @generated
+	 */
+	public Adapter createUiOptionsGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiDateField <em>Ui Date Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiDateField
+	 * @generated
+	 */
+	public Adapter createUiDateFieldAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiBrowser <em>Ui Browser</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBrowser
+	 * @generated
+	 */
+	public Adapter createUiBrowserAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiProgressBar <em>Ui Progress Bar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiProgressBar
+	 * @generated
+	 */
+	public Adapter createUiProgressBarAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiI18nInfo <em>Ui I1 8n Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiI18nInfo
+	 * @generated
+	 */
+	public Adapter createUiI18nInfoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiI18nInfoable <em>Ui I1 8n Infoable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiI18nInfoable
+	 * @generated
+	 */
+	public Adapter createUiI18nInfoableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment <em>Ui Splitpanel Assigment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment
+	 * @generated
+	 */
+	public Adapter createUiSplitpanelAssigmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiSplitpanel <em>Ui Splitpanel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSplitpanel
+	 * @generated
+	 */
+	public Adapter createUiSplitpanelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiPanel <em>Ui Panel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiPanel
+	 * @generated
+	 */
+	public Adapter createUiPanelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiErrorCode <em>Ui Error Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiErrorCode
+	 * @generated
+	 */
+	public Adapter createUiErrorCodeAdapter() {
 		return null;
 	}
 

@@ -3,11 +3,171 @@
  */
 package org.lunifera.ecview.dsl.ui.contentassist;
 
+import com.google.common.base.Objects;
+import com.google.inject.Inject;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.Keyword;
+import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal;
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 import org.lunifera.ecview.dsl.ui.contentassist.AbstractUIGrammarProposalProvider;
+import org.lunifera.ecview.semantic.uimodel.UiModel;
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
  */
 @SuppressWarnings("all")
 public class UIGrammarProposalProvider extends AbstractUIGrammarProposalProvider {
+  @Inject
+  private /* II18nRegistry */Object i18nRegistry;
+  
+  @Inject
+  private /* CoreUiUtil */Object util;
+  
+  public void completeUiI18nInfo_Key(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nProposal cannot be resolved to a type."
+      + "\ngetProject cannot be resolved"
+      + "\nfindContentProposals cannot be resolved"
+      + "\nlocale cannot be resolved"
+      + "\ntoReplacementString cannot be resolved"
+      + "\ndisplayString cannot be resolved");
+  }
+  
+  public String toReplacementString(final /* Proposal */Object proposal, final boolean relative) {
+    throw new Error("Unresolved compilation problems:"
+      + "\ni18nKey cannot be resolved"
+      + "\ni18nKey cannot be resolved"
+      + "\nsplit cannot be resolved");
+  }
+  
+  /**
+   * Iterates the containment tree up to the UiModel and returns the package.
+   */
+  public String findPackage(final EObject model) {
+    EObject temp = model;
+    boolean _and = false;
+    boolean _notEquals = (!Objects.equal(temp, null));
+    if (!_notEquals) {
+      _and = false;
+    } else {
+      EObject _eContainer = temp.eContainer();
+      boolean _notEquals_1 = (!Objects.equal(_eContainer, null));
+      _and = _notEquals_1;
+    }
+    boolean _while = _and;
+    while (_while) {
+      {
+        if ((temp instanceof UiModel)) {
+          final UiModel uiModel = ((UiModel) temp);
+          return uiModel.getPackageName();
+        }
+        EObject _eContainer_1 = temp.eContainer();
+        temp = _eContainer_1;
+        if ((temp instanceof UiModel)) {
+          final UiModel uiModel_1 = ((UiModel) temp);
+          return uiModel_1.getPackageName();
+        }
+      }
+      boolean _and_1 = false;
+      boolean _notEquals_2 = (!Objects.equal(temp, null));
+      if (!_notEquals_2) {
+        _and_1 = false;
+      } else {
+        EObject _eContainer_1 = temp.eContainer();
+        boolean _notEquals_3 = (!Objects.equal(_eContainer_1, null));
+        _and_1 = _notEquals_3;
+      }
+      _while = _and_1;
+    }
+    return "";
+  }
+  
+  public void completeUiMaxLengthValidator_MaxLength(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    StyledString _styledString = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal = this.doCreateProposal("1", _styledString, null, 0, context);
+    acceptor.accept(_doCreateProposal);
+    StyledString _styledString_1 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_1 = this.doCreateProposal("2", _styledString_1, null, 0, context);
+    acceptor.accept(_doCreateProposal_1);
+    StyledString _styledString_2 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_2 = this.doCreateProposal("3", _styledString_2, null, 0, context);
+    acceptor.accept(_doCreateProposal_2);
+    StyledString _styledString_3 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_3 = this.doCreateProposal("4", _styledString_3, null, 0, context);
+    acceptor.accept(_doCreateProposal_3);
+    StyledString _styledString_4 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_4 = this.doCreateProposal("10", _styledString_4, null, 0, context);
+    acceptor.accept(_doCreateProposal_4);
+    StyledString _styledString_5 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_5 = this.doCreateProposal("12", _styledString_5, null, 0, context);
+    acceptor.accept(_doCreateProposal_5);
+    StyledString _styledString_6 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_6 = this.doCreateProposal("15", _styledString_6, null, 0, context);
+    acceptor.accept(_doCreateProposal_6);
+    StyledString _styledString_7 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_7 = this.doCreateProposal("20", _styledString_7, null, 0, context);
+    acceptor.accept(_doCreateProposal_7);
+    StyledString _styledString_8 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_8 = this.doCreateProposal("25", _styledString_8, null, 0, context);
+    acceptor.accept(_doCreateProposal_8);
+    StyledString _styledString_9 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_9 = this.doCreateProposal("125", _styledString_9, null, 0, context);
+    acceptor.accept(_doCreateProposal_9);
+  }
+  
+  public void completeUiMinLengthValidator_MinLength(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    StyledString _styledString = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal = this.doCreateProposal("1", _styledString, null, 0, context);
+    acceptor.accept(_doCreateProposal);
+    StyledString _styledString_1 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_1 = this.doCreateProposal("2", _styledString_1, null, 0, context);
+    acceptor.accept(_doCreateProposal_1);
+    StyledString _styledString_2 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_2 = this.doCreateProposal("3", _styledString_2, null, 0, context);
+    acceptor.accept(_doCreateProposal_2);
+    StyledString _styledString_3 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_3 = this.doCreateProposal("4", _styledString_3, null, 0, context);
+    acceptor.accept(_doCreateProposal_3);
+    StyledString _styledString_4 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_4 = this.doCreateProposal("10", _styledString_4, null, 0, context);
+    acceptor.accept(_doCreateProposal_4);
+    StyledString _styledString_5 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_5 = this.doCreateProposal("12", _styledString_5, null, 0, context);
+    acceptor.accept(_doCreateProposal_5);
+    StyledString _styledString_6 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_6 = this.doCreateProposal("15", _styledString_6, null, 0, context);
+    acceptor.accept(_doCreateProposal_6);
+    StyledString _styledString_7 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_7 = this.doCreateProposal("20", _styledString_7, null, 0, context);
+    acceptor.accept(_doCreateProposal_7);
+    StyledString _styledString_8 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_8 = this.doCreateProposal("25", _styledString_8, null, 0, context);
+    acceptor.accept(_doCreateProposal_8);
+    StyledString _styledString_9 = new StyledString("any numer");
+    ConfigurableCompletionProposal _doCreateProposal_9 = this.doCreateProposal("125", _styledString_9, null, 0, context);
+    acceptor.accept(_doCreateProposal_9);
+  }
+  
+  public void completeUiRegexpValidator_RegExpression(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    StyledString _styledString = new StyledString("any regular expression");
+    ConfigurableCompletionProposal _doCreateProposal = this.doCreateProposal("*abc", _styledString, null, 0, context);
+    acceptor.accept(_doCreateProposal);
+  }
+  
+  public StyledString displayString(final /* Proposal */Object proposal) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nAmbiguous feature call.\nThe methods\n\tappend(char, Styler) in StyledString,\n\tappend(String, Styler) in StyledString and\n\tappend(char[], Styler) in StyledString\nall match."
+      + "\nAmbiguous feature call.\nThe methods\n\tappend(char, Styler) in StyledString,\n\tappend(String, Styler) in StyledString and\n\tappend(char[], Styler) in StyledString\nall match."
+      + "\ni18nValue cannot be resolved"
+      + "\nlocale cannot be resolved"
+      + "\ntoLanguageTag cannot be resolved"
+      + "\ni18nKey cannot be resolved");
+  }
+  
+  public boolean isKeywordWorthyToPropose(final Keyword keyword) {
+    return true;
+  }
 }

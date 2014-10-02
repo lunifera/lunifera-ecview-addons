@@ -1,0 +1,46 @@
+package org.lunifera.ecview.examples
+
+import org.lunifera.ecview.examples.*;
+
+ideview MasterDetailSample {
+	datasource ds : Source
+
+	horizontalLayout {  
+		verticalLayout mLayout {
+			label Master
+			
+			checkbox show_details
+			table masterTable{
+				type Master
+				selectionType single
+				
+				columns {
+					column firstName
+					column lastName
+				}
+				bind list ds.dataList <--> [this].collection
+			}
+		}
+		 
+		verticalLayout spcaing{} 
+		
+		verticalLayout dLayout {
+			label Detail
+			form { 
+				textfield streetAddress
+				numericField zipCode
+				textfield city
+				textfield dateOfBirth
+				textfield emailAddress
+			}
+		}
+	}	
+	  
+	dataAlias [MasterDetailSample.mLayout.masterTable].selection as masterSelection
+	bind masterSelection.detail.streetAddress <--> [MasterDetailSample.dLayout.streetAddress].value
+	bind masterSelection.detail.zipCode <--> [MasterDetailSample.dLayout.zipCode].value
+	bind masterSelection.detail.city <--> [MasterDetailSample.dLayout.city].value
+	bind masterSelection.detail.dateOfBirth <--> [MasterDetailSample.dLayout.dateOfBirth].value
+	bind masterSelection.detail.emailAddress <--> [MasterDetailSample.dLayout.emailAddress].value
+	bind [MasterDetailSample.mLayout.show_details].value --> [MasterDetailSample.dLayout].visible
+}  

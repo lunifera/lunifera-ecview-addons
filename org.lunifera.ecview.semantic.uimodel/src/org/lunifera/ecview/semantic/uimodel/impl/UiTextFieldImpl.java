@@ -3,6 +3,7 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -11,6 +12,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.lunifera.ecview.semantic.uimodel.UiBinding;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
+import org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiMobileField;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
@@ -26,7 +32,12 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl#getI18nInfo <em>I1 8n Info</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl#getValidators <em>Validators</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl#getMaxLength <em>Max Length</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl#getMinLength <em>Min Length</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTextFieldImpl#getRegex <em>Regex</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,6 +82,24 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 	protected String name = NAME_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getI18nInfo() <em>I1 8n Info</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getI18nInfo()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiI18nInfo i18nInfo;
+	/**
+	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBindings()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UiBinding> bindings;
+	/**
 	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -79,6 +108,61 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 	 * @ordered
 	 */
 	protected EList<UiValidator> validators;
+
+	/**
+	 * The default value of the '{@link #getMaxLength() <em>Max Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MAX_LENGTH_EDEFAULT = -1;
+	/**
+	 * The cached value of the '{@link #getMaxLength() <em>Max Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected int maxLength = MAX_LENGTH_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getMinLength() <em>Min Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIN_LENGTH_EDEFAULT = -1;
+	/**
+	 * The cached value of the '{@link #getMinLength() <em>Min Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected int minLength = MIN_LENGTH_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getRegex() <em>Regex</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRegex()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REGEX_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getRegex() <em>Regex</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRegex()
+	 * @generated
+	 * @ordered
+	 */
+	protected String regex = REGEX_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,6 +230,84 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<UiBinding> getBindings() {
+		if (bindings == null) {
+			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_TEXT_FIELD__BINDINGS);
+		}
+		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiI18nInfo getI18nInfo() {
+		if (i18nInfo != null && i18nInfo.eIsProxy()) {
+			InternalEObject oldI18nInfo = (InternalEObject)i18nInfo;
+			i18nInfo = (UiI18nInfo)eResolveProxy(oldI18nInfo);
+			if (i18nInfo != oldI18nInfo) {
+				InternalEObject newI18nInfo = (InternalEObject)i18nInfo;
+				NotificationChain msgs = oldI18nInfo.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_TEXT_FIELD__I18N_INFO, null, null);
+				if (newI18nInfo.eInternalContainer() == null) {
+					msgs = newI18nInfo.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_TEXT_FIELD__I18N_INFO, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_TEXT_FIELD__I18N_INFO, oldI18nInfo, i18nInfo));
+			}
+		}
+		return i18nInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiI18nInfo basicGetI18nInfo() {
+		return i18nInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetI18nInfo(UiI18nInfo newI18nInfo, NotificationChain msgs) {
+		UiI18nInfo oldI18nInfo = i18nInfo;
+		i18nInfo = newI18nInfo;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_TEXT_FIELD__I18N_INFO, oldI18nInfo, newI18nInfo);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setI18nInfo(UiI18nInfo newI18nInfo) {
+		if (newI18nInfo != i18nInfo) {
+			NotificationChain msgs = null;
+			if (i18nInfo != null)
+				msgs = ((InternalEObject)i18nInfo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_TEXT_FIELD__I18N_INFO, null, msgs);
+			if (newI18nInfo != null)
+				msgs = ((InternalEObject)newI18nInfo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_TEXT_FIELD__I18N_INFO, null, msgs);
+			msgs = basicSetI18nInfo(newI18nInfo, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_TEXT_FIELD__I18N_INFO, newI18nInfo, newI18nInfo));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<UiValidator> getValidators() {
 		if (validators == null) {
 			validators = new EObjectContainmentEList.Resolving<UiValidator>(UiValidator.class, this, UiModelPackage.UI_TEXT_FIELD__VALIDATORS);
@@ -158,9 +320,76 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getMaxLength() {
+		return maxLength;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxLength(int newMaxLength) {
+		int oldMaxLength = maxLength;
+		maxLength = newMaxLength;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_TEXT_FIELD__MAX_LENGTH, oldMaxLength, maxLength));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMinLength() {
+		return minLength;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinLength(int newMinLength) {
+		int oldMinLength = minLength;
+		minLength = newMinLength;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_TEXT_FIELD__MIN_LENGTH, oldMinLength, minLength));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getRegex() {
+		return regex;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRegex(String newRegex) {
+		String oldRegex = regex;
+		regex = newRegex;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_TEXT_FIELD__REGEX, oldRegex, regex));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case UiModelPackage.UI_TEXT_FIELD__I18N_INFO:
+				return basicSetI18nInfo(null, msgs);
+			case UiModelPackage.UI_TEXT_FIELD__BINDINGS:
+				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_TEXT_FIELD__VALIDATORS:
 				return ((InternalEList<?>)getValidators()).basicRemove(otherEnd, msgs);
 		}
@@ -179,8 +408,19 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 				return getId();
 			case UiModelPackage.UI_TEXT_FIELD__NAME:
 				return getName();
+			case UiModelPackage.UI_TEXT_FIELD__I18N_INFO:
+				if (resolve) return getI18nInfo();
+				return basicGetI18nInfo();
+			case UiModelPackage.UI_TEXT_FIELD__BINDINGS:
+				return getBindings();
 			case UiModelPackage.UI_TEXT_FIELD__VALIDATORS:
 				return getValidators();
+			case UiModelPackage.UI_TEXT_FIELD__MAX_LENGTH:
+				return getMaxLength();
+			case UiModelPackage.UI_TEXT_FIELD__MIN_LENGTH:
+				return getMinLength();
+			case UiModelPackage.UI_TEXT_FIELD__REGEX:
+				return getRegex();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -200,9 +440,25 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 			case UiModelPackage.UI_TEXT_FIELD__NAME:
 				setName((String)newValue);
 				return;
+			case UiModelPackage.UI_TEXT_FIELD__I18N_INFO:
+				setI18nInfo((UiI18nInfo)newValue);
+				return;
+			case UiModelPackage.UI_TEXT_FIELD__BINDINGS:
+				getBindings().clear();
+				getBindings().addAll((Collection<? extends UiBinding>)newValue);
+				return;
 			case UiModelPackage.UI_TEXT_FIELD__VALIDATORS:
 				getValidators().clear();
 				getValidators().addAll((Collection<? extends UiValidator>)newValue);
+				return;
+			case UiModelPackage.UI_TEXT_FIELD__MAX_LENGTH:
+				setMaxLength((Integer)newValue);
+				return;
+			case UiModelPackage.UI_TEXT_FIELD__MIN_LENGTH:
+				setMinLength((Integer)newValue);
+				return;
+			case UiModelPackage.UI_TEXT_FIELD__REGEX:
+				setRegex((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -222,8 +478,23 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 			case UiModelPackage.UI_TEXT_FIELD__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case UiModelPackage.UI_TEXT_FIELD__I18N_INFO:
+				setI18nInfo((UiI18nInfo)null);
+				return;
+			case UiModelPackage.UI_TEXT_FIELD__BINDINGS:
+				getBindings().clear();
+				return;
 			case UiModelPackage.UI_TEXT_FIELD__VALIDATORS:
 				getValidators().clear();
+				return;
+			case UiModelPackage.UI_TEXT_FIELD__MAX_LENGTH:
+				setMaxLength(MAX_LENGTH_EDEFAULT);
+				return;
+			case UiModelPackage.UI_TEXT_FIELD__MIN_LENGTH:
+				setMinLength(MIN_LENGTH_EDEFAULT);
+				return;
+			case UiModelPackage.UI_TEXT_FIELD__REGEX:
+				setRegex(REGEX_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -241,8 +512,18 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case UiModelPackage.UI_TEXT_FIELD__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiModelPackage.UI_TEXT_FIELD__I18N_INFO:
+				return i18nInfo != null;
+			case UiModelPackage.UI_TEXT_FIELD__BINDINGS:
+				return bindings != null && !bindings.isEmpty();
 			case UiModelPackage.UI_TEXT_FIELD__VALIDATORS:
 				return validators != null && !validators.isEmpty();
+			case UiModelPackage.UI_TEXT_FIELD__MAX_LENGTH:
+				return maxLength != MAX_LENGTH_EDEFAULT;
+			case UiModelPackage.UI_TEXT_FIELD__MIN_LENGTH:
+				return minLength != MIN_LENGTH_EDEFAULT;
+			case UiModelPackage.UI_TEXT_FIELD__REGEX:
+				return REGEX_EDEFAULT == null ? regex != null : !REGEX_EDEFAULT.equals(regex);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -262,6 +543,22 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 			}
 		}
 		if (baseClass == UiRawBindable.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiI18nInfoable.class) {
+			switch (derivedFeatureID) {
+				case UiModelPackage.UI_TEXT_FIELD__I18N_INFO: return UiModelPackage.UI_I1_8N_INFOABLE__I18N_INFO;
+				default: return -1;
+			}
+		}
+		if (baseClass == UiMobileEmbeddable.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiMobileField.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
 			}
@@ -288,6 +585,22 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 				default: return -1;
 			}
 		}
+		if (baseClass == UiI18nInfoable.class) {
+			switch (baseFeatureID) {
+				case UiModelPackage.UI_I1_8N_INFOABLE__I18N_INFO: return UiModelPackage.UI_TEXT_FIELD__I18N_INFO;
+				default: return -1;
+			}
+		}
+		if (baseClass == UiMobileEmbeddable.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiMobileField.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -305,6 +618,12 @@ public class UiTextFieldImpl extends UiVisibilityProcessableImpl implements UiTe
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", maxLength: ");
+		result.append(maxLength);
+		result.append(", minLength: ");
+		result.append(minLength);
+		result.append(", regex: ");
+		result.append(regex);
 		result.append(')');
 		return result.toString();
 	}

@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.knowhowlab.osgi.testing.assertions.OSGiAssert.setDefaultBundleContext;
 import static org.knowhowlab.osgi.testing.utils.ServiceUtils.getService;
 
-import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.lunifera.ecview.core.common.model.core.YViewSet;
 import org.junit.Before;
 import org.junit.Test;
 import org.knowhowlab.osgi.testing.utils.BundleUtils;

@@ -32,15 +32,8 @@ UxElementDefinition returns semantic::UxElementDefinition:
 	('validator' '{'
 		validatorContainer=UxAvailableValidatorProperties
 	'}')?
-	
+	 
 	'}';
-
-UxAvailableVisibilityOptions returns semantic::UxAvailableVisibilityOptions:
-	{semantic::UxAvailableVisibilityOptions}
-	options+=UxVisibilityOption*;
-
-UxVisibilityOption returns semantic::UxVisibilityOption:
-	'endpoint' name=ID jvmType=JvmTypeReference;
 
 UxAvailableValidatorProperties returns semantic::UxAvailableValidatorProperties:
 	{semantic::UxAvailableValidatorProperties}
@@ -54,16 +47,15 @@ UxElementURI returns semantic::UxElementURI:
 
 UxAvailableBindings returns semantic::UxAvailableBindings:
 	{semantic::UxAvailableBindings}
-	bindings+=UxEndpointDef*;
+	bindings+=UxBindingableOption*;
+	
+UxAvailableVisibilityOptions returns semantic::UxAvailableVisibilityOptions:
+	{semantic::UxAvailableVisibilityOptions}
+	bindings+=UxVisibleableOption*;
 
-UxEndpointDef returns semantic::UxEndpointDef:
-	UxValueBindingEndpointDef;
+UxBindingableOption returns semantic::UxBindingableOption:
+	(final?='final')? (listbinding?='list')? 'endpoint' name=ID jvmType=JvmTypeReference ('target' targetName=ID)?;
 
-UxValueBindingEndpointDef returns semantic::UxValueBindingEndpointDef:
-	(final?='final')? (listbinding?='list')? 'endpoint' name=ID jvmType=JvmTypeReference;
+UxVisibleableOption returns semantic::UxVisibleableOption:
+	'endpoint' name=ID jvmType=JvmTypeReference;
 
-//UxListBindingEndpointDef returns semantic::UxListBindingEndpointDef:
-//	(final?='final')? 'listEndpoint' name=ID jvmType=JvmTypeReference;
-
-//UxSetBindingEndpointDef returns semantic::UxSetBindingEndpointDef:
-//	(final?='final')? 'setEndpoint' name=ID jvmType=JvmTypeReference;

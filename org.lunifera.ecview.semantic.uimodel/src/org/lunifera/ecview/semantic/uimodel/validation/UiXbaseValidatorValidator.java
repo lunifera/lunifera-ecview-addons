@@ -4,9 +4,11 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 
 import org.eclipse.xtext.xbase.XExpression;
+import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiXbaseValidator}.
@@ -19,4 +21,6 @@ public interface UiXbaseValidatorValidator {
 
 	boolean validateExpression(XExpression value);
 	boolean validateJvmType(JvmTypeReference value);
+
+	boolean validateErrorCodes(EList<UiErrorCode> value);
 }

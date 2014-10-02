@@ -1,42 +1,45 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.lunifera.ecview.dsl
-Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Lunifera GmbH
+Bundle-Version: 0.7.4
 Bundle-SymbolicName: org.lunifera.ecview.dsl; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.xtext;visibility:=reexport,
- org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
- org.eclipse.xtext.generator;resolution:=optional,
+Require-Bundle: org.eclipse.xtext;bundle-version="[2.6.2,2.7.0)";visibility:=reexport,
+ org.eclipse.xtext.xbase;bundle-version="[2.6.2,2.7.0)";resolution:=optional;visibility:=reexport,
+ org.eclipse.xtext.generator;bundle-version="[2.6.2,2.7.0)";resolution:=optional,
  org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
  org.eclipse.emf.codegen.ecore;resolution:=optional,
  org.eclipse.emf.mwe.utils;resolution:=optional,
  org.eclipse.emf.mwe2.launch;resolution:=optional,
- org.eclipse.emf.ecp.ecview.common.model;bundle-version="0.7.0",
- org.eclipse.emf.ecp.ecview.extension.model;bundle-version="0.7.0",
- org.eclipse.xtext.util,
+ org.lunifera.ecview.core.common.model;bundle-version="[0.7.3,0.8.0)",
+ org.lunifera.ecview.core.extension.model;bundle-version="[0.7.3,0.8.0)",
+ org.eclipse.xtext.util;bundle-version="[2.6.2,2.7.0)",
  org.antlr.runtime,
  org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
- org.lunifera.xtext.builder.types.bundles;bundle-version="0.8.1",
- org.lunifera.xtext.builder.xbase.setups;bundle-version="0.8.1",
- org.lunifera.ecview.uisemantics;bundle-version="1.0.0",
- org.lunifera.ecview.semantic.uimodel;bundle-version="0.0.1",
- org.lunifera.ecview.semantic.uisemantics;bundle-version="1.0.0",
+ org.lunifera.xtext.builder.types.bundles;bundle-version="0.8.3",
+ org.lunifera.xtext.builder.xbase.setups;bundle-version="0.8.3",
+ org.lunifera.ecview.uisemantics;bundle-version="0.7.3",
+ org.lunifera.ecview.semantic.uimodel;bundle-version="0.7.3",
+ org.lunifera.ecview.semantic.uisemantics;bundle-version="0.7.3",
  org.eclipse.jdt.core,
  org.eclipse.emf.ecore,
  org.eclipse.emf.common,
- org.eclipse.xtext.common.types,
- org.eclipse.xtext.xbase.lib,
- org.eclipse.emf.ecp.ecview.common;bundle-version="0.7.0",
- org.eclipse.xtext.xbase.junit;bundle-version="2.6.1",
- org.eclipse.xtext.junit4;bundle-version="2.6.1",
- org.lunifera.xtext.builder.ui.access;bundle-version="0.8.2",
- org.lunifera.mobile.vaadin.ecview.model;bundle-version="0.7.0"
+ org.eclipse.xtext.common.types;bundle-version="[2.6.2,2.7.0)",
+ org.eclipse.xtext.xbase.lib;bundle-version="[2.6.2,2.7.0)",
+ org.lunifera.ecview.core.common;bundle-version="0.7.0",
+ org.lunifera.mobile.vaadin.ecview.model;bundle-version="0.7.3",
+ org.apache.commons.lang;bundle-version="2.6.0",
+ org.lunifera.xtext.builder.types.loader.api;bundle-version="0.8.3",
+ org.lunifera.xtext.builder.types.loader.runtime;bundle-version="0.8.3",
+ org.lunifera.ecview.dsl.lib;bundle-version="0.7.3"
 Import-Package: org.apache.log4j,
- org.eclipse.xtext.xbase.lib
+ org.eclipse.xtext.xbase.lib,
+ org.slf4j;version="1.7.2"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.lunifera.ecview.dsl;x-internal:=true,
  org.lunifera.ecview.dsl.derivedstate;x-internal:=true,
+ org.lunifera.ecview.dsl.extensions;x-internal:=true,
  org.lunifera.ecview.dsl.formatting;x-internal:=true,
  org.lunifera.ecview.dsl.jvmmodel;x-internal:=true,
  org.lunifera.ecview.dsl.name;x-internal:=true,

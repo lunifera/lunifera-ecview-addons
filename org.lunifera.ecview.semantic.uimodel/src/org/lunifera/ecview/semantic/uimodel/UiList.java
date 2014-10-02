@@ -2,6 +2,8 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
+import org.eclipse.xtext.common.types.JvmOperation;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -12,6 +14,7 @@ package org.lunifera.ecview.semantic.uimodel;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiList#getSelectionType <em>Selection Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiList#getItemImageProperty <em>Item Image Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,4 +53,30 @@ public interface UiList extends UiField, UiTypeProvider {
 	 * @generated
 	 */
 	void setSelectionType(UiSelectionType value);
+
+	/**
+	 * Returns the value of the '<em><b>Item Image Property</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Item Image Property</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Item Image Property</em>' reference.
+	 * @see #setItemImageProperty(JvmOperation)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiList_ItemImageProperty()
+	 * @model
+	 * @generated
+	 */
+	JvmOperation getItemImageProperty();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiList#getItemImageProperty <em>Item Image Property</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Item Image Property</em>' reference.
+	 * @see #getItemImageProperty()
+	 * @generated
+	 */
+	void setItemImageProperty(JvmOperation value);
 } // UiList

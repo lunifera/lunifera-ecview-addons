@@ -62,14 +62,12 @@ public class UiSemanticsFactoryImpl extends EFactoryImpl implements UiSemanticsF
 			case UiSemanticsPackage.UX_ELEMENT_DEFINITION: return createUxElementDefinition();
 			case UiSemanticsPackage.UX_ELEMENT_URI: return createUxElementURI();
 			case UiSemanticsPackage.UX_AVAILABLE_BINDINGS: return createUxAvailableBindings();
-			case UiSemanticsPackage.UX_ENDPOINT_DEF: return createUxEndpointDef();
-			case UiSemanticsPackage.UX_VALUE_BINDING_ENDPOINT_DEF: return createUxValueBindingEndpointDef();
-			case UiSemanticsPackage.UX_LIST_BINDING_ENDPOINT_DEF: return createUxListBindingEndpointDef();
-			case UiSemanticsPackage.UX_SET_BINDING_ENDPOINT_DEF: return createUxSetBindingEndpointDef();
 			case UiSemanticsPackage.UX_AVAILABLE_VISIBILITY_OPTIONS: return createUxAvailableVisibilityOptions();
-			case UiSemanticsPackage.UX_VISIBILITY_OPTION: return createUxVisibilityOption();
+			case UiSemanticsPackage.UX_VALUE_BINDING_ENDPOINT_DEF: return createUxValueBindingEndpointDef();
 			case UiSemanticsPackage.UX_AVAILABLE_VALIDATOR_PROPERTIES: return createUxAvailableValidatorProperties();
 			case UiSemanticsPackage.UX_VALIDATOR_PROPERTY: return createUxValidatorProperty();
+			case UiSemanticsPackage.UX_BINDINGABLE_OPTION: return createUxBindingableOption();
+			case UiSemanticsPackage.UX_VISIBLEABLE_OPTION: return createUxVisibleableOption();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -130,46 +128,6 @@ public class UiSemanticsFactoryImpl extends EFactoryImpl implements UiSemanticsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UxEndpointDef createUxEndpointDef() {
-		UxEndpointDefImpl uxEndpointDef = new UxEndpointDefImpl();
-		return uxEndpointDef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UxValueBindingEndpointDef createUxValueBindingEndpointDef() {
-		UxValueBindingEndpointDefImpl uxValueBindingEndpointDef = new UxValueBindingEndpointDefImpl();
-		return uxValueBindingEndpointDef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UxListBindingEndpointDef createUxListBindingEndpointDef() {
-		UxListBindingEndpointDefImpl uxListBindingEndpointDef = new UxListBindingEndpointDefImpl();
-		return uxListBindingEndpointDef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UxSetBindingEndpointDef createUxSetBindingEndpointDef() {
-		UxSetBindingEndpointDefImpl uxSetBindingEndpointDef = new UxSetBindingEndpointDefImpl();
-		return uxSetBindingEndpointDef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public UxAvailableVisibilityOptions createUxAvailableVisibilityOptions() {
 		UxAvailableVisibilityOptionsImpl uxAvailableVisibilityOptions = new UxAvailableVisibilityOptionsImpl();
 		return uxAvailableVisibilityOptions;
@@ -180,9 +138,9 @@ public class UiSemanticsFactoryImpl extends EFactoryImpl implements UiSemanticsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UxVisibilityOption createUxVisibilityOption() {
-		UxVisibilityOptionImpl uxVisibilityOption = new UxVisibilityOptionImpl();
-		return uxVisibilityOption;
+	public UxValueBindingEndpointDef createUxValueBindingEndpointDef() {
+		UxValueBindingEndpointDefImpl uxValueBindingEndpointDef = new UxValueBindingEndpointDefImpl();
+		return uxValueBindingEndpointDef;
 	}
 
 	/**
@@ -203,6 +161,26 @@ public class UiSemanticsFactoryImpl extends EFactoryImpl implements UiSemanticsF
 	public UxValidatorProperty createUxValidatorProperty() {
 		UxValidatorPropertyImpl uxValidatorProperty = new UxValidatorPropertyImpl();
 		return uxValidatorProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UxBindingableOption createUxBindingableOption() {
+		UxBindingableOptionImpl uxBindingableOption = new UxBindingableOptionImpl();
+		return uxBindingableOption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UxVisibleableOption createUxVisibleableOption() {
+		UxVisibleableOptionImpl uxVisibleableOption = new UxVisibleableOptionImpl();
+		return uxVisibleableOption;
 	}
 
 	/**

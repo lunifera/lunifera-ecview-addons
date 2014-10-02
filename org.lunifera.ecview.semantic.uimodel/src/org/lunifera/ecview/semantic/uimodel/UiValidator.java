@@ -13,5 +13,5 @@ package org.lunifera.ecview.semantic.uimodel;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface UiValidator extends UiRawBindable {
+public interface UiValidator extends UiRawBindable, UiI18nInfoable {
 } // UiValidator

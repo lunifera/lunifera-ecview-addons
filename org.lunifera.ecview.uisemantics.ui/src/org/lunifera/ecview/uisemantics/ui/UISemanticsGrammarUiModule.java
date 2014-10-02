@@ -4,6 +4,7 @@
 package org.lunifera.ecview.uisemantics.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.lunifera.ecview.uisemantics.ui.hover.UiSemanticGrammarHoverDocumentationProvider;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -11,5 +12,9 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 public class UISemanticsGrammarUiModule extends org.lunifera.ecview.uisemantics.ui.AbstractUISemanticsGrammarUiModule {
 	public UISemanticsGrammarUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
+	}
+	
+	public Class<? extends org.eclipse.xtext.ui.editor.hover.html.IEObjectHoverDocumentationProvider> bindIEObjectHoverDocumentationProvider() {
+		return UiSemanticGrammarHoverDocumentationProvider.class;
 	}
 }

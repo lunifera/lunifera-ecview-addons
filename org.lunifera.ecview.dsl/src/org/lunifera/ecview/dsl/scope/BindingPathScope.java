@@ -2,14 +2,16 @@ package org.lunifera.ecview.dsl.scope;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.xtext.common.types.JvmDeclaredType;
-import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.resource.EObjectDescription;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractScope;
+import org.lunifera.ecview.dsl.extensions.OperationExtensions;
+import org.lunifera.ecview.dsl.extensions.OperationExtensions.OperationInfo;
 
 public class BindingPathScope extends AbstractScope {
 
@@ -22,13 +24,18 @@ public class BindingPathScope extends AbstractScope {
 
 	@Override
 	protected Iterable<IEObjectDescription> getAllLocalElements() {
-
 		List<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
-
 		if (type instanceof JvmDeclaredType) {
-			for (JvmField field : ((JvmDeclaredType) type).getDeclaredFields()) {
-				result.add(EObjectDescription.create(field.getSimpleName(),
-						field));
+
+			Map<String, OperationInfo> infos = OperationExtensions
+					.getOperationInfos((JvmDeclaredType) type);
+			// apply readonly and create descriptions
+			for (OperationInfo info : infos.values()) {
+				if(info.getGetter() == null){
+					continue;
+				}
+				result.add(EObjectDescription.create(info.getName(),
+						info.getGetter()));
 			}
 		}
 		return result;

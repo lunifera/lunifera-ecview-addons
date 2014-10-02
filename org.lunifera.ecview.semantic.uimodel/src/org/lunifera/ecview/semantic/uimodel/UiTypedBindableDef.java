@@ -13,6 +13,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef#getRawBindable <em>Raw Bindable</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef#getRawBindablePath <em>Raw Bindable Path</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef#getMethod <em>Method</em>}</li>
  * </ul>
  * </p>
@@ -49,6 +50,32 @@ public interface UiTypedBindableDef extends UiTypedBindable, UiBindingExpression
 	void setRawBindable(UiRawBindable value);
 
 	/**
+	 * Returns the value of the '<em><b>Raw Bindable Path</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Raw Bindable Path</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Raw Bindable Path</em>' containment reference.
+	 * @see #setRawBindablePath(UiRawBindablePathSegment)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiTypedBindableDef_RawBindablePath()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	UiRawBindablePathSegment getRawBindablePath();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef#getRawBindablePath <em>Raw Bindable Path</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Raw Bindable Path</em>' containment reference.
+	 * @see #getRawBindablePath()
+	 * @generated
+	 */
+	void setRawBindablePath(UiRawBindablePathSegment value);
+
+	/**
 	 * Returns the value of the '<em><b>Method</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -73,5 +100,11 @@ public interface UiTypedBindableDef extends UiTypedBindable, UiBindingExpression
 	 * @generated
 	 */
 	void setMethod(UxEndpointDef value);
+	
+	/**
+	 * Returns the raw bindable of the last valid path segment.
+	 * @return
+	 */
+	UiRawBindable getRawBindableOfLastSegment();
 
 } // UiTypedBindableDef

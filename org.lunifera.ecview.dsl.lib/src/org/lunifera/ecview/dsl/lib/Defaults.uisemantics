@@ -1,0 +1,316 @@
+ePackage "http://www.lunifera.org/ecview/dsl/uimodel/core" as view
+ 
+element TextField {  
+	uri view:UiTextField
+	
+	bindings {
+		endpoint value String
+		endpoint editable Boolean
+		endpoint visible Boolean
+	}
+	
+	validator {
+		property validators
+	} 
+}  
+
+element DateField {  
+	uri view:UiDateField
+	
+	bindings {
+		endpoint value String
+		endpoint editable Boolean
+		endpoint visible Boolean
+	}
+	
+	validator {
+		property validators
+	} 
+}  
+
+
+
+element Label {
+	uri view:UiLabel
+	
+	bindings {
+		endpoint value String
+		endpoint editable Boolean
+		endpoint visible Boolean
+	}
+	 
+	validator {
+		property validators
+	} 
+} 
+
+element Image {
+	uri view:UiImage
+	
+	bindings {
+		endpoint value String
+		endpoint editable Boolean
+		endpoint visible Boolean
+	}
+
+}  
+    
+element CheckBox {
+	uri view:UiCheckBox
+	
+	bindings {
+		endpoint value Boolean
+		endpoint editable Boolean
+		endpoint visible Boolean
+	}
+	
+	validator {
+		property validators
+	}
+}
+
+element Button {
+	uri view:UiButton
+	 
+	bindings {
+		endpoint click Long target lastClickTime
+		endpoint enabled Boolean
+		endpoint visible Boolean
+	}
+	
+	validator {
+		property validators
+	}
+}
+
+element NumericField {
+	uri view:UiNumericField
+	
+	bindings {
+		endpoint value Integer
+		endpoint editable Boolean
+		endpoint enabled Boolean
+		endpoint visible Boolean
+	}
+	
+	validator {
+		property validators
+	}
+} 
+
+element DecimalField {
+	uri view:UiDecimalField
+	
+	bindings {
+		endpoint value Double
+		endpoint editable Boolean
+		endpoint visible Boolean
+		endpoint locale Locale
+	}
+	
+	validator {
+		property validators
+	}
+} 
+
+element List {  
+	uri view:UiList
+	
+	bindings {
+		final endpoint selection String
+		endpoint editable Boolean
+		endpoint inputList Object
+		endpoint multiSelection Object
+	}
+	
+	validator {
+		property validators
+	}
+}
+
+element Table {
+	uri view:UiTable
+	
+	bindings {
+		final endpoint selection Object
+		endpoint editable Boolean
+		endpoint visible Boolean
+		list endpoint collection Object
+		endpoint multiSelection Object
+		endpoint filter Object
+	}
+
+	validator {
+		property validators
+	}
+}
+
+element OptionsGroup {  
+	uri view:UiOptionsGroup
+	
+	bindings {
+		final endpoint selection Object
+		endpoint editable Boolean
+		endpoint visible Boolean
+		list endpoint collection Object
+		endpoint multiSelection Object
+	}
+
+	validator {
+		property validators
+	}
+}
+
+ 
+element ComboBox {  
+	uri view:UiComboBox
+	 
+	bindings {
+		final endpoint selection Object
+		endpoint editable Boolean
+		endpoint visible Boolean
+		list endpoint collection Object
+		endpoint multiSelection Object
+	}
+
+	validator {
+		property validators
+	}
+}
+
+
+element MobileNavigationPage {  
+	uri view:UiMobileNavigationPage
+	  
+	bindings {
+		final endpoint value Object
+	}
+
+	validator {
+		property validators
+	}
+}
+
+element GridLayout {
+	uri view:UiGridLayout
+	
+	bindings {
+		endpoint editable Boolean
+		endpoint visible Boolean
+		endpoint columns Integer
+	}
+	
+}
+
+element Dialog {
+	uri view:UiDialog
+	
+	bindings {
+		endpoint editable Boolean
+		endpoint visible Boolean
+		endpoint value Object
+	}
+	
+}
+
+element VerticalLayout {
+	uri view:UiVerticalLayout
+	
+	bindings {
+		endpoint editable Boolean
+		endpoint visible Boolean
+	}
+	
+}
+
+element VerticalGroup {
+	uri view:UiVerticalComponentGroup
+	
+	bindings {
+		endpoint editable Boolean
+		endpoint visible Boolean
+	}
+	
+}
+
+element SearchField {
+	uri view:UiSearchField
+	
+	bindings {
+		endpoint value String
+	}
+	
+}
+
+element Form {
+	uri view:UiFormLayout
+	
+	bindings {
+		endpoint editable Boolean
+		endpoint visible Boolean
+	}
+	
+}
+
+element VerticalGroup {
+	uri view:UiVerticalComponentGroup
+	
+	bindings {
+		endpoint editable Boolean
+		endpoint visible Boolean
+	}
+	
+}
+
+element Switch {
+	uri view:UiSwitch
+	
+	bindings {
+		endpoint editable Boolean
+		endpoint visible Boolean
+		endpoint value Boolean
+	}
+	
+}
+
+element ProgressBar {  
+	uri view:UiProgressBar
+	
+	bindings {
+		endpoint value float
+		endpoint editable Boolean
+		endpoint visible Boolean
+	}
+}
+
+/**
+ * Search panel is a layout where SearchFields can be put in. A search panel
+ * needs to be <code>typed</code>. So you have to specify a <code>JvmType</code>
+ * for its <code>type-property</code>. The type property is the <code>java class</code>
+ * you want to query for. For instance JPA, JDBC,... 
+ */
+element SearchPanel {
+	uri view:UiSearchPanel
+
+	bindings {
+		/*
+		 * If <code>any kind of value</code> is passed to this property, the 
+		 * search panel will collect the filter from it's search fields
+		 * and puts the properly prepared filter to it's filter property.<br>
+		 * To get an instance of the filter, just bind the <code>#filter</code> 
+		 * property of this panel to any search target.<br>
+		 * The type of returned filter depends on the used UI-Kit.
+		 */  
+		endpoint applyFilter Object
+		
+		/**
+		 * This property contains a properly prepared filter. The search panel
+		 * will assemble a filter based on the contained search fields. <br>
+		 * Assembling filter is triggered by the <code>#applyFilter</code>
+		 * property.
+		 * <br>
+		 * The type of returned filter depends on the used UI-Kit.
+		 */
+		endpoint filter Object
+	}
+}

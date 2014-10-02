@@ -27,12 +27,13 @@ import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxEndpointDefImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxEndpointDefImpl#getJvmType <em>Jvm Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxEndpointDefImpl#isListbinding <em>Listbinding</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxEndpointDefImpl#getTargetName <em>Target Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements UxEndpointDef {
+public abstract class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements UxEndpointDef {
 	/**
 	 * The default value of the '{@link #isFinal() <em>Final</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -102,6 +103,26 @@ public class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements U
 	 * @ordered
 	 */
 	protected boolean listbinding = LISTBINDING_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTargetName() <em>Target Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TARGET_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTargetName() <em>Target Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String targetName = TARGET_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -233,6 +254,27 @@ public class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements U
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getTargetName() {
+		return targetName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetName(String newTargetName) {
+		String oldTargetName = targetName;
+		targetName = newTargetName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiSemanticsPackage.UX_ENDPOINT_DEF__TARGET_NAME, oldTargetName, targetName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -258,6 +300,8 @@ public class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements U
 				return getJvmType();
 			case UiSemanticsPackage.UX_ENDPOINT_DEF__LISTBINDING:
 				return isListbinding();
+			case UiSemanticsPackage.UX_ENDPOINT_DEF__TARGET_NAME:
+				return getTargetName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -281,6 +325,9 @@ public class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements U
 				return;
 			case UiSemanticsPackage.UX_ENDPOINT_DEF__LISTBINDING:
 				setListbinding((Boolean)newValue);
+				return;
+			case UiSemanticsPackage.UX_ENDPOINT_DEF__TARGET_NAME:
+				setTargetName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -306,6 +353,9 @@ public class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements U
 			case UiSemanticsPackage.UX_ENDPOINT_DEF__LISTBINDING:
 				setListbinding(LISTBINDING_EDEFAULT);
 				return;
+			case UiSemanticsPackage.UX_ENDPOINT_DEF__TARGET_NAME:
+				setTargetName(TARGET_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -326,6 +376,8 @@ public class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements U
 				return jvmType != null;
 			case UiSemanticsPackage.UX_ENDPOINT_DEF__LISTBINDING:
 				return listbinding != LISTBINDING_EDEFAULT;
+			case UiSemanticsPackage.UX_ENDPOINT_DEF__TARGET_NAME:
+				return TARGET_NAME_EDEFAULT == null ? targetName != null : !TARGET_NAME_EDEFAULT.equals(targetName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -346,6 +398,8 @@ public class UxEndpointDefImpl extends MinimalEObjectImpl.Container implements U
 		result.append(name);
 		result.append(", listbinding: ");
 		result.append(listbinding);
+		result.append(", targetName: ");
+		result.append(targetName);
 		result.append(')');
 		return result.toString();
 	}

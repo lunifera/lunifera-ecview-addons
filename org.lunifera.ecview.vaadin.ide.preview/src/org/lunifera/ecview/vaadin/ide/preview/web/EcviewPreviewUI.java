@@ -19,23 +19,40 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
-import org.eclipse.emf.ecp.ecview.common.model.core.YView;
-import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
-import org.eclipse.emf.ecp.ecview.common.services.IWidgetAssocationsService;
-import org.eclipse.emf.ecp.ecview.common.tooling.IWidgetMouseClickService;
-import org.eclipse.emf.ecp.ecview.common.types.ITypeProviderService;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.lunifera.ecview.core.common.context.I18nAdapter;
+import org.lunifera.ecview.core.common.context.II18nService;
+import org.lunifera.ecview.core.common.context.IViewContext;
+import org.lunifera.ecview.core.common.model.core.YBeanSlot;
+import org.lunifera.ecview.core.common.model.core.YView;
+import org.lunifera.ecview.core.common.model.validation.ValidationPackage;
+import org.lunifera.ecview.core.common.model.visibility.VisibilityPackage;
+import org.lunifera.ecview.core.common.services.IWidgetAssocationsService;
+import org.lunifera.ecview.core.common.tooling.IWidgetMouseClickService;
+import org.lunifera.ecview.core.common.types.ITypeProviderService;
+import org.lunifera.ecview.semantic.uimodel.UiModel;
+import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.vaadin.ide.preview.Activator;
+import org.lunifera.ecview.vaadin.ide.preview.parts.IDEPreviewHandler;
+import org.lunifera.ide.core.api.i18n.II18nRegistry;
+import org.lunifera.ide.core.api.i18n.II18nRegistry.Proposal;
+import org.lunifera.ide.core.ui.util.CoreUiUtil;
 import org.lunifera.runtime.web.ecview.presentation.vaadin.VaadinRenderer;
 import org.lunifera.runtime.web.vaadin.databinding.VaadinObservables;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.vaadin.annotations.PreserveOnRefresh;
 import com.vaadin.annotations.Push;
 import com.vaadin.annotations.Theme;
+import com.vaadin.annotations.Title;
+import com.vaadin.annotations.Widgetset;
 import com.vaadin.server.ErrorHandler;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Component;
@@ -47,14 +64,22 @@ import com.vaadin.ui.themes.Reindeer;
 
 @SuppressWarnings("serial")
 @Theme(Reindeer.THEME_NAME)
+@Widgetset("org.lunifera.runtime.web.vaadin.widgetset.LuniferaWidget")
+@PreserveOnRefresh
+@Title("Vaadin IDE Preview")
 @Push
 public class EcviewPreviewUI extends UI {
+
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(EcviewPreviewUI.class);
 
 	private IViewContext context;
 	private CssLayout layout;
 
 	private ECViewTypeProviderAdapter classLoadingHelper = new ECViewTypeProviderAdapter();
 	private Component selectedComponent;
+
+	private boolean worksWithCopy;
 
 	@Override
 	protected void init(VaadinRequest request) {
@@ -70,9 +95,8 @@ public class EcviewPreviewUI extends UI {
 			}
 		});
 
-		if (!Activator.getDefault().setPreviewUI(this)) {
-			close();
-			return;
+		if (!Activator.getIDEPreviewHandler().setPreviewUI(this)) {
+			worksWithCopy = true;
 		}
 
 		setStyleName(Reindeer.LAYOUT_BLUE);
@@ -82,6 +106,10 @@ public class EcviewPreviewUI extends UI {
 		layout.setSizeFull();
 		setContent(layout);
 
+		modelChanged();
+	}
+
+	protected void refresh(VaadinRequest request) {
 		modelChanged();
 	}
 
@@ -96,30 +124,44 @@ public class EcviewPreviewUI extends UI {
 						disposeContext();
 					}
 				} catch (Exception e) {
-					// nothing to do
+					LOGGER.error("{}", e);
 				}
 
-				if (Activator.getDefault().getActiveView() != null) {
+				if (Activator.getIDEPreviewHandler().getActiveView() != null) {
+					if (Activator.getIDEPreviewHandler().isShowLayoutBounds()) {
+						layout.addStyleName("l-debug-show-layout-bounds");
+					} else {
+						layout.removeStyleName("l-debug-show-layout-bounds");
+					}
+
 					// ... and render
 					VaadinRenderer renderer = new VaadinRenderer();
 					try {
-						Map<String, Object> params = new HashMap<>();
-						Map<String, Object> services = new HashMap<>();
+						Map<String, Object> params = new HashMap<String, Object>();
+						Map<String, Object> services = new HashMap<String, Object>();
 						params.put(IViewContext.PARAM_SERVICES, services);
 						services.put(ITypeProviderService.class.getName(),
 								classLoadingHelper);
+						services.put(II18nService.class.getName(),
+								new I18nProvider());
 
-						YView view = Activator.getDefault().getActiveView();
+						YView view = Activator.getIDEPreviewHandler()
+								.getActiveView();
+						if (worksWithCopy) {
+							view = EcoreUtil.copy(view);
+						}
+
 						context = renderer.render(layout, view, params);
 
 						registerBeans(view);
 
-						if (Activator.getDefault().isLinkedWithEditor()) {
+						if (Activator.getIDEPreviewHandler()
+								.isLinkedWithEditor()) {
 							installSourceViewSelectionSupport();
 						}
 
 					} catch (Exception e) {
-						// nothing to do
+						LOGGER.error("{}", e);
 					}
 				} else {
 					layout.addComponent(new Label("No viewmodel available yet!"));
@@ -133,6 +175,9 @@ public class EcviewPreviewUI extends UI {
 			 */
 			private void registerBeans(YView view) {
 				for (YBeanSlot slot : view.getBeanSlots()) {
+					if (slot.getName().startsWith("ecview")) {
+						continue;
+					}
 					Class<?> bean = slot.getValueType();
 					if (bean != null) {
 						try {
@@ -174,7 +219,7 @@ public class EcviewPreviewUI extends UI {
 		disposeContext();
 
 		error(e.toString());
-		Activator.getDefault().setPreviewUI(null);
+		Activator.getIDEPreviewHandler().setPreviewUI(null);
 		EcviewPreviewUI.this.close();
 	}
 
@@ -188,7 +233,7 @@ public class EcviewPreviewUI extends UI {
 		clickService.addListener(new IWidgetMouseClickService.Listener() {
 			@Override
 			public void clicked(Object modelElement) {
-				Activator.getDefault().selectInXtextEditor(
+				Activator.getIDEPreviewHandler().selectInXtextEditor(
 						(EObject) modelElement);
 			}
 		});
@@ -221,6 +266,10 @@ public class EcviewPreviewUI extends UI {
 		Notification.show(value, Notification.Type.ERROR_MESSAGE);
 	}
 
+	public void warn(String value) {
+		Notification.show(value, Notification.Type.WARNING_MESSAGE);
+	}
+
 	/**
 	 * Disposes the current context.
 	 */
@@ -247,9 +296,44 @@ public class EcviewPreviewUI extends UI {
 				if (clazz == ValidationPackage.Literals.YCLASS_DELEGATE_VALIDATOR) {
 					return Activator.getDefault().getXtextUtilService()
 							.reloadClass(qualifiedName);
+				}else if (clazz == VisibilityPackage.Literals.YVISIBILITY_PROCESSOR) {
+					return Activator.getDefault().getXtextUtilService()
+							.reloadClass(qualifiedName);
 				}
 			}
 			return null;
+		}
+	}
+
+	/**
+	 * An internal I18nAdapter that delegates to the workspace.
+	 */
+	private class I18nProvider extends I18nAdapter {
+		private II18nRegistry i18nRegistry;
+		private CoreUiUtil util;
+
+		public I18nProvider() {
+			i18nRegistry = Activator.getDefault().getInjector()
+					.getInstance(II18nRegistry.class);
+			util = Activator.getDefault().getInjector()
+					.getInstance(CoreUiUtil.class);
+		}
+
+		@Override
+		public String getValue(String i18nKey, Locale locale) {
+			IDEPreviewHandler handler = Activator.getIDEPreviewHandler();
+			// get the grammar element for the YView
+			UiView view = handler.getActiveViewFromGrammar();
+			UiModel model = (UiModel) view.eContainer();
+
+			// access the project with the view
+			IProject project = util.getProject(view);
+
+			// calculate best matching proposal
+			Proposal proposal = i18nRegistry.findBestMatch(project, locale,
+					model.getPackageName(), i18nKey);
+
+			return proposal != null ? proposal.getI18nValue() : "";
 		}
 	}
 }

@@ -18,11 +18,12 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxEndpointDef#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxEndpointDef#getJvmType <em>Jvm Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxEndpointDef#isListbinding <em>Listbinding</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxEndpointDef#getTargetName <em>Target Name</em>}</li>
  * </ul>
  * </p>
  *
  * @see org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage#getUxEndpointDef()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface UxEndpointDef extends EObject {
@@ -129,5 +130,31 @@ public interface UxEndpointDef extends EObject {
 	 * @generated
 	 */
 	void setListbinding(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Target Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target Name</em>' attribute.
+	 * @see #setTargetName(String)
+	 * @see org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage#getUxEndpointDef_TargetName()
+	 * @model
+	 * @generated
+	 */
+	String getTargetName();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uisemantics.UxEndpointDef#getTargetName <em>Target Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target Name</em>' attribute.
+	 * @see #getTargetName()
+	 * @generated
+	 */
+	void setTargetName(String value);
 
 } // UxEndpointDef

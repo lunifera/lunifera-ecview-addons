@@ -5,6 +5,7 @@ import "http://www.lunifera.org/ecview/dsl/uimodel/core"
 import "http://www.eclipse.org/xtext/common/JavaVMTypes"
 import "http://www.eclipse.org/xtext/xbase/Xbase"
 import "http://www.eclipse.org/xtext/xbase/Xtype"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 UiModel returns UiModel:
 	'package' packageName=QualifiedName
@@ -18,11 +19,11 @@ UiRootElements returns UiRootElements:
 	UiView | UiViewSet | UiValidatorAlias | UiMobileView;
 
 UiValidatorAlias returns UiValidatorAlias:
-	'validatorAlias' validator=UiValidator 'as' alias=ID;
+	'validatorAlias' validator=UiValidator 'as' alias=ID (';')?;
 
 UiValidatorAssignment returns UiValidatorAssignment:
 	'fieldValidation' field=[UiField] '+=' (validatorDef=UiValidatorDef | validatorAlias=[UiValidatorAlias|QualifiedName]
-	';');
+	(';')?);
 
 UiValidatorDef returns UiValidatorDef:
 	validator=UiValidator;
@@ -34,26 +35,64 @@ UiViewSet returns UiViewSet:
 	'}';
 
 UiBindingEndpointAlias returns UiBindingEndpointAlias:
-	'dataAlias' endpoint=UiBindingEndpointAssignment 'as' alias=ID;
+	'dataAlias' endpoint=UiBindingEndpointAssignment 'as' alias=ID (';')?;
 
 UiBeanSlot returns UiBeanSlot:
-	'datasource' name=ID ':' jvmType=JvmTypeReference;
+	'datasource' name=ID ':' jvmType=JvmTypeReference (';')?;
 
 UiBinding returns UiBinding:
 	'bind' (listBinding?='list')? source=UiBindingEndpointAssignment ((targetToSource?='<')? '--'
-	(sourceToTarget?='>')?) target=UiBindingEndpointAssignment;
+	(sourceToTarget?='>')?) target=UiBindingEndpointAssignment (';')?;
 
 UiBindingEndpointAssignment returns UiBindingExpression:
-	((UiTypedBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} path=(UiPathSegment)?) |
-	({UiBindingEndpointAssignment}
-	typedBindableAlias=[UiTypedBindable] path=(UiPathSegment)?));
+	((UiTypedBindableDef {UiBindingEndpointAssignment.typedBindableDef=current} path=(UiPathSegment)?)
+	| (UiCommandBindableDef {UiBindingEndpointAssignment.typedBindableDef=current})
+	| ({UiBindingEndpointAssignment} typedBindableAlias=[UiTypedBindable] path=(UiPathSegment)?));
 
 UiPathSegment returns UiPathSegment:
-	'.' jvmField=[JvmField] path=(UiPathSegment)?;
+	{UiPathSegment}
+	'.' getter=[JvmOperation] path=(UiPathSegment)?;
+	
+UiNestedProperty: 
+	{UiNestedProperty}
+	getter=[JvmOperation] path=(UiPathSegment)?
+;
+
 
 UiTypedBindableDef returns UiBindingExpression:
 	{UiTypedBindableDef}
-	(rawBindable=[UiRawBindable|ID] ':' method=[cfg::UxEndpointDef]);
+	('[' rawBindable=[UiRawBindable] (rawBindablePath=UiRawBindablePathSegment)? ']' '.' method=[cfg::UxEndpointDef]);
+
+UiTypedBindableRawType returns UiBindingExpression:
+	{UiTypedBindableRawType}
+	'[' rawBindable=[UiRawBindable] (rawBindablePath=UiRawBindablePathSegment)? ']';
+
+UiTypedBindableRawTypeAlias:
+	'ui' type=UiTypedBindableRawType 'as' alias=ID (';')?
+;
+
+UiRawBindablePathSegment:
+	{UiRawBindablePathSegment}
+	'.' rawBindable=[UiRawBindable] (path=UiRawBindablePathSegment)?;
+
+UiCommandBindableDef returns UiCommandBindableDef:
+	{UiCommandBindableDef}
+	command=UiCommand;
+
+UiCommand returns UiCommand:
+	UiMobileNavigationCommand | UiOpenDialogCommand | UiSearchWithDialogCommand;
+
+UiMobileNavigationCommand:
+	{UiMobileNavigationCommand}
+	'navigateTo' targetPage=UiMobileNavigationPage;
+
+UiOpenDialogCommand:
+	{UiOpenDialogCommand}
+	'openDialog' dialog=UiDialog;
+
+UiSearchWithDialogCommand:
+	{UiSearchWithDialogCommand}
+	'searchWith' dialog=UiSearchDialog;
 
 UiView returns UiView:
 	UiIDEView;
@@ -61,48 +100,72 @@ UiView returns UiView:
 UiIDEView returns UiIDEView:
 	'ideview' name=ID
 	'{'
-	('viewset' viewSet=[UiViewSet])?
-	(beanSlots+=UiBeanSlot)*
-	(content=UiEmbeddable)?
-	// TODO make unordered group
-	(bindingEndpointAlias+=UiBindingEndpointAlias)*
-	(bindings+=UiBinding)*
-	(validatorAssignments+=UiValidatorAssignment)*
+	('viewset' viewSet=[UiViewSet] (';')?)?
+	((beanSlots+=UiBeanSlot)
+	|
+	(bindingEndpointAlias+=UiBindingEndpointAlias))*
+	content=UiEmbeddable ('align' contentAlignment=UiAlignment)?
+	((bindingEndpointAlias+=UiBindingEndpointAlias)
+	|
+	(bindings+=UiBinding)
+	|
+	(validatorAssignments+=UiValidatorAssignment)
+	|	
+	(processorAssignments+=UiVisibilityProcessorAssignment))*
 	'}';
 
 UiMobileView returns UiMobileView:
 	'mobile' name=ID
 	'{'
-	('viewset' viewSet=[UiViewSet])?
-	(beanSlots+=UiBeanSlot)*
-	(content=UiEmbeddable)?
-	// TODO make unordered group
-	(bindingEndpointAlias+=UiBindingEndpointAlias)*
-	(bindings+=UiBinding)*
-	(validatorAssignments+=UiValidatorAssignment)*
+	('viewset' viewSet=[UiViewSet] (';')?)?
+	((beanSlots+=UiBeanSlot)
+	|
+	(bindingEndpointAlias+=UiBindingEndpointAlias))*
+	content=UiMobileEmbeddable ('align' contentAlignment=UiAlignment)?
+	((bindingEndpointAlias+=UiBindingEndpointAlias)
+	|
+	(bindings+=UiBinding)
+	|
+	(validatorAssignments+=UiValidatorAssignment)
+	|	
+	(processorAssignments+=UiVisibilityProcessorAssignment))*
 	'}';
+
+UiI18nInfo:
+	'i18n' key=STRING;
 
 UiGridLayout returns UiGridLayout:
 	{UiGridLayout}
 	'gridlayout'
 	('('
-	//	(('columns=' columns=INT)?)
+	(('columns=' columns=INT)?
+	& (i18nInfo=UiI18nInfo)?)
 	')')?
 	name=ID?
 	'{'
 	(contents+=UiGridLayoutAssigment)*
-	//	(processorAssignment=UiVisibilityProcessorAssignment)?
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
 	'}';
 
+UiVisibilityProcessorAssignment:
+	{UiVisibilityProcessorAssignment}
+	processor=UiVisibilityProcessor;
+
 UiGridLayoutAssigment returns UiGridLayoutAssigment:
-	element=UiEmbeddable;
+	element=UiEmbeddable ('align' alignment=UiAlignment)?;
 
 UiFormLayout:
 	{UiFormLayout}
 	'form'
+	('('
+	(i18nInfo=UiI18nInfo)?
+	')')?
 	name=ID?
 	'{'
 	(contents+=UiFormLayoutAssigment)*
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
 	'}';
 
 UiFormLayoutAssigment:
@@ -111,170 +174,443 @@ UiFormLayoutAssigment:
 UiVerticalLayout:
 	{UiVerticalLayout}
 	'verticalLayout'
+	('('
+	(i18nInfo=UiI18nInfo)?
+	')')?
 	name=ID?
 	'{'
 	(contents+=UiVerticalLayoutAssigment)*
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
 	'}';
 
 UiVerticalLayoutAssigment:
-	element=UiEmbeddable;
+	element=UiEmbeddable ('align' alignment=UiAlignment)?;
+
+UiMobileVerticalLayout returns UiVerticalLayout:
+	{UiVerticalLayout}
+	'mobileVerticalLayout'
+	('('
+	(i18nInfo=UiI18nInfo)?
+	')')?
+	name=ID?
+	'{'
+	(contents+=UiMobileVerticalLayoutAssigment)*
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}';
+
+UiMobileVerticalLayoutAssigment returns UiVerticalLayoutAssigment:
+	element=UiMobileEmbeddable ('align' alignment=UiAlignment)?;
 
 UiHorizontalLayout:
 	{UiHorizontalLayout}
 	'horizontalLayout'
+	('('
+	(i18nInfo=UiI18nInfo)?
+	')')?
 	name=ID?
 	'{'
 	(contents+=UiHorizontalLayoutAssigment)*
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
 	'}';
 
 UiHorizontalLayoutAssigment returns UiHorizontalLayoutAssigment:
-	element=UiEmbeddable;
+	element=UiEmbeddable ('align' alignment=UiAlignment)?;
+	
+UiMobileHorizontalLayout returns UiHorizontalLayout:
+	{UiHorizontalLayout}
+	'mobileHorizontalLayout'
+	('('
+	(i18nInfo=UiI18nInfo)?
+	')')?
+	name=ID?
+	'{'
+	(contents+=UiMobileHorizontalLayoutAssigment)*
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}';
+
+UiMobileHorizontalLayoutAssigment returns UiHorizontalLayoutAssigment:
+	element=UiMobileEmbeddable ('align' alignment=UiAlignment)?;
 
 UiMobileHorizontalButtonGroup returns UiHorizontalButtonGroup:
 	{UiHorizontalButtonGroup}
 	'horizontalButtonGroup'
+	('(' (i18nInfo=UiI18nInfo)? ')')?
 	name=ID?
 	'{'
 	(contents+=UiMobileHorizontalButtonGroupAssigment)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
 	'}';
 
 UiMobileHorizontalButtonGroupAssigment returns UiHorizontalButtonGroupAssigment:
-	element=UiEmbeddable;
-	
+	element=UiMobileEmbeddable;
+
 UiMobileVerticalComponentGroup returns UiVerticalComponentGroup:
 	{UiVerticalComponentGroup}
 	'verticalGroup'
+	('(' (i18nInfo=UiI18nInfo)? ')')?
 	name=ID?
 	'{'
 	(contents+=UiMobileVerticalComponentGroupAssigment)*
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
 	'}';
 
 UiMobileVerticalComponentGroupAssigment returns UiVerticalComponentGroupAssigment:
-	element=UiEmbeddable;
+	element=UiMobileEmbeddable;
+
+UiSearchPanel:
+	{UiSearchPanel}
+	'searchPanel'
+	('('
+	(i18nInfo=UiI18nInfo)?
+	')')?
+	name=ID?
+	'{'
+	'type' jvmType=JvmTypeReference (';')?
 	
-UiMobileTabSheet: 
+	(contents+=UiSearchField)*
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}';
+
+UiMobileTabSheet:
 	{UiMobileTabSheet}
 	'mobileTab'
+	('(' (i18nInfo=UiI18nInfo)? ')')?
 	name=ID?
 	'{'
 	(tabs+=UiMobileTabAssignment)*
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
 	'}';
 
 UiMobileTabAssignment:
-	'tab' (name=ID)? element=UiEmbeddable;
-	
-UiTabSheet: 
+	'tab' (name=ID)? element=UiMobileEmbeddable;
+
+UiTabSheet:
 	{UiTabSheet}
 	'tabsheet'
+	('(' (i18nInfo=UiI18nInfo)? ')')?
 	name=ID?
 	'{'
 	(tabs+=UiTabAssignment)*
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
 	'}';
 
 UiTabAssignment:
 	'tab' (name=ID)? element=UiEmbeddable;
 
-
-UiMobileNavigationPage: 
-	{UiMobileNavigationPage}
-	'navPage'
-	name=ID?
+UiSplitpanel:
+	'splitter' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID
 	'{'
-	(contents+=UiMobileNavigationPageAssignment)*
+	(('first' firstContent=UiSplitpanelAssigment)
+	& ('second' secondContent=UiSplitpanelAssigment)
+	& ('splitPos' splitPosition=INT)?)
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
 	'}';
 
-UiMobileNavigationPageAssignment: 
+UiSplitpanelAssigment:
 	element=UiEmbeddable;
+
+UiPanel:
+	'panel' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID
+	'{'
+	'content' content=UiEmbeddable
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}';
+
+UiDialog:
+	{UiDialog}
+	'dialog' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID? '{'
+	('type' jvmType=JvmTypeReference (';')?)?
+	(content=UiDialogAssignment (';')?)?
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}';
+
+UiDialogAssignment:
+	element=UiEmbeddable;
+
+UiSearchDialog:
+	{UiSearchDialog}
+	'searchdialog' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID? '{'
+	('type' jvmType=JvmTypeReference)?
+	('search' '{'
+	searchFields+=UiDialogSearchFieldAssignment*
+	'}')?
+	('content' '{'
+	content=UiDialogAssignment
+	'}')?
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}';
+
+UiDialogSearchFieldAssignment:
+	element=UiSearchField;
+
+UiMobileNavigationPage:
+	{UiMobileNavigationPage}
+	'navPage' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID? '{'
+	('type' jvmType=JvmTypeReference (';')?)?
+	(contents+=UiMobileNavigationPageAssignment)*
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}';
+
+UiMobileNavigationPageAssignment:
+	element=UiMobileEmbeddable;
 
 UiPoint returns UiPoint:
 	x=INT '/' y=INT;
 
 UiTextField returns UiTextField:
 	{UiTextField}
-	'textfield' name=ID?
+	'textfield'
+	('('
+	(('maxLength=' maxLength=INT)?
+	& ('minLength=' minLength=INT)?
+	& ('regex=' regex=STRING)?
+	& (i18nInfo=UiI18nInfo)?)
+	')')?
+	name=ID?
 	('{'
-	(validators+=UiValidator)*
-	//	(processorAssignment=UiVisibilityProcessorAssignment)?
+	(validators+=UiValidator
+	|
+	bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}')?;
+
+UiSearchField:
+	{UiSearchField}
+	'searchfield' property=UiNestedProperty;
+
+UiTextArea returns UiTextArea:
+	{UiTextArea}
+	'textarea' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID?
+	('{'
+	(validators+=UiValidator
+	|
+	bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}')?;
+
+UiDateField returns UiDateField:
+	{UiDateField}
+	'datefield'
+	('('
+	((dateFormat=UiDateFormat)?
+	& (resolution=UiDateTimeResolution)?
+	& (i18nInfo=UiI18nInfo)?)
+	')')?
+	name=ID?
+	('{'
+	(validators+=UiValidator
+	|
+	bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}')?;
+
+enum UiDateFormat:
+	DATE="date" | DATE_TIME="datetime" | TIME="time";
+
+enum UiDateTimeResolution:
+	UNDEFINED="undefined" | SECOND="second" | MINUTE="minute" | HOUR="hour" | DAY="day" | MONTH="month" | YEAR="year";
+
+UiBrowser returns UiBrowser:
+	{UiBrowser}
+	'browser' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID?
+	('{'
+	(validators+=UiValidator
+	|
+	bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}')?;
+
+UiProgressBar returns UiProgressBar:
+	{UiProgressBar}
+	'progressbar' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID?
+	('{'
+	(validators+=UiValidator
+	|
+	bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}')?;
+
+UiImage returns UiImage:
+	{UiImage}
+	'image' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID?
+	('{'
+	('iconPath' value=STRING (';')?)?
+	(bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
 	'}')?;
 
 UiList returns UiList:
 	{UiList}
-	'list' name=ID?;
+	'listSelect' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID?;
 
 UiTable returns UiTable:
 	{UiTable}
-	'table' name=ID?
+	'table' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID?
 	('{'
-	('type' jvmType=JvmTypeReference ';')?
-	('selectionType' selectionType=UiSelectionType)?
-	columnAssignment=UiColumnAssignments?
+	(('type' jvmType=JvmTypeReference (';')?)?
+	& ('selectionType' selectionType=UiSelectionType (';')?)?
+	& ('imageField' itemImageProperty=[JvmOperation] (';')?)?)
+	columnAssignment=UiColumnsAssignment?
+	(validators+=UiValidator
+	|
+	bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}')?;
+
+UiComboBox returns UiComboBox:
+	{UiComboBox}
+	'combo' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID?
+	('{'
+	(('type' jvmType=JvmTypeReference (';')?)?
+	& ('captionField' itemCaptionProperty=[JvmOperation] (';')?)?
+	& ('imageField' itemImageProperty=[JvmOperation] (';')?)?)
+	(validators+=UiValidator
+	|
+	bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
 	'}')?;
 
 UiButton:
 	{UiButton}
-	'button' name=ID?;
-	
-UiMobileNavigationButton: 
+	'button' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID?;
+
+UiMobileNavigationButton:
 	{UiMobileNavigationButton}
-	'navigate' name=ID? (targetPage=UiMobileNavigationPage | 'alias' targetPageAlias=[UiMobileNavigationPage]);
+	'navButton' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID? (targetPage=UiMobileNavigationPage | 'alias'
+	targetPageAlias=[UiMobileNavigationPage]);
 
 UiMobileSwitch returns UiSwitch:
 	{UiSwitch}
-	'switchIt' name=ID?
-; 	
+	'switchIt' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID? ('{'
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	(validators+=UiValidator
+	|
+	bindings+=UiBinding)*
+	'}')?;
 
-enum UiSelectionType:
+UiLabel:
+	{UiLabel}
+	'label' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID? ('{'
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	(bindings+=UiBinding)*
+	'}')?;
+
+UiDecimalField returns UiDecimalField:
+	{UiDecimalField}
+	'decimalField'
+	('('
+	((noGrouping?='noGrouping')?
+	& (noMarkNegative?='noMarkNegative')?
+	& ('precision=' precision=INT)?
+	& (i18nInfo=UiI18nInfo)?)
+	')')?
+	name=ID?
+	('{'
+	(validators+=UiValidator
+	|
+	bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}')?;
+
+UiOptionsGroup:
+	{UiOptionsGroup}
+	'optionsgroup' ('(' (i18nInfo=UiI18nInfo)? ')')?
+	name=ID?
+	('{'
+	(('type' jvmType=JvmTypeReference)?
+	& ('selectionType' selectionType=UiSelectionType)?
+	& ('captionField' itemCaptionProperty=[JvmOperation])?
+	& ('imageField' itemImageProperty=[JvmOperation])?)
+	(validators+=UiValidator
+	|
+	bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
+	'}')?;
+
+enum UiSelectionType returns UiSelectionType:
 	SINGLE='single' | MULTI='multi' | NONE='none';
 
-UiColumnAssignments:
-	{UiColumnAssignments}
+enum UiAlignment:
+	UNDEFINED="undefined"
+	| BOTTOM_CENTER="bottom-center" | BOTTOM_LEFT="bottom-left" | BOTTOM_RIGHT="bottom-right" | BOTTOM_FILL="bottom-fill"
+	| MIDDLE_CENTER="middle-center" | MIDDLE_LEFT="middle-left" | MIDDLE_RIGHT="middle-right" | MIDDLE_FILL="middle-fill"
+	| TOP_CENTER="top-center" | TOP_LEFT="top-left" | TOP_RIGHT="top-right" | TOP_FILL="top-fill"
+	| FILL_CENTER="fill-center" | FILL_LEFT="fill-left" | FILL_RIGHT="fill-right" | FILL_FILL="fill-fill";
+
+UiColumnsAssignment:
+	{UiColumnsAssignment}
 	'columns' '{'
 	columns+=UiColumn*
 	'}';
 
 UiColumn returns UiColumn:
 	{UiColumn}
-	'column' jvmField=[JvmField] ('icon' iconName=STRING)? ';';
+	'column' property=UiNestedProperty ('icon' iconName=STRING)? (';')?;
 
 UiEmbeddable:
-	UiLayout | UiField | UiAction | UiTabSheet | UiMobileEmbeddable;
+	UiLayout | UiField | UiAction | UiTabSheet;
 
 UiMobileEmbeddable:
 	UiMobileLayout | UiMobileField | UiMobileTabSheet | UiMobileAction;
 
 UiMobileLayout:
-	UiMobileHorizontalButtonGroup | UiMobileVerticalComponentGroup | UiMobileNavigationPage;
-	
+	UiMobileHorizontalButtonGroup | UiMobileVerticalComponentGroup | UiMobileNavigationPage | UiMobileHorizontalLayout | UiMobileVerticalLayout;
+
 UiMobileField:
-	UiMobileSwitch;
-	
+	UiMobileSwitch | UiTextField | UiNumericField | UiTable | UiComboBox | UiImage | UiSearchField | UiLabel |
+	UiDecimalField | UiTextArea | UiDateField | UiBrowser | UiProgressBar | UiOptionsGroup;
+
 UiLayout:
-	UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout;
+	UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout | UiSplitpanel | UiPanel | UiSearchPanel;
 
 UiField:
-	UiTextField | UiList | UiNumericField | UiCheckBox | UiTable;
-	
+	UiTextField | UiList | UiNumericField | UiCheckBox | UiTable | UiComboBox | UiImage | UiSearchField | UiLabel |
+	UiDecimalField |
+	UiTextArea | UiDateField | UiBrowser | UiProgressBar | UiOptionsGroup;
+
 UiAction:
 	UiButton;
-	
+
 UiMobileAction:
-	UiMobileNavigationButton
-;
+	UiMobileNavigationButton | UiButton;
 
 UiNumericField:
 	{UiNumericField}
-	'numericField' name=ID?
+	'numericField'
+	('('
+	((noGrouping?='noGrouping')?
+	& (noMarkNegative?='noMarkNegative')?
+	& (i18nInfo=UiI18nInfo)?)
+	')')?
+	name=ID?
 	('{'
-	(validators+=UiValidator)*
-	//	(processorAssignment=UiVisibilityProcessorAssignment)?
+	(validators+=UiValidator
+	|
+	bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
 	'}')?;
 
 UiCheckBox:
 	{UiCheckBox}
-	'checkbox' name=ID?
+	'checkbox' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID?
 	('{'
-	(validators+=UiValidator)*
-	//	(processorAssignment=UiVisibilityProcessorAssignment)?
+	(validators+=UiValidator
+	|
+	bindings+=UiBinding)*
+	(processorAssignments+=UiVisibilityProcessorAssignment)*
 	'}')?;
 
 UiValidator:
@@ -282,17 +618,40 @@ UiValidator:
 
 UiMaxLengthValidator returns UiMaxLengthValidator:
 	{UiMaxLengthValidator}
-	'MaxLengthValidator' (name=ID)? '(' maxLength=INT ')'?;
+	'MaxLengthValidator' (name=ID)? '(' maxLength=INT ')' (errorCode=UiErrorCode)?;
 
 UiMinLengthValidator returns UiMinLengthValidator:
 	{UiMinLengthValidator}
-	'MinLengthValidator' (name=ID)? '(' minLength=INT ')'?;
+	'MinLengthValidator' (name=ID)? '(' minLength=INT ')' (errorCode=UiErrorCode)?;
 
 UiRegexpValidator returns UiRegexpValidator:
 	{UiRegexpValidator}
-	'RegexValidator' (name=ID)? '(' regExpression=STRING ')'?;
+	'RegexValidator' (name=ID)? '(' regExpression=STRING ')' (errorCode=UiErrorCode)?;
 
 UiXbaseValidator returns UiXbaseValidator:
 	{UiXbaseValidator}
-	'Expression' name=ID? '(' jvmType=JvmTypeReference ')' expression=XBlockExpression?;	
+	'Expression' name=ID '(' jvmType=JvmTypeReference ')'
+	(errorCodes+=UiErrorCode*)
+	expression=XBlockExpression?;
+
+UiErrorCode:
+	'code' name=ID (defaultMessage=STRING)?;
+
+UiVisibilityProcessor:
+	{UiVisibilityProcessor}
+	'visibility' name=ID '{'
+	(dataUsed+=UiBindingEndpointAlias
+	|
+	changeTriggers+=UiChangeTrigger
+	|
+	importedElements+=UiTypedBindableRawTypeAlias)*
+	
+	(rule=UiXbaseVisibilityRule)?
+	'}';
+
+UiXbaseVisibilityRule:
+	expression=XBlockExpression;
+
+UiChangeTrigger:
+	'fireOn' endpoint=UiBindingEndpointAssignment 'as' alias=ID (';')?;
 

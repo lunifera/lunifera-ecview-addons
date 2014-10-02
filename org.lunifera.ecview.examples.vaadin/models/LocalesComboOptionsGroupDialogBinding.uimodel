@@ -1,0 +1,39 @@
+package org.lunifera.ecview.examples
+
+import org.lunifera.ecview.examples.*;
+
+ideview LocaleSample {
+
+	datasource ds : Locales
+	  
+	horizontalLayout {  		
+		table selector{
+			type LocaleBean
+			selectionType multi
+			
+			imageField iconName
+			columns{
+				column localeName
+			}
+			bind ds.locales --> [this].collection
+			
+		}
+		verticalLayout{
+			optionsgroup options{
+				type LocaleBean
+				selectionType single
+				 
+				imageField iconName
+				captionField localeName 
+			} 
+		}
+	}
+	bind list [LocaleSample.selector].multiSelection --> [LocaleSample.options].collection
+	bind [LocaleSample.options].selection --> openDialog dialog dialogue { 
+		type LocaleBean
+		
+			decimalField numberField
+		
+		bind [this].value.someDouble <--> [this.numberField].value
+	}
+}  

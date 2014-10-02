@@ -1,0 +1,22 @@
+package org.lunifera.ecview.examples
+
+import org.lunifera.ecview.examples.*;
+
+ideview LocaleSample {
+
+	datasource ds : String
+	  
+	form{
+		textfield input
+		checkbox dialogue
+	}
+
+	bind [LocaleSample.dialogue].value --> openDialog dialog dialogue { 
+	type String
+	form { 
+		textfield output
+	} 
+	bind [LocaleSample.input].value <--> [this.output].value
+	}
+}
+ 

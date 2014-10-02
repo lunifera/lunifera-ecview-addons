@@ -3,6 +3,7 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -11,11 +12,15 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.lunifera.ecview.semantic.uimodel.UiAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
+import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.semantic.uimodel.UiViewSet;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessable;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,8 +29,10 @@ import org.lunifera.ecview.semantic.uimodel.UiViewSet;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getProcessorAssignments <em>Processor Assignments</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getViewSet <em>View Set</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getContentAlignment <em>Content Alignment</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getValidatorAssignments <em>Validator Assignments</em>}</li>
  * </ul>
  * </p>
@@ -33,6 +40,15 @@ import org.lunifera.ecview.semantic.uimodel.UiViewSet;
  * @generated
  */
 public class UiViewImpl extends UiContextImpl implements UiView {
+	/**
+	 * The cached value of the '{@link #getProcessorAssignments() <em>Processor Assignments</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProcessorAssignments()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UiVisibilityProcessorAssignment> processorAssignments;
 	/**
 	 * The cached value of the '{@link #getViewSet() <em>View Set</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -51,6 +67,24 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	 * @ordered
 	 */
 	protected UiEmbeddable content;
+	/**
+	 * The default value of the '{@link #getContentAlignment() <em>Content Alignment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContentAlignment()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final UiAlignment CONTENT_ALIGNMENT_EDEFAULT = UiAlignment.UNDEFINED;
+	/**
+	 * The cached value of the '{@link #getContentAlignment() <em>Content Alignment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContentAlignment()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiAlignment contentAlignment = CONTENT_ALIGNMENT_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getValidatorAssignments() <em>Validator Assignments</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -77,6 +111,18 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	@Override
 	protected EClass eStaticClass() {
 		return UiModelPackage.Literals.UI_VIEW;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<UiVisibilityProcessorAssignment> getProcessorAssignments() {
+		if (processorAssignments == null) {
+			processorAssignments = new EObjectContainmentEList.Resolving<UiVisibilityProcessorAssignment>(UiVisibilityProcessorAssignment.class, this, UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS);
+		}
+		return processorAssignments;
 	}
 
 	/**
@@ -188,6 +234,27 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiAlignment getContentAlignment() {
+		return contentAlignment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContentAlignment(UiAlignment newContentAlignment) {
+		UiAlignment oldContentAlignment = contentAlignment;
+		contentAlignment = newContentAlignment == null ? CONTENT_ALIGNMENT_EDEFAULT : newContentAlignment;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_VIEW__CONTENT_ALIGNMENT, oldContentAlignment, contentAlignment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<UiValidatorAssignment> getValidatorAssignments() {
 		if (validatorAssignments == null) {
 			validatorAssignments = new EObjectContainmentEList.Resolving<UiValidatorAssignment>(UiValidatorAssignment.class, this, UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS);
@@ -203,6 +270,8 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS:
+				return ((InternalEList<?>)getProcessorAssignments()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_VIEW__CONTENT:
 				return basicSetContent(null, msgs);
 			case UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS:
@@ -219,12 +288,16 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS:
+				return getProcessorAssignments();
 			case UiModelPackage.UI_VIEW__VIEW_SET:
 				if (resolve) return getViewSet();
 				return basicGetViewSet();
 			case UiModelPackage.UI_VIEW__CONTENT:
 				if (resolve) return getContent();
 				return basicGetContent();
+			case UiModelPackage.UI_VIEW__CONTENT_ALIGNMENT:
+				return getContentAlignment();
 			case UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS:
 				return getValidatorAssignments();
 		}
@@ -240,11 +313,18 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS:
+				getProcessorAssignments().clear();
+				getProcessorAssignments().addAll((Collection<? extends UiVisibilityProcessorAssignment>)newValue);
+				return;
 			case UiModelPackage.UI_VIEW__VIEW_SET:
 				setViewSet((UiViewSet)newValue);
 				return;
 			case UiModelPackage.UI_VIEW__CONTENT:
 				setContent((UiEmbeddable)newValue);
+				return;
+			case UiModelPackage.UI_VIEW__CONTENT_ALIGNMENT:
+				setContentAlignment((UiAlignment)newValue);
 				return;
 			case UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS:
 				getValidatorAssignments().clear();
@@ -262,11 +342,17 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS:
+				getProcessorAssignments().clear();
+				return;
 			case UiModelPackage.UI_VIEW__VIEW_SET:
 				setViewSet((UiViewSet)null);
 				return;
 			case UiModelPackage.UI_VIEW__CONTENT:
 				setContent((UiEmbeddable)null);
+				return;
+			case UiModelPackage.UI_VIEW__CONTENT_ALIGNMENT:
+				setContentAlignment(CONTENT_ALIGNMENT_EDEFAULT);
 				return;
 			case UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS:
 				getValidatorAssignments().clear();
@@ -283,14 +369,76 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS:
+				return processorAssignments != null && !processorAssignments.isEmpty();
 			case UiModelPackage.UI_VIEW__VIEW_SET:
 				return viewSet != null;
 			case UiModelPackage.UI_VIEW__CONTENT:
 				return content != null;
+			case UiModelPackage.UI_VIEW__CONTENT_ALIGNMENT:
+				return contentAlignment != CONTENT_ALIGNMENT_EDEFAULT;
 			case UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS:
 				return validatorAssignments != null && !validatorAssignments.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == UiVisibilityProcessable.class) {
+			switch (derivedFeatureID) {
+				case UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS: return UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == UiRawBindable.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == UiVisibilityProcessable.class) {
+			switch (baseFeatureID) {
+				case UiModelPackage.UI_VISIBILITY_PROCESSABLE__PROCESSOR_ASSIGNMENTS: return UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == UiRawBindable.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (contentAlignment: ");
+		result.append(contentAlignment);
+		result.append(')');
+		return result.toString();
 	}
 
 } //UiViewImpl

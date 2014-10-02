@@ -4,6 +4,8 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
+import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
+
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiRegexpValidator}.
@@ -15,4 +17,6 @@ public interface UiRegexpValidatorValidator {
 	boolean validate();
 
 	boolean validateRegExpression(String value);
+
+	boolean validateErrorCode(UiErrorCode value);
 }

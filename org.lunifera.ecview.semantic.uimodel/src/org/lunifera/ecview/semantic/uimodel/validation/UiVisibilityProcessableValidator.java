@@ -4,6 +4,7 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
+import org.eclipse.emf.common.util.EList;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
 
 /**
@@ -14,6 +15,8 @@ import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
  */
 public interface UiVisibilityProcessableValidator {
 	boolean validate();
+
+	boolean validateProcessorAssignments(EList<UiVisibilityProcessorAssignment> value);
 
 	boolean validateProcessorAssignment(UiVisibilityProcessorAssignment value);
 }

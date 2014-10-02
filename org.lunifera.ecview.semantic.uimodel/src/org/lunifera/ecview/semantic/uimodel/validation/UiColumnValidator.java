@@ -4,9 +4,10 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
-import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmOperation;
 
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
+import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiColumn}.
@@ -17,7 +18,7 @@ import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
 public interface UiColumnValidator {
 	boolean validate();
 
-	boolean validateJvmField(JvmField value);
+	boolean validateGetter(JvmOperation value);
 	boolean validateIconName(String value);
 	boolean validateVisible(boolean value);
 	boolean validateOrderable(boolean value);
@@ -25,4 +26,6 @@ public interface UiColumnValidator {
 	boolean validateCollapsible(boolean value);
 	boolean validateAlignment(UiFlatAlignment value);
 	boolean validateExpandRatio(float value);
+
+	boolean validateProperty(UiNestedProperty value);
 }

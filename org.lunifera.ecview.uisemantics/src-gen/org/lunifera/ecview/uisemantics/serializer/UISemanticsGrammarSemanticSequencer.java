@@ -60,14 +60,14 @@ import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableBindings;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableValidatorProperties;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions;
+import org.lunifera.ecview.semantic.uisemantics.UxBindingableOption;
 import org.lunifera.ecview.semantic.uisemantics.UxEPackageImport;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxElementURI;
 import org.lunifera.ecview.semantic.uisemantics.UxImportSectionDeclaration;
 import org.lunifera.ecview.semantic.uisemantics.UxModel;
 import org.lunifera.ecview.semantic.uisemantics.UxValidatorProperty;
-import org.lunifera.ecview.semantic.uisemantics.UxValueBindingEndpointDef;
-import org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption;
+import org.lunifera.ecview.semantic.uisemantics.UxVisibleableOption;
 import org.lunifera.ecview.uisemantics.services.UISemanticsGrammarGrammarAccess;
 
 @SuppressWarnings("all")
@@ -154,6 +154,12 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 					return; 
 				}
 				else break;
+			case UiSemanticsPackage.UX_BINDINGABLE_OPTION:
+				if(context == grammarAccess.getUxBindingableOptionRule()) {
+					sequence_UxBindingableOption(context, (UxBindingableOption) semanticObject); 
+					return; 
+				}
+				else break;
 			case UiSemanticsPackage.UX_EPACKAGE_IMPORT:
 				if(context == grammarAccess.getUxEPackageImportRule()) {
 					sequence_UxEPackageImport(context, (UxEPackageImport) semanticObject); 
@@ -190,16 +196,9 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 					return; 
 				}
 				else break;
-			case UiSemanticsPackage.UX_VALUE_BINDING_ENDPOINT_DEF:
-				if(context == grammarAccess.getUxEndpointDefRule() ||
-				   context == grammarAccess.getUxValueBindingEndpointDefRule()) {
-					sequence_UxValueBindingEndpointDef(context, (UxValueBindingEndpointDef) semanticObject); 
-					return; 
-				}
-				else break;
-			case UiSemanticsPackage.UX_VISIBILITY_OPTION:
-				if(context == grammarAccess.getUxVisibilityOptionRule()) {
-					sequence_UxVisibilityOption(context, (UxVisibilityOption) semanticObject); 
+			case UiSemanticsPackage.UX_VISIBLEABLE_OPTION:
+				if(context == grammarAccess.getUxVisibleableOptionRule()) {
+					sequence_UxVisibleableOption(context, (UxVisibleableOption) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1237,7 +1236,7 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (bindings+=UxEndpointDef*)
+	 *     (bindings+=UxBindingableOption*)
 	 */
 	protected void sequence_UxAvailableBindings(EObject context, UxAvailableBindings semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1255,9 +1254,18 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (options+=UxVisibilityOption*)
+	 *     (bindings+=UxVisibleableOption*)
 	 */
 	protected void sequence_UxAvailableVisibilityOptions(EObject context, UxAvailableVisibilityOptions semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (final?='final'? listbinding?='list'? name=ID jvmType=JvmTypeReference targetName=ID?)
+	 */
+	protected void sequence_UxBindingableOption(EObject context, UxBindingableOption semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1342,29 +1350,10 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (final?='final'? listbinding?='list'? name=ID jvmType=JvmTypeReference)
-	 */
-	protected void sequence_UxValueBindingEndpointDef(EObject context, UxValueBindingEndpointDef semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (name=ID jvmType=JvmTypeReference)
 	 */
-	protected void sequence_UxVisibilityOption(EObject context, UxVisibilityOption semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, UiSemanticsPackage.Literals.UX_VISIBILITY_OPTION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiSemanticsPackage.Literals.UX_VISIBILITY_OPTION__NAME));
-			if(transientValues.isValueTransient(semanticObject, UiSemanticsPackage.Literals.UX_VISIBILITY_OPTION__JVM_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiSemanticsPackage.Literals.UX_VISIBILITY_OPTION__JVM_TYPE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getUxVisibilityOptionAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getUxVisibilityOptionAccess().getJvmTypeJvmTypeReferenceParserRuleCall_2_0(), semanticObject.getJvmType());
-		feeder.finish();
+	protected void sequence_UxVisibleableOption(EObject context, UxVisibleableOption semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

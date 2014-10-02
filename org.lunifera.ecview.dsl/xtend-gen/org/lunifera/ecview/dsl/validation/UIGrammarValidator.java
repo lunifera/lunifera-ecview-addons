@@ -3,7 +3,17 @@
  */
 package org.lunifera.ecview.dsl.validation;
 
+import com.google.inject.Inject;
+import org.eclipse.xtext.common.types.JvmType;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.naming.QualifiedName;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Extension;
+import org.lunifera.ecview.dsl.derivedstate.TypeHelper;
 import org.lunifera.ecview.dsl.validation.AbstractUIGrammarValidator;
+import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
+import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
+import org.lunifera.ecview.semantic.uimodel.UiSearchField;
 
 /**
  * Custom validation rules.
@@ -12,4 +22,48 @@ import org.lunifera.ecview.dsl.validation.AbstractUIGrammarValidator;
  */
 @SuppressWarnings("all")
 public class UIGrammarValidator extends AbstractUIGrammarValidator {
+  @Inject
+  @Extension
+  private TypeHelper _typeHelper;
+  
+  @Inject
+  @Extension
+  private IQualifiedNameProvider _iQualifiedNameProvider;
+  
+  @Check
+  public Object checkSearchField(final UiSearchField field) {
+    Object _xblockexpression = null;
+    {
+      UiNestedProperty _property = field.getProperty();
+      final JvmType type = _property.getTypeofLastSegment();
+      Object _xifexpression = null;
+      boolean _isNumber = this._typeHelper.isNumber(type);
+      if (_isNumber) {
+        _xifexpression = null;
+      } else {
+        Object _xifexpression_1 = null;
+        boolean _isString = this._typeHelper.isString(type);
+        if (_isString) {
+          _xifexpression_1 = null;
+        } else {
+          Object _xifexpression_2 = null;
+          boolean _isBoolean = this._typeHelper.isBoolean(type);
+          if (_isBoolean) {
+            _xifexpression_2 = null;
+          } else {
+            QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(type);
+            String _string = _fullyQualifiedName.toString();
+            String _plus = ("Searchfields for type " + _string);
+            String _plus_1 = (_plus + " are not supported in this version");
+            this.error(_plus_1, field, 
+              UiModelPackage.Literals.UI_SEARCH_FIELD__PROPERTY);
+          }
+          _xifexpression_1 = _xifexpression_2;
+        }
+        _xifexpression = _xifexpression_1;
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
 }

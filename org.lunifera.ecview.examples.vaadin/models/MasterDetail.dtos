@@ -1,0 +1,53 @@
+package org.lunifera.ecview.examples {
+	
+	dto Source{
+		ref Master[*] dataList opposite container;
+		
+		def void ecviewInitialize() {
+			val m1 = new Master();
+			val d1 = new Detail();
+			
+			m1.firstName = "Max"
+			m1.lastName = "Muster"
+			d1.streetAddress = "Musterweg 1"
+			d1.zipCode = 12345
+			d1.city = "Musterhausen"
+			d1.dateOfBirth = "01.01.1970"
+			d1.emailAddress = "max@muster.net"
+			m1.detail = d1
+		
+			internalAddToDataList(m1)
+		  
+		  	val m2 = new Master();
+			val d2 = new Detail();
+			m2.firstName = "John"
+			m2.lastName = "Doe"
+			d2.streetAddress = "Nullpointer Ave."
+			d2.zipCode = 9923
+			d2.city = "Springfield"
+			d2.dateOfBirth = "12.04.1986"
+			d2.emailAddress = "jd@abc.com"
+			m2.detail = d2
+			
+			internalAddToDataList(m2)
+		}
+	}
+	 
+	dto Master {
+		ref Source container opposite dataList;
+		
+		var String firstName;
+		var String lastName;
+		var Detail detail;
+	}
+	
+	dto Detail {
+		var String streetAddress;
+		var int zipCode;
+		var String city;
+		var String dateOfBirth;
+		var String emailAddress;
+		
+	}
+
+} 

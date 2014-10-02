@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout#getContents <em>Contents</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout#getColumns <em>Columns</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,5 +37,31 @@ public interface UiGridLayout extends UiLayout {
 	 * @generated
 	 */
 	EList<UiGridLayoutAssigment> getContents();
+
+	/**
+	 * Returns the value of the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Columns</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Columns</em>' attribute.
+	 * @see #setColumns(int)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiGridLayout_Columns()
+	 * @model
+	 * @generated
+	 */
+	int getColumns();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiGridLayout#getColumns <em>Columns</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Columns</em>' attribute.
+	 * @see #getColumns()
+	 * @generated
+	 */
+	void setColumns(int value);
 
 } // UiGridLayout

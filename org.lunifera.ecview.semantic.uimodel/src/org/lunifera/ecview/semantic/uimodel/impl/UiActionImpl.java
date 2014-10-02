@@ -2,13 +2,20 @@
  */
 package org.lunifera.ecview.semantic.uimodel.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.lunifera.ecview.semantic.uimodel.UiAction;
+import org.lunifera.ecview.semantic.uimodel.UiBinding;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
@@ -22,6 +29,8 @@ import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiActionImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiActionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiActionImpl#getI18nInfo <em>I1 8n Info</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiActionImpl#getBindings <em>Bindings</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,6 +76,26 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getI18nInfo() <em>I1 8n Info</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getI18nInfo()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiI18nInfo i18nInfo;
+
+	/**
+	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBindings()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UiBinding> bindings;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,6 +163,100 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<UiBinding> getBindings() {
+		if (bindings == null) {
+			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_ACTION__BINDINGS);
+		}
+		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiI18nInfo getI18nInfo() {
+		if (i18nInfo != null && i18nInfo.eIsProxy()) {
+			InternalEObject oldI18nInfo = (InternalEObject)i18nInfo;
+			i18nInfo = (UiI18nInfo)eResolveProxy(oldI18nInfo);
+			if (i18nInfo != oldI18nInfo) {
+				InternalEObject newI18nInfo = (InternalEObject)i18nInfo;
+				NotificationChain msgs = oldI18nInfo.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_ACTION__I18N_INFO, null, null);
+				if (newI18nInfo.eInternalContainer() == null) {
+					msgs = newI18nInfo.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_ACTION__I18N_INFO, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_ACTION__I18N_INFO, oldI18nInfo, i18nInfo));
+			}
+		}
+		return i18nInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiI18nInfo basicGetI18nInfo() {
+		return i18nInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetI18nInfo(UiI18nInfo newI18nInfo, NotificationChain msgs) {
+		UiI18nInfo oldI18nInfo = i18nInfo;
+		i18nInfo = newI18nInfo;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_ACTION__I18N_INFO, oldI18nInfo, newI18nInfo);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setI18nInfo(UiI18nInfo newI18nInfo) {
+		if (newI18nInfo != i18nInfo) {
+			NotificationChain msgs = null;
+			if (i18nInfo != null)
+				msgs = ((InternalEObject)i18nInfo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_ACTION__I18N_INFO, null, msgs);
+			if (newI18nInfo != null)
+				msgs = ((InternalEObject)newI18nInfo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_ACTION__I18N_INFO, null, msgs);
+			msgs = basicSetI18nInfo(newI18nInfo, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_ACTION__I18N_INFO, newI18nInfo, newI18nInfo));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case UiModelPackage.UI_ACTION__I18N_INFO:
+				return basicSetI18nInfo(null, msgs);
+			case UiModelPackage.UI_ACTION__BINDINGS:
+				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -141,6 +264,11 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 				return getId();
 			case UiModelPackage.UI_ACTION__NAME:
 				return getName();
+			case UiModelPackage.UI_ACTION__I18N_INFO:
+				if (resolve) return getI18nInfo();
+				return basicGetI18nInfo();
+			case UiModelPackage.UI_ACTION__BINDINGS:
+				return getBindings();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -150,6 +278,7 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -158,6 +287,13 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 				return;
 			case UiModelPackage.UI_ACTION__NAME:
 				setName((String)newValue);
+				return;
+			case UiModelPackage.UI_ACTION__I18N_INFO:
+				setI18nInfo((UiI18nInfo)newValue);
+				return;
+			case UiModelPackage.UI_ACTION__BINDINGS:
+				getBindings().clear();
+				getBindings().addAll((Collection<? extends UiBinding>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -177,6 +313,12 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 			case UiModelPackage.UI_ACTION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case UiModelPackage.UI_ACTION__I18N_INFO:
+				setI18nInfo((UiI18nInfo)null);
+				return;
+			case UiModelPackage.UI_ACTION__BINDINGS:
+				getBindings().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -193,6 +335,10 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case UiModelPackage.UI_ACTION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiModelPackage.UI_ACTION__I18N_INFO:
+				return i18nInfo != null;
+			case UiModelPackage.UI_ACTION__BINDINGS:
+				return bindings != null && !bindings.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -213,6 +359,12 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 		}
 		if (baseClass == UiRawBindable.class) {
 			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiI18nInfoable.class) {
+			switch (derivedFeatureID) {
+				case UiModelPackage.UI_ACTION__I18N_INFO: return UiModelPackage.UI_I1_8N_INFOABLE__I18N_INFO;
 				default: return -1;
 			}
 		}
@@ -238,6 +390,12 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 				default: return -1;
 			}
 		}
+		if (baseClass == UiI18nInfoable.class) {
+			switch (baseFeatureID) {
+				case UiModelPackage.UI_I1_8N_INFOABLE__I18N_INFO: return UiModelPackage.UI_ACTION__I18N_INFO;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -258,5 +416,5 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 		result.append(')');
 		return result.toString();
 	}
-
+	
 } //UiActionImpl

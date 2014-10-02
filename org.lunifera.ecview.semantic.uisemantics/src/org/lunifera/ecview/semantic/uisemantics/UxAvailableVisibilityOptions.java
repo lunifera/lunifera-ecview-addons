@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions#getOptions <em>Options</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions#getBindings <em>Bindings</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,19 +24,19 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface UxAvailableVisibilityOptions extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Options</b></em>' containment reference list.
-	 * The list contents are of type {@link org.lunifera.ecview.semantic.uisemantics.UxVisibilityOption}.
+	 * Returns the value of the '<em><b>Bindings</b></em>' containment reference list.
+	 * The list contents are of type {@link org.lunifera.ecview.semantic.uisemantics.UxVisibleableOption}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Options</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Bindings</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Options</em>' containment reference list.
-	 * @see org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage#getUxAvailableVisibilityOptions_Options()
+	 * @return the value of the '<em>Bindings</em>' containment reference list.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage#getUxAvailableVisibilityOptions_Bindings()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<UxVisibilityOption> getOptions();
+	EList<UxVisibleableOption> getBindings();
 
 } // UxAvailableVisibilityOptions

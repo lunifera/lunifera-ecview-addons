@@ -16,20 +16,15 @@
 	<parent>
 		<groupId>org.lunifera.ecview</groupId>
 		<artifactId>org.lunifera.ecview.parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.7.4</version>
 		<relativePath>../org.lunifera.ecview.parent/pom.xml</relativePath>
 	</parent>
 
 	<artifactId>org.lunifera.ecview.feature.runtime</artifactId>
 	<packaging>eclipse-feature</packaging>
-	<name>Lunifera ECView addons</name>
-	<description>This features feature contains a &quot;OSGi Runtime Xtext Builder&quot;. 
-
-It allows builder participants to join the build. Participants are responsible to initialize supported Xtext grammars by invoking the standalone setup,
-by providing model files and by exposing their own service for model access. 
-
-There is also a way to extend class loading. The OSGi runtime builder uses a BundleSpaceTypeProvider and delegates every class loading request to the registered bundles. BundleSpace-Bundles can become registered by the IMetadataService or by adding a bunde manifest header called: &quot;Lun-RuntimeBuilder-BundleSpace&quot;. If a bundle contains that manifest header it will be automatically added to the BundleSpace.
-Bundles that provide models for the builder will be added to the BundleSpace automatically too.</description>
+	<name>Lunifera ECView addons - runtime features</name>
+	<description>This feature contains all bundles that are required to use the ECView addons grammar with the runtime builder in standalone mode.
+</description>
 	
 	<build>
 		<plugins>

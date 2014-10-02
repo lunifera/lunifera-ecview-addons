@@ -3,7 +3,7 @@
 package org.lunifera.ecview.semantic.uimodel;
 
 import org.eclipse.emf.ecore.EFactory;
-
+ 
 /**
  * <!-- begin-user-doc -->
  * The <b>Factory</b> for the model.
@@ -56,6 +56,24 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiView createUiView();
+
+	/**
+	 * Returns a new object of class '<em>Ui Dialog</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Dialog</em>'.
+	 * @generated
+	 */
+	UiDialog createUiDialog();
+
+	/**
+	 * Returns a new object of class '<em>Ui Dialog Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Dialog Assignment</em>'.
+	 * @generated
+	 */
+	UiDialogAssignment createUiDialogAssignment();
 
 	/**
 	 * Returns a new object of class '<em>Ui IDE View</em>'.
@@ -121,6 +139,24 @@ public interface UiModelFactory extends EFactory {
 	UiPathSegment createUiPathSegment();
 
 	/**
+	 * Returns a new object of class '<em>Ui Nested Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Nested Property</em>'.
+	 * @generated
+	 */
+	UiNestedProperty createUiNestedProperty();
+
+	/**
+	 * Returns a new object of class '<em>Ui Raw Bindable Path Segment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Raw Bindable Path Segment</em>'.
+	 * @generated
+	 */
+	UiRawBindablePathSegment createUiRawBindablePathSegment();
+
+	/**
 	 * Returns a new object of class '<em>Ui Bean Slot</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,6 +218,33 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiTypedBindableDef createUiTypedBindableDef();
+
+	/**
+	 * Returns a new object of class '<em>Ui Typed Bindable Raw Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Typed Bindable Raw Type</em>'.
+	 * @generated
+	 */
+	UiTypedBindableRawType createUiTypedBindableRawType();
+
+	/**
+	 * Returns a new object of class '<em>Ui Typed Bindable Raw Type Alias</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Typed Bindable Raw Type Alias</em>'.
+	 * @generated
+	 */
+	UiTypedBindableRawTypeAlias createUiTypedBindableRawTypeAlias();
+
+	/**
+	 * Returns a new object of class '<em>Ui Command Bindable Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Command Bindable Def</em>'.
+	 * @generated
+	 */
+	UiCommandBindableDef createUiCommandBindableDef();
 
 	/**
 	 * Returns a new object of class '<em>Ui Grid Layout Assigment</em>'.
@@ -256,6 +319,15 @@ public interface UiModelFactory extends EFactory {
 	UiFormLayout createUiFormLayout();
 
 	/**
+	 * Returns a new object of class '<em>Ui Search Panel</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Search Panel</em>'.
+	 * @generated
+	 */
+	UiSearchPanel createUiSearchPanel();
+
+	/**
 	 * Returns a new object of class '<em>Ui Text Field</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -263,6 +335,15 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiTextField createUiTextField();
+
+	/**
+	 * Returns a new object of class '<em>Ui Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Image</em>'.
+	 * @generated
+	 */
+	UiImage createUiImage();
 
 	/**
 	 * Returns a new object of class '<em>Ui List</em>'.
@@ -283,6 +364,15 @@ public interface UiModelFactory extends EFactory {
 	UiTable createUiTable();
 
 	/**
+	 * Returns a new object of class '<em>Ui Combo Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Combo Box</em>'.
+	 * @generated
+	 */
+	UiComboBox createUiComboBox();
+
+	/**
 	 * Returns a new object of class '<em>Ui Column</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -292,13 +382,13 @@ public interface UiModelFactory extends EFactory {
 	UiColumn createUiColumn();
 
 	/**
-	 * Returns a new object of class '<em>Ui Column Assignments</em>'.
+	 * Returns a new object of class '<em>Ui Columns Assignment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui Column Assignments</em>'.
+	 * @return a new object of class '<em>Ui Columns Assignment</em>'.
 	 * @generated
 	 */
-	UiColumnAssignments createUiColumnAssignments();
+	UiColumnsAssignment createUiColumnsAssignment();
 
 	/**
 	 * Returns a new object of class '<em>Ui Numeric Field</em>'.
@@ -364,24 +454,6 @@ public interface UiModelFactory extends EFactory {
 	UiXbaseVisibilityRule createUiXbaseVisibilityRule();
 
 	/**
-	 * Returns a new object of class '<em>Ui Visibility Properties</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui Visibility Properties</em>'.
-	 * @generated
-	 */
-	UiVisibilityProperties createUiVisibilityProperties();
-
-	/**
-	 * Returns a new object of class '<em>Ui Visibility Properties Def</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ui Visibility Properties Def</em>'.
-	 * @generated
-	 */
-	UiVisibilityPropertiesDef createUiVisibilityPropertiesDef();
-
-	/**
 	 * Returns a new object of class '<em>Ui Visibility Properties Assignment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -389,6 +461,15 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiVisibilityPropertiesAssignment createUiVisibilityPropertiesAssignment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Visibility Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Visibility Property</em>'.
+	 * @generated
+	 */
+	UiVisibilityProperty createUiVisibilityProperty();
 
 	/**
 	 * Returns a new object of class '<em>Ui Validator Alias</em>'.
@@ -551,6 +632,168 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiMobileNavigationButton createUiMobileNavigationButton();
+
+	/**
+	 * Returns a new object of class '<em>Ui Mobile Navigation Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Mobile Navigation Command</em>'.
+	 * @generated
+	 */
+	UiMobileNavigationCommand createUiMobileNavigationCommand();
+
+	/**
+	 * Returns a new object of class '<em>Ui Open Dialog Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Open Dialog Command</em>'.
+	 * @generated
+	 */
+	UiOpenDialogCommand createUiOpenDialogCommand();
+
+	/**
+	 * Returns a new object of class '<em>Ui Search Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Search Field</em>'.
+	 * @generated
+	 */
+	UiSearchField createUiSearchField();
+
+	/**
+	 * Returns a new object of class '<em>Ui Search Dialog</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Search Dialog</em>'.
+	 * @generated
+	 */
+	UiSearchDialog createUiSearchDialog();
+
+	/**
+	 * Returns a new object of class '<em>Ui Dialog Search Field Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Dialog Search Field Assignment</em>'.
+	 * @generated
+	 */
+	UiDialogSearchFieldAssignment createUiDialogSearchFieldAssignment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Search With Dialog Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Search With Dialog Command</em>'.
+	 * @generated
+	 */
+	UiSearchWithDialogCommand createUiSearchWithDialogCommand();
+
+	/**
+	 * Returns a new object of class '<em>Ui Label</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Label</em>'.
+	 * @generated
+	 */
+	UiLabel createUiLabel();
+
+	/**
+	 * Returns a new object of class '<em>Ui Decimal Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Decimal Field</em>'.
+	 * @generated
+	 */
+	UiDecimalField createUiDecimalField();
+
+	/**
+	 * Returns a new object of class '<em>Ui Text Area</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Text Area</em>'.
+	 * @generated
+	 */
+	UiTextArea createUiTextArea();
+
+	/**
+	 * Returns a new object of class '<em>Ui Options Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Options Group</em>'.
+	 * @generated
+	 */
+	UiOptionsGroup createUiOptionsGroup();
+
+	/**
+	 * Returns a new object of class '<em>Ui Date Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Date Field</em>'.
+	 * @generated
+	 */
+	UiDateField createUiDateField();
+
+	/**
+	 * Returns a new object of class '<em>Ui Browser</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Browser</em>'.
+	 * @generated
+	 */
+	UiBrowser createUiBrowser();
+
+	/**
+	 * Returns a new object of class '<em>Ui Progress Bar</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Progress Bar</em>'.
+	 * @generated
+	 */
+	UiProgressBar createUiProgressBar();
+
+	/**
+	 * Returns a new object of class '<em>Ui I1 8n Info</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui I1 8n Info</em>'.
+	 * @generated
+	 */
+	UiI18nInfo createUiI18nInfo();
+
+	/**
+	 * Returns a new object of class '<em>Ui Splitpanel Assigment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Splitpanel Assigment</em>'.
+	 * @generated
+	 */
+	UiSplitpanelAssigment createUiSplitpanelAssigment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Splitpanel</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Splitpanel</em>'.
+	 * @generated
+	 */
+	UiSplitpanel createUiSplitpanel();
+
+	/**
+	 * Returns a new object of class '<em>Ui Panel</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Panel</em>'.
+	 * @generated
+	 */
+	UiPanel createUiPanel();
+
+	/**
+	 * Returns a new object of class '<em>Ui Error Code</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Error Code</em>'.
+	 * @generated
+	 */
+	UiErrorCode createUiErrorCode();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -14,33 +14,33 @@ var encoding = "UTF-8"
 Workflow {
 	bean = StandaloneSetup {
 		uriMap = {
-			from = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel"
+			from = "platform:/resource/org.lunifera.ecview.core.common.model/model/core.genmodel"
 			to =
-				"file://Users/admin/git/org.eclipse.emf.ecp.other/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel"
+			"file:///Users/admin/git/lunifera-ecview/org.lunifera.ecview.core.parent/org.lunifera.ecview.core.common.model/model/core.genmodel"
 		}
 		uriMap = {
 			from = "platform:/plugin/"
 			to = "platform:/resource/"
 		}
 		uriMap = {
-			from = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/"
+			from = "platform:/resource/org.lunifera.ecview.core.common.model/"
 			to =
-			"file://Users/admin/git/org.eclipse.emf.ecp.other/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.common.model/"
+			"file:///Users/admin/git/lunifera-ecview/org.lunifera.ecview.core.parent/org.lunifera.ecview.core.common.model/"
 		}
 		uriMap = {
-			from = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/"
+			from = "platform:/resource/org.lunifera.ecview.core.extension.model/"
 			to =
-			"file://Users/admin/git/org.eclipse.emf.ecp.other/org.eclipse.emf.ecp.ecview.parent/org.eclipse.emf.ecp.ecview.extension.model/"
+			"file:///Users/admin/git/lunifera-ecview/org.lunifera.ecview.core.parent/org.lunifera.ecview.core.extension.model/"
 		}
 		uriMap = {
 			from = "platform:/resource/org.lunifera.ecview.semantic.uisemantics/"
-			to = "file://Users/admin/git/lunifera-ecview-addons/org.lunifera.ecview.semantic.uisemantics/"
+			to = "file:///Users/admin/git/lunifera-ecview-addons/org.lunifera.ecview.semantic.uisemantics/"
 		}
 		uriMap = {
 			from = "platform:/resource/org.lunifera.ecview.semantic.uimodel/"
-			to = "file://Users/admin/git/lunifera-ecview-addons/org.lunifera.ecview.semantic.uimodel/"
+			to = "file:///Users/admin/git/lunifera-ecview-addons/org.lunifera.ecview.semantic.uimodel/"
 		}
-//		resourceSet = org.eclipse.xtext.resource.XtextResourceSet : theResourceSet {}
+		//		resourceSet = org.eclipse.xtext.resource.XtextResourceSet : theResourceSet {}
 		scanClassPath = true
 		platformUri = "${runtimeProject}/.."
 		registerGeneratedEPackage = "org.eclipse.xtext.xbase.XbasePackage"
@@ -48,21 +48,18 @@ Workflow {
 		registerGenModelFile = "platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel"
 		registerEcoreFile = "platform:/resource/org.eclipse.xtext.xbase/model/Xtype.ecore"
 		registerEcoreFile = "platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore"
-		
-		registerGenModelFile ="platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarCore.genmodel"
-		
-///*
+		registerGenModelFile = "platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarCore.genmodel"///*
 //		 * ECView 
 //		 */
-//		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage"
-//		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage"
-//		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage"
-//		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage"
-//		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage"
-//		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage"
-//		registerGeneratedEPackage = "org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage"
-//		registerGenModelFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel"
-//		registerGenModelFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.genmodel"//
+//		registerGeneratedEPackage = "org.lunifera.ecview.core.common.model.datatypes.DatatypesPackage"
+//		registerGeneratedEPackage = "org.lunifera.ecview.core.common.model.core.CoreModelPackage"
+//		registerGeneratedEPackage = "org.lunifera.ecview.core.common.model.binding.BindingPackage"
+//		registerGeneratedEPackage = "org.lunifera.ecview.core.common.model.validation.ValidationPackage"
+//		registerGeneratedEPackage = "org.lunifera.ecview.core.common.model.visibility.VisibilityPackage"
+//		registerGeneratedEPackage = "org.lunifera.ecview.core.extension.model.datatypes.ExtDatatypesPackage"
+//		registerGeneratedEPackage = "org.lunifera.ecview.core.extension.model.extension.ExtensionModelPackage"
+//		registerGenModelFile = "platform:/resource/org.lunifera.ecview.core.common.model/model/core.genmodel"
+//		registerGenModelFile = "platform:/resource/org.lunifera.ecview.core.extension.model/model/extension.genmodel"//
 /*
 		 * UiModelPackages 
 		 */
@@ -71,13 +68,13 @@ Workflow {
 		"platform:/resource/org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.genmodel"
 		registerGeneratedEPackage = "org.lunifera.ecview.semantic.uimodel.UiModelPackage"
 		registerGenModelFile = "platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarCore.genmodel"//
-//		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/binding.ecore"
-//		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/core.ecore"
-//		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore"
-//		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore"
-//		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.common.model/model/visibility.ecore"
-//		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extdatatypes.ecore"
-//		registerEcoreFile = "platform:/resource/org.eclipse.emf.ecp.ecview.extension.model/model/extension.ecore"
+//		registerEcoreFile = "platform:/resource/org.lunifera.ecview.core.common.model/model/binding.ecore"
+//		registerEcoreFile = "platform:/resource/org.lunifera.ecview.core.common.model/model/core.ecore"
+//		registerEcoreFile = "platform:/resource/org.lunifera.ecview.core.common.model/model/datatypes.ecore"
+//		registerEcoreFile = "platform:/resource/org.lunifera.ecview.core.common.model/model/validation.ecore"
+//		registerEcoreFile = "platform:/resource/org.lunifera.ecview.core.common.model/model/visibility.ecore"
+//		registerEcoreFile = "platform:/resource/org.lunifera.ecview.core.extension.model/model/extdatatypes.ecore"
+//		registerEcoreFile = "platform:/resource/org.lunifera.ecview.core.extension.model/model/extension.ecore"
 //		registerEcoreFile = "platform:/resource/org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore"
 //		registerEcoreFile = "platform:/resource/org.lunifera.ecview.semantic.uimodel/model/UIGrammarCore.ecore"
 	}
@@ -106,10 +103,9 @@ Workflow {
 		projectNameUi = "${projectName}.ui"
 		encoding = encoding
 		language = auto-inject {
-//			forcedResourceSet = theResourceSet
+		//			forcedResourceSet = theResourceSet
 			uri = grammarURI
-
-			fragment = ecore.EcoreGeneratorFragment auto-inject{}
+			fragment = ecore.EcoreGeneratorFragment auto-inject {}
 
 			// Java API to access grammar elements (required by several other fragments)
 			fragment = grammarAccess.GrammarAccessFragment auto-inject {}
@@ -130,9 +126,12 @@ Workflow {
 
 			// The antlr parser generator fragment.
 			fragment = parser.antlr.XtextAntlrGeneratorFragment auto-inject {
-			//  options = {
-			//      backtrack = true
-			//  }
+				options = {
+				//      backtrack = true
+					classSplitting = true
+//					fieldsPerClass = "80"
+//					methodsPerClass = "80"
+				}
 			}
 
 			// Xtend-based API for validation
@@ -154,7 +153,10 @@ Workflow {
 			fragment = generator.GeneratorFragment auto-inject {}
 
 			// formatter API
-			fragment = formatting.FormatterFragment auto-inject {}
+			fragment = formatting.FormatterFragment auto-inject {
+				generateStub=true
+				generateXtendStub=false
+			}
 
 			// labeling API
 			fragment = labeling.LabelProviderFragment auto-inject {}
@@ -170,7 +172,13 @@ Workflow {
 			fragment = contentAssist.ContentAssistFragment auto-inject {}
 
 			// generates a more lightweight Antlr parser and lexer tailored for content assist
-			fragment = parser.antlr.XtextAntlrUiGeneratorFragment auto-inject {}
+			fragment = parser.antlr.XtextAntlrUiGeneratorFragment auto-inject {
+				options = {
+					classSplitting = true
+//					fieldsPerClass = "80"
+//					methodsPerClass = "80"
+				}
+			}
 
 			// generates junit test support classes into Generator#pathTestProject
 			fragment = junit.Junit4Fragment auto-inject {}

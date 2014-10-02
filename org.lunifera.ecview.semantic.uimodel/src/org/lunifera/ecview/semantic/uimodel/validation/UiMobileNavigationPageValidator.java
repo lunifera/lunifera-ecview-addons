@@ -5,8 +5,8 @@
 package org.lunifera.ecview.semantic.uimodel.validation;
 
 import org.eclipse.emf.common.util.EList;
-import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment;
 
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage}.
@@ -18,5 +18,4 @@ public interface UiMobileNavigationPageValidator {
 	boolean validate();
 
 	boolean validateContents(EList<UiMobileNavigationPageAssignment> value);
-
 }

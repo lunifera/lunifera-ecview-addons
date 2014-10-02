@@ -2,7 +2,6 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment#getElement <em>Element</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment#getAlignment <em>Alignment</em>}</li>
  * </ul>
  * </p>
  *
@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface UiHorizontalLayoutAssigment extends EObject {
+public interface UiHorizontalLayoutAssigment extends UiLayoutAssignment {
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -46,5 +46,35 @@ public interface UiHorizontalLayoutAssigment extends EObject {
 	 * @generated
 	 */
 	void setElement(UiEmbeddable value);
+
+	/**
+	 * Returns the value of the '<em><b>Alignment</b></em>' attribute.
+	 * The default value is <code>"UNDEFINED"</code>.
+	 * The literals are from the enumeration {@link org.lunifera.ecview.semantic.uimodel.UiAlignment}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Alignment</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Alignment</em>' attribute.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiAlignment
+	 * @see #setAlignment(UiAlignment)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiHorizontalLayoutAssigment_Alignment()
+	 * @model default="UNDEFINED"
+	 * @generated
+	 */
+	UiAlignment getAlignment();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment#getAlignment <em>Alignment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Alignment</em>' attribute.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiAlignment
+	 * @see #getAlignment()
+	 * @generated
+	 */
+	void setAlignment(UiAlignment value);
 
 } // UiHorizontalLayoutAssigment

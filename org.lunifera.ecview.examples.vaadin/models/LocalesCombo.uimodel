@@ -1,0 +1,29 @@
+package org.lunifera.ecview.examples
+
+import org.lunifera.ecview.examples.*;
+
+ideview LocaleSample {
+
+	datasource ds : Locales
+	  
+	tabsheet {
+		tab localesTab form {  
+			combo locales {
+				type LocaleBean;
+
+				captionField localeName
+				imageField iconName
+			  
+				bind ds.locales --> [this].collection
+				bind [LocaleSample.locales].selection.localeName --> [LocaleSample.detail.localeName].value
+				bind [LocaleSample.locales].selection.iconName --> [LocaleSample.detail.flag].value
+			}  
+		}
+		tab binding form {
+			form detail {
+				textfield localeName
+				image flag
+			}
+		} 
+	}
+}  
