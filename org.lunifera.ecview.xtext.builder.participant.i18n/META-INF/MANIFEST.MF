@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.lunifera.ecview.xtext.builder.participant.i18n
 Bundle-Vendor: Lunifera.org
-Bundle-Version: 0.7.4
+Bundle-Version: 0.7.5.qualifier
 Bundle-SymbolicName: org.lunifera.ecview.xtext.builder.participant.i18n
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: com.google.guava;bundle-version="15.0.0",

@@ -24,7 +24,7 @@
 	<groupId>org.lunifera.ecview</groupId>
 	<artifactId>org.lunifera.ecview.parent</artifactId>
 	<packaging>pom</packaging>
-	<version>0.7.4</version>
+	<version>0.7.5-SNAPSHOT</version>
 
 	<url>${distribution.site.url}</url>
 	<distributionManagement>
