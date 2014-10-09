@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-Version: 0.7.3.qualifier
+Bundle-Version: 0.7.5.qualifier
 Bundle-ClassPath: .
 Bundle-SymbolicName: org.lunifera.ecview.uisemantics;singleton:=true
 Bundle-ActivationPolicy: lazy

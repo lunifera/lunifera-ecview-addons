@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ECView DSL Vaadin preview
 Bundle-SymbolicName: org.lunifera.ecview.vaadin.ide.preview;singleton:=true
-Bundle-Version: 0.7.3.qualifier
+Bundle-Version: 0.7.5.qualifier
 Bundle-Activator: org.lunifera.ecview.vaadin.ide.preview.Activator
 Bundle-Vendor: Lunifera.com
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.10.0",
