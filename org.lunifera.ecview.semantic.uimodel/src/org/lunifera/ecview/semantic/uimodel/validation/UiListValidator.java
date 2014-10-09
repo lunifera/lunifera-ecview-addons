@@ -19,4 +19,6 @@ public interface UiListValidator {
 
 	boolean validateSelectionType(UiSelectionType value);
 	boolean validateItemImageProperty(JvmOperation value);
+
+	boolean validateItemCaptionProperty(JvmOperation value);
 }

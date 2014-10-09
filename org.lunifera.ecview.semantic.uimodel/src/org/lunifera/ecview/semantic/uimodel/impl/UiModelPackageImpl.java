@@ -12,6 +12,7 @@ import org.eclipse.xtext.common.types.TypesPackage;
 import org.eclipse.xtext.xbase.XbasePackage;
 import org.lunifera.ecview.semantic.uimodel.UiAction;
 import org.lunifera.ecview.semantic.uimodel.UiAlignment;
+import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
@@ -447,6 +448,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiSearchPanelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiBeanReferenceFieldEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1646,6 +1654,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUiEmbeddable_Readonly() {
+		return (EAttribute)uiEmbeddableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiEmbeddable_Invisible() {
+		return (EAttribute)uiEmbeddableEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiField() {
 		return uiFieldEClass;
 	}
@@ -1943,6 +1969,42 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiBeanReferenceField() {
+		return uiBeanReferenceFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiBeanReferenceField_CaptionProperty() {
+		return (EReference)uiBeanReferenceFieldEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiBeanReferenceField_ImageProperty() {
+		return (EReference)uiBeanReferenceFieldEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiBeanReferenceField_InMemoryBeanProvider() {
+		return (EReference)uiBeanReferenceFieldEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiTextField() {
 		return uiTextFieldEClass;
 	}
@@ -2017,6 +2079,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiList_ItemImageProperty() {
 		return (EReference)uiListEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiList_ItemCaptionProperty() {
+		return (EReference)uiListEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3498,6 +3569,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiEmbeddableEClass = createEClass(UI_EMBEDDABLE);
 		createEReference(uiEmbeddableEClass, UI_EMBEDDABLE__BINDINGS);
+		createEAttribute(uiEmbeddableEClass, UI_EMBEDDABLE__READONLY);
+		createEAttribute(uiEmbeddableEClass, UI_EMBEDDABLE__INVISIBLE);
 
 		uiFieldEClass = createEClass(UI_FIELD);
 		createEReference(uiFieldEClass, UI_FIELD__VALIDATORS);
@@ -3549,6 +3622,11 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiSearchPanelEClass = createEClass(UI_SEARCH_PANEL);
 		createEReference(uiSearchPanelEClass, UI_SEARCH_PANEL__CONTENTS);
 
+		uiBeanReferenceFieldEClass = createEClass(UI_BEAN_REFERENCE_FIELD);
+		createEReference(uiBeanReferenceFieldEClass, UI_BEAN_REFERENCE_FIELD__CAPTION_PROPERTY);
+		createEReference(uiBeanReferenceFieldEClass, UI_BEAN_REFERENCE_FIELD__IMAGE_PROPERTY);
+		createEReference(uiBeanReferenceFieldEClass, UI_BEAN_REFERENCE_FIELD__IN_MEMORY_BEAN_PROVIDER);
+
 		uiTextFieldEClass = createEClass(UI_TEXT_FIELD);
 		createEAttribute(uiTextFieldEClass, UI_TEXT_FIELD__MAX_LENGTH);
 		createEAttribute(uiTextFieldEClass, UI_TEXT_FIELD__MIN_LENGTH);
@@ -3560,6 +3638,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiListEClass = createEClass(UI_LIST);
 		createEAttribute(uiListEClass, UI_LIST__SELECTION_TYPE);
 		createEReference(uiListEClass, UI_LIST__ITEM_IMAGE_PROPERTY);
+		createEReference(uiListEClass, UI_LIST__ITEM_CAPTION_PROPERTY);
 
 		uiTableEClass = createEClass(UI_TABLE);
 		createEReference(uiTableEClass, UI_TABLE__COLUMN_ASSIGNMENT);
@@ -3861,6 +3940,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiFormLayoutEClass.getESuperTypes().add(this.getUiLayout());
 		uiSearchPanelEClass.getESuperTypes().add(this.getUiLayout());
 		uiSearchPanelEClass.getESuperTypes().add(this.getUiTypeProvider());
+		uiBeanReferenceFieldEClass.getESuperTypes().add(this.getUiField());
+		uiBeanReferenceFieldEClass.getESuperTypes().add(this.getUiMobileField());
+		uiBeanReferenceFieldEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiTextFieldEClass.getESuperTypes().add(this.getUiField());
 		uiTextFieldEClass.getESuperTypes().add(this.getUiMobileField());
 		uiImageEClass.getESuperTypes().add(this.getUiField());
@@ -4042,6 +4124,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiEmbeddableEClass, UiEmbeddable.class, "UiEmbeddable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiEmbeddable_Bindings(), this.getUiBinding(), null, "bindings", null, 0, -1, UiEmbeddable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiEmbeddable_Readonly(), ecorePackage.getEBoolean(), "readonly", null, 0, 1, UiEmbeddable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiEmbeddable_Invisible(), ecorePackage.getEBoolean(), "invisible", null, 0, 1, UiEmbeddable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiFieldEClass, UiField.class, "UiField", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiField_Validators(), this.getUiValidator(), null, "validators", null, 0, -1, UiField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4093,6 +4177,11 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiSearchPanelEClass, UiSearchPanel.class, "UiSearchPanel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiSearchPanel_Contents(), this.getUiSearchField(), null, "contents", null, 0, -1, UiSearchPanel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(uiBeanReferenceFieldEClass, UiBeanReferenceField.class, "UiBeanReferenceField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiBeanReferenceField_CaptionProperty(), this.getUiNestedProperty(), null, "captionProperty", null, 0, 1, UiBeanReferenceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiBeanReferenceField_ImageProperty(), this.getUiNestedProperty(), null, "imageProperty", null, 0, 1, UiBeanReferenceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiBeanReferenceField_InMemoryBeanProvider(), theTypesPackage.getJvmTypeReference(), null, "inMemoryBeanProvider", null, 0, 1, UiBeanReferenceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(uiTextFieldEClass, UiTextField.class, "UiTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiTextField_MaxLength(), ecorePackage.getEInt(), "maxLength", "-1", 0, 1, UiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiTextField_MinLength(), ecorePackage.getEInt(), "minLength", "-1", 0, 1, UiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4104,6 +4193,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiListEClass, UiList.class, "UiList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiList_SelectionType(), this.getUiSelectionType(), "selectionType", "SINGLE", 1, 1, UiList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiList_ItemImageProperty(), theTypesPackage.getJvmOperation(), null, "itemImageProperty", null, 0, 1, UiList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiList_ItemCaptionProperty(), theTypesPackage.getJvmOperation(), null, "itemCaptionProperty", null, 0, 1, UiList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiTableEClass, UiTable.class, "UiTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiTable_ColumnAssignment(), this.getUiColumnsAssignment(), null, "columnAssignment", null, 0, 1, UiTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -31,6 +31,8 @@ import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl#isReadonly <em>Readonly</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl#isInvisible <em>Invisible</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl#getContents <em>Contents</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiGridLayoutImpl#getColumns <em>Columns</em>}</li>
  * </ul>
@@ -93,6 +95,42 @@ public class UiGridLayoutImpl extends UiVisibilityProcessableImpl implements UiG
 	 * @ordered
 	 */
 	protected EList<UiBinding> bindings;
+	/**
+	 * The default value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean READONLY_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean readonly = READONLY_EDEFAULT;
+	/**
+	 * The default value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INVISIBLE_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean invisible = INVISIBLE_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getContents() <em>Contents</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -192,6 +230,48 @@ public class UiGridLayoutImpl extends UiVisibilityProcessableImpl implements UiG
 			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_GRID_LAYOUT__BINDINGS);
 		}
 		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isReadonly() {
+		return readonly;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReadonly(boolean newReadonly) {
+		boolean oldReadonly = readonly;
+		readonly = newReadonly;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_GRID_LAYOUT__READONLY, oldReadonly, readonly));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isInvisible() {
+		return invisible;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInvisible(boolean newInvisible) {
+		boolean oldInvisible = invisible;
+		invisible = newInvisible;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_GRID_LAYOUT__INVISIBLE, oldInvisible, invisible));
 	}
 
 	/**
@@ -328,6 +408,10 @@ public class UiGridLayoutImpl extends UiVisibilityProcessableImpl implements UiG
 				return basicGetI18nInfo();
 			case UiModelPackage.UI_GRID_LAYOUT__BINDINGS:
 				return getBindings();
+			case UiModelPackage.UI_GRID_LAYOUT__READONLY:
+				return isReadonly();
+			case UiModelPackage.UI_GRID_LAYOUT__INVISIBLE:
+				return isInvisible();
 			case UiModelPackage.UI_GRID_LAYOUT__CONTENTS:
 				return getContents();
 			case UiModelPackage.UI_GRID_LAYOUT__COLUMNS:
@@ -357,6 +441,12 @@ public class UiGridLayoutImpl extends UiVisibilityProcessableImpl implements UiG
 			case UiModelPackage.UI_GRID_LAYOUT__BINDINGS:
 				getBindings().clear();
 				getBindings().addAll((Collection<? extends UiBinding>)newValue);
+				return;
+			case UiModelPackage.UI_GRID_LAYOUT__READONLY:
+				setReadonly((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_GRID_LAYOUT__INVISIBLE:
+				setInvisible((Boolean)newValue);
 				return;
 			case UiModelPackage.UI_GRID_LAYOUT__CONTENTS:
 				getContents().clear();
@@ -389,6 +479,12 @@ public class UiGridLayoutImpl extends UiVisibilityProcessableImpl implements UiG
 			case UiModelPackage.UI_GRID_LAYOUT__BINDINGS:
 				getBindings().clear();
 				return;
+			case UiModelPackage.UI_GRID_LAYOUT__READONLY:
+				setReadonly(READONLY_EDEFAULT);
+				return;
+			case UiModelPackage.UI_GRID_LAYOUT__INVISIBLE:
+				setInvisible(INVISIBLE_EDEFAULT);
+				return;
 			case UiModelPackage.UI_GRID_LAYOUT__CONTENTS:
 				getContents().clear();
 				return;
@@ -415,6 +511,10 @@ public class UiGridLayoutImpl extends UiVisibilityProcessableImpl implements UiG
 				return i18nInfo != null;
 			case UiModelPackage.UI_GRID_LAYOUT__BINDINGS:
 				return bindings != null && !bindings.isEmpty();
+			case UiModelPackage.UI_GRID_LAYOUT__READONLY:
+				return readonly != READONLY_EDEFAULT;
+			case UiModelPackage.UI_GRID_LAYOUT__INVISIBLE:
+				return invisible != INVISIBLE_EDEFAULT;
 			case UiModelPackage.UI_GRID_LAYOUT__CONTENTS:
 				return contents != null && !contents.isEmpty();
 			case UiModelPackage.UI_GRID_LAYOUT__COLUMNS:
@@ -493,6 +593,10 @@ public class UiGridLayoutImpl extends UiVisibilityProcessableImpl implements UiG
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", readonly: ");
+		result.append(readonly);
+		result.append(", invisible: ");
+		result.append(invisible);
 		result.append(", columns: ");
 		result.append(columns);
 		result.append(')');

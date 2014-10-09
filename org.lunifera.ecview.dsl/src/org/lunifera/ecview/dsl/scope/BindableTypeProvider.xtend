@@ -55,7 +55,16 @@ class BindableTypeProvider {
 
 	def dispatch JvmTypeReference doGetTypeReference(UiBindingEndpointAlias alias) {
 		val UiBindingEndpointAssignment aliasEP = alias.getEndpoint() as UiBindingEndpointAssignment;
-		return aliasEP.getPath().getTypeReferenceOfLastSegment();
+		
+		if(aliasEP.path != null){
+			return aliasEP.getPath().getTypeReferenceOfLastSegment()	
+		}else{
+			if(aliasEP.typedBindableDef != null){
+				return aliasEP.typedBindableDef.doGetTypeReference
+			}else{
+				return aliasEP.typedBindableAlias.doGetTypeReference
+			}
+		}
 	}
 
 	def dispatch JvmTypeReference doGetTypeReference(UiBindingEndpointAssignment epDef) {

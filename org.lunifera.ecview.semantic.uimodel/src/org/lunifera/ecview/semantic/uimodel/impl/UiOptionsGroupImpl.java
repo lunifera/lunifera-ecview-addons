@@ -37,6 +37,8 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#isReadonly <em>Readonly</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#isInvisible <em>Invisible</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#getValidators <em>Validators</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#getJvmType <em>Jvm Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#getSelectionType <em>Selection Type</em>}</li>
@@ -107,6 +109,46 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 	 * @ordered
 	 */
 	protected EList<UiBinding> bindings;
+
+	/**
+	 * The default value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean READONLY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean readonly = READONLY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INVISIBLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean invisible = INVISIBLE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' containment reference list.
@@ -239,6 +281,48 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_OPTIONS_GROUP__BINDINGS);
 		}
 		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isReadonly() {
+		return readonly;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReadonly(boolean newReadonly) {
+		boolean oldReadonly = readonly;
+		readonly = newReadonly;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_OPTIONS_GROUP__READONLY, oldReadonly, readonly));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isInvisible() {
+		return invisible;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInvisible(boolean newInvisible) {
+		boolean oldInvisible = invisible;
+		invisible = newInvisible;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_OPTIONS_GROUP__INVISIBLE, oldInvisible, invisible));
 	}
 
 	/**
@@ -519,6 +603,10 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 				return basicGetI18nInfo();
 			case UiModelPackage.UI_OPTIONS_GROUP__BINDINGS:
 				return getBindings();
+			case UiModelPackage.UI_OPTIONS_GROUP__READONLY:
+				return isReadonly();
+			case UiModelPackage.UI_OPTIONS_GROUP__INVISIBLE:
+				return isInvisible();
 			case UiModelPackage.UI_OPTIONS_GROUP__VALIDATORS:
 				return getValidators();
 			case UiModelPackage.UI_OPTIONS_GROUP__JVM_TYPE:
@@ -557,6 +645,12 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 			case UiModelPackage.UI_OPTIONS_GROUP__BINDINGS:
 				getBindings().clear();
 				getBindings().addAll((Collection<? extends UiBinding>)newValue);
+				return;
+			case UiModelPackage.UI_OPTIONS_GROUP__READONLY:
+				setReadonly((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_OPTIONS_GROUP__INVISIBLE:
+				setInvisible((Boolean)newValue);
 				return;
 			case UiModelPackage.UI_OPTIONS_GROUP__VALIDATORS:
 				getValidators().clear();
@@ -598,6 +692,12 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 			case UiModelPackage.UI_OPTIONS_GROUP__BINDINGS:
 				getBindings().clear();
 				return;
+			case UiModelPackage.UI_OPTIONS_GROUP__READONLY:
+				setReadonly(READONLY_EDEFAULT);
+				return;
+			case UiModelPackage.UI_OPTIONS_GROUP__INVISIBLE:
+				setInvisible(INVISIBLE_EDEFAULT);
+				return;
 			case UiModelPackage.UI_OPTIONS_GROUP__VALIDATORS:
 				getValidators().clear();
 				return;
@@ -633,6 +733,10 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 				return i18nInfo != null;
 			case UiModelPackage.UI_OPTIONS_GROUP__BINDINGS:
 				return bindings != null && !bindings.isEmpty();
+			case UiModelPackage.UI_OPTIONS_GROUP__READONLY:
+				return readonly != READONLY_EDEFAULT;
+			case UiModelPackage.UI_OPTIONS_GROUP__INVISIBLE:
+				return invisible != INVISIBLE_EDEFAULT;
 			case UiModelPackage.UI_OPTIONS_GROUP__VALIDATORS:
 				return validators != null && !validators.isEmpty();
 			case UiModelPackage.UI_OPTIONS_GROUP__JVM_TYPE:
@@ -749,6 +853,10 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", readonly: ");
+		result.append(readonly);
+		result.append(", invisible: ");
+		result.append(invisible);
 		result.append(", selectionType: ");
 		result.append(selectionType);
 		result.append(')');

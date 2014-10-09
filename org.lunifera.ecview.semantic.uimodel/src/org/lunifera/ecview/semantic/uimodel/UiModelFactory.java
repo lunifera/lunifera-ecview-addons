@@ -328,6 +328,15 @@ public interface UiModelFactory extends EFactory {
 	UiSearchPanel createUiSearchPanel();
 
 	/**
+	 * Returns a new object of class '<em>Ui Bean Reference Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Bean Reference Field</em>'.
+	 * @generated
+	 */
+	UiBeanReferenceField createUiBeanReferenceField();
+
+	/**
 	 * Returns a new object of class '<em>Ui Text Field</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

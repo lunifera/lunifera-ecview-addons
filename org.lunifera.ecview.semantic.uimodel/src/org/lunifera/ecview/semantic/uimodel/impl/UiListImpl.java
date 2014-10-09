@@ -35,10 +35,13 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#isReadonly <em>Readonly</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#isInvisible <em>Invisible</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getValidators <em>Validators</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getJvmType <em>Jvm Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getSelectionType <em>Selection Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getItemImageProperty <em>Item Image Property</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiListImpl#getItemCaptionProperty <em>Item Caption Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,6 +104,42 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 	 */
 	protected EList<UiBinding> bindings;
 	/**
+	 * The default value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean READONLY_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean readonly = READONLY_EDEFAULT;
+	/**
+	 * The default value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INVISIBLE_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean invisible = INVISIBLE_EDEFAULT;
+	/**
 	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,6 +187,16 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 	 * @ordered
 	 */
 	protected JvmOperation itemImageProperty;
+
+	/**
+	 * The cached value of the '{@link #getItemCaptionProperty() <em>Item Caption Property</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItemCaptionProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected JvmOperation itemCaptionProperty;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -220,6 +269,48 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_LIST__BINDINGS);
 		}
 		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isReadonly() {
+		return readonly;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReadonly(boolean newReadonly) {
+		boolean oldReadonly = readonly;
+		readonly = newReadonly;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_LIST__READONLY, oldReadonly, readonly));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isInvisible() {
+		return invisible;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInvisible(boolean newInvisible) {
+		boolean oldInvisible = invisible;
+		invisible = newInvisible;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_LIST__INVISIBLE, oldInvisible, invisible));
 	}
 
 	/**
@@ -430,6 +521,44 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public JvmOperation getItemCaptionProperty() {
+		if (itemCaptionProperty != null && itemCaptionProperty.eIsProxy()) {
+			InternalEObject oldItemCaptionProperty = (InternalEObject)itemCaptionProperty;
+			itemCaptionProperty = (JvmOperation)eResolveProxy(oldItemCaptionProperty);
+			if (itemCaptionProperty != oldItemCaptionProperty) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_LIST__ITEM_CAPTION_PROPERTY, oldItemCaptionProperty, itemCaptionProperty));
+			}
+		}
+		return itemCaptionProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JvmOperation basicGetItemCaptionProperty() {
+		return itemCaptionProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setItemCaptionProperty(JvmOperation newItemCaptionProperty) {
+		JvmOperation oldItemCaptionProperty = itemCaptionProperty;
+		itemCaptionProperty = newItemCaptionProperty;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_LIST__ITEM_CAPTION_PROPERTY, oldItemCaptionProperty, itemCaptionProperty));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -462,6 +591,10 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 				return basicGetI18nInfo();
 			case UiModelPackage.UI_LIST__BINDINGS:
 				return getBindings();
+			case UiModelPackage.UI_LIST__READONLY:
+				return isReadonly();
+			case UiModelPackage.UI_LIST__INVISIBLE:
+				return isInvisible();
 			case UiModelPackage.UI_LIST__VALIDATORS:
 				return getValidators();
 			case UiModelPackage.UI_LIST__JVM_TYPE:
@@ -472,6 +605,9 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 			case UiModelPackage.UI_LIST__ITEM_IMAGE_PROPERTY:
 				if (resolve) return getItemImageProperty();
 				return basicGetItemImageProperty();
+			case UiModelPackage.UI_LIST__ITEM_CAPTION_PROPERTY:
+				if (resolve) return getItemCaptionProperty();
+				return basicGetItemCaptionProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -498,6 +634,12 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 				getBindings().clear();
 				getBindings().addAll((Collection<? extends UiBinding>)newValue);
 				return;
+			case UiModelPackage.UI_LIST__READONLY:
+				setReadonly((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_LIST__INVISIBLE:
+				setInvisible((Boolean)newValue);
+				return;
 			case UiModelPackage.UI_LIST__VALIDATORS:
 				getValidators().clear();
 				getValidators().addAll((Collection<? extends UiValidator>)newValue);
@@ -510,6 +652,9 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 				return;
 			case UiModelPackage.UI_LIST__ITEM_IMAGE_PROPERTY:
 				setItemImageProperty((JvmOperation)newValue);
+				return;
+			case UiModelPackage.UI_LIST__ITEM_CAPTION_PROPERTY:
+				setItemCaptionProperty((JvmOperation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -535,6 +680,12 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 			case UiModelPackage.UI_LIST__BINDINGS:
 				getBindings().clear();
 				return;
+			case UiModelPackage.UI_LIST__READONLY:
+				setReadonly(READONLY_EDEFAULT);
+				return;
+			case UiModelPackage.UI_LIST__INVISIBLE:
+				setInvisible(INVISIBLE_EDEFAULT);
+				return;
 			case UiModelPackage.UI_LIST__VALIDATORS:
 				getValidators().clear();
 				return;
@@ -546,6 +697,9 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 				return;
 			case UiModelPackage.UI_LIST__ITEM_IMAGE_PROPERTY:
 				setItemImageProperty((JvmOperation)null);
+				return;
+			case UiModelPackage.UI_LIST__ITEM_CAPTION_PROPERTY:
+				setItemCaptionProperty((JvmOperation)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -567,6 +721,10 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 				return i18nInfo != null;
 			case UiModelPackage.UI_LIST__BINDINGS:
 				return bindings != null && !bindings.isEmpty();
+			case UiModelPackage.UI_LIST__READONLY:
+				return readonly != READONLY_EDEFAULT;
+			case UiModelPackage.UI_LIST__INVISIBLE:
+				return invisible != INVISIBLE_EDEFAULT;
 			case UiModelPackage.UI_LIST__VALIDATORS:
 				return validators != null && !validators.isEmpty();
 			case UiModelPackage.UI_LIST__JVM_TYPE:
@@ -575,6 +733,8 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 				return selectionType != SELECTION_TYPE_EDEFAULT;
 			case UiModelPackage.UI_LIST__ITEM_IMAGE_PROPERTY:
 				return itemImageProperty != null;
+			case UiModelPackage.UI_LIST__ITEM_CAPTION_PROPERTY:
+				return itemCaptionProperty != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -661,6 +821,10 @@ public class UiListImpl extends UiVisibilityProcessableImpl implements UiList {
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", readonly: ");
+		result.append(readonly);
+		result.append(", invisible: ");
+		result.append(invisible);
 		result.append(", selectionType: ");
 		result.append(selectionType);
 		result.append(')');

@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.lunifera.ecview.core.common.model.core.YView;
-import org.lunifera.ecview.dsl.derivedstate.UiModelUtil;
+import org.lunifera.ecview.dsl.derivedstate.UiModelGrammarUtil;
 import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.vaadin.ide.preview.Activator;
 import org.lunifera.ecview.vaadin.ide.preview.web.EcviewMobilePreviewUI;
@@ -51,7 +51,7 @@ public class MobilePreviewHandler {
 	 * @return
 	 */
 	public synchronized UiView getActiveViewFromGrammar() {
-		return (UiView) UiModelUtil.getUiGrammarElement(yView);
+		return (UiView) UiModelGrammarUtil.getUiGrammarElement(yView);
 	}
 
 	public synchronized void setActiveViewFromXtextEditor(YView yView) {

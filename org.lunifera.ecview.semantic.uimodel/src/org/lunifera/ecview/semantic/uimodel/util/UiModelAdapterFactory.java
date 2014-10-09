@@ -245,6 +245,10 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiSearchPanelAdapter();
 			}
 			@Override
+			public Adapter caseUiBeanReferenceField(UiBeanReferenceField object) {
+				return createUiBeanReferenceFieldAdapter();
+			}
+			@Override
 			public Adapter caseUiTextField(UiTextField object) {
 				return createUiTextFieldAdapter();
 			}
@@ -1135,6 +1139,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiSearchPanelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField <em>Ui Bean Reference Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField
+	 * @generated
+	 */
+	public Adapter createUiBeanReferenceFieldAdapter() {
 		return null;
 	}
 

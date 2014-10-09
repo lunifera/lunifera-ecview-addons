@@ -121,7 +121,21 @@ public class BindableTypeProvider {
     UiBindingExpression _endpoint = alias.getEndpoint();
     final UiBindingEndpointAssignment aliasEP = ((UiBindingEndpointAssignment) _endpoint);
     UiPathSegment _path = aliasEP.getPath();
-    return _path.getTypeReferenceOfLastSegment();
+    boolean _notEquals = (!Objects.equal(_path, null));
+    if (_notEquals) {
+      UiPathSegment _path_1 = aliasEP.getPath();
+      return _path_1.getTypeReferenceOfLastSegment();
+    } else {
+      UiBindingExpression _typedBindableDef = aliasEP.getTypedBindableDef();
+      boolean _notEquals_1 = (!Objects.equal(_typedBindableDef, null));
+      if (_notEquals_1) {
+        UiBindingExpression _typedBindableDef_1 = aliasEP.getTypedBindableDef();
+        return this.doGetTypeReference(_typedBindableDef_1);
+      } else {
+        UiTypedBindable _typedBindableAlias = aliasEP.getTypedBindableAlias();
+        return this.doGetTypeReference(_typedBindableAlias);
+      }
+    }
   }
   
   protected JvmTypeReference _doGetTypeReference(final UiBindingEndpointAssignment epDef) {

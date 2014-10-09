@@ -8,10 +8,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawType;
+import org.lunifera.ecview.semantic.uimodel.util.UiModelUtil;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -360,20 +362,35 @@ public class UiTypedBindableRawTypeImpl extends MinimalEObjectImpl.Container
 	@Override
 	public String toPathString() {
 		String result = "";
-		UiRawBindablePathSegment child = getRawBindablePath();
-		if (child != null) {
-			result = child.toPathString();
-			if (result != null) {
-				result = getRawBindable().getName() + "." + result;
-			} else {
-				result = getRawBindable().getName();
-			}
+		UiRawBindable lastBindable = getLastBindableInPath();
+		if (lastBindable instanceof UiEmbeddable) {
+			return UiModelUtil.getPathId((UiEmbeddable) lastBindable);
 		} else {
-			return getRawBindable().getName();
+			UiRawBindablePathSegment child = getRawBindablePath();
+			if (child != null) {
+				result = child.toPathString();
+				if (result != null && !result.equals("")) {
+					result = getRawBindable().getName() + "." + result;
+				} else {
+					result = getRawBindable().getName();
+				}
+			} else {
+				return getRawBindable().getName();
+			}
 		}
 
 		return result;
 
+	}
+
+	@Override
+	public UiRawBindable getLastBindableInPath() {
+		UiRawBindablePathSegment child = getRawBindablePath();
+		if (child != null) {
+			return child.getRawBindableOfLastSegment();
+		} else {
+			return getRawBindable();
+		}
 	}
 
 } // UiTypedBindableRawTypeImpl

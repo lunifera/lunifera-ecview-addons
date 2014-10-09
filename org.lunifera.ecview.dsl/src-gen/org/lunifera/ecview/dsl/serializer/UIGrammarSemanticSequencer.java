@@ -58,6 +58,7 @@ import org.eclipse.xtext.xtype.XImportDeclaration;
 import org.eclipse.xtext.xtype.XImportSection;
 import org.eclipse.xtext.xtype.XtypePackage;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess;
+import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
@@ -205,6 +206,14 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 				else break;
 			}
 		else if(semanticObject.eClass().getEPackage() == UiModelPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case UiModelPackage.UI_BEAN_REFERENCE_FIELD:
+				if(context == grammarAccess.getUiBeanReferenceFieldRule() ||
+				   context == grammarAccess.getUiEmbeddableRule() ||
+				   context == grammarAccess.getUiFieldRule()) {
+					sequence_UiBeanReferenceField(context, (UiBeanReferenceField) semanticObject); 
+					return; 
+				}
+				else break;
 			case UiModelPackage.UI_BEAN_SLOT:
 				if(context == grammarAccess.getUiBeanSlotRule()) {
 					sequence_UiBeanSlot(context, (UiBeanSlot) semanticObject); 
@@ -1839,6 +1848,26 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (
+	 *         i18nInfo=UiI18nInfo? 
+	 *         name=ID? 
+	 *         (
+	 *             jvmType=JvmTypeReference? 
+	 *             captionProperty=UiNestedProperty? 
+	 *             imageProperty=UiNestedProperty? 
+	 *             inMemoryBeanProvider=JvmTypeReference? 
+	 *             (validators+=UiValidator | bindings+=UiBinding)* 
+	 *             processorAssignments+=UiVisibilityProcessorAssignment*
+	 *         )?
+	 *     )
+	 */
+	protected void sequence_UiBeanReferenceField(EObject context, UiBeanReferenceField semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID jvmType=JvmTypeReference)
 	 */
 	protected void sequence_UiBeanSlot(EObject context, UiBeanSlot semanticObject) {
@@ -1880,7 +1909,11 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (i18nInfo=UiI18nInfo? name=ID? ((validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment*)?)
+	 *     (
+	 *         (i18nInfo=UiI18nInfo? readonly?='readonly'?)? 
+	 *         name=ID? 
+	 *         ((validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment*)?
+	 *     )
 	 */
 	protected void sequence_UiBrowser(EObject context, UiBrowser semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1889,7 +1922,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (i18nInfo=UiI18nInfo? name=ID?)
+	 *     ((i18nInfo=UiI18nInfo? readonly?='readonly'?)? name=ID?)
 	 */
 	protected void sequence_UiButton(EObject context, UiButton semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1907,7 +1940,11 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (i18nInfo=UiI18nInfo? name=ID? ((validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment*)?)
+	 *     (
+	 *         (i18nInfo=UiI18nInfo? readonly?='readonly'?)? 
+	 *         name=ID? 
+	 *         ((validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment*)?
+	 *     )
 	 */
 	protected void sequence_UiCheckBox(EObject context, UiCheckBox semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1941,6 +1978,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *             jvmType=JvmTypeReference? 
 	 *             itemCaptionProperty=[JvmOperation|ID]? 
 	 *             itemImageProperty=[JvmOperation|ID]? 
+	 *             readonly?='readonly'? 
 	 *             (validators+=UiValidator | bindings+=UiBinding)* 
 	 *             processorAssignments+=UiVisibilityProcessorAssignment*
 	 *         )?
@@ -1963,7 +2001,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (dateFormat=UiDateFormat? resolution=UiDateTimeResolution? i18nInfo=UiI18nInfo?)? 
+	 *         (dateFormat=UiDateFormat? resolution=UiDateTimeResolution? i18nInfo=UiI18nInfo? readonly?='readonly'?)? 
 	 *         name=ID? 
 	 *         ((validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment*)?
 	 *     )
@@ -1976,7 +2014,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (noGrouping?='noGrouping'? noMarkNegative?='noMarkNegative'? precision=INT? i18nInfo=UiI18nInfo?)? 
+	 *         (noGrouping?='noGrouping'? noMarkNegative?='noMarkNegative'? precision=INT? i18nInfo=UiI18nInfo? readonly?='readonly'?)? 
 	 *         name=ID? 
 	 *         ((validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment*)?
 	 *     )
@@ -2040,7 +2078,13 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (i18nInfo=UiI18nInfo? name=ID? contents+=UiFormLayoutAssigment* bindings+=UiBinding* processorAssignments+=UiVisibilityProcessorAssignment*)
+	 *     (
+	 *         (i18nInfo=UiI18nInfo? readonly?='readonly'?)? 
+	 *         name=ID? 
+	 *         contents+=UiFormLayoutAssigment* 
+	 *         bindings+=UiBinding* 
+	 *         processorAssignments+=UiVisibilityProcessorAssignment*
+	 *     )
 	 */
 	protected void sequence_UiFormLayout(EObject context, UiFormLayout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2059,7 +2103,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (columns=INT? i18nInfo=UiI18nInfo?)? 
+	 *         (columns=INT? i18nInfo=UiI18nInfo? readonly?='readonly'?)? 
 	 *         name=ID? 
 	 *         contents+=UiGridLayoutAssigment* 
 	 *         bindings+=UiBinding* 
@@ -2082,7 +2126,13 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (i18nInfo=UiI18nInfo? name=ID? contents+=UiHorizontalLayoutAssigment* bindings+=UiBinding* processorAssignments+=UiVisibilityProcessorAssignment*)
+	 *     (
+	 *         (i18nInfo=UiI18nInfo? readonly?='readonly'?)? 
+	 *         name=ID? 
+	 *         contents+=UiHorizontalLayoutAssigment* 
+	 *         bindings+=UiBinding* 
+	 *         processorAssignments+=UiVisibilityProcessorAssignment*
+	 *     )
 	 */
 	protected void sequence_UiHorizontalLayout(EObject context, UiHorizontalLayout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2155,7 +2205,19 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (i18nInfo=UiI18nInfo? name=ID?)
+	 *     (
+	 *         i18nInfo=UiI18nInfo? 
+	 *         name=ID? 
+	 *         (
+	 *             jvmType=JvmTypeReference? 
+	 *             selectionType=UiSelectionType? 
+	 *             itemCaptionProperty=[JvmOperation|ID]? 
+	 *             itemImageProperty=[JvmOperation|ID]? 
+	 *             readonly?='readonly'? 
+	 *             (validators+=UiValidator | bindings+=UiBinding)* 
+	 *             processorAssignments+=UiVisibilityProcessorAssignment*
+	 *         )?
+	 *     )
 	 */
 	protected void sequence_UiList(EObject context, UiList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2191,7 +2253,12 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (i18nInfo=UiI18nInfo? name=ID? contents+=UiMobileHorizontalButtonGroupAssigment* processorAssignments+=UiVisibilityProcessorAssignment*)
+	 *     (
+	 *         (i18nInfo=UiI18nInfo? readonly?='readonly'?)? 
+	 *         name=ID? 
+	 *         contents+=UiMobileHorizontalButtonGroupAssigment* 
+	 *         processorAssignments+=UiVisibilityProcessorAssignment*
+	 *     )
 	 */
 	protected void sequence_UiMobileHorizontalButtonGroup(EObject context, UiHorizontalButtonGroup semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2210,7 +2277,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         i18nInfo=UiI18nInfo? 
+	 *         (i18nInfo=UiI18nInfo? readonly?='readonly'?)? 
 	 *         name=ID? 
 	 *         contents+=UiMobileHorizontalLayoutAssigment* 
 	 *         bindings+=UiBinding* 
@@ -2224,7 +2291,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (i18nInfo=UiI18nInfo? name=ID? (targetPage=UiMobileNavigationPage | targetPageAlias=[UiMobileNavigationPage|ID]))
+	 *     ((i18nInfo=UiI18nInfo? readonly?='readonly'?)? name=ID? (targetPage=UiMobileNavigationPage | targetPageAlias=[UiMobileNavigationPage|ID]))
 	 */
 	protected void sequence_UiMobileNavigationButton(EObject context, UiMobileNavigationButton semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2267,7 +2334,11 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (i18nInfo=UiI18nInfo? name=ID? (processorAssignments+=UiVisibilityProcessorAssignment* (validators+=UiValidator | bindings+=UiBinding)*)?)
+	 *     (
+	 *         (i18nInfo=UiI18nInfo? readonly?='readonly'?)? 
+	 *         name=ID? 
+	 *         (processorAssignments+=UiVisibilityProcessorAssignment* (validators+=UiValidator | bindings+=UiBinding)*)?
+	 *     )
 	 */
 	protected void sequence_UiMobileSwitch(EObject context, UiSwitch semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2304,7 +2375,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         i18nInfo=UiI18nInfo? 
+	 *         (i18nInfo=UiI18nInfo? readonly?='readonly'?)? 
 	 *         name=ID? 
 	 *         contents+=UiMobileVerticalComponentGroupAssigment* 
 	 *         bindings+=UiBinding* 
@@ -2328,7 +2399,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         i18nInfo=UiI18nInfo? 
+	 *         (i18nInfo=UiI18nInfo? readonly?='readonly'?)? 
 	 *         name=ID? 
 	 *         contents+=UiMobileVerticalLayoutAssigment* 
 	 *         bindings+=UiBinding* 
@@ -2382,7 +2453,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (noGrouping?='noGrouping'? noMarkNegative?='noMarkNegative'? i18nInfo=UiI18nInfo?)? 
+	 *         (noGrouping?='noGrouping'? noMarkNegative?='noMarkNegative'? i18nInfo=UiI18nInfo? readonly?='readonly'?)? 
 	 *         name=ID? 
 	 *         ((validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment*)?
 	 *     )
@@ -2411,6 +2482,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *             selectionType=UiSelectionType? 
 	 *             itemCaptionProperty=[JvmOperation|ID]? 
 	 *             itemImageProperty=[JvmOperation|ID]? 
+	 *             readonly?='readonly'? 
 	 *             (validators+=UiValidator | bindings+=UiBinding)* 
 	 *             processorAssignments+=UiVisibilityProcessorAssignment*
 	 *         )?
@@ -2423,7 +2495,13 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (i18nInfo=UiI18nInfo? name=ID content=UiEmbeddable bindings+=UiBinding* processorAssignments+=UiVisibilityProcessorAssignment*)
+	 *     (
+	 *         (i18nInfo=UiI18nInfo? readonly?='readonly'?)? 
+	 *         name=ID 
+	 *         content=UiEmbeddable 
+	 *         bindings+=UiBinding* 
+	 *         processorAssignments+=UiVisibilityProcessorAssignment*
+	 *     )
 	 */
 	protected void sequence_UiPanel(EObject context, UiPanel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2553,6 +2631,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *         firstContent=UiSplitpanelAssigment 
 	 *         secondContent=UiSplitpanelAssigment 
 	 *         splitPosition=INT? 
+	 *         readonly?='readonly'? 
 	 *         bindings+=UiBinding* 
 	 *         processorAssignments+=UiVisibilityProcessorAssignment*
 	 *     )
@@ -2589,6 +2668,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *             jvmType=JvmTypeReference? 
 	 *             selectionType=UiSelectionType? 
 	 *             itemImageProperty=[JvmOperation|ID]? 
+	 *             readonly?='readonly'? 
 	 *             columnAssignment=UiColumnsAssignment? 
 	 *             (validators+=UiValidator | bindings+=UiBinding)* 
 	 *             processorAssignments+=UiVisibilityProcessorAssignment*
@@ -2602,7 +2682,11 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (i18nInfo=UiI18nInfo? name=ID? ((validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment*)?)
+	 *     (
+	 *         (i18nInfo=UiI18nInfo? readonly?='readonly'?)? 
+	 *         name=ID? 
+	 *         ((validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment*)?
+	 *     )
 	 */
 	protected void sequence_UiTextArea(EObject context, UiTextArea semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2612,7 +2696,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (maxLength=INT? minLength=INT? regex=STRING? i18nInfo=UiI18nInfo?)? 
+	 *         (maxLength=INT? minLength=INT? regex=STRING? i18nInfo=UiI18nInfo? readonly?='readonly'?)? 
 	 *         name=ID? 
 	 *         ((validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment*)?
 	 *     )
@@ -2687,7 +2771,13 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (i18nInfo=UiI18nInfo? name=ID? contents+=UiVerticalLayoutAssigment* bindings+=UiBinding* processorAssignments+=UiVisibilityProcessorAssignment*)
+	 *     (
+	 *         (i18nInfo=UiI18nInfo? readonly?='readonly'?)? 
+	 *         name=ID? 
+	 *         contents+=UiVerticalLayoutAssigment* 
+	 *         bindings+=UiBinding* 
+	 *         processorAssignments+=UiVisibilityProcessorAssignment*
+	 *     )
 	 */
 	protected void sequence_UiVerticalLayout(EObject context, UiVerticalLayout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

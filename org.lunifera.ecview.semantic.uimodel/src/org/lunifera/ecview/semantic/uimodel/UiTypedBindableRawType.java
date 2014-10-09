@@ -74,9 +74,15 @@ public interface UiTypedBindableRawType extends UiTypedBindable,
 	void setRawBindablePath(UiRawBindablePathSegment value);
 	
 	/**
-	 * Returns the ID of the element by concating the segments.
+	 * Returns the path of the element by concating the segments.
 	 * @return
 	 */
 	String toPathString();
+	
+	/**
+	 * Returns the last bindable in the path.
+	 * @return
+	 */
+	UiRawBindable getLastBindableInPath();
 
 } // UiTypedBindableRawType

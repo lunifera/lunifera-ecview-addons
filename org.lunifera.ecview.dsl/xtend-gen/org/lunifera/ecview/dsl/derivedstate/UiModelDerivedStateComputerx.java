@@ -71,6 +71,7 @@ import org.lunifera.ecview.core.extension.model.datatypes.YDecimalDatatype;
 import org.lunifera.ecview.core.extension.model.datatypes.YNumericDatatype;
 import org.lunifera.ecview.core.extension.model.datatypes.YTextDatatype;
 import org.lunifera.ecview.core.extension.model.extension.ExtensionModelFactory;
+import org.lunifera.ecview.core.extension.model.extension.YBeanReferenceField;
 import org.lunifera.ecview.core.extension.model.extension.YBooleanSearchField;
 import org.lunifera.ecview.core.extension.model.extension.YBrowser;
 import org.lunifera.ecview.core.extension.model.extension.YButton;
@@ -86,6 +87,7 @@ import org.lunifera.ecview.core.extension.model.extension.YHorizontalLayout;
 import org.lunifera.ecview.core.extension.model.extension.YHorizontalLayoutCellStyle;
 import org.lunifera.ecview.core.extension.model.extension.YImage;
 import org.lunifera.ecview.core.extension.model.extension.YLabel;
+import org.lunifera.ecview.core.extension.model.extension.YList;
 import org.lunifera.ecview.core.extension.model.extension.YNumericField;
 import org.lunifera.ecview.core.extension.model.extension.YNumericSearchField;
 import org.lunifera.ecview.core.extension.model.extension.YOptionsGroup;
@@ -106,11 +108,13 @@ import org.lunifera.ecview.core.extension.model.extension.YVerticalLayoutCellSty
 import org.lunifera.ecview.core.extension.model.extension.util.SimpleExtensionModelFactory;
 import org.lunifera.ecview.dsl.derivedstate.TypeHelper;
 import org.lunifera.ecview.dsl.derivedstate.UiGrammarElementAdapter;
-import org.lunifera.ecview.dsl.derivedstate.UiModelUtil;
+import org.lunifera.ecview.dsl.derivedstate.UiModelGrammarUtil;
+import org.lunifera.ecview.dsl.extensions.BeanHelper;
 import org.lunifera.ecview.dsl.extensions.I18nKeyProvider;
 import org.lunifera.ecview.dsl.extensions.OperationExtensions;
 import org.lunifera.ecview.dsl.scope.BindableTypeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiAlignment;
+import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
@@ -147,6 +151,7 @@ import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
 import org.lunifera.ecview.semantic.uimodel.UiImage;
 import org.lunifera.ecview.semantic.uimodel.UiLabel;
+import org.lunifera.ecview.semantic.uimodel.UiList;
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton;
@@ -1393,6 +1398,37 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     this.<Object>pop();
   }
   
+  protected void _map(final UiList eObject) {
+    final YList yList = this.<YList>associatedUi(eObject);
+    this.push(yList);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function);
+    EList<UiBinding> _bindings_1 = eObject.getBindings();
+    boolean _notEquals = (!Objects.equal(_bindings_1, null));
+    if (_notEquals) {
+      EList<UiBinding> _bindings_2 = eObject.getBindings();
+      final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(_bindings_2, _function_1);
+    }
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    this.<Object>pop();
+  }
+  
   protected void _map(final UiTable eObject) {
     final YTable yField = this.<YTable>associatedUi(eObject);
     this.push(yField);
@@ -1864,7 +1900,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiTextField object) {
     final YTextField textField = this.factory.createTextField();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     textField.setId(_pathId);
     String _name = object.getName();
     textField.setName(_name);
@@ -1872,6 +1908,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     textField.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     textField.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    textField.setInitialEnabled(_not);
     final YTextDatatype dt = this.factory.createTextDatatype();
     textField.setDatatype(dt);
     EList<YDatatype> _orphanDatatypes = textField.getOrphanDatatypes();
@@ -1886,9 +1925,65 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return textField;
   }
   
+  protected YEmbeddable _create(final UiBeanReferenceField object) {
+    final YBeanReferenceField field = ExtensionModelFactory.eINSTANCE.createYBeanReferenceField();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    field.setId(_pathId);
+    String _name = object.getName();
+    field.setName(_name);
+    String _name_1 = object.getName();
+    field.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    field.setLabelI18nKey(_i18nKey);
+    JvmTypeReference _jvmType = object.getJvmType();
+    boolean _notEquals = (!Objects.equal(_jvmType, null));
+    if (_notEquals) {
+      JvmTypeReference _jvmType_1 = object.getJvmType();
+      String _qualifiedName = _jvmType_1.getQualifiedName();
+      field.setTypeQualifiedName(_qualifiedName);
+      Resource _eResource = object.eResource();
+      ResourceSet _resourceSet = _eResource.getResourceSet();
+      JvmTypeReference _jvmType_2 = object.getJvmType();
+      String _qualifiedName_1 = _jvmType_2.getQualifiedName();
+      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+      field.setType(_loadClass);
+    }
+    final UiNestedProperty captionProperty = object.getCaptionProperty();
+    boolean _notEquals_1 = (!Objects.equal(captionProperty, null));
+    if (_notEquals_1) {
+      String _pathString = captionProperty.toPathString();
+      field.setCaptionPropertyPath(_pathString);
+    } else {
+      Class<?> _type = field.getType();
+      String _findCaptionProperty = BeanHelper.findCaptionProperty(_type);
+      field.setCaptionPropertyPath(_findCaptionProperty);
+    }
+    final UiNestedProperty imageProperty = object.getImageProperty();
+    boolean _notEquals_2 = (!Objects.equal(imageProperty, null));
+    if (_notEquals_2) {
+      String _pathString_1 = imageProperty.toPathString();
+      field.setImagePropertyPath(_pathString_1);
+    }
+    JvmTypeReference _inMemoryBeanProvider = object.getInMemoryBeanProvider();
+    boolean _notEquals_3 = (!Objects.equal(_inMemoryBeanProvider, null));
+    if (_notEquals_3) {
+      JvmTypeReference _inMemoryBeanProvider_1 = object.getInMemoryBeanProvider();
+      String _qualifiedName_2 = _inMemoryBeanProvider_1.getQualifiedName();
+      field.setInMemoryBeanProviderQualifiedName(_qualifiedName_2);
+      Resource _eResource_1 = object.eResource();
+      ResourceSet _resourceSet_1 = _eResource_1.getResourceSet();
+      JvmTypeReference _inMemoryBeanProvider_2 = object.getInMemoryBeanProvider();
+      String _qualifiedName_3 = _inMemoryBeanProvider_2.getQualifiedName();
+      Class<?> _loadClass_1 = this.loadClass(_resourceSet_1, _qualifiedName_3);
+      field.setInMemoryBeanProvider(_loadClass_1);
+    }
+    this.associateUi(object, field);
+    return field;
+  }
+  
   protected YEmbeddable _create(final UiLabel object) {
     final YLabel label = this.factory.createLabel();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     label.setId(_pathId);
     String _name = object.getName();
     label.setName(_name);
@@ -1902,7 +1997,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiDecimalField object) {
     final YDecimalField decimalField = this.factory.createDecimalField();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     decimalField.setId(_pathId);
     String _name = object.getName();
     decimalField.setName(_name);
@@ -1910,16 +2005,19 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     decimalField.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     decimalField.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    decimalField.setInitialEnabled(_not);
     final YDecimalDatatype dt = this.factory.createDecimalDatatype();
     decimalField.setDatatype(dt);
     EList<YDatatype> _orphanDatatypes = decimalField.getOrphanDatatypes();
     _orphanDatatypes.add(dt);
     boolean _isNoGrouping = object.isNoGrouping();
-    boolean _not = (!_isNoGrouping);
-    dt.setGrouping(_not);
+    boolean _not_1 = (!_isNoGrouping);
+    dt.setGrouping(_not_1);
     boolean _isNoMarkNegative = object.isNoMarkNegative();
-    boolean _not_1 = (!_isNoMarkNegative);
-    dt.setMarkNegative(_not_1);
+    boolean _not_2 = (!_isNoMarkNegative);
+    dt.setMarkNegative(_not_2);
     int _precision = object.getPrecision();
     dt.setPrecision(_precision);
     this.associateUi(object, decimalField);
@@ -1928,7 +2026,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiTextArea object) {
     final YTextArea textArea = this.factory.createTextArea();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     textArea.setId(_pathId);
     String _name = object.getName();
     textArea.setName(_name);
@@ -1936,13 +2034,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     textArea.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     textArea.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    textArea.setInitialEnabled(_not);
     this.associateUi(object, textArea);
     return textArea;
   }
   
   protected YEmbeddable _create(final UiOptionsGroup object) {
     final YOptionsGroup optionsGroup = this.factory.createOptionsGroup();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     optionsGroup.setId(_pathId);
     String _name = object.getName();
     optionsGroup.setName(_name);
@@ -1953,20 +2054,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     UiSelectionType _selectionType = object.getSelectionType();
     YSelectionType _convert = this.convert(_selectionType);
     optionsGroup.setSelectionType(_convert);
-    JvmOperation _itemCaptionProperty = object.getItemCaptionProperty();
-    String _simpleName = null;
-    if (_itemCaptionProperty!=null) {
-      _simpleName=_itemCaptionProperty.getSimpleName();
-    }
-    String _propertyName = OperationExtensions.toPropertyName(_simpleName);
-    optionsGroup.setItemCaptionProperty(_propertyName);
-    JvmOperation _itemImageProperty = object.getItemImageProperty();
-    String _simpleName_1 = null;
-    if (_itemImageProperty!=null) {
-      _simpleName_1=_itemImageProperty.getSimpleName();
-    }
-    String _propertyName_1 = OperationExtensions.toPropertyName(_simpleName_1);
-    optionsGroup.setItemImageProperty(_propertyName_1);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    optionsGroup.setInitialEnabled(_not);
     JvmTypeReference _jvmType = object.getJvmType();
     boolean _notEquals = (!Objects.equal(_jvmType, null));
     if (_notEquals) {
@@ -1980,13 +2070,90 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
       optionsGroup.setType(_loadClass);
     }
+    JvmOperation _itemCaptionProperty = object.getItemCaptionProperty();
+    boolean _notEquals_1 = (!Objects.equal(_itemCaptionProperty, null));
+    if (_notEquals_1) {
+      JvmOperation _itemCaptionProperty_1 = object.getItemCaptionProperty();
+      String _simpleName = null;
+      if (_itemCaptionProperty_1!=null) {
+        _simpleName=_itemCaptionProperty_1.getSimpleName();
+      }
+      String _propertyName = OperationExtensions.toPropertyName(_simpleName);
+      optionsGroup.setItemCaptionProperty(_propertyName);
+    } else {
+      Class<?> _type = optionsGroup.getType();
+      String _findCaptionProperty = BeanHelper.findCaptionProperty(_type);
+      optionsGroup.setItemCaptionProperty(_findCaptionProperty);
+    }
+    JvmOperation _itemImageProperty = object.getItemImageProperty();
+    String _simpleName_1 = null;
+    if (_itemImageProperty!=null) {
+      _simpleName_1=_itemImageProperty.getSimpleName();
+    }
+    String _propertyName_1 = OperationExtensions.toPropertyName(_simpleName_1);
+    optionsGroup.setItemImageProperty(_propertyName_1);
     this.associateUi(object, optionsGroup);
     return optionsGroup;
   }
   
+  protected YEmbeddable _create(final UiList object) {
+    final YList list = this.factory.createList();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    list.setId(_pathId);
+    String _name = object.getName();
+    list.setName(_name);
+    String _name_1 = object.getName();
+    list.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    list.setLabelI18nKey(_i18nKey);
+    UiSelectionType _selectionType = object.getSelectionType();
+    YSelectionType _convert = this.convert(_selectionType);
+    list.setSelectionType(_convert);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    list.setInitialEnabled(_not);
+    JvmTypeReference _jvmType = object.getJvmType();
+    boolean _notEquals = (!Objects.equal(_jvmType, null));
+    if (_notEquals) {
+      JvmTypeReference _jvmType_1 = object.getJvmType();
+      String _qualifiedName = _jvmType_1.getQualifiedName();
+      list.setTypeQualifiedName(_qualifiedName);
+      Resource _eResource = object.eResource();
+      ResourceSet _resourceSet = _eResource.getResourceSet();
+      JvmTypeReference _jvmType_2 = object.getJvmType();
+      String _qualifiedName_1 = _jvmType_2.getQualifiedName();
+      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+      list.setType(_loadClass);
+    }
+    JvmOperation _itemCaptionProperty = object.getItemCaptionProperty();
+    boolean _notEquals_1 = (!Objects.equal(_itemCaptionProperty, null));
+    if (_notEquals_1) {
+      JvmOperation _itemCaptionProperty_1 = object.getItemCaptionProperty();
+      String _simpleName = null;
+      if (_itemCaptionProperty_1!=null) {
+        _simpleName=_itemCaptionProperty_1.getSimpleName();
+      }
+      String _propertyName = OperationExtensions.toPropertyName(_simpleName);
+      list.setItemCaptionProperty(_propertyName);
+    } else {
+      Class<?> _type = list.getType();
+      String _findCaptionProperty = BeanHelper.findCaptionProperty(_type);
+      list.setItemCaptionProperty(_findCaptionProperty);
+    }
+    JvmOperation _itemImageProperty = object.getItemImageProperty();
+    String _simpleName_1 = null;
+    if (_itemImageProperty!=null) {
+      _simpleName_1=_itemImageProperty.getSimpleName();
+    }
+    String _propertyName_1 = OperationExtensions.toPropertyName(_simpleName_1);
+    list.setItemImageProperty(_propertyName_1);
+    this.associateUi(object, list);
+    return list;
+  }
+  
   protected YEmbeddable _create(final UiDateField object) {
     final YDateTime dateTime = this.factory.createDateTime();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     dateTime.setId(_pathId);
     String _name = object.getName();
     dateTime.setName(_name);
@@ -2000,13 +2167,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     UiDateTimeResolution _resolution = object.getResolution();
     YDateTimeResolution _yDateTimeResolution = this.toYDateTimeResolution(_resolution);
     dateTime.setResolution(_yDateTimeResolution);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    dateTime.setInitialEnabled(_not);
     this.associateUi(object, dateTime);
     return dateTime;
   }
   
   protected YEmbeddable _create(final UiBrowser object) {
     final YBrowser browser = this.factory.createBrowser();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     browser.setId(_pathId);
     String _name = object.getName();
     browser.setName(_name);
@@ -2014,13 +2184,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     browser.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     browser.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    browser.setInitialEnabled(_not);
     this.associateUi(object, browser);
     return browser;
   }
   
   protected YEmbeddable _create(final UiProgressBar object) {
     final YProgressBar progressBar = this.factory.createProgressBar();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     progressBar.setId(_pathId);
     String _name = object.getName();
     progressBar.setName(_name);
@@ -2034,7 +2207,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiImage object) {
     final YImage image = this.factory.createImage();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     image.setId(_pathId);
     String _name = object.getName();
     image.setName(_name);
@@ -2050,7 +2223,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiTable object) {
     final YTable table = this.factory.createTable();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     table.setId(_pathId);
     String _name = object.getName();
     table.setName(_name);
@@ -2061,6 +2234,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     UiSelectionType _selectionType = object.getSelectionType();
     YSelectionType _convert = this.convert(_selectionType);
     table.setSelectionType(_convert);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    table.setInitialEnabled(_not);
     JvmOperation _itemImageProperty = object.getItemImageProperty();
     String _simpleName = null;
     if (_itemImageProperty!=null) {
@@ -2136,10 +2312,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
       boolean _notEquals_1 = (!Objects.equal(newField, null));
       if (_notEquals_1) {
-        String _pathId = UiModelUtil.getPathId(eObject);
+        String _pathId = UiModelGrammarUtil.getPathId(eObject);
         newField.setId(_pathId);
         String _i18nKey = this.toI18nKey(eObject);
         newField.setLabelI18nKey(_i18nKey);
+        boolean _isReadonly = eObject.isReadonly();
+        boolean _not = (!_isReadonly);
+        newField.setInitialEnabled(_not);
       }
       return newField;
     }
@@ -2164,7 +2343,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected YEmbeddable _create(final UiNumericField object) {
     final YNumericField field = this.factory.createNumericField();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     field.setId(_pathId);
     String _name = object.getName();
     field.setName(_name);
@@ -2172,23 +2351,26 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     field.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     field.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    field.setInitialEnabled(_not);
     final YNumericDatatype dt = this.factory.createNumericDatatype();
     field.setDatatype(dt);
     EList<YDatatype> _orphanDatatypes = field.getOrphanDatatypes();
     _orphanDatatypes.add(dt);
     boolean _isNoGrouping = object.isNoGrouping();
-    boolean _not = (!_isNoGrouping);
-    dt.setGrouping(_not);
+    boolean _not_1 = (!_isNoGrouping);
+    dt.setGrouping(_not_1);
     boolean _isNoMarkNegative = object.isNoMarkNegative();
-    boolean _not_1 = (!_isNoMarkNegative);
-    dt.setMarkNegative(_not_1);
+    boolean _not_2 = (!_isNoMarkNegative);
+    dt.setMarkNegative(_not_2);
     this.associateUi(object, field);
     return field;
   }
   
   protected YEmbeddable _create(final UiCheckBox object) {
     final YCheckBox field = this.factory.createCheckBox();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     field.setId(_pathId);
     String _name = object.getName();
     field.setName(_name);
@@ -2196,13 +2378,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     field.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     field.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    field.setInitialEnabled(_not);
     this.associateUi(object, field);
     return field;
   }
   
   protected YButton _create(final UiButton object) {
     final YButton field = this.factory.createButton();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     field.setId(_pathId);
     String _name = object.getName();
     field.setName(_name);
@@ -2210,13 +2395,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     field.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     field.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    field.setInitialEnabled(_not);
     this.associateUi(object, field);
     return field;
   }
   
   protected VMNavigationButton _create(final UiMobileNavigationButton object) {
     final VMNavigationButton field = VaadinMobileFactory.eINSTANCE.createVMNavigationButton();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     field.setId(_pathId);
     String _name = object.getName();
     field.setName(_name);
@@ -2224,13 +2412,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     field.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     field.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    field.setInitialEnabled(_not);
     this.associateUi(object, field);
     return field;
   }
   
   protected YEmbeddable _create(final UiComboBox object) {
     final YComboBox field = this.factory.createComboBox();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     field.setId(_pathId);
     String _name = object.getName();
     field.setName(_name);
@@ -2238,20 +2429,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     field.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     field.setLabelI18nKey(_i18nKey);
-    JvmOperation _itemCaptionProperty = object.getItemCaptionProperty();
-    String _simpleName = null;
-    if (_itemCaptionProperty!=null) {
-      _simpleName=_itemCaptionProperty.getSimpleName();
-    }
-    String _propertyName = OperationExtensions.toPropertyName(_simpleName);
-    field.setItemCaptionProperty(_propertyName);
-    JvmOperation _itemImageProperty = object.getItemImageProperty();
-    String _simpleName_1 = null;
-    if (_itemImageProperty!=null) {
-      _simpleName_1=_itemImageProperty.getSimpleName();
-    }
-    String _propertyName_1 = OperationExtensions.toPropertyName(_simpleName_1);
-    field.setItemImageProperty(_propertyName_1);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    field.setInitialEnabled(_not);
     JvmTypeReference _jvmType = object.getJvmType();
     boolean _notEquals = (!Objects.equal(_jvmType, null));
     if (_notEquals) {
@@ -2265,13 +2445,35 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
       field.setType(_loadClass);
     }
+    JvmOperation _itemCaptionProperty = object.getItemCaptionProperty();
+    boolean _notEquals_1 = (!Objects.equal(_itemCaptionProperty, null));
+    if (_notEquals_1) {
+      JvmOperation _itemCaptionProperty_1 = object.getItemCaptionProperty();
+      String _simpleName = null;
+      if (_itemCaptionProperty_1!=null) {
+        _simpleName=_itemCaptionProperty_1.getSimpleName();
+      }
+      String _propertyName = OperationExtensions.toPropertyName(_simpleName);
+      field.setItemCaptionProperty(_propertyName);
+    } else {
+      Class<?> _type = field.getType();
+      String _findCaptionProperty = BeanHelper.findCaptionProperty(_type);
+      field.setItemCaptionProperty(_findCaptionProperty);
+    }
+    JvmOperation _itemImageProperty = object.getItemImageProperty();
+    String _simpleName_1 = null;
+    if (_itemImageProperty!=null) {
+      _simpleName_1=_itemImageProperty.getSimpleName();
+    }
+    String _propertyName_1 = OperationExtensions.toPropertyName(_simpleName_1);
+    field.setItemImageProperty(_propertyName_1);
     this.associateUi(object, field);
     return field;
   }
   
   protected YEmbeddable _create(final UiSwitch object) {
     final VMSwitch field = VaadinMobileFactory.eINSTANCE.createVMSwitch();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     field.setId(_pathId);
     String _name = object.getName();
     field.setName(_name);
@@ -2279,13 +2481,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     field.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     field.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    field.setInitialEnabled(_not);
     this.associateUi(object, field);
     return field;
   }
   
   protected YGridLayout _create(final UiGridLayout object) {
     final YGridLayout layout = this.factory.createGridLayout();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
@@ -2293,6 +2498,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     layout.setColumns(_columns);
     String _i18nKey = this.toI18nKey(object);
     layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
     this.associateUi(object, layout);
     return layout;
   }
@@ -2305,13 +2513,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     layout.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
     this.associateUi(object, layout);
     return layout;
   }
   
   protected YHorizontalLayout _create(final UiHorizontalLayout object) {
     final YHorizontalLayout layout = this.factory.createHorizontalLayout();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
@@ -2319,13 +2530,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     layout.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
     this.associateUi(object, layout);
     return layout;
   }
   
   protected YSearchPanel _create(final UiSearchPanel object) {
     final YSearchPanel layout = ExtensionModelFactory.eINSTANCE.createYSearchPanel();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
@@ -2333,13 +2547,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     layout.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
     this.associateUi(object, layout);
     return layout;
   }
   
   protected YSplitPanel _create(final UiSplitpanel object) {
     final YSplitPanel layout = this.factory.createSplitPanel();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
@@ -2349,25 +2566,33 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     layout.setLabelI18nKey(_i18nKey);
     int _splitPosition = object.getSplitPosition();
     layout.setSplitPosition(_splitPosition);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
     this.associateUi(object, layout);
     return layout;
   }
   
   protected YPanel _create(final UiPanel object) {
     final YPanel layout = this.factory.createPanel();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
     String _name_1 = object.getName();
     layout.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
     this.associateUi(object, layout);
     return layout;
   }
   
   protected YVerticalLayout _create(final UiVerticalLayout object) {
     final YVerticalLayout layout = this.factory.createVerticalLayout();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
@@ -2375,13 +2600,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     layout.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
     this.associateUi(object, layout);
     return layout;
   }
   
   protected VMHorizontalButtonGroup _create(final UiHorizontalButtonGroup object) {
     final VMHorizontalButtonGroup layout = VaadinMobileFactory.eINSTANCE.createVMHorizontalButtonGroup();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
@@ -2389,13 +2617,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     layout.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
     this.associateUi(object, layout);
     return layout;
   }
   
   protected VMVerticalComponentGroup _create(final UiVerticalComponentGroup object) {
     final VMVerticalComponentGroup layout = VaadinMobileFactory.eINSTANCE.createVMVerticalComponentGroup();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
@@ -2403,13 +2634,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     layout.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
     this.associateUi(object, layout);
     return layout;
   }
   
   protected YTabSheet _create(final UiTabSheet object) {
     final YTabSheet layout = this.factory.createTabSheet();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
@@ -2423,7 +2657,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected VMTabSheet _create(final UiMobileTabSheet object) {
     final VMTabSheet layout = VaadinMobileFactory.eINSTANCE.createVMTabSheet();
-    String _pathId = UiModelUtil.getPathId(object);
+    String _pathId = UiModelGrammarUtil.getPathId(object);
     layout.setId(_pathId);
     String _name = object.getName();
     layout.setName(_name);
@@ -2937,6 +3171,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     } else if (object instanceof UiIDEView) {
       _map((UiIDEView)object);
       return;
+    } else if (object instanceof UiList) {
+      _map((UiList)object);
+      return;
     } else if (object instanceof UiMobileTabAssignment) {
       _map((UiMobileTabAssignment)object);
       return;
@@ -3061,7 +3298,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   public YEmbeddable create(final UiEmbeddable object) {
-    if (object instanceof UiBrowser) {
+    if (object instanceof UiBeanReferenceField) {
+      return _create((UiBeanReferenceField)object);
+    } else if (object instanceof UiBrowser) {
       return _create((UiBrowser)object);
     } else if (object instanceof UiButton) {
       return _create((UiButton)object);
@@ -3107,6 +3346,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return _create((UiFormLayout)object);
     } else if (object instanceof UiGridLayout) {
       return _create((UiGridLayout)object);
+    } else if (object instanceof UiList) {
+      return _create((UiList)object);
     } else if (object instanceof UiMobileTabSheet) {
       return _create((UiMobileTabSheet)object);
     } else if (object instanceof UiPanel) {

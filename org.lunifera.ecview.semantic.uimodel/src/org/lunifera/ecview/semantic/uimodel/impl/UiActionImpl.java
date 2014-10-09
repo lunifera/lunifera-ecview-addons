@@ -31,6 +31,8 @@ import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiActionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiActionImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiActionImpl#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiActionImpl#isReadonly <em>Readonly</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiActionImpl#isInvisible <em>Invisible</em>}</li>
  * </ul>
  * </p>
  *
@@ -96,6 +98,46 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 	 * @ordered
 	 */
 	protected EList<UiBinding> bindings;
+
+	/**
+	 * The default value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean READONLY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean readonly = READONLY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INVISIBLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean invisible = INVISIBLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -168,6 +210,48 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_ACTION__BINDINGS);
 		}
 		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isReadonly() {
+		return readonly;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReadonly(boolean newReadonly) {
+		boolean oldReadonly = readonly;
+		readonly = newReadonly;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_ACTION__READONLY, oldReadonly, readonly));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isInvisible() {
+		return invisible;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInvisible(boolean newInvisible) {
+		boolean oldInvisible = invisible;
+		invisible = newInvisible;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_ACTION__INVISIBLE, oldInvisible, invisible));
 	}
 
 	/**
@@ -269,6 +353,10 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 				return basicGetI18nInfo();
 			case UiModelPackage.UI_ACTION__BINDINGS:
 				return getBindings();
+			case UiModelPackage.UI_ACTION__READONLY:
+				return isReadonly();
+			case UiModelPackage.UI_ACTION__INVISIBLE:
+				return isInvisible();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -295,6 +383,12 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 				getBindings().clear();
 				getBindings().addAll((Collection<? extends UiBinding>)newValue);
 				return;
+			case UiModelPackage.UI_ACTION__READONLY:
+				setReadonly((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_ACTION__INVISIBLE:
+				setInvisible((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -319,6 +413,12 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 			case UiModelPackage.UI_ACTION__BINDINGS:
 				getBindings().clear();
 				return;
+			case UiModelPackage.UI_ACTION__READONLY:
+				setReadonly(READONLY_EDEFAULT);
+				return;
+			case UiModelPackage.UI_ACTION__INVISIBLE:
+				setInvisible(INVISIBLE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -339,6 +439,10 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 				return i18nInfo != null;
 			case UiModelPackage.UI_ACTION__BINDINGS:
 				return bindings != null && !bindings.isEmpty();
+			case UiModelPackage.UI_ACTION__READONLY:
+				return readonly != READONLY_EDEFAULT;
+			case UiModelPackage.UI_ACTION__INVISIBLE:
+				return invisible != INVISIBLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -413,6 +517,10 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", readonly: ");
+		result.append(readonly);
+		result.append(", invisible: ");
+		result.append(invisible);
 		result.append(')');
 		return result.toString();
 	}

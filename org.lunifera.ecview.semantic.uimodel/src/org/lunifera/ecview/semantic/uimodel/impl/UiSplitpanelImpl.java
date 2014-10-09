@@ -37,6 +37,8 @@ import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSplitpanelImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSplitpanelImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSplitpanelImpl#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSplitpanelImpl#isReadonly <em>Readonly</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSplitpanelImpl#isInvisible <em>Invisible</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSplitpanelImpl#getFirstContent <em>First Content</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSplitpanelImpl#getSecondContent <em>Second Content</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSplitpanelImpl#getSplitPosition <em>Split Position</em>}</li>
@@ -106,6 +108,46 @@ public class UiSplitpanelImpl extends UiVisibilityProcessableImpl implements UiS
 	 * @ordered
 	 */
 	protected EList<UiBinding> bindings;
+
+	/**
+	 * The default value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean READONLY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean readonly = READONLY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INVISIBLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean invisible = INVISIBLE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getFirstContent() <em>First Content</em>}' containment reference.
@@ -304,6 +346,48 @@ public class UiSplitpanelImpl extends UiVisibilityProcessableImpl implements UiS
 			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_SPLITPANEL__BINDINGS);
 		}
 		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isReadonly() {
+		return readonly;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReadonly(boolean newReadonly) {
+		boolean oldReadonly = readonly;
+		readonly = newReadonly;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_SPLITPANEL__READONLY, oldReadonly, readonly));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isInvisible() {
+		return invisible;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInvisible(boolean newInvisible) {
+		boolean oldInvisible = invisible;
+		invisible = newInvisible;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_SPLITPANEL__INVISIBLE, oldInvisible, invisible));
 	}
 
 	/**
@@ -517,6 +601,10 @@ public class UiSplitpanelImpl extends UiVisibilityProcessableImpl implements UiS
 				return basicGetI18nInfo();
 			case UiModelPackage.UI_SPLITPANEL__BINDINGS:
 				return getBindings();
+			case UiModelPackage.UI_SPLITPANEL__READONLY:
+				return isReadonly();
+			case UiModelPackage.UI_SPLITPANEL__INVISIBLE:
+				return isInvisible();
 			case UiModelPackage.UI_SPLITPANEL__FIRST_CONTENT:
 				if (resolve) return getFirstContent();
 				return basicGetFirstContent();
@@ -552,6 +640,12 @@ public class UiSplitpanelImpl extends UiVisibilityProcessableImpl implements UiS
 			case UiModelPackage.UI_SPLITPANEL__BINDINGS:
 				getBindings().clear();
 				getBindings().addAll((Collection<? extends UiBinding>)newValue);
+				return;
+			case UiModelPackage.UI_SPLITPANEL__READONLY:
+				setReadonly((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_SPLITPANEL__INVISIBLE:
+				setInvisible((Boolean)newValue);
 				return;
 			case UiModelPackage.UI_SPLITPANEL__FIRST_CONTENT:
 				setFirstContent((UiSplitpanelAssigment)newValue);
@@ -589,6 +683,12 @@ public class UiSplitpanelImpl extends UiVisibilityProcessableImpl implements UiS
 			case UiModelPackage.UI_SPLITPANEL__BINDINGS:
 				getBindings().clear();
 				return;
+			case UiModelPackage.UI_SPLITPANEL__READONLY:
+				setReadonly(READONLY_EDEFAULT);
+				return;
+			case UiModelPackage.UI_SPLITPANEL__INVISIBLE:
+				setInvisible(INVISIBLE_EDEFAULT);
+				return;
 			case UiModelPackage.UI_SPLITPANEL__FIRST_CONTENT:
 				setFirstContent((UiSplitpanelAssigment)null);
 				return;
@@ -621,6 +721,10 @@ public class UiSplitpanelImpl extends UiVisibilityProcessableImpl implements UiS
 				return i18nInfo != null;
 			case UiModelPackage.UI_SPLITPANEL__BINDINGS:
 				return bindings != null && !bindings.isEmpty();
+			case UiModelPackage.UI_SPLITPANEL__READONLY:
+				return readonly != READONLY_EDEFAULT;
+			case UiModelPackage.UI_SPLITPANEL__INVISIBLE:
+				return invisible != INVISIBLE_EDEFAULT;
 			case UiModelPackage.UI_SPLITPANEL__FIRST_CONTENT:
 				return firstContent != null;
 			case UiModelPackage.UI_SPLITPANEL__SECOND_CONTENT:
@@ -703,6 +807,10 @@ public class UiSplitpanelImpl extends UiVisibilityProcessableImpl implements UiS
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", readonly: ");
+		result.append(readonly);
+		result.append(", invisible: ");
+		result.append(invisible);
 		result.append(", splitPosition: ");
 		result.append(splitPosition);
 		result.append(", horizontal: ");

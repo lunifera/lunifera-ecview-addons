@@ -108,6 +108,8 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiEmbeddable -> UiVisibilityProcessable, UiRawBindable, UiI18nInfoable
     Reference bindings : UiBinding<<0..*>>
+    Attribute readonly : EBoolean
+    Attribute invisible : EBoolean
 
   Class UiField -> UiEmbeddable
     Reference validators : UiValidator<<0..*>>
@@ -159,6 +161,11 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiSearchPanel -> UiLayout, UiTypeProvider
     Reference contents : UiSearchField<<0..*>>
 
+  Class UiBeanReferenceField -> UiField, UiMobileField, UiTypeProvider
+    Reference captionProperty : UiNestedProperty
+    Reference imageProperty : UiNestedProperty
+    Reference inMemoryBeanProvider : JvmTypeReference
+
   Class UiTextField -> UiField, UiMobileField
     Attribute maxLength : EInt
     Attribute minLength : EInt
@@ -170,6 +177,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiList -> UiField, UiTypeProvider
     Attribute selectionType : UiSelectionType<<1..1>>
     Reference itemImageProperty : JvmOperation
+    Reference itemCaptionProperty : JvmOperation
 
   Class UiTable -> UiField, UiTypeProvider, UiMobileField
     Reference columnAssignment : UiColumnsAssignment

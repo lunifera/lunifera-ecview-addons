@@ -19,11 +19,13 @@ import org.lunifera.ecview.core.common.visibility.IVisibilityProcessor
 import org.lunifera.ecview.dsl.scope.BindableTypeResolver
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
 import org.lunifera.ecview.semantic.uimodel.UiChangeTrigger
+import org.lunifera.ecview.semantic.uimodel.UiEmbeddable
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawType
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawTypeAlias
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator
 import org.lunifera.ecview.semantic.uimodel.UiXbaseVisibilityRule
+import org.lunifera.ecview.dsl.derivedstate.UiModelGrammarUtil
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -164,24 +166,22 @@ class UIGrammarJvmModelInferrer extends AbstractModelInferrer {
 					val UiXbaseVisibilityRule rule = element.rule as UiXbaseVisibilityRule
 					body = rule.expression
 				]
-				
 				for (dataUsed : element.dataUsed) {
 					val temp = dataUsed as UiBindingEndpointAlias
 					members += dataUsed.toGetter(temp.alias, typeResolver.resolveTypeReference(temp))
 					members += dataUsed.toSetter(temp.alias, typeResolver.resolveTypeReference(temp))
 				}
-				
 				for (changeTrigger : element.changeTriggers) {
 					val temp = changeTrigger as UiChangeTrigger
 					members += changeTrigger.toGetter(temp.alias, typeResolver.resolveTypeReference(temp.endpoint))
-					members += changeTrigger.toMethod(temp.alias, element.newTypeRef(Void.TYPE))[
+					members += changeTrigger.toMethod(temp.alias, element.newTypeRef(Void.TYPE)) [
 						visibility = JvmVisibility::PUBLIC
 						simpleName = "set" + temp.alias?.toFirstUpper
 						parameters += element.toParameter(temp.alias, typeResolver.resolveTypeReference(temp.endpoint))
 						body = '''
-								this.«temp.alias»=«temp.alias»;
-
-								fire();
+							this.«temp.alias»=«temp.alias»;
+							
+							fire();
 						'''
 					]
 				}
@@ -218,5 +218,4 @@ class UIGrammarJvmModelInferrer extends AbstractModelInferrer {
 		val UiTypedBindableRawType type = alias.type as UiTypedBindableRawType
 		return type?.toPathString
 	}
-
 }

@@ -38,6 +38,8 @@ import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiPanelImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiPanelImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiPanelImpl#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiPanelImpl#isReadonly <em>Readonly</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiPanelImpl#isInvisible <em>Invisible</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiPanelImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiPanelImpl#getContentAlignment <em>Content Alignment</em>}</li>
  * </ul>
@@ -105,6 +107,46 @@ public class UiPanelImpl extends UiVisibilityProcessableImpl implements UiPanel 
 	 * @ordered
 	 */
 	protected EList<UiBinding> bindings;
+
+	/**
+	 * The default value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean READONLY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean readonly = READONLY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INVISIBLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean invisible = INVISIBLE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference.
@@ -280,6 +322,48 @@ public class UiPanelImpl extends UiVisibilityProcessableImpl implements UiPanel 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isReadonly() {
+		return readonly;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReadonly(boolean newReadonly) {
+		boolean oldReadonly = readonly;
+		readonly = newReadonly;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_PANEL__READONLY, oldReadonly, readonly));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isInvisible() {
+		return invisible;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInvisible(boolean newInvisible) {
+		boolean oldInvisible = invisible;
+		invisible = newInvisible;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_PANEL__INVISIBLE, oldInvisible, invisible));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiEmbeddable getContent() {
 		if (content != null && content.eIsProxy()) {
 			InternalEObject oldContent = (InternalEObject)content;
@@ -397,6 +481,10 @@ public class UiPanelImpl extends UiVisibilityProcessableImpl implements UiPanel 
 				return basicGetI18nInfo();
 			case UiModelPackage.UI_PANEL__BINDINGS:
 				return getBindings();
+			case UiModelPackage.UI_PANEL__READONLY:
+				return isReadonly();
+			case UiModelPackage.UI_PANEL__INVISIBLE:
+				return isInvisible();
 			case UiModelPackage.UI_PANEL__CONTENT:
 				if (resolve) return getContent();
 				return basicGetContent();
@@ -428,6 +516,12 @@ public class UiPanelImpl extends UiVisibilityProcessableImpl implements UiPanel 
 				getBindings().clear();
 				getBindings().addAll((Collection<? extends UiBinding>)newValue);
 				return;
+			case UiModelPackage.UI_PANEL__READONLY:
+				setReadonly((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_PANEL__INVISIBLE:
+				setInvisible((Boolean)newValue);
+				return;
 			case UiModelPackage.UI_PANEL__CONTENT:
 				setContent((UiEmbeddable)newValue);
 				return;
@@ -458,6 +552,12 @@ public class UiPanelImpl extends UiVisibilityProcessableImpl implements UiPanel 
 			case UiModelPackage.UI_PANEL__BINDINGS:
 				getBindings().clear();
 				return;
+			case UiModelPackage.UI_PANEL__READONLY:
+				setReadonly(READONLY_EDEFAULT);
+				return;
+			case UiModelPackage.UI_PANEL__INVISIBLE:
+				setInvisible(INVISIBLE_EDEFAULT);
+				return;
 			case UiModelPackage.UI_PANEL__CONTENT:
 				setContent((UiEmbeddable)null);
 				return;
@@ -484,6 +584,10 @@ public class UiPanelImpl extends UiVisibilityProcessableImpl implements UiPanel 
 				return i18nInfo != null;
 			case UiModelPackage.UI_PANEL__BINDINGS:
 				return bindings != null && !bindings.isEmpty();
+			case UiModelPackage.UI_PANEL__READONLY:
+				return readonly != READONLY_EDEFAULT;
+			case UiModelPackage.UI_PANEL__INVISIBLE:
+				return invisible != INVISIBLE_EDEFAULT;
 			case UiModelPackage.UI_PANEL__CONTENT:
 				return content != null;
 			case UiModelPackage.UI_PANEL__CONTENT_ALIGNMENT:
@@ -562,6 +666,10 @@ public class UiPanelImpl extends UiVisibilityProcessableImpl implements UiPanel 
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", readonly: ");
+		result.append(readonly);
+		result.append(", invisible: ");
+		result.append(invisible);
 		result.append(", contentAlignment: ");
 		result.append(contentAlignment);
 		result.append(')');

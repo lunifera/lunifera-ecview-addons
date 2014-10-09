@@ -5,6 +5,7 @@ import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter;
 import org.eclipse.xtext.formatting.impl.FormattingConfig;
 import org.eclipse.xtext.xbase.formatting.XbaseFormatter;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess;
+import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiBeanReferenceFieldElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiBeanSlotElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiBindingElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiBindingEndpointAliasElements;
@@ -122,6 +123,8 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		configureUiOptionsGroup(c, f.getUiOptionsGroupAccess());
 		// Progressbar
 		configureUiProgressbar(c, f.getUiProgressBarAccess());
+		// BeanField
+		configureUiBeanReferenceField(c, f.getUiBeanReferenceFieldAccess());
 		// Searchdialog
 		configureUiSearchDialog(c, f.getUiSearchDialogAccess());
 		// Searchfield
@@ -498,6 +501,23 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_4_1_0_0());
 		c.setLinewrap(1, 1, 2).before(ele.getSelectionTypeKeyword_4_1_1_0());
 		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_4_1_2_0());
+		// Brackets
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_5());
+		// c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_5());
+		// // Indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setIndentationDecrement().before(
+		// ele.getRightCurlyBracketKeyword_3_5());
+	}
+
+	private void configureUiBeanReferenceField(FormattingConfig c,
+			UiBeanReferenceFieldElements ele) {
+		// Keywords
+		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_4_1_0_0());
+		c.setLinewrap(1, 1, 2).before(ele.getCaptionFieldKeyword_4_1_1_0());
+		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_4_1_2_0());
+		c.setLinewrap(1, 1, 2).before(ele.getInMemoryServiceKeyword_4_1_3_0());
 		// Brackets
 		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
 		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_5());

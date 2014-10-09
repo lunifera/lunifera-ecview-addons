@@ -29,7 +29,7 @@ class I18nKeyProvider {
 		}
 		return currentPackage + "." + embeddable.name
 	}
-	
+	 
 	def dispatch String toI18nKey(UiColumn column) {
 		val currentPackage = column.getPackage
 				

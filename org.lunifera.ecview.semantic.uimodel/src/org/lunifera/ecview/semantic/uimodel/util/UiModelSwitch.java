@@ -484,6 +484,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_BEAN_REFERENCE_FIELD: {
+				UiBeanReferenceField uiBeanReferenceField = (UiBeanReferenceField)theEObject;
+				T result = caseUiBeanReferenceField(uiBeanReferenceField);
+				if (result == null) result = caseUiMobileField(uiBeanReferenceField);
+				if (result == null) result = caseUiTypeProvider(uiBeanReferenceField);
+				if (result == null) result = caseUiField(uiBeanReferenceField);
+				if (result == null) result = caseUiMobileEmbeddable(uiBeanReferenceField);
+				if (result == null) result = caseUiEmbeddable(uiBeanReferenceField);
+				if (result == null) result = caseUiVisibilityProcessable(uiBeanReferenceField);
+				if (result == null) result = caseUiRawBindable(uiBeanReferenceField);
+				if (result == null) result = caseUiI18nInfoable(uiBeanReferenceField);
+				if (result == null) result = caseUiNamedElement(uiBeanReferenceField);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case UiModelPackage.UI_TEXT_FIELD: {
 				UiTextField uiTextField = (UiTextField)theEObject;
 				T result = caseUiTextField(uiTextField);
@@ -1800,6 +1815,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiSearchPanel(UiSearchPanel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Bean Reference Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Bean Reference Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiBeanReferenceField(UiBeanReferenceField object) {
 		return null;
 	}
 

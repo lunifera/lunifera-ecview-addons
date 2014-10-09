@@ -171,6 +171,12 @@ import org.lunifera.ecview.semantic.uimodel.UiNamedElement
 import org.lunifera.ecview.dsl.extensions.I18nKeyProvider
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField
+import org.lunifera.ecview.core.^extension.model.^extension.YBeanReferenceField
+import org.lunifera.ecview.core.^extension.model.^extension.ExtensionModelPackage
+import org.lunifera.ecview.dsl.extensions.BeanHelper
+import org.lunifera.ecview.core.^extension.model.^extension.YList
+import org.lunifera.ecview.semantic.uimodel.UiList
 
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
@@ -179,9 +185,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	@Inject
 	ITypeLoaderFactory typeLoaderFactory;
 	ITypeLoader typeLoader
-	
-	@Inject	BindableTypeProvider typeOfBoundPropertyProvider;
-	@Inject	TypeHelper typeHelper;
+
+	@Inject BindableTypeProvider typeOfBoundPropertyProvider;
+	@Inject TypeHelper typeHelper;
 	@Inject extension IQualifiedNameProvider;
 	@Inject I18nKeyProvider i18nKeyProvider
 
@@ -232,12 +238,13 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			val UiModel eObject = resource.getContents().get(0) as UiModel;
 			currentPackage = eObject.packageName
 
-			try{
+			try {
+
 				// complete all elements
 				eObject.eContents.forEach [
 					it.map
 				]
-			} catch(Exception ex){
+			} catch (Exception ex) {
 				LOGGER.error("{}", ex)
 			}
 
@@ -261,11 +268,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	def <A> A pop() {
 		viewContext.pop as A
 	}
-	
+
 	def String toI18nKey(UiNamedElement element) {
 		return i18nKeyProvider.toI18nKey(element)
 	}
-	
+
 	def String toI18nKey(UiEmbeddable element) {
 		return i18nKeyProvider.toI18nKey(element)
 	}
@@ -1036,6 +1043,27 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		pop
 	}
+	
+	def dispatch void map(UiList eObject) {
+		val YList yList = eObject.associatedUi
+		yList.push
+
+		eObject.bindings.forEach [
+			it.map
+		]
+
+		if (eObject.bindings != null) {
+			eObject.bindings.forEach [
+				it.map
+			]
+		}
+
+		eObject.processorAssignments.forEach [
+			it.map
+		]
+
+		pop
+	}
 
 	def dispatch void map(UiTable eObject) {
 		val YTable yField = eObject.associatedUi
@@ -1134,12 +1162,12 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		yColumn.collapsible = eObject.collapsible
 		yColumn.expandRatio = eObject.expandRatio
 		yColumn.icon = eObject.iconName
-		
+
 		val UiNestedProperty property = eObject.property
 		if (property != null) {
-			yColumn.propertyPath = property.toPathString	
+			yColumn.propertyPath = property.toPathString
 		}
-		
+
 		yColumn.orderable = eObject.orderable
 		yColumn.visible = eObject.visible
 		yColumn.labelI18nKey = eObject.toI18nKey
@@ -1361,10 +1389,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiTextField object) {
 		val YTextField textField = factory.createTextField
-		textField.id = UiModelUtil.getPathId(object)
+		textField.id = UiModelGrammarUtil.getPathId(object)
 		textField.name = object.name
 		textField.label = object.name
 		textField.labelI18nKey = object.toI18nKey
+		textField.initialEnabled = !object.readonly
 
 		val dt = factory.createTextDatatype
 		textField.datatype = dt
@@ -1378,9 +1407,44 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		return textField
 	}
 
+	def dispatch YEmbeddable create(UiBeanReferenceField object) {
+		val YBeanReferenceField field = ExtensionModelFactory.eINSTANCE.createYBeanReferenceField
+		field.id = UiModelGrammarUtil.getPathId(object)
+		field.name = object.name
+		field.label = object.name
+		field.labelI18nKey = object.toI18nKey
+
+		if (object.jvmType != null) {
+			field.typeQualifiedName = object.jvmType.qualifiedName
+			field.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
+		}
+
+		val UiNestedProperty captionProperty = object.captionProperty
+		if (captionProperty != null) {
+			field.captionPropertyPath = captionProperty.toPathString
+		} else {
+			field.captionPropertyPath = BeanHelper.findCaptionProperty(field.type)
+		}
+
+		val UiNestedProperty imageProperty = object.imageProperty
+		if (imageProperty != null) {
+			field.imagePropertyPath = imageProperty.toPathString
+		}
+
+		if (object.inMemoryBeanProvider != null) {
+			field.inMemoryBeanProviderQualifiedName = object.inMemoryBeanProvider.qualifiedName
+			field.inMemoryBeanProvider = loadClass(object.eResource.resourceSet,
+				object.inMemoryBeanProvider.qualifiedName)
+		}
+
+		object.associateUi(field)
+
+		return field
+	}
+
 	def dispatch YEmbeddable create(UiLabel object) {
 		val YLabel label = factory.createLabel
-		label.id = UiModelUtil.getPathId(object)
+		label.id = UiModelGrammarUtil.getPathId(object)
 		label.name = object.name
 		label.label = object.name
 		label.labelI18nKey = object.toI18nKey
@@ -1392,10 +1456,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiDecimalField object) {
 		val YDecimalField decimalField = factory.createDecimalField
-		decimalField.id = UiModelUtil.getPathId(object)
+		decimalField.id = UiModelGrammarUtil.getPathId(object)
 		decimalField.name = object.name
 		decimalField.label = object.name
 		decimalField.labelI18nKey = object.toI18nKey
+		decimalField.initialEnabled = !object.readonly
 
 		val dt = factory.createDecimalDatatype
 		decimalField.datatype = dt
@@ -1412,10 +1477,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiTextArea object) {
 		val YTextArea textArea = factory.createTextArea
-		textArea.id = UiModelUtil.getPathId(object)
+		textArea.id = UiModelGrammarUtil.getPathId(object)
 		textArea.name = object.name
 		textArea.label = object.name
 		textArea.labelI18nKey = object.toI18nKey
+		textArea.initialEnabled = !object.readonly
 
 		object.associateUi(textArea)
 
@@ -1424,32 +1490,63 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiOptionsGroup object) {
 		val YOptionsGroup optionsGroup = factory.createOptionsGroup
-		optionsGroup.id = UiModelUtil.getPathId(object)
+		optionsGroup.id = UiModelGrammarUtil.getPathId(object)
 		optionsGroup.name = object.name
 		optionsGroup.label = object.name
 		optionsGroup.labelI18nKey = object.toI18nKey
 		optionsGroup.selectionType = object.selectionType.convert
+		optionsGroup.initialEnabled = !object.readonly
 
-		optionsGroup.itemCaptionProperty = OperationExtensions.toPropertyName(object.itemCaptionProperty?.simpleName)
-		optionsGroup.itemImageProperty = OperationExtensions.toPropertyName(object.itemImageProperty?.simpleName)
 		if (object.jvmType != null) {
 			optionsGroup.typeQualifiedName = object.jvmType.qualifiedName
 			optionsGroup.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
 		}
+		if (object.itemCaptionProperty != null) {
+			optionsGroup.itemCaptionProperty = OperationExtensions.toPropertyName(object.itemCaptionProperty?.simpleName)
+		} else {
+			optionsGroup.itemCaptionProperty = BeanHelper.findCaptionProperty(optionsGroup.type)
+		}
+		optionsGroup.itemImageProperty = OperationExtensions.toPropertyName(object.itemImageProperty?.simpleName)
 
 		object.associateUi(optionsGroup)
 
 		return optionsGroup
 	}
+	
+	def dispatch YEmbeddable create(UiList object) {
+		val YList list = factory.createList
+		list.id = UiModelGrammarUtil.getPathId(object)
+		list.name = object.name
+		list.label = object.name
+		list.labelI18nKey = object.toI18nKey
+		list.selectionType = object.selectionType.convert
+		list.initialEnabled = !object.readonly
+
+		if (object.jvmType != null) {
+			list.typeQualifiedName = object.jvmType.qualifiedName
+			list.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
+		}
+		if (object.itemCaptionProperty != null) {
+			list.itemCaptionProperty = OperationExtensions.toPropertyName(object.itemCaptionProperty?.simpleName)
+		} else {
+			list.itemCaptionProperty = BeanHelper.findCaptionProperty(list.type)
+		}
+		list.itemImageProperty = OperationExtensions.toPropertyName(object.itemImageProperty?.simpleName)
+
+		object.associateUi(list)
+
+		return list
+	}
 
 	def dispatch YEmbeddable create(UiDateField object) {
 		val YDateTime dateTime = factory.createDateTime
-		dateTime.id = UiModelUtil.getPathId(object)
+		dateTime.id = UiModelGrammarUtil.getPathId(object)
 		dateTime.name = object.name
 		dateTime.label = object.name
 		dateTime.labelI18nKey = object.toI18nKey
 		dateTime.dateFormat = object.dateFormat.toYDateTimeFormat
 		dateTime.resolution = object.resolution.toYDateTimeResolution
+		dateTime.initialEnabled = !object.readonly
 
 		object.associateUi(dateTime)
 
@@ -1458,10 +1555,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiBrowser object) {
 		val YBrowser browser = factory.createBrowser
-		browser.id = UiModelUtil.getPathId(object)
+		browser.id = UiModelGrammarUtil.getPathId(object)
 		browser.name = object.name
 		browser.label = object.name
 		browser.labelI18nKey = object.toI18nKey
+		browser.initialEnabled = !object.readonly
 
 		object.associateUi(browser)
 
@@ -1470,7 +1568,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiProgressBar object) {
 		val YProgressBar progressBar = factory.createProgressBar
-		progressBar.id = UiModelUtil.getPathId(object)
+		progressBar.id = UiModelGrammarUtil.getPathId(object)
 		progressBar.name = object.name
 		progressBar.label = object.name
 		progressBar.labelI18nKey = object.toI18nKey
@@ -1482,7 +1580,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiImage object) {
 		val YImage image = factory.createImage
-		image.id = UiModelUtil.getPathId(object)
+		image.id = UiModelGrammarUtil.getPathId(object)
 		image.name = object.name
 		image.label = object.name
 		image.labelI18nKey = object.toI18nKey
@@ -1496,11 +1594,12 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiTable object) {
 		val YTable table = factory.createTable
-		table.id = UiModelUtil.getPathId(object)
+		table.id = UiModelGrammarUtil.getPathId(object)
 		table.name = object.name
 		table.label = object.name
 		table.labelI18nKey = object.toI18nKey
 		table.selectionType = object.selectionType.convert
+		table.initialEnabled = !object.readonly
 
 		table.itemImageProperty = OperationExtensions.toPropertyName(object.itemImageProperty?.simpleName)
 
@@ -1543,8 +1642,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			}
 
 			if (newField != null) {
-				newField.id = UiModelUtil.getPathId(eObject)
+				newField.id = UiModelGrammarUtil.getPathId(eObject)
 				newField.labelI18nKey = eObject.toI18nKey
+				newField.initialEnabled = !eObject.readonly
 			}
 
 			return newField
@@ -1564,10 +1664,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiNumericField object) {
 		val YNumericField field = factory.createNumericField
-		field.id = UiModelUtil.getPathId(object)
+		field.id = UiModelGrammarUtil.getPathId(object)
 		field.name = object.name
 		field.label = object.name
 		field.labelI18nKey = object.toI18nKey
+		field.initialEnabled = !object.readonly
 
 		val dt = factory.createNumericDatatype
 		field.datatype = dt
@@ -1582,10 +1683,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiCheckBox object) {
 		val YCheckBox field = factory.createCheckBox
-		field.id = UiModelUtil.getPathId(object)
+		field.id = UiModelGrammarUtil.getPathId(object)
 		field.name = object.name
 		field.label = object.name
 		field.labelI18nKey = object.toI18nKey
+		field.initialEnabled = !object.readonly
 
 		object.associateUi(field)
 
@@ -1594,10 +1696,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YButton create(UiButton object) {
 		val YButton field = factory.createButton
-		field.id = UiModelUtil.getPathId(object)
+		field.id = UiModelGrammarUtil.getPathId(object)
 		field.name = object.name
 		field.label = object.name
 		field.labelI18nKey = object.toI18nKey
+		field.initialEnabled = !object.readonly
 
 		object.associateUi(field)
 
@@ -1606,10 +1709,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch VMNavigationButton create(UiMobileNavigationButton object) {
 		val VMNavigationButton field = VaadinMobileFactory.eINSTANCE.createVMNavigationButton
-		field.id = UiModelUtil.getPathId(object)
+		field.id = UiModelGrammarUtil.getPathId(object)
 		field.name = object.name
 		field.label = object.name
 		field.labelI18nKey = object.toI18nKey
+		field.initialEnabled = !object.readonly
 
 		object.associateUi(field)
 
@@ -1618,18 +1722,23 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiComboBox object) {
 		val YComboBox field = factory.createComboBox
-		field.id = UiModelUtil.getPathId(object)
+		field.id = UiModelGrammarUtil.getPathId(object)
 		field.name = object.name
 		field.label = object.name
 		field.labelI18nKey = object.toI18nKey
-
-		field.itemCaptionProperty = OperationExtensions.toPropertyName(object.itemCaptionProperty?.simpleName)
-		field.itemImageProperty = OperationExtensions.toPropertyName(object.itemImageProperty?.simpleName)
+		field.initialEnabled = !object.readonly
 
 		if (object.jvmType != null) {
 			field.typeQualifiedName = object.jvmType.qualifiedName
 			field.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
 		}
+
+		if (object.itemCaptionProperty != null) {
+			field.itemCaptionProperty = OperationExtensions.toPropertyName(object.itemCaptionProperty?.simpleName)
+		} else {
+			field.itemCaptionProperty = BeanHelper.findCaptionProperty(field.type)
+		}
+		field.itemImageProperty = OperationExtensions.toPropertyName(object.itemImageProperty?.simpleName)
 
 		object.associateUi(field)
 
@@ -1638,10 +1747,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YEmbeddable create(UiSwitch object) {
 		val VMSwitch field = VaadinMobileFactory.eINSTANCE.createVMSwitch
-		field.id = UiModelUtil.getPathId(object)
+		field.id = UiModelGrammarUtil.getPathId(object)
 		field.name = object.name
 		field.label = object.name
 		field.labelI18nKey = object.toI18nKey
+		field.initialEnabled = !object.readonly
 
 		object.associateUi(field)
 
@@ -1650,10 +1760,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YGridLayout create(UiGridLayout object) {
 		val YGridLayout layout = factory.createGridLayout
-		layout.id = UiModelUtil.getPathId(object)
+		layout.id = UiModelGrammarUtil.getPathId(object)
 		layout.name = object.name
 		layout.columns = object.columns
 		layout.labelI18nKey = object.toI18nKey
+		layout.initialEnabled = !object.readonly
 
 		object.associateUi(layout)
 
@@ -1665,6 +1776,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
+		layout.initialEnabled = !object.readonly
 
 		object.associateUi(layout)
 
@@ -1673,10 +1785,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YHorizontalLayout create(UiHorizontalLayout object) {
 		val YHorizontalLayout layout = factory.createHorizontalLayout
-		layout.id = UiModelUtil.getPathId(object)
+		layout.id = UiModelGrammarUtil.getPathId(object)
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
+		layout.initialEnabled = !object.readonly
 
 		object.associateUi(layout)
 
@@ -1685,10 +1798,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YSearchPanel create(UiSearchPanel object) {
 		val YSearchPanel layout = ExtensionModelFactory.eINSTANCE.createYSearchPanel
-		layout.id = UiModelUtil.getPathId(object)
+		layout.id = UiModelGrammarUtil.getPathId(object)
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
+		layout.initialEnabled = !object.readonly
 
 		object.associateUi(layout)
 
@@ -1697,11 +1811,12 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YSplitPanel create(UiSplitpanel object) {
 		val YSplitPanel layout = factory.createSplitPanel
-		layout.id = UiModelUtil.getPathId(object)
+		layout.id = UiModelGrammarUtil.getPathId(object)
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
 		layout.splitPosition = object.splitPosition
+		layout.initialEnabled = !object.readonly
 
 		object.associateUi(layout)
 
@@ -1710,9 +1825,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YPanel create(UiPanel object) {
 		val YPanel layout = factory.createPanel
+		layout.id = UiModelGrammarUtil.getPathId(object)
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
+		layout.initialEnabled = !object.readonly
 
 		object.associateUi(layout)
 
@@ -1721,10 +1838,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YVerticalLayout create(UiVerticalLayout object) {
 		val YVerticalLayout layout = factory.createVerticalLayout
-		layout.id = UiModelUtil.getPathId(object)
+		layout.id = UiModelGrammarUtil.getPathId(object)
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
+		layout.initialEnabled = !object.readonly
 
 		object.associateUi(layout)
 
@@ -1733,10 +1851,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch VMHorizontalButtonGroup create(UiHorizontalButtonGroup object) {
 		val VMHorizontalButtonGroup layout = VaadinMobileFactory.eINSTANCE.createVMHorizontalButtonGroup
-		layout.id = UiModelUtil.getPathId(object)
+		layout.id = UiModelGrammarUtil.getPathId(object)
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
+		layout.initialEnabled = !object.readonly
 
 		object.associateUi(layout)
 
@@ -1745,10 +1864,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch VMVerticalComponentGroup create(UiVerticalComponentGroup object) {
 		val VMVerticalComponentGroup layout = VaadinMobileFactory.eINSTANCE.createVMVerticalComponentGroup
-		layout.id = UiModelUtil.getPathId(object)
+		layout.id = UiModelGrammarUtil.getPathId(object)
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
+		layout.initialEnabled = !object.readonly
 
 		object.associateUi(layout)
 
@@ -1757,7 +1877,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch YTabSheet create(UiTabSheet object) {
 		val YTabSheet layout = factory.createTabSheet
-		layout.id = UiModelUtil.getPathId(object)
+		layout.id = UiModelGrammarUtil.getPathId(object)
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
@@ -1769,7 +1889,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch VMTabSheet create(UiMobileTabSheet object) {
 		val VMTabSheet layout = VaadinMobileFactory.eINSTANCE.createVMTabSheet
-		layout.id = UiModelUtil.getPathId(object)
+		layout.id = UiModelGrammarUtil.getPathId(object)
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey

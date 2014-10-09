@@ -3,6 +3,7 @@ package org.lunifera.ecview.dsl.name;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.naming.IQualifiedNameConverter;
 import org.eclipse.xtext.naming.QualifiedName;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.eclipse.xtext.xbase.scoping.XbaseQualifiedNameProvider;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
@@ -75,11 +76,11 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 			}
 		} else if (obj instanceof UiVisibilityProcessor) {
 			UiVisibilityProcessor processor = (UiVisibilityProcessor) obj;
-			if (processor.getName() == null) {
+			if (getSimpleName(processor) == null) {
 				return QualifiedName.create("notDefined");
 			} else {
 				return converter.toQualifiedName(String.format("%s.%s",
-						getPackage(processor), processor.getName()));
+						getPackage(processor), getSimpleName(processor)));
 			}
 		} else if (obj instanceof UiErrorCode) {
 			UiErrorCode code = (UiErrorCode) obj;
@@ -108,10 +109,10 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 			}
 		} else if (obj instanceof UiVisibilityProcessor) {
 			UiVisibilityProcessor uiProcessor = (UiVisibilityProcessor) obj;
-			if (uiProcessor.getName() == null) {
+			if (getSimpleName(uiProcessor) == null) {
 				return QualifiedName.create("notDefined");
 			} else {
-				return converter.toQualifiedName(uiProcessor.getName());
+				return converter.toQualifiedName(getSimpleName(uiProcessor));
 			}
 		} else if (obj instanceof UiVisibilityProperty) {
 			UiVisibilityProperty uiProperties = (UiVisibilityProperty) obj;
@@ -127,6 +128,11 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 					+ i18nInfo.getKey());
 		}
 		return super.getFullyQualifiedName(obj);
+	}
+
+	protected String getSimpleName(UiVisibilityProcessor processor) {
+		return StringExtensions.toFirstUpper(processor.getName())
+				+ "VisibilityProcessor";
 	}
 
 	/**

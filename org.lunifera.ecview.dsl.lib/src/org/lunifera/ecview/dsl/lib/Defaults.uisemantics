@@ -314,3 +314,13 @@ element SearchPanel {
 		endpoint filter Object
 	}
 }
+
+element BeanReferenceField {  
+	uri view:UiBeanReferenceField
+	
+	bindings {
+		endpoint value Object
+		endpoint editable Boolean
+		endpoint visible Boolean
+	}
+}
