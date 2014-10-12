@@ -78,42 +78,117 @@ ruleUxModel returns [EObject current=null]
     }
     @after { leaveRule(); }:
 ((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUxModelAccess().getUxModelAction_0(),
+            $current);
+    }
+)(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUxModelAccess().getImportSectionXImportSectionParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getUxModelAccess().getImportSectionXImportSectionParserRuleCall_1_0()); 
 	    }
-		lv_importSection_0_0=ruleXImportSection		{
+		lv_importSection_1_0=ruleXImportSection		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUxModelRule());
 	        }
        		set(
        			$current, 
        			"importSection",
-        		lv_importSection_0_0, 
+        		lv_importSection_1_0, 
         		"XImportSection");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
+)?(	otherlv_2='actions' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getUxModelAccess().getActionsKeyword_2_0());
+    }
+	otherlv_3='{' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getUxModelAccess().getLeftCurlyBracketKeyword_2_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUxModelAccess().getViewActionsUxActionParserRuleCall_2_2_0()); 
+	    }
+		lv_viewActions_4_0=ruleUxAction		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUxModelRule());
+	        }
+       		add(
+       			$current, 
+       			"viewActions",
+        		lv_viewActions_4_0, 
+        		"UxAction");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_5='}' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getUxModelAccess().getRightCurlyBracketKeyword_2_3());
+    }
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUxModelAccess().getElementDefinitionsUxElementDefinitionParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getUxModelAccess().getElementDefinitionsUxElementDefinitionParserRuleCall_3_0()); 
 	    }
-		lv_elementDefinitions_1_0=ruleUxElementDefinition		{
+		lv_elementDefinitions_6_0=ruleUxElementDefinition		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUxModelRule());
 	        }
        		add(
        			$current, 
        			"elementDefinitions",
-        		lv_elementDefinitions_1_0, 
+        		lv_elementDefinitions_6_0, 
         		"UxElementDefinition");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )*)
+;
+
+
+
+
+
+// Entry rule entryRuleUxAction
+entryRuleUxAction returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUxActionRule()); }
+	 iv_ruleUxAction=ruleUxAction 
+	 { $current=$iv_ruleUxAction.current; } 
+	 EOF 
+;
+
+// Rule UxAction
+ruleUxAction returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUxActionAccess().getNameQualifiedNameParserRuleCall_0()); 
+	    }
+		lv_name_0_0=ruleQualifiedName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUxActionRule());
+	        }
+       		set(
+       			$current, 
+       			"name",
+        		lv_name_0_0, 
+        		"QualifiedName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
 ;
 
 

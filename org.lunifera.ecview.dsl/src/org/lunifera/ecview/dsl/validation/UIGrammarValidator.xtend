@@ -7,8 +7,8 @@ import com.google.inject.Inject
 import org.eclipse.xtext.common.types.JvmType
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.validation.Check
-import org.lunifera.ecview.dsl.derivedstate.TypeHelper
 import org.lunifera.ecview.dsl.extensions.BeanHelper
+import org.lunifera.ecview.dsl.extensions.TypeHelper
 import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField
 import org.lunifera.ecview.semantic.uimodel.UiComboBox
 import org.lunifera.ecview.semantic.uimodel.UiList
@@ -17,6 +17,7 @@ import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup
 import org.lunifera.ecview.semantic.uimodel.UiSearchField
 import org.lunifera.xtext.builder.types.loader.api.ITypeLoader
 import org.lunifera.xtext.builder.types.loader.api.ITypeLoaderFactory
+import org.eclipse.xtext.common.types.JvmEnumerationType
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -67,6 +68,11 @@ class UIGrammarValidator extends AbstractUIGrammarValidator {
 		if (field.itemCaptionProperty != null) {
 			return
 		}
+		
+		if(field.jvmType?.type instanceof JvmEnumerationType){
+			return
+		}
+		
 		val typeLoader = typeLoaderFactory.createTypeLoader(field.eResource.resourceSet)
 		val type = typeLoader.findTypeByName(field.jvmType?.qualifiedName)
 		if (type != null) {
@@ -86,6 +92,11 @@ class UIGrammarValidator extends AbstractUIGrammarValidator {
 		if (field.itemCaptionProperty != null) {
 			return
 		}
+		
+		if(field.jvmType?.type instanceof JvmEnumerationType){
+			return
+		}
+		
 		val typeLoader = typeLoaderFactory.createTypeLoader(field.eResource.resourceSet)
 		val type = typeLoader.findTypeByName(field.jvmType?.qualifiedName)
 		if (type != null) {
@@ -105,6 +116,11 @@ class UIGrammarValidator extends AbstractUIGrammarValidator {
 		if (field.itemCaptionProperty != null) {
 			return
 		}
+		
+		if(field.jvmType?.type instanceof JvmEnumerationType){
+			return
+		}
+		
 		val typeLoader = typeLoaderFactory.createTypeLoader(field.eResource.resourceSet)
 		val type = typeLoader.findTypeByName(field.jvmType?.qualifiedName)
 		if (type != null) {
@@ -124,8 +140,10 @@ class UIGrammarValidator extends AbstractUIGrammarValidator {
 		if (field.captionProperty != null) {
 			return
 		}
+
 		val typeLoader = typeLoaderFactory.createTypeLoader(field.eResource.resourceSet)
 		val type = typeLoader.findTypeByName(field.jvmType?.qualifiedName)
+		
 		if (type != null) {
 			result = BeanHelper.findCaptionProperty(type)
 		}

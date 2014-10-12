@@ -10,12 +10,14 @@ import org.eclipse.xtext.xbase.lib.Extension;
 import org.lunifera.ecview.semantic.uimodel.UiColumn;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
+import org.lunifera.ecview.semantic.uimodel.UiExposedAction;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
 import org.lunifera.ecview.semantic.uimodel.UiSearchField;
 import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
+import org.lunifera.ecview.semantic.uisemantics.UxAction;
 
 @SuppressWarnings("all")
 public class I18nKeyProvider {
@@ -94,6 +96,17 @@ public class I18nKeyProvider {
     }
     String _name_1 = column.getName();
     return ((currentPackage + ".") + _name_1);
+  }
+  
+  protected String _toI18nKey(final UiExposedAction action) {
+    UxAction _actionReference = action.getActionReference();
+    boolean _notEquals = (!Objects.equal(_actionReference, null));
+    if (_notEquals) {
+      UxAction _actionReference_1 = action.getActionReference();
+      return _actionReference_1.getName();
+    } else {
+      return action.getActionID();
+    }
   }
   
   protected String _toI18nKey(final UiSearchField embeddable) {
@@ -199,6 +212,8 @@ public class I18nKeyProvider {
       return _toI18nKey((UiTabAssignment)embeddable);
     } else if (embeddable instanceof UiErrorCode) {
       return _toI18nKey((UiErrorCode)embeddable);
+    } else if (embeddable instanceof UiExposedAction) {
+      return _toI18nKey((UiExposedAction)embeddable);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(embeddable).toString());

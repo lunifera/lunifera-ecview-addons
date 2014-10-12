@@ -7,6 +7,7 @@ import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.xtext.common.types.JvmEnumerationType;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeReference;
@@ -14,8 +15,8 @@ import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.lunifera.ecview.dsl.derivedstate.TypeHelper;
 import org.lunifera.ecview.dsl.extensions.BeanHelper;
+import org.lunifera.ecview.dsl.extensions.TypeHelper;
 import org.lunifera.ecview.dsl.validation.AbstractUIGrammarValidator;
 import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
 import org.lunifera.ecview.semantic.uimodel.UiComboBox;
@@ -92,13 +93,21 @@ public class UIGrammarValidator extends AbstractUIGrammarValidator {
     if (_notEquals) {
       return;
     }
+    JvmTypeReference _jvmType = field.getJvmType();
+    JvmType _type = null;
+    if (_jvmType!=null) {
+      _type=_jvmType.getType();
+    }
+    if ((_type instanceof JvmEnumerationType)) {
+      return;
+    }
     Resource _eResource = field.eResource();
     ResourceSet _resourceSet = _eResource.getResourceSet();
     final ITypeLoader typeLoader = this.typeLoaderFactory.createTypeLoader(_resourceSet);
-    JvmTypeReference _jvmType = field.getJvmType();
+    JvmTypeReference _jvmType_1 = field.getJvmType();
     String _qualifiedName = null;
-    if (_jvmType!=null) {
-      _qualifiedName=_jvmType.getQualifiedName();
+    if (_jvmType_1!=null) {
+      _qualifiedName=_jvmType_1.getQualifiedName();
     }
     final Class<?> type = typeLoader.findTypeByName(_qualifiedName);
     boolean _notEquals_1 = (!Objects.equal(type, null));
@@ -122,13 +131,21 @@ public class UIGrammarValidator extends AbstractUIGrammarValidator {
     if (_notEquals) {
       return;
     }
+    JvmTypeReference _jvmType = field.getJvmType();
+    JvmType _type = null;
+    if (_jvmType!=null) {
+      _type=_jvmType.getType();
+    }
+    if ((_type instanceof JvmEnumerationType)) {
+      return;
+    }
     Resource _eResource = field.eResource();
     ResourceSet _resourceSet = _eResource.getResourceSet();
     final ITypeLoader typeLoader = this.typeLoaderFactory.createTypeLoader(_resourceSet);
-    JvmTypeReference _jvmType = field.getJvmType();
+    JvmTypeReference _jvmType_1 = field.getJvmType();
     String _qualifiedName = null;
-    if (_jvmType!=null) {
-      _qualifiedName=_jvmType.getQualifiedName();
+    if (_jvmType_1!=null) {
+      _qualifiedName=_jvmType_1.getQualifiedName();
     }
     final Class<?> type = typeLoader.findTypeByName(_qualifiedName);
     boolean _notEquals_1 = (!Objects.equal(type, null));
@@ -152,13 +169,21 @@ public class UIGrammarValidator extends AbstractUIGrammarValidator {
     if (_notEquals) {
       return;
     }
+    JvmTypeReference _jvmType = field.getJvmType();
+    JvmType _type = null;
+    if (_jvmType!=null) {
+      _type=_jvmType.getType();
+    }
+    if ((_type instanceof JvmEnumerationType)) {
+      return;
+    }
     Resource _eResource = field.eResource();
     ResourceSet _resourceSet = _eResource.getResourceSet();
     final ITypeLoader typeLoader = this.typeLoaderFactory.createTypeLoader(_resourceSet);
-    JvmTypeReference _jvmType = field.getJvmType();
+    JvmTypeReference _jvmType_1 = field.getJvmType();
     String _qualifiedName = null;
-    if (_jvmType!=null) {
-      _qualifiedName=_jvmType.getQualifiedName();
+    if (_jvmType_1!=null) {
+      _qualifiedName=_jvmType_1.getQualifiedName();
     }
     final Class<?> type = typeLoader.findTypeByName(_qualifiedName);
     boolean _notEquals_1 = (!Objects.equal(type, null));

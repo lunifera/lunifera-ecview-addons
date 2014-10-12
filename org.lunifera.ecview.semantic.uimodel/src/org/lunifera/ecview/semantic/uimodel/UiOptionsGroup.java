@@ -15,6 +15,7 @@ import org.eclipse.xtext.common.types.JvmOperation;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiOptionsGroup#getSelectionType <em>Selection Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiOptionsGroup#getItemImageProperty <em>Item Image Property</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiOptionsGroup#getItemCaptionProperty <em>Item Caption Property</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiOptionsGroup#getDescriptionProperty <em>Description Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,5 +105,31 @@ public interface UiOptionsGroup extends UiField, UiTypeProvider, UiMobileField {
 	 * @generated
 	 */
 	void setItemCaptionProperty(JvmOperation value);
+
+	/**
+	 * Returns the value of the '<em><b>Description Property</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description Property</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description Property</em>' containment reference.
+	 * @see #setDescriptionProperty(UiNestedProperty)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiOptionsGroup_DescriptionProperty()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	UiNestedProperty getDescriptionProperty();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiOptionsGroup#getDescriptionProperty <em>Description Property</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description Property</em>' containment reference.
+	 * @see #getDescriptionProperty()
+	 * @generated
+	 */
+	void setDescriptionProperty(UiNestedProperty value);
 
 } // UiOptionsGroup

@@ -8,31 +8,31 @@ import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtext.common.types.JvmType
 import org.eclipse.xtext.documentation.IEObjectDocumentationProvider
 import org.eclipse.xtext.naming.IQualifiedNameProvider
+import org.eclipse.xtext.resource.IEObjectDescription
+import org.eclipse.xtext.resource.IResourceDescriptions
 import org.eclipse.xtext.ui.editor.hover.html.XtextElementLinks
 import org.eclipse.xtext.xbase.ui.hover.XbaseDeclarativeHoverSignatureProvider
 import org.eclipse.xtext.xbase.ui.hover.XbaseHoverDocumentationProvider
-import org.lunifera.ecview.dsl.scope.BindableTypeProvider
+import org.lunifera.ecview.dsl.extensions.BindableTypeProvider
+import org.lunifera.ecview.dsl.extensions.I18nKeyProvider
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable
 import org.lunifera.ecview.semantic.uimodel.UiErrorCode
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo
+import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator
+import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator
 import org.lunifera.ecview.semantic.uimodel.UiModel
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement
+import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator
 import org.lunifera.ecview.semantic.uimodel.UiTabAssignment
+import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage
 import org.lunifera.ecview.semantic.uisemantics.UxBindingableOption
+import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition
 import org.lunifera.ide.core.api.i18n.II18nRegistry
 import org.lunifera.ide.core.api.i18n.II18nRegistry.Proposal
 import org.lunifera.ide.core.ui.util.CoreUiUtil
 
 import static org.eclipse.xtext.xbase.ui.hover.HoverLinkHelper.*
-import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator
-import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator
-import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator
-import org.eclipse.xtext.resource.IResourceDescriptions
-import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage
-import org.eclipse.xtext.resource.IEObjectDescription
-import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition
-import org.lunifera.ecview.dsl.extensions.I18nKeyProvider
 
 class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentationProvider {
 
@@ -72,7 +72,7 @@ class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentationProvide
 		if(semanticDocu != null){
 			sb.append(semanticDocu)
 		}
-
+ 
 		val JvmType type = typeProvider.getType(object)
 		if (type != null) {
 			sb.append("<p>type: ")

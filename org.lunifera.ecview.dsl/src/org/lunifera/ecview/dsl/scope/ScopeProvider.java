@@ -5,11 +5,13 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.common.types.JvmUnknownTypeReference;
 import org.eclipse.xtext.common.types.util.TypeReferences;
+import org.eclipse.xtext.naming.IQualifiedNameConverter;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider;
 import org.lunifera.ecview.core.common.model.core.YBeanSlot;
+import org.lunifera.ecview.dsl.extensions.BindableTypeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
@@ -38,6 +40,9 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 	@Inject
 	private IQualifiedNameProvider nameProvider;
 
+	@Inject
+	private IQualifiedNameConverter nameConverter;
+
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
 		if (reference == UiModelPackage.Literals.UI_TYPED_BINDABLE_DEF__METHOD) {
@@ -50,6 +55,10 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 						provider.getResourceDescriptions(context.eResource()),
 						(UiTypedBindableDef) context);
 			}
+		} else if (reference == UiModelPackage.Literals.UI_EXPOSED_ACTION__ACTION_REFERENCE) {
+			return new ViewActionReferenceScope(
+					provider.getResourceDescriptions(context.eResource()),
+					context, nameConverter);
 		} else if (reference == UiModelPackage.Literals.UI_TYPED_BINDABLE_DEF__RAW_BINDABLE) {
 			return new BindingEndpointDefRawBindableScope(context, nameProvider);
 		} else if (reference == UiModelPackage.Literals.UI_NESTED_PROPERTY__GETTER) {

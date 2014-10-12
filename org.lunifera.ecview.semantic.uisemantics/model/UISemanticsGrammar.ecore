@@ -7,6 +7,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elementDefinitions" upperBound="-1"
         eType="#//UxElementDefinition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewActions" upperBound="-1"
+        eType="#//UxAction" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UxImportSectionDeclaration" eSuperTypes="../../org.eclipse.xtext.xbase/model/Xtype.ecore#//XImportDeclaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="importedEPackage" eType="#//UxEPackageImport"
@@ -58,4 +60,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UxBindingableOption" eSuperTypes="#//UxEndpointDef"/>
   <eClassifiers xsi:type="ecore:EClass" name="UxVisibleableOption" eSuperTypes="#//UxEndpointDef"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UxAction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

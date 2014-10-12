@@ -121,6 +121,15 @@ public interface UiSemanticsFactory extends EFactory {
 	UxVisibleableOption createUxVisibleableOption();
 
 	/**
+	 * Returns a new object of class '<em>Ux Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ux Action</em>'.
+	 * @generated
+	 */
+	UxAction createUxAction();
+
+	/**
 	 * Returns a new object of class '<em>Ux Import Section Declaration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -32,7 +32,7 @@ import org.lunifera.ecview.core.common.validation.IValidator;
 import org.lunifera.ecview.core.common.visibility.IVisibilityHandler;
 import org.lunifera.ecview.core.common.visibility.IVisibilityManager;
 import org.lunifera.ecview.core.common.visibility.IVisibilityProcessor;
-import org.lunifera.ecview.dsl.scope.BindableTypeResolver;
+import org.lunifera.ecview.dsl.extensions.BindableTypeResolver;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
 import org.lunifera.ecview.semantic.uimodel.UiChangeTrigger;

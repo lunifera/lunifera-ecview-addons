@@ -314,7 +314,7 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 		}
 		return null;
 	}
-
+	
 //	public void setSynchronizer(
 //			ECViewVaadinSynchronizer ecViewVaadinSynchronizer) {
 //		idePreviewHandler.setSynchronizer(ecViewVaadinSynchronizer);

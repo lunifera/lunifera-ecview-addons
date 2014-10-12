@@ -49,6 +49,15 @@ public interface UiModelFactory extends EFactory {
 	UiContext createUiContext();
 
 	/**
+	 * Returns a new object of class '<em>Ui Exposed Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Exposed Action</em>'.
+	 * @generated
+	 */
+	UiExposedAction createUiExposedAction();
+
+	/**
 	 * Returns a new object of class '<em>Ui View</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

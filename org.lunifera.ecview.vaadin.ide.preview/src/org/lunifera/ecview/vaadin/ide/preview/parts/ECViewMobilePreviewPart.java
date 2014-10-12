@@ -29,12 +29,13 @@ import org.eclipse.ui.internal.browser.WebBrowserUtil;
 import org.eclipse.ui.internal.browser.WebBrowserViewDropAdapter;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.eclipse.ui.part.ViewPart;
+import org.lunifera.ecview.core.common.context.IViewContext;
 import org.lunifera.ecview.vaadin.ide.preview.Activator;
 
 import com.google.inject.Inject;
 
 public class ECViewMobilePreviewPart extends ViewPart implements
-		IBrowserViewerContainer, ISetSelectionTarget {
+		IBrowserViewerContainer, ISetSelectionTarget, IUiRenderedListener {
 
 	private static String URL = "http://localhost:8099/mobilepreview";
 
@@ -74,6 +75,7 @@ public class ECViewMobilePreviewPart extends ViewPart implements
 	public void init(IViewSite site) throws PartInitException {
 		super.init(site);
 		synchronizer.start(site);
+		Activator.getMobilePreviewHandler().setPart(this);
 	}
 
 	@PreDestroy
@@ -82,6 +84,7 @@ public class ECViewMobilePreviewPart extends ViewPart implements
 	}
 
 	public void dispose() {
+		Activator.getMobilePreviewHandler().setPart(null);
 		synchronizer.stop(getSite());
 
 		if (viewer != null)
@@ -125,6 +128,11 @@ public class ECViewMobilePreviewPart extends ViewPart implements
 		} catch (MalformedURLException e) {
 		} catch (PartInitException e) {
 		}
+	}
+
+	@Override
+	public void notifyNewViewRendered(IViewContext context) {
+
 	}
 
 	public void addSelectionListener() {

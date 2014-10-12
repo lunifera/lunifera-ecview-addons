@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface UiView extends UiContext, UiVisibilityProcessable, UiRawBindable {
+public interface UiView extends UiContext, UiVisibilityProcessable, UiRawBindable, UiTypeProvider {
 
 	/**
 	 * Returns the value of the '<em><b>View Set</b></em>' reference.

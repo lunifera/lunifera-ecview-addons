@@ -22,6 +22,7 @@ import org.lunifera.ecview.semantic.uimodel.UiTabSheet
 import org.lunifera.ecview.semantic.uimodel.UiTable
 import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup
 import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout
+import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField
 
 /**
  * Customization of the default outline structure.
@@ -39,6 +40,10 @@ class UIGrammarOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	}
 	
 	def _isLeaf(UiBindingEndpointAlias object) {
+		return true;
+	}
+	
+	def _isLeaf(UiBeanReferenceField object) {
 		return true;
 	}
 

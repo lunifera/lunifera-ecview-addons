@@ -2,11 +2,18 @@ package org.lunifera.ecview.uisemantics.naming;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.xtext.naming.IQualifiedNameConverter;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.xbase.scoping.XbaseQualifiedNameProvider;
+import org.lunifera.ecview.semantic.uisemantics.UxAction;
 import org.lunifera.ecview.semantic.uisemantics.UxEPackageImport;
 
+import com.google.inject.Inject;
+
 public class QualifiedNameProvider extends XbaseQualifiedNameProvider {
+
+	@Inject
+	private IQualifiedNameConverter nameConverter;
 
 	@Override
 	public QualifiedName getFullyQualifiedName(EObject obj) {
@@ -20,6 +27,8 @@ public class QualifiedNameProvider extends XbaseQualifiedNameProvider {
 			} else {
 				return QualifiedName.EMPTY;
 			}
+		} else if (obj instanceof UxAction) {
+			return nameConverter.toQualifiedName(((UxAction) obj).getName());
 		}
 
 		return super.getFullyQualifiedName(obj);

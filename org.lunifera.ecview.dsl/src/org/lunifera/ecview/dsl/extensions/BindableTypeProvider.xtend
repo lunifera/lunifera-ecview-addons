@@ -1,4 +1,4 @@
-package org.lunifera.ecview.dsl.scope
+package org.lunifera.ecview.dsl.extensions
 
 import com.google.inject.Singleton
 import org.eclipse.emf.ecore.EObject

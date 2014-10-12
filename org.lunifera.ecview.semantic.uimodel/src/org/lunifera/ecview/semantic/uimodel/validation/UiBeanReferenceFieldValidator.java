@@ -23,6 +23,8 @@ public interface UiBeanReferenceFieldValidator {
 
 	boolean validateInMemoryBeanProvider(JvmTypeReference value);
 
+	boolean validateDescriptionProperty(UiNestedProperty value);
+
 	boolean validateInMemoryService(JvmTypeReference value);
 
 	boolean validateInMemoryService(Class<?> value);

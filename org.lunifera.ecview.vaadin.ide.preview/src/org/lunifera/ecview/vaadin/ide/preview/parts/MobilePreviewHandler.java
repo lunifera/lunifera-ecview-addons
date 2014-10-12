@@ -9,6 +9,7 @@ import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
+import org.lunifera.ecview.core.common.context.IViewContext;
 import org.lunifera.ecview.core.common.model.core.YView;
 import org.lunifera.ecview.dsl.derivedstate.UiModelGrammarUtil;
 import org.lunifera.ecview.semantic.uimodel.UiView;
@@ -31,8 +32,25 @@ public class MobilePreviewHandler {
 	private boolean linkedWithEditor;
 	private boolean showLayoutBounds;
 
+	private ECViewMobilePreviewPart part;
+
 	public Injector getInjector() {
 		return Activator.getDefault().getInjector();
+	}
+
+	/**
+	 * @return the part showing the view
+	 */
+	public ECViewMobilePreviewPart getPart() {
+		return part;
+	}
+
+	/**
+	 * @param part
+	 *            the part to set
+	 */
+	public void setPart(ECViewMobilePreviewPart part) {
+		this.part = part;
 	}
 
 	/**
@@ -207,6 +225,14 @@ public class MobilePreviewHandler {
 		// }
 		//
 		// notifySelectWidget(selected);
+	}
+
+	/**
+	 * @param context
+	 * @see org.lunifera.ecview.vaadin.ide.preview.parts.ECViewVaadinSynchronizer#notifyNewViewRendered(org.lunifera.ecview.core.common.context.IViewContext)
+	 */
+	public void notifyNewViewRendered(IViewContext context) {
+		part.notifyNewViewRendered(context);
 	}
 
 	public void dispose() {

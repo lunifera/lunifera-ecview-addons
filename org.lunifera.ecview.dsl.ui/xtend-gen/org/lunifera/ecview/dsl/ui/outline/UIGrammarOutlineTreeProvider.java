@@ -6,6 +6,7 @@ package org.lunifera.ecview.dsl.ui.outline;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode;
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
+import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
@@ -51,6 +52,10 @@ public class UIGrammarOutlineTreeProvider extends DefaultOutlineTreeProvider {
   }
   
   public boolean _isLeaf(final UiBindingEndpointAlias object) {
+    return true;
+  }
+  
+  public boolean _isLeaf(final UiBeanReferenceField object) {
     return true;
   }
   

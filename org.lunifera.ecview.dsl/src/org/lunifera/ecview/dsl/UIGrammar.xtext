@@ -97,7 +97,13 @@ UiView returns UiView:
 UiIDEView returns UiIDEView:
 	'ideview' name=ID
 	'{'
-	('viewset' viewSet=[UiViewSet] (';')?)?
+	(('viewset' viewSet=[UiViewSet] (';')?)?
+	& ('rootType' jvmType=JvmTypeReference (';')?)?
+	& (
+		'exposedActions' '{'
+			exposedActions+=UiExposedAction*
+		'}'
+	)?)
 	((beanSlots+=UiBeanSlot)
 	|
 	(bindingEndpointAlias+=UiBindingEndpointAlias))*
@@ -110,6 +116,10 @@ UiIDEView returns UiIDEView:
 	|
 	(processorAssignments+=UiVisibilityProcessorAssignment))*
 	'}';
+
+UiExposedAction:
+	name=ID ('icon' iconName=STRING)? 'id' (=>actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING) (';')?
+;
 
 UiMobileView returns UiMobileView:
 	'mobile' name=ID
@@ -403,6 +413,7 @@ UiBeanReferenceField returns UiBeanReferenceField:
 	('{'
 	(('type' jvmType=JvmTypeReference (';')?)?
 	& ('captionField' captionProperty=UiNestedProperty (';')?)?
+	& ('descriptionField' descriptionProperty=UiNestedProperty (';')?)?
 	& ('imageField' imageProperty=UiNestedProperty (';')?)?
 	& ('inMemoryService' inMemoryBeanProvider=JvmTypeReference (';')?)?)
 	(validators+=UiValidator
@@ -502,6 +513,7 @@ UiComboBox returns UiComboBox:
 	('{'
 	(('type' jvmType=JvmTypeReference (';')?)?
 	& ('captionField' itemCaptionProperty=[JvmOperation] (';')?)?
+	& ('descriptionField' descriptionProperty=UiNestedProperty (';')?)?
 	& ('imageField' itemImageProperty=[JvmOperation] (';')?)?
 	& (readonly?="readonly")?)
 	(validators+=UiValidator
@@ -561,6 +573,7 @@ UiOptionsGroup:
 	(('type' jvmType=JvmTypeReference)?
 	& ('selectionType' selectionType=UiSelectionType)?
 	& ('captionField' itemCaptionProperty=[JvmOperation])?
+	& ('descriptionField' descriptionProperty=UiNestedProperty (';')?)?
 	& ('imageField' itemImageProperty=[JvmOperation])?
 	& (readonly?="readonly")?)
 	(validators+=UiValidator
@@ -577,6 +590,7 @@ UiList:
 	(('type' jvmType=JvmTypeReference)?
 	& ('selectionType' selectionType=UiSelectionType)?
 	& ('captionField' itemCaptionProperty=[JvmOperation])?
+	& ('descriptionField' descriptionProperty=UiNestedProperty (';')?)?
 	& ('imageField' itemImageProperty=[JvmOperation])?
 	& (readonly?="readonly")?)
 	(validators+=UiValidator

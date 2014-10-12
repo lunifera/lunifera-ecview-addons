@@ -137,6 +137,7 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_MODEL: return createUiModel();
 			case UiModelPackage.UI_IMPORTS: return createUiImports();
 			case UiModelPackage.UI_CONTEXT: return createUiContext();
+			case UiModelPackage.UI_EXPOSED_ACTION: return createUiExposedAction();
 			case UiModelPackage.UI_VIEW_SET: return createUiViewSet();
 			case UiModelPackage.UI_VIEW: return createUiView();
 			case UiModelPackage.UI_DIALOG: return createUiDialog();
@@ -300,6 +301,16 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiContext createUiContext() {
 		UiContextImpl uiContext = new UiContextImpl();
 		return uiContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiExposedAction createUiExposedAction() {
+		UiExposedActionImpl uiExposedAction = new UiExposedActionImpl();
+		return uiExposedAction;
 	}
 
 	/**

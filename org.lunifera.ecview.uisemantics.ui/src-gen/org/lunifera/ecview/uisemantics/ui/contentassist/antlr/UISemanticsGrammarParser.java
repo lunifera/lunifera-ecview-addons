@@ -78,6 +78,7 @@ public class UISemanticsGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getJvmArgumentTypeReferenceAccess().getAlternatives(), "rule__JvmArgumentTypeReference__Alternatives");
 					put(grammarAccess.getJvmWildcardTypeReferenceAccess().getAlternatives_2(), "rule__JvmWildcardTypeReference__Alternatives_2");
 					put(grammarAccess.getUxModelAccess().getGroup(), "rule__UxModel__Group__0");
+					put(grammarAccess.getUxModelAccess().getGroup_2(), "rule__UxModel__Group_2__0");
 					put(grammarAccess.getXImportDeclarationAccess().getGroup_0(), "rule__XImportDeclaration__Group_0__0");
 					put(grammarAccess.getXImportDeclarationAccess().getGroup_0_1(), "rule__XImportDeclaration__Group_0_1__0");
 					put(grammarAccess.getXImportDeclarationAccess().getGroup_0_1_1_0(), "rule__XImportDeclaration__Group_0_1_1_0__0");
@@ -265,8 +266,10 @@ public class UISemanticsGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getJvmTypeParameterAccess().getGroup_1(), "rule__JvmTypeParameter__Group_1__0");
 					put(grammarAccess.getQualifiedNameWithWildcardAccess().getGroup(), "rule__QualifiedNameWithWildcard__Group__0");
 					put(grammarAccess.getQualifiedNameInStaticImportAccess().getGroup(), "rule__QualifiedNameInStaticImport__Group__0");
-					put(grammarAccess.getUxModelAccess().getImportSectionAssignment_0(), "rule__UxModel__ImportSectionAssignment_0");
-					put(grammarAccess.getUxModelAccess().getElementDefinitionsAssignment_1(), "rule__UxModel__ElementDefinitionsAssignment_1");
+					put(grammarAccess.getUxModelAccess().getImportSectionAssignment_1(), "rule__UxModel__ImportSectionAssignment_1");
+					put(grammarAccess.getUxModelAccess().getViewActionsAssignment_2_2(), "rule__UxModel__ViewActionsAssignment_2_2");
+					put(grammarAccess.getUxModelAccess().getElementDefinitionsAssignment_3(), "rule__UxModel__ElementDefinitionsAssignment_3");
+					put(grammarAccess.getUxActionAccess().getNameAssignment(), "rule__UxAction__NameAssignment");
 					put(grammarAccess.getXImportDeclarationAccess().getStaticAssignment_0_1_1_0_0(), "rule__XImportDeclaration__StaticAssignment_0_1_1_0_0");
 					put(grammarAccess.getXImportDeclarationAccess().getExtensionAssignment_0_1_1_0_1(), "rule__XImportDeclaration__ExtensionAssignment_0_1_1_0_1");
 					put(grammarAccess.getXImportDeclarationAccess().getImportedTypeAssignment_0_1_1_0_2(), "rule__XImportDeclaration__ImportedTypeAssignment_0_1_1_0_2");

@@ -77,6 +77,7 @@ import org.lunifera.ecview.semantic.uimodel.UiDialog;
 import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
+import org.lunifera.ecview.semantic.uimodel.UiExposedAction;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiGridLayout;
@@ -342,6 +343,12 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 			case UiModelPackage.UI_ERROR_CODE:
 				if(context == grammarAccess.getUiErrorCodeRule()) {
 					sequence_UiErrorCode(context, (UiErrorCode) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_EXPOSED_ACTION:
+				if(context == grammarAccess.getUiExposedActionRule()) {
+					sequence_UiExposedAction(context, (UiExposedAction) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1854,6 +1861,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *         (
 	 *             jvmType=JvmTypeReference? 
 	 *             captionProperty=UiNestedProperty? 
+	 *             descriptionProperty=UiNestedProperty? 
 	 *             imageProperty=UiNestedProperty? 
 	 *             inMemoryBeanProvider=JvmTypeReference? 
 	 *             (validators+=UiValidator | bindings+=UiBinding)* 
@@ -1977,6 +1985,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *         (
 	 *             jvmType=JvmTypeReference? 
 	 *             itemCaptionProperty=[JvmOperation|ID]? 
+	 *             descriptionProperty=UiNestedProperty? 
 	 *             itemImageProperty=[JvmOperation|ID]? 
 	 *             readonly?='readonly'? 
 	 *             (validators+=UiValidator | bindings+=UiBinding)* 
@@ -2063,6 +2072,15 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *     (name=ID defaultMessage=STRING?)
 	 */
 	protected void sequence_UiErrorCode(EObject context, UiErrorCode semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID iconName=STRING? (actionReference=[UxAction|QualifiedName] | actionID=STRING))
+	 */
+	protected void sequence_UiExposedAction(EObject context, UiExposedAction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2160,6 +2178,8 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *     (
 	 *         name=ID 
 	 *         viewSet=[UiViewSet|ID]? 
+	 *         jvmType=JvmTypeReference? 
+	 *         exposedActions+=UiExposedAction* 
 	 *         (beanSlots+=UiBeanSlot | bindingEndpointAlias+=UiBindingEndpointAlias)* 
 	 *         content=UiEmbeddable 
 	 *         contentAlignment=UiAlignment? 
@@ -2212,6 +2232,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *             jvmType=JvmTypeReference? 
 	 *             selectionType=UiSelectionType? 
 	 *             itemCaptionProperty=[JvmOperation|ID]? 
+	 *             descriptionProperty=UiNestedProperty? 
 	 *             itemImageProperty=[JvmOperation|ID]? 
 	 *             readonly?='readonly'? 
 	 *             (validators+=UiValidator | bindings+=UiBinding)* 
@@ -2481,6 +2502,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *             jvmType=JvmTypeReference? 
 	 *             selectionType=UiSelectionType? 
 	 *             itemCaptionProperty=[JvmOperation|ID]? 
+	 *             descriptionProperty=UiNestedProperty? 
 	 *             itemImageProperty=[JvmOperation|ID]? 
 	 *             readonly?='readonly'? 
 	 *             (validators+=UiValidator | bindings+=UiBinding)* 

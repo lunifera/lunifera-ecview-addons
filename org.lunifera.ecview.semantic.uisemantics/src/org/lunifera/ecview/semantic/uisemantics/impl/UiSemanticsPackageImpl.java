@@ -12,6 +12,7 @@ import org.eclipse.xtext.common.types.TypesPackage;
 import org.eclipse.xtext.xtype.XtypePackage;
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsFactory;
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
+import org.lunifera.ecview.semantic.uisemantics.UxAction;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableBindings;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableValidatorProperties;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions;
@@ -122,6 +123,13 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass uxActionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass uxImportSectionDeclarationEClass = null;
 
 	/**
@@ -214,6 +222,15 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	 */
 	public EReference getUxModel_ElementDefinitions() {
 		return (EReference)uxModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUxModel_ViewActions() {
+		return (EReference)uxModelEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -482,6 +499,24 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUxAction() {
+		return uxActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUxAction_Name() {
+		return (EAttribute)uxActionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUxImportSectionDeclaration() {
 		return uxImportSectionDeclarationEClass;
 	}
@@ -526,6 +561,7 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 		uxModelEClass = createEClass(UX_MODEL);
 		createEReference(uxModelEClass, UX_MODEL__IMPORT_SECTION);
 		createEReference(uxModelEClass, UX_MODEL__ELEMENT_DEFINITIONS);
+		createEReference(uxModelEClass, UX_MODEL__VIEW_ACTIONS);
 
 		uxImportSectionDeclarationEClass = createEClass(UX_IMPORT_SECTION_DECLARATION);
 		createEReference(uxImportSectionDeclarationEClass, UX_IMPORT_SECTION_DECLARATION__IMPORTED_EPACKAGE);
@@ -569,6 +605,9 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 		uxBindingableOptionEClass = createEClass(UX_BINDINGABLE_OPTION);
 
 		uxVisibleableOptionEClass = createEClass(UX_VISIBLEABLE_OPTION);
+
+		uxActionEClass = createEClass(UX_ACTION);
+		createEAttribute(uxActionEClass, UX_ACTION__NAME);
 	}
 
 	/**
@@ -612,6 +651,7 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 		initEClass(uxModelEClass, UxModel.class, "UxModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUxModel_ImportSection(), theXtypePackage.getXImportSection(), null, "importSection", null, 0, 1, UxModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUxModel_ElementDefinitions(), this.getUxElementDefinition(), null, "elementDefinitions", null, 0, -1, UxModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUxModel_ViewActions(), this.getUxAction(), null, "viewActions", null, 0, -1, UxModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uxImportSectionDeclarationEClass, UxImportSectionDeclaration.class, "UxImportSectionDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUxImportSectionDeclaration_ImportedEPackage(), this.getUxEPackageImport(), null, "importedEPackage", null, 0, 1, UxImportSectionDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -655,6 +695,9 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 		initEClass(uxBindingableOptionEClass, UxBindingableOption.class, "UxBindingableOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(uxVisibleableOptionEClass, UxVisibleableOption.class, "UxVisibleableOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(uxActionEClass, UxAction.class, "UxAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUxAction_Name(), ecorePackage.getEString(), "name", null, 0, 1, UxAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

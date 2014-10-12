@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
+import org.lunifera.ecview.semantic.uimodel.UiExposedAction;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiContext}.
@@ -22,4 +23,6 @@ public interface UiContextValidator {
 	boolean validateBeanSlots(EList<UiBeanSlot> value);
 	boolean validateBindingEndpointAlias(EList<UiBindingEndpointAlias> value);
 	boolean validateBindings(EList<UiBinding> value);
+
+	boolean validateExposedActions(EList<UiExposedAction> value);
 }

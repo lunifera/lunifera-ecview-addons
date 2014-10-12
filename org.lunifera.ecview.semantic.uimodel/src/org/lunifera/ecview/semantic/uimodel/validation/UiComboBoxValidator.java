@@ -5,6 +5,7 @@
 package org.lunifera.ecview.semantic.uimodel.validation;
 
 import org.eclipse.xtext.common.types.JvmOperation;
+import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiComboBox}.
@@ -17,4 +18,6 @@ public interface UiComboBoxValidator {
 
 	boolean validateItemCaptionProperty(JvmOperation value);
 	boolean validateItemImageProperty(JvmOperation value);
+
+	boolean validateDescriptionProperty(UiNestedProperty value);
 }

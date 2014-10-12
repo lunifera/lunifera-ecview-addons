@@ -23,10 +23,16 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference beanSlots : UiBeanSlot<<0..*>>
     Reference bindingEndpointAlias : UiBindingEndpointAlias<<0..*>>
     Reference bindings : UiBinding<<0..*>>
+    Reference exposedActions : UiExposedAction<<0..*>>
+
+  Class UiExposedAction -> UiNamedElement
+    Reference actionReference : UxAction
+    Attribute actionID : EString
+    Attribute iconName : EString
 
   Class UiViewSet -> UiContext
 
-  Class UiView -> UiContext, UiVisibilityProcessable, UiRawBindable
+  Class UiView -> UiContext, UiVisibilityProcessable, UiRawBindable, UiTypeProvider
     Reference viewSet : UiViewSet
     Reference content : UiEmbeddable
     Attribute contentAlignment : UiAlignment
@@ -165,6 +171,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference captionProperty : UiNestedProperty
     Reference imageProperty : UiNestedProperty
     Reference inMemoryBeanProvider : JvmTypeReference
+    Reference descriptionProperty : UiNestedProperty
 
   Class UiTextField -> UiField, UiMobileField
     Attribute maxLength : EInt
@@ -178,6 +185,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Attribute selectionType : UiSelectionType<<1..1>>
     Reference itemImageProperty : JvmOperation
     Reference itemCaptionProperty : JvmOperation
+    Reference descriptionProperty : UiNestedProperty
 
   Class UiTable -> UiField, UiTypeProvider, UiMobileField
     Reference columnAssignment : UiColumnsAssignment
@@ -187,6 +195,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiComboBox -> UiField, UiTypeProvider, UiMobileField
     Reference itemCaptionProperty : JvmOperation
     Reference itemImageProperty : JvmOperation
+    Reference descriptionProperty : UiNestedProperty
 
   Class UiTypeProvider
     Reference jvmType : JvmTypeReference
@@ -350,6 +359,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Attribute selectionType : UiSelectionType
     Reference itemImageProperty : JvmOperation
     Reference itemCaptionProperty : JvmOperation
+    Reference descriptionProperty : UiNestedProperty
 
   Class UiDateField -> UiField, UiMobileField
     Attribute dateFormat : UiDateFormat

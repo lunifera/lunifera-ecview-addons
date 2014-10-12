@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.xtext.common.types.JvmEnumerationType;
 import org.eclipse.xtext.common.types.JvmGenericType;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
@@ -51,6 +52,7 @@ import org.lunifera.ecview.core.common.model.core.YDeviceType;
 import org.lunifera.ecview.core.common.model.core.YDialog;
 import org.lunifera.ecview.core.common.model.core.YElement;
 import org.lunifera.ecview.core.common.model.core.YEmbeddable;
+import org.lunifera.ecview.core.common.model.core.YExposedAction;
 import org.lunifera.ecview.core.common.model.core.YField;
 import org.lunifera.ecview.core.common.model.core.YFlatAlignment;
 import org.lunifera.ecview.core.common.model.core.YLayout;
@@ -80,6 +82,9 @@ import org.lunifera.ecview.core.extension.model.extension.YColumn;
 import org.lunifera.ecview.core.extension.model.extension.YComboBox;
 import org.lunifera.ecview.core.extension.model.extension.YDateTime;
 import org.lunifera.ecview.core.extension.model.extension.YDecimalField;
+import org.lunifera.ecview.core.extension.model.extension.YEnumComboBox;
+import org.lunifera.ecview.core.extension.model.extension.YEnumList;
+import org.lunifera.ecview.core.extension.model.extension.YEnumOptionsGroup;
 import org.lunifera.ecview.core.extension.model.extension.YFormLayout;
 import org.lunifera.ecview.core.extension.model.extension.YGridLayout;
 import org.lunifera.ecview.core.extension.model.extension.YGridLayoutCellStyle;
@@ -106,13 +111,13 @@ import org.lunifera.ecview.core.extension.model.extension.YTextSearchField;
 import org.lunifera.ecview.core.extension.model.extension.YVerticalLayout;
 import org.lunifera.ecview.core.extension.model.extension.YVerticalLayoutCellStyle;
 import org.lunifera.ecview.core.extension.model.extension.util.SimpleExtensionModelFactory;
-import org.lunifera.ecview.dsl.derivedstate.TypeHelper;
 import org.lunifera.ecview.dsl.derivedstate.UiGrammarElementAdapter;
 import org.lunifera.ecview.dsl.derivedstate.UiModelGrammarUtil;
 import org.lunifera.ecview.dsl.extensions.BeanHelper;
+import org.lunifera.ecview.dsl.extensions.BindableTypeProvider;
 import org.lunifera.ecview.dsl.extensions.I18nKeyProvider;
 import org.lunifera.ecview.dsl.extensions.OperationExtensions;
-import org.lunifera.ecview.dsl.scope.BindableTypeProvider;
+import org.lunifera.ecview.dsl.extensions.TypeHelper;
 import org.lunifera.ecview.semantic.uimodel.UiAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
@@ -138,6 +143,7 @@ import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
+import org.lunifera.ecview.semantic.uimodel.UiExposedAction;
 import org.lunifera.ecview.semantic.uimodel.UiField;
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
@@ -202,6 +208,7 @@ import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
+import org.lunifera.ecview.semantic.uisemantics.UxAction;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 import org.lunifera.mobile.vaadin.ecview.model.VMHorizontalButtonGroup;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationButton;
@@ -445,57 +452,64 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiExposedAction> _exposedActions = object.getExposedActions();
+    final Procedure1<UiExposedAction> _function_2 = new Procedure1<UiExposedAction>() {
+      public void apply(final UiExposedAction it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiExposedAction>forEach(_exposedActions, _function_2);
     EList<UiVisibilityProcessorAssignment> _processorAssignments = object.getProcessorAssignments();
-    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+    final Procedure1<UiVisibilityProcessorAssignment> _function_3 = new Procedure1<UiVisibilityProcessorAssignment>() {
       public void apply(final UiVisibilityProcessorAssignment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
-    final Procedure1<UiVisibilityProcessorAssignment> _function_3 = new Procedure1<UiVisibilityProcessorAssignment>() {
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_3);
+    final Procedure1<UiVisibilityProcessorAssignment> _function_4 = new Procedure1<UiVisibilityProcessorAssignment>() {
       public void apply(final UiVisibilityProcessorAssignment it) {
         UiVisibilityProcessor _processor = it.getProcessor();
         UiModelDerivedStateComputerx.this.map(_processor);
       }
     };
-    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(this.pendingVisibilityProcessors, _function_3);
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(this.pendingVisibilityProcessors, _function_4);
     ArrayList<UiBinding> _newArrayList = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
     this.temporaryPendingBindings = _newArrayList;
     this.pendingBindings.clear();
-    final Procedure1<UiBinding> _function_4 = new Procedure1<UiBinding>() {
+    final Procedure1<UiBinding> _function_5 = new Procedure1<UiBinding>() {
       public void apply(final UiBinding it) {
         UiModelDerivedStateComputerx.this.install(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_4);
+    IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_5);
     boolean _isEmpty = this.pendingBindings.isEmpty();
     if (_isEmpty) {
       EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
-      final Procedure1<UiValidatorAssignment> _function_5 = new Procedure1<UiValidatorAssignment>() {
+      final Procedure1<UiValidatorAssignment> _function_6 = new Procedure1<UiValidatorAssignment>() {
         public void apply(final UiValidatorAssignment it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_5);
+      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_6);
       this.<Object>pop();
       this.currentView = null;
     } else {
       ArrayList<UiBinding> _newArrayList_1 = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
       this.temporaryPendingBindings = _newArrayList_1;
       this.pendingBindings.clear();
-      final Procedure1<UiBinding> _function_6 = new Procedure1<UiBinding>() {
+      final Procedure1<UiBinding> _function_7 = new Procedure1<UiBinding>() {
         public void apply(final UiBinding it) {
           UiModelDerivedStateComputerx.this.install(it);
         }
       };
-      IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_6);
+      IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_7);
       EList<UiValidatorAssignment> _validatorAssignments_1 = object.getValidatorAssignments();
-      final Procedure1<UiValidatorAssignment> _function_7 = new Procedure1<UiValidatorAssignment>() {
+      final Procedure1<UiValidatorAssignment> _function_8 = new Procedure1<UiValidatorAssignment>() {
         public void apply(final UiValidatorAssignment it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments_1, _function_7);
+      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments_1, _function_8);
       this.<Object>pop();
       this.currentView = null;
     }
@@ -1368,7 +1382,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiOptionsGroup eObject) {
-    final YOptionsGroup yOptionsGroup = this.<YOptionsGroup>associatedUi(eObject);
+    final YField yOptionsGroup = this.<YField>associatedUi(eObject);
     this.push(yOptionsGroup);
     EList<UiBinding> _bindings = eObject.getBindings();
     final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
@@ -1399,7 +1413,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiList eObject) {
-    final YList yList = this.<YList>associatedUi(eObject);
+    final YField yList = this.<YField>associatedUi(eObject);
     this.push(yList);
     EList<UiBinding> _bindings = eObject.getBindings();
     final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
@@ -1483,7 +1497,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiComboBox eObject) {
-    final YComboBox yField = this.<YComboBox>associatedUi(eObject);
+    final YField yField = this.<YField>associatedUi(eObject);
     this.push(yField);
     EList<UiBinding> _bindings = eObject.getBindings();
     boolean _notEquals = (!Objects.equal(_bindings, null));
@@ -1705,6 +1719,31 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     }
     this.<Object>pop();
+  }
+  
+  protected void _map(final UiExposedAction object) {
+    final YExposedAction yAction = CoreModelFactory.eINSTANCE.createYExposedAction();
+    UxAction _actionReference = object.getActionReference();
+    boolean _notEquals = (!Objects.equal(_actionReference, null));
+    if (_notEquals) {
+      UxAction _actionReference_1 = object.getActionReference();
+      String _name = _actionReference_1.getName();
+      yAction.setId(_name);
+    } else {
+      String _actionID = object.getActionID();
+      yAction.setId(_actionID);
+    }
+    String _name_1 = object.getName();
+    yAction.setName(_name_1);
+    String _name_2 = object.getName();
+    yAction.setLabel(_name_2);
+    String _i18nKey = this.toI18nKey(object);
+    yAction.setLabelI18nKey(_i18nKey);
+    String _iconName = object.getIconName();
+    yAction.setIcon(_iconName);
+    this.associateUi(object, yAction);
+    EList<YExposedAction> _exposedActions = this.currentView.getExposedActions();
+    _exposedActions.add(yAction);
   }
   
   protected void _map(final UiValidatorDef eObject) {
@@ -2042,113 +2081,189 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected YEmbeddable _create(final UiOptionsGroup object) {
-    final YOptionsGroup optionsGroup = this.factory.createOptionsGroup();
-    String _pathId = UiModelGrammarUtil.getPathId(object);
-    optionsGroup.setId(_pathId);
-    String _name = object.getName();
-    optionsGroup.setName(_name);
-    String _name_1 = object.getName();
-    optionsGroup.setLabel(_name_1);
-    String _i18nKey = this.toI18nKey(object);
-    optionsGroup.setLabelI18nKey(_i18nKey);
-    UiSelectionType _selectionType = object.getSelectionType();
-    YSelectionType _convert = this.convert(_selectionType);
-    optionsGroup.setSelectionType(_convert);
-    boolean _isReadonly = object.isReadonly();
-    boolean _not = (!_isReadonly);
-    optionsGroup.setInitialEnabled(_not);
     JvmTypeReference _jvmType = object.getJvmType();
-    boolean _notEquals = (!Objects.equal(_jvmType, null));
-    if (_notEquals) {
+    JvmType _type = null;
+    if (_jvmType!=null) {
+      _type=_jvmType.getType();
+    }
+    if ((_type instanceof JvmEnumerationType)) {
+      final YEnumOptionsGroup optionsGroup = ExtensionModelFactory.eINSTANCE.createYEnumOptionsGroup();
+      String _pathId = UiModelGrammarUtil.getPathId(object);
+      optionsGroup.setId(_pathId);
+      String _name = object.getName();
+      optionsGroup.setName(_name);
+      String _name_1 = object.getName();
+      optionsGroup.setLabel(_name_1);
+      String _i18nKey = this.toI18nKey(object);
+      optionsGroup.setLabelI18nKey(_i18nKey);
+      UiSelectionType _selectionType = object.getSelectionType();
+      YSelectionType _convert = this.convert(_selectionType);
+      optionsGroup.setSelectionType(_convert);
+      boolean _isReadonly = object.isReadonly();
+      boolean _not = (!_isReadonly);
+      optionsGroup.setInitialEnabled(_not);
       JvmTypeReference _jvmType_1 = object.getJvmType();
-      String _qualifiedName = _jvmType_1.getQualifiedName();
-      optionsGroup.setTypeQualifiedName(_qualifiedName);
-      Resource _eResource = object.eResource();
-      ResourceSet _resourceSet = _eResource.getResourceSet();
-      JvmTypeReference _jvmType_2 = object.getJvmType();
-      String _qualifiedName_1 = _jvmType_2.getQualifiedName();
-      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
-      optionsGroup.setType(_loadClass);
-    }
-    JvmOperation _itemCaptionProperty = object.getItemCaptionProperty();
-    boolean _notEquals_1 = (!Objects.equal(_itemCaptionProperty, null));
-    if (_notEquals_1) {
-      JvmOperation _itemCaptionProperty_1 = object.getItemCaptionProperty();
-      String _simpleName = null;
-      if (_itemCaptionProperty_1!=null) {
-        _simpleName=_itemCaptionProperty_1.getSimpleName();
+      boolean _notEquals = (!Objects.equal(_jvmType_1, null));
+      if (_notEquals) {
+        JvmTypeReference _jvmType_2 = object.getJvmType();
+        String _qualifiedName = _jvmType_2.getQualifiedName();
+        optionsGroup.setTypeQualifiedName(_qualifiedName);
+        Resource _eResource = object.eResource();
+        ResourceSet _resourceSet = _eResource.getResourceSet();
+        JvmTypeReference _jvmType_3 = object.getJvmType();
+        String _qualifiedName_1 = _jvmType_3.getQualifiedName();
+        Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+        optionsGroup.setType(_loadClass);
       }
-      String _propertyName = OperationExtensions.toPropertyName(_simpleName);
-      optionsGroup.setItemCaptionProperty(_propertyName);
+      this.associateUi(object, optionsGroup);
+      return optionsGroup;
     } else {
-      Class<?> _type = optionsGroup.getType();
-      String _findCaptionProperty = BeanHelper.findCaptionProperty(_type);
-      optionsGroup.setItemCaptionProperty(_findCaptionProperty);
+      final YOptionsGroup optionsGroup_1 = this.factory.createOptionsGroup();
+      String _pathId_1 = UiModelGrammarUtil.getPathId(object);
+      optionsGroup_1.setId(_pathId_1);
+      String _name_2 = object.getName();
+      optionsGroup_1.setName(_name_2);
+      String _name_3 = object.getName();
+      optionsGroup_1.setLabel(_name_3);
+      String _i18nKey_1 = this.toI18nKey(object);
+      optionsGroup_1.setLabelI18nKey(_i18nKey_1);
+      UiSelectionType _selectionType_1 = object.getSelectionType();
+      YSelectionType _convert_1 = this.convert(_selectionType_1);
+      optionsGroup_1.setSelectionType(_convert_1);
+      boolean _isReadonly_1 = object.isReadonly();
+      boolean _not_1 = (!_isReadonly_1);
+      optionsGroup_1.setInitialEnabled(_not_1);
+      JvmTypeReference _jvmType_4 = object.getJvmType();
+      boolean _notEquals_1 = (!Objects.equal(_jvmType_4, null));
+      if (_notEquals_1) {
+        JvmTypeReference _jvmType_5 = object.getJvmType();
+        String _qualifiedName_2 = _jvmType_5.getQualifiedName();
+        optionsGroup_1.setTypeQualifiedName(_qualifiedName_2);
+        Resource _eResource_1 = object.eResource();
+        ResourceSet _resourceSet_1 = _eResource_1.getResourceSet();
+        JvmTypeReference _jvmType_6 = object.getJvmType();
+        String _qualifiedName_3 = _jvmType_6.getQualifiedName();
+        Class<?> _loadClass_1 = this.loadClass(_resourceSet_1, _qualifiedName_3);
+        optionsGroup_1.setType(_loadClass_1);
+      }
+      JvmOperation _itemCaptionProperty = object.getItemCaptionProperty();
+      boolean _notEquals_2 = (!Objects.equal(_itemCaptionProperty, null));
+      if (_notEquals_2) {
+        JvmOperation _itemCaptionProperty_1 = object.getItemCaptionProperty();
+        String _simpleName = null;
+        if (_itemCaptionProperty_1!=null) {
+          _simpleName=_itemCaptionProperty_1.getSimpleName();
+        }
+        String _propertyName = OperationExtensions.toPropertyName(_simpleName);
+        optionsGroup_1.setCaptionProperty(_propertyName);
+      } else {
+        Class<?> _type_1 = optionsGroup_1.getType();
+        String _findCaptionProperty = BeanHelper.findCaptionProperty(_type_1);
+        optionsGroup_1.setCaptionProperty(_findCaptionProperty);
+      }
+      JvmOperation _itemImageProperty = object.getItemImageProperty();
+      String _simpleName_1 = null;
+      if (_itemImageProperty!=null) {
+        _simpleName_1=_itemImageProperty.getSimpleName();
+      }
+      String _propertyName_1 = OperationExtensions.toPropertyName(_simpleName_1);
+      optionsGroup_1.setImageProperty(_propertyName_1);
+      this.associateUi(object, optionsGroup_1);
+      return optionsGroup_1;
     }
-    JvmOperation _itemImageProperty = object.getItemImageProperty();
-    String _simpleName_1 = null;
-    if (_itemImageProperty!=null) {
-      _simpleName_1=_itemImageProperty.getSimpleName();
-    }
-    String _propertyName_1 = OperationExtensions.toPropertyName(_simpleName_1);
-    optionsGroup.setItemImageProperty(_propertyName_1);
-    this.associateUi(object, optionsGroup);
-    return optionsGroup;
   }
   
   protected YEmbeddable _create(final UiList object) {
-    final YList list = this.factory.createList();
-    String _pathId = UiModelGrammarUtil.getPathId(object);
-    list.setId(_pathId);
-    String _name = object.getName();
-    list.setName(_name);
-    String _name_1 = object.getName();
-    list.setLabel(_name_1);
-    String _i18nKey = this.toI18nKey(object);
-    list.setLabelI18nKey(_i18nKey);
-    UiSelectionType _selectionType = object.getSelectionType();
-    YSelectionType _convert = this.convert(_selectionType);
-    list.setSelectionType(_convert);
-    boolean _isReadonly = object.isReadonly();
-    boolean _not = (!_isReadonly);
-    list.setInitialEnabled(_not);
     JvmTypeReference _jvmType = object.getJvmType();
-    boolean _notEquals = (!Objects.equal(_jvmType, null));
-    if (_notEquals) {
+    JvmType _type = null;
+    if (_jvmType!=null) {
+      _type=_jvmType.getType();
+    }
+    if ((_type instanceof JvmEnumerationType)) {
+      final YEnumList list = ExtensionModelFactory.eINSTANCE.createYEnumList();
+      String _pathId = UiModelGrammarUtil.getPathId(object);
+      list.setId(_pathId);
+      String _name = object.getName();
+      list.setName(_name);
+      String _name_1 = object.getName();
+      list.setLabel(_name_1);
+      String _i18nKey = this.toI18nKey(object);
+      list.setLabelI18nKey(_i18nKey);
+      UiSelectionType _selectionType = object.getSelectionType();
+      YSelectionType _convert = this.convert(_selectionType);
+      list.setSelectionType(_convert);
+      boolean _isReadonly = object.isReadonly();
+      boolean _not = (!_isReadonly);
+      list.setInitialEnabled(_not);
       JvmTypeReference _jvmType_1 = object.getJvmType();
-      String _qualifiedName = _jvmType_1.getQualifiedName();
-      list.setTypeQualifiedName(_qualifiedName);
-      Resource _eResource = object.eResource();
-      ResourceSet _resourceSet = _eResource.getResourceSet();
-      JvmTypeReference _jvmType_2 = object.getJvmType();
-      String _qualifiedName_1 = _jvmType_2.getQualifiedName();
-      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
-      list.setType(_loadClass);
-    }
-    JvmOperation _itemCaptionProperty = object.getItemCaptionProperty();
-    boolean _notEquals_1 = (!Objects.equal(_itemCaptionProperty, null));
-    if (_notEquals_1) {
-      JvmOperation _itemCaptionProperty_1 = object.getItemCaptionProperty();
-      String _simpleName = null;
-      if (_itemCaptionProperty_1!=null) {
-        _simpleName=_itemCaptionProperty_1.getSimpleName();
+      boolean _notEquals = (!Objects.equal(_jvmType_1, null));
+      if (_notEquals) {
+        JvmTypeReference _jvmType_2 = object.getJvmType();
+        String _qualifiedName = _jvmType_2.getQualifiedName();
+        list.setTypeQualifiedName(_qualifiedName);
+        Resource _eResource = object.eResource();
+        ResourceSet _resourceSet = _eResource.getResourceSet();
+        JvmTypeReference _jvmType_3 = object.getJvmType();
+        String _qualifiedName_1 = _jvmType_3.getQualifiedName();
+        Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+        list.setType(_loadClass);
       }
-      String _propertyName = OperationExtensions.toPropertyName(_simpleName);
-      list.setItemCaptionProperty(_propertyName);
+      this.associateUi(object, list);
+      return list;
     } else {
-      Class<?> _type = list.getType();
-      String _findCaptionProperty = BeanHelper.findCaptionProperty(_type);
-      list.setItemCaptionProperty(_findCaptionProperty);
+      final YList list_1 = this.factory.createList();
+      String _pathId_1 = UiModelGrammarUtil.getPathId(object);
+      list_1.setId(_pathId_1);
+      String _name_2 = object.getName();
+      list_1.setName(_name_2);
+      String _name_3 = object.getName();
+      list_1.setLabel(_name_3);
+      String _i18nKey_1 = this.toI18nKey(object);
+      list_1.setLabelI18nKey(_i18nKey_1);
+      UiSelectionType _selectionType_1 = object.getSelectionType();
+      YSelectionType _convert_1 = this.convert(_selectionType_1);
+      list_1.setSelectionType(_convert_1);
+      boolean _isReadonly_1 = object.isReadonly();
+      boolean _not_1 = (!_isReadonly_1);
+      list_1.setInitialEnabled(_not_1);
+      JvmTypeReference _jvmType_4 = object.getJvmType();
+      boolean _notEquals_1 = (!Objects.equal(_jvmType_4, null));
+      if (_notEquals_1) {
+        JvmTypeReference _jvmType_5 = object.getJvmType();
+        String _qualifiedName_2 = _jvmType_5.getQualifiedName();
+        list_1.setTypeQualifiedName(_qualifiedName_2);
+        Resource _eResource_1 = object.eResource();
+        ResourceSet _resourceSet_1 = _eResource_1.getResourceSet();
+        JvmTypeReference _jvmType_6 = object.getJvmType();
+        String _qualifiedName_3 = _jvmType_6.getQualifiedName();
+        Class<?> _loadClass_1 = this.loadClass(_resourceSet_1, _qualifiedName_3);
+        list_1.setType(_loadClass_1);
+      }
+      JvmOperation _itemCaptionProperty = object.getItemCaptionProperty();
+      boolean _notEquals_2 = (!Objects.equal(_itemCaptionProperty, null));
+      if (_notEquals_2) {
+        JvmOperation _itemCaptionProperty_1 = object.getItemCaptionProperty();
+        String _simpleName = null;
+        if (_itemCaptionProperty_1!=null) {
+          _simpleName=_itemCaptionProperty_1.getSimpleName();
+        }
+        String _propertyName = OperationExtensions.toPropertyName(_simpleName);
+        list_1.setCaptionProperty(_propertyName);
+      } else {
+        Class<?> _type_1 = list_1.getType();
+        String _findCaptionProperty = BeanHelper.findCaptionProperty(_type_1);
+        list_1.setCaptionProperty(_findCaptionProperty);
+      }
+      JvmOperation _itemImageProperty = object.getItemImageProperty();
+      String _simpleName_1 = null;
+      if (_itemImageProperty!=null) {
+        _simpleName_1=_itemImageProperty.getSimpleName();
+      }
+      String _propertyName_1 = OperationExtensions.toPropertyName(_simpleName_1);
+      list_1.setImageProperty(_propertyName_1);
+      this.associateUi(object, list_1);
+      return list_1;
     }
-    JvmOperation _itemImageProperty = object.getItemImageProperty();
-    String _simpleName_1 = null;
-    if (_itemImageProperty!=null) {
-      _simpleName_1=_itemImageProperty.getSimpleName();
-    }
-    String _propertyName_1 = OperationExtensions.toPropertyName(_simpleName_1);
-    list.setItemImageProperty(_propertyName_1);
-    this.associateUi(object, list);
-    return list;
   }
   
   protected YEmbeddable _create(final UiDateField object) {
@@ -2420,55 +2535,90 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected YEmbeddable _create(final UiComboBox object) {
-    final YComboBox field = this.factory.createComboBox();
-    String _pathId = UiModelGrammarUtil.getPathId(object);
-    field.setId(_pathId);
-    String _name = object.getName();
-    field.setName(_name);
-    String _name_1 = object.getName();
-    field.setLabel(_name_1);
-    String _i18nKey = this.toI18nKey(object);
-    field.setLabelI18nKey(_i18nKey);
-    boolean _isReadonly = object.isReadonly();
-    boolean _not = (!_isReadonly);
-    field.setInitialEnabled(_not);
     JvmTypeReference _jvmType = object.getJvmType();
-    boolean _notEquals = (!Objects.equal(_jvmType, null));
-    if (_notEquals) {
+    JvmType _type = null;
+    if (_jvmType!=null) {
+      _type=_jvmType.getType();
+    }
+    if ((_type instanceof JvmEnumerationType)) {
+      final YEnumComboBox field = ExtensionModelFactory.eINSTANCE.createYEnumComboBox();
+      String _pathId = UiModelGrammarUtil.getPathId(object);
+      field.setId(_pathId);
+      String _name = object.getName();
+      field.setName(_name);
+      String _name_1 = object.getName();
+      field.setLabel(_name_1);
+      String _i18nKey = this.toI18nKey(object);
+      field.setLabelI18nKey(_i18nKey);
+      boolean _isReadonly = object.isReadonly();
+      boolean _not = (!_isReadonly);
+      field.setInitialEnabled(_not);
       JvmTypeReference _jvmType_1 = object.getJvmType();
-      String _qualifiedName = _jvmType_1.getQualifiedName();
-      field.setTypeQualifiedName(_qualifiedName);
-      Resource _eResource = object.eResource();
-      ResourceSet _resourceSet = _eResource.getResourceSet();
-      JvmTypeReference _jvmType_2 = object.getJvmType();
-      String _qualifiedName_1 = _jvmType_2.getQualifiedName();
-      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
-      field.setType(_loadClass);
-    }
-    JvmOperation _itemCaptionProperty = object.getItemCaptionProperty();
-    boolean _notEquals_1 = (!Objects.equal(_itemCaptionProperty, null));
-    if (_notEquals_1) {
-      JvmOperation _itemCaptionProperty_1 = object.getItemCaptionProperty();
-      String _simpleName = null;
-      if (_itemCaptionProperty_1!=null) {
-        _simpleName=_itemCaptionProperty_1.getSimpleName();
+      boolean _notEquals = (!Objects.equal(_jvmType_1, null));
+      if (_notEquals) {
+        JvmTypeReference _jvmType_2 = object.getJvmType();
+        String _qualifiedName = _jvmType_2.getQualifiedName();
+        field.setTypeQualifiedName(_qualifiedName);
+        Resource _eResource = object.eResource();
+        ResourceSet _resourceSet = _eResource.getResourceSet();
+        JvmTypeReference _jvmType_3 = object.getJvmType();
+        String _qualifiedName_1 = _jvmType_3.getQualifiedName();
+        Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+        field.setType(_loadClass);
       }
-      String _propertyName = OperationExtensions.toPropertyName(_simpleName);
-      field.setItemCaptionProperty(_propertyName);
+      this.associateUi(object, field);
+      return field;
     } else {
-      Class<?> _type = field.getType();
-      String _findCaptionProperty = BeanHelper.findCaptionProperty(_type);
-      field.setItemCaptionProperty(_findCaptionProperty);
+      final YComboBox field_1 = this.factory.createComboBox();
+      String _pathId_1 = UiModelGrammarUtil.getPathId(object);
+      field_1.setId(_pathId_1);
+      String _name_2 = object.getName();
+      field_1.setName(_name_2);
+      String _name_3 = object.getName();
+      field_1.setLabel(_name_3);
+      String _i18nKey_1 = this.toI18nKey(object);
+      field_1.setLabelI18nKey(_i18nKey_1);
+      boolean _isReadonly_1 = object.isReadonly();
+      boolean _not_1 = (!_isReadonly_1);
+      field_1.setInitialEnabled(_not_1);
+      JvmTypeReference _jvmType_4 = object.getJvmType();
+      boolean _notEquals_1 = (!Objects.equal(_jvmType_4, null));
+      if (_notEquals_1) {
+        JvmTypeReference _jvmType_5 = object.getJvmType();
+        String _qualifiedName_2 = _jvmType_5.getQualifiedName();
+        field_1.setTypeQualifiedName(_qualifiedName_2);
+        Resource _eResource_1 = object.eResource();
+        ResourceSet _resourceSet_1 = _eResource_1.getResourceSet();
+        JvmTypeReference _jvmType_6 = object.getJvmType();
+        String _qualifiedName_3 = _jvmType_6.getQualifiedName();
+        Class<?> _loadClass_1 = this.loadClass(_resourceSet_1, _qualifiedName_3);
+        field_1.setType(_loadClass_1);
+      }
+      JvmOperation _itemCaptionProperty = object.getItemCaptionProperty();
+      boolean _notEquals_2 = (!Objects.equal(_itemCaptionProperty, null));
+      if (_notEquals_2) {
+        JvmOperation _itemCaptionProperty_1 = object.getItemCaptionProperty();
+        String _simpleName = null;
+        if (_itemCaptionProperty_1!=null) {
+          _simpleName=_itemCaptionProperty_1.getSimpleName();
+        }
+        String _propertyName = OperationExtensions.toPropertyName(_simpleName);
+        field_1.setCaptionProperty(_propertyName);
+      } else {
+        Class<?> _type_1 = field_1.getType();
+        String _findCaptionProperty = BeanHelper.findCaptionProperty(_type_1);
+        field_1.setCaptionProperty(_findCaptionProperty);
+      }
+      JvmOperation _itemImageProperty = object.getItemImageProperty();
+      String _simpleName_1 = null;
+      if (_itemImageProperty!=null) {
+        _simpleName_1=_itemImageProperty.getSimpleName();
+      }
+      String _propertyName_1 = OperationExtensions.toPropertyName(_simpleName_1);
+      field_1.setImageProperty(_propertyName_1);
+      this.associateUi(object, field_1);
+      return field_1;
     }
-    JvmOperation _itemImageProperty = object.getItemImageProperty();
-    String _simpleName_1 = null;
-    if (_itemImageProperty!=null) {
-      _simpleName_1=_itemImageProperty.getSimpleName();
-    }
-    String _propertyName_1 = OperationExtensions.toPropertyName(_simpleName_1);
-    field.setItemImageProperty(_propertyName_1);
-    this.associateUi(object, field);
-    return field;
   }
   
   protected YEmbeddable _create(final UiSwitch object) {
@@ -3260,6 +3410,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return;
     } else if (object instanceof UiVerticalLayoutAssigment) {
       _map((UiVerticalLayoutAssigment)object);
+      return;
+    } else if (object instanceof UiExposedAction) {
+      _map((UiExposedAction)object);
       return;
     } else if (object instanceof UiModel) {
       _map((UiModel)object);

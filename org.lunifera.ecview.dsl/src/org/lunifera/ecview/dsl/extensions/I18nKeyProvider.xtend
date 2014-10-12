@@ -10,6 +10,7 @@ import org.lunifera.ecview.semantic.uimodel.UiNestedProperty
 import org.lunifera.ecview.semantic.uimodel.UiErrorCode
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import com.google.inject.Inject
+import org.lunifera.ecview.semantic.uimodel.UiExposedAction
 
 class I18nKeyProvider {
 	
@@ -48,6 +49,14 @@ class I18nKeyProvider {
 			}
 		}
 		return currentPackage + "." + column.name
+	}
+
+	def dispatch String toI18nKey(UiExposedAction action) {
+		if (action.actionReference != null) {
+			return action.actionReference.name
+		}else{
+			return action.actionID
+		}
 	}
 
 	def dispatch String toI18nKey(UiSearchField embeddable) {

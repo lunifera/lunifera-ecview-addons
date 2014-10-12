@@ -92,6 +92,13 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_EXPOSED_ACTION: {
+				UiExposedAction uiExposedAction = (UiExposedAction)theEObject;
+				T result = caseUiExposedAction(uiExposedAction);
+				if (result == null) result = caseUiNamedElement(uiExposedAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case UiModelPackage.UI_VIEW_SET: {
 				UiViewSet uiViewSet = (UiViewSet)theEObject;
 				T result = caseUiViewSet(uiViewSet);
@@ -107,6 +114,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiContext(uiView);
 				if (result == null) result = caseUiVisibilityProcessable(uiView);
 				if (result == null) result = caseUiRawBindable(uiView);
+				if (result == null) result = caseUiTypeProvider(uiView);
 				if (result == null) result = caseUiRootElements(uiView);
 				if (result == null) result = caseUiNamedElement(uiView);
 				if (result == null) result = defaultCase(theEObject);
@@ -140,6 +148,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiContext(uiIDEView);
 				if (result == null) result = caseUiVisibilityProcessable(uiIDEView);
 				if (result == null) result = caseUiRawBindable(uiIDEView);
+				if (result == null) result = caseUiTypeProvider(uiIDEView);
 				if (result == null) result = caseUiRootElements(uiIDEView);
 				if (result == null) result = caseUiNamedElement(uiIDEView);
 				if (result == null) result = defaultCase(theEObject);
@@ -152,6 +161,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiContext(uiMobileView);
 				if (result == null) result = caseUiVisibilityProcessable(uiMobileView);
 				if (result == null) result = caseUiRawBindable(uiMobileView);
+				if (result == null) result = caseUiTypeProvider(uiMobileView);
 				if (result == null) result = caseUiRootElements(uiMobileView);
 				if (result == null) result = caseUiNamedElement(uiMobileView);
 				if (result == null) result = defaultCase(theEObject);
@@ -1200,6 +1210,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiContext(UiContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Exposed Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Exposed Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiExposedAction(UiExposedAction object) {
 		return null;
 	}
 

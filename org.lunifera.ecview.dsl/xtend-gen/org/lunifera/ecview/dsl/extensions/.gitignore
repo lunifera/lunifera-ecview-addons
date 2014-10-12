@@ -2,3 +2,5 @@
 /.BindingHelper.java._trace
 /.BeanHelper.java._trace
 /I18nKeyProvider.java
+/.BindableTypeProvider.java._trace
+/.BindableTypeResolver.java._trace

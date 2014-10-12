@@ -10,6 +10,7 @@ Package uisemantics <http://www.lunifera.org/ecview/dsl/uimodel/semantics>
   Class UxModel
     Reference importSection : XImportSection
     Reference elementDefinitions : UxElementDefinition<<0..*>>
+    Reference viewActions : UxAction<<0..*>>
 
   Class UxImportSectionDeclaration -> XImportDeclaration
     Reference importedEPackage : UxEPackageImport
@@ -53,3 +54,6 @@ Package uisemantics <http://www.lunifera.org/ecview/dsl/uimodel/semantics>
   Class UxBindingableOption -> UxEndpointDef
 
   Class UxVisibleableOption -> UxEndpointDef
+
+  Class UxAction
+    Attribute name : EString

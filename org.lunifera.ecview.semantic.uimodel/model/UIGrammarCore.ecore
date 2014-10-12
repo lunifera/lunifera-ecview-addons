@@ -25,9 +25,16 @@
         eType="#//UiBindingEndpointAlias" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
         eType="#//UiBinding" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exposedActions" upperBound="-1"
+        eType="#//UiExposedAction" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiExposedAction" eSuperTypes="#//UiNamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actionReference" eType="ecore:EClass ../../org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore#//UxAction"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iconName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiViewSet" eSuperTypes="#//UiContext"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiView" eSuperTypes="#//UiContext #//UiVisibilityProcessable #//UiRawBindable">
+  <eClassifiers xsi:type="ecore:EClass" name="UiView" eSuperTypes="#//UiContext #//UiVisibilityProcessable #//UiRawBindable #//UiTypeProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewSet" eType="#//UiViewSet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//UiEmbeddable"
         containment="true"/>
@@ -223,6 +230,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inMemoryBeanProvider" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="descriptionProperty" eType="#//UiNestedProperty"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiTextField" eSuperTypes="#//UiField #//UiMobileField">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
@@ -244,6 +253,8 @@
         eType="#//UiSelectionType" defaultValueLiteral="SINGLE"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemImageProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemCaptionProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="descriptionProperty" eType="#//UiNestedProperty"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiTable" eSuperTypes="#//UiField #//UiTypeProvider #//UiMobileField">
     <eStructuralFeatures xsi:type="ecore:EReference" name="columnAssignment" eType="#//UiColumnsAssignment"
@@ -255,6 +266,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="UiComboBox" eSuperTypes="#//UiField #//UiTypeProvider #//UiMobileField">
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemCaptionProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemImageProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="descriptionProperty" eType="#//UiNestedProperty"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiTypeProvider" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
@@ -466,6 +479,8 @@
         defaultValueLiteral="SINGLE"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemImageProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemCaptionProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="descriptionProperty" eType="#//UiNestedProperty"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiDateField" eSuperTypes="#//UiField #//UiMobileField">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateFormat" eType="#//UiDateFormat"

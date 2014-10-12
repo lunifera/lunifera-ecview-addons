@@ -928,12 +928,24 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cViewsetKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cViewSetAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cViewSetUiViewSetCrossReference_3_1_0 = (CrossReference)cViewSetAssignment_3_1.eContents().get(0);
-		private final RuleCall cViewSetUiViewSetIDTerminalRuleCall_3_1_0_1 = (RuleCall)cViewSetUiViewSetCrossReference_3_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final UnorderedGroup cUnorderedGroup_3 = (UnorderedGroup)cGroup.eContents().get(3);
+		private final Group cGroup_3_0 = (Group)cUnorderedGroup_3.eContents().get(0);
+		private final Keyword cViewsetKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
+		private final Assignment cViewSetAssignment_3_0_1 = (Assignment)cGroup_3_0.eContents().get(1);
+		private final CrossReference cViewSetUiViewSetCrossReference_3_0_1_0 = (CrossReference)cViewSetAssignment_3_0_1.eContents().get(0);
+		private final RuleCall cViewSetUiViewSetIDTerminalRuleCall_3_0_1_0_1 = (RuleCall)cViewSetUiViewSetCrossReference_3_0_1_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_3_0_2 = (Keyword)cGroup_3_0.eContents().get(2);
+		private final Group cGroup_3_1 = (Group)cUnorderedGroup_3.eContents().get(1);
+		private final Keyword cRootTypeKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cJvmTypeAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_3_1_1_0 = (RuleCall)cJvmTypeAssignment_3_1_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3_1_2 = (Keyword)cGroup_3_1.eContents().get(2);
+		private final Group cGroup_3_2 = (Group)cUnorderedGroup_3.eContents().get(2);
+		private final Keyword cExposedActionsKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_2_1 = (Keyword)cGroup_3_2.eContents().get(1);
+		private final Assignment cExposedActionsAssignment_3_2_2 = (Assignment)cGroup_3_2.eContents().get(2);
+		private final RuleCall cExposedActionsUiExposedActionParserRuleCall_3_2_2_0 = (RuleCall)cExposedActionsAssignment_3_2_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_2_3 = (Keyword)cGroup_3_2.eContents().get(3);
 		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
 		private final Assignment cBeanSlotsAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
 		private final RuleCall cBeanSlotsUiBeanSlotParserRuleCall_4_0_0 = (RuleCall)cBeanSlotsAssignment_4_0.eContents().get(0);
@@ -957,13 +969,15 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//UiIDEView:
-		//	"ideview" name=ID "{" ("viewset" viewSet=[UiViewSet] ";"?)? (beanSlots+=UiBeanSlot |
+		//	"ideview" name=ID "{" (("viewset" viewSet=[UiViewSet] ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)? &
+		//	("exposedActions" "{" exposedActions+=UiExposedAction* "}")?) (beanSlots+=UiBeanSlot |
 		//	bindingEndpointAlias+=UiBindingEndpointAlias)* content=UiEmbeddable ("align" contentAlignment=UiAlignment)?
 		//	(bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding | validatorAssignments+=UiValidatorAssignment |
 		//	processorAssignments+=UiVisibilityProcessorAssignment)* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"ideview" name=ID "{" ("viewset" viewSet=[UiViewSet] ";"?)? (beanSlots+=UiBeanSlot |
+		//"ideview" name=ID "{" (("viewset" viewSet=[UiViewSet] ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)? &
+		//("exposedActions" "{" exposedActions+=UiExposedAction* "}")?) (beanSlots+=UiBeanSlot |
 		//bindingEndpointAlias+=UiBindingEndpointAlias)* content=UiEmbeddable ("align" contentAlignment=UiAlignment)?
 		//(bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding | validatorAssignments+=UiValidatorAssignment |
 		//processorAssignments+=UiVisibilityProcessorAssignment)* "}"
@@ -981,23 +995,60 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
+		//("viewset" viewSet=[UiViewSet] ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)? & ("exposedActions" "{"
+		//exposedActions+=UiExposedAction* "}")?
+		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
+
 		//("viewset" viewSet=[UiViewSet] ";"?)?
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_3_0() { return cGroup_3_0; }
 
 		//"viewset"
-		public Keyword getViewsetKeyword_3_0() { return cViewsetKeyword_3_0; }
+		public Keyword getViewsetKeyword_3_0_0() { return cViewsetKeyword_3_0_0; }
 
 		//viewSet=[UiViewSet]
-		public Assignment getViewSetAssignment_3_1() { return cViewSetAssignment_3_1; }
+		public Assignment getViewSetAssignment_3_0_1() { return cViewSetAssignment_3_0_1; }
 
 		//[UiViewSet]
-		public CrossReference getViewSetUiViewSetCrossReference_3_1_0() { return cViewSetUiViewSetCrossReference_3_1_0; }
+		public CrossReference getViewSetUiViewSetCrossReference_3_0_1_0() { return cViewSetUiViewSetCrossReference_3_0_1_0; }
 
 		//ID
-		public RuleCall getViewSetUiViewSetIDTerminalRuleCall_3_1_0_1() { return cViewSetUiViewSetIDTerminalRuleCall_3_1_0_1; }
+		public RuleCall getViewSetUiViewSetIDTerminalRuleCall_3_0_1_0_1() { return cViewSetUiViewSetIDTerminalRuleCall_3_0_1_0_1; }
 
 		//";"?
-		public Keyword getSemicolonKeyword_3_2() { return cSemicolonKeyword_3_2; }
+		public Keyword getSemicolonKeyword_3_0_2() { return cSemicolonKeyword_3_0_2; }
+
+		//("rootType" jvmType=JvmTypeReference ";"?)?
+		public Group getGroup_3_1() { return cGroup_3_1; }
+
+		//"rootType"
+		public Keyword getRootTypeKeyword_3_1_0() { return cRootTypeKeyword_3_1_0; }
+
+		//jvmType=JvmTypeReference
+		public Assignment getJvmTypeAssignment_3_1_1() { return cJvmTypeAssignment_3_1_1; }
+
+		//JvmTypeReference
+		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_3_1_1_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_3_1_1_0; }
+
+		//";"?
+		public Keyword getSemicolonKeyword_3_1_2() { return cSemicolonKeyword_3_1_2; }
+
+		//("exposedActions" "{" exposedActions+=UiExposedAction* "}")?
+		public Group getGroup_3_2() { return cGroup_3_2; }
+
+		//"exposedActions"
+		public Keyword getExposedActionsKeyword_3_2_0() { return cExposedActionsKeyword_3_2_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3_2_1() { return cLeftCurlyBracketKeyword_3_2_1; }
+
+		//exposedActions+=UiExposedAction*
+		public Assignment getExposedActionsAssignment_3_2_2() { return cExposedActionsAssignment_3_2_2; }
+
+		//UiExposedAction
+		public RuleCall getExposedActionsUiExposedActionParserRuleCall_3_2_2_0() { return cExposedActionsUiExposedActionParserRuleCall_3_2_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3_2_3() { return cRightCurlyBracketKeyword_3_2_3; }
 
 		//(beanSlots+=UiBeanSlot | bindingEndpointAlias+=UiBindingEndpointAlias)*
 		public Alternatives getAlternatives_4() { return cAlternatives_4; }
@@ -1062,6 +1113,74 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+	}
+
+	public class UiExposedActionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiExposedAction");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cIconKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cIconNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cIconNameSTRINGTerminalRuleCall_1_1_0 = (RuleCall)cIconNameAssignment_1_1.eContents().get(0);
+		private final Keyword cIdKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Assignment cActionReferenceAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
+		private final CrossReference cActionReferenceUxActionCrossReference_3_0_0 = (CrossReference)cActionReferenceAssignment_3_0.eContents().get(0);
+		private final RuleCall cActionReferenceUxActionQualifiedNameParserRuleCall_3_0_0_1 = (RuleCall)cActionReferenceUxActionCrossReference_3_0_0.eContents().get(1);
+		private final Assignment cActionIDAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
+		private final RuleCall cActionIDSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cActionIDAssignment_3_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//UiExposedAction:
+		//	name=ID ("icon" iconName=STRING)? "id" (=> actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING) ";"?;
+		public ParserRule getRule() { return rule; }
+
+		//name=ID ("icon" iconName=STRING)? "id" (=> actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING) ";"?
+		public Group getGroup() { return cGroup; }
+
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+
+		//("icon" iconName=STRING)?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"icon"
+		public Keyword getIconKeyword_1_0() { return cIconKeyword_1_0; }
+
+		//iconName=STRING
+		public Assignment getIconNameAssignment_1_1() { return cIconNameAssignment_1_1; }
+
+		//STRING
+		public RuleCall getIconNameSTRINGTerminalRuleCall_1_1_0() { return cIconNameSTRINGTerminalRuleCall_1_1_0; }
+
+		//"id"
+		public Keyword getIdKeyword_2() { return cIdKeyword_2; }
+
+		//=> actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+
+		//=> actionReference=[cfg::UxAction|QualifiedName]
+		public Assignment getActionReferenceAssignment_3_0() { return cActionReferenceAssignment_3_0; }
+
+		//[cfg::UxAction|QualifiedName]
+		public CrossReference getActionReferenceUxActionCrossReference_3_0_0() { return cActionReferenceUxActionCrossReference_3_0_0; }
+
+		//QualifiedName
+		public RuleCall getActionReferenceUxActionQualifiedNameParserRuleCall_3_0_0_1() { return cActionReferenceUxActionQualifiedNameParserRuleCall_3_0_0_1; }
+
+		//actionID=STRING
+		public Assignment getActionIDAssignment_3_1() { return cActionIDAssignment_3_1; }
+
+		//STRING
+		public RuleCall getActionIDSTRINGTerminalRuleCall_3_1_0() { return cActionIDSTRINGTerminalRuleCall_3_1_0; }
+
+		//";"?
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 
 	public class UiMobileViewElements extends AbstractParserRuleElementFinder {
@@ -3467,15 +3586,20 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cCaptionPropertyUiNestedPropertyParserRuleCall_4_1_1_1_0 = (RuleCall)cCaptionPropertyAssignment_4_1_1_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4_1_1_2 = (Keyword)cGroup_4_1_1.eContents().get(2);
 		private final Group cGroup_4_1_2 = (Group)cUnorderedGroup_4_1.eContents().get(2);
-		private final Keyword cImageFieldKeyword_4_1_2_0 = (Keyword)cGroup_4_1_2.eContents().get(0);
-		private final Assignment cImagePropertyAssignment_4_1_2_1 = (Assignment)cGroup_4_1_2.eContents().get(1);
-		private final RuleCall cImagePropertyUiNestedPropertyParserRuleCall_4_1_2_1_0 = (RuleCall)cImagePropertyAssignment_4_1_2_1.eContents().get(0);
+		private final Keyword cDescriptionFieldKeyword_4_1_2_0 = (Keyword)cGroup_4_1_2.eContents().get(0);
+		private final Assignment cDescriptionPropertyAssignment_4_1_2_1 = (Assignment)cGroup_4_1_2.eContents().get(1);
+		private final RuleCall cDescriptionPropertyUiNestedPropertyParserRuleCall_4_1_2_1_0 = (RuleCall)cDescriptionPropertyAssignment_4_1_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4_1_2_2 = (Keyword)cGroup_4_1_2.eContents().get(2);
 		private final Group cGroup_4_1_3 = (Group)cUnorderedGroup_4_1.eContents().get(3);
-		private final Keyword cInMemoryServiceKeyword_4_1_3_0 = (Keyword)cGroup_4_1_3.eContents().get(0);
-		private final Assignment cInMemoryBeanProviderAssignment_4_1_3_1 = (Assignment)cGroup_4_1_3.eContents().get(1);
-		private final RuleCall cInMemoryBeanProviderJvmTypeReferenceParserRuleCall_4_1_3_1_0 = (RuleCall)cInMemoryBeanProviderAssignment_4_1_3_1.eContents().get(0);
+		private final Keyword cImageFieldKeyword_4_1_3_0 = (Keyword)cGroup_4_1_3.eContents().get(0);
+		private final Assignment cImagePropertyAssignment_4_1_3_1 = (Assignment)cGroup_4_1_3.eContents().get(1);
+		private final RuleCall cImagePropertyUiNestedPropertyParserRuleCall_4_1_3_1_0 = (RuleCall)cImagePropertyAssignment_4_1_3_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4_1_3_2 = (Keyword)cGroup_4_1_3.eContents().get(2);
+		private final Group cGroup_4_1_4 = (Group)cUnorderedGroup_4_1.eContents().get(4);
+		private final Keyword cInMemoryServiceKeyword_4_1_4_0 = (Keyword)cGroup_4_1_4.eContents().get(0);
+		private final Assignment cInMemoryBeanProviderAssignment_4_1_4_1 = (Assignment)cGroup_4_1_4.eContents().get(1);
+		private final RuleCall cInMemoryBeanProviderJvmTypeReferenceParserRuleCall_4_1_4_1_0 = (RuleCall)cInMemoryBeanProviderAssignment_4_1_4_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4_1_4_2 = (Keyword)cGroup_4_1_4.eContents().get(2);
 		private final Alternatives cAlternatives_4_2 = (Alternatives)cGroup_4.eContents().get(2);
 		private final Assignment cValidatorsAssignment_4_2_0 = (Assignment)cAlternatives_4_2.eContents().get(0);
 		private final RuleCall cValidatorsUiValidatorParserRuleCall_4_2_0_0 = (RuleCall)cValidatorsAssignment_4_2_0.eContents().get(0);
@@ -3487,14 +3611,16 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//UiBeanReferenceField:
 		//	{UiBeanReferenceField} "referenceField" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? ("{" (("type"
-		//	jvmType=JvmTypeReference ";"?)? & ("captionField" captionProperty=UiNestedProperty ";"?)? & ("imageField"
-		//	imageProperty=UiNestedProperty ";"?)? & ("inMemoryService" inMemoryBeanProvider=JvmTypeReference ";"?)?)
-		//	(validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
+		//	jvmType=JvmTypeReference ";"?)? & ("captionField" captionProperty=UiNestedProperty ";"?)? & ("descriptionField"
+		//	descriptionProperty=UiNestedProperty ";"?)? & ("imageField" imageProperty=UiNestedProperty ";"?)? & ("inMemoryService"
+		//	inMemoryBeanProvider=JvmTypeReference ";"?)?) (validators+=UiValidator | bindings+=UiBinding)*
+		//	processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 		public ParserRule getRule() { return rule; }
 
 		//{UiBeanReferenceField} "referenceField" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? ("{" (("type" jvmType=JvmTypeReference
-		//";"?)? & ("captionField" captionProperty=UiNestedProperty ";"?)? & ("imageField" imageProperty=UiNestedProperty ";"?)?
-		//& ("inMemoryService" inMemoryBeanProvider=JvmTypeReference ";"?)?) (validators+=UiValidator | bindings+=UiBinding)*
+		//";"?)? & ("captionField" captionProperty=UiNestedProperty ";"?)? & ("descriptionField"
+		//descriptionProperty=UiNestedProperty ";"?)? & ("imageField" imageProperty=UiNestedProperty ";"?)? & ("inMemoryService"
+		//inMemoryBeanProvider=JvmTypeReference ";"?)?) (validators+=UiValidator | bindings+=UiBinding)*
 		//processorAssignments+=UiVisibilityProcessorAssignment* "}")?
 		public Group getGroup() { return cGroup; }
 
@@ -3525,16 +3651,18 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 
-		//("{" (("type" jvmType=JvmTypeReference ";"?)? & ("captionField" captionProperty=UiNestedProperty ";"?)? & ("imageField"
-		//imageProperty=UiNestedProperty ";"?)? & ("inMemoryService" inMemoryBeanProvider=JvmTypeReference ";"?)?)
-		//(validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?
+		//("{" (("type" jvmType=JvmTypeReference ";"?)? & ("captionField" captionProperty=UiNestedProperty ";"?)? &
+		//("descriptionField" descriptionProperty=UiNestedProperty ";"?)? & ("imageField" imageProperty=UiNestedProperty ";"?)? &
+		//("inMemoryService" inMemoryBeanProvider=JvmTypeReference ";"?)?) (validators+=UiValidator | bindings+=UiBinding)*
+		//processorAssignments+=UiVisibilityProcessorAssignment* "}")?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_4_0() { return cLeftCurlyBracketKeyword_4_0; }
 
-		//("type" jvmType=JvmTypeReference ";"?)? & ("captionField" captionProperty=UiNestedProperty ";"?)? & ("imageField"
-		//imageProperty=UiNestedProperty ";"?)? & ("inMemoryService" inMemoryBeanProvider=JvmTypeReference ";"?)?
+		//("type" jvmType=JvmTypeReference ";"?)? & ("captionField" captionProperty=UiNestedProperty ";"?)? & ("descriptionField"
+		//descriptionProperty=UiNestedProperty ";"?)? & ("imageField" imageProperty=UiNestedProperty ";"?)? & ("inMemoryService"
+		//inMemoryBeanProvider=JvmTypeReference ";"?)?
 		public UnorderedGroup getUnorderedGroup_4_1() { return cUnorderedGroup_4_1; }
 
 		//("type" jvmType=JvmTypeReference ";"?)?
@@ -3567,35 +3695,50 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//";"?
 		public Keyword getSemicolonKeyword_4_1_1_2() { return cSemicolonKeyword_4_1_1_2; }
 
-		//("imageField" imageProperty=UiNestedProperty ";"?)?
+		//("descriptionField" descriptionProperty=UiNestedProperty ";"?)?
 		public Group getGroup_4_1_2() { return cGroup_4_1_2; }
 
-		//"imageField"
-		public Keyword getImageFieldKeyword_4_1_2_0() { return cImageFieldKeyword_4_1_2_0; }
+		//"descriptionField"
+		public Keyword getDescriptionFieldKeyword_4_1_2_0() { return cDescriptionFieldKeyword_4_1_2_0; }
 
-		//imageProperty=UiNestedProperty
-		public Assignment getImagePropertyAssignment_4_1_2_1() { return cImagePropertyAssignment_4_1_2_1; }
+		//descriptionProperty=UiNestedProperty
+		public Assignment getDescriptionPropertyAssignment_4_1_2_1() { return cDescriptionPropertyAssignment_4_1_2_1; }
 
 		//UiNestedProperty
-		public RuleCall getImagePropertyUiNestedPropertyParserRuleCall_4_1_2_1_0() { return cImagePropertyUiNestedPropertyParserRuleCall_4_1_2_1_0; }
+		public RuleCall getDescriptionPropertyUiNestedPropertyParserRuleCall_4_1_2_1_0() { return cDescriptionPropertyUiNestedPropertyParserRuleCall_4_1_2_1_0; }
 
 		//";"?
 		public Keyword getSemicolonKeyword_4_1_2_2() { return cSemicolonKeyword_4_1_2_2; }
 
-		//("inMemoryService" inMemoryBeanProvider=JvmTypeReference ";"?)?
+		//("imageField" imageProperty=UiNestedProperty ";"?)?
 		public Group getGroup_4_1_3() { return cGroup_4_1_3; }
 
-		//"inMemoryService"
-		public Keyword getInMemoryServiceKeyword_4_1_3_0() { return cInMemoryServiceKeyword_4_1_3_0; }
+		//"imageField"
+		public Keyword getImageFieldKeyword_4_1_3_0() { return cImageFieldKeyword_4_1_3_0; }
 
-		//inMemoryBeanProvider=JvmTypeReference
-		public Assignment getInMemoryBeanProviderAssignment_4_1_3_1() { return cInMemoryBeanProviderAssignment_4_1_3_1; }
+		//imageProperty=UiNestedProperty
+		public Assignment getImagePropertyAssignment_4_1_3_1() { return cImagePropertyAssignment_4_1_3_1; }
 
-		//JvmTypeReference
-		public RuleCall getInMemoryBeanProviderJvmTypeReferenceParserRuleCall_4_1_3_1_0() { return cInMemoryBeanProviderJvmTypeReferenceParserRuleCall_4_1_3_1_0; }
+		//UiNestedProperty
+		public RuleCall getImagePropertyUiNestedPropertyParserRuleCall_4_1_3_1_0() { return cImagePropertyUiNestedPropertyParserRuleCall_4_1_3_1_0; }
 
 		//";"?
 		public Keyword getSemicolonKeyword_4_1_3_2() { return cSemicolonKeyword_4_1_3_2; }
+
+		//("inMemoryService" inMemoryBeanProvider=JvmTypeReference ";"?)?
+		public Group getGroup_4_1_4() { return cGroup_4_1_4; }
+
+		//"inMemoryService"
+		public Keyword getInMemoryServiceKeyword_4_1_4_0() { return cInMemoryServiceKeyword_4_1_4_0; }
+
+		//inMemoryBeanProvider=JvmTypeReference
+		public Assignment getInMemoryBeanProviderAssignment_4_1_4_1() { return cInMemoryBeanProviderAssignment_4_1_4_1; }
+
+		//JvmTypeReference
+		public RuleCall getInMemoryBeanProviderJvmTypeReferenceParserRuleCall_4_1_4_1_0() { return cInMemoryBeanProviderJvmTypeReferenceParserRuleCall_4_1_4_1_0; }
+
+		//";"?
+		public Keyword getSemicolonKeyword_4_1_4_2() { return cSemicolonKeyword_4_1_4_2; }
 
 		//(validators+=UiValidator | bindings+=UiBinding)*
 		public Alternatives getAlternatives_4_2() { return cAlternatives_4_2; }
@@ -4386,13 +4529,18 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cItemCaptionPropertyJvmOperationIDTerminalRuleCall_4_1_1_1_0_1 = (RuleCall)cItemCaptionPropertyJvmOperationCrossReference_4_1_1_1_0.eContents().get(1);
 		private final Keyword cSemicolonKeyword_4_1_1_2 = (Keyword)cGroup_4_1_1.eContents().get(2);
 		private final Group cGroup_4_1_2 = (Group)cUnorderedGroup_4_1.eContents().get(2);
-		private final Keyword cImageFieldKeyword_4_1_2_0 = (Keyword)cGroup_4_1_2.eContents().get(0);
-		private final Assignment cItemImagePropertyAssignment_4_1_2_1 = (Assignment)cGroup_4_1_2.eContents().get(1);
-		private final CrossReference cItemImagePropertyJvmOperationCrossReference_4_1_2_1_0 = (CrossReference)cItemImagePropertyAssignment_4_1_2_1.eContents().get(0);
-		private final RuleCall cItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_2_1_0_1 = (RuleCall)cItemImagePropertyJvmOperationCrossReference_4_1_2_1_0.eContents().get(1);
+		private final Keyword cDescriptionFieldKeyword_4_1_2_0 = (Keyword)cGroup_4_1_2.eContents().get(0);
+		private final Assignment cDescriptionPropertyAssignment_4_1_2_1 = (Assignment)cGroup_4_1_2.eContents().get(1);
+		private final RuleCall cDescriptionPropertyUiNestedPropertyParserRuleCall_4_1_2_1_0 = (RuleCall)cDescriptionPropertyAssignment_4_1_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4_1_2_2 = (Keyword)cGroup_4_1_2.eContents().get(2);
-		private final Assignment cReadonlyAssignment_4_1_3 = (Assignment)cUnorderedGroup_4_1.eContents().get(3);
-		private final Keyword cReadonlyReadonlyKeyword_4_1_3_0 = (Keyword)cReadonlyAssignment_4_1_3.eContents().get(0);
+		private final Group cGroup_4_1_3 = (Group)cUnorderedGroup_4_1.eContents().get(3);
+		private final Keyword cImageFieldKeyword_4_1_3_0 = (Keyword)cGroup_4_1_3.eContents().get(0);
+		private final Assignment cItemImagePropertyAssignment_4_1_3_1 = (Assignment)cGroup_4_1_3.eContents().get(1);
+		private final CrossReference cItemImagePropertyJvmOperationCrossReference_4_1_3_1_0 = (CrossReference)cItemImagePropertyAssignment_4_1_3_1.eContents().get(0);
+		private final RuleCall cItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_3_1_0_1 = (RuleCall)cItemImagePropertyJvmOperationCrossReference_4_1_3_1_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_4_1_3_2 = (Keyword)cGroup_4_1_3.eContents().get(2);
+		private final Assignment cReadonlyAssignment_4_1_4 = (Assignment)cUnorderedGroup_4_1.eContents().get(4);
+		private final Keyword cReadonlyReadonlyKeyword_4_1_4_0 = (Keyword)cReadonlyAssignment_4_1_4.eContents().get(0);
 		private final Alternatives cAlternatives_4_2 = (Alternatives)cGroup_4.eContents().get(2);
 		private final Assignment cValidatorsAssignment_4_2_0 = (Assignment)cAlternatives_4_2.eContents().get(0);
 		private final RuleCall cValidatorsUiValidatorParserRuleCall_4_2_0_0 = (RuleCall)cValidatorsAssignment_4_2_0.eContents().get(0);
@@ -4404,15 +4552,15 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//UiComboBox:
 		//	{UiComboBox} "combo" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? ("{" (("type" jvmType=JvmTypeReference ";"?)? &
-		//	("captionField" itemCaptionProperty=[JvmOperation] ";"?)? & ("imageField" itemImageProperty=[JvmOperation] ";"?)? &
-		//	readonly?="readonly"?) (validators+=UiValidator | bindings+=UiBinding)*
-		//	processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
+		//	("captionField" itemCaptionProperty=[JvmOperation] ";"?)? & ("descriptionField" descriptionProperty=UiNestedProperty
+		//	";"?)? & ("imageField" itemImageProperty=[JvmOperation] ";"?)? & readonly?="readonly"?) (validators+=UiValidator |
+		//	bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 		public ParserRule getRule() { return rule; }
 
 		//{UiComboBox} "combo" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? ("{" (("type" jvmType=JvmTypeReference ";"?)? &
-		//("captionField" itemCaptionProperty=[JvmOperation] ";"?)? & ("imageField" itemImageProperty=[JvmOperation] ";"?)? &
-		//readonly?="readonly"?) (validators+=UiValidator | bindings+=UiBinding)*
-		//processorAssignments+=UiVisibilityProcessorAssignment* "}")?
+		//("captionField" itemCaptionProperty=[JvmOperation] ";"?)? & ("descriptionField" descriptionProperty=UiNestedProperty
+		//";"?)? & ("imageField" itemImageProperty=[JvmOperation] ";"?)? & readonly?="readonly"?) (validators+=UiValidator |
+		//bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?
 		public Group getGroup() { return cGroup; }
 
 		//{UiComboBox}
@@ -4443,15 +4591,17 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 
 		//("{" (("type" jvmType=JvmTypeReference ";"?)? & ("captionField" itemCaptionProperty=[JvmOperation] ";"?)? &
-		//("imageField" itemImageProperty=[JvmOperation] ";"?)? & readonly?="readonly"?) (validators+=UiValidator |
-		//bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?
+		//("descriptionField" descriptionProperty=UiNestedProperty ";"?)? & ("imageField" itemImageProperty=[JvmOperation] ";"?)?
+		//& readonly?="readonly"?) (validators+=UiValidator | bindings+=UiBinding)*
+		//processorAssignments+=UiVisibilityProcessorAssignment* "}")?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_4_0() { return cLeftCurlyBracketKeyword_4_0; }
 
-		//("type" jvmType=JvmTypeReference ";"?)? & ("captionField" itemCaptionProperty=[JvmOperation] ";"?)? & ("imageField"
-		//itemImageProperty=[JvmOperation] ";"?)? & readonly?="readonly"?
+		//("type" jvmType=JvmTypeReference ";"?)? & ("captionField" itemCaptionProperty=[JvmOperation] ";"?)? &
+		//("descriptionField" descriptionProperty=UiNestedProperty ";"?)? & ("imageField" itemImageProperty=[JvmOperation] ";"?)?
+		//& readonly?="readonly"?
 		public UnorderedGroup getUnorderedGroup_4_1() { return cUnorderedGroup_4_1; }
 
 		//("type" jvmType=JvmTypeReference ";"?)?
@@ -4487,29 +4637,44 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//";"?
 		public Keyword getSemicolonKeyword_4_1_1_2() { return cSemicolonKeyword_4_1_1_2; }
 
-		//("imageField" itemImageProperty=[JvmOperation] ";"?)?
+		//("descriptionField" descriptionProperty=UiNestedProperty ";"?)?
 		public Group getGroup_4_1_2() { return cGroup_4_1_2; }
 
-		//"imageField"
-		public Keyword getImageFieldKeyword_4_1_2_0() { return cImageFieldKeyword_4_1_2_0; }
+		//"descriptionField"
+		public Keyword getDescriptionFieldKeyword_4_1_2_0() { return cDescriptionFieldKeyword_4_1_2_0; }
 
-		//itemImageProperty=[JvmOperation]
-		public Assignment getItemImagePropertyAssignment_4_1_2_1() { return cItemImagePropertyAssignment_4_1_2_1; }
+		//descriptionProperty=UiNestedProperty
+		public Assignment getDescriptionPropertyAssignment_4_1_2_1() { return cDescriptionPropertyAssignment_4_1_2_1; }
 
-		//[JvmOperation]
-		public CrossReference getItemImagePropertyJvmOperationCrossReference_4_1_2_1_0() { return cItemImagePropertyJvmOperationCrossReference_4_1_2_1_0; }
-
-		//ID
-		public RuleCall getItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_2_1_0_1() { return cItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_2_1_0_1; }
+		//UiNestedProperty
+		public RuleCall getDescriptionPropertyUiNestedPropertyParserRuleCall_4_1_2_1_0() { return cDescriptionPropertyUiNestedPropertyParserRuleCall_4_1_2_1_0; }
 
 		//";"?
 		public Keyword getSemicolonKeyword_4_1_2_2() { return cSemicolonKeyword_4_1_2_2; }
 
+		//("imageField" itemImageProperty=[JvmOperation] ";"?)?
+		public Group getGroup_4_1_3() { return cGroup_4_1_3; }
+
+		//"imageField"
+		public Keyword getImageFieldKeyword_4_1_3_0() { return cImageFieldKeyword_4_1_3_0; }
+
+		//itemImageProperty=[JvmOperation]
+		public Assignment getItemImagePropertyAssignment_4_1_3_1() { return cItemImagePropertyAssignment_4_1_3_1; }
+
+		//[JvmOperation]
+		public CrossReference getItemImagePropertyJvmOperationCrossReference_4_1_3_1_0() { return cItemImagePropertyJvmOperationCrossReference_4_1_3_1_0; }
+
+		//ID
+		public RuleCall getItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_3_1_0_1() { return cItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_3_1_0_1; }
+
+		//";"?
+		public Keyword getSemicolonKeyword_4_1_3_2() { return cSemicolonKeyword_4_1_3_2; }
+
 		//readonly?="readonly"?
-		public Assignment getReadonlyAssignment_4_1_3() { return cReadonlyAssignment_4_1_3; }
+		public Assignment getReadonlyAssignment_4_1_4() { return cReadonlyAssignment_4_1_4; }
 
 		//"readonly"
-		public Keyword getReadonlyReadonlyKeyword_4_1_3_0() { return cReadonlyReadonlyKeyword_4_1_3_0; }
+		public Keyword getReadonlyReadonlyKeyword_4_1_4_0() { return cReadonlyReadonlyKeyword_4_1_4_0; }
 
 		//(validators+=UiValidator | bindings+=UiBinding)*
 		public Alternatives getAlternatives_4_2() { return cAlternatives_4_2; }
@@ -5049,12 +5214,17 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cItemCaptionPropertyJvmOperationCrossReference_4_1_2_1_0 = (CrossReference)cItemCaptionPropertyAssignment_4_1_2_1.eContents().get(0);
 		private final RuleCall cItemCaptionPropertyJvmOperationIDTerminalRuleCall_4_1_2_1_0_1 = (RuleCall)cItemCaptionPropertyJvmOperationCrossReference_4_1_2_1_0.eContents().get(1);
 		private final Group cGroup_4_1_3 = (Group)cUnorderedGroup_4_1.eContents().get(3);
-		private final Keyword cImageFieldKeyword_4_1_3_0 = (Keyword)cGroup_4_1_3.eContents().get(0);
-		private final Assignment cItemImagePropertyAssignment_4_1_3_1 = (Assignment)cGroup_4_1_3.eContents().get(1);
-		private final CrossReference cItemImagePropertyJvmOperationCrossReference_4_1_3_1_0 = (CrossReference)cItemImagePropertyAssignment_4_1_3_1.eContents().get(0);
-		private final RuleCall cItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_3_1_0_1 = (RuleCall)cItemImagePropertyJvmOperationCrossReference_4_1_3_1_0.eContents().get(1);
-		private final Assignment cReadonlyAssignment_4_1_4 = (Assignment)cUnorderedGroup_4_1.eContents().get(4);
-		private final Keyword cReadonlyReadonlyKeyword_4_1_4_0 = (Keyword)cReadonlyAssignment_4_1_4.eContents().get(0);
+		private final Keyword cDescriptionFieldKeyword_4_1_3_0 = (Keyword)cGroup_4_1_3.eContents().get(0);
+		private final Assignment cDescriptionPropertyAssignment_4_1_3_1 = (Assignment)cGroup_4_1_3.eContents().get(1);
+		private final RuleCall cDescriptionPropertyUiNestedPropertyParserRuleCall_4_1_3_1_0 = (RuleCall)cDescriptionPropertyAssignment_4_1_3_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4_1_3_2 = (Keyword)cGroup_4_1_3.eContents().get(2);
+		private final Group cGroup_4_1_4 = (Group)cUnorderedGroup_4_1.eContents().get(4);
+		private final Keyword cImageFieldKeyword_4_1_4_0 = (Keyword)cGroup_4_1_4.eContents().get(0);
+		private final Assignment cItemImagePropertyAssignment_4_1_4_1 = (Assignment)cGroup_4_1_4.eContents().get(1);
+		private final CrossReference cItemImagePropertyJvmOperationCrossReference_4_1_4_1_0 = (CrossReference)cItemImagePropertyAssignment_4_1_4_1.eContents().get(0);
+		private final RuleCall cItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_4_1_0_1 = (RuleCall)cItemImagePropertyJvmOperationCrossReference_4_1_4_1_0.eContents().get(1);
+		private final Assignment cReadonlyAssignment_4_1_5 = (Assignment)cUnorderedGroup_4_1.eContents().get(5);
+		private final Keyword cReadonlyReadonlyKeyword_4_1_5_0 = (Keyword)cReadonlyAssignment_4_1_5.eContents().get(0);
 		private final Alternatives cAlternatives_4_2 = (Alternatives)cGroup_4.eContents().get(2);
 		private final Assignment cValidatorsAssignment_4_2_0 = (Assignment)cAlternatives_4_2.eContents().get(0);
 		private final RuleCall cValidatorsUiValidatorParserRuleCall_4_2_0_0 = (RuleCall)cValidatorsAssignment_4_2_0.eContents().get(0);
@@ -5067,13 +5237,15 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//UiOptionsGroup:
 		//	{UiOptionsGroup} "optionsgroup" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? ("{" (("type" jvmType=JvmTypeReference)? &
 		//	("selectionType" selectionType=UiSelectionType)? & ("captionField" itemCaptionProperty=[JvmOperation])? &
-		//	("imageField" itemImageProperty=[JvmOperation])? & readonly?="readonly"?) (validators+=UiValidator |
-		//	bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
+		//	("descriptionField" descriptionProperty=UiNestedProperty ";"?)? & ("imageField" itemImageProperty=[JvmOperation])? &
+		//	readonly?="readonly"?) (validators+=UiValidator | bindings+=UiBinding)*
+		//	processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 		public ParserRule getRule() { return rule; }
 
 		//{UiOptionsGroup} "optionsgroup" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? ("{" (("type" jvmType=JvmTypeReference)? &
-		//("selectionType" selectionType=UiSelectionType)? & ("captionField" itemCaptionProperty=[JvmOperation])? & ("imageField"
-		//itemImageProperty=[JvmOperation])? & readonly?="readonly"?) (validators+=UiValidator | bindings+=UiBinding)*
+		//("selectionType" selectionType=UiSelectionType)? & ("captionField" itemCaptionProperty=[JvmOperation])? &
+		//("descriptionField" descriptionProperty=UiNestedProperty ";"?)? & ("imageField" itemImageProperty=[JvmOperation])? &
+		//readonly?="readonly"?) (validators+=UiValidator | bindings+=UiBinding)*
 		//processorAssignments+=UiVisibilityProcessorAssignment* "}")?
 		public Group getGroup() { return cGroup; }
 
@@ -5105,15 +5277,17 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 
 		//("{" (("type" jvmType=JvmTypeReference)? & ("selectionType" selectionType=UiSelectionType)? & ("captionField"
-		//itemCaptionProperty=[JvmOperation])? & ("imageField" itemImageProperty=[JvmOperation])? & readonly?="readonly"?)
-		//(validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?
+		//itemCaptionProperty=[JvmOperation])? & ("descriptionField" descriptionProperty=UiNestedProperty ";"?)? & ("imageField"
+		//itemImageProperty=[JvmOperation])? & readonly?="readonly"?) (validators+=UiValidator | bindings+=UiBinding)*
+		//processorAssignments+=UiVisibilityProcessorAssignment* "}")?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_4_0() { return cLeftCurlyBracketKeyword_4_0; }
 
 		//("type" jvmType=JvmTypeReference)? & ("selectionType" selectionType=UiSelectionType)? & ("captionField"
-		//itemCaptionProperty=[JvmOperation])? & ("imageField" itemImageProperty=[JvmOperation])? & readonly?="readonly"?
+		//itemCaptionProperty=[JvmOperation])? & ("descriptionField" descriptionProperty=UiNestedProperty ";"?)? & ("imageField"
+		//itemImageProperty=[JvmOperation])? & readonly?="readonly"?
 		public UnorderedGroup getUnorderedGroup_4_1() { return cUnorderedGroup_4_1; }
 
 		//("type" jvmType=JvmTypeReference)?
@@ -5155,26 +5329,41 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getItemCaptionPropertyJvmOperationIDTerminalRuleCall_4_1_2_1_0_1() { return cItemCaptionPropertyJvmOperationIDTerminalRuleCall_4_1_2_1_0_1; }
 
-		//("imageField" itemImageProperty=[JvmOperation])?
+		//("descriptionField" descriptionProperty=UiNestedProperty ";"?)?
 		public Group getGroup_4_1_3() { return cGroup_4_1_3; }
 
+		//"descriptionField"
+		public Keyword getDescriptionFieldKeyword_4_1_3_0() { return cDescriptionFieldKeyword_4_1_3_0; }
+
+		//descriptionProperty=UiNestedProperty
+		public Assignment getDescriptionPropertyAssignment_4_1_3_1() { return cDescriptionPropertyAssignment_4_1_3_1; }
+
+		//UiNestedProperty
+		public RuleCall getDescriptionPropertyUiNestedPropertyParserRuleCall_4_1_3_1_0() { return cDescriptionPropertyUiNestedPropertyParserRuleCall_4_1_3_1_0; }
+
+		//";"?
+		public Keyword getSemicolonKeyword_4_1_3_2() { return cSemicolonKeyword_4_1_3_2; }
+
+		//("imageField" itemImageProperty=[JvmOperation])?
+		public Group getGroup_4_1_4() { return cGroup_4_1_4; }
+
 		//"imageField"
-		public Keyword getImageFieldKeyword_4_1_3_0() { return cImageFieldKeyword_4_1_3_0; }
+		public Keyword getImageFieldKeyword_4_1_4_0() { return cImageFieldKeyword_4_1_4_0; }
 
 		//itemImageProperty=[JvmOperation]
-		public Assignment getItemImagePropertyAssignment_4_1_3_1() { return cItemImagePropertyAssignment_4_1_3_1; }
+		public Assignment getItemImagePropertyAssignment_4_1_4_1() { return cItemImagePropertyAssignment_4_1_4_1; }
 
 		//[JvmOperation]
-		public CrossReference getItemImagePropertyJvmOperationCrossReference_4_1_3_1_0() { return cItemImagePropertyJvmOperationCrossReference_4_1_3_1_0; }
+		public CrossReference getItemImagePropertyJvmOperationCrossReference_4_1_4_1_0() { return cItemImagePropertyJvmOperationCrossReference_4_1_4_1_0; }
 
 		//ID
-		public RuleCall getItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_3_1_0_1() { return cItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_3_1_0_1; }
+		public RuleCall getItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_4_1_0_1() { return cItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_4_1_0_1; }
 
 		//readonly?="readonly"?
-		public Assignment getReadonlyAssignment_4_1_4() { return cReadonlyAssignment_4_1_4; }
+		public Assignment getReadonlyAssignment_4_1_5() { return cReadonlyAssignment_4_1_5; }
 
 		//"readonly"
-		public Keyword getReadonlyReadonlyKeyword_4_1_4_0() { return cReadonlyReadonlyKeyword_4_1_4_0; }
+		public Keyword getReadonlyReadonlyKeyword_4_1_5_0() { return cReadonlyReadonlyKeyword_4_1_5_0; }
 
 		//(validators+=UiValidator | bindings+=UiBinding)*
 		public Alternatives getAlternatives_4_2() { return cAlternatives_4_2; }
@@ -5230,12 +5419,17 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cItemCaptionPropertyJvmOperationCrossReference_4_1_2_1_0 = (CrossReference)cItemCaptionPropertyAssignment_4_1_2_1.eContents().get(0);
 		private final RuleCall cItemCaptionPropertyJvmOperationIDTerminalRuleCall_4_1_2_1_0_1 = (RuleCall)cItemCaptionPropertyJvmOperationCrossReference_4_1_2_1_0.eContents().get(1);
 		private final Group cGroup_4_1_3 = (Group)cUnorderedGroup_4_1.eContents().get(3);
-		private final Keyword cImageFieldKeyword_4_1_3_0 = (Keyword)cGroup_4_1_3.eContents().get(0);
-		private final Assignment cItemImagePropertyAssignment_4_1_3_1 = (Assignment)cGroup_4_1_3.eContents().get(1);
-		private final CrossReference cItemImagePropertyJvmOperationCrossReference_4_1_3_1_0 = (CrossReference)cItemImagePropertyAssignment_4_1_3_1.eContents().get(0);
-		private final RuleCall cItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_3_1_0_1 = (RuleCall)cItemImagePropertyJvmOperationCrossReference_4_1_3_1_0.eContents().get(1);
-		private final Assignment cReadonlyAssignment_4_1_4 = (Assignment)cUnorderedGroup_4_1.eContents().get(4);
-		private final Keyword cReadonlyReadonlyKeyword_4_1_4_0 = (Keyword)cReadonlyAssignment_4_1_4.eContents().get(0);
+		private final Keyword cDescriptionFieldKeyword_4_1_3_0 = (Keyword)cGroup_4_1_3.eContents().get(0);
+		private final Assignment cDescriptionPropertyAssignment_4_1_3_1 = (Assignment)cGroup_4_1_3.eContents().get(1);
+		private final RuleCall cDescriptionPropertyUiNestedPropertyParserRuleCall_4_1_3_1_0 = (RuleCall)cDescriptionPropertyAssignment_4_1_3_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4_1_3_2 = (Keyword)cGroup_4_1_3.eContents().get(2);
+		private final Group cGroup_4_1_4 = (Group)cUnorderedGroup_4_1.eContents().get(4);
+		private final Keyword cImageFieldKeyword_4_1_4_0 = (Keyword)cGroup_4_1_4.eContents().get(0);
+		private final Assignment cItemImagePropertyAssignment_4_1_4_1 = (Assignment)cGroup_4_1_4.eContents().get(1);
+		private final CrossReference cItemImagePropertyJvmOperationCrossReference_4_1_4_1_0 = (CrossReference)cItemImagePropertyAssignment_4_1_4_1.eContents().get(0);
+		private final RuleCall cItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_4_1_0_1 = (RuleCall)cItemImagePropertyJvmOperationCrossReference_4_1_4_1_0.eContents().get(1);
+		private final Assignment cReadonlyAssignment_4_1_5 = (Assignment)cUnorderedGroup_4_1.eContents().get(5);
+		private final Keyword cReadonlyReadonlyKeyword_4_1_5_0 = (Keyword)cReadonlyAssignment_4_1_5.eContents().get(0);
 		private final Alternatives cAlternatives_4_2 = (Alternatives)cGroup_4.eContents().get(2);
 		private final Assignment cValidatorsAssignment_4_2_0 = (Assignment)cAlternatives_4_2.eContents().get(0);
 		private final RuleCall cValidatorsUiValidatorParserRuleCall_4_2_0_0 = (RuleCall)cValidatorsAssignment_4_2_0.eContents().get(0);
@@ -5248,13 +5442,15 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//UiList:
 		//	{UiList} "listSelect" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? ("{" (("type" jvmType=JvmTypeReference)? &
 		//	("selectionType" selectionType=UiSelectionType)? & ("captionField" itemCaptionProperty=[JvmOperation])? &
-		//	("imageField" itemImageProperty=[JvmOperation])? & readonly?="readonly"?) (validators+=UiValidator |
-		//	bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
+		//	("descriptionField" descriptionProperty=UiNestedProperty ";"?)? & ("imageField" itemImageProperty=[JvmOperation])? &
+		//	readonly?="readonly"?) (validators+=UiValidator | bindings+=UiBinding)*
+		//	processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 		public ParserRule getRule() { return rule; }
 
 		//{UiList} "listSelect" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? ("{" (("type" jvmType=JvmTypeReference)? &
-		//("selectionType" selectionType=UiSelectionType)? & ("captionField" itemCaptionProperty=[JvmOperation])? & ("imageField"
-		//itemImageProperty=[JvmOperation])? & readonly?="readonly"?) (validators+=UiValidator | bindings+=UiBinding)*
+		//("selectionType" selectionType=UiSelectionType)? & ("captionField" itemCaptionProperty=[JvmOperation])? &
+		//("descriptionField" descriptionProperty=UiNestedProperty ";"?)? & ("imageField" itemImageProperty=[JvmOperation])? &
+		//readonly?="readonly"?) (validators+=UiValidator | bindings+=UiBinding)*
 		//processorAssignments+=UiVisibilityProcessorAssignment* "}")?
 		public Group getGroup() { return cGroup; }
 
@@ -5286,15 +5482,17 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 
 		//("{" (("type" jvmType=JvmTypeReference)? & ("selectionType" selectionType=UiSelectionType)? & ("captionField"
-		//itemCaptionProperty=[JvmOperation])? & ("imageField" itemImageProperty=[JvmOperation])? & readonly?="readonly"?)
-		//(validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?
+		//itemCaptionProperty=[JvmOperation])? & ("descriptionField" descriptionProperty=UiNestedProperty ";"?)? & ("imageField"
+		//itemImageProperty=[JvmOperation])? & readonly?="readonly"?) (validators+=UiValidator | bindings+=UiBinding)*
+		//processorAssignments+=UiVisibilityProcessorAssignment* "}")?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_4_0() { return cLeftCurlyBracketKeyword_4_0; }
 
 		//("type" jvmType=JvmTypeReference)? & ("selectionType" selectionType=UiSelectionType)? & ("captionField"
-		//itemCaptionProperty=[JvmOperation])? & ("imageField" itemImageProperty=[JvmOperation])? & readonly?="readonly"?
+		//itemCaptionProperty=[JvmOperation])? & ("descriptionField" descriptionProperty=UiNestedProperty ";"?)? & ("imageField"
+		//itemImageProperty=[JvmOperation])? & readonly?="readonly"?
 		public UnorderedGroup getUnorderedGroup_4_1() { return cUnorderedGroup_4_1; }
 
 		//("type" jvmType=JvmTypeReference)?
@@ -5336,26 +5534,41 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getItemCaptionPropertyJvmOperationIDTerminalRuleCall_4_1_2_1_0_1() { return cItemCaptionPropertyJvmOperationIDTerminalRuleCall_4_1_2_1_0_1; }
 
-		//("imageField" itemImageProperty=[JvmOperation])?
+		//("descriptionField" descriptionProperty=UiNestedProperty ";"?)?
 		public Group getGroup_4_1_3() { return cGroup_4_1_3; }
 
+		//"descriptionField"
+		public Keyword getDescriptionFieldKeyword_4_1_3_0() { return cDescriptionFieldKeyword_4_1_3_0; }
+
+		//descriptionProperty=UiNestedProperty
+		public Assignment getDescriptionPropertyAssignment_4_1_3_1() { return cDescriptionPropertyAssignment_4_1_3_1; }
+
+		//UiNestedProperty
+		public RuleCall getDescriptionPropertyUiNestedPropertyParserRuleCall_4_1_3_1_0() { return cDescriptionPropertyUiNestedPropertyParserRuleCall_4_1_3_1_0; }
+
+		//";"?
+		public Keyword getSemicolonKeyword_4_1_3_2() { return cSemicolonKeyword_4_1_3_2; }
+
+		//("imageField" itemImageProperty=[JvmOperation])?
+		public Group getGroup_4_1_4() { return cGroup_4_1_4; }
+
 		//"imageField"
-		public Keyword getImageFieldKeyword_4_1_3_0() { return cImageFieldKeyword_4_1_3_0; }
+		public Keyword getImageFieldKeyword_4_1_4_0() { return cImageFieldKeyword_4_1_4_0; }
 
 		//itemImageProperty=[JvmOperation]
-		public Assignment getItemImagePropertyAssignment_4_1_3_1() { return cItemImagePropertyAssignment_4_1_3_1; }
+		public Assignment getItemImagePropertyAssignment_4_1_4_1() { return cItemImagePropertyAssignment_4_1_4_1; }
 
 		//[JvmOperation]
-		public CrossReference getItemImagePropertyJvmOperationCrossReference_4_1_3_1_0() { return cItemImagePropertyJvmOperationCrossReference_4_1_3_1_0; }
+		public CrossReference getItemImagePropertyJvmOperationCrossReference_4_1_4_1_0() { return cItemImagePropertyJvmOperationCrossReference_4_1_4_1_0; }
 
 		//ID
-		public RuleCall getItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_3_1_0_1() { return cItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_3_1_0_1; }
+		public RuleCall getItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_4_1_0_1() { return cItemImagePropertyJvmOperationIDTerminalRuleCall_4_1_4_1_0_1; }
 
 		//readonly?="readonly"?
-		public Assignment getReadonlyAssignment_4_1_4() { return cReadonlyAssignment_4_1_4; }
+		public Assignment getReadonlyAssignment_4_1_5() { return cReadonlyAssignment_4_1_5; }
 
 		//"readonly"
-		public Keyword getReadonlyReadonlyKeyword_4_1_4_0() { return cReadonlyReadonlyKeyword_4_1_4_0; }
+		public Keyword getReadonlyReadonlyKeyword_4_1_5_0() { return cReadonlyReadonlyKeyword_4_1_5_0; }
 
 		//(validators+=UiValidator | bindings+=UiBinding)*
 		public Alternatives getAlternatives_4_2() { return cAlternatives_4_2; }
@@ -6731,6 +6944,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private UiSearchWithDialogCommandElements pUiSearchWithDialogCommand;
 	private UiViewElements pUiView;
 	private UiIDEViewElements pUiIDEView;
+	private UiExposedActionElements pUiExposedAction;
 	private UiMobileViewElements pUiMobileView;
 	private UiI18nInfoElements pUiI18nInfo;
 	private UiGridLayoutElements pUiGridLayout;
@@ -7082,7 +7296,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiIDEView:
-	//	"ideview" name=ID "{" ("viewset" viewSet=[UiViewSet] ";"?)? (beanSlots+=UiBeanSlot |
+	//	"ideview" name=ID "{" (("viewset" viewSet=[UiViewSet] ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)? &
+	//	("exposedActions" "{" exposedActions+=UiExposedAction* "}")?) (beanSlots+=UiBeanSlot |
 	//	bindingEndpointAlias+=UiBindingEndpointAlias)* content=UiEmbeddable ("align" contentAlignment=UiAlignment)?
 	//	(bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding | validatorAssignments+=UiValidatorAssignment |
 	//	processorAssignments+=UiVisibilityProcessorAssignment)* "}";
@@ -7092,6 +7307,16 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getUiIDEViewRule() {
 		return getUiIDEViewAccess().getRule();
+	}
+
+	//UiExposedAction:
+	//	name=ID ("icon" iconName=STRING)? "id" (=> actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING) ";"?;
+	public UiExposedActionElements getUiExposedActionAccess() {
+		return (pUiExposedAction != null) ? pUiExposedAction : (pUiExposedAction = new UiExposedActionElements());
+	}
+	
+	public ParserRule getUiExposedActionRule() {
+		return getUiExposedActionAccess().getRule();
 	}
 
 	//UiMobileView:
@@ -7475,9 +7700,10 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 	//UiBeanReferenceField:
 	//	{UiBeanReferenceField} "referenceField" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? ("{" (("type"
-	//	jvmType=JvmTypeReference ";"?)? & ("captionField" captionProperty=UiNestedProperty ";"?)? & ("imageField"
-	//	imageProperty=UiNestedProperty ";"?)? & ("inMemoryService" inMemoryBeanProvider=JvmTypeReference ";"?)?)
-	//	(validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
+	//	jvmType=JvmTypeReference ";"?)? & ("captionField" captionProperty=UiNestedProperty ";"?)? & ("descriptionField"
+	//	descriptionProperty=UiNestedProperty ";"?)? & ("imageField" imageProperty=UiNestedProperty ";"?)? & ("inMemoryService"
+	//	inMemoryBeanProvider=JvmTypeReference ";"?)?) (validators+=UiValidator | bindings+=UiBinding)*
+	//	processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiBeanReferenceFieldElements getUiBeanReferenceFieldAccess() {
 		return (pUiBeanReferenceField != null) ? pUiBeanReferenceField : (pUiBeanReferenceField = new UiBeanReferenceFieldElements());
 	}
@@ -7587,9 +7813,9 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 	//UiComboBox:
 	//	{UiComboBox} "combo" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? ("{" (("type" jvmType=JvmTypeReference ";"?)? &
-	//	("captionField" itemCaptionProperty=[JvmOperation] ";"?)? & ("imageField" itemImageProperty=[JvmOperation] ";"?)? &
-	//	readonly?="readonly"?) (validators+=UiValidator | bindings+=UiBinding)*
-	//	processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
+	//	("captionField" itemCaptionProperty=[JvmOperation] ";"?)? & ("descriptionField" descriptionProperty=UiNestedProperty
+	//	";"?)? & ("imageField" itemImageProperty=[JvmOperation] ";"?)? & readonly?="readonly"?) (validators+=UiValidator |
+	//	bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiComboBoxElements getUiComboBoxAccess() {
 		return (pUiComboBox != null) ? pUiComboBox : (pUiComboBox = new UiComboBoxElements());
 	}
@@ -7656,8 +7882,9 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiOptionsGroup:
 	//	{UiOptionsGroup} "optionsgroup" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? ("{" (("type" jvmType=JvmTypeReference)? &
 	//	("selectionType" selectionType=UiSelectionType)? & ("captionField" itemCaptionProperty=[JvmOperation])? &
-	//	("imageField" itemImageProperty=[JvmOperation])? & readonly?="readonly"?) (validators+=UiValidator |
-	//	bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
+	//	("descriptionField" descriptionProperty=UiNestedProperty ";"?)? & ("imageField" itemImageProperty=[JvmOperation])? &
+	//	readonly?="readonly"?) (validators+=UiValidator | bindings+=UiBinding)*
+	//	processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiOptionsGroupElements getUiOptionsGroupAccess() {
 		return (pUiOptionsGroup != null) ? pUiOptionsGroup : (pUiOptionsGroup = new UiOptionsGroupElements());
 	}
@@ -7669,8 +7896,9 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiList:
 	//	{UiList} "listSelect" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? ("{" (("type" jvmType=JvmTypeReference)? &
 	//	("selectionType" selectionType=UiSelectionType)? & ("captionField" itemCaptionProperty=[JvmOperation])? &
-	//	("imageField" itemImageProperty=[JvmOperation])? & readonly?="readonly"?) (validators+=UiValidator |
-	//	bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
+	//	("descriptionField" descriptionProperty=UiNestedProperty ";"?)? & ("imageField" itemImageProperty=[JvmOperation])? &
+	//	readonly?="readonly"?) (validators+=UiValidator | bindings+=UiBinding)*
+	//	processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiListElements getUiListAccess() {
 		return (pUiList != null) ? pUiList : (pUiList = new UiListElements());
 	}

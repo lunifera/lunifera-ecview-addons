@@ -16,16 +16,14 @@ import org.lunifera.ecview.core.common.validation.IValidator
 import org.lunifera.ecview.core.common.visibility.IVisibilityHandler
 import org.lunifera.ecview.core.common.visibility.IVisibilityManager
 import org.lunifera.ecview.core.common.visibility.IVisibilityProcessor
-import org.lunifera.ecview.dsl.scope.BindableTypeResolver
+import org.lunifera.ecview.dsl.extensions.BindableTypeResolver
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
 import org.lunifera.ecview.semantic.uimodel.UiChangeTrigger
-import org.lunifera.ecview.semantic.uimodel.UiEmbeddable
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawType
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawTypeAlias
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator
 import org.lunifera.ecview.semantic.uimodel.UiXbaseVisibilityRule
-import org.lunifera.ecview.dsl.derivedstate.UiModelGrammarUtil
 
 /**
  * <p>Infers a JVM model from the source model.</p> 

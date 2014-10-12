@@ -16,6 +16,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField#getCaptionProperty <em>Caption Property</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField#getImageProperty <em>Image Property</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField#getInMemoryBeanProvider <em>In Memory Bean Provider</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField#getDescriptionProperty <em>Description Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -102,4 +103,30 @@ public interface UiBeanReferenceField extends UiField, UiMobileField, UiTypeProv
 	 * @generated
 	 */
 	void setInMemoryBeanProvider(JvmTypeReference value);
+
+	/**
+	 * Returns the value of the '<em><b>Description Property</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description Property</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description Property</em>' containment reference.
+	 * @see #setDescriptionProperty(UiNestedProperty)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiBeanReferenceField_DescriptionProperty()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	UiNestedProperty getDescriptionProperty();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField#getDescriptionProperty <em>Description Property</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description Property</em>' containment reference.
+	 * @see #getDescriptionProperty()
+	 * @generated
+	 */
+	void setDescriptionProperty(UiNestedProperty value);
 } // UiBeanReferenceField

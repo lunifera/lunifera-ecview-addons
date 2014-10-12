@@ -21,6 +21,7 @@ import org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiMobileField;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
+import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTypeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiValidator;
@@ -42,6 +43,7 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getJvmType <em>Jvm Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getItemCaptionProperty <em>Item Caption Property</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getItemImageProperty <em>Item Image Property</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getDescriptionProperty <em>Description Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -187,6 +189,16 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 	 * @ordered
 	 */
 	protected JvmOperation itemImageProperty;
+
+	/**
+	 * The cached value of the '{@link #getDescriptionProperty() <em>Description Property</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescriptionProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiNestedProperty descriptionProperty;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -528,6 +540,72 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiNestedProperty getDescriptionProperty() {
+		if (descriptionProperty != null && descriptionProperty.eIsProxy()) {
+			InternalEObject oldDescriptionProperty = (InternalEObject)descriptionProperty;
+			descriptionProperty = (UiNestedProperty)eResolveProxy(oldDescriptionProperty);
+			if (descriptionProperty != oldDescriptionProperty) {
+				InternalEObject newDescriptionProperty = (InternalEObject)descriptionProperty;
+				NotificationChain msgs = oldDescriptionProperty.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY, null, null);
+				if (newDescriptionProperty.eInternalContainer() == null) {
+					msgs = newDescriptionProperty.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY, oldDescriptionProperty, descriptionProperty));
+			}
+		}
+		return descriptionProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiNestedProperty basicGetDescriptionProperty() {
+		return descriptionProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDescriptionProperty(UiNestedProperty newDescriptionProperty, NotificationChain msgs) {
+		UiNestedProperty oldDescriptionProperty = descriptionProperty;
+		descriptionProperty = newDescriptionProperty;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY, oldDescriptionProperty, newDescriptionProperty);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescriptionProperty(UiNestedProperty newDescriptionProperty) {
+		if (newDescriptionProperty != descriptionProperty) {
+			NotificationChain msgs = null;
+			if (descriptionProperty != null)
+				msgs = ((InternalEObject)descriptionProperty).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY, null, msgs);
+			if (newDescriptionProperty != null)
+				msgs = ((InternalEObject)newDescriptionProperty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY, null, msgs);
+			msgs = basicSetDescriptionProperty(newDescriptionProperty, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY, newDescriptionProperty, newDescriptionProperty));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -539,6 +617,8 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 				return ((InternalEList<?>)getValidators()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_COMBO_BOX__JVM_TYPE:
 				return basicSetJvmType(null, msgs);
+			case UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY:
+				return basicSetDescriptionProperty(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -575,6 +655,9 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 			case UiModelPackage.UI_COMBO_BOX__ITEM_IMAGE_PROPERTY:
 				if (resolve) return getItemImageProperty();
 				return basicGetItemImageProperty();
+			case UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY:
+				if (resolve) return getDescriptionProperty();
+				return basicGetDescriptionProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -620,6 +703,9 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 			case UiModelPackage.UI_COMBO_BOX__ITEM_IMAGE_PROPERTY:
 				setItemImageProperty((JvmOperation)newValue);
 				return;
+			case UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY:
+				setDescriptionProperty((UiNestedProperty)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -662,6 +748,9 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 			case UiModelPackage.UI_COMBO_BOX__ITEM_IMAGE_PROPERTY:
 				setItemImageProperty((JvmOperation)null);
 				return;
+			case UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY:
+				setDescriptionProperty((UiNestedProperty)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -694,6 +783,8 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 				return itemCaptionProperty != null;
 			case UiModelPackage.UI_COMBO_BOX__ITEM_IMAGE_PROPERTY:
 				return itemImageProperty != null;
+			case UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY:
+				return descriptionProperty != null;
 		}
 		return super.eIsSet(featureID);
 	}

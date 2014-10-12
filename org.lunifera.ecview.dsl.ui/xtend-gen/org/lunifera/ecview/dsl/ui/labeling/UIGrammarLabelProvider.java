@@ -7,6 +7,7 @@ import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider;
+import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
@@ -20,6 +21,7 @@ import org.lunifera.ecview.semantic.uimodel.UiCommand;
 import org.lunifera.ecview.semantic.uimodel.UiDateField;
 import org.lunifera.ecview.semantic.uimodel.UiDecimalField;
 import org.lunifera.ecview.semantic.uimodel.UiDialog;
+import org.lunifera.ecview.semantic.uimodel.UiExposedAction;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
 import org.lunifera.ecview.semantic.uimodel.UiGridLayout;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup;
@@ -174,6 +176,18 @@ public class UIGrammarLabelProvider extends XbaseLabelProvider {
     return _xifexpression;
   }
   
+  public String text(final UiExposedAction ele) {
+    String _xifexpression = null;
+    String _name = ele.getName();
+    boolean _notEquals = (!Objects.equal(_name, null));
+    if (_notEquals) {
+      _xifexpression = ele.getName();
+    } else {
+      _xifexpression = "Action";
+    }
+    return _xifexpression;
+  }
+  
   public String text(final UiVerticalLayout ele) {
     String _xifexpression = null;
     String _name = ele.getName();
@@ -314,6 +328,18 @@ public class UIGrammarLabelProvider extends XbaseLabelProvider {
       _xifexpression = ele.getName();
     } else {
       _xifexpression = "Checkbox";
+    }
+    return _xifexpression;
+  }
+  
+  public String text(final UiBeanReferenceField ele) {
+    String _xifexpression = null;
+    String _name = ele.getName();
+    boolean _notEquals = (!Objects.equal(_name, null));
+    if (_notEquals) {
+      _xifexpression = ele.getName();
+    } else {
+      _xifexpression = "Reference Field";
     }
     return _xifexpression;
   }
@@ -572,6 +598,14 @@ public class UIGrammarLabelProvider extends XbaseLabelProvider {
   
   public String image(final UiComboBox ele) {
     return "UiCombobox.gif";
+  }
+  
+  public String image(final UiBeanReferenceField ele) {
+    return "UiBeanReferenceField.gif";
+  }
+  
+  public String image(final UiExposedAction ele) {
+    return "UiExposedAction.png";
   }
   
   public String image(final UiCommand ele) {

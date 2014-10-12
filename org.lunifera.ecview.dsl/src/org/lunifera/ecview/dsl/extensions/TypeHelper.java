@@ -1,4 +1,4 @@
-package org.lunifera.ecview.dsl.derivedstate;
+package org.lunifera.ecview.dsl.extensions;
 
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.util.TypeReferences;

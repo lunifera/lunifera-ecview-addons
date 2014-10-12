@@ -1,4 +1,4 @@
-package org.lunifera.ecview.dsl.scope;
+package org.lunifera.ecview.dsl.extensions;
 
 import com.google.common.base.Objects;
 import com.google.inject.Singleton;

@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import org.eclipse.core.internal.resources.Workspace;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -81,6 +82,8 @@ public class EcviewPreviewUI extends UI {
 
 	private boolean worksWithCopy;
 
+	protected boolean buildNotificationSent;
+
 	@Override
 	protected void init(VaadinRequest request) {
 		setErrorHandler(new ErrorHandler() {
@@ -115,6 +118,7 @@ public class EcviewPreviewUI extends UI {
 
 	public void modelChanged() {
 		access(new Runnable() {
+			@SuppressWarnings("restriction")
 			@Override
 			public void run() {
 				VaadinObservables.activateRealm(getUI());
@@ -155,9 +159,30 @@ public class EcviewPreviewUI extends UI {
 
 						registerBeans(view);
 
+						// Notify the eclipse view, about the new rendered view.
+						// So the part can install the exposed actions.
+						Activator.getIDEPreviewHandler().notifyNewViewRendered(
+								context);
+
 						if (Activator.getIDEPreviewHandler()
 								.isLinkedWithEditor()) {
 							installSourceViewSelectionSupport();
+						}
+
+						Workspace ws = (Workspace) Activator.getDefault()
+								.getWorkspace();
+						if (!buildNotificationSent
+								&& ws.getBuildManager()
+										.isAutobuildBuildPending()) {
+							buildNotificationSent = true;
+							context.exec(new Runnable() {
+								@Override
+								public void run() {
+									Notification
+											.show("Build is not finished yet. So labels and icons may not be initialized properly.",
+													Notification.Type.TRAY_NOTIFICATION);
+								}
+							});
 						}
 
 					} catch (Exception e) {
@@ -296,7 +321,7 @@ public class EcviewPreviewUI extends UI {
 				if (clazz == ValidationPackage.Literals.YCLASS_DELEGATE_VALIDATOR) {
 					return Activator.getDefault().getXtextUtilService()
 							.reloadClass(qualifiedName);
-				}else if (clazz == VisibilityPackage.Literals.YVISIBILITY_PROCESSOR) {
+				} else if (clazz == VisibilityPackage.Literals.YVISIBILITY_PROCESSOR) {
 					return Activator.getDefault().getXtextUtilService()
 							.reloadClass(qualifiedName);
 				}

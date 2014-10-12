@@ -44,6 +44,7 @@ import org.lunifera.ecview.core.common.model.visibility.YVisibilityProcessor
 import org.lunifera.ecview.core.^extension.model.datatypes.YDateTimeFormat
 import org.lunifera.ecview.core.^extension.model.datatypes.YDateTimeResolution
 import org.lunifera.ecview.core.^extension.model.^extension.ExtensionModelFactory
+import org.lunifera.ecview.core.^extension.model.^extension.YBeanReferenceField
 import org.lunifera.ecview.core.^extension.model.^extension.YBrowser
 import org.lunifera.ecview.core.^extension.model.^extension.YButton
 import org.lunifera.ecview.core.^extension.model.^extension.YCheckBox
@@ -56,6 +57,7 @@ import org.lunifera.ecview.core.^extension.model.^extension.YGridLayout
 import org.lunifera.ecview.core.^extension.model.^extension.YHorizontalLayout
 import org.lunifera.ecview.core.^extension.model.^extension.YImage
 import org.lunifera.ecview.core.^extension.model.^extension.YLabel
+import org.lunifera.ecview.core.^extension.model.^extension.YList
 import org.lunifera.ecview.core.^extension.model.^extension.YNumericField
 import org.lunifera.ecview.core.^extension.model.^extension.YOptionsGroup
 import org.lunifera.ecview.core.^extension.model.^extension.YPanel
@@ -70,9 +72,13 @@ import org.lunifera.ecview.core.^extension.model.^extension.YTextArea
 import org.lunifera.ecview.core.^extension.model.^extension.YTextField
 import org.lunifera.ecview.core.^extension.model.^extension.YVerticalLayout
 import org.lunifera.ecview.core.^extension.model.^extension.util.SimpleExtensionModelFactory
+import org.lunifera.ecview.dsl.extensions.BeanHelper
+import org.lunifera.ecview.dsl.extensions.BindableTypeProvider
+import org.lunifera.ecview.dsl.extensions.I18nKeyProvider
 import org.lunifera.ecview.dsl.extensions.OperationExtensions
-import org.lunifera.ecview.dsl.scope.BindableTypeProvider
+import org.lunifera.ecview.dsl.extensions.TypeHelper
 import org.lunifera.ecview.semantic.uimodel.UiAlignment
+import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot
 import org.lunifera.ecview.semantic.uimodel.UiBinding
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
@@ -105,6 +111,7 @@ import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment
 import org.lunifera.ecview.semantic.uimodel.UiIDEView
 import org.lunifera.ecview.semantic.uimodel.UiImage
 import org.lunifera.ecview.semantic.uimodel.UiLabel
+import org.lunifera.ecview.semantic.uimodel.UiList
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton
@@ -116,6 +123,7 @@ import org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment
 import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet
 import org.lunifera.ecview.semantic.uimodel.UiMobileView
 import org.lunifera.ecview.semantic.uimodel.UiModel
+import org.lunifera.ecview.semantic.uimodel.UiNamedElement
 import org.lunifera.ecview.semantic.uimodel.UiNestedProperty
 import org.lunifera.ecview.semantic.uimodel.UiNumericField
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand
@@ -161,22 +169,20 @@ import org.lunifera.mobile.vaadin.ecview.model.VMVerticalComponentGroup
 import org.lunifera.mobile.vaadin.ecview.model.VaadinMobileFactory
 import org.lunifera.xtext.builder.types.loader.api.ITypeLoader
 import org.lunifera.xtext.builder.types.loader.api.ITypeLoaderFactory
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 import static org.lunifera.ecview.semantic.uimodel.UiAlignment.*
 import static org.lunifera.ecview.semantic.uimodel.UiDateFormat.*
 import static org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution.*
 import static org.lunifera.ecview.semantic.uimodel.UiFlatAlignment.*
 import static org.lunifera.ecview.semantic.uimodel.UiSelectionType.*
-import org.lunifera.ecview.semantic.uimodel.UiNamedElement
-import org.lunifera.ecview.dsl.extensions.I18nKeyProvider
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
-import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField
-import org.lunifera.ecview.core.^extension.model.^extension.YBeanReferenceField
-import org.lunifera.ecview.core.^extension.model.^extension.ExtensionModelPackage
-import org.lunifera.ecview.dsl.extensions.BeanHelper
-import org.lunifera.ecview.core.^extension.model.^extension.YList
-import org.lunifera.ecview.semantic.uimodel.UiList
+import org.eclipse.xtext.common.types.JvmEnumerationType
+import org.lunifera.ecview.core.^extension.model.^extension.YEnumComboBox
+import org.lunifera.ecview.core.^extension.model.^extension.YEnumList
+import org.lunifera.ecview.core.^extension.model.^extension.YEnumOptionsGroup
+import org.lunifera.ecview.core.common.model.core.YExposedAction
+import org.lunifera.ecview.semantic.uimodel.UiExposedAction
 
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
@@ -276,7 +282,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	def String toI18nKey(UiEmbeddable element) {
 		return i18nKeyProvider.toI18nKey(element)
 	}
-
+	
 	def dispatch void map(UiModel object) {
 		currentPackage = object.packageName
 		object.roots.filter[!(it instanceof UiValidatorAlias)].forEach[it.map]
@@ -306,6 +312,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		object.content.map
 
 		object.bindings.forEach[it.map]
+
+		object.exposedActions.forEach[it.map]
+
 
 		object.processorAssignments.forEach [
 			it.map
@@ -737,7 +746,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val newField = element.create
 		layout.addElement(newField)
 		element.map
-
+ 
 		if (element instanceof UiField) {
 			newField.push
 			val UiField yField = element as UiField
@@ -1024,7 +1033,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	}
 
 	def dispatch void map(UiOptionsGroup eObject) {
-		val YOptionsGroup yOptionsGroup = eObject.associatedUi
+		val YField yOptionsGroup = eObject.associatedUi
 		yOptionsGroup.push
 
 		eObject.bindings.forEach [
@@ -1043,9 +1052,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		pop
 	}
-	
+
 	def dispatch void map(UiList eObject) {
-		val YList yList = eObject.associatedUi
+		val YField yList = eObject.associatedUi
 		yList.push
 
 		eObject.bindings.forEach [
@@ -1102,7 +1111,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	}
 
 	def dispatch void map(UiComboBox eObject) {
-		val YComboBox yField = eObject.associatedUi
+		val YField yField = eObject.associatedUi
 		yField.push
 
 		if (eObject.bindings != null) {
@@ -1266,6 +1275,23 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			eObject.validatorDef.map
 		}
 		pop
+	}
+	
+	def dispatch void map(UiExposedAction object) {
+		val YExposedAction yAction = CoreModelFactory.eINSTANCE.createYExposedAction
+		if(object.actionReference != null) {
+			yAction.id = object.actionReference.name
+		}else {
+			yAction.id = object.actionID
+		}
+		yAction.name = object.name
+		yAction.label = object.name
+		yAction.labelI18nKey = object.toI18nKey
+		yAction.icon = object.iconName
+		
+		object.associateUi(yAction)
+
+		currentView.exposedActions += yAction
 	}
 
 	def dispatch void map(UiValidatorDef eObject) {
@@ -1489,53 +1515,93 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	}
 
 	def dispatch YEmbeddable create(UiOptionsGroup object) {
-		val YOptionsGroup optionsGroup = factory.createOptionsGroup
-		optionsGroup.id = UiModelGrammarUtil.getPathId(object)
-		optionsGroup.name = object.name
-		optionsGroup.label = object.name
-		optionsGroup.labelI18nKey = object.toI18nKey
-		optionsGroup.selectionType = object.selectionType.convert
-		optionsGroup.initialEnabled = !object.readonly
 
-		if (object.jvmType != null) {
-			optionsGroup.typeQualifiedName = object.jvmType.qualifiedName
-			optionsGroup.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
-		}
-		if (object.itemCaptionProperty != null) {
-			optionsGroup.itemCaptionProperty = OperationExtensions.toPropertyName(object.itemCaptionProperty?.simpleName)
+		if (object.jvmType?.type instanceof JvmEnumerationType) {
+			val YEnumOptionsGroup optionsGroup = ExtensionModelFactory.eINSTANCE.createYEnumOptionsGroup
+			optionsGroup.id = UiModelGrammarUtil.getPathId(object)
+			optionsGroup.name = object.name
+			optionsGroup.label = object.name
+			optionsGroup.labelI18nKey = object.toI18nKey
+			optionsGroup.selectionType = object.selectionType.convert
+			optionsGroup.initialEnabled = !object.readonly
+
+			if (object.jvmType != null) {
+				optionsGroup.typeQualifiedName = object.jvmType.qualifiedName
+				optionsGroup.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
+			}
+
+			object.associateUi(optionsGroup)
+
+			return optionsGroup
 		} else {
-			optionsGroup.itemCaptionProperty = BeanHelper.findCaptionProperty(optionsGroup.type)
+			val YOptionsGroup optionsGroup = factory.createOptionsGroup
+			optionsGroup.id = UiModelGrammarUtil.getPathId(object)
+			optionsGroup.name = object.name
+			optionsGroup.label = object.name
+			optionsGroup.labelI18nKey = object.toI18nKey
+			optionsGroup.selectionType = object.selectionType.convert
+			optionsGroup.initialEnabled = !object.readonly
+
+			if (object.jvmType != null) {
+				optionsGroup.typeQualifiedName = object.jvmType.qualifiedName
+				optionsGroup.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
+			}
+			if (object.itemCaptionProperty != null) {
+				optionsGroup.captionProperty = OperationExtensions.toPropertyName(object.itemCaptionProperty?.simpleName)
+			} else {
+				optionsGroup.captionProperty = BeanHelper.findCaptionProperty(optionsGroup.type)
+			}
+			optionsGroup.imageProperty = OperationExtensions.toPropertyName(object.itemImageProperty?.simpleName)
+
+			object.associateUi(optionsGroup)
+
+			return optionsGroup
 		}
-		optionsGroup.itemImageProperty = OperationExtensions.toPropertyName(object.itemImageProperty?.simpleName)
 
-		object.associateUi(optionsGroup)
-
-		return optionsGroup
 	}
-	
+
 	def dispatch YEmbeddable create(UiList object) {
-		val YList list = factory.createList
-		list.id = UiModelGrammarUtil.getPathId(object)
-		list.name = object.name
-		list.label = object.name
-		list.labelI18nKey = object.toI18nKey
-		list.selectionType = object.selectionType.convert
-		list.initialEnabled = !object.readonly
+		if (object.jvmType?.type instanceof JvmEnumerationType) {
+			val YEnumList list = ExtensionModelFactory.eINSTANCE.createYEnumList
+			list.id = UiModelGrammarUtil.getPathId(object)
+			list.name = object.name
+			list.label = object.name
+			list.labelI18nKey = object.toI18nKey
+			list.selectionType = object.selectionType.convert
+			list.initialEnabled = !object.readonly
 
-		if (object.jvmType != null) {
-			list.typeQualifiedName = object.jvmType.qualifiedName
-			list.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
-		}
-		if (object.itemCaptionProperty != null) {
-			list.itemCaptionProperty = OperationExtensions.toPropertyName(object.itemCaptionProperty?.simpleName)
+			if (object.jvmType != null) {
+				list.typeQualifiedName = object.jvmType.qualifiedName
+				list.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
+			}
+
+			object.associateUi(list)
+
+			return list
 		} else {
-			list.itemCaptionProperty = BeanHelper.findCaptionProperty(list.type)
+			val YList list = factory.createList
+			list.id = UiModelGrammarUtil.getPathId(object)
+			list.name = object.name
+			list.label = object.name
+			list.labelI18nKey = object.toI18nKey
+			list.selectionType = object.selectionType.convert
+			list.initialEnabled = !object.readonly
+
+			if (object.jvmType != null) {
+				list.typeQualifiedName = object.jvmType.qualifiedName
+				list.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
+			}
+			if (object.itemCaptionProperty != null) {
+				list.captionProperty = OperationExtensions.toPropertyName(object.itemCaptionProperty?.simpleName)
+			} else {
+				list.captionProperty = BeanHelper.findCaptionProperty(list.type)
+			}
+			list.imageProperty = OperationExtensions.toPropertyName(object.itemImageProperty?.simpleName)
+
+			object.associateUi(list)
+
+			return list
 		}
-		list.itemImageProperty = OperationExtensions.toPropertyName(object.itemImageProperty?.simpleName)
-
-		object.associateUi(list)
-
-		return list
 	}
 
 	def dispatch YEmbeddable create(UiDateField object) {
@@ -1552,7 +1618,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		return dateTime
 	}
-
+	
 	def dispatch YEmbeddable create(UiBrowser object) {
 		val YBrowser browser = factory.createBrowser
 		browser.id = UiModelGrammarUtil.getPathId(object)
@@ -1721,28 +1787,48 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	}
 
 	def dispatch YEmbeddable create(UiComboBox object) {
-		val YComboBox field = factory.createComboBox
-		field.id = UiModelGrammarUtil.getPathId(object)
-		field.name = object.name
-		field.label = object.name
-		field.labelI18nKey = object.toI18nKey
-		field.initialEnabled = !object.readonly
 
-		if (object.jvmType != null) {
-			field.typeQualifiedName = object.jvmType.qualifiedName
-			field.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
-		}
+		if (object.jvmType?.type instanceof JvmEnumerationType) {
+			val YEnumComboBox field = ExtensionModelFactory.eINSTANCE.createYEnumComboBox
 
-		if (object.itemCaptionProperty != null) {
-			field.itemCaptionProperty = OperationExtensions.toPropertyName(object.itemCaptionProperty?.simpleName)
+			field.id = UiModelGrammarUtil.getPathId(object)
+			field.name = object.name
+			field.label = object.name
+			field.labelI18nKey = object.toI18nKey
+			field.initialEnabled = !object.readonly
+
+			if (object.jvmType != null) {
+				field.typeQualifiedName = object.jvmType.qualifiedName
+				field.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
+			}
+
+			object.associateUi(field)
+
+			return field
 		} else {
-			field.itemCaptionProperty = BeanHelper.findCaptionProperty(field.type)
+			val YComboBox field = factory.createComboBox
+			field.id = UiModelGrammarUtil.getPathId(object)
+			field.name = object.name
+			field.label = object.name
+			field.labelI18nKey = object.toI18nKey
+			field.initialEnabled = !object.readonly
+
+			if (object.jvmType != null) {
+				field.typeQualifiedName = object.jvmType.qualifiedName
+				field.type = loadClass(object.eResource.resourceSet, object.jvmType.qualifiedName)
+			}
+
+			if (object.itemCaptionProperty != null) {
+				field.captionProperty = OperationExtensions.toPropertyName(object.itemCaptionProperty?.simpleName)
+			} else {
+				field.captionProperty = BeanHelper.findCaptionProperty(field.type)
+			}
+			field.imageProperty = OperationExtensions.toPropertyName(object.itemImageProperty?.simpleName)
+
+			object.associateUi(field)
+			return field
 		}
-		field.itemImageProperty = OperationExtensions.toPropertyName(object.itemImageProperty?.simpleName)
 
-		object.associateUi(field)
-
-		return field
 	}
 
 	def dispatch YEmbeddable create(UiSwitch object) {

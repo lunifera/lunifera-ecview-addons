@@ -57,6 +57,7 @@ import org.eclipse.xtext.xtype.XFunctionTypeRef;
 import org.eclipse.xtext.xtype.XImportSection;
 import org.eclipse.xtext.xtype.XtypePackage;
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
+import org.lunifera.ecview.semantic.uisemantics.UxAction;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableBindings;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableValidatorProperties;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions;
@@ -136,6 +137,12 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 				else break;
 			}
 		else if(semanticObject.eClass().getEPackage() == UiSemanticsPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case UiSemanticsPackage.UX_ACTION:
+				if(context == grammarAccess.getUxActionRule()) {
+					sequence_UxAction(context, (UxAction) semanticObject); 
+					return; 
+				}
+				else break;
 			case UiSemanticsPackage.UX_AVAILABLE_BINDINGS:
 				if(context == grammarAccess.getUxAvailableBindingsRule()) {
 					sequence_UxAvailableBindings(context, (UxAvailableBindings) semanticObject); 
@@ -1236,6 +1243,22 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
+	 *     name=QualifiedName
+	 */
+	protected void sequence_UxAction(EObject context, UxAction semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, UiSemanticsPackage.Literals.UX_ACTION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiSemanticsPackage.Literals.UX_ACTION__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUxActionAccess().getNameQualifiedNameParserRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (bindings+=UxBindingableOption*)
 	 */
 	protected void sequence_UxAvailableBindings(EObject context, UxAvailableBindings semanticObject) {
@@ -1325,7 +1348,7 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (importSection=XImportSection? elementDefinitions+=UxElementDefinition*)
+	 *     (importSection=XImportSection? viewActions+=UxAction* elementDefinitions+=UxElementDefinition*)
 	 */
 	protected void sequence_UxModel(EObject context, UxModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

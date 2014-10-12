@@ -117,12 +117,13 @@ element List {
 	uri view:UiList
 	
 	bindings {
-		final endpoint selection String
+		final endpoint selection Object
 		endpoint editable Boolean
-		endpoint inputList Object
+		endpoint visible Boolean
+		list endpoint collection Object
 		endpoint multiSelection Object
 	}
-	
+
 	validator {
 		property validators
 	}
@@ -170,7 +171,6 @@ element ComboBox {
 		endpoint editable Boolean
 		endpoint visible Boolean
 		list endpoint collection Object
-		endpoint multiSelection Object
 	}
 
 	validator {
@@ -179,7 +179,7 @@ element ComboBox {
 }
 
 
-element MobileNavigationPage {  
+element MobileNavigationPage {   
 	uri view:UiMobileNavigationPage
 	  
 	bindings {

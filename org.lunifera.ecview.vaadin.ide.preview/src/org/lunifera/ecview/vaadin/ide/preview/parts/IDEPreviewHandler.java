@@ -7,9 +7,10 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.emf.ecore.EObject;
-import org.lunifera.ecview.core.common.model.core.YView;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
+import org.lunifera.ecview.core.common.context.IViewContext;
+import org.lunifera.ecview.core.common.model.core.YView;
 import org.lunifera.ecview.dsl.derivedstate.UiModelGrammarUtil;
 import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.vaadin.ide.preview.Activator;
@@ -30,6 +31,7 @@ public class IDEPreviewHandler {
 	private EcviewPreviewUI ui;
 	private boolean linkedWithEditor;
 	private boolean showLayoutBounds;
+	private ECViewIDEPreviewPart part;
 
 	public IDEPreviewHandler() {
 
@@ -40,12 +42,36 @@ public class IDEPreviewHandler {
 	}
 
 	/**
+	 * @return the part showing the view
+	 */
+	public ECViewIDEPreviewPart getPart() {
+		return part;
+	}
+
+	/**
+	 * @param part
+	 *            the part to set
+	 */
+	public void setPart(ECViewIDEPreviewPart part) {
+		this.part = part;
+	}
+
+	/**
 	 * Returns the currently active view.
 	 * 
 	 * @return
 	 */
 	public synchronized YView getActiveView() {
 		return yView;
+	}
+
+	/**
+	 * Returns the theme name.
+	 * 
+	 * @return
+	 */
+	public synchronized String getThemeName() {
+		return ui != null ? ui.getTheme() : "";
 	}
 
 	/**
@@ -211,6 +237,14 @@ public class IDEPreviewHandler {
 		// }
 		//
 		// notifySelectWidget(selected);
+	}
+
+	/**
+	 * @param context
+	 * @see org.lunifera.ecview.vaadin.ide.preview.parts.ECViewVaadinSynchronizer#notifyNewViewRendered(org.lunifera.ecview.core.common.context.IViewContext)
+	 */
+	public void notifyNewViewRendered(IViewContext context) {
+		part.notifyNewViewRendered(context);
 	}
 
 	public void dispose() {
