@@ -3504,13 +3504,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_BEAN_REFERENCE_FIELD__JVM_TYPE = UI_FIELD_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Consume Bean Service</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BEAN_REFERENCE_FIELD__CONSUME_BEAN_SERVICE = UI_FIELD_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Caption Property</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BEAN_REFERENCE_FIELD__CAPTION_PROPERTY = UI_FIELD_FEATURE_COUNT + 1;
+	int UI_BEAN_REFERENCE_FIELD__CAPTION_PROPERTY = UI_FIELD_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Image Property</b></em>' containment reference.
@@ -3519,7 +3528,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BEAN_REFERENCE_FIELD__IMAGE_PROPERTY = UI_FIELD_FEATURE_COUNT + 2;
+	int UI_BEAN_REFERENCE_FIELD__IMAGE_PROPERTY = UI_FIELD_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>In Memory Bean Provider</b></em>' containment reference.
@@ -3528,7 +3537,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BEAN_REFERENCE_FIELD__IN_MEMORY_BEAN_PROVIDER = UI_FIELD_FEATURE_COUNT + 3;
+	int UI_BEAN_REFERENCE_FIELD__IN_MEMORY_BEAN_PROVIDER = UI_FIELD_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Description Property</b></em>' containment reference.
@@ -3537,7 +3546,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BEAN_REFERENCE_FIELD__DESCRIPTION_PROPERTY = UI_FIELD_FEATURE_COUNT + 4;
+	int UI_BEAN_REFERENCE_FIELD__DESCRIPTION_PROPERTY = UI_FIELD_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Ui Bean Reference Field</em>' class.
@@ -3546,7 +3555,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BEAN_REFERENCE_FIELD_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 5;
+	int UI_BEAN_REFERENCE_FIELD_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignments</b></em>' containment reference list.
@@ -3838,13 +3847,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_LIST__JVM_TYPE = UI_FIELD_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Consume Bean Service</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LIST__CONSUME_BEAN_SERVICE = UI_FIELD_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Selection Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_LIST__SELECTION_TYPE = UI_FIELD_FEATURE_COUNT + 1;
+	int UI_LIST__SELECTION_TYPE = UI_FIELD_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Item Image Property</b></em>' reference.
@@ -3853,7 +3871,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_LIST__ITEM_IMAGE_PROPERTY = UI_FIELD_FEATURE_COUNT + 2;
+	int UI_LIST__ITEM_IMAGE_PROPERTY = UI_FIELD_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Item Caption Property</b></em>' reference.
@@ -3862,7 +3880,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_LIST__ITEM_CAPTION_PROPERTY = UI_FIELD_FEATURE_COUNT + 3;
+	int UI_LIST__ITEM_CAPTION_PROPERTY = UI_FIELD_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Description Property</b></em>' containment reference.
@@ -3871,7 +3889,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_LIST__DESCRIPTION_PROPERTY = UI_FIELD_FEATURE_COUNT + 4;
+	int UI_LIST__DESCRIPTION_PROPERTY = UI_FIELD_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Ui List</em>' class.
@@ -3880,7 +3898,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_LIST_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 5;
+	int UI_LIST_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignments</b></em>' containment reference list.
@@ -3964,13 +3982,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_TABLE__JVM_TYPE = UI_FIELD_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Consume Bean Service</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TABLE__CONSUME_BEAN_SERVICE = UI_FIELD_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Column Assignment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_TABLE__COLUMN_ASSIGNMENT = UI_FIELD_FEATURE_COUNT + 1;
+	int UI_TABLE__COLUMN_ASSIGNMENT = UI_FIELD_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Selection Type</b></em>' attribute.
@@ -3979,7 +4006,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_TABLE__SELECTION_TYPE = UI_FIELD_FEATURE_COUNT + 2;
+	int UI_TABLE__SELECTION_TYPE = UI_FIELD_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Item Image Property</b></em>' reference.
@@ -3988,7 +4015,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_TABLE__ITEM_IMAGE_PROPERTY = UI_FIELD_FEATURE_COUNT + 3;
+	int UI_TABLE__ITEM_IMAGE_PROPERTY = UI_FIELD_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Ui Table</em>' class.
@@ -3997,7 +4024,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_TABLE_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 4;
+	int UI_TABLE_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl <em>Ui Combo Box</em>}' class.
@@ -4091,13 +4118,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_COMBO_BOX__JVM_TYPE = UI_FIELD_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Consume Bean Service</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_COMBO_BOX__CONSUME_BEAN_SERVICE = UI_FIELD_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Item Caption Property</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_COMBO_BOX__ITEM_CAPTION_PROPERTY = UI_FIELD_FEATURE_COUNT + 1;
+	int UI_COMBO_BOX__ITEM_CAPTION_PROPERTY = UI_FIELD_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Item Image Property</b></em>' reference.
@@ -4106,7 +4142,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_COMBO_BOX__ITEM_IMAGE_PROPERTY = UI_FIELD_FEATURE_COUNT + 2;
+	int UI_COMBO_BOX__ITEM_IMAGE_PROPERTY = UI_FIELD_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Description Property</b></em>' containment reference.
@@ -4115,7 +4151,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_COMBO_BOX__DESCRIPTION_PROPERTY = UI_FIELD_FEATURE_COUNT + 3;
+	int UI_COMBO_BOX__DESCRIPTION_PROPERTY = UI_FIELD_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Ui Combo Box</em>' class.
@@ -4124,7 +4160,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_COMBO_BOX_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 4;
+	int UI_COMBO_BOX_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
@@ -7131,13 +7167,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_OPTIONS_GROUP__JVM_TYPE = UI_FIELD_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Consume Bean Service</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_OPTIONS_GROUP__CONSUME_BEAN_SERVICE = UI_FIELD_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Selection Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_OPTIONS_GROUP__SELECTION_TYPE = UI_FIELD_FEATURE_COUNT + 1;
+	int UI_OPTIONS_GROUP__SELECTION_TYPE = UI_FIELD_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Item Image Property</b></em>' reference.
@@ -7146,7 +7191,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_OPTIONS_GROUP__ITEM_IMAGE_PROPERTY = UI_FIELD_FEATURE_COUNT + 2;
+	int UI_OPTIONS_GROUP__ITEM_IMAGE_PROPERTY = UI_FIELD_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Item Caption Property</b></em>' reference.
@@ -7155,7 +7200,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_OPTIONS_GROUP__ITEM_CAPTION_PROPERTY = UI_FIELD_FEATURE_COUNT + 3;
+	int UI_OPTIONS_GROUP__ITEM_CAPTION_PROPERTY = UI_FIELD_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Description Property</b></em>' containment reference.
@@ -7164,7 +7209,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_OPTIONS_GROUP__DESCRIPTION_PROPERTY = UI_FIELD_FEATURE_COUNT + 4;
+	int UI_OPTIONS_GROUP__DESCRIPTION_PROPERTY = UI_FIELD_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Ui Options Group</em>' class.
@@ -7173,7 +7218,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_OPTIONS_GROUP_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 5;
+	int UI_OPTIONS_GROUP_FEATURE_COUNT = UI_FIELD_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiDateFieldImpl <em>Ui Date Field</em>}' class.
@@ -7842,6 +7887,34 @@ public interface UiModelPackage extends EPackage {
 	int UI_ERROR_CODE_FEATURE_COUNT = UI_NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer <em>Ui Bean Service Consumer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiBeanServiceConsumer()
+	 * @generated
+	 */
+	int UI_BEAN_SERVICE_CONSUMER = 108;
+
+	/**
+	 * The feature id for the '<em><b>Consume Bean Service</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BEAN_SERVICE_CONSUMER__CONSUME_BEAN_SERVICE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Bean Service Consumer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BEAN_SERVICE_CONSUMER_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7849,7 +7922,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiFlatAlignment()
 	 * @generated
 	 */
-	int UI_FLAT_ALIGNMENT = 108;
+	int UI_FLAT_ALIGNMENT = 109;
 
 
 	/**
@@ -7860,7 +7933,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiAlignment()
 	 * @generated
 	 */
-	int UI_ALIGNMENT = 109;
+	int UI_ALIGNMENT = 110;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiSelectionType <em>Ui Selection Type</em>}' enum.
@@ -7870,7 +7943,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSelectionType()
 	 * @generated
 	 */
-	int UI_SELECTION_TYPE = 110;
+	int UI_SELECTION_TYPE = 111;
 
 
 	/**
@@ -7881,7 +7954,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDateFormat()
 	 * @generated
 	 */
-	int UI_DATE_FORMAT = 111;
+	int UI_DATE_FORMAT = 112;
 
 
 	/**
@@ -7892,7 +7965,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDateTimeResolution()
 	 * @generated
 	 */
-	int UI_DATE_TIME_RESOLUTION = 112;
+	int UI_DATE_TIME_RESOLUTION = 113;
 
 
 	/**
@@ -10740,6 +10813,27 @@ public interface UiModelPackage extends EPackage {
 	EAttribute getUiErrorCode_DefaultMessage();
 
 	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer <em>Ui Bean Service Consumer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Bean Service Consumer</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer
+	 * @generated
+	 */
+	EClass getUiBeanServiceConsumer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer#isConsumeBeanService <em>Consume Bean Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Consume Bean Service</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer#isConsumeBeanService()
+	 * @see #getUiBeanServiceConsumer()
+	 * @generated
+	 */
+	EAttribute getUiBeanServiceConsumer_ConsumeBeanService();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiSearchField <em>Ui Search Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13337,6 +13431,24 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UI_ERROR_CODE__DEFAULT_MESSAGE = eINSTANCE.getUiErrorCode_DefaultMessage();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer <em>Ui Bean Service Consumer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiBeanServiceConsumer()
+		 * @generated
+		 */
+		EClass UI_BEAN_SERVICE_CONSUMER = eINSTANCE.getUiBeanServiceConsumer();
+
+		/**
+		 * The meta object literal for the '<em><b>Consume Bean Service</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_BEAN_SERVICE_CONSUMER__CONSUME_BEAN_SERVICE = eINSTANCE.getUiBeanServiceConsumer_ConsumeBeanService();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.

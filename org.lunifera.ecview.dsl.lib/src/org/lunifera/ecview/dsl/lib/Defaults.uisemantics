@@ -1,4 +1,11 @@
 ePackage "http://www.lunifera.org/ecview/dsl/uimodel/core" as view
+
+actions {
+	org.lunifera.^actions.save
+	org.lunifera.^actions.load
+	org.lunifera.^actions.delete
+	org.lunifera.^actions.find
+}
  
 element TextField {  
 	uri view:UiTextField

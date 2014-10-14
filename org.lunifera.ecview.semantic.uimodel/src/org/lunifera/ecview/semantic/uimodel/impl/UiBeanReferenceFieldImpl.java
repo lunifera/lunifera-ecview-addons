@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
+import org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
@@ -46,6 +47,7 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanReferenceFieldImpl#isInvisible <em>Invisible</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanReferenceFieldImpl#getValidators <em>Validators</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanReferenceFieldImpl#getJvmType <em>Jvm Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanReferenceFieldImpl#isConsumeBeanService <em>Consume Bean Service</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanReferenceFieldImpl#getCaptionProperty <em>Caption Property</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanReferenceFieldImpl#getImageProperty <em>Image Property</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanReferenceFieldImpl#getInMemoryBeanProvider <em>In Memory Bean Provider</em>}</li>
@@ -175,6 +177,26 @@ public class UiBeanReferenceFieldImpl extends UiVisibilityProcessableImpl implem
 	 * @ordered
 	 */
 	protected JvmTypeReference jvmType;
+
+	/**
+	 * The default value of the '{@link #isConsumeBeanService() <em>Consume Bean Service</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isConsumeBeanService()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CONSUME_BEAN_SERVICE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isConsumeBeanService() <em>Consume Bean Service</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isConsumeBeanService()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean consumeBeanService = CONSUME_BEAN_SERVICE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getCaptionProperty() <em>Caption Property</em>}' containment reference.
@@ -473,6 +495,27 @@ public class UiBeanReferenceFieldImpl extends UiVisibilityProcessableImpl implem
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BEAN_REFERENCE_FIELD__JVM_TYPE, newJvmType, newJvmType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isConsumeBeanService() {
+		return consumeBeanService;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConsumeBeanService(boolean newConsumeBeanService) {
+		boolean oldConsumeBeanService = consumeBeanService;
+		consumeBeanService = newConsumeBeanService;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BEAN_REFERENCE_FIELD__CONSUME_BEAN_SERVICE, oldConsumeBeanService, consumeBeanService));
 	}
 
 	/**
@@ -793,6 +836,8 @@ public class UiBeanReferenceFieldImpl extends UiVisibilityProcessableImpl implem
 			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__JVM_TYPE:
 				if (resolve) return getJvmType();
 				return basicGetJvmType();
+			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__CONSUME_BEAN_SERVICE:
+				return isConsumeBeanService();
 			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__CAPTION_PROPERTY:
 				if (resolve) return getCaptionProperty();
 				return basicGetCaptionProperty();
@@ -844,6 +889,9 @@ public class UiBeanReferenceFieldImpl extends UiVisibilityProcessableImpl implem
 			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__JVM_TYPE:
 				setJvmType((JvmTypeReference)newValue);
 				return;
+			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__CONSUME_BEAN_SERVICE:
+				setConsumeBeanService((Boolean)newValue);
+				return;
 			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__CAPTION_PROPERTY:
 				setCaptionProperty((UiNestedProperty)newValue);
 				return;
@@ -892,6 +940,9 @@ public class UiBeanReferenceFieldImpl extends UiVisibilityProcessableImpl implem
 			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__JVM_TYPE:
 				setJvmType((JvmTypeReference)null);
 				return;
+			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__CONSUME_BEAN_SERVICE:
+				setConsumeBeanService(CONSUME_BEAN_SERVICE_EDEFAULT);
+				return;
 			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__CAPTION_PROPERTY:
 				setCaptionProperty((UiNestedProperty)null);
 				return;
@@ -932,6 +983,8 @@ public class UiBeanReferenceFieldImpl extends UiVisibilityProcessableImpl implem
 				return validators != null && !validators.isEmpty();
 			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__JVM_TYPE:
 				return jvmType != null;
+			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__CONSUME_BEAN_SERVICE:
+				return consumeBeanService != CONSUME_BEAN_SERVICE_EDEFAULT;
 			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__CAPTION_PROPERTY:
 				return captionProperty != null;
 			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__IMAGE_PROPERTY:
@@ -985,6 +1038,12 @@ public class UiBeanReferenceFieldImpl extends UiVisibilityProcessableImpl implem
 				default: return -1;
 			}
 		}
+		if (baseClass == UiBeanServiceConsumer.class) {
+			switch (derivedFeatureID) {
+				case UiModelPackage.UI_BEAN_REFERENCE_FIELD__CONSUME_BEAN_SERVICE: return UiModelPackage.UI_BEAN_SERVICE_CONSUMER__CONSUME_BEAN_SERVICE;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -1029,6 +1088,12 @@ public class UiBeanReferenceFieldImpl extends UiVisibilityProcessableImpl implem
 				default: return -1;
 			}
 		}
+		if (baseClass == UiBeanServiceConsumer.class) {
+			switch (baseFeatureID) {
+				case UiModelPackage.UI_BEAN_SERVICE_CONSUMER__CONSUME_BEAN_SERVICE: return UiModelPackage.UI_BEAN_REFERENCE_FIELD__CONSUME_BEAN_SERVICE;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -1050,6 +1115,8 @@ public class UiBeanReferenceFieldImpl extends UiVisibilityProcessableImpl implem
 		result.append(readonly);
 		result.append(", invisible: ");
 		result.append(invisible);
+		result.append(", consumeBeanService: ");
+		result.append(consumeBeanService);
 		result.append(')');
 		return result.toString();
 	}

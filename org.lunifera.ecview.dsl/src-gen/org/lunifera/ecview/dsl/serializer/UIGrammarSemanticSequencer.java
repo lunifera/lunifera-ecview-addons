@@ -1987,6 +1987,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *             itemCaptionProperty=[JvmOperation|ID]? 
 	 *             descriptionProperty=UiNestedProperty? 
 	 *             itemImageProperty=[JvmOperation|ID]? 
+	 *             consumeBeanService?='useBeanService'? 
 	 *             readonly?='readonly'? 
 	 *             (validators+=UiValidator | bindings+=UiBinding)* 
 	 *             processorAssignments+=UiVisibilityProcessorAssignment*
@@ -2234,6 +2235,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *             itemCaptionProperty=[JvmOperation|ID]? 
 	 *             descriptionProperty=UiNestedProperty? 
 	 *             itemImageProperty=[JvmOperation|ID]? 
+	 *             consumeBeanService?='useBeanService'? 
 	 *             readonly?='readonly'? 
 	 *             (validators+=UiValidator | bindings+=UiBinding)* 
 	 *             processorAssignments+=UiVisibilityProcessorAssignment*
@@ -2504,6 +2506,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *             itemCaptionProperty=[JvmOperation|ID]? 
 	 *             descriptionProperty=UiNestedProperty? 
 	 *             itemImageProperty=[JvmOperation|ID]? 
+	 *             consumeBeanService?='useBeanService'? 
 	 *             readonly?='readonly'? 
 	 *             (validators+=UiValidator | bindings+=UiBinding)* 
 	 *             processorAssignments+=UiVisibilityProcessorAssignment*
@@ -2690,6 +2693,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *             jvmType=JvmTypeReference? 
 	 *             selectionType=UiSelectionType? 
 	 *             itemImageProperty=[JvmOperation|ID]? 
+	 *             consumeBeanService?='useBeanService'? 
 	 *             readonly?='readonly'? 
 	 *             columnAssignment=UiColumnsAssignment? 
 	 *             (validators+=UiValidator | bindings+=UiBinding)* 

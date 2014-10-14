@@ -167,7 +167,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiSearchPanel -> UiLayout, UiTypeProvider
     Reference contents : UiSearchField<<0..*>>
 
-  Class UiBeanReferenceField -> UiField, UiMobileField, UiTypeProvider
+  Class UiBeanReferenceField -> UiField, UiMobileField, UiTypeProvider, UiBeanServiceConsumer
     Reference captionProperty : UiNestedProperty
     Reference imageProperty : UiNestedProperty
     Reference inMemoryBeanProvider : JvmTypeReference
@@ -181,18 +181,18 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiImage -> UiField, UiMobileField
     Attribute value : EString
 
-  Class UiList -> UiField, UiTypeProvider
+  Class UiList -> UiField, UiTypeProvider, UiBeanServiceConsumer
     Attribute selectionType : UiSelectionType<<1..1>>
     Reference itemImageProperty : JvmOperation
     Reference itemCaptionProperty : JvmOperation
     Reference descriptionProperty : UiNestedProperty
 
-  Class UiTable -> UiField, UiTypeProvider, UiMobileField
+  Class UiTable -> UiField, UiTypeProvider, UiMobileField, UiBeanServiceConsumer
     Reference columnAssignment : UiColumnsAssignment
     Attribute selectionType : UiSelectionType<<1..1>>
     Reference itemImageProperty : JvmOperation
 
-  Class UiComboBox -> UiField, UiTypeProvider, UiMobileField
+  Class UiComboBox -> UiField, UiTypeProvider, UiMobileField, UiBeanServiceConsumer
     Reference itemCaptionProperty : JvmOperation
     Reference itemImageProperty : JvmOperation
     Reference descriptionProperty : UiNestedProperty
@@ -355,7 +355,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiTextArea -> UiField, UiMobileField
 
-  Class UiOptionsGroup -> UiField, UiTypeProvider, UiMobileField
+  Class UiOptionsGroup -> UiField, UiTypeProvider, UiMobileField, UiBeanServiceConsumer
     Attribute selectionType : UiSelectionType
     Reference itemImageProperty : JvmOperation
     Reference itemCaptionProperty : JvmOperation
@@ -391,6 +391,9 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiErrorCode -> UiNamedElement
     Attribute defaultMessage : EString
+
+  Class UiBeanServiceConsumer
+    Attribute consumeBeanService : EBoolean
 
   Enum UiFlatAlignment
     Literal LEFT = 0

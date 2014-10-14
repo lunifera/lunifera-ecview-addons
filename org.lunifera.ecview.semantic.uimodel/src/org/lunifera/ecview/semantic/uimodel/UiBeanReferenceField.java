@@ -24,7 +24,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * @model
  * @generated
  */
-public interface UiBeanReferenceField extends UiField, UiMobileField, UiTypeProvider {
+public interface UiBeanReferenceField extends UiField, UiMobileField, UiTypeProvider, UiBeanServiceConsumer {
 
 	/**
 	 * Returns the value of the '<em><b>Caption Property</b></em>' containment reference.

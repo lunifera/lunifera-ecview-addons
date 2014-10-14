@@ -24,7 +24,7 @@ import org.eclipse.xtext.common.types.JvmOperation;
  * @model
  * @generated
  */
-public interface UiList extends UiField, UiTypeProvider {
+public interface UiList extends UiField, UiTypeProvider, UiBeanServiceConsumer {
 
 	/**
 	 * Returns the value of the '<em><b>Selection Type</b></em>' attribute.

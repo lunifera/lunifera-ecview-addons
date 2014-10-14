@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmTypeReference;
+import org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
@@ -42,6 +43,7 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#isInvisible <em>Invisible</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#getValidators <em>Validators</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#getJvmType <em>Jvm Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#isConsumeBeanService <em>Consume Bean Service</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#getSelectionType <em>Selection Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#getItemImageProperty <em>Item Image Property</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#getItemCaptionProperty <em>Item Caption Property</em>}</li>
@@ -171,6 +173,26 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 	 * @ordered
 	 */
 	protected JvmTypeReference jvmType;
+
+	/**
+	 * The default value of the '{@link #isConsumeBeanService() <em>Consume Bean Service</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isConsumeBeanService()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CONSUME_BEAN_SERVICE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isConsumeBeanService() <em>Consume Bean Service</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isConsumeBeanService()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean consumeBeanService = CONSUME_BEAN_SERVICE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSelectionType() <em>Selection Type</em>}' attribute.
@@ -486,6 +508,27 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isConsumeBeanService() {
+		return consumeBeanService;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConsumeBeanService(boolean newConsumeBeanService) {
+		boolean oldConsumeBeanService = consumeBeanService;
+		consumeBeanService = newConsumeBeanService;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_OPTIONS_GROUP__CONSUME_BEAN_SERVICE, oldConsumeBeanService, consumeBeanService));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiSelectionType getSelectionType() {
 		return selectionType;
 	}
@@ -692,6 +735,8 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 			case UiModelPackage.UI_OPTIONS_GROUP__JVM_TYPE:
 				if (resolve) return getJvmType();
 				return basicGetJvmType();
+			case UiModelPackage.UI_OPTIONS_GROUP__CONSUME_BEAN_SERVICE:
+				return isConsumeBeanService();
 			case UiModelPackage.UI_OPTIONS_GROUP__SELECTION_TYPE:
 				return getSelectionType();
 			case UiModelPackage.UI_OPTIONS_GROUP__ITEM_IMAGE_PROPERTY:
@@ -742,6 +787,9 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 			case UiModelPackage.UI_OPTIONS_GROUP__JVM_TYPE:
 				setJvmType((JvmTypeReference)newValue);
 				return;
+			case UiModelPackage.UI_OPTIONS_GROUP__CONSUME_BEAN_SERVICE:
+				setConsumeBeanService((Boolean)newValue);
+				return;
 			case UiModelPackage.UI_OPTIONS_GROUP__SELECTION_TYPE:
 				setSelectionType((UiSelectionType)newValue);
 				return;
@@ -790,6 +838,9 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 			case UiModelPackage.UI_OPTIONS_GROUP__JVM_TYPE:
 				setJvmType((JvmTypeReference)null);
 				return;
+			case UiModelPackage.UI_OPTIONS_GROUP__CONSUME_BEAN_SERVICE:
+				setConsumeBeanService(CONSUME_BEAN_SERVICE_EDEFAULT);
+				return;
 			case UiModelPackage.UI_OPTIONS_GROUP__SELECTION_TYPE:
 				setSelectionType(SELECTION_TYPE_EDEFAULT);
 				return;
@@ -830,6 +881,8 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 				return validators != null && !validators.isEmpty();
 			case UiModelPackage.UI_OPTIONS_GROUP__JVM_TYPE:
 				return jvmType != null;
+			case UiModelPackage.UI_OPTIONS_GROUP__CONSUME_BEAN_SERVICE:
+				return consumeBeanService != CONSUME_BEAN_SERVICE_EDEFAULT;
 			case UiModelPackage.UI_OPTIONS_GROUP__SELECTION_TYPE:
 				return selectionType != SELECTION_TYPE_EDEFAULT;
 			case UiModelPackage.UI_OPTIONS_GROUP__ITEM_IMAGE_PROPERTY:
@@ -883,6 +936,12 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 				default: return -1;
 			}
 		}
+		if (baseClass == UiBeanServiceConsumer.class) {
+			switch (derivedFeatureID) {
+				case UiModelPackage.UI_OPTIONS_GROUP__CONSUME_BEAN_SERVICE: return UiModelPackage.UI_BEAN_SERVICE_CONSUMER__CONSUME_BEAN_SERVICE;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -927,6 +986,12 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 				default: return -1;
 			}
 		}
+		if (baseClass == UiBeanServiceConsumer.class) {
+			switch (baseFeatureID) {
+				case UiModelPackage.UI_BEAN_SERVICE_CONSUMER__CONSUME_BEAN_SERVICE: return UiModelPackage.UI_OPTIONS_GROUP__CONSUME_BEAN_SERVICE;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -948,6 +1013,8 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 		result.append(readonly);
 		result.append(", invisible: ");
 		result.append(invisible);
+		result.append(", consumeBeanService: ");
+		result.append(consumeBeanService);
 		result.append(", selectionType: ");
 		result.append(selectionType);
 		result.append(')');

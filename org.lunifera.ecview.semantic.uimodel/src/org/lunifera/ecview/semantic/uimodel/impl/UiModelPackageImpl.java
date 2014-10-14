@@ -10,121 +10,6 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.xtext.common.types.TypesPackage;
 import org.eclipse.xtext.xbase.XbasePackage;
-import org.lunifera.ecview.semantic.uimodel.UiAction;
-import org.lunifera.ecview.semantic.uimodel.UiAlignment;
-import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
-import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
-import org.lunifera.ecview.semantic.uimodel.UiBinding;
-import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
-import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
-import org.lunifera.ecview.semantic.uimodel.UiBrowser;
-import org.lunifera.ecview.semantic.uimodel.UiButton;
-import org.lunifera.ecview.semantic.uimodel.UiChangeTrigger;
-import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
-import org.lunifera.ecview.semantic.uimodel.UiColumn;
-import org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiComboBox;
-import org.lunifera.ecview.semantic.uimodel.UiCommand;
-import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
-import org.lunifera.ecview.semantic.uimodel.UiContext;
-import org.lunifera.ecview.semantic.uimodel.UiDateField;
-import org.lunifera.ecview.semantic.uimodel.UiDateFormat;
-import org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution;
-import org.lunifera.ecview.semantic.uimodel.UiDecimalField;
-import org.lunifera.ecview.semantic.uimodel.UiDialog;
-import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
-import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
-import org.lunifera.ecview.semantic.uimodel.UiExposedAction;
-import org.lunifera.ecview.semantic.uimodel.UiField;
-import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
-import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
-import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment;
-import org.lunifera.ecview.semantic.uimodel.UiGridLayout;
-import org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment;
-import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup;
-import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroupAssigment;
-import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout;
-import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment;
-import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
-import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
-import org.lunifera.ecview.semantic.uimodel.UiIDEView;
-import org.lunifera.ecview.semantic.uimodel.UiImage;
-import org.lunifera.ecview.semantic.uimodel.UiImports;
-import org.lunifera.ecview.semantic.uimodel.UiLabel;
-import org.lunifera.ecview.semantic.uimodel.UiLayout;
-import org.lunifera.ecview.semantic.uimodel.UiLayoutAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiList;
-import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
-import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
-import org.lunifera.ecview.semantic.uimodel.UiMobileAction;
-import org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable;
-import org.lunifera.ecview.semantic.uimodel.UiMobileField;
-import org.lunifera.ecview.semantic.uimodel.UiMobileLayout;
-import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton;
-import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationCommand;
-import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationHandler;
-import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage;
-import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet;
-import org.lunifera.ecview.semantic.uimodel.UiMobileView;
-import org.lunifera.ecview.semantic.uimodel.UiModel;
-import org.lunifera.ecview.semantic.uimodel.UiModelFactory;
-import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
-import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
-import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
-import org.lunifera.ecview.semantic.uimodel.UiNumericField;
-import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
-import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup;
-import org.lunifera.ecview.semantic.uimodel.UiPanel;
-import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
-import org.lunifera.ecview.semantic.uimodel.UiPoint;
-import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
-import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
-import org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment;
-import org.lunifera.ecview.semantic.uimodel.UiRawBindableProvider;
-import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
-import org.lunifera.ecview.semantic.uimodel.UiRootElements;
-import org.lunifera.ecview.semantic.uimodel.UiSearchDialog;
-import org.lunifera.ecview.semantic.uimodel.UiSearchField;
-import org.lunifera.ecview.semantic.uimodel.UiSearchPanel;
-import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
-import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
-import org.lunifera.ecview.semantic.uimodel.UiSplitpanel;
-import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment;
-import org.lunifera.ecview.semantic.uimodel.UiSwitch;
-import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiTabSheet;
-import org.lunifera.ecview.semantic.uimodel.UiTable;
-import org.lunifera.ecview.semantic.uimodel.UiTextArea;
-import org.lunifera.ecview.semantic.uimodel.UiTextField;
-import org.lunifera.ecview.semantic.uimodel.UiTypeProvider;
-import org.lunifera.ecview.semantic.uimodel.UiTypedBindable;
-import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
-import org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawType;
-import org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawTypeAlias;
-import org.lunifera.ecview.semantic.uimodel.UiValidator;
-import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias;
-import org.lunifera.ecview.semantic.uimodel.UiValidatorAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiValidatorDef;
-import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup;
-import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroupAssigment;
-import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout;
-import org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment;
-import org.lunifera.ecview.semantic.uimodel.UiView;
-import org.lunifera.ecview.semantic.uimodel.UiViewSet;
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessable;
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor;
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorDef;
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityPropertiesAssignment;
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperty;
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityRule;
-import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
-import org.lunifera.ecview.semantic.uimodel.UiXbaseVisibilityRule;
 import org.lunifera.ecview.semantic.uimodel.*;
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 
@@ -890,6 +775,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiErrorCodeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiBeanServiceConsumerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -3489,6 +3381,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiBeanServiceConsumer() {
+		return uiBeanServiceConsumerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiBeanServiceConsumer_ConsumeBeanService() {
+		return (EAttribute)uiBeanServiceConsumerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getUiFlatAlignment() {
 		return uiFlatAlignmentEEnum;
 	}
@@ -3942,6 +3852,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiErrorCodeEClass = createEClass(UI_ERROR_CODE);
 		createEAttribute(uiErrorCodeEClass, UI_ERROR_CODE__DEFAULT_MESSAGE);
 
+		uiBeanServiceConsumerEClass = createEClass(UI_BEAN_SERVICE_CONSUMER);
+		createEAttribute(uiBeanServiceConsumerEClass, UI_BEAN_SERVICE_CONSUMER__CONSUME_BEAN_SERVICE);
+
 		// Create enums
 		uiFlatAlignmentEEnum = createEEnum(UI_FLAT_ALIGNMENT);
 		uiAlignmentEEnum = createEEnum(UI_ALIGNMENT);
@@ -4044,18 +3957,22 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiBeanReferenceFieldEClass.getESuperTypes().add(this.getUiField());
 		uiBeanReferenceFieldEClass.getESuperTypes().add(this.getUiMobileField());
 		uiBeanReferenceFieldEClass.getESuperTypes().add(this.getUiTypeProvider());
+		uiBeanReferenceFieldEClass.getESuperTypes().add(this.getUiBeanServiceConsumer());
 		uiTextFieldEClass.getESuperTypes().add(this.getUiField());
 		uiTextFieldEClass.getESuperTypes().add(this.getUiMobileField());
 		uiImageEClass.getESuperTypes().add(this.getUiField());
 		uiImageEClass.getESuperTypes().add(this.getUiMobileField());
 		uiListEClass.getESuperTypes().add(this.getUiField());
 		uiListEClass.getESuperTypes().add(this.getUiTypeProvider());
+		uiListEClass.getESuperTypes().add(this.getUiBeanServiceConsumer());
 		uiTableEClass.getESuperTypes().add(this.getUiField());
 		uiTableEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiTableEClass.getESuperTypes().add(this.getUiMobileField());
+		uiTableEClass.getESuperTypes().add(this.getUiBeanServiceConsumer());
 		uiComboBoxEClass.getESuperTypes().add(this.getUiField());
 		uiComboBoxEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiComboBoxEClass.getESuperTypes().add(this.getUiMobileField());
+		uiComboBoxEClass.getESuperTypes().add(this.getUiBeanServiceConsumer());
 		uiColumnEClass.getESuperTypes().add(this.getUiField());
 		uiColumnsAssignmentEClass.getESuperTypes().add(this.getUiField());
 		uiNumericFieldEClass.getESuperTypes().add(this.getUiField());
@@ -4112,6 +4029,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiOptionsGroupEClass.getESuperTypes().add(this.getUiField());
 		uiOptionsGroupEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiOptionsGroupEClass.getESuperTypes().add(this.getUiMobileField());
+		uiOptionsGroupEClass.getESuperTypes().add(this.getUiBeanServiceConsumer());
 		uiDateFieldEClass.getESuperTypes().add(this.getUiField());
 		uiDateFieldEClass.getESuperTypes().add(this.getUiMobileField());
 		uiBrowserEClass.getESuperTypes().add(this.getUiField());
@@ -4508,6 +4426,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiErrorCodeEClass, UiErrorCode.class, "UiErrorCode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiErrorCode_DefaultMessage(), ecorePackage.getEString(), "defaultMessage", null, 0, 1, UiErrorCode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiBeanServiceConsumerEClass, UiBeanServiceConsumer.class, "UiBeanServiceConsumer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUiBeanServiceConsumer_ConsumeBeanService(), ecorePackage.getEBoolean(), "consumeBeanService", null, 0, 1, UiBeanServiceConsumer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(uiFlatAlignmentEEnum, UiFlatAlignment.class, "UiFlatAlignment");

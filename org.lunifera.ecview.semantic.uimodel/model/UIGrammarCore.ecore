@@ -223,7 +223,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
         eType="#//UiSearchField" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiBeanReferenceField" eSuperTypes="#//UiField #//UiMobileField #//UiTypeProvider">
+  <eClassifiers xsi:type="ecore:EClass" name="UiBeanReferenceField" eSuperTypes="#//UiField #//UiMobileField #//UiTypeProvider #//UiBeanServiceConsumer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="captionProperty" eType="#//UiNestedProperty"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="imageProperty" eType="#//UiNestedProperty"
@@ -248,7 +248,7 @@
     <eLiterals name="SINGLE" value="1" literal="SINGLE"/>
     <eLiterals name="MULTI" value="2" literal="MULTI"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiList" eSuperTypes="#//UiField #//UiTypeProvider">
+  <eClassifiers xsi:type="ecore:EClass" name="UiList" eSuperTypes="#//UiField #//UiTypeProvider #//UiBeanServiceConsumer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionType" lowerBound="1"
         eType="#//UiSelectionType" defaultValueLiteral="SINGLE"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemImageProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
@@ -256,14 +256,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="descriptionProperty" eType="#//UiNestedProperty"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiTable" eSuperTypes="#//UiField #//UiTypeProvider #//UiMobileField">
+  <eClassifiers xsi:type="ecore:EClass" name="UiTable" eSuperTypes="#//UiField #//UiTypeProvider #//UiMobileField #//UiBeanServiceConsumer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="columnAssignment" eType="#//UiColumnsAssignment"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionType" lowerBound="1"
         eType="#//UiSelectionType" defaultValueLiteral="SINGLE"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemImageProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiComboBox" eSuperTypes="#//UiField #//UiTypeProvider #//UiMobileField">
+  <eClassifiers xsi:type="ecore:EClass" name="UiComboBox" eSuperTypes="#//UiField #//UiTypeProvider #//UiMobileField #//UiBeanServiceConsumer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemCaptionProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemImageProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="descriptionProperty" eType="#//UiNestedProperty"
@@ -474,7 +474,7 @@
         defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiTextArea" eSuperTypes="#//UiField #//UiMobileField"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UiOptionsGroup" eSuperTypes="#//UiField #//UiTypeProvider #//UiMobileField">
+  <eClassifiers xsi:type="ecore:EClass" name="UiOptionsGroup" eSuperTypes="#//UiField #//UiTypeProvider #//UiMobileField #//UiBeanServiceConsumer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionType" eType="#//UiSelectionType"
         defaultValueLiteral="SINGLE"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemImageProperty" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
@@ -532,5 +532,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiErrorCode" eSuperTypes="#//UiNamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultMessage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiBeanServiceConsumer" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="consumeBeanService" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
 </ecore:EPackage>

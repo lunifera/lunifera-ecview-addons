@@ -1438,6 +1438,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		field.id = UiModelGrammarUtil.getPathId(object)
 		field.name = object.name
 		field.label = object.name
+		field.useBeanService = object.consumeBeanService
 		field.labelI18nKey = object.toI18nKey
 
 		if (object.jvmType != null) {
@@ -1538,6 +1539,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			optionsGroup.id = UiModelGrammarUtil.getPathId(object)
 			optionsGroup.name = object.name
 			optionsGroup.label = object.name
+			optionsGroup.useBeanService = object.consumeBeanService
 			optionsGroup.labelI18nKey = object.toI18nKey
 			optionsGroup.selectionType = object.selectionType.convert
 			optionsGroup.initialEnabled = !object.readonly
@@ -1583,6 +1585,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			list.id = UiModelGrammarUtil.getPathId(object)
 			list.name = object.name
 			list.label = object.name
+			list.useBeanService = object.consumeBeanService
 			list.labelI18nKey = object.toI18nKey
 			list.selectionType = object.selectionType.convert
 			list.initialEnabled = !object.readonly
@@ -1663,6 +1666,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		table.id = UiModelGrammarUtil.getPathId(object)
 		table.name = object.name
 		table.label = object.name
+		table.useBeanService = object.consumeBeanService
 		table.labelI18nKey = object.toI18nKey
 		table.selectionType = object.selectionType.convert
 		table.initialEnabled = !object.readonly
@@ -1810,6 +1814,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			field.id = UiModelGrammarUtil.getPathId(object)
 			field.name = object.name
 			field.label = object.name
+			field.useBeanService = object.consumeBeanService
 			field.labelI18nKey = object.toI18nKey
 			field.initialEnabled = !object.readonly
 

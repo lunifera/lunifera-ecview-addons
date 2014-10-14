@@ -499,6 +499,7 @@ UiTable returns UiTable:
 	(('type' jvmType=JvmTypeReference (';')?)?
 	& ('selectionType' selectionType=UiSelectionType (';')?)?
 	& ('imageField' itemImageProperty=[JvmOperation] (';')?)?
+	& (consumeBeanService?='useBeanService'(';')?)?
 	& (readonly?="readonly")?)
 	columnAssignment=UiColumnsAssignment?
 	(validators+=UiValidator
@@ -515,6 +516,7 @@ UiComboBox returns UiComboBox:
 	& ('captionField' itemCaptionProperty=[JvmOperation] (';')?)?
 	& ('descriptionField' descriptionProperty=UiNestedProperty (';')?)?
 	& ('imageField' itemImageProperty=[JvmOperation] (';')?)?
+	& (consumeBeanService?='useBeanService'(';')?)?
 	& (readonly?="readonly")?)
 	(validators+=UiValidator
 	|
@@ -575,6 +577,7 @@ UiOptionsGroup:
 	& ('captionField' itemCaptionProperty=[JvmOperation])?
 	& ('descriptionField' descriptionProperty=UiNestedProperty (';')?)?
 	& ('imageField' itemImageProperty=[JvmOperation])?
+	& (consumeBeanService?='useBeanService'(';')?)?
 	& (readonly?="readonly")?)
 	(validators+=UiValidator
 	|
@@ -592,6 +595,7 @@ UiList:
 	& ('captionField' itemCaptionProperty=[JvmOperation])?
 	& ('descriptionField' descriptionProperty=UiNestedProperty (';')?)?
 	& ('imageField' itemImageProperty=[JvmOperation])?
+	& (consumeBeanService?='useBeanService'(';')?)?
 	& (readonly?="readonly")?)
 	(validators+=UiValidator
 	|

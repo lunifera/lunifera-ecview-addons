@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmTypeReference;
+import org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiComboBox;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
@@ -41,6 +42,7 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#isInvisible <em>Invisible</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getValidators <em>Validators</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getJvmType <em>Jvm Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#isConsumeBeanService <em>Consume Bean Service</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getItemCaptionProperty <em>Item Caption Property</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getItemImageProperty <em>Item Image Property</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getDescriptionProperty <em>Description Property</em>}</li>
@@ -169,6 +171,26 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 	 * @ordered
 	 */
 	protected JvmTypeReference jvmType;
+
+	/**
+	 * The default value of the '{@link #isConsumeBeanService() <em>Consume Bean Service</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isConsumeBeanService()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CONSUME_BEAN_SERVICE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isConsumeBeanService() <em>Consume Bean Service</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isConsumeBeanService()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean consumeBeanService = CONSUME_BEAN_SERVICE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getItemCaptionProperty() <em>Item Caption Property</em>}' reference.
@@ -464,6 +486,27 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isConsumeBeanService() {
+		return consumeBeanService;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConsumeBeanService(boolean newConsumeBeanService) {
+		boolean oldConsumeBeanService = consumeBeanService;
+		consumeBeanService = newConsumeBeanService;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_COMBO_BOX__CONSUME_BEAN_SERVICE, oldConsumeBeanService, consumeBeanService));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JvmOperation getItemCaptionProperty() {
 		if (itemCaptionProperty != null && itemCaptionProperty.eIsProxy()) {
 			InternalEObject oldItemCaptionProperty = (InternalEObject)itemCaptionProperty;
@@ -649,6 +692,8 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 			case UiModelPackage.UI_COMBO_BOX__JVM_TYPE:
 				if (resolve) return getJvmType();
 				return basicGetJvmType();
+			case UiModelPackage.UI_COMBO_BOX__CONSUME_BEAN_SERVICE:
+				return isConsumeBeanService();
 			case UiModelPackage.UI_COMBO_BOX__ITEM_CAPTION_PROPERTY:
 				if (resolve) return getItemCaptionProperty();
 				return basicGetItemCaptionProperty();
@@ -697,6 +742,9 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 			case UiModelPackage.UI_COMBO_BOX__JVM_TYPE:
 				setJvmType((JvmTypeReference)newValue);
 				return;
+			case UiModelPackage.UI_COMBO_BOX__CONSUME_BEAN_SERVICE:
+				setConsumeBeanService((Boolean)newValue);
+				return;
 			case UiModelPackage.UI_COMBO_BOX__ITEM_CAPTION_PROPERTY:
 				setItemCaptionProperty((JvmOperation)newValue);
 				return;
@@ -742,6 +790,9 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 			case UiModelPackage.UI_COMBO_BOX__JVM_TYPE:
 				setJvmType((JvmTypeReference)null);
 				return;
+			case UiModelPackage.UI_COMBO_BOX__CONSUME_BEAN_SERVICE:
+				setConsumeBeanService(CONSUME_BEAN_SERVICE_EDEFAULT);
+				return;
 			case UiModelPackage.UI_COMBO_BOX__ITEM_CAPTION_PROPERTY:
 				setItemCaptionProperty((JvmOperation)null);
 				return;
@@ -779,6 +830,8 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 				return validators != null && !validators.isEmpty();
 			case UiModelPackage.UI_COMBO_BOX__JVM_TYPE:
 				return jvmType != null;
+			case UiModelPackage.UI_COMBO_BOX__CONSUME_BEAN_SERVICE:
+				return consumeBeanService != CONSUME_BEAN_SERVICE_EDEFAULT;
 			case UiModelPackage.UI_COMBO_BOX__ITEM_CAPTION_PROPERTY:
 				return itemCaptionProperty != null;
 			case UiModelPackage.UI_COMBO_BOX__ITEM_IMAGE_PROPERTY:
@@ -830,6 +883,12 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 				default: return -1;
 			}
 		}
+		if (baseClass == UiBeanServiceConsumer.class) {
+			switch (derivedFeatureID) {
+				case UiModelPackage.UI_COMBO_BOX__CONSUME_BEAN_SERVICE: return UiModelPackage.UI_BEAN_SERVICE_CONSUMER__CONSUME_BEAN_SERVICE;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -874,6 +933,12 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 				default: return -1;
 			}
 		}
+		if (baseClass == UiBeanServiceConsumer.class) {
+			switch (baseFeatureID) {
+				case UiModelPackage.UI_BEAN_SERVICE_CONSUMER__CONSUME_BEAN_SERVICE: return UiModelPackage.UI_COMBO_BOX__CONSUME_BEAN_SERVICE;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -895,6 +960,8 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 		result.append(readonly);
 		result.append(", invisible: ");
 		result.append(invisible);
+		result.append(", consumeBeanService: ");
+		result.append(consumeBeanService);
 		result.append(')');
 		return result.toString();
 	}

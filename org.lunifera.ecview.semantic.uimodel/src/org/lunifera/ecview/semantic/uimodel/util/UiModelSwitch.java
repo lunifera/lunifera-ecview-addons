@@ -499,6 +499,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiBeanReferenceField(uiBeanReferenceField);
 				if (result == null) result = caseUiMobileField(uiBeanReferenceField);
 				if (result == null) result = caseUiTypeProvider(uiBeanReferenceField);
+				if (result == null) result = caseUiBeanServiceConsumer(uiBeanReferenceField);
 				if (result == null) result = caseUiField(uiBeanReferenceField);
 				if (result == null) result = caseUiMobileEmbeddable(uiBeanReferenceField);
 				if (result == null) result = caseUiEmbeddable(uiBeanReferenceField);
@@ -542,6 +543,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiList(uiList);
 				if (result == null) result = caseUiField(uiList);
 				if (result == null) result = caseUiTypeProvider(uiList);
+				if (result == null) result = caseUiBeanServiceConsumer(uiList);
 				if (result == null) result = caseUiEmbeddable(uiList);
 				if (result == null) result = caseUiVisibilityProcessable(uiList);
 				if (result == null) result = caseUiRawBindable(uiList);
@@ -555,6 +557,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiTable(uiTable);
 				if (result == null) result = caseUiTypeProvider(uiTable);
 				if (result == null) result = caseUiMobileField(uiTable);
+				if (result == null) result = caseUiBeanServiceConsumer(uiTable);
 				if (result == null) result = caseUiField(uiTable);
 				if (result == null) result = caseUiMobileEmbeddable(uiTable);
 				if (result == null) result = caseUiEmbeddable(uiTable);
@@ -570,6 +573,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiComboBox(uiComboBox);
 				if (result == null) result = caseUiTypeProvider(uiComboBox);
 				if (result == null) result = caseUiMobileField(uiComboBox);
+				if (result == null) result = caseUiBeanServiceConsumer(uiComboBox);
 				if (result == null) result = caseUiField(uiComboBox);
 				if (result == null) result = caseUiMobileEmbeddable(uiComboBox);
 				if (result == null) result = caseUiEmbeddable(uiComboBox);
@@ -1045,6 +1049,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiOptionsGroup(uiOptionsGroup);
 				if (result == null) result = caseUiTypeProvider(uiOptionsGroup);
 				if (result == null) result = caseUiMobileField(uiOptionsGroup);
+				if (result == null) result = caseUiBeanServiceConsumer(uiOptionsGroup);
 				if (result == null) result = caseUiField(uiOptionsGroup);
 				if (result == null) result = caseUiMobileEmbeddable(uiOptionsGroup);
 				if (result == null) result = caseUiEmbeddable(uiOptionsGroup);
@@ -1146,6 +1151,12 @@ public class UiModelSwitch<T> extends Switch<T> {
 				UiErrorCode uiErrorCode = (UiErrorCode)theEObject;
 				T result = caseUiErrorCode(uiErrorCode);
 				if (result == null) result = caseUiNamedElement(uiErrorCode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_BEAN_SERVICE_CONSUMER: {
+				UiBeanServiceConsumer uiBeanServiceConsumer = (UiBeanServiceConsumer)theEObject;
+				T result = caseUiBeanServiceConsumer(uiBeanServiceConsumer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2770,6 +2781,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiErrorCode(UiErrorCode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Bean Service Consumer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Bean Service Consumer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiBeanServiceConsumer(UiBeanServiceConsumer object) {
 		return null;
 	}
 

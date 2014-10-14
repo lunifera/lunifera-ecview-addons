@@ -1972,6 +1972,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     field.setName(_name);
     String _name_1 = object.getName();
     field.setLabel(_name_1);
+    boolean _isConsumeBeanService = object.isConsumeBeanService();
+    field.setUseBeanService(_isConsumeBeanService);
     String _i18nKey = this.toI18nKey(object);
     field.setLabelI18nKey(_i18nKey);
     JvmTypeReference _jvmType = object.getJvmType();
@@ -2125,6 +2127,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       optionsGroup_1.setName(_name_2);
       String _name_3 = object.getName();
       optionsGroup_1.setLabel(_name_3);
+      boolean _isConsumeBeanService = object.isConsumeBeanService();
+      optionsGroup_1.setUseBeanService(_isConsumeBeanService);
       String _i18nKey_1 = this.toI18nKey(object);
       optionsGroup_1.setLabelI18nKey(_i18nKey_1);
       UiSelectionType _selectionType_1 = object.getSelectionType();
@@ -2218,6 +2222,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       list_1.setName(_name_2);
       String _name_3 = object.getName();
       list_1.setLabel(_name_3);
+      boolean _isConsumeBeanService = object.isConsumeBeanService();
+      list_1.setUseBeanService(_isConsumeBeanService);
       String _i18nKey_1 = this.toI18nKey(object);
       list_1.setLabelI18nKey(_i18nKey_1);
       UiSelectionType _selectionType_1 = object.getSelectionType();
@@ -2344,6 +2350,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     table.setName(_name);
     String _name_1 = object.getName();
     table.setLabel(_name_1);
+    boolean _isConsumeBeanService = object.isConsumeBeanService();
+    table.setUseBeanService(_isConsumeBeanService);
     String _i18nKey = this.toI18nKey(object);
     table.setLabelI18nKey(_i18nKey);
     UiSelectionType _selectionType = object.getSelectionType();
@@ -2576,6 +2584,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       field_1.setName(_name_2);
       String _name_3 = object.getName();
       field_1.setLabel(_name_3);
+      boolean _isConsumeBeanService = object.isConsumeBeanService();
+      field_1.setUseBeanService(_isConsumeBeanService);
       String _i18nKey_1 = this.toI18nKey(object);
       field_1.setLabelI18nKey(_i18nKey_1);
       boolean _isReadonly_1 = object.isReadonly();
