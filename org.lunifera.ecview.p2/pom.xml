@@ -25,7 +25,7 @@
 	<packaging>eclipse-repository</packaging>
 
 	<properties>
-		<lunifera.deployment.p2.label>lunifera-ecview</lunifera.deployment.p2.label>
+		<lunifera.deployment.p2.label>lunifera-ecview-addons</lunifera.deployment.p2.label>
 	</properties>
 
 	<pluginRepositories>

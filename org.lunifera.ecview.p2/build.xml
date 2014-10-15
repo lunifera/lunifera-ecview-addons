@@ -11,7 +11,7 @@
 #     Cristiano Gavião - initial API and implementation
 #====================================================================== 
 -->
-<project default="basic.build" name="Lunifera Runtime Web P2 with aggregate repositories">
+<project default="basic.build" name="Lunifera ECView Addons P2 with aggregate repositories">
 
 	<taskdef resource="net/sf/antcontrib/antlib.xml"/>
 	
