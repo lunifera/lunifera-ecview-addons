@@ -1,5 +1,9 @@
 package org.lunifera.ecview.dsl.extensions;
 
+import java.util.Date;
+import java.util.Enumeration;
+
+import org.eclipse.xtext.common.types.JvmEnumerationType;
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.util.TypeReferences;
 
@@ -14,7 +18,7 @@ public class TypeHelper {
 	private TypeReferences typeReferences;
 
 	/**
-	 * Returns true, if the type is numeric
+	 * Returns true, if the type is numeric without digits
 	 * 
 	 * @param type
 	 * @return
@@ -29,6 +33,42 @@ public class TypeHelper {
 				|| typeReferences.is(type, Long.class)
 				|| typeReferences.is(type, Long.TYPE)
 				|| typeReferences.is(type, Float.class)
+				|| typeReferences.is(type, Float.TYPE)
+				|| typeReferences.is(type, Double.class)
+				|| typeReferences.is(type, Double.TYPE)) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Returns true, if the type is numeric
+	 * 
+	 * @param type
+	 * @return
+	 */
+	public boolean isNumberWithoutDigits(JvmType type) {
+		if (typeReferences.is(type, Byte.class)
+				|| typeReferences.is(type, Byte.TYPE)
+				|| typeReferences.is(type, Short.class)
+				|| typeReferences.is(type, Short.TYPE)
+				|| typeReferences.is(type, Integer.class)
+				|| typeReferences.is(type, Integer.TYPE)
+				|| typeReferences.is(type, Long.class)
+				|| typeReferences.is(type, Long.TYPE)) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Returns true, if the type is numeric with digits
+	 * 
+	 * @param type
+	 * @return
+	 */
+	public boolean isNumberWithDigits(JvmType type) {
+		if (typeReferences.is(type, Float.class)
 				|| typeReferences.is(type, Float.TYPE)
 				|| typeReferences.is(type, Double.class)
 				|| typeReferences.is(type, Double.TYPE)) {
@@ -103,5 +143,28 @@ public class TypeHelper {
 			return true;
 		}
 		return false;
+	}
+	
+	/**
+	 * Returns true, if the type is date
+	 * 
+	 * @param type
+	 * @return
+	 */
+	public boolean isDate(JvmType type) {
+		if (typeReferences.is(type, Date.class)) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Returns true, if the type is enum
+	 * 
+	 * @param type
+	 * @return
+	 */
+	public boolean isEnum(JvmType type) {
+		return type instanceof JvmEnumerationType;
 	}
 }

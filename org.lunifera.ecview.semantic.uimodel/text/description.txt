@@ -116,11 +116,14 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference bindings : UiBinding<<0..*>>
     Attribute readonly : EBoolean
     Attribute invisible : EBoolean
+    Attribute styles : EString
 
   Class UiField -> UiEmbeddable
     Reference validators : UiValidator<<0..*>>
 
   Class UiLayout -> UiEmbeddable
+    Attribute autowire : EBoolean
+    Reference autoWireSource : UiBindingExpression
 
   Class UiLayoutAssignment -> UiNamedElement, UiRawBindableProvider
 

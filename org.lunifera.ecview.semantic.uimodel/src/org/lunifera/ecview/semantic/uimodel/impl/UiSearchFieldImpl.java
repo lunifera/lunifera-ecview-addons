@@ -36,6 +36,7 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSearchFieldImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSearchFieldImpl#isReadonly <em>Readonly</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSearchFieldImpl#isInvisible <em>Invisible</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSearchFieldImpl#getStyles <em>Styles</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSearchFieldImpl#getValidators <em>Validators</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSearchFieldImpl#getProperty <em>Property</em>}</li>
  * </ul>
@@ -143,6 +144,26 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 	 * @ordered
 	 */
 	protected boolean invisible = INVISIBLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getStyles() <em>Styles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyles()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STYLES_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStyles() <em>Styles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyles()
+	 * @generated
+	 * @ordered
+	 */
+	protected String styles = STYLES_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' containment reference list.
@@ -277,6 +298,27 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 		invisible = newInvisible;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_SEARCH_FIELD__INVISIBLE, oldInvisible, invisible));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getStyles() {
+		return styles;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStyles(String newStyles) {
+		String oldStyles = styles;
+		styles = newStyles;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_SEARCH_FIELD__STYLES, oldStyles, styles));
 	}
 
 	/**
@@ -464,6 +506,8 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 				return isReadonly();
 			case UiModelPackage.UI_SEARCH_FIELD__INVISIBLE:
 				return isInvisible();
+			case UiModelPackage.UI_SEARCH_FIELD__STYLES:
+				return getStyles();
 			case UiModelPackage.UI_SEARCH_FIELD__VALIDATORS:
 				return getValidators();
 			case UiModelPackage.UI_SEARCH_FIELD__PROPERTY:
@@ -500,6 +544,9 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 				return;
 			case UiModelPackage.UI_SEARCH_FIELD__INVISIBLE:
 				setInvisible((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_SEARCH_FIELD__STYLES:
+				setStyles((String)newValue);
 				return;
 			case UiModelPackage.UI_SEARCH_FIELD__VALIDATORS:
 				getValidators().clear();
@@ -538,6 +585,9 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 			case UiModelPackage.UI_SEARCH_FIELD__INVISIBLE:
 				setInvisible(INVISIBLE_EDEFAULT);
 				return;
+			case UiModelPackage.UI_SEARCH_FIELD__STYLES:
+				setStyles(STYLES_EDEFAULT);
+				return;
 			case UiModelPackage.UI_SEARCH_FIELD__VALIDATORS:
 				getValidators().clear();
 				return;
@@ -568,6 +618,8 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 				return readonly != READONLY_EDEFAULT;
 			case UiModelPackage.UI_SEARCH_FIELD__INVISIBLE:
 				return invisible != INVISIBLE_EDEFAULT;
+			case UiModelPackage.UI_SEARCH_FIELD__STYLES:
+				return STYLES_EDEFAULT == null ? styles != null : !STYLES_EDEFAULT.equals(styles);
 			case UiModelPackage.UI_SEARCH_FIELD__VALIDATORS:
 				return validators != null && !validators.isEmpty();
 			case UiModelPackage.UI_SEARCH_FIELD__PROPERTY:
@@ -670,6 +722,8 @@ public class UiSearchFieldImpl extends UiVisibilityProcessableImpl implements Ui
 		result.append(readonly);
 		result.append(", invisible: ");
 		result.append(invisible);
+		result.append(", styles: ");
+		result.append(styles);
 		result.append(')');
 		return result.toString();
 	}

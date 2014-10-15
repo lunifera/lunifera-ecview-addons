@@ -111,6 +111,7 @@ import org.lunifera.ecview.core.extension.model.extension.YTextSearchField;
 import org.lunifera.ecview.core.extension.model.extension.YVerticalLayout;
 import org.lunifera.ecview.core.extension.model.extension.YVerticalLayoutCellStyle;
 import org.lunifera.ecview.core.extension.model.extension.util.SimpleExtensionModelFactory;
+import org.lunifera.ecview.dsl.derivedstate.AutowireHelper;
 import org.lunifera.ecview.dsl.derivedstate.UiGrammarElementAdapter;
 import org.lunifera.ecview.dsl.derivedstate.UiModelGrammarUtil;
 import org.lunifera.ecview.dsl.extensions.BeanHelper;
@@ -157,6 +158,7 @@ import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
 import org.lunifera.ecview.semantic.uimodel.UiImage;
 import org.lunifera.ecview.semantic.uimodel.UiLabel;
+import org.lunifera.ecview.semantic.uimodel.UiLayout;
 import org.lunifera.ecview.semantic.uimodel.UiList;
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
@@ -290,6 +292,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   @Inject
   private I18nKeyProvider i18nKeyProvider;
   
+  @Inject
+  private AutowireHelper autowireHelper;
+  
   private final Stack<EObject> viewContext = new Stack<EObject>();
   
   private final List<YView> views = CollectionLiterals.<YView>newArrayList();
@@ -312,6 +317,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   private List<UiVisibilityProcessorAssignment> pendingVisibilityProcessors = CollectionLiterals.<UiVisibilityProcessorAssignment>newArrayList();
   
+  private List<UiLayout> pendingAutowires = CollectionLiterals.<UiLayout>newArrayList();
+  
   public void associateUi(final EObject grammarElement, final EObject uiElement) {
     this.grammarToUiAssociations.put(grammarElement, uiElement);
     this.uiToGrammarAssociations.put(uiElement, grammarElement);
@@ -330,6 +337,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return ((A) _get);
   }
   
+  public YView getCurrentView() {
+    return this.currentView;
+  }
+  
   public void installDerivedState(final DerivedStateAwareResource resource, final boolean preLinkingPhase) {
     super.installDerivedState(resource, preLinkingPhase);
     this.resource = resource;
@@ -344,6 +355,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     if ((!preLinkingPhase)) {
       this.grammarToUiAssociations.clear();
       this.uiToGrammarAssociations.clear();
+      this.pendingAutowires.clear();
       EList<EObject> _contents_1 = resource.getContents();
       EObject _get = _contents_1.get(0);
       final UiModel eObject = ((UiModel) _get);
@@ -376,6 +388,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       this.viewContext.clear();
       this.pendingBindings.clear();
       this.pendingVisibilityProcessors.clear();
+      this.pendingAutowires.clear();
     }
     this.typeLoader.dispose();
     this.typeLoader = null;
@@ -459,60 +472,73 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiExposedAction>forEach(_exposedActions, _function_2);
+    final Procedure1<UiLayout> _function_3 = new Procedure1<UiLayout>() {
+      public void apply(final UiLayout it) {
+        UiModelDerivedStateComputerx.this.doAutowire(it);
+      }
+    };
+    IterableExtensions.<UiLayout>forEach(this.pendingAutowires, _function_3);
     EList<UiVisibilityProcessorAssignment> _processorAssignments = object.getProcessorAssignments();
-    final Procedure1<UiVisibilityProcessorAssignment> _function_3 = new Procedure1<UiVisibilityProcessorAssignment>() {
+    final Procedure1<UiVisibilityProcessorAssignment> _function_4 = new Procedure1<UiVisibilityProcessorAssignment>() {
       public void apply(final UiVisibilityProcessorAssignment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_3);
-    final Procedure1<UiVisibilityProcessorAssignment> _function_4 = new Procedure1<UiVisibilityProcessorAssignment>() {
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_4);
+    final Procedure1<UiVisibilityProcessorAssignment> _function_5 = new Procedure1<UiVisibilityProcessorAssignment>() {
       public void apply(final UiVisibilityProcessorAssignment it) {
         UiVisibilityProcessor _processor = it.getProcessor();
         UiModelDerivedStateComputerx.this.map(_processor);
       }
     };
-    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(this.pendingVisibilityProcessors, _function_4);
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(this.pendingVisibilityProcessors, _function_5);
     ArrayList<UiBinding> _newArrayList = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
     this.temporaryPendingBindings = _newArrayList;
     this.pendingBindings.clear();
-    final Procedure1<UiBinding> _function_5 = new Procedure1<UiBinding>() {
+    final Procedure1<UiBinding> _function_6 = new Procedure1<UiBinding>() {
       public void apply(final UiBinding it) {
         UiModelDerivedStateComputerx.this.install(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_5);
+    IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_6);
     boolean _isEmpty = this.pendingBindings.isEmpty();
     if (_isEmpty) {
       EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
-      final Procedure1<UiValidatorAssignment> _function_6 = new Procedure1<UiValidatorAssignment>() {
+      final Procedure1<UiValidatorAssignment> _function_7 = new Procedure1<UiValidatorAssignment>() {
         public void apply(final UiValidatorAssignment it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_6);
+      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_7);
       this.<Object>pop();
       this.currentView = null;
     } else {
       ArrayList<UiBinding> _newArrayList_1 = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
       this.temporaryPendingBindings = _newArrayList_1;
       this.pendingBindings.clear();
-      final Procedure1<UiBinding> _function_7 = new Procedure1<UiBinding>() {
+      final Procedure1<UiBinding> _function_8 = new Procedure1<UiBinding>() {
         public void apply(final UiBinding it) {
           UiModelDerivedStateComputerx.this.install(it);
         }
       };
-      IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_7);
+      IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_8);
       EList<UiValidatorAssignment> _validatorAssignments_1 = object.getValidatorAssignments();
-      final Procedure1<UiValidatorAssignment> _function_8 = new Procedure1<UiValidatorAssignment>() {
+      final Procedure1<UiValidatorAssignment> _function_9 = new Procedure1<UiValidatorAssignment>() {
         public void apply(final UiValidatorAssignment it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments_1, _function_8);
+      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments_1, _function_9);
       this.<Object>pop();
       this.currentView = null;
     }
+  }
+  
+  public void doAutowire(final UiLayout embeddable) {
+    YDeviceType _deviceType = this.currentView.getDeviceType();
+    boolean _equals = Objects.equal(_deviceType, YDeviceType.MOBILE);
+    String _i18nKey = this.toI18nKey(embeddable);
+    this.autowireHelper.autowire(embeddable, this, _equals, _i18nKey);
   }
   
   protected void _map(final UiMobileView object) {
@@ -698,6 +724,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiHorizontalLayoutAssigment>forEach(_contents, _function);
+    boolean _isAutowire = eObject.isAutowire();
+    if (_isAutowire) {
+      this.pendingAutowires.add(eObject);
+    }
     EList<UiBinding> _bindings = eObject.getBindings();
     final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
       public void apply(final UiBinding it) {
@@ -1950,6 +1980,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     textField.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    textField.setCssClass(_styles);
     final YTextDatatype dt = this.factory.createTextDatatype();
     textField.setDatatype(dt);
     EList<YDatatype> _orphanDatatypes = textField.getOrphanDatatypes();
@@ -2032,6 +2064,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     label.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     label.setLabelI18nKey(_i18nKey);
+    String _styles = object.getStyles();
+    label.setCssClass(_styles);
     this.associateUi(object, label);
     return label;
   }
@@ -2049,6 +2083,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     decimalField.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    decimalField.setCssClass(_styles);
     final YDecimalDatatype dt = this.factory.createDecimalDatatype();
     decimalField.setDatatype(dt);
     EList<YDatatype> _orphanDatatypes = decimalField.getOrphanDatatypes();
@@ -2078,6 +2114,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     textArea.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    textArea.setCssClass(_styles);
     this.associateUi(object, textArea);
     return textArea;
   }
@@ -2104,6 +2142,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       boolean _isReadonly = object.isReadonly();
       boolean _not = (!_isReadonly);
       optionsGroup.setInitialEnabled(_not);
+      String _styles = object.getStyles();
+      optionsGroup.setCssClass(_styles);
       JvmTypeReference _jvmType_1 = object.getJvmType();
       boolean _notEquals = (!Objects.equal(_jvmType_1, null));
       if (_notEquals) {
@@ -2199,6 +2239,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       boolean _isReadonly = object.isReadonly();
       boolean _not = (!_isReadonly);
       list.setInitialEnabled(_not);
+      String _styles = object.getStyles();
+      list.setCssClass(_styles);
       JvmTypeReference _jvmType_1 = object.getJvmType();
       boolean _notEquals = (!Objects.equal(_jvmType_1, null));
       if (_notEquals) {
@@ -2291,6 +2333,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     dateTime.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    dateTime.setCssClass(_styles);
     this.associateUi(object, dateTime);
     return dateTime;
   }
@@ -2308,6 +2352,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     browser.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    browser.setCssClass(_styles);
     this.associateUi(object, browser);
     return browser;
   }
@@ -2322,6 +2368,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     progressBar.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     progressBar.setLabelI18nKey(_i18nKey);
+    String _styles = object.getStyles();
+    progressBar.setCssClass(_styles);
     this.associateUi(object, progressBar);
     return progressBar;
   }
@@ -2336,6 +2384,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     image.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     image.setLabelI18nKey(_i18nKey);
+    String _styles = object.getStyles();
+    image.setCssClass(_styles);
     String _value = object.getValue();
     image.setValue(_value);
     this.associateUi(object, image);
@@ -2360,6 +2410,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     table.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    table.setCssClass(_styles);
     JvmOperation _itemImageProperty = object.getItemImageProperty();
     String _simpleName = null;
     if (_itemImageProperty!=null) {
@@ -2442,6 +2494,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
         boolean _isReadonly = eObject.isReadonly();
         boolean _not = (!_isReadonly);
         newField.setInitialEnabled(_not);
+        String _styles = eObject.getStyles();
+        newField.setCssClass(_styles);
       }
       return newField;
     }
@@ -2477,6 +2531,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     field.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    field.setCssClass(_styles);
     final YNumericDatatype dt = this.factory.createNumericDatatype();
     field.setDatatype(dt);
     EList<YDatatype> _orphanDatatypes = field.getOrphanDatatypes();
@@ -2504,6 +2560,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     field.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    field.setCssClass(_styles);
     this.associateUi(object, field);
     return field;
   }
@@ -2538,6 +2596,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     field.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    field.setCssClass(_styles);
     this.associateUi(object, field);
     return field;
   }
@@ -2561,6 +2621,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       boolean _isReadonly = object.isReadonly();
       boolean _not = (!_isReadonly);
       field.setInitialEnabled(_not);
+      String _styles = object.getStyles();
+      field.setCssClass(_styles);
       JvmTypeReference _jvmType_1 = object.getJvmType();
       boolean _notEquals = (!Objects.equal(_jvmType_1, null));
       if (_notEquals) {
@@ -2644,6 +2706,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     field.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    field.setCssClass(_styles);
     this.associateUi(object, field);
     return field;
   }
@@ -2661,6 +2725,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
     this.associateUi(object, layout);
     return layout;
   }
@@ -2676,6 +2742,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
     this.associateUi(object, layout);
     return layout;
   }
@@ -2693,6 +2761,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
     this.associateUi(object, layout);
     return layout;
   }
@@ -2710,6 +2780,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
     this.associateUi(object, layout);
     return layout;
   }
@@ -2729,6 +2801,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
     this.associateUi(object, layout);
     return layout;
   }
@@ -2746,6 +2820,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
     this.associateUi(object, layout);
     return layout;
   }
@@ -2763,6 +2839,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
     this.associateUi(object, layout);
     return layout;
   }
@@ -2780,6 +2858,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
     this.associateUi(object, layout);
     return layout;
   }
@@ -2797,6 +2877,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _isReadonly = object.isReadonly();
     boolean _not = (!_isReadonly);
     layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
     this.associateUi(object, layout);
     return layout;
   }
@@ -2811,6 +2893,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     layout.setLabel(_name_1);
     String _i18nKey = this.toI18nKey(object);
     layout.setLabelI18nKey(_i18nKey);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
     this.associateUi(object, layout);
     return layout;
   }

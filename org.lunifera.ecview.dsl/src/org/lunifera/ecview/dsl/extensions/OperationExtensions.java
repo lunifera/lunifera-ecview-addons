@@ -81,7 +81,7 @@ public class OperationExtensions {
 				continue;
 			}
 			
-			if (!operation.getParameters().isEmpty()) {
+			if (!isSetter(operation.getSimpleName()) && operation.getParameters().size() > 1) {
 				continue;
 			}
 

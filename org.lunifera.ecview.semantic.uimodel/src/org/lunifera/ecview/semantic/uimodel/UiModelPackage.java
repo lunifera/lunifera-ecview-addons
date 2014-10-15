@@ -859,13 +859,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_EMBEDDABLE__INVISIBLE = UI_VISIBILITY_PROCESSABLE_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_EMBEDDABLE__STYLES = UI_VISIBILITY_PROCESSABLE_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Ui Embeddable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_EMBEDDABLE_FEATURE_COUNT = UI_VISIBILITY_PROCESSABLE_FEATURE_COUNT + 6;
+	int UI_EMBEDDABLE_FEATURE_COUNT = UI_VISIBILITY_PROCESSABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiDialogImpl <em>Ui Dialog</em>}' class.
@@ -939,6 +948,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_DIALOG__INVISIBLE = UI_EMBEDDABLE__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DIALOG__STYLES = UI_EMBEDDABLE__STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
@@ -2012,6 +2030,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_FIELD__INVISIBLE = UI_EMBEDDABLE__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_FIELD__STYLES = UI_EMBEDDABLE__STYLES;
+
+	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2093,13 +2120,40 @@ public interface UiModelPackage extends EPackage {
 	int UI_LAYOUT__INVISIBLE = UI_EMBEDDABLE__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LAYOUT__STYLES = UI_EMBEDDABLE__STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Autowire</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LAYOUT__AUTOWIRE = UI_EMBEDDABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Auto Wire Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LAYOUT__AUTO_WIRE_SOURCE = UI_EMBEDDABLE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Ui Layout</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_LAYOUT_FEATURE_COUNT = UI_EMBEDDABLE_FEATURE_COUNT + 0;
+	int UI_LAYOUT_FEATURE_COUNT = UI_EMBEDDABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable <em>Ui Mobile Embeddable</em>}' class.
@@ -2485,6 +2539,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_ACTION__INVISIBLE = UI_EMBEDDABLE__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_ACTION__STYLES = UI_EMBEDDABLE__STYLES;
+
+	/**
 	 * The number of structural features of the '<em>Ui Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2557,6 +2620,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_MOBILE_EMBEDDABLE__INVISIBLE = UI_EMBEDDABLE__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_EMBEDDABLE__STYLES = UI_EMBEDDABLE__STYLES;
+
+	/**
 	 * The number of structural features of the '<em>Ui Mobile Embeddable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2627,6 +2699,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_MOBILE_FIELD__INVISIBLE = UI_MOBILE_EMBEDDABLE__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_FIELD__STYLES = UI_MOBILE_EMBEDDABLE__STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
@@ -2710,13 +2791,40 @@ public interface UiModelPackage extends EPackage {
 	int UI_MOBILE_LAYOUT__INVISIBLE = UI_MOBILE_EMBEDDABLE__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_LAYOUT__STYLES = UI_MOBILE_EMBEDDABLE__STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Autowire</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_LAYOUT__AUTOWIRE = UI_MOBILE_EMBEDDABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Auto Wire Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_LAYOUT__AUTO_WIRE_SOURCE = UI_MOBILE_EMBEDDABLE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Ui Mobile Layout</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_MOBILE_LAYOUT_FEATURE_COUNT = UI_MOBILE_EMBEDDABLE_FEATURE_COUNT + 0;
+	int UI_MOBILE_LAYOUT_FEATURE_COUNT = UI_MOBILE_EMBEDDABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignments</b></em>' containment reference list.
@@ -2780,6 +2888,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_MOBILE_ACTION__INVISIBLE = UI_MOBILE_EMBEDDABLE__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_ACTION__STYLES = UI_MOBILE_EMBEDDABLE__STYLES;
 
 	/**
 	 * The number of structural features of the '<em>Ui Mobile Action</em>' class.
@@ -2917,6 +3034,33 @@ public interface UiModelPackage extends EPackage {
 	int UI_GRID_LAYOUT__INVISIBLE = UI_LAYOUT__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_GRID_LAYOUT__STYLES = UI_LAYOUT__STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Autowire</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_GRID_LAYOUT__AUTOWIRE = UI_LAYOUT__AUTOWIRE;
+
+	/**
+	 * The feature id for the '<em><b>Auto Wire Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_GRID_LAYOUT__AUTO_WIRE_SOURCE = UI_LAYOUT__AUTO_WIRE_SOURCE;
+
+	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3052,6 +3196,33 @@ public interface UiModelPackage extends EPackage {
 	int UI_HORIZONTAL_LAYOUT__INVISIBLE = UI_LAYOUT__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_HORIZONTAL_LAYOUT__STYLES = UI_LAYOUT__STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Autowire</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_HORIZONTAL_LAYOUT__AUTOWIRE = UI_LAYOUT__AUTOWIRE;
+
+	/**
+	 * The feature id for the '<em><b>Auto Wire Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_HORIZONTAL_LAYOUT__AUTO_WIRE_SOURCE = UI_LAYOUT__AUTO_WIRE_SOURCE;
+
+	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3178,6 +3349,33 @@ public interface UiModelPackage extends EPackage {
 	int UI_VERTICAL_LAYOUT__INVISIBLE = UI_LAYOUT__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VERTICAL_LAYOUT__STYLES = UI_LAYOUT__STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Autowire</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VERTICAL_LAYOUT__AUTOWIRE = UI_LAYOUT__AUTOWIRE;
+
+	/**
+	 * The feature id for the '<em><b>Auto Wire Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VERTICAL_LAYOUT__AUTO_WIRE_SOURCE = UI_LAYOUT__AUTO_WIRE_SOURCE;
+
+	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3295,6 +3493,33 @@ public interface UiModelPackage extends EPackage {
 	int UI_FORM_LAYOUT__INVISIBLE = UI_LAYOUT__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_FORM_LAYOUT__STYLES = UI_LAYOUT__STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Autowire</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_FORM_LAYOUT__AUTOWIRE = UI_LAYOUT__AUTOWIRE;
+
+	/**
+	 * The feature id for the '<em><b>Auto Wire Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_FORM_LAYOUT__AUTO_WIRE_SOURCE = UI_LAYOUT__AUTO_WIRE_SOURCE;
+
+	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3384,6 +3609,33 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_SEARCH_PANEL__INVISIBLE = UI_LAYOUT__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SEARCH_PANEL__STYLES = UI_LAYOUT__STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Autowire</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SEARCH_PANEL__AUTOWIRE = UI_LAYOUT__AUTOWIRE;
+
+	/**
+	 * The feature id for the '<em><b>Auto Wire Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SEARCH_PANEL__AUTO_WIRE_SOURCE = UI_LAYOUT__AUTO_WIRE_SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
@@ -3484,6 +3736,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_BEAN_REFERENCE_FIELD__INVISIBLE = UI_FIELD__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BEAN_REFERENCE_FIELD__STYLES = UI_FIELD__STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
@@ -3621,6 +3882,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_TEXT_FIELD__INVISIBLE = UI_FIELD__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_FIELD__STYLES = UI_FIELD__STYLES;
+
+	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3739,6 +4009,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_IMAGE__INVISIBLE = UI_FIELD__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_IMAGE__STYLES = UI_FIELD__STYLES;
+
+	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3827,6 +4106,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_LIST__INVISIBLE = UI_FIELD__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LIST__STYLES = UI_FIELD__STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
@@ -3964,6 +4252,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_TABLE__INVISIBLE = UI_FIELD__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TABLE__STYLES = UI_FIELD__STYLES;
+
+	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4098,6 +4395,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_COMBO_BOX__INVISIBLE = UI_FIELD__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_COMBO_BOX__STYLES = UI_FIELD__STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
@@ -4242,6 +4548,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_COLUMN__INVISIBLE = UI_FIELD__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_COLUMN__STYLES = UI_FIELD__STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
@@ -4407,6 +4722,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_COLUMNS_ASSIGNMENT__INVISIBLE = UI_FIELD__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_COLUMNS_ASSIGNMENT__STYLES = UI_FIELD__STYLES;
+
+	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4495,6 +4819,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_NUMERIC_FIELD__INVISIBLE = UI_FIELD__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_NUMERIC_FIELD__STYLES = UI_FIELD__STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
@@ -4594,6 +4927,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_CHECK_BOX__INVISIBLE = UI_FIELD__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_CHECK_BOX__STYLES = UI_FIELD__STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
@@ -5416,6 +5758,33 @@ public interface UiModelPackage extends EPackage {
 	int UI_HORIZONTAL_BUTTON_GROUP__INVISIBLE = UI_MOBILE_LAYOUT__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_HORIZONTAL_BUTTON_GROUP__STYLES = UI_MOBILE_LAYOUT__STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Autowire</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_HORIZONTAL_BUTTON_GROUP__AUTOWIRE = UI_MOBILE_LAYOUT__AUTOWIRE;
+
+	/**
+	 * The feature id for the '<em><b>Auto Wire Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_HORIZONTAL_BUTTON_GROUP__AUTO_WIRE_SOURCE = UI_MOBILE_LAYOUT__AUTO_WIRE_SOURCE;
+
+	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5507,6 +5876,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_BUTTON__INVISIBLE = UI_ACTION__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BUTTON__STYLES = UI_ACTION__STYLES;
+
+	/**
 	 * The number of structural features of the '<em>Ui Button</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5587,6 +5965,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_SWITCH__INVISIBLE = UI_MOBILE_FIELD__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SWITCH__STYLES = UI_MOBILE_FIELD__STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
@@ -5726,6 +6113,33 @@ public interface UiModelPackage extends EPackage {
 	int UI_VERTICAL_COMPONENT_GROUP__INVISIBLE = UI_MOBILE_LAYOUT__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VERTICAL_COMPONENT_GROUP__STYLES = UI_MOBILE_LAYOUT__STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Autowire</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VERTICAL_COMPONENT_GROUP__AUTOWIRE = UI_MOBILE_LAYOUT__AUTOWIRE;
+
+	/**
+	 * The feature id for the '<em><b>Auto Wire Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VERTICAL_COMPONENT_GROUP__AUTO_WIRE_SOURCE = UI_MOBILE_LAYOUT__AUTO_WIRE_SOURCE;
+
+	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5815,6 +6229,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_MOBILE_TAB_SHEET__INVISIBLE = UI_MOBILE_EMBEDDABLE__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_TAB_SHEET__STYLES = UI_MOBILE_EMBEDDABLE__STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Tabs</b></em>' containment reference list.
@@ -5908,6 +6331,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_MOBILE_TAB_ASSIGNMENT__INVISIBLE = UI_MOBILE_EMBEDDABLE__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_TAB_ASSIGNMENT__STYLES = UI_MOBILE_EMBEDDABLE__STYLES;
+
+	/**
 	 * The feature id for the '<em><b>Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5997,6 +6429,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_TAB_SHEET__INVISIBLE = UI_EMBEDDABLE__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TAB_SHEET__STYLES = UI_EMBEDDABLE__STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Tabs</b></em>' containment reference list.
@@ -6164,6 +6605,33 @@ public interface UiModelPackage extends EPackage {
 	int UI_MOBILE_NAVIGATION_PAGE__INVISIBLE = UI_MOBILE_LAYOUT__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE__STYLES = UI_MOBILE_LAYOUT__STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Autowire</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE__AUTOWIRE = UI_MOBILE_LAYOUT__AUTOWIRE;
+
+	/**
+	 * The feature id for the '<em><b>Auto Wire Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE__AUTO_WIRE_SOURCE = UI_MOBILE_LAYOUT__AUTO_WIRE_SOURCE;
+
+	/**
 	 * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6308,6 +6776,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_MOBILE_NAVIGATION_BUTTON__INVISIBLE = UI_MOBILE_ACTION__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_BUTTON__STYLES = UI_MOBILE_ACTION__STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Target Page</b></em>' containment reference.
@@ -6548,6 +7025,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_SEARCH_FIELD__INVISIBLE = UI_FIELD__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SEARCH_FIELD__STYLES = UI_FIELD__STYLES;
+
+	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6646,6 +7132,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_SEARCH_DIALOG__INVISIBLE = UI_EMBEDDABLE__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SEARCH_DIALOG__STYLES = UI_EMBEDDABLE__STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
@@ -6849,6 +7344,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_LABEL__INVISIBLE = UI_FIELD__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_LABEL__STYLES = UI_FIELD__STYLES;
+
+	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6938,6 +7442,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_DECIMAL_FIELD__INVISIBLE = UI_FIELD__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DECIMAL_FIELD__STYLES = UI_FIELD__STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
@@ -7058,6 +7571,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_TEXT_AREA__INVISIBLE = UI_FIELD__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_TEXT_AREA__STYLES = UI_FIELD__STYLES;
+
+	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7147,6 +7669,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_OPTIONS_GROUP__INVISIBLE = UI_FIELD__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_OPTIONS_GROUP__STYLES = UI_FIELD__STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
@@ -7294,6 +7825,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_DATE_FIELD__INVISIBLE = UI_FIELD__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_DATE_FIELD__STYLES = UI_FIELD__STYLES;
+
+	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7403,6 +7943,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_BROWSER__INVISIBLE = UI_FIELD__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BROWSER__STYLES = UI_FIELD__STYLES;
+
+	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7492,6 +8041,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_PROGRESS_BAR__INVISIBLE = UI_FIELD__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PROGRESS_BAR__STYLES = UI_FIELD__STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
@@ -7696,6 +8254,33 @@ public interface UiModelPackage extends EPackage {
 	int UI_SPLITPANEL__INVISIBLE = UI_LAYOUT__INVISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL__STYLES = UI_LAYOUT__STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Autowire</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL__AUTOWIRE = UI_LAYOUT__AUTOWIRE;
+
+	/**
+	 * The feature id for the '<em><b>Auto Wire Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SPLITPANEL__AUTO_WIRE_SOURCE = UI_LAYOUT__AUTO_WIRE_SOURCE;
+
+	/**
 	 * The feature id for the '<em><b>First Content</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7812,6 +8397,33 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_PANEL__INVISIBLE = UI_LAYOUT__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PANEL__STYLES = UI_LAYOUT__STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Autowire</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PANEL__AUTOWIRE = UI_LAYOUT__AUTOWIRE;
+
+	/**
+	 * The feature id for the '<em><b>Auto Wire Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_PANEL__AUTO_WIRE_SOURCE = UI_LAYOUT__AUTO_WIRE_SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference.
@@ -8970,6 +9582,17 @@ public interface UiModelPackage extends EPackage {
 	EAttribute getUiEmbeddable_Invisible();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiEmbeddable#getStyles <em>Styles</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Styles</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiEmbeddable#getStyles()
+	 * @see #getUiEmbeddable()
+	 * @generated
+	 */
+	EAttribute getUiEmbeddable_Styles();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiField <em>Ui Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8999,6 +9622,28 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUiLayout();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiLayout#isAutowire <em>Autowire</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Autowire</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiLayout#isAutowire()
+	 * @see #getUiLayout()
+	 * @generated
+	 */
+	EAttribute getUiLayout_Autowire();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiLayout#getAutoWireSource <em>Auto Wire Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Auto Wire Source</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiLayout#getAutoWireSource()
+	 * @see #getUiLayout()
+	 * @generated
+	 */
+	EReference getUiLayout_AutoWireSource();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiLayoutAssignment <em>Ui Layout Assignment</em>}'.
@@ -11819,6 +12464,14 @@ public interface UiModelPackage extends EPackage {
 		EAttribute UI_EMBEDDABLE__INVISIBLE = eINSTANCE.getUiEmbeddable_Invisible();
 
 		/**
+		 * The meta object literal for the '<em><b>Styles</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_EMBEDDABLE__STYLES = eINSTANCE.getUiEmbeddable_Styles();
+
+		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiField <em>Ui Field</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -11845,6 +12498,22 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UI_LAYOUT = eINSTANCE.getUiLayout();
+
+		/**
+		 * The meta object literal for the '<em><b>Autowire</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_LAYOUT__AUTOWIRE = eINSTANCE.getUiLayout_Autowire();
+
+		/**
+		 * The meta object literal for the '<em><b>Auto Wire Source</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_LAYOUT__AUTO_WIRE_SOURCE = eINSTANCE.getUiLayout_AutoWireSource();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiLayoutAssignment <em>Ui Layout Assignment</em>}' class.

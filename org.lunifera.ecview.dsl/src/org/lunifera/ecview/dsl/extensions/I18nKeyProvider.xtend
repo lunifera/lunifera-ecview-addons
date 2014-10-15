@@ -28,7 +28,7 @@ class I18nKeyProvider {
 				return embeddable.i18nInfo.key;
 			}
 		}
-		return currentPackage + "." + embeddable.name
+		return currentPackage + if(embeddable.name != null) ("." + embeddable.name) else ""
 	}
 	 
 	def dispatch String toI18nKey(UiColumn column) {

@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiEmbeddable#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiEmbeddable#isReadonly <em>Readonly</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiEmbeddable#isInvisible <em>Invisible</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiEmbeddable#getStyles <em>Styles</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,5 +93,31 @@ public interface UiEmbeddable extends UiVisibilityProcessable, UiRawBindable, Ui
 	 * @generated
 	 */
 	void setInvisible(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Styles</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Styles</em>' attribute.
+	 * @see #setStyles(String)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiEmbeddable_Styles()
+	 * @model
+	 * @generated
+	 */
+	String getStyles();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiEmbeddable#getStyles <em>Styles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Styles</em>' attribute.
+	 * @see #getStyles()
+	 * @generated
+	 */
+	void setStyles(String value);
 	
 } // UiEmbeddable

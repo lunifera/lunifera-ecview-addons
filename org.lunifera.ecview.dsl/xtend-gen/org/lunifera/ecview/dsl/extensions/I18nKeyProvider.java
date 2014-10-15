@@ -51,8 +51,16 @@ public class I18nKeyProvider {
         return _i18nInfo_4.getKey();
       }
     }
+    String _xifexpression = null;
     String _name = embeddable.getName();
-    return ((currentPackage + ".") + _name);
+    boolean _notEquals_2 = (!Objects.equal(_name, null));
+    if (_notEquals_2) {
+      String _name_1 = embeddable.getName();
+      _xifexpression = ("." + _name_1);
+    } else {
+      _xifexpression = "";
+    }
+    return (currentPackage + _xifexpression);
   }
   
   protected String _toI18nKey(final UiColumn column) {

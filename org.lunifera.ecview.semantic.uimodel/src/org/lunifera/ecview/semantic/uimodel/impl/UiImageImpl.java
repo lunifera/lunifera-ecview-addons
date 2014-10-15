@@ -36,6 +36,7 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiImageImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiImageImpl#isReadonly <em>Readonly</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiImageImpl#isInvisible <em>Invisible</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiImageImpl#getStyles <em>Styles</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiImageImpl#getValidators <em>Validators</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiImageImpl#getValue <em>Value</em>}</li>
  * </ul>
@@ -143,6 +144,26 @@ public class UiImageImpl extends UiVisibilityProcessableImpl implements UiImage 
 	 * @ordered
 	 */
 	protected boolean invisible = INVISIBLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getStyles() <em>Styles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyles()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STYLES_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStyles() <em>Styles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyles()
+	 * @generated
+	 * @ordered
+	 */
+	protected String styles = STYLES_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' containment reference list.
@@ -294,6 +315,27 @@ public class UiImageImpl extends UiVisibilityProcessableImpl implements UiImage 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getStyles() {
+		return styles;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStyles(String newStyles) {
+		String oldStyles = styles;
+		styles = newStyles;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_IMAGE__STYLES, oldStyles, styles));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiI18nInfo getI18nInfo() {
 		if (i18nInfo != null && i18nInfo.eIsProxy()) {
 			InternalEObject oldI18nInfo = (InternalEObject)i18nInfo;
@@ -427,6 +469,8 @@ public class UiImageImpl extends UiVisibilityProcessableImpl implements UiImage 
 				return isReadonly();
 			case UiModelPackage.UI_IMAGE__INVISIBLE:
 				return isInvisible();
+			case UiModelPackage.UI_IMAGE__STYLES:
+				return getStyles();
 			case UiModelPackage.UI_IMAGE__VALIDATORS:
 				return getValidators();
 			case UiModelPackage.UI_IMAGE__VALUE:
@@ -462,6 +506,9 @@ public class UiImageImpl extends UiVisibilityProcessableImpl implements UiImage 
 				return;
 			case UiModelPackage.UI_IMAGE__INVISIBLE:
 				setInvisible((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_IMAGE__STYLES:
+				setStyles((String)newValue);
 				return;
 			case UiModelPackage.UI_IMAGE__VALIDATORS:
 				getValidators().clear();
@@ -500,6 +547,9 @@ public class UiImageImpl extends UiVisibilityProcessableImpl implements UiImage 
 			case UiModelPackage.UI_IMAGE__INVISIBLE:
 				setInvisible(INVISIBLE_EDEFAULT);
 				return;
+			case UiModelPackage.UI_IMAGE__STYLES:
+				setStyles(STYLES_EDEFAULT);
+				return;
 			case UiModelPackage.UI_IMAGE__VALIDATORS:
 				getValidators().clear();
 				return;
@@ -530,6 +580,8 @@ public class UiImageImpl extends UiVisibilityProcessableImpl implements UiImage 
 				return readonly != READONLY_EDEFAULT;
 			case UiModelPackage.UI_IMAGE__INVISIBLE:
 				return invisible != INVISIBLE_EDEFAULT;
+			case UiModelPackage.UI_IMAGE__STYLES:
+				return STYLES_EDEFAULT == null ? styles != null : !STYLES_EDEFAULT.equals(styles);
 			case UiModelPackage.UI_IMAGE__VALIDATORS:
 				return validators != null && !validators.isEmpty();
 			case UiModelPackage.UI_IMAGE__VALUE:
@@ -632,6 +684,8 @@ public class UiImageImpl extends UiVisibilityProcessableImpl implements UiImage 
 		result.append(readonly);
 		result.append(", invisible: ");
 		result.append(invisible);
+		result.append(", styles: ");
+		result.append(styles);
 		result.append(", value: ");
 		result.append(value);
 		result.append(')');
