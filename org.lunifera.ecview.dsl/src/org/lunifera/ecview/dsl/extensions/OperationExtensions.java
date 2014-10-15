@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.eclipse.xtext.common.types.JvmDeclaredType;
 import org.eclipse.xtext.common.types.JvmFeature;
+import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmVisibility;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
@@ -36,7 +37,7 @@ public class OperationExtensions {
 		}
 		return tempName;
 	}
-
+	
 	public static boolean isGetter(String simpleName) {
 		if (simpleName == null) {
 			return false;
@@ -80,8 +81,9 @@ public class OperationExtensions {
 			if (operation.getVisibility() != JvmVisibility.PUBLIC) {
 				continue;
 			}
-			
-			if (!isSetter(operation.getSimpleName()) && operation.getParameters().size() > 1) {
+
+			if (!isSetter(operation.getSimpleName())
+					&& operation.getParameters().size() > 1) {
 				continue;
 			}
 
@@ -121,6 +123,15 @@ public class OperationExtensions {
 				info.readonly = true;
 			}
 		}
+		
+		for (JvmField field : type.getDeclaredFields()) {
+			String id = calcFieldId(field.getDeclaringType(),
+					field.getSimpleName());
+			if(infos.containsKey(id)){
+				OperationInfo info = infos.get(id);
+				info.setField(field);
+			}
+		}
 		return infos;
 	}
 
@@ -139,6 +150,17 @@ public class OperationExtensions {
 
 		return declaringType.getQualifiedName() + ":" + tempName;
 	}
+	
+	/**
+	 * Normalizes the name.
+	 * 
+	 * @param declaringType
+	 * @param simpleName
+	 * @return
+	 */
+	public static String calcFieldId(JvmDeclaredType declaringType, String simpleName) {
+		return declaringType.getQualifiedName() + ":" + simpleName;
+	}
 
 	public static class OperationInfo {
 
@@ -147,6 +169,7 @@ public class OperationExtensions {
 		private boolean readonly;
 		private JvmOperation getter;
 		private JvmOperation setter;
+		private JvmField field;
 
 		public String getId() {
 			return id;
@@ -186,6 +209,14 @@ public class OperationExtensions {
 
 		public void setSetter(JvmOperation setter) {
 			this.setter = setter;
+		}
+
+		public JvmField getField() {
+			return field;
+		}
+
+		public void setField(JvmField field) {
+			this.field = field;
 		}
 
 	}

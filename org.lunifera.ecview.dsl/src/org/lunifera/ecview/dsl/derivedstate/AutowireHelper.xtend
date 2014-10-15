@@ -74,7 +74,9 @@ class AutowireHelper {
 			} else if (type.date) {
 				type.createDateField(it)
 			} else if (type.enum) {
-				type.createYEnumOptionsGroup(it)
+				type.createEnumOptionsGroup(it)
+//			} else if (it.domainReference) {
+//				type.createBeanReferenceField(it)
 			}
 		]
 	}
@@ -134,7 +136,7 @@ class AutowireHelper {
 		yField.createBinding(info, type, "value");
 	}
 	
-	def void createYEnumOptionsGroup(JvmType type, OperationInfo info) {
+	def void createEnumOptionsGroup(JvmType type, OperationInfo info) {
 		val yField = yFactory.createYEnumOptionsGroup
 		yField.initialEnabled = !info.readonly
 		yField.labelI18nKey = i18nRootKey + "." + info.name
@@ -144,7 +146,21 @@ class AutowireHelper {
 
 		layouter.add(yField)
 
-		yField.createBinding(info, type, "value");
+		yField.createBinding(info, type, "selection");
+	}
+	
+	def void createBeanReferenceField(JvmType type, OperationInfo info) {
+		val yField = yFactory.createYBeanReferenceField
+		yField.initialEnabled = !info.readonly
+		yField.labelI18nKey = i18nRootKey + "." + info.name
+		yField.label = info.name
+		yField.type = computer.loadClass(uiLayout.eResource.resourceSet, type.qualifiedName)
+		yField.typeQualifiedName = type.qualifiedName
+		yField.useBeanService = true
+		
+		layouter.add(yField)
+
+		yField.createBinding(info, type, "selection");
 	}
 
 	def void createMobileSwitch(JvmType type, OperationInfo info) {

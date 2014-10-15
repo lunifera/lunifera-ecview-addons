@@ -29,6 +29,7 @@ import org.lunifera.ecview.core.common.model.core.YEmbeddable;
 import org.lunifera.ecview.core.common.model.core.YLayout;
 import org.lunifera.ecview.core.common.model.core.YView;
 import org.lunifera.ecview.core.extension.model.extension.ExtensionModelFactory;
+import org.lunifera.ecview.core.extension.model.extension.YBeanReferenceField;
 import org.lunifera.ecview.core.extension.model.extension.YCheckBox;
 import org.lunifera.ecview.core.extension.model.extension.YDateTime;
 import org.lunifera.ecview.core.extension.model.extension.YDecimalField;
@@ -168,7 +169,7 @@ public class AutowireHelper {
                 } else {
                   boolean _isEnum = AutowireHelper.this._typeHelper.isEnum(type);
                   if (_isEnum) {
-                    AutowireHelper.this.createYEnumOptionsGroup(type, it);
+                    AutowireHelper.this.createEnumOptionsGroup(type, it);
                   }
                 }
               }
@@ -250,7 +251,7 @@ public class AutowireHelper {
     this.createBinding(yField, info, type, "value");
   }
   
-  public void createYEnumOptionsGroup(final JvmType type, final OperationExtensions.OperationInfo info) {
+  public void createEnumOptionsGroup(final JvmType type, final OperationExtensions.OperationInfo info) {
     final YEnumOptionsGroup yField = this.yFactory.createYEnumOptionsGroup();
     boolean _isReadonly = info.isReadonly();
     boolean _not = (!_isReadonly);
@@ -268,7 +269,29 @@ public class AutowireHelper {
     String _qualifiedName_1 = type.getQualifiedName();
     yField.setTypeQualifiedName(_qualifiedName_1);
     this.layouter.add(yField);
-    this.createBinding(yField, info, type, "value");
+    this.createBinding(yField, info, type, "selection");
+  }
+  
+  public void createBeanReferenceField(final JvmType type, final OperationExtensions.OperationInfo info) {
+    final YBeanReferenceField yField = this.yFactory.createYBeanReferenceField();
+    boolean _isReadonly = info.isReadonly();
+    boolean _not = (!_isReadonly);
+    yField.setInitialEnabled(_not);
+    String _name = info.getName();
+    String _plus = ((this.i18nRootKey + ".") + _name);
+    yField.setLabelI18nKey(_plus);
+    String _name_1 = info.getName();
+    yField.setLabel(_name_1);
+    Resource _eResource = this.uiLayout.eResource();
+    ResourceSet _resourceSet = _eResource.getResourceSet();
+    String _qualifiedName = type.getQualifiedName();
+    Class<?> _loadClass = this.computer.loadClass(_resourceSet, _qualifiedName);
+    yField.setType(_loadClass);
+    String _qualifiedName_1 = type.getQualifiedName();
+    yField.setTypeQualifiedName(_qualifiedName_1);
+    yField.setUseBeanService(true);
+    this.layouter.add(yField);
+    this.createBinding(yField, info, type, "selection");
   }
   
   public void createMobileSwitch(final JvmType type, final OperationExtensions.OperationInfo info) {
