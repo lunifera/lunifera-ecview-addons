@@ -115,7 +115,7 @@ class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentationProvide
 	
 		val i18nKey = object.toI18nKey
 		sb.append("Key: " + i18nKey + "<p>")
-		
+
 		var String packageName = object.findPackage
 		var IProject javaProject = util.getProject(object)
 		val List<Proposal> proposals = i18nRegistry.findStrictKeyMatchingProposals(javaProject.project, util.locale,
