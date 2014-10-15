@@ -198,7 +198,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	@Inject extension IQualifiedNameProvider;
 	@Inject I18nKeyProvider i18nKeyProvider
 	@Inject AutowireHelper autowireHelper
-
+ 
 	final Stack<EObject> viewContext = new Stack
 	final List<YView> views = newArrayList()
 	final Map<EObject, EObject> grammarToUiAssociations = newHashMap();

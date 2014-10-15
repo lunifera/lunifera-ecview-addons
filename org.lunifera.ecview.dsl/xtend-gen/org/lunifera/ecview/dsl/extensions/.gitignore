@@ -4,3 +4,7 @@
 /I18nKeyProvider.java
 /.BindableTypeProvider.java._trace
 /.BindableTypeResolver.java._trace
+/BeanHelper.java
+/BindableTypeProvider.java
+/BindableTypeResolver.java
+/BindingHelper.java
