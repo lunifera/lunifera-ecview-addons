@@ -1,15 +1,8 @@
 package org.lunifera.ecview.dsl.derivedstate;
 
-import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import java.util.Collection;
 import java.util.Map;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtext.common.types.JvmDeclaredType;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
@@ -17,72 +10,49 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
-import org.lunifera.ecview.core.common.model.binding.BindingFactory;
-import org.lunifera.ecview.core.common.model.binding.YBinding;
-import org.lunifera.ecview.core.common.model.binding.YBindingSet;
-import org.lunifera.ecview.core.common.model.binding.YBindingUpdateStrategy;
-import org.lunifera.ecview.core.common.model.binding.YDetailValueBindingEndpoint;
-import org.lunifera.ecview.core.common.model.binding.YECViewModelValueBindingEndpoint;
-import org.lunifera.ecview.core.common.model.binding.YValueBinding;
-import org.lunifera.ecview.core.common.model.binding.YValueBindingEndpoint;
-import org.lunifera.ecview.core.common.model.core.YEmbeddable;
-import org.lunifera.ecview.core.common.model.core.YLayout;
-import org.lunifera.ecview.core.common.model.core.YView;
-import org.lunifera.ecview.core.extension.model.extension.ExtensionModelFactory;
-import org.lunifera.ecview.core.extension.model.extension.YBeanReferenceField;
-import org.lunifera.ecview.core.extension.model.extension.YCheckBox;
-import org.lunifera.ecview.core.extension.model.extension.YDateTime;
-import org.lunifera.ecview.core.extension.model.extension.YDecimalField;
-import org.lunifera.ecview.core.extension.model.extension.YEnumOptionsGroup;
-import org.lunifera.ecview.core.extension.model.extension.YFormLayout;
-import org.lunifera.ecview.core.extension.model.extension.YNumericField;
-import org.lunifera.ecview.core.extension.model.extension.YTextField;
 import org.lunifera.ecview.dsl.derivedstate.UiModelDerivedStateComputerx;
 import org.lunifera.ecview.dsl.extensions.BindableTypeResolver;
 import org.lunifera.ecview.dsl.extensions.OperationExtensions;
 import org.lunifera.ecview.dsl.extensions.TypeHelper;
-import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout;
 import org.lunifera.ecview.semantic.uimodel.UiLayout;
-import org.lunifera.mobile.vaadin.ecview.model.VMSwitch;
-import org.lunifera.mobile.vaadin.ecview.model.VaadinMobileFactory;
 
 @SuppressWarnings("all")
 public class AutowireHelper {
   public interface Layouter {
-    public abstract void setup(final UiLayout uiRootLayout, final YLayout yRootLayout);
+    public abstract void setup(final UiLayout uiRootLayout, final /* YLayout */Object yRootLayout);
     
-    public abstract void add(final YEmbeddable element);
+    public abstract void add(final /* YEmbeddable */Object element);
   }
   
   public static class HorizontalLayouter implements AutowireHelper.Layouter {
-    private YFormLayout left;
+    private /* YFormLayout */Object left;
     
-    private YFormLayout right;
+    private /* YFormLayout */Object right;
     
     private int index;
     
-    public void setup(final UiLayout uiRootLayout, final YLayout yRootLayout) {
-      YFormLayout _createYFormLayout = ExtensionModelFactory.eINSTANCE.createYFormLayout();
-      this.left = _createYFormLayout;
-      YFormLayout _createYFormLayout_1 = ExtensionModelFactory.eINSTANCE.createYFormLayout();
-      this.right = _createYFormLayout_1;
-      EList<YEmbeddable> _elements = yRootLayout.getElements();
-      _elements.add(this.left);
-      EList<YEmbeddable> _elements_1 = yRootLayout.getElements();
-      _elements_1.add(this.right);
+    public void setup(final UiLayout uiRootLayout, final /* YLayout */Object yRootLayout) {
+      throw new Error("Unresolved compilation problems:"
+        + "\nThe method or field ExtensionModelFactory is undefined for the type HorizontalLayouter"
+        + "\nThe method or field ExtensionModelFactory is undefined for the type HorizontalLayouter"
+        + "\neINSTANCE cannot be resolved"
+        + "\ncreateYFormLayout cannot be resolved"
+        + "\neINSTANCE cannot be resolved"
+        + "\ncreateYFormLayout cannot be resolved"
+        + "\nelements cannot be resolved"
+        + "\n+= cannot be resolved"
+        + "\nelements cannot be resolved"
+        + "\n+= cannot be resolved");
     }
     
-    public void add(final YEmbeddable element) {
-      if (((this.index % 2) == 0)) {
-        EList<YEmbeddable> _elements = this.left.getElements();
-        _elements.add(element);
-      } else {
-        EList<YEmbeddable> _elements_1 = this.right.getElements();
-        _elements_1.add(element);
-      }
-      this.index++;
+    public void add(final /* YEmbeddable */Object element) {
+      throw new Error("Unresolved compilation problems:"
+        + "\nelements cannot be resolved"
+        + "\n+= cannot be resolved"
+        + "\nelements cannot be resolved"
+        + "\n+= cannot be resolved");
     }
   }
   
@@ -90,15 +60,15 @@ public class AutowireHelper {
   @Extension
   private TypeHelper _typeHelper;
   
-  private ExtensionModelFactory yFactory = ExtensionModelFactory.eINSTANCE;
+  private /* ExtensionModelFactory */Object yFactory /* Skipped initializer because of errors */;
   
-  private VaadinMobileFactory vFactory = VaadinMobileFactory.eINSTANCE;
+  private /* VaadinMobileFactory */Object vFactory /* Skipped initializer because of errors */;
   
   private UiModelDerivedStateComputerx computer;
   
   private boolean mobile;
   
-  private YLayout yLayout;
+  private /* YLayout */Object yLayout;
   
   private UiLayout uiLayout;
   
@@ -118,7 +88,7 @@ public class AutowireHelper {
     this.mobile = mobile;
     this.i18nRootKey = i18nRootKey;
     this.uiLayout = uiLayout;
-    YLayout _associatedUi = computer.<YLayout>associatedUi(uiLayout);
+    Object _associatedUi = computer.<Object>associatedUi(uiLayout);
     this.yLayout = _associatedUi;
     boolean _matched = false;
     if (!_matched) {
@@ -182,192 +152,122 @@ public class AutowireHelper {
   }
   
   public void createTextField(final JvmType type, final OperationExtensions.OperationInfo info) {
-    final YTextField yField = this.yFactory.createYTextField();
-    boolean _isReadonly = info.isReadonly();
-    boolean _not = (!_isReadonly);
-    yField.setInitialEnabled(_not);
-    String _name = info.getName();
-    String _plus = ((this.i18nRootKey + ".") + _name);
-    yField.setLabelI18nKey(_plus);
-    String _name_1 = info.getName();
-    yField.setLabel(_name_1);
-    this.layouter.add(yField);
-    this.createBinding(yField, info, type, "value");
+    throw new Error("Unresolved compilation problems:"
+      + "\ncreateYTextField cannot be resolved"
+      + "\ninitialEnabled cannot be resolved"
+      + "\nlabelI18nKey cannot be resolved"
+      + "\nlabel cannot be resolved"
+      + "\ncreateBinding cannot be resolved");
   }
   
   public void createDecimalField(final JvmType type, final OperationExtensions.OperationInfo info) {
-    final YDecimalField yField = this.yFactory.createYDecimalField();
-    boolean _isReadonly = info.isReadonly();
-    boolean _not = (!_isReadonly);
-    yField.setInitialEnabled(_not);
-    String _name = info.getName();
-    String _plus = ((this.i18nRootKey + ".") + _name);
-    yField.setLabelI18nKey(_plus);
-    String _name_1 = info.getName();
-    yField.setLabel(_name_1);
-    this.layouter.add(yField);
-    this.createBinding(yField, info, type, "value");
+    throw new Error("Unresolved compilation problems:"
+      + "\ncreateYDecimalField cannot be resolved"
+      + "\ninitialEnabled cannot be resolved"
+      + "\nlabelI18nKey cannot be resolved"
+      + "\nlabel cannot be resolved"
+      + "\ncreateBinding cannot be resolved");
   }
   
   public void createNumberField(final JvmType type, final OperationExtensions.OperationInfo info) {
-    final YNumericField yField = this.yFactory.createYNumericField();
-    boolean _isReadonly = info.isReadonly();
-    boolean _not = (!_isReadonly);
-    yField.setInitialEnabled(_not);
-    String _name = info.getName();
-    String _plus = ((this.i18nRootKey + ".") + _name);
-    yField.setLabelI18nKey(_plus);
-    String _name_1 = info.getName();
-    yField.setLabel(_name_1);
-    this.layouter.add(yField);
-    this.createBinding(yField, info, type, "value");
+    throw new Error("Unresolved compilation problems:"
+      + "\ncreateYNumericField cannot be resolved"
+      + "\ninitialEnabled cannot be resolved"
+      + "\nlabelI18nKey cannot be resolved"
+      + "\nlabel cannot be resolved"
+      + "\ncreateBinding cannot be resolved");
   }
   
   public void createCheckbox(final JvmType type, final OperationExtensions.OperationInfo info) {
-    final YCheckBox yField = this.yFactory.createYCheckBox();
-    boolean _isReadonly = info.isReadonly();
-    boolean _not = (!_isReadonly);
-    yField.setInitialEnabled(_not);
-    String _name = info.getName();
-    String _plus = ((this.i18nRootKey + ".") + _name);
-    yField.setLabelI18nKey(_plus);
-    String _name_1 = info.getName();
-    yField.setLabel(_name_1);
-    this.layouter.add(yField);
-    this.createBinding(yField, info, type, "value");
+    throw new Error("Unresolved compilation problems:"
+      + "\ncreateYCheckBox cannot be resolved"
+      + "\ninitialEnabled cannot be resolved"
+      + "\nlabelI18nKey cannot be resolved"
+      + "\nlabel cannot be resolved"
+      + "\ncreateBinding cannot be resolved");
   }
   
   public void createDateField(final JvmType type, final OperationExtensions.OperationInfo info) {
-    final YDateTime yField = this.yFactory.createYDateTime();
-    boolean _isReadonly = info.isReadonly();
-    boolean _not = (!_isReadonly);
-    yField.setInitialEnabled(_not);
-    String _name = info.getName();
-    String _plus = ((this.i18nRootKey + ".") + _name);
-    yField.setLabelI18nKey(_plus);
-    String _name_1 = info.getName();
-    yField.setLabel(_name_1);
-    this.layouter.add(yField);
-    this.createBinding(yField, info, type, "value");
+    throw new Error("Unresolved compilation problems:"
+      + "\ncreateYDateTime cannot be resolved"
+      + "\ninitialEnabled cannot be resolved"
+      + "\nlabelI18nKey cannot be resolved"
+      + "\nlabel cannot be resolved"
+      + "\ncreateBinding cannot be resolved");
   }
   
   public void createEnumOptionsGroup(final JvmType type, final OperationExtensions.OperationInfo info) {
-    final YEnumOptionsGroup yField = this.yFactory.createYEnumOptionsGroup();
-    boolean _isReadonly = info.isReadonly();
-    boolean _not = (!_isReadonly);
-    yField.setInitialEnabled(_not);
-    String _name = info.getName();
-    String _plus = ((this.i18nRootKey + ".") + _name);
-    yField.setLabelI18nKey(_plus);
-    String _name_1 = info.getName();
-    yField.setLabel(_name_1);
-    Resource _eResource = this.uiLayout.eResource();
-    ResourceSet _resourceSet = _eResource.getResourceSet();
-    String _qualifiedName = type.getQualifiedName();
-    Class<?> _loadClass = this.computer.loadClass(_resourceSet, _qualifiedName);
-    yField.setType(_loadClass);
-    String _qualifiedName_1 = type.getQualifiedName();
-    yField.setTypeQualifiedName(_qualifiedName_1);
-    this.layouter.add(yField);
-    this.createBinding(yField, info, type, "selection");
+    throw new Error("Unresolved compilation problems:"
+      + "\ncreateYEnumOptionsGroup cannot be resolved"
+      + "\ninitialEnabled cannot be resolved"
+      + "\nlabelI18nKey cannot be resolved"
+      + "\nlabel cannot be resolved"
+      + "\ntype cannot be resolved"
+      + "\ntypeQualifiedName cannot be resolved"
+      + "\ncreateBinding cannot be resolved");
   }
   
   public void createBeanReferenceField(final JvmType type, final OperationExtensions.OperationInfo info) {
-    final YBeanReferenceField yField = this.yFactory.createYBeanReferenceField();
-    boolean _isReadonly = info.isReadonly();
-    boolean _not = (!_isReadonly);
-    yField.setInitialEnabled(_not);
-    String _name = info.getName();
-    String _plus = ((this.i18nRootKey + ".") + _name);
-    yField.setLabelI18nKey(_plus);
-    String _name_1 = info.getName();
-    yField.setLabel(_name_1);
-    Resource _eResource = this.uiLayout.eResource();
-    ResourceSet _resourceSet = _eResource.getResourceSet();
-    String _qualifiedName = type.getQualifiedName();
-    Class<?> _loadClass = this.computer.loadClass(_resourceSet, _qualifiedName);
-    yField.setType(_loadClass);
-    String _qualifiedName_1 = type.getQualifiedName();
-    yField.setTypeQualifiedName(_qualifiedName_1);
-    yField.setUseBeanService(true);
-    this.layouter.add(yField);
-    this.createBinding(yField, info, type, "selection");
+    throw new Error("Unresolved compilation problems:"
+      + "\ncreateYBeanReferenceField cannot be resolved"
+      + "\ninitialEnabled cannot be resolved"
+      + "\nlabelI18nKey cannot be resolved"
+      + "\nlabel cannot be resolved"
+      + "\ntype cannot be resolved"
+      + "\ntypeQualifiedName cannot be resolved"
+      + "\nuseBeanService cannot be resolved"
+      + "\ncreateBinding cannot be resolved");
   }
   
   public void createMobileSwitch(final JvmType type, final OperationExtensions.OperationInfo info) {
-    final VMSwitch yField = this.vFactory.createVMSwitch();
-    boolean _isReadonly = info.isReadonly();
-    boolean _not = (!_isReadonly);
-    yField.setInitialEnabled(_not);
-    String _name = info.getName();
-    String _plus = ((this.i18nRootKey + ".") + _name);
-    yField.setLabelI18nKey(_plus);
-    String _name_1 = info.getName();
-    yField.setLabel(_name_1);
-    this.layouter.add(yField);
-    this.createBinding(yField, info, type, "value");
+    throw new Error("Unresolved compilation problems:"
+      + "\ncreateVMSwitch cannot be resolved"
+      + "\ninitialEnabled cannot be resolved"
+      + "\nlabelI18nKey cannot be resolved"
+      + "\nlabel cannot be resolved"
+      + "\ncreateBinding cannot be resolved");
   }
   
   /**
    * Create the bindings and install at the view
    */
-  public boolean createBinding(final YEmbeddable yField, final OperationExtensions.OperationInfo info, final JvmType type, final String fieldProperty) {
-    boolean _xblockexpression = false;
-    {
-      UiBindingExpression _autoWireSource = this.uiLayout.getAutoWireSource();
-      final UiBindingEndpointAssignment uiModelEndpoint = ((UiBindingEndpointAssignment) _autoWireSource);
-      final YValueBindingEndpoint yModelEndpoint = this.computer.createValueBindingEndpoint(uiModelEndpoint);
-      final YDetailValueBindingEndpoint detailValueEndpoint = yModelEndpoint.createDetailValueEndpoint();
-      String _name = info.getName();
-      detailValueEndpoint.setPropertyPath(_name);
-      Resource _eResource = this.uiLayout.eResource();
-      ResourceSet _resourceSet = _eResource.getResourceSet();
-      String _qualifiedName = this.beanType.getQualifiedName();
-      Class<?> _loadClass = this.computer.loadClass(_resourceSet, _qualifiedName);
-      detailValueEndpoint.setType(_loadClass);
-      final YECViewModelValueBindingEndpoint yFieldEndpoint = BindingFactory.eINSTANCE.createYECViewModelValueBindingEndpoint();
-      yFieldEndpoint.setElement(yField);
-      yFieldEndpoint.setPropertyPath(fieldProperty);
-      String _qualifiedName_1 = this.beanType.getQualifiedName();
-      yFieldEndpoint.setTypeQualifiedName(_qualifiedName_1);
-      Resource _eResource_1 = this.uiLayout.eResource();
-      ResourceSet _resourceSet_1 = _eResource_1.getResourceSet();
-      String _qualifiedName_2 = this.beanType.getQualifiedName();
-      Class<?> _loadClass_1 = this.computer.loadClass(_resourceSet_1, _qualifiedName_2);
-      yFieldEndpoint.setType(_loadClass_1);
-      boolean _and = false;
-      Class<?> _type = yFieldEndpoint.getType();
-      boolean _notEquals = (!Objects.equal(_type, null));
-      if (!_notEquals) {
-        _and = false;
-      } else {
-        Class<?> _type_1 = yFieldEndpoint.getType();
-        boolean _isAssignableFrom = _type_1.isAssignableFrom(EObject.class);
-        _and = _isAssignableFrom;
-      }
-      if (_and) {
-        EClass _eClass = yField.eClass();
-        EPackage _ePackage = _eClass.getEPackage();
-        String _nsURI = _ePackage.getNsURI();
-        yFieldEndpoint.setEmfNsURI(_nsURI);
-      }
-      final YValueBinding yBinding = BindingFactory.eINSTANCE.createYValueBinding();
-      yBinding.setTargetEndpoint(yFieldEndpoint);
-      yBinding.setModelEndpoint(detailValueEndpoint);
-      yBinding.setModelToTargetStrategy(YBindingUpdateStrategy.UPDATE);
-      YBindingUpdateStrategy _xifexpression = null;
-      boolean _isReadonly = info.isReadonly();
-      if (_isReadonly) {
-        _xifexpression = YBindingUpdateStrategy.NEVER;
-      } else {
-        _xifexpression = YBindingUpdateStrategy.UPDATE;
-      }
-      yBinding.setTargetToModelStrategy(_xifexpression);
-      YView _view = this.yLayout.getView();
-      YBindingSet _orCreateBindingSet = _view.getOrCreateBindingSet();
-      EList<YBinding> _bindings = _orCreateBindingSet.getBindings();
-      _xblockexpression = _bindings.add(yBinding);
-    }
-    return _xblockexpression;
+  public Object createBinding(final /* YEmbeddable */Object yField, final OperationExtensions.OperationInfo info, final JvmType type, final String fieldProperty) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BindingFactory is undefined for the type AutowireHelper"
+      + "\nThe method or field BindingFactory is undefined for the type AutowireHelper"
+      + "\nThe method or field YBindingUpdateStrategy is undefined for the type AutowireHelper"
+      + "\nThe method or field YBindingUpdateStrategy is undefined for the type AutowireHelper"
+      + "\nThe method or field YBindingUpdateStrategy is undefined for the type AutowireHelper"
+      + "\ncreateDetailValueEndpoint cannot be resolved"
+      + "\npropertyPath cannot be resolved"
+      + "\ntype cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateYECViewModelValueBindingEndpoint cannot be resolved"
+      + "\nelement cannot be resolved"
+      + "\npropertyPath cannot be resolved"
+      + "\ntypeQualifiedName cannot be resolved"
+      + "\ntype cannot be resolved"
+      + "\ntype cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\n&& cannot be resolved"
+      + "\ntype cannot be resolved"
+      + "\nisAssignableFrom cannot be resolved"
+      + "\nemfNsURI cannot be resolved"
+      + "\neClass cannot be resolved"
+      + "\nEPackage cannot be resolved"
+      + "\nnsURI cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateYValueBinding cannot be resolved"
+      + "\nsetTargetEndpoint cannot be resolved"
+      + "\nsetModelEndpoint cannot be resolved"
+      + "\nsetModelToTargetStrategy cannot be resolved"
+      + "\nUPDATE cannot be resolved"
+      + "\nsetTargetToModelStrategy cannot be resolved"
+      + "\nNEVER cannot be resolved"
+      + "\nUPDATE cannot be resolved"
+      + "\nview cannot be resolved"
+      + "\norCreateBindingSet cannot be resolved"
+      + "\nbindings cannot be resolved"
+      + "\n+= cannot be resolved");
   }
 }
