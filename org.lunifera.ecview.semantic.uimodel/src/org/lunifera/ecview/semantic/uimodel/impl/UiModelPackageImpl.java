@@ -10,6 +10,122 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.xtext.common.types.TypesPackage;
 import org.eclipse.xtext.xbase.XbasePackage;
+import org.lunifera.ecview.semantic.uimodel.UiAction;
+import org.lunifera.ecview.semantic.uimodel.UiAlignment;
+import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
+import org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer;
+import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
+import org.lunifera.ecview.semantic.uimodel.UiBinding;
+import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
+import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
+import org.lunifera.ecview.semantic.uimodel.UiBrowser;
+import org.lunifera.ecview.semantic.uimodel.UiButton;
+import org.lunifera.ecview.semantic.uimodel.UiChangeTrigger;
+import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
+import org.lunifera.ecview.semantic.uimodel.UiColumn;
+import org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiComboBox;
+import org.lunifera.ecview.semantic.uimodel.UiCommand;
+import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
+import org.lunifera.ecview.semantic.uimodel.UiContext;
+import org.lunifera.ecview.semantic.uimodel.UiDateField;
+import org.lunifera.ecview.semantic.uimodel.UiDateFormat;
+import org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution;
+import org.lunifera.ecview.semantic.uimodel.UiDecimalField;
+import org.lunifera.ecview.semantic.uimodel.UiDialog;
+import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
+import org.lunifera.ecview.semantic.uimodel.UiExposedAction;
+import org.lunifera.ecview.semantic.uimodel.UiField;
+import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
+import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
+import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment;
+import org.lunifera.ecview.semantic.uimodel.UiGridLayout;
+import org.lunifera.ecview.semantic.uimodel.UiGridLayoutAssigment;
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup;
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroupAssigment;
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout;
+import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
+import org.lunifera.ecview.semantic.uimodel.UiIDEView;
+import org.lunifera.ecview.semantic.uimodel.UiImage;
+import org.lunifera.ecview.semantic.uimodel.UiImports;
+import org.lunifera.ecview.semantic.uimodel.UiLabel;
+import org.lunifera.ecview.semantic.uimodel.UiLayout;
+import org.lunifera.ecview.semantic.uimodel.UiLayoutAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiList;
+import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
+import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
+import org.lunifera.ecview.semantic.uimodel.UiMobileAction;
+import org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiMobileField;
+import org.lunifera.ecview.semantic.uimodel.UiMobileLayout;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationCommand;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationHandler;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet;
+import org.lunifera.ecview.semantic.uimodel.UiMobileView;
+import org.lunifera.ecview.semantic.uimodel.UiModel;
+import org.lunifera.ecview.semantic.uimodel.UiModelFactory;
+import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
+import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
+import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
+import org.lunifera.ecview.semantic.uimodel.UiNumericField;
+import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
+import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup;
+import org.lunifera.ecview.semantic.uimodel.UiPanel;
+import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
+import org.lunifera.ecview.semantic.uimodel.UiPoint;
+import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
+import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
+import org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment;
+import org.lunifera.ecview.semantic.uimodel.UiRawBindableProvider;
+import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
+import org.lunifera.ecview.semantic.uimodel.UiRootElements;
+import org.lunifera.ecview.semantic.uimodel.UiSearchDialog;
+import org.lunifera.ecview.semantic.uimodel.UiSearchField;
+import org.lunifera.ecview.semantic.uimodel.UiSearchPanel;
+import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
+import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
+import org.lunifera.ecview.semantic.uimodel.UiSplitpanel;
+import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment;
+import org.lunifera.ecview.semantic.uimodel.UiSwitch;
+import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiTabSheet;
+import org.lunifera.ecview.semantic.uimodel.UiTable;
+import org.lunifera.ecview.semantic.uimodel.UiTextArea;
+import org.lunifera.ecview.semantic.uimodel.UiTextField;
+import org.lunifera.ecview.semantic.uimodel.UiTypeProvider;
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindable;
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawType;
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindableRawTypeAlias;
+import org.lunifera.ecview.semantic.uimodel.UiValidator;
+import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias;
+import org.lunifera.ecview.semantic.uimodel.UiValidatorAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiValidatorDef;
+import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup;
+import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroupAssigment;
+import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout;
+import org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment;
+import org.lunifera.ecview.semantic.uimodel.UiView;
+import org.lunifera.ecview.semantic.uimodel.UiViewSet;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessable;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorDef;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityPropertiesAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperty;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityRule;
+import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
+import org.lunifera.ecview.semantic.uimodel.UiXbaseVisibilityRule;
 import org.lunifera.ecview.semantic.uimodel.*;
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 
@@ -1617,6 +1733,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUiEmbeddable_Styles() {
+		return (EAttribute)uiEmbeddableEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiField() {
 		return uiFieldEClass;
 	}
@@ -1637,6 +1762,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EClass getUiLayout() {
 		return uiLayoutEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiLayout_Autowire() {
+		return (EAttribute)uiLayoutEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiLayout_AutoWireSource() {
+		return (EReference)uiLayoutEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3576,11 +3719,14 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiEmbeddableEClass, UI_EMBEDDABLE__BINDINGS);
 		createEAttribute(uiEmbeddableEClass, UI_EMBEDDABLE__READONLY);
 		createEAttribute(uiEmbeddableEClass, UI_EMBEDDABLE__INVISIBLE);
+		createEAttribute(uiEmbeddableEClass, UI_EMBEDDABLE__STYLES);
 
 		uiFieldEClass = createEClass(UI_FIELD);
 		createEReference(uiFieldEClass, UI_FIELD__VALIDATORS);
 
 		uiLayoutEClass = createEClass(UI_LAYOUT);
+		createEAttribute(uiLayoutEClass, UI_LAYOUT__AUTOWIRE);
+		createEReference(uiLayoutEClass, UI_LAYOUT__AUTO_WIRE_SOURCE);
 
 		uiLayoutAssignmentEClass = createEClass(UI_LAYOUT_ASSIGNMENT);
 
@@ -4151,11 +4297,14 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiEmbeddable_Bindings(), this.getUiBinding(), null, "bindings", null, 0, -1, UiEmbeddable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiEmbeddable_Readonly(), ecorePackage.getEBoolean(), "readonly", null, 0, 1, UiEmbeddable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiEmbeddable_Invisible(), ecorePackage.getEBoolean(), "invisible", null, 0, 1, UiEmbeddable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiEmbeddable_Styles(), ecorePackage.getEString(), "styles", null, 0, 1, UiEmbeddable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiFieldEClass, UiField.class, "UiField", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiField_Validators(), this.getUiValidator(), null, "validators", null, 0, -1, UiField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiLayoutEClass, UiLayout.class, "UiLayout", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUiLayout_Autowire(), ecorePackage.getEBoolean(), "autowire", null, 0, 1, UiLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiLayout_AutoWireSource(), this.getUiBindingExpression(), null, "autoWireSource", null, 0, 1, UiLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiLayoutAssignmentEClass, UiLayoutAssignment.class, "UiLayoutAssignment", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

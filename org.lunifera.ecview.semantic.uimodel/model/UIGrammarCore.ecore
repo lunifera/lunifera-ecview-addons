@@ -160,6 +160,7 @@
         eType="#//UiBinding" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="readonly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="invisible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="styles" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiField" abstract="true" interface="true"
       eSuperTypes="#//UiEmbeddable">
@@ -167,7 +168,11 @@
         eType="#//UiValidator" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiLayout" abstract="true" interface="true"
-      eSuperTypes="#//UiEmbeddable"/>
+      eSuperTypes="#//UiEmbeddable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="autowire" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="autoWireSource" eType="#//UiBindingExpression"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiLayoutAssignment" abstract="true"
       interface="true" eSuperTypes="#//UiNamedElement #//UiRawBindableProvider"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiAction" eSuperTypes="#//UiEmbeddable"/>

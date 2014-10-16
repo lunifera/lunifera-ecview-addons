@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
+import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
 import org.lunifera.ecview.semantic.uimodel.UiLayout;
@@ -37,6 +38,9 @@ import org.lunifera.ecview.semantic.uimodel.UiTypeProvider;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageImpl#isReadonly <em>Readonly</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageImpl#isInvisible <em>Invisible</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageImpl#getStyles <em>Styles</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageImpl#isAutowire <em>Autowire</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageImpl#getAutoWireSource <em>Auto Wire Source</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageImpl#getJvmType <em>Jvm Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageImpl#getContents <em>Contents</em>}</li>
  * </ul>
@@ -144,6 +148,56 @@ public class UiMobileNavigationPageImpl extends UiVisibilityProcessableImpl impl
 	 * @ordered
 	 */
 	protected boolean invisible = INVISIBLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getStyles() <em>Styles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyles()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STYLES_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStyles() <em>Styles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyles()
+	 * @generated
+	 * @ordered
+	 */
+	protected String styles = STYLES_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isAutowire() <em>Autowire</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAutowire()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean AUTOWIRE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isAutowire() <em>Autowire</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAutowire()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean autowire = AUTOWIRE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAutoWireSource() <em>Auto Wire Source</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAutoWireSource()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiBindingExpression autoWireSource;
 
 	/**
 	 * The cached value of the '{@link #getJvmType() <em>Jvm Type</em>}' containment reference.
@@ -278,6 +332,114 @@ public class UiMobileNavigationPageImpl extends UiVisibilityProcessableImpl impl
 		invisible = newInvisible;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__INVISIBLE, oldInvisible, invisible));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getStyles() {
+		return styles;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStyles(String newStyles) {
+		String oldStyles = styles;
+		styles = newStyles;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__STYLES, oldStyles, styles));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isAutowire() {
+		return autowire;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAutowire(boolean newAutowire) {
+		boolean oldAutowire = autowire;
+		autowire = newAutowire;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTOWIRE, oldAutowire, autowire));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiBindingExpression getAutoWireSource() {
+		if (autoWireSource != null && autoWireSource.eIsProxy()) {
+			InternalEObject oldAutoWireSource = (InternalEObject)autoWireSource;
+			autoWireSource = (UiBindingExpression)eResolveProxy(oldAutoWireSource);
+			if (autoWireSource != oldAutoWireSource) {
+				InternalEObject newAutoWireSource = (InternalEObject)autoWireSource;
+				NotificationChain msgs = oldAutoWireSource.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTO_WIRE_SOURCE, null, null);
+				if (newAutoWireSource.eInternalContainer() == null) {
+					msgs = newAutoWireSource.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTO_WIRE_SOURCE, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTO_WIRE_SOURCE, oldAutoWireSource, autoWireSource));
+			}
+		}
+		return autoWireSource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiBindingExpression basicGetAutoWireSource() {
+		return autoWireSource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAutoWireSource(UiBindingExpression newAutoWireSource, NotificationChain msgs) {
+		UiBindingExpression oldAutoWireSource = autoWireSource;
+		autoWireSource = newAutoWireSource;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTO_WIRE_SOURCE, oldAutoWireSource, newAutoWireSource);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAutoWireSource(UiBindingExpression newAutoWireSource) {
+		if (newAutoWireSource != autoWireSource) {
+			NotificationChain msgs = null;
+			if (autoWireSource != null)
+				msgs = ((InternalEObject)autoWireSource).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTO_WIRE_SOURCE, null, msgs);
+			if (newAutoWireSource != null)
+				msgs = ((InternalEObject)newAutoWireSource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTO_WIRE_SOURCE, null, msgs);
+			msgs = basicSetAutoWireSource(newAutoWireSource, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTO_WIRE_SOURCE, newAutoWireSource, newAutoWireSource));
 	}
 
 	/**
@@ -436,6 +598,8 @@ public class UiMobileNavigationPageImpl extends UiVisibilityProcessableImpl impl
 				return basicSetI18nInfo(null, msgs);
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__BINDINGS:
 				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTO_WIRE_SOURCE:
+				return basicSetAutoWireSource(null, msgs);
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__JVM_TYPE:
 				return basicSetJvmType(null, msgs);
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__CONTENTS:
@@ -465,6 +629,13 @@ public class UiMobileNavigationPageImpl extends UiVisibilityProcessableImpl impl
 				return isReadonly();
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__INVISIBLE:
 				return isInvisible();
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__STYLES:
+				return getStyles();
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTOWIRE:
+				return isAutowire();
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTO_WIRE_SOURCE:
+				if (resolve) return getAutoWireSource();
+				return basicGetAutoWireSource();
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__JVM_TYPE:
 				if (resolve) return getJvmType();
 				return basicGetJvmType();
@@ -501,6 +672,15 @@ public class UiMobileNavigationPageImpl extends UiVisibilityProcessableImpl impl
 				return;
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__INVISIBLE:
 				setInvisible((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__STYLES:
+				setStyles((String)newValue);
+				return;
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTOWIRE:
+				setAutowire((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTO_WIRE_SOURCE:
+				setAutoWireSource((UiBindingExpression)newValue);
 				return;
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__JVM_TYPE:
 				setJvmType((JvmTypeReference)newValue);
@@ -539,6 +719,15 @@ public class UiMobileNavigationPageImpl extends UiVisibilityProcessableImpl impl
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__INVISIBLE:
 				setInvisible(INVISIBLE_EDEFAULT);
 				return;
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__STYLES:
+				setStyles(STYLES_EDEFAULT);
+				return;
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTOWIRE:
+				setAutowire(AUTOWIRE_EDEFAULT);
+				return;
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTO_WIRE_SOURCE:
+				setAutoWireSource((UiBindingExpression)null);
+				return;
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__JVM_TYPE:
 				setJvmType((JvmTypeReference)null);
 				return;
@@ -569,6 +758,12 @@ public class UiMobileNavigationPageImpl extends UiVisibilityProcessableImpl impl
 				return readonly != READONLY_EDEFAULT;
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__INVISIBLE:
 				return invisible != INVISIBLE_EDEFAULT;
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__STYLES:
+				return STYLES_EDEFAULT == null ? styles != null : !STYLES_EDEFAULT.equals(styles);
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTOWIRE:
+				return autowire != AUTOWIRE_EDEFAULT;
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTO_WIRE_SOURCE:
+				return autoWireSource != null;
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__JVM_TYPE:
 				return jvmType != null;
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__CONTENTS:
@@ -604,6 +799,8 @@ public class UiMobileNavigationPageImpl extends UiVisibilityProcessableImpl impl
 		}
 		if (baseClass == UiLayout.class) {
 			switch (derivedFeatureID) {
+				case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTOWIRE: return UiModelPackage.UI_LAYOUT__AUTOWIRE;
+				case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTO_WIRE_SOURCE: return UiModelPackage.UI_LAYOUT__AUTO_WIRE_SOURCE;
 				default: return -1;
 			}
 		}
@@ -648,6 +845,8 @@ public class UiMobileNavigationPageImpl extends UiVisibilityProcessableImpl impl
 		}
 		if (baseClass == UiLayout.class) {
 			switch (baseFeatureID) {
+				case UiModelPackage.UI_LAYOUT__AUTOWIRE: return UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTOWIRE;
+				case UiModelPackage.UI_LAYOUT__AUTO_WIRE_SOURCE: return UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__AUTO_WIRE_SOURCE;
 				default: return -1;
 			}
 		}
@@ -683,6 +882,10 @@ public class UiMobileNavigationPageImpl extends UiVisibilityProcessableImpl impl
 		result.append(readonly);
 		result.append(", invisible: ");
 		result.append(invisible);
+		result.append(", styles: ");
+		result.append(styles);
+		result.append(", autowire: ");
+		result.append(autowire);
 		result.append(')');
 		return result.toString();
 	}

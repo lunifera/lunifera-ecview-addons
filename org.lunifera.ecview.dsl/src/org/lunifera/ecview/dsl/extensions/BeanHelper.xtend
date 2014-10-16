@@ -13,8 +13,8 @@ class BeanHelper {
 			return null
 		}
 
-		if (bean instanceof Class<?>) {
-			return findCaptionProperty(bean as Class<?>)
+		if (bean instanceof Class) {
+			return findCaptionProperty(bean as Class)
 		} else {
 			return findCaptionProperty(bean.class)
 		}
@@ -23,7 +23,7 @@ class BeanHelper {
 	/**
 	 * Returns the caption property if it could be found. Null otherwise.
 	 */
-	def static String findCaptionProperty(Class<?> beanClass) {
+	def static String findCaptionProperty(Class beanClass) {
 		if (beanClass == null) {
 			return null
 		}

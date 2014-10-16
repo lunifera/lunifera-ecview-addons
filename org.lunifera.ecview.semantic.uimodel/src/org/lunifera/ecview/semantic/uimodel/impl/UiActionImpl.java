@@ -33,6 +33,7 @@ import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiActionImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiActionImpl#isReadonly <em>Readonly</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiActionImpl#isInvisible <em>Invisible</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiActionImpl#getStyles <em>Styles</em>}</li>
  * </ul>
  * </p>
  *
@@ -138,6 +139,26 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 	 * @ordered
 	 */
 	protected boolean invisible = INVISIBLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getStyles() <em>Styles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyles()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STYLES_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStyles() <em>Styles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyles()
+	 * @generated
+	 * @ordered
+	 */
+	protected String styles = STYLES_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -259,6 +280,27 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getStyles() {
+		return styles;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStyles(String newStyles) {
+		String oldStyles = styles;
+		styles = newStyles;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_ACTION__STYLES, oldStyles, styles));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiI18nInfo getI18nInfo() {
 		if (i18nInfo != null && i18nInfo.eIsProxy()) {
 			InternalEObject oldI18nInfo = (InternalEObject)i18nInfo;
@@ -357,6 +399,8 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 				return isReadonly();
 			case UiModelPackage.UI_ACTION__INVISIBLE:
 				return isInvisible();
+			case UiModelPackage.UI_ACTION__STYLES:
+				return getStyles();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -389,6 +433,9 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 			case UiModelPackage.UI_ACTION__INVISIBLE:
 				setInvisible((Boolean)newValue);
 				return;
+			case UiModelPackage.UI_ACTION__STYLES:
+				setStyles((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -419,6 +466,9 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 			case UiModelPackage.UI_ACTION__INVISIBLE:
 				setInvisible(INVISIBLE_EDEFAULT);
 				return;
+			case UiModelPackage.UI_ACTION__STYLES:
+				setStyles(STYLES_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -443,6 +493,8 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 				return readonly != READONLY_EDEFAULT;
 			case UiModelPackage.UI_ACTION__INVISIBLE:
 				return invisible != INVISIBLE_EDEFAULT;
+			case UiModelPackage.UI_ACTION__STYLES:
+				return STYLES_EDEFAULT == null ? styles != null : !STYLES_EDEFAULT.equals(styles);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -521,6 +573,8 @@ public class UiActionImpl extends UiVisibilityProcessableImpl implements UiActio
 		result.append(readonly);
 		result.append(", invisible: ");
 		result.append(invisible);
+		result.append(", styles: ");
+		result.append(styles);
 		result.append(')');
 		return result.toString();
 	}

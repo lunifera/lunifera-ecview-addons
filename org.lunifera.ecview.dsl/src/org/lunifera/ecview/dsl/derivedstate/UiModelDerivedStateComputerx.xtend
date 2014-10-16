@@ -183,6 +183,7 @@ import org.lunifera.ecview.core.^extension.model.^extension.YEnumList
 import org.lunifera.ecview.core.^extension.model.^extension.YEnumOptionsGroup
 import org.lunifera.ecview.core.common.model.core.YExposedAction
 import org.lunifera.ecview.semantic.uimodel.UiExposedAction
+import org.lunifera.ecview.semantic.uimodel.UiLayout
 
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
@@ -196,7 +197,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	@Inject TypeHelper typeHelper;
 	@Inject extension IQualifiedNameProvider;
 	@Inject I18nKeyProvider i18nKeyProvider
-
+	@Inject AutowireHelper autowireHelper
+ 
 	final Stack<EObject> viewContext = new Stack
 	final List<YView> views = newArrayList()
 	final Map<EObject, EObject> grammarToUiAssociations = newHashMap();
@@ -210,6 +212,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	List<UiBinding> pendingBindings = newArrayList()
 	List<UiBinding> temporaryPendingBindings = newArrayList()
 	List<UiVisibilityProcessorAssignment> pendingVisibilityProcessors = newArrayList()
+	
+	List<UiLayout> pendingAutowires = newArrayList()
 
 	def void associateUi(EObject grammarElement, EObject uiElement) {
 		grammarToUiAssociations.put(grammarElement, uiElement)
@@ -224,6 +228,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def <A> A associatedGrammar(EObject uiElement) {
 		return uiToGrammarAssociations.get(uiElement) as A
+	}
+	
+	def YView getCurrentView() {
+		currentView
 	}
 
 	override void installDerivedState(DerivedStateAwareResource resource, boolean preLinkingPhase) {
@@ -240,12 +248,12 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 			grammarToUiAssociations.clear
 			uiToGrammarAssociations.clear
+			pendingAutowires.clear
 
 			val UiModel eObject = resource.getContents().get(0) as UiModel;
 			currentPackage = eObject.packageName
 
 			try {
-
 				// complete all elements
 				eObject.eContents.forEach [
 					it.map
@@ -261,6 +269,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			viewContext.clear
 			pendingBindings.clear
 			pendingVisibilityProcessors.clear
+			pendingAutowires.clear
 		}
 
 		this.typeLoader.dispose
@@ -315,6 +324,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		object.exposedActions.forEach[it.map]
 
+		pendingAutowires.forEach[
+			it.doAutowire
+		]
 
 		object.processorAssignments.forEach [
 			it.map
@@ -349,6 +361,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			pop
 			currentView = null
 		}
+		
+	}
+	
+	def doAutowire(UiLayout embeddable) {
+		autowireHelper.autowire(embeddable, this, currentView.deviceType == YDeviceType.MOBILE, embeddable.toI18nKey)
 	}
 
 	def dispatch void map(UiMobileView object) {
@@ -487,6 +504,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		eObject.contents.forEach [
 			it.map
 		]
+
+		if(eObject.autowire) {
+			pendingAutowires += eObject
+		}
 
 		eObject.bindings.forEach [
 			it.map
@@ -1420,6 +1441,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		textField.label = object.name
 		textField.labelI18nKey = object.toI18nKey
 		textField.initialEnabled = !object.readonly
+		textField.cssClass = object.styles
 
 		val dt = factory.createTextDatatype
 		textField.datatype = dt
@@ -1475,6 +1497,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		label.name = object.name
 		label.label = object.name
 		label.labelI18nKey = object.toI18nKey
+		label.cssClass = object.styles
 
 		object.associateUi(label)
 
@@ -1488,6 +1511,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		decimalField.label = object.name
 		decimalField.labelI18nKey = object.toI18nKey
 		decimalField.initialEnabled = !object.readonly
+		decimalField.cssClass = object.styles
 
 		val dt = factory.createDecimalDatatype
 		decimalField.datatype = dt
@@ -1509,6 +1533,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		textArea.label = object.name
 		textArea.labelI18nKey = object.toI18nKey
 		textArea.initialEnabled = !object.readonly
+		textArea.cssClass = object.styles
 
 		object.associateUi(textArea)
 
@@ -1525,6 +1550,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			optionsGroup.labelI18nKey = object.toI18nKey
 			optionsGroup.selectionType = object.selectionType.convert
 			optionsGroup.initialEnabled = !object.readonly
+			optionsGroup.cssClass = object.styles
 
 			if (object.jvmType != null) {
 				optionsGroup.typeQualifiedName = object.jvmType.qualifiedName
@@ -1571,6 +1597,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			list.labelI18nKey = object.toI18nKey
 			list.selectionType = object.selectionType.convert
 			list.initialEnabled = !object.readonly
+			list.cssClass = object.styles
 
 			if (object.jvmType != null) {
 				list.typeQualifiedName = object.jvmType.qualifiedName
@@ -1616,6 +1643,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		dateTime.dateFormat = object.dateFormat.toYDateTimeFormat
 		dateTime.resolution = object.resolution.toYDateTimeResolution
 		dateTime.initialEnabled = !object.readonly
+		dateTime.cssClass = object.styles
 
 		object.associateUi(dateTime)
 
@@ -1629,6 +1657,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		browser.label = object.name
 		browser.labelI18nKey = object.toI18nKey
 		browser.initialEnabled = !object.readonly
+		browser.cssClass = object.styles
 
 		object.associateUi(browser)
 
@@ -1641,6 +1670,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		progressBar.name = object.name
 		progressBar.label = object.name
 		progressBar.labelI18nKey = object.toI18nKey
+		progressBar.cssClass = object.styles
 
 		object.associateUi(progressBar)
 
@@ -1653,6 +1683,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		image.name = object.name
 		image.label = object.name
 		image.labelI18nKey = object.toI18nKey
+		image.cssClass = object.styles
 
 		image.value = object.value
 
@@ -1670,6 +1701,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		table.labelI18nKey = object.toI18nKey
 		table.selectionType = object.selectionType.convert
 		table.initialEnabled = !object.readonly
+		table.cssClass = object.styles
 
 		table.itemImageProperty = OperationExtensions.toPropertyName(object.itemImageProperty?.simpleName)
 
@@ -1715,6 +1747,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 				newField.id = UiModelGrammarUtil.getPathId(eObject)
 				newField.labelI18nKey = eObject.toI18nKey
 				newField.initialEnabled = !eObject.readonly
+				newField.cssClass = eObject.styles
 			}
 
 			return newField
@@ -1739,6 +1772,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		field.label = object.name
 		field.labelI18nKey = object.toI18nKey
 		field.initialEnabled = !object.readonly
+		field.cssClass = object.styles
 
 		val dt = factory.createNumericDatatype
 		field.datatype = dt
@@ -1758,6 +1792,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		field.label = object.name
 		field.labelI18nKey = object.toI18nKey
 		field.initialEnabled = !object.readonly
+		field.cssClass = object.styles
 
 		object.associateUi(field)
 
@@ -1784,6 +1819,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		field.label = object.name
 		field.labelI18nKey = object.toI18nKey
 		field.initialEnabled = !object.readonly
+		field.cssClass = object.styles
 
 		object.associateUi(field)
 
@@ -1800,6 +1836,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			field.label = object.name
 			field.labelI18nKey = object.toI18nKey
 			field.initialEnabled = !object.readonly
+			field.cssClass = object.styles
 
 			if (object.jvmType != null) {
 				field.typeQualifiedName = object.jvmType.qualifiedName
@@ -1843,6 +1880,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		field.label = object.name
 		field.labelI18nKey = object.toI18nKey
 		field.initialEnabled = !object.readonly
+		field.cssClass = object.styles
 
 		object.associateUi(field)
 
@@ -1856,6 +1894,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.columns = object.columns
 		layout.labelI18nKey = object.toI18nKey
 		layout.initialEnabled = !object.readonly
+		layout.cssClass = object.styles
 
 		object.associateUi(layout)
 
@@ -1868,6 +1907,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
 		layout.initialEnabled = !object.readonly
+		layout.cssClass = object.styles
 
 		object.associateUi(layout)
 
@@ -1881,6 +1921,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
 		layout.initialEnabled = !object.readonly
+		layout.cssClass = object.styles
 
 		object.associateUi(layout)
 
@@ -1894,6 +1935,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
 		layout.initialEnabled = !object.readonly
+		layout.cssClass = object.styles
 
 		object.associateUi(layout)
 
@@ -1908,6 +1950,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.labelI18nKey = object.toI18nKey
 		layout.splitPosition = object.splitPosition
 		layout.initialEnabled = !object.readonly
+		layout.cssClass = object.styles
 
 		object.associateUi(layout)
 
@@ -1921,6 +1964,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
 		layout.initialEnabled = !object.readonly
+		layout.cssClass = object.styles
 
 		object.associateUi(layout)
 
@@ -1934,6 +1978,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
 		layout.initialEnabled = !object.readonly
+		layout.cssClass = object.styles
 
 		object.associateUi(layout)
 
@@ -1947,6 +1992,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
 		layout.initialEnabled = !object.readonly
+		layout.cssClass = object.styles
 
 		object.associateUi(layout)
 
@@ -1960,6 +2006,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
 		layout.initialEnabled = !object.readonly
+		layout.cssClass = object.styles
 
 		object.associateUi(layout)
 
@@ -1972,6 +2019,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		layout.name = object.name
 		layout.label = object.name
 		layout.labelI18nKey = object.toI18nKey
+		layout.cssClass = object.styles
 
 		object.associateUi(layout)
 

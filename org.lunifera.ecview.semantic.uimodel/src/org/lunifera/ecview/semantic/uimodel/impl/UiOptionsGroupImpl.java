@@ -41,6 +41,7 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#isReadonly <em>Readonly</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#isInvisible <em>Invisible</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#getStyles <em>Styles</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#getValidators <em>Validators</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#getJvmType <em>Jvm Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiOptionsGroupImpl#isConsumeBeanService <em>Consume Bean Service</em>}</li>
@@ -153,6 +154,26 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 	 * @ordered
 	 */
 	protected boolean invisible = INVISIBLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getStyles() <em>Styles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyles()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STYLES_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStyles() <em>Styles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyles()
+	 * @generated
+	 * @ordered
+	 */
+	protected String styles = STYLES_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' containment reference list.
@@ -357,6 +378,27 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 		invisible = newInvisible;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_OPTIONS_GROUP__INVISIBLE, oldInvisible, invisible));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getStyles() {
+		return styles;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStyles(String newStyles) {
+		String oldStyles = styles;
+		styles = newStyles;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_OPTIONS_GROUP__STYLES, oldStyles, styles));
 	}
 
 	/**
@@ -730,6 +772,8 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 				return isReadonly();
 			case UiModelPackage.UI_OPTIONS_GROUP__INVISIBLE:
 				return isInvisible();
+			case UiModelPackage.UI_OPTIONS_GROUP__STYLES:
+				return getStyles();
 			case UiModelPackage.UI_OPTIONS_GROUP__VALIDATORS:
 				return getValidators();
 			case UiModelPackage.UI_OPTIONS_GROUP__JVM_TYPE:
@@ -779,6 +823,9 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 				return;
 			case UiModelPackage.UI_OPTIONS_GROUP__INVISIBLE:
 				setInvisible((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_OPTIONS_GROUP__STYLES:
+				setStyles((String)newValue);
 				return;
 			case UiModelPackage.UI_OPTIONS_GROUP__VALIDATORS:
 				getValidators().clear();
@@ -832,6 +879,9 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 			case UiModelPackage.UI_OPTIONS_GROUP__INVISIBLE:
 				setInvisible(INVISIBLE_EDEFAULT);
 				return;
+			case UiModelPackage.UI_OPTIONS_GROUP__STYLES:
+				setStyles(STYLES_EDEFAULT);
+				return;
 			case UiModelPackage.UI_OPTIONS_GROUP__VALIDATORS:
 				getValidators().clear();
 				return;
@@ -877,6 +927,8 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 				return readonly != READONLY_EDEFAULT;
 			case UiModelPackage.UI_OPTIONS_GROUP__INVISIBLE:
 				return invisible != INVISIBLE_EDEFAULT;
+			case UiModelPackage.UI_OPTIONS_GROUP__STYLES:
+				return STYLES_EDEFAULT == null ? styles != null : !STYLES_EDEFAULT.equals(styles);
 			case UiModelPackage.UI_OPTIONS_GROUP__VALIDATORS:
 				return validators != null && !validators.isEmpty();
 			case UiModelPackage.UI_OPTIONS_GROUP__JVM_TYPE:
@@ -1013,6 +1065,8 @@ public class UiOptionsGroupImpl extends UiVisibilityProcessableImpl implements U
 		result.append(readonly);
 		result.append(", invisible: ");
 		result.append(invisible);
+		result.append(", styles: ");
+		result.append(styles);
 		result.append(", consumeBeanService: ");
 		result.append(consumeBeanService);
 		result.append(", selectionType: ");

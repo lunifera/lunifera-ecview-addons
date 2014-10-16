@@ -2,30 +2,122 @@ package org.lunifera.ecview.dsl.derivedstate;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Stack;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.xtext.common.types.JvmEnumerationType;
+import org.eclipse.xtext.common.types.JvmGenericType;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.resource.DerivedStateAwareResource;
 import org.eclipse.xtext.xbase.jvmmodel.JvmModelAssociator;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
+import org.lunifera.ecview.core.common.model.binding.BindingFactory;
+import org.lunifera.ecview.core.common.model.binding.YBinding;
+import org.lunifera.ecview.core.common.model.binding.YBindingSet;
+import org.lunifera.ecview.core.common.model.binding.YBindingUpdateStrategy;
+import org.lunifera.ecview.core.common.model.binding.YECViewModelListBindingEndpoint;
+import org.lunifera.ecview.core.common.model.binding.YECViewModelValueBindingEndpoint;
+import org.lunifera.ecview.core.common.model.binding.YListBindingEndpoint;
+import org.lunifera.ecview.core.common.model.binding.YValueBinding;
+import org.lunifera.ecview.core.common.model.binding.YValueBindingEndpoint;
+import org.lunifera.ecview.core.common.model.binding.YVisibilityProcessorValueBindingEndpoint;
+import org.lunifera.ecview.core.common.model.core.CoreModelFactory;
+import org.lunifera.ecview.core.common.model.core.YAlignment;
+import org.lunifera.ecview.core.common.model.core.YBeanSlot;
+import org.lunifera.ecview.core.common.model.core.YBeanSlotListBindingEndpoint;
+import org.lunifera.ecview.core.common.model.core.YBeanSlotValueBindingEndpoint;
+import org.lunifera.ecview.core.common.model.core.YCommandSet;
+import org.lunifera.ecview.core.common.model.core.YDeviceType;
+import org.lunifera.ecview.core.common.model.core.YDialog;
+import org.lunifera.ecview.core.common.model.core.YElement;
+import org.lunifera.ecview.core.common.model.core.YEmbeddable;
+import org.lunifera.ecview.core.common.model.core.YExposedAction;
+import org.lunifera.ecview.core.common.model.core.YField;
+import org.lunifera.ecview.core.common.model.core.YFlatAlignment;
+import org.lunifera.ecview.core.common.model.core.YLayout;
+import org.lunifera.ecview.core.common.model.core.YOpenDialogCommand;
+import org.lunifera.ecview.core.common.model.core.YView;
+import org.lunifera.ecview.core.common.model.core.YViewSet;
+import org.lunifera.ecview.core.common.model.datatypes.YDatatype;
+import org.lunifera.ecview.core.common.model.validation.YClassDelegateValidator;
+import org.lunifera.ecview.core.common.model.validation.YMaxLengthValidator;
+import org.lunifera.ecview.core.common.model.validation.YMinLengthValidator;
+import org.lunifera.ecview.core.common.model.validation.YRegexpValidator;
+import org.lunifera.ecview.core.common.model.validation.YValidator;
+import org.lunifera.ecview.core.common.model.visibility.VisibilityFactory;
+import org.lunifera.ecview.core.common.model.visibility.YVisibilityProcessor;
+import org.lunifera.ecview.core.extension.model.datatypes.YDateTimeFormat;
+import org.lunifera.ecview.core.extension.model.datatypes.YDateTimeResolution;
+import org.lunifera.ecview.core.extension.model.datatypes.YDecimalDatatype;
+import org.lunifera.ecview.core.extension.model.datatypes.YNumericDatatype;
+import org.lunifera.ecview.core.extension.model.datatypes.YTextDatatype;
+import org.lunifera.ecview.core.extension.model.extension.ExtensionModelFactory;
+import org.lunifera.ecview.core.extension.model.extension.YBeanReferenceField;
+import org.lunifera.ecview.core.extension.model.extension.YBooleanSearchField;
+import org.lunifera.ecview.core.extension.model.extension.YBrowser;
+import org.lunifera.ecview.core.extension.model.extension.YButton;
+import org.lunifera.ecview.core.extension.model.extension.YCheckBox;
+import org.lunifera.ecview.core.extension.model.extension.YColumn;
+import org.lunifera.ecview.core.extension.model.extension.YComboBox;
+import org.lunifera.ecview.core.extension.model.extension.YDateTime;
+import org.lunifera.ecview.core.extension.model.extension.YDecimalField;
+import org.lunifera.ecview.core.extension.model.extension.YEnumComboBox;
+import org.lunifera.ecview.core.extension.model.extension.YEnumList;
+import org.lunifera.ecview.core.extension.model.extension.YEnumOptionsGroup;
+import org.lunifera.ecview.core.extension.model.extension.YFormLayout;
+import org.lunifera.ecview.core.extension.model.extension.YGridLayout;
+import org.lunifera.ecview.core.extension.model.extension.YGridLayoutCellStyle;
+import org.lunifera.ecview.core.extension.model.extension.YHorizontalLayout;
+import org.lunifera.ecview.core.extension.model.extension.YHorizontalLayoutCellStyle;
+import org.lunifera.ecview.core.extension.model.extension.YImage;
+import org.lunifera.ecview.core.extension.model.extension.YLabel;
+import org.lunifera.ecview.core.extension.model.extension.YList;
+import org.lunifera.ecview.core.extension.model.extension.YNumericField;
+import org.lunifera.ecview.core.extension.model.extension.YNumericSearchField;
+import org.lunifera.ecview.core.extension.model.extension.YOptionsGroup;
+import org.lunifera.ecview.core.extension.model.extension.YPanel;
+import org.lunifera.ecview.core.extension.model.extension.YProgressBar;
+import org.lunifera.ecview.core.extension.model.extension.YReferenceSearchField;
+import org.lunifera.ecview.core.extension.model.extension.YSearchPanel;
+import org.lunifera.ecview.core.extension.model.extension.YSelectionType;
+import org.lunifera.ecview.core.extension.model.extension.YSplitPanel;
+import org.lunifera.ecview.core.extension.model.extension.YTab;
+import org.lunifera.ecview.core.extension.model.extension.YTabSheet;
+import org.lunifera.ecview.core.extension.model.extension.YTable;
+import org.lunifera.ecview.core.extension.model.extension.YTextArea;
+import org.lunifera.ecview.core.extension.model.extension.YTextField;
+import org.lunifera.ecview.core.extension.model.extension.YTextSearchField;
+import org.lunifera.ecview.core.extension.model.extension.YVerticalLayout;
+import org.lunifera.ecview.core.extension.model.extension.YVerticalLayoutCellStyle;
+import org.lunifera.ecview.core.extension.model.extension.util.SimpleExtensionModelFactory;
+import org.lunifera.ecview.dsl.derivedstate.AutowireHelper;
 import org.lunifera.ecview.dsl.derivedstate.UiGrammarElementAdapter;
+import org.lunifera.ecview.dsl.derivedstate.UiModelGrammarUtil;
+import org.lunifera.ecview.dsl.extensions.BeanHelper;
 import org.lunifera.ecview.dsl.extensions.BindableTypeProvider;
 import org.lunifera.ecview.dsl.extensions.I18nKeyProvider;
+import org.lunifera.ecview.dsl.extensions.OperationExtensions;
 import org.lunifera.ecview.dsl.extensions.TypeHelper;
 import org.lunifera.ecview.semantic.uimodel.UiAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
@@ -36,8 +128,10 @@ import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
 import org.lunifera.ecview.semantic.uimodel.UiBrowser;
 import org.lunifera.ecview.semantic.uimodel.UiButton;
+import org.lunifera.ecview.semantic.uimodel.UiChangeTrigger;
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.UiColumn;
+import org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiComboBox;
 import org.lunifera.ecview.semantic.uimodel.UiCommand;
 import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
@@ -49,7 +143,9 @@ import org.lunifera.ecview.semantic.uimodel.UiDialog;
 import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
 import org.lunifera.ecview.semantic.uimodel.UiExposedAction;
+import org.lunifera.ecview.semantic.uimodel.UiField;
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayoutAssigment;
@@ -62,10 +158,12 @@ import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiIDEView;
 import org.lunifera.ecview.semantic.uimodel.UiImage;
 import org.lunifera.ecview.semantic.uimodel.UiLabel;
+import org.lunifera.ecview.semantic.uimodel.UiLayout;
 import org.lunifera.ecview.semantic.uimodel.UiList;
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationCommand;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationHandler;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment;
@@ -74,7 +172,9 @@ import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet;
 import org.lunifera.ecview.semantic.uimodel.UiMobileView;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
+import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
 import org.lunifera.ecview.semantic.uimodel.UiNumericField;
+import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup;
 import org.lunifera.ecview.semantic.uimodel.UiPanel;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
@@ -86,6 +186,7 @@ import org.lunifera.ecview.semantic.uimodel.UiRootElements;
 import org.lunifera.ecview.semantic.uimodel.UiSearchDialog;
 import org.lunifera.ecview.semantic.uimodel.UiSearchField;
 import org.lunifera.ecview.semantic.uimodel.UiSearchPanel;
+import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanel;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment;
@@ -109,7 +210,20 @@ import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
+import org.lunifera.ecview.semantic.uisemantics.UxAction;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
+import org.lunifera.mobile.vaadin.ecview.model.VMHorizontalButtonGroup;
+import org.lunifera.mobile.vaadin.ecview.model.VMNavigationButton;
+import org.lunifera.mobile.vaadin.ecview.model.VMNavigationCommand;
+import org.lunifera.mobile.vaadin.ecview.model.VMNavigationHandler;
+import org.lunifera.mobile.vaadin.ecview.model.VMNavigationPage;
+import org.lunifera.mobile.vaadin.ecview.model.VMSwitch;
+import org.lunifera.mobile.vaadin.ecview.model.VMTab;
+import org.lunifera.mobile.vaadin.ecview.model.VMTabSheet;
+import org.lunifera.mobile.vaadin.ecview.model.VMVerticalComponentGroup;
+import org.lunifera.mobile.vaadin.ecview.model.VaadinMobileFactory;
+import org.lunifera.xtext.builder.types.loader.api.ITypeLoader;
+import org.lunifera.xtext.builder.types.loader.api.ITypeLoaderFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -161,9 +275,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   private final static Logger LOGGER = LoggerFactory.getLogger(UiModelDerivedStateComputerx.class);
   
   @Inject
-  private /* ITypeLoaderFactory */Object typeLoaderFactory;
+  private ITypeLoaderFactory typeLoaderFactory;
   
-  private /* ITypeLoader */Object typeLoader;
+  private ITypeLoader typeLoader;
   
   @Inject
   private BindableTypeProvider typeOfBoundPropertyProvider;
@@ -178,19 +292,22 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   @Inject
   private I18nKeyProvider i18nKeyProvider;
   
+  @Inject
+  private AutowireHelper autowireHelper;
+  
   private final Stack<EObject> viewContext = new Stack<EObject>();
   
-  private final /* List<YView> */Object views = CollectionLiterals.<YView>newArrayList();
+  private final List<YView> views = CollectionLiterals.<YView>newArrayList();
   
   private final Map<EObject, EObject> grammarToUiAssociations = CollectionLiterals.<EObject, EObject>newHashMap();
   
   private final Map<EObject, EObject> uiToGrammarAssociations = CollectionLiterals.<EObject, EObject>newHashMap();
   
-  private final /* SimpleExtensionModelFactory */Object factory /* Skipped initializer because of errors */;
+  private final SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
   
   private String currentPackage;
   
-  private /* YView */Object currentView;
+  private YView currentView;
   
   private DerivedStateAwareResource resource;
   
@@ -199,6 +316,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   private List<UiBinding> temporaryPendingBindings = CollectionLiterals.<UiBinding>newArrayList();
   
   private List<UiVisibilityProcessorAssignment> pendingVisibilityProcessors = CollectionLiterals.<UiVisibilityProcessorAssignment>newArrayList();
+  
+  private List<UiLayout> pendingAutowires = CollectionLiterals.<UiLayout>newArrayList();
   
   public void associateUi(final EObject grammarElement, final EObject uiElement) {
     this.grammarToUiAssociations.put(grammarElement, uiElement);
@@ -218,10 +337,61 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return ((A) _get);
   }
   
+  public YView getCurrentView() {
+    return this.currentView;
+  }
+  
   public void installDerivedState(final DerivedStateAwareResource resource, final boolean preLinkingPhase) {
-    throw new Error("Unresolved compilation problems:"
-      + "\ncreateTypeLoader cannot be resolved"
-      + "\ndispose cannot be resolved");
+    super.installDerivedState(resource, preLinkingPhase);
+    this.resource = resource;
+    ResourceSet _resourceSet = resource.getResourceSet();
+    ITypeLoader _createTypeLoader = this.typeLoaderFactory.createTypeLoader(_resourceSet);
+    this.typeLoader = _createTypeLoader;
+    EList<EObject> _contents = resource.getContents();
+    boolean _isEmpty = _contents.isEmpty();
+    if (_isEmpty) {
+      return;
+    }
+    if ((!preLinkingPhase)) {
+      this.grammarToUiAssociations.clear();
+      this.uiToGrammarAssociations.clear();
+      this.pendingAutowires.clear();
+      EList<EObject> _contents_1 = resource.getContents();
+      EObject _get = _contents_1.get(0);
+      final UiModel eObject = ((UiModel) _get);
+      String _packageName = eObject.getPackageName();
+      this.currentPackage = _packageName;
+      try {
+        EList<EObject> _eContents = eObject.eContents();
+        final Procedure1<EObject> _function = new Procedure1<EObject>() {
+          public void apply(final EObject it) {
+            UiModelDerivedStateComputerx.this.map(it);
+          }
+        };
+        IterableExtensions.<EObject>forEach(_eContents, _function);
+      } catch (final Throwable _t) {
+        if (_t instanceof Exception) {
+          final Exception ex = (Exception)_t;
+          UiModelDerivedStateComputerx.LOGGER.error("{}", ex);
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
+      }
+      int _size = this.views.size();
+      boolean _greaterThan = (_size > 0);
+      if (_greaterThan) {
+        EList<EObject> _contents_2 = resource.getContents();
+        YView _get_1 = this.views.get(0);
+        _contents_2.add(_get_1);
+      }
+      this.views.clear();
+      this.viewContext.clear();
+      this.pendingBindings.clear();
+      this.pendingVisibilityProcessors.clear();
+      this.pendingAutowires.clear();
+    }
+    this.typeLoader.dispose();
+    this.typeLoader = null;
   }
   
   public <A extends Object> A peek() {
@@ -268,23 +438,163 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiIDEView object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYView cannot be resolved to a type."
-      + "\ncreateView cannot be resolved"
-      + "\ncontentAlignment cannot be resolved"
-      + "\npush cannot be resolved"
-      + "\ncontent cannot be resolved");
+    final YView yView = this.factory.createView();
+    UiAlignment _contentAlignment = object.getContentAlignment();
+    YAlignment _yAlignment = this.toYAlignment(_contentAlignment);
+    yView.setContentAlignment(_yAlignment);
+    this.associateUi(object, yView);
+    this.views.add(yView);
+    this.currentView = yView;
+    this.push(yView);
+    EList<UiBeanSlot> _beanSlots = object.getBeanSlots();
+    final Procedure1<UiBeanSlot> _function = new Procedure1<UiBeanSlot>() {
+      public void apply(final UiBeanSlot it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBeanSlot>forEach(_beanSlots, _function);
+    UiEmbeddable _content = object.getContent();
+    final YEmbeddable element = this.create(_content);
+    yView.setContent(element);
+    UiEmbeddable _content_1 = object.getContent();
+    this.map(_content_1);
+    EList<UiBinding> _bindings = object.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiExposedAction> _exposedActions = object.getExposedActions();
+    final Procedure1<UiExposedAction> _function_2 = new Procedure1<UiExposedAction>() {
+      public void apply(final UiExposedAction it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiExposedAction>forEach(_exposedActions, _function_2);
+    final Procedure1<UiLayout> _function_3 = new Procedure1<UiLayout>() {
+      public void apply(final UiLayout it) {
+        UiModelDerivedStateComputerx.this.doAutowire(it);
+      }
+    };
+    IterableExtensions.<UiLayout>forEach(this.pendingAutowires, _function_3);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = object.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_4 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_4);
+    final Procedure1<UiVisibilityProcessorAssignment> _function_5 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiVisibilityProcessor _processor = it.getProcessor();
+        UiModelDerivedStateComputerx.this.map(_processor);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(this.pendingVisibilityProcessors, _function_5);
+    ArrayList<UiBinding> _newArrayList = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
+    this.temporaryPendingBindings = _newArrayList;
+    this.pendingBindings.clear();
+    final Procedure1<UiBinding> _function_6 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.install(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_6);
+    boolean _isEmpty = this.pendingBindings.isEmpty();
+    if (_isEmpty) {
+      EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
+      final Procedure1<UiValidatorAssignment> _function_7 = new Procedure1<UiValidatorAssignment>() {
+        public void apply(final UiValidatorAssignment it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_7);
+      this.<Object>pop();
+      this.currentView = null;
+    } else {
+      ArrayList<UiBinding> _newArrayList_1 = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
+      this.temporaryPendingBindings = _newArrayList_1;
+      this.pendingBindings.clear();
+      final Procedure1<UiBinding> _function_8 = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.install(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_8);
+      EList<UiValidatorAssignment> _validatorAssignments_1 = object.getValidatorAssignments();
+      final Procedure1<UiValidatorAssignment> _function_9 = new Procedure1<UiValidatorAssignment>() {
+        public void apply(final UiValidatorAssignment it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments_1, _function_9);
+      this.<Object>pop();
+      this.currentView = null;
+    }
+  }
+  
+  public void doAutowire(final UiLayout embeddable) {
+    YDeviceType _deviceType = this.currentView.getDeviceType();
+    boolean _equals = Objects.equal(_deviceType, YDeviceType.MOBILE);
+    String _i18nKey = this.toI18nKey(embeddable);
+    this.autowireHelper.autowire(embeddable, this, _equals, _i18nKey);
   }
   
   protected void _map(final UiMobileView object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYView cannot be resolved to a type."
-      + "\nThe method or field YDeviceType is undefined for the type UiModelDerivedStateComputerx"
-      + "\ncreateView cannot be resolved"
-      + "\ndeviceType cannot be resolved"
-      + "\nMOBILE cannot be resolved"
-      + "\npush cannot be resolved"
-      + "\ncontent cannot be resolved");
+    final YView yView = this.factory.createView();
+    this.associateUi(object, yView);
+    yView.setDeviceType(YDeviceType.MOBILE);
+    this.views.add(yView);
+    this.currentView = yView;
+    this.push(yView);
+    EList<UiBeanSlot> _beanSlots = object.getBeanSlots();
+    final Procedure1<UiBeanSlot> _function = new Procedure1<UiBeanSlot>() {
+      public void apply(final UiBeanSlot it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBeanSlot>forEach(_beanSlots, _function);
+    UiEmbeddable _content = object.getContent();
+    final YEmbeddable element = this.create(_content);
+    yView.setContent(element);
+    object.getContent();
+    EList<UiBinding> _bindings = object.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = object.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    final Procedure1<UiVisibilityProcessorAssignment> _function_3 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiVisibilityProcessor _processor = it.getProcessor();
+        UiModelDerivedStateComputerx.this.map(_processor);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(this.pendingVisibilityProcessors, _function_3);
+    final Procedure1<UiBinding> _function_4 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.install(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(this.pendingBindings, _function_4);
+    EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
+    final Procedure1<UiValidatorAssignment> _function_5 = new Procedure1<UiValidatorAssignment>() {
+      public void apply(final UiValidatorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_5);
+    this.<Object>pop();
+    this.currentView = null;
   }
   
   public EObject push(final EObject eObject) {
@@ -292,416 +602,1178 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiGridLayout eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYGridLayout cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final YGridLayout yField = this.<YGridLayout>associatedUi(eObject);
+    this.push(yField);
+    EList<UiGridLayoutAssigment> _contents = eObject.getContents();
+    final Procedure1<UiGridLayoutAssigment> _function = new Procedure1<UiGridLayoutAssigment>() {
+      public void apply(final UiGridLayoutAssigment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiGridLayoutAssigment>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    this.<Object>pop();
   }
   
   protected void _map(final UiGridLayoutAssigment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYGridLayout cannot be resolved to a type."
-      + "\naddElement cannot be resolved"
-      + "\naddGridLayoutCellStyle cannot be resolved"
-      + "\nalignment cannot be resolved"
-      + "\npush cannot be resolved");
+    final YGridLayout layout = this.<YGridLayout>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    UiAlignment _alignment = eObject.getAlignment();
+    boolean _notEquals = (!Objects.equal(_alignment, UiAlignment.UNDEFINED));
+    if (_notEquals) {
+      final YGridLayoutCellStyle style = layout.addGridLayoutCellStyle(newField);
+      UiAlignment _alignment_1 = eObject.getAlignment();
+      YAlignment _yAlignment = this.toYAlignment(_alignment_1);
+      style.setAlignment(_yAlignment);
+    }
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
   }
   
   protected void _map(final UiVerticalLayout eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYVerticalLayout cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final YVerticalLayout yField = this.<YVerticalLayout>associatedUi(eObject);
+    this.push(yField);
+    EList<UiVerticalLayoutAssigment> _contents = eObject.getContents();
+    final Procedure1<UiVerticalLayoutAssigment> _function = new Procedure1<UiVerticalLayoutAssigment>() {
+      public void apply(final UiVerticalLayoutAssigment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVerticalLayoutAssigment>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    this.<Object>pop();
   }
   
   protected void _map(final UiVerticalLayoutAssigment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYVerticalLayout cannot be resolved to a type."
-      + "\naddElement cannot be resolved"
-      + "\naddCellStyle cannot be resolved"
-      + "\nalignment cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\npush cannot be resolved");
+    final YVerticalLayout layout = this.<YVerticalLayout>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    UiAlignment _alignment = eObject.getAlignment();
+    boolean _notEquals = (!Objects.equal(_alignment, UiAlignment.UNDEFINED));
+    if (_notEquals) {
+      final YVerticalLayoutCellStyle style = layout.addCellStyle(newField);
+      UiAlignment _alignment_1 = eObject.getAlignment();
+      YAlignment _yAlignment = this.toYAlignment(_alignment_1);
+      style.setAlignment(_yAlignment);
+    }
+    this.map(element);
+    if ((element instanceof UiField)) {
+      boolean _notEquals_1 = (!Objects.equal(newField, null));
+      if (_notEquals_1) {
+        this.push(newField);
+        final UiField yField = ((UiField) element);
+        EList<UiValidator> _validators = yField.getValidators();
+        final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+          public void apply(final UiValidator it) {
+            UiModelDerivedStateComputerx.this.map(it);
+          }
+        };
+        IterableExtensions.<UiValidator>forEach(_validators, _function);
+        this.<Object>pop();
+      }
+    }
   }
   
   protected void _map(final UiHorizontalLayout eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYHorizontalLayout cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final YHorizontalLayout yField = this.<YHorizontalLayout>associatedUi(eObject);
+    this.push(yField);
+    EList<UiHorizontalLayoutAssigment> _contents = eObject.getContents();
+    final Procedure1<UiHorizontalLayoutAssigment> _function = new Procedure1<UiHorizontalLayoutAssigment>() {
+      public void apply(final UiHorizontalLayoutAssigment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiHorizontalLayoutAssigment>forEach(_contents, _function);
+    boolean _isAutowire = eObject.isAutowire();
+    if (_isAutowire) {
+      this.pendingAutowires.add(eObject);
+    }
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    this.<Object>pop();
   }
   
   protected void _map(final UiHorizontalLayoutAssigment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYHorizontalLayout cannot be resolved to a type."
-      + "\naddElement cannot be resolved"
-      + "\naddCellStyle cannot be resolved"
-      + "\nalignment cannot be resolved"
-      + "\npush cannot be resolved");
+    final YHorizontalLayout layout = this.<YHorizontalLayout>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    UiAlignment _alignment = eObject.getAlignment();
+    boolean _notEquals = (!Objects.equal(_alignment, UiAlignment.UNDEFINED));
+    if (_notEquals) {
+      final YHorizontalLayoutCellStyle style = layout.addCellStyle(newField);
+      UiAlignment _alignment_1 = eObject.getAlignment();
+      YAlignment _yAlignment = this.toYAlignment(_alignment_1);
+      style.setAlignment(_yAlignment);
+    }
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
   }
   
   protected void _map(final UiSearchPanel eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYSearchPanel cannot be resolved to a type."
-      + "\npush cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\naddElement cannot be resolved"
-      + "\npush cannot be resolved");
+    final YSearchPanel yPanel = this.<YSearchPanel>associatedUi(eObject);
+    this.push(yPanel);
+    EList<UiSearchField> _contents = eObject.getContents();
+    final Procedure1<UiSearchField> _function = new Procedure1<UiSearchField>() {
+      public void apply(final UiSearchField it) {
+        final YEmbeddable newField = UiModelDerivedStateComputerx.this.create(it);
+        boolean _equals = Objects.equal(newField, null);
+        if (_equals) {
+          return;
+        }
+        yPanel.addElement(newField);
+        UiModelDerivedStateComputerx.this.map(it);
+        UiModelDerivedStateComputerx.this.push(newField);
+        final UiField yField = ((UiField) it);
+        EList<UiValidator> _validators = yField.getValidators();
+        final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+          public void apply(final UiValidator it) {
+            UiModelDerivedStateComputerx.this.map(it);
+          }
+        };
+        IterableExtensions.<UiValidator>forEach(_validators, _function);
+        UiModelDerivedStateComputerx.this.<Object>pop();
+      }
+    };
+    IterableExtensions.<UiSearchField>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    this.<Object>pop();
   }
   
   protected void _map(final UiSplitpanel eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYSplitPanel cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final YSplitPanel yField = this.<YSplitPanel>associatedUi(eObject);
+    this.push(yField);
+    UiSplitpanelAssigment _firstContent = eObject.getFirstContent();
+    this.map(_firstContent);
+    UiSplitpanelAssigment _secondContent = eObject.getSecondContent();
+    this.map(_secondContent);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function);
+    this.<Object>pop();
   }
   
   protected void _map(final UiSplitpanelAssigment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYSplitPanel cannot be resolved to a type."
-      + "\n== cannot be resolved"
-      + "\naddElement cannot be resolved"
-      + "\npush cannot be resolved");
+    final YSplitPanel layout = this.<YSplitPanel>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    boolean _equals = Objects.equal(newField, null);
+    if (_equals) {
+      return;
+    }
+    layout.addElement(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
   }
   
   protected void _map(final UiPanel eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYPanel cannot be resolved to a type."
-      + "\npush cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nelements cannot be resolved"
-      + "\n+= cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\npush cannot be resolved");
+    final YPanel yPanel = this.<YPanel>associatedUi(eObject);
+    this.push(yPanel);
+    final UiEmbeddable element = eObject.getContent();
+    final YEmbeddable newField = this.create(element);
+    boolean _equals = Objects.equal(newField, null);
+    if (_equals) {
+      return;
+    }
+    EList<YEmbeddable> _elements = yPanel.getElements();
+    _elements.add(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      boolean _notEquals = (!Objects.equal(newField, null));
+      if (_notEquals) {
+        this.push(newField);
+        final UiField yField = ((UiField) element);
+        EList<UiValidator> _validators = yField.getValidators();
+        final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+          public void apply(final UiValidator it) {
+            UiModelDerivedStateComputerx.this.map(it);
+          }
+        };
+        IterableExtensions.<UiValidator>forEach(_validators, _function);
+        this.<Object>pop();
+      }
+    }
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments_1 = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_3 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments_1, _function_3);
+    this.<Object>pop();
   }
   
   protected void _map(final UiTabSheet eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYTabSheet cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final YTabSheet yField = this.<YTabSheet>associatedUi(eObject);
+    this.push(yField);
+    EList<UiTabAssignment> _tabs = eObject.getTabs();
+    final Procedure1<UiTabAssignment> _function = new Procedure1<UiTabAssignment>() {
+      public void apply(final UiTabAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiTabAssignment>forEach(_tabs, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    this.<Object>pop();
   }
   
   protected void _map(final UiTabAssignment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYTabSheet cannot be resolved to a type."
-      + "\nYTab cannot be resolved to a type."
-      + "\ncreateTab cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ntabs cannot be resolved"
-      + "\n+= cannot be resolved"
-      + "\npush cannot be resolved"
-      + "\nembeddable cannot be resolved"
-      + "\npush cannot be resolved");
+    final YTabSheet layout = this.<YTabSheet>peek();
+    final YTab tab = this.factory.createTab();
+    String _name = eObject.getName();
+    tab.setLabel(_name);
+    String _i18nKey = this.toI18nKey(eObject);
+    tab.setLabelI18nKey(_i18nKey);
+    EList<YTab> _tabs = layout.getTabs();
+    _tabs.add(tab);
+    this.push(tab);
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    tab.setEmbeddable(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
+    this.<Object>pop();
   }
   
   protected void _map(final UiMobileTabSheet eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nVMTabSheet cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final VMTabSheet yField = this.<VMTabSheet>associatedUi(eObject);
+    this.push(yField);
+    EList<UiMobileTabAssignment> _tabs = eObject.getTabs();
+    final Procedure1<UiMobileTabAssignment> _function = new Procedure1<UiMobileTabAssignment>() {
+      public void apply(final UiMobileTabAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiMobileTabAssignment>forEach(_tabs, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    this.<Object>pop();
   }
   
   protected void _map(final UiMobileTabAssignment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nVMTabSheet cannot be resolved to a type."
-      + "\nVMTab cannot be resolved to a type."
-      + "\nThe method or field VaadinMobileFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateVMTab cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\ntabs cannot be resolved"
-      + "\n+= cannot be resolved"
-      + "\npush cannot be resolved"
-      + "\nembeddable cannot be resolved"
-      + "\npush cannot be resolved");
+    final VMTabSheet layout = this.<VMTabSheet>peek();
+    final VMTab tab = VaadinMobileFactory.eINSTANCE.createVMTab();
+    String _name = eObject.getName();
+    tab.setLabel(_name);
+    EList<VMTab> _tabs = layout.getTabs();
+    _tabs.add(tab);
+    this.push(tab);
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    tab.setEmbeddable(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_1 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_1);
+    this.<Object>pop();
   }
   
   protected void _map(final UiHorizontalButtonGroup eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nVMHorizontalButtonGroup cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final VMHorizontalButtonGroup yField = this.<VMHorizontalButtonGroup>associatedUi(eObject);
+    this.push(yField);
+    EList<UiHorizontalButtonGroupAssigment> _contents = eObject.getContents();
+    final Procedure1<UiHorizontalButtonGroupAssigment> _function = new Procedure1<UiHorizontalButtonGroupAssigment>() {
+      public void apply(final UiHorizontalButtonGroupAssigment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiHorizontalButtonGroupAssigment>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    this.<Object>pop();
   }
   
   protected void _map(final UiHorizontalButtonGroupAssigment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nVMHorizontalButtonGroup cannot be resolved to a type."
-      + "\naddElement cannot be resolved"
-      + "\npush cannot be resolved");
+    final VMHorizontalButtonGroup layout = this.<VMHorizontalButtonGroup>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
   }
   
   protected void _map(final UiVerticalComponentGroup eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nVMVerticalComponentGroup cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final VMVerticalComponentGroup yField = this.<VMVerticalComponentGroup>associatedUi(eObject);
+    this.push(yField);
+    EList<UiVerticalComponentGroupAssigment> _contents = eObject.getContents();
+    final Procedure1<UiVerticalComponentGroupAssigment> _function = new Procedure1<UiVerticalComponentGroupAssigment>() {
+      public void apply(final UiVerticalComponentGroupAssigment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVerticalComponentGroupAssigment>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    this.<Object>pop();
   }
   
   protected void _map(final UiVerticalComponentGroupAssigment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nVMVerticalComponentGroup cannot be resolved to a type."
-      + "\naddElement cannot be resolved"
-      + "\npush cannot be resolved");
+    final VMVerticalComponentGroup layout = this.<VMVerticalComponentGroup>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
   }
   
   protected void _map(final UiMobileNavigationPage eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nVMNavigationPage cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final VMNavigationPage yField = this.<VMNavigationPage>associatedUi(eObject);
+    this.push(yField);
+    EList<UiMobileNavigationPageAssignment> _contents = eObject.getContents();
+    final Procedure1<UiMobileNavigationPageAssignment> _function = new Procedure1<UiMobileNavigationPageAssignment>() {
+      public void apply(final UiMobileNavigationPageAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiMobileNavigationPageAssignment>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    boolean _notEquals = (!Objects.equal(_bindings, null));
+    if (_notEquals) {
+      EList<UiBinding> _bindings_1 = eObject.getBindings();
+      final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(_bindings_1, _function_1);
+    }
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    this.<Object>pop();
   }
   
   protected void _map(final UiDialog eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYDialog cannot be resolved to a type."
-      + "\nThe method or field CoreModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYDialog cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ntypeQualifiedName cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\ndialogs cannot be resolved"
-      + "\n+= cannot be resolved"
-      + "\npush cannot be resolved");
+    final YDialog layout = CoreModelFactory.eINSTANCE.createYDialog();
+    String _name = eObject.getName();
+    layout.setName(_name);
+    String _name_1 = eObject.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(eObject);
+    layout.setLabelI18nKey(_i18nKey);
+    JvmTypeReference _jvmType = eObject.getJvmType();
+    boolean _notEquals = (!Objects.equal(_jvmType, null));
+    if (_notEquals) {
+      JvmTypeReference _jvmType_1 = eObject.getJvmType();
+      String _qualifiedName = _jvmType_1.getQualifiedName();
+      layout.setTypeQualifiedName(_qualifiedName);
+      Resource _eResource = eObject.eResource();
+      ResourceSet _resourceSet = _eResource.getResourceSet();
+      JvmTypeReference _jvmType_2 = eObject.getJvmType();
+      String _qualifiedName_1 = _jvmType_2.getQualifiedName();
+      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+      layout.setType(_loadClass);
+    }
+    EList<YDialog> _dialogs = this.currentView.getDialogs();
+    _dialogs.add(layout);
+    this.associateUi(eObject, layout);
+    this.push(layout);
+    UiDialogAssignment _content = eObject.getContent();
+    if (_content!=null) {
+      this.map(_content);
+    }
+    EList<UiBinding> _bindings = eObject.getBindings();
+    boolean _notEquals_1 = (!Objects.equal(_bindings, null));
+    if (_notEquals_1) {
+      EList<UiBinding> _bindings_1 = eObject.getBindings();
+      final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(_bindings_1, _function);
+    }
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_1 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments_1 = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments_1, _function_2);
+    this.<Object>pop();
   }
   
   protected void _map(final UiSearchDialog eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYDialog cannot be resolved to a type."
-      + "\nYOpenDialogCommand cannot be resolved to a type."
-      + "\nYVerticalLayout cannot be resolved to a type."
-      + "\nYGridLayout cannot be resolved to a type."
-      + "\nThe method or field CoreModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field ExtensionModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field ExtensionModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYDialog cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\ndialog cannot be resolved"
-      + "\ntypeQualifiedName cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\ndialogs cannot be resolved"
-      + "\n+= cannot be resolved"
-      + "\npush cannot be resolved"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYVerticalLayout cannot be resolved"
-      + "\ncontent cannot be resolved"
-      + "\npush cannot be resolved"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYGridLayout cannot be resolved"
-      + "\nelements cannot be resolved"
-      + "\n+= cannot be resolved"
-      + "\npush cannot be resolved");
+    final YDialog dialog = CoreModelFactory.eINSTANCE.createYDialog();
+    String _name = eObject.getName();
+    dialog.setName(_name);
+    String _name_1 = eObject.getName();
+    dialog.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(eObject);
+    dialog.setLabelI18nKey(_i18nKey);
+    final YOpenDialogCommand command = this.<YOpenDialogCommand>peek();
+    boolean _notEquals = (!Objects.equal(command, null));
+    if (_notEquals) {
+      command.setDialog(dialog);
+    }
+    JvmTypeReference _jvmType = eObject.getJvmType();
+    boolean _notEquals_1 = (!Objects.equal(_jvmType, null));
+    if (_notEquals_1) {
+      JvmTypeReference _jvmType_1 = eObject.getJvmType();
+      String _qualifiedName = _jvmType_1.getQualifiedName();
+      dialog.setTypeQualifiedName(_qualifiedName);
+      Resource _eResource = eObject.eResource();
+      ResourceSet _resourceSet = _eResource.getResourceSet();
+      JvmTypeReference _jvmType_2 = eObject.getJvmType();
+      String _qualifiedName_1 = _jvmType_2.getQualifiedName();
+      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+      dialog.setType(_loadClass);
+    }
+    this.associateUi(eObject, dialog);
+    EList<YDialog> _dialogs = this.currentView.getDialogs();
+    _dialogs.add(dialog);
+    this.push(dialog);
+    final YVerticalLayout content = ExtensionModelFactory.eINSTANCE.createYVerticalLayout();
+    dialog.setContent(content);
+    this.push(content);
+    final YGridLayout searchFieldLayout = ExtensionModelFactory.eINSTANCE.createYGridLayout();
+    EList<YEmbeddable> _elements = content.getElements();
+    _elements.add(searchFieldLayout);
+    this.push(searchFieldLayout);
+    EList<UiDialogSearchFieldAssignment> _searchFields = eObject.getSearchFields();
+    final Procedure1<UiDialogSearchFieldAssignment> _function = new Procedure1<UiDialogSearchFieldAssignment>() {
+      public void apply(final UiDialogSearchFieldAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiDialogSearchFieldAssignment>forEach(_searchFields, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    this.<Object>pop();
+    UiDialogAssignment _content = eObject.getContent();
+    if (_content!=null) {
+      this.map(_content);
+    }
+    this.<Object>pop();
+    EList<UiBinding> _bindings_1 = eObject.getBindings();
+    boolean _notEquals_2 = (!Objects.equal(_bindings_1, null));
+    if (_notEquals_2) {
+      EList<UiBinding> _bindings_2 = eObject.getBindings();
+      final Procedure1<UiBinding> _function_2 = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(_bindings_2, _function_2);
+    }
+    this.<Object>pop();
   }
   
   protected void _map(final UiDialogAssignment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYDialog cannot be resolved to a type."
-      + "\ncontent cannot be resolved"
-      + "\npush cannot be resolved");
+    final YDialog yDialog = this.<YDialog>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    yDialog.setContent(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
   }
   
   protected void _map(final UiSearchField eObject) {
   }
   
   protected void _map(final UiDialogSearchFieldAssignment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYLayout cannot be resolved to a type."
-      + "\nYField cannot be resolved to a type."
-      + "\nThe method or field ExtensionModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field ExtensionModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field ExtensionModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYTextSearchField cannot be resolved"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYNumericSearchField cannot be resolved"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYBooleanSearchField cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nelements cannot be resolved"
-      + "\n+= cannot be resolved");
+    final YLayout layout = this.<YLayout>peek();
+    final UiSearchField element = eObject.getElement();
+    final UiNestedProperty property = element.getProperty();
+    boolean _notEquals = (!Objects.equal(property, null));
+    if (_notEquals) {
+      final JvmType type = property.getTypeofLastSegment();
+      YField newField = null;
+      boolean _isString = this.typeHelper.isString(type);
+      if (_isString) {
+        YTextSearchField _createYTextSearchField = ExtensionModelFactory.eINSTANCE.createYTextSearchField();
+        newField = _createYTextSearchField;
+      } else {
+        boolean _isNumber = this.typeHelper.isNumber(type);
+        if (_isNumber) {
+          YNumericSearchField _createYNumericSearchField = ExtensionModelFactory.eINSTANCE.createYNumericSearchField();
+          newField = _createYNumericSearchField;
+        } else {
+          boolean _isBoolean = this.typeHelper.isBoolean(type);
+          if (_isBoolean) {
+            YBooleanSearchField _createYBooleanSearchField = ExtensionModelFactory.eINSTANCE.createYBooleanSearchField();
+            newField = _createYBooleanSearchField;
+          }
+        }
+      }
+      boolean _notEquals_1 = (!Objects.equal(newField, null));
+      if (_notEquals_1) {
+        EList<YEmbeddable> _elements = layout.getElements();
+        _elements.add(newField);
+      }
+    }
   }
   
   public void createTransient(final UiMobileNavigationPage eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nVMNavigationPage cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final VMNavigationPage yField = this.<VMNavigationPage>associatedUi(eObject);
+    this.push(yField);
+    EList<UiMobileNavigationPageAssignment> _contents = eObject.getContents();
+    final Procedure1<UiMobileNavigationPageAssignment> _function = new Procedure1<UiMobileNavigationPageAssignment>() {
+      public void apply(final UiMobileNavigationPageAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiMobileNavigationPageAssignment>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    this.<Object>pop();
   }
   
   protected void _map(final UiMobileNavigationPageAssignment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nVMNavigationPage cannot be resolved to a type."
-      + "\naddElement cannot be resolved"
-      + "\npush cannot be resolved");
+    final VMNavigationPage layout = this.<VMNavigationPage>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
   }
   
   protected void _map(final UiFormLayout eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYFormLayout cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final YFormLayout yField = this.<YFormLayout>associatedUi(eObject);
+    this.push(yField);
+    EList<UiFormLayoutAssigment> _contents = eObject.getContents();
+    final Procedure1<UiFormLayoutAssigment> _function = new Procedure1<UiFormLayoutAssigment>() {
+      public void apply(final UiFormLayoutAssigment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiFormLayoutAssigment>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    this.<Object>pop();
   }
   
   protected void _map(final UiFormLayoutAssigment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYFormLayout cannot be resolved to a type."
-      + "\n== cannot be resolved"
-      + "\naddElement cannot be resolved"
-      + "\npush cannot be resolved");
+    final YFormLayout layout = this.<YFormLayout>peek();
+    final UiEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    boolean _equals = Objects.equal(newField, null);
+    if (_equals) {
+      return;
+    }
+    layout.addElement(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      this.push(newField);
+      final UiField yField = ((UiField) element);
+      EList<UiValidator> _validators = yField.getValidators();
+      final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+        public void apply(final UiValidator it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiValidator>forEach(_validators, _function);
+      this.<Object>pop();
+    }
   }
   
   protected void _map(final UiOptionsGroup eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYField cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final YField yOptionsGroup = this.<YField>associatedUi(eObject);
+    this.push(yOptionsGroup);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function);
+    EList<UiBinding> _bindings_1 = eObject.getBindings();
+    boolean _notEquals = (!Objects.equal(_bindings_1, null));
+    if (_notEquals) {
+      EList<UiBinding> _bindings_2 = eObject.getBindings();
+      final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(_bindings_2, _function_1);
+    }
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    this.<Object>pop();
   }
   
   protected void _map(final UiList eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYField cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final YField yList = this.<YField>associatedUi(eObject);
+    this.push(yList);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function);
+    EList<UiBinding> _bindings_1 = eObject.getBindings();
+    boolean _notEquals = (!Objects.equal(_bindings_1, null));
+    if (_notEquals) {
+      EList<UiBinding> _bindings_2 = eObject.getBindings();
+      final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(_bindings_2, _function_1);
+    }
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    this.<Object>pop();
   }
   
   protected void _map(final UiTable eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYTable cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final YTable yField = this.<YTable>associatedUi(eObject);
+    this.push(yField);
+    UiColumnsAssignment _columnAssignment = eObject.getColumnAssignment();
+    boolean _notEquals = (!Objects.equal(_columnAssignment, null));
+    if (_notEquals) {
+      UiColumnsAssignment _columnAssignment_1 = eObject.getColumnAssignment();
+      EList<UiColumn> _columns = _columnAssignment_1.getColumns();
+      final Procedure1<UiColumn> _function = new Procedure1<UiColumn>() {
+        public void apply(final UiColumn it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiColumn>forEach(_columns, _function);
+    }
+    EList<UiBinding> _bindings = eObject.getBindings();
+    boolean _notEquals_1 = (!Objects.equal(_bindings, null));
+    if (_notEquals_1) {
+      EList<UiBinding> _bindings_1 = eObject.getBindings();
+      final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(_bindings_1, _function_1);
+    }
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    this.<Object>pop();
   }
   
   protected void _map(final UiImage eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYImage cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final YImage yField = this.<YImage>associatedUi(eObject);
+    this.push(yField);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    boolean _notEquals = (!Objects.equal(_bindings, null));
+    if (_notEquals) {
+      EList<UiBinding> _bindings_1 = eObject.getBindings();
+      final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(_bindings_1, _function);
+    }
+    this.<Object>pop();
   }
   
   protected void _map(final UiComboBox eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYField cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final YField yField = this.<YField>associatedUi(eObject);
+    this.push(yField);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    boolean _notEquals = (!Objects.equal(_bindings, null));
+    if (_notEquals) {
+      EList<UiBinding> _bindings_1 = eObject.getBindings();
+      final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
+        public void apply(final UiBinding it) {
+          UiModelDerivedStateComputerx.this.map(it);
+        }
+      };
+      IterableExtensions.<UiBinding>forEach(_bindings_1, _function);
+    }
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_1 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_1);
+    this.<Object>pop();
   }
   
   protected void _map(final UiButton object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYButton cannot be resolved to a type.");
+    final YButton yField = this.<YButton>associatedUi(object);
+    EList<UiBinding> _bindings = object.getBindings();
+    final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = object.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_1 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_1);
   }
   
   protected void _map(final UiMobileNavigationButton object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nVMNavigationButton cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    final VMNavigationButton button = this.<VMNavigationButton>associatedUi(object);
+    this.push(button);
+    UiMobileNavigationPage _targetPage = object.getTargetPage();
+    boolean _notEquals = (!Objects.equal(_targetPage, null));
+    if (_notEquals) {
+      UiMobileNavigationPage _targetPage_1 = object.getTargetPage();
+      this.map(_targetPage_1);
+    } else {
+      UiMobileNavigationPage _targetPageAlias = object.getTargetPageAlias();
+      boolean _notEquals_1 = (!Objects.equal(_targetPageAlias, null));
+      if (_notEquals_1) {
+        UiMobileNavigationPage _targetPageAlias_1 = object.getTargetPageAlias();
+        this.map(_targetPageAlias_1);
+      }
+    }
+    EList<UiBinding> _bindings = object.getBindings();
+    final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = object.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_1 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_1);
+    this.<Object>pop();
   }
   
   protected void _map(final UiColumn eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYTable cannot be resolved to a type."
-      + "\nYColumn cannot be resolved to a type."
-      + "\ncreateColumn cannot be resolved"
-      + "\nalignment cannot be resolved"
-      + "\ncollapsed cannot be resolved"
-      + "\ncollapsible cannot be resolved"
-      + "\nexpandRatio cannot be resolved"
-      + "\nicon cannot be resolved"
-      + "\npropertyPath cannot be resolved"
-      + "\norderable cannot be resolved"
-      + "\nvisible cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ncolumns cannot be resolved"
-      + "\n+= cannot be resolved");
+    final YTable yField = this.<YTable>peek();
+    final YColumn yColumn = this.factory.createColumn();
+    UiFlatAlignment _alignment = eObject.getAlignment();
+    YFlatAlignment _yFlatAlignment = this.toYFlatAlignment(_alignment);
+    yColumn.setAlignment(_yFlatAlignment);
+    boolean _isCollapsed = eObject.isCollapsed();
+    yColumn.setCollapsed(_isCollapsed);
+    boolean _isCollapsible = eObject.isCollapsible();
+    yColumn.setCollapsible(_isCollapsible);
+    float _expandRatio = eObject.getExpandRatio();
+    yColumn.setExpandRatio(_expandRatio);
+    String _iconName = eObject.getIconName();
+    yColumn.setIcon(_iconName);
+    final UiNestedProperty property = eObject.getProperty();
+    boolean _notEquals = (!Objects.equal(property, null));
+    if (_notEquals) {
+      String _pathString = property.toPathString();
+      yColumn.setPropertyPath(_pathString);
+    }
+    boolean _isOrderable = eObject.isOrderable();
+    yColumn.setOrderable(_isOrderable);
+    boolean _isVisible = eObject.isVisible();
+    yColumn.setVisible(_isVisible);
+    String _i18nKey = this.toI18nKey(eObject);
+    yColumn.setLabelI18nKey(_i18nKey);
+    EList<YColumn> _columns = yField.getColumns();
+    _columns.add(yColumn);
   }
   
-  public /* YDateTimeFormat */Object toYDateTimeFormat(final UiDateFormat format) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field YDateTimeFormat is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YDateTimeFormat is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YDateTimeFormat is undefined for the type UiModelDerivedStateComputerx"
-      + "\nDATE cannot be resolved"
-      + "\nDATE_TIME cannot be resolved"
-      + "\nTIME cannot be resolved");
+  public YDateTimeFormat toYDateTimeFormat(final UiDateFormat format) {
+    if (format != null) {
+      switch (format) {
+        case DATE:
+          return YDateTimeFormat.DATE;
+        case DATE_TIME:
+          return YDateTimeFormat.DATE_TIME;
+        case TIME:
+          return YDateTimeFormat.TIME;
+        default:
+          break;
+      }
+    }
+    return null;
   }
   
-  public /* YDateTimeResolution */Object toYDateTimeResolution(final UiDateTimeResolution value) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field YDateTimeResolution is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YDateTimeResolution is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YDateTimeResolution is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YDateTimeResolution is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YDateTimeResolution is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YDateTimeResolution is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YDateTimeResolution is undefined for the type UiModelDerivedStateComputerx"
-      + "\nSECOND cannot be resolved"
-      + "\nMINUTE cannot be resolved"
-      + "\nHOUR cannot be resolved"
-      + "\nDAY cannot be resolved"
-      + "\nMONTH cannot be resolved"
-      + "\nYEAR cannot be resolved"
-      + "\nUNDEFINED cannot be resolved");
+  public YDateTimeResolution toYDateTimeResolution(final UiDateTimeResolution value) {
+    if (value != null) {
+      switch (value) {
+        case SECOND:
+          return YDateTimeResolution.SECOND;
+        case MINUTE:
+          return YDateTimeResolution.MINUTE;
+        case HOUR:
+          return YDateTimeResolution.HOUR;
+        case DAY:
+          return YDateTimeResolution.DAY;
+        case MONTH:
+          return YDateTimeResolution.MONTH;
+        case YEAR:
+          return YDateTimeResolution.YEAR;
+        case UNDEFINED:
+          return YDateTimeResolution.UNDEFINED;
+        default:
+          break;
+      }
+    }
+    return null;
   }
   
-  public /* YFlatAlignment */Object toYFlatAlignment(final UiFlatAlignment uiAlign) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field YFlatAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YFlatAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YFlatAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nLEFT cannot be resolved"
-      + "\nCENTER cannot be resolved"
-      + "\nRIGHT cannot be resolved");
+  public YFlatAlignment toYFlatAlignment(final UiFlatAlignment uiAlign) {
+    if (uiAlign != null) {
+      switch (uiAlign) {
+        case LEFT:
+          return YFlatAlignment.LEFT;
+        case CENTER:
+          return YFlatAlignment.CENTER;
+        case RIGHT:
+          return YFlatAlignment.RIGHT;
+        default:
+          break;
+      }
+    }
+    return null;
   }
   
-  public /* YAlignment */Object toYAlignment(final UiAlignment uiAlign) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YAlignment is undefined for the type UiModelDerivedStateComputerx"
-      + "\nBOTTOM_CENTER cannot be resolved"
-      + "\nBOTTOM_FILL cannot be resolved"
-      + "\nBOTTOM_LEFT cannot be resolved"
-      + "\nBOTTOM_RIGHT cannot be resolved"
-      + "\nFILL_CENTER cannot be resolved"
-      + "\nFILL_FILL cannot be resolved"
-      + "\nFILL_LEFT cannot be resolved"
-      + "\nFILL_RIGHT cannot be resolved"
-      + "\nMIDDLE_CENTER cannot be resolved"
-      + "\nMIDDLE_FILL cannot be resolved"
-      + "\nMIDDLE_LEFT cannot be resolved"
-      + "\nMIDDLE_RIGHT cannot be resolved"
-      + "\nTOP_CENTER cannot be resolved"
-      + "\nTOP_FILL cannot be resolved"
-      + "\nTOP_LEFT cannot be resolved"
-      + "\nTOP_RIGHT cannot be resolved"
-      + "\nUNDEFINED cannot be resolved");
+  public YAlignment toYAlignment(final UiAlignment uiAlign) {
+    if (uiAlign != null) {
+      switch (uiAlign) {
+        case BOTTOM_CENTER:
+          return YAlignment.BOTTOM_CENTER;
+        case BOTTOM_FILL:
+          return YAlignment.BOTTOM_FILL;
+        case BOTTOM_LEFT:
+          return YAlignment.BOTTOM_LEFT;
+        case BOTTOM_RIGHT:
+          return YAlignment.BOTTOM_RIGHT;
+        case FILL_CENTER:
+          return YAlignment.FILL_CENTER;
+        case FILL_FILL:
+          return YAlignment.FILL_FILL;
+        case FILL_LEFT:
+          return YAlignment.FILL_LEFT;
+        case FILL_RIGHT:
+          return YAlignment.FILL_RIGHT;
+        case MIDDLE_CENTER:
+          return YAlignment.MIDDLE_CENTER;
+        case MIDDLE_FILL:
+          return YAlignment.MIDDLE_FILL;
+        case MIDDLE_LEFT:
+          return YAlignment.MIDDLE_LEFT;
+        case MIDDLE_RIGHT:
+          return YAlignment.MIDDLE_RIGHT;
+        case TOP_CENTER:
+          return YAlignment.TOP_CENTER;
+        case TOP_FILL:
+          return YAlignment.TOP_FILL;
+        case TOP_LEFT:
+          return YAlignment.TOP_LEFT;
+        case TOP_RIGHT:
+          return YAlignment.TOP_RIGHT;
+        case UNDEFINED:
+          return YAlignment.UNDEFINED;
+        default:
+          break;
+      }
+    }
+    return null;
   }
   
   protected void _map(final UiValidatorAssignment eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYField cannot be resolved to a type."
-      + "\npush cannot be resolved");
+    UiField _field = eObject.getField();
+    final YField yField = this.<YField>associatedUi(_field);
+    this.push(yField);
+    UiValidatorAlias _validatorAlias = eObject.getValidatorAlias();
+    boolean _notEquals = (!Objects.equal(_validatorAlias, null));
+    if (_notEquals) {
+      UiValidatorAlias _validatorAlias_1 = eObject.getValidatorAlias();
+      this.map(_validatorAlias_1);
+    } else {
+      UiValidatorDef _validatorDef = eObject.getValidatorDef();
+      boolean _notEquals_1 = (!Objects.equal(_validatorDef, null));
+      if (_notEquals_1) {
+        UiValidatorDef _validatorDef_1 = eObject.getValidatorDef();
+        this.map(_validatorDef_1);
+      }
+    }
+    this.<Object>pop();
   }
   
   protected void _map(final UiExposedAction object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYExposedAction cannot be resolved to a type."
-      + "\nThe method or field CoreModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYExposedAction cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\nicon cannot be resolved"
-      + "\nexposedActions cannot be resolved"
-      + "\n+= cannot be resolved");
+    final YExposedAction yAction = CoreModelFactory.eINSTANCE.createYExposedAction();
+    UxAction _actionReference = object.getActionReference();
+    boolean _notEquals = (!Objects.equal(_actionReference, null));
+    if (_notEquals) {
+      UxAction _actionReference_1 = object.getActionReference();
+      String _name = _actionReference_1.getName();
+      yAction.setId(_name);
+    } else {
+      String _actionID = object.getActionID();
+      yAction.setId(_actionID);
+    }
+    String _name_1 = object.getName();
+    yAction.setName(_name_1);
+    String _name_2 = object.getName();
+    yAction.setLabel(_name_2);
+    String _i18nKey = this.toI18nKey(object);
+    yAction.setLabelI18nKey(_i18nKey);
+    String _iconName = object.getIconName();
+    yAction.setIcon(_iconName);
+    this.associateUi(object, yAction);
+    EList<YExposedAction> _exposedActions = this.currentView.getExposedActions();
+    _exposedActions.add(yAction);
   }
   
   protected void _map(final UiValidatorDef eObject) {
@@ -722,626 +1794,1166 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiVisibilityProcessor eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYVisibilityProcessor cannot be resolved to a type."
-      + "\nYValueBindingEndpoint cannot be resolved to a type."
-      + "\nYVisibilityProcessorValueBindingEndpoint cannot be resolved to a type."
-      + "\nYValueBinding cannot be resolved to a type."
-      + "\nYValueBindingEndpoint cannot be resolved to a type."
-      + "\nYVisibilityProcessorValueBindingEndpoint cannot be resolved to a type."
-      + "\nYValueBinding cannot be resolved to a type."
-      + "\nThe method or field VisibilityFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field BindingFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field BindingFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YBindingUpdateStrategy is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YBindingUpdateStrategy is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field BindingFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field BindingFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YBindingUpdateStrategy is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YBindingUpdateStrategy is undefined for the type UiModelDerivedStateComputerx"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYVisibilityProcessor cannot be resolved"
-      + "\ndelegate cannot be resolved"
-      + "\ndelegateQualifiedName cannot be resolved"
-      + "\nvisibilityProcessors cannot be resolved"
-      + "\n+= cannot be resolved"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYVisibilityProcessorValueBindingEndpoint cannot be resolved"
-      + "\nproperty cannot be resolved"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYValueBinding cannot be resolved"
-      + "\nsetTargetEndpoint cannot be resolved"
-      + "\nsetModelEndpoint cannot be resolved"
-      + "\nsetModelToTargetStrategy cannot be resolved"
-      + "\nUPDATE cannot be resolved"
-      + "\nsetTargetToModelStrategy cannot be resolved"
-      + "\nNEVER cannot be resolved"
-      + "\ntriggersOn cannot be resolved"
-      + "\n+= cannot be resolved"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYVisibilityProcessorValueBindingEndpoint cannot be resolved"
-      + "\nproperty cannot be resolved"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYValueBinding cannot be resolved"
-      + "\nsetTargetEndpoint cannot be resolved"
-      + "\nsetModelEndpoint cannot be resolved"
-      + "\nsetModelToTargetStrategy cannot be resolved"
-      + "\nUPDATE cannot be resolved"
-      + "\nsetTargetToModelStrategy cannot be resolved"
-      + "\nNEVER cannot be resolved"
-      + "\ndataUsed cannot be resolved"
-      + "\n+= cannot be resolved");
+    final YVisibilityProcessor yProcessor = VisibilityFactory.eINSTANCE.createYVisibilityProcessor();
+    Resource _eResource = eObject.eResource();
+    ResourceSet _resourceSet = _eResource.getResourceSet();
+    QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(eObject);
+    String _string = _fullyQualifiedName.toString();
+    Class<?> _loadClass = this.loadClass(_resourceSet, _string);
+    yProcessor.setDelegate(_loadClass);
+    QualifiedName _fullyQualifiedName_1 = this._iQualifiedNameProvider.getFullyQualifiedName(eObject);
+    String _string_1 = _fullyQualifiedName_1.toString();
+    yProcessor.setDelegateQualifiedName(_string_1);
+    EList<YVisibilityProcessor> _visibilityProcessors = this.currentView.getVisibilityProcessors();
+    _visibilityProcessors.add(yProcessor);
+    EList<UiChangeTrigger> _changeTriggers = eObject.getChangeTriggers();
+    for (final UiChangeTrigger trigger : _changeTriggers) {
+      {
+        UiBindingExpression _endpoint = trigger.getEndpoint();
+        final YValueBindingEndpoint sourceEP = this.createValueBindingEndpoint(((UiBindingEndpointAssignment) _endpoint));
+        final YVisibilityProcessorValueBindingEndpoint targetEP = BindingFactory.eINSTANCE.createYVisibilityProcessorValueBindingEndpoint();
+        String _alias = trigger.getAlias();
+        targetEP.setProperty(_alias);
+        final YValueBinding binding = BindingFactory.eINSTANCE.createYValueBinding();
+        binding.setTargetEndpoint(targetEP);
+        binding.setModelEndpoint(sourceEP);
+        binding.setModelToTargetStrategy(YBindingUpdateStrategy.UPDATE);
+        binding.setTargetToModelStrategy(YBindingUpdateStrategy.NEVER);
+        EList<YBinding> _triggersOn = yProcessor.getTriggersOn();
+        _triggersOn.add(binding);
+      }
+    }
+    EList<UiBindingEndpointAlias> _dataUsed = eObject.getDataUsed();
+    for (final UiBindingEndpointAlias dataUsed : _dataUsed) {
+      {
+        UiBindingExpression _endpoint = dataUsed.getEndpoint();
+        final YValueBindingEndpoint sourceEP = this.createValueBindingEndpoint(((UiBindingEndpointAssignment) _endpoint));
+        final YVisibilityProcessorValueBindingEndpoint targetEP = BindingFactory.eINSTANCE.createYVisibilityProcessorValueBindingEndpoint();
+        String _alias = dataUsed.getAlias();
+        targetEP.setProperty(_alias);
+        final YValueBinding binding = BindingFactory.eINSTANCE.createYValueBinding();
+        binding.setTargetEndpoint(targetEP);
+        binding.setModelEndpoint(sourceEP);
+        binding.setModelToTargetStrategy(YBindingUpdateStrategy.UPDATE);
+        binding.setTargetToModelStrategy(YBindingUpdateStrategy.NEVER);
+        EList<YBinding> _dataUsed_1 = yProcessor.getDataUsed();
+        _dataUsed_1.add(binding);
+      }
+    }
   }
   
   protected void _map(final UiMaxLengthValidator eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYMaxLengthValidator cannot be resolved to a type."
-      + "\nYField cannot be resolved to a type."
-      + "\ncreateMaxLengthValidator cannot be resolved"
-      + "\nmaxLength cannot be resolved"
-      + "\nerrorCode cannot be resolved"
-      + "\ndefaultErrorMessage cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nvalidators cannot be resolved"
-      + "\n+= cannot be resolved");
+    final YMaxLengthValidator newValidator = this.factory.createMaxLengthValidator();
+    int _maxLength = eObject.getMaxLength();
+    newValidator.setMaxLength(_maxLength);
+    UiErrorCode _errorCode = eObject.getErrorCode();
+    QualifiedName _fullyQualifiedName = null;
+    if (_errorCode!=null) {
+      _fullyQualifiedName=this._iQualifiedNameProvider.getFullyQualifiedName(_errorCode);
+    }
+    String _string = null;
+    if (_fullyQualifiedName!=null) {
+      _string=_fullyQualifiedName.toString();
+    }
+    newValidator.setErrorCode(_string);
+    UiErrorCode _errorCode_1 = eObject.getErrorCode();
+    String _defaultMessage = null;
+    if (_errorCode_1!=null) {
+      _defaultMessage=_errorCode_1.getDefaultMessage();
+    }
+    newValidator.setDefaultErrorMessage(_defaultMessage);
+    this.associateUi(eObject, newValidator);
+    final YField yField = this.<YField>peek();
+    boolean _notEquals = (!Objects.equal(yField, null));
+    if (_notEquals) {
+      EList<YValidator> _validators = yField.getValidators();
+      _validators.add(newValidator);
+    }
   }
   
   protected void _map(final UiMinLengthValidator eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYMinLengthValidator cannot be resolved to a type."
-      + "\nYField cannot be resolved to a type."
-      + "\ncreateMinLengthValidator cannot be resolved"
-      + "\nminLength cannot be resolved"
-      + "\nerrorCode cannot be resolved"
-      + "\ndefaultErrorMessage cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nvalidators cannot be resolved"
-      + "\n+= cannot be resolved");
+    final YMinLengthValidator newValidator = this.factory.createMinLengthValidator();
+    int _minLength = eObject.getMinLength();
+    newValidator.setMinLength(_minLength);
+    UiErrorCode _errorCode = eObject.getErrorCode();
+    QualifiedName _fullyQualifiedName = null;
+    if (_errorCode!=null) {
+      _fullyQualifiedName=this._iQualifiedNameProvider.getFullyQualifiedName(_errorCode);
+    }
+    String _string = null;
+    if (_fullyQualifiedName!=null) {
+      _string=_fullyQualifiedName.toString();
+    }
+    newValidator.setErrorCode(_string);
+    UiErrorCode _errorCode_1 = eObject.getErrorCode();
+    String _defaultMessage = null;
+    if (_errorCode_1!=null) {
+      _defaultMessage=_errorCode_1.getDefaultMessage();
+    }
+    newValidator.setDefaultErrorMessage(_defaultMessage);
+    this.associateUi(eObject, newValidator);
+    final YField yField = this.<YField>peek();
+    boolean _notEquals = (!Objects.equal(yField, null));
+    if (_notEquals) {
+      EList<YValidator> _validators = yField.getValidators();
+      _validators.add(newValidator);
+    }
   }
   
   protected void _map(final UiRegexpValidator eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYRegexpValidator cannot be resolved to a type."
-      + "\nYField cannot be resolved to a type."
-      + "\ncreateRegexpValidator cannot be resolved"
-      + "\nregExpression cannot be resolved"
-      + "\nerrorCode cannot be resolved"
-      + "\ndefaultErrorMessage cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nvalidators cannot be resolved"
-      + "\n+= cannot be resolved");
+    final YRegexpValidator newValidator = this.factory.createRegexpValidator();
+    String _regExpression = eObject.getRegExpression();
+    newValidator.setRegExpression(_regExpression);
+    UiErrorCode _errorCode = eObject.getErrorCode();
+    QualifiedName _fullyQualifiedName = null;
+    if (_errorCode!=null) {
+      _fullyQualifiedName=this._iQualifiedNameProvider.getFullyQualifiedName(_errorCode);
+    }
+    String _string = null;
+    if (_fullyQualifiedName!=null) {
+      _string=_fullyQualifiedName.toString();
+    }
+    newValidator.setErrorCode(_string);
+    UiErrorCode _errorCode_1 = eObject.getErrorCode();
+    String _defaultMessage = null;
+    if (_errorCode_1!=null) {
+      _defaultMessage=_errorCode_1.getDefaultMessage();
+    }
+    newValidator.setDefaultErrorMessage(_defaultMessage);
+    this.associateUi(eObject, newValidator);
+    final YField yField = this.<YField>peek();
+    boolean _notEquals = (!Objects.equal(yField, null));
+    if (_notEquals) {
+      EList<YValidator> _validators = yField.getValidators();
+      _validators.add(newValidator);
+    }
   }
   
   protected void _map(final UiXbaseValidator eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYField cannot be resolved to a type."
-      + "\nYClassDelegateValidator cannot be resolved to a type."
-      + "\n!= cannot be resolved"
-      + "\ncreateClassDelegateValidator cannot be resolved"
-      + "\nclassName cannot be resolved"
-      + "\nvalidators cannot be resolved"
-      + "\n+= cannot be resolved");
+    final Set<EObject> jvmTypes = this.getJvmElements(eObject);
+    JvmGenericType _xifexpression = null;
+    int _size = jvmTypes.size();
+    boolean _greaterThan = (_size > 0);
+    if (_greaterThan) {
+      Set<EObject> _jvmElements = this.getJvmElements(eObject);
+      EObject _get = ((EObject[])Conversions.unwrapArray(_jvmElements, EObject.class))[0];
+      _xifexpression = ((JvmGenericType) _get);
+    }
+    final JvmGenericType jvmType = _xifexpression;
+    final YField yField = this.<YField>peek();
+    boolean _and = false;
+    boolean _notEquals = (!Objects.equal(jvmType, null));
+    if (!_notEquals) {
+      _and = false;
+    } else {
+      boolean _notEquals_1 = (!Objects.equal(yField, null));
+      _and = _notEquals_1;
+    }
+    if (_and) {
+      final YClassDelegateValidator yValidator = this.factory.createClassDelegateValidator();
+      this.associateUi(eObject, yValidator);
+      String _qualifiedName = jvmType.getQualifiedName();
+      yValidator.setClassName(_qualifiedName);
+      EList<YValidator> _validators = yField.getValidators();
+      _validators.add(yValidator);
+    }
   }
   
-  protected /* YEmbeddable */Object _create(final UiEmbeddable object) {
+  protected YEmbeddable _create(final UiEmbeddable object) {
     return null;
   }
   
-  protected /* YEmbeddable */Object _create(final Void object) {
+  protected YEmbeddable _create(final Void object) {
     return null;
   }
   
-  protected /* YEmbeddable */Object _create(final UiTextField object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYTextField cannot be resolved to a type."
-      + "\ncreateTextField cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved"
-      + "\ncreateTextDatatype cannot be resolved"
-      + "\ndatatype cannot be resolved"
-      + "\norphanDatatypes cannot be resolved"
-      + "\n+= cannot be resolved"
-      + "\nmaxLength cannot be resolved"
-      + "\nminLength cannot be resolved"
-      + "\nregExpression cannot be resolved");
+  protected YEmbeddable _create(final UiTextField object) {
+    final YTextField textField = this.factory.createTextField();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    textField.setId(_pathId);
+    String _name = object.getName();
+    textField.setName(_name);
+    String _name_1 = object.getName();
+    textField.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    textField.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    textField.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    textField.setCssClass(_styles);
+    final YTextDatatype dt = this.factory.createTextDatatype();
+    textField.setDatatype(dt);
+    EList<YDatatype> _orphanDatatypes = textField.getOrphanDatatypes();
+    _orphanDatatypes.add(dt);
+    int _maxLength = object.getMaxLength();
+    dt.setMaxLength(_maxLength);
+    int _minLength = object.getMinLength();
+    dt.setMinLength(_minLength);
+    String _regex = object.getRegex();
+    dt.setRegExpression(_regex);
+    this.associateUi(object, textField);
+    return textField;
   }
   
-  protected /* YEmbeddable */Object _create(final UiBeanReferenceField object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYBeanReferenceField cannot be resolved to a type."
-      + "\nThe method or field ExtensionModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYBeanReferenceField cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nuseBeanService cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ntypeQualifiedName cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\ncaptionPropertyPath cannot be resolved"
-      + "\ncaptionPropertyPath cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\nimagePropertyPath cannot be resolved"
-      + "\ninMemoryBeanProviderQualifiedName cannot be resolved"
-      + "\ninMemoryBeanProvider cannot be resolved");
+  protected YEmbeddable _create(final UiBeanReferenceField object) {
+    final YBeanReferenceField field = ExtensionModelFactory.eINSTANCE.createYBeanReferenceField();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    field.setId(_pathId);
+    String _name = object.getName();
+    field.setName(_name);
+    String _name_1 = object.getName();
+    field.setLabel(_name_1);
+    boolean _isConsumeBeanService = object.isConsumeBeanService();
+    field.setUseBeanService(_isConsumeBeanService);
+    String _i18nKey = this.toI18nKey(object);
+    field.setLabelI18nKey(_i18nKey);
+    JvmTypeReference _jvmType = object.getJvmType();
+    boolean _notEquals = (!Objects.equal(_jvmType, null));
+    if (_notEquals) {
+      JvmTypeReference _jvmType_1 = object.getJvmType();
+      String _qualifiedName = _jvmType_1.getQualifiedName();
+      field.setTypeQualifiedName(_qualifiedName);
+      Resource _eResource = object.eResource();
+      ResourceSet _resourceSet = _eResource.getResourceSet();
+      JvmTypeReference _jvmType_2 = object.getJvmType();
+      String _qualifiedName_1 = _jvmType_2.getQualifiedName();
+      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+      field.setType(_loadClass);
+    }
+    final UiNestedProperty captionProperty = object.getCaptionProperty();
+    boolean _notEquals_1 = (!Objects.equal(captionProperty, null));
+    if (_notEquals_1) {
+      String _pathString = captionProperty.toPathString();
+      field.setCaptionPropertyPath(_pathString);
+    } else {
+      Class<?> _type = field.getType();
+      String _findCaptionProperty = BeanHelper.findCaptionProperty(_type);
+      field.setCaptionPropertyPath(_findCaptionProperty);
+    }
+    final UiNestedProperty imageProperty = object.getImageProperty();
+    boolean _notEquals_2 = (!Objects.equal(imageProperty, null));
+    if (_notEquals_2) {
+      String _pathString_1 = imageProperty.toPathString();
+      field.setImagePropertyPath(_pathString_1);
+    }
+    JvmTypeReference _inMemoryBeanProvider = object.getInMemoryBeanProvider();
+    boolean _notEquals_3 = (!Objects.equal(_inMemoryBeanProvider, null));
+    if (_notEquals_3) {
+      JvmTypeReference _inMemoryBeanProvider_1 = object.getInMemoryBeanProvider();
+      String _qualifiedName_2 = _inMemoryBeanProvider_1.getQualifiedName();
+      field.setInMemoryBeanProviderQualifiedName(_qualifiedName_2);
+      Resource _eResource_1 = object.eResource();
+      ResourceSet _resourceSet_1 = _eResource_1.getResourceSet();
+      JvmTypeReference _inMemoryBeanProvider_2 = object.getInMemoryBeanProvider();
+      String _qualifiedName_3 = _inMemoryBeanProvider_2.getQualifiedName();
+      Class<?> _loadClass_1 = this.loadClass(_resourceSet_1, _qualifiedName_3);
+      field.setInMemoryBeanProvider(_loadClass_1);
+    }
+    this.associateUi(object, field);
+    return field;
   }
   
-  protected /* YEmbeddable */Object _create(final UiLabel object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYLabel cannot be resolved to a type."
-      + "\ncreateLabel cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved");
+  protected YEmbeddable _create(final UiLabel object) {
+    final YLabel label = this.factory.createLabel();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    label.setId(_pathId);
+    String _name = object.getName();
+    label.setName(_name);
+    String _name_1 = object.getName();
+    label.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    label.setLabelI18nKey(_i18nKey);
+    String _styles = object.getStyles();
+    label.setCssClass(_styles);
+    this.associateUi(object, label);
+    return label;
   }
   
-  protected /* YEmbeddable */Object _create(final UiDecimalField object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYDecimalField cannot be resolved to a type."
-      + "\ncreateDecimalField cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved"
-      + "\ncreateDecimalDatatype cannot be resolved"
-      + "\ndatatype cannot be resolved"
-      + "\norphanDatatypes cannot be resolved"
-      + "\n+= cannot be resolved"
-      + "\ngrouping cannot be resolved"
-      + "\nmarkNegative cannot be resolved"
-      + "\nprecision cannot be resolved");
+  protected YEmbeddable _create(final UiDecimalField object) {
+    final YDecimalField decimalField = this.factory.createDecimalField();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    decimalField.setId(_pathId);
+    String _name = object.getName();
+    decimalField.setName(_name);
+    String _name_1 = object.getName();
+    decimalField.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    decimalField.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    decimalField.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    decimalField.setCssClass(_styles);
+    final YDecimalDatatype dt = this.factory.createDecimalDatatype();
+    decimalField.setDatatype(dt);
+    EList<YDatatype> _orphanDatatypes = decimalField.getOrphanDatatypes();
+    _orphanDatatypes.add(dt);
+    boolean _isNoGrouping = object.isNoGrouping();
+    boolean _not_1 = (!_isNoGrouping);
+    dt.setGrouping(_not_1);
+    boolean _isNoMarkNegative = object.isNoMarkNegative();
+    boolean _not_2 = (!_isNoMarkNegative);
+    dt.setMarkNegative(_not_2);
+    int _precision = object.getPrecision();
+    dt.setPrecision(_precision);
+    this.associateUi(object, decimalField);
+    return decimalField;
   }
   
-  protected /* YEmbeddable */Object _create(final UiTextArea object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYTextArea cannot be resolved to a type."
-      + "\ncreateTextArea cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved");
+  protected YEmbeddable _create(final UiTextArea object) {
+    final YTextArea textArea = this.factory.createTextArea();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    textArea.setId(_pathId);
+    String _name = object.getName();
+    textArea.setName(_name);
+    String _name_1 = object.getName();
+    textArea.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    textArea.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    textArea.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    textArea.setCssClass(_styles);
+    this.associateUi(object, textArea);
+    return textArea;
   }
   
-  protected /* YEmbeddable */Object _create(final UiOptionsGroup object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYEnumOptionsGroup cannot be resolved to a type."
-      + "\nYOptionsGroup cannot be resolved to a type."
-      + "\nThe method or field ExtensionModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYEnumOptionsGroup cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\nselectionType cannot be resolved"
-      + "\ninitialEnabled cannot be resolved"
-      + "\ntypeQualifiedName cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\ncreateOptionsGroup cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nuseBeanService cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\nselectionType cannot be resolved"
-      + "\ninitialEnabled cannot be resolved"
-      + "\ntypeQualifiedName cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\ncaptionProperty cannot be resolved"
-      + "\ncaptionProperty cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\nimageProperty cannot be resolved");
+  protected YEmbeddable _create(final UiOptionsGroup object) {
+    JvmTypeReference _jvmType = object.getJvmType();
+    JvmType _type = null;
+    if (_jvmType!=null) {
+      _type=_jvmType.getType();
+    }
+    if ((_type instanceof JvmEnumerationType)) {
+      final YEnumOptionsGroup optionsGroup = ExtensionModelFactory.eINSTANCE.createYEnumOptionsGroup();
+      String _pathId = UiModelGrammarUtil.getPathId(object);
+      optionsGroup.setId(_pathId);
+      String _name = object.getName();
+      optionsGroup.setName(_name);
+      String _name_1 = object.getName();
+      optionsGroup.setLabel(_name_1);
+      String _i18nKey = this.toI18nKey(object);
+      optionsGroup.setLabelI18nKey(_i18nKey);
+      UiSelectionType _selectionType = object.getSelectionType();
+      YSelectionType _convert = this.convert(_selectionType);
+      optionsGroup.setSelectionType(_convert);
+      boolean _isReadonly = object.isReadonly();
+      boolean _not = (!_isReadonly);
+      optionsGroup.setInitialEnabled(_not);
+      String _styles = object.getStyles();
+      optionsGroup.setCssClass(_styles);
+      JvmTypeReference _jvmType_1 = object.getJvmType();
+      boolean _notEquals = (!Objects.equal(_jvmType_1, null));
+      if (_notEquals) {
+        JvmTypeReference _jvmType_2 = object.getJvmType();
+        String _qualifiedName = _jvmType_2.getQualifiedName();
+        optionsGroup.setTypeQualifiedName(_qualifiedName);
+        Resource _eResource = object.eResource();
+        ResourceSet _resourceSet = _eResource.getResourceSet();
+        JvmTypeReference _jvmType_3 = object.getJvmType();
+        String _qualifiedName_1 = _jvmType_3.getQualifiedName();
+        Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+        optionsGroup.setType(_loadClass);
+      }
+      this.associateUi(object, optionsGroup);
+      return optionsGroup;
+    } else {
+      final YOptionsGroup optionsGroup_1 = this.factory.createOptionsGroup();
+      String _pathId_1 = UiModelGrammarUtil.getPathId(object);
+      optionsGroup_1.setId(_pathId_1);
+      String _name_2 = object.getName();
+      optionsGroup_1.setName(_name_2);
+      String _name_3 = object.getName();
+      optionsGroup_1.setLabel(_name_3);
+      boolean _isConsumeBeanService = object.isConsumeBeanService();
+      optionsGroup_1.setUseBeanService(_isConsumeBeanService);
+      String _i18nKey_1 = this.toI18nKey(object);
+      optionsGroup_1.setLabelI18nKey(_i18nKey_1);
+      UiSelectionType _selectionType_1 = object.getSelectionType();
+      YSelectionType _convert_1 = this.convert(_selectionType_1);
+      optionsGroup_1.setSelectionType(_convert_1);
+      boolean _isReadonly_1 = object.isReadonly();
+      boolean _not_1 = (!_isReadonly_1);
+      optionsGroup_1.setInitialEnabled(_not_1);
+      JvmTypeReference _jvmType_4 = object.getJvmType();
+      boolean _notEquals_1 = (!Objects.equal(_jvmType_4, null));
+      if (_notEquals_1) {
+        JvmTypeReference _jvmType_5 = object.getJvmType();
+        String _qualifiedName_2 = _jvmType_5.getQualifiedName();
+        optionsGroup_1.setTypeQualifiedName(_qualifiedName_2);
+        Resource _eResource_1 = object.eResource();
+        ResourceSet _resourceSet_1 = _eResource_1.getResourceSet();
+        JvmTypeReference _jvmType_6 = object.getJvmType();
+        String _qualifiedName_3 = _jvmType_6.getQualifiedName();
+        Class<?> _loadClass_1 = this.loadClass(_resourceSet_1, _qualifiedName_3);
+        optionsGroup_1.setType(_loadClass_1);
+      }
+      JvmOperation _itemCaptionProperty = object.getItemCaptionProperty();
+      boolean _notEquals_2 = (!Objects.equal(_itemCaptionProperty, null));
+      if (_notEquals_2) {
+        JvmOperation _itemCaptionProperty_1 = object.getItemCaptionProperty();
+        String _simpleName = null;
+        if (_itemCaptionProperty_1!=null) {
+          _simpleName=_itemCaptionProperty_1.getSimpleName();
+        }
+        String _propertyName = OperationExtensions.toPropertyName(_simpleName);
+        optionsGroup_1.setCaptionProperty(_propertyName);
+      } else {
+        Class<?> _type_1 = optionsGroup_1.getType();
+        String _findCaptionProperty = BeanHelper.findCaptionProperty(_type_1);
+        optionsGroup_1.setCaptionProperty(_findCaptionProperty);
+      }
+      JvmOperation _itemImageProperty = object.getItemImageProperty();
+      String _simpleName_1 = null;
+      if (_itemImageProperty!=null) {
+        _simpleName_1=_itemImageProperty.getSimpleName();
+      }
+      String _propertyName_1 = OperationExtensions.toPropertyName(_simpleName_1);
+      optionsGroup_1.setImageProperty(_propertyName_1);
+      this.associateUi(object, optionsGroup_1);
+      return optionsGroup_1;
+    }
   }
   
-  protected /* YEmbeddable */Object _create(final UiList object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYEnumList cannot be resolved to a type."
-      + "\nYList cannot be resolved to a type."
-      + "\nThe method or field ExtensionModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYEnumList cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\nselectionType cannot be resolved"
-      + "\ninitialEnabled cannot be resolved"
-      + "\ntypeQualifiedName cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\ncreateList cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nuseBeanService cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\nselectionType cannot be resolved"
-      + "\ninitialEnabled cannot be resolved"
-      + "\ntypeQualifiedName cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\ncaptionProperty cannot be resolved"
-      + "\ncaptionProperty cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\nimageProperty cannot be resolved");
+  protected YEmbeddable _create(final UiList object) {
+    JvmTypeReference _jvmType = object.getJvmType();
+    JvmType _type = null;
+    if (_jvmType!=null) {
+      _type=_jvmType.getType();
+    }
+    if ((_type instanceof JvmEnumerationType)) {
+      final YEnumList list = ExtensionModelFactory.eINSTANCE.createYEnumList();
+      String _pathId = UiModelGrammarUtil.getPathId(object);
+      list.setId(_pathId);
+      String _name = object.getName();
+      list.setName(_name);
+      String _name_1 = object.getName();
+      list.setLabel(_name_1);
+      String _i18nKey = this.toI18nKey(object);
+      list.setLabelI18nKey(_i18nKey);
+      UiSelectionType _selectionType = object.getSelectionType();
+      YSelectionType _convert = this.convert(_selectionType);
+      list.setSelectionType(_convert);
+      boolean _isReadonly = object.isReadonly();
+      boolean _not = (!_isReadonly);
+      list.setInitialEnabled(_not);
+      String _styles = object.getStyles();
+      list.setCssClass(_styles);
+      JvmTypeReference _jvmType_1 = object.getJvmType();
+      boolean _notEquals = (!Objects.equal(_jvmType_1, null));
+      if (_notEquals) {
+        JvmTypeReference _jvmType_2 = object.getJvmType();
+        String _qualifiedName = _jvmType_2.getQualifiedName();
+        list.setTypeQualifiedName(_qualifiedName);
+        Resource _eResource = object.eResource();
+        ResourceSet _resourceSet = _eResource.getResourceSet();
+        JvmTypeReference _jvmType_3 = object.getJvmType();
+        String _qualifiedName_1 = _jvmType_3.getQualifiedName();
+        Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+        list.setType(_loadClass);
+      }
+      this.associateUi(object, list);
+      return list;
+    } else {
+      final YList list_1 = this.factory.createList();
+      String _pathId_1 = UiModelGrammarUtil.getPathId(object);
+      list_1.setId(_pathId_1);
+      String _name_2 = object.getName();
+      list_1.setName(_name_2);
+      String _name_3 = object.getName();
+      list_1.setLabel(_name_3);
+      boolean _isConsumeBeanService = object.isConsumeBeanService();
+      list_1.setUseBeanService(_isConsumeBeanService);
+      String _i18nKey_1 = this.toI18nKey(object);
+      list_1.setLabelI18nKey(_i18nKey_1);
+      UiSelectionType _selectionType_1 = object.getSelectionType();
+      YSelectionType _convert_1 = this.convert(_selectionType_1);
+      list_1.setSelectionType(_convert_1);
+      boolean _isReadonly_1 = object.isReadonly();
+      boolean _not_1 = (!_isReadonly_1);
+      list_1.setInitialEnabled(_not_1);
+      JvmTypeReference _jvmType_4 = object.getJvmType();
+      boolean _notEquals_1 = (!Objects.equal(_jvmType_4, null));
+      if (_notEquals_1) {
+        JvmTypeReference _jvmType_5 = object.getJvmType();
+        String _qualifiedName_2 = _jvmType_5.getQualifiedName();
+        list_1.setTypeQualifiedName(_qualifiedName_2);
+        Resource _eResource_1 = object.eResource();
+        ResourceSet _resourceSet_1 = _eResource_1.getResourceSet();
+        JvmTypeReference _jvmType_6 = object.getJvmType();
+        String _qualifiedName_3 = _jvmType_6.getQualifiedName();
+        Class<?> _loadClass_1 = this.loadClass(_resourceSet_1, _qualifiedName_3);
+        list_1.setType(_loadClass_1);
+      }
+      JvmOperation _itemCaptionProperty = object.getItemCaptionProperty();
+      boolean _notEquals_2 = (!Objects.equal(_itemCaptionProperty, null));
+      if (_notEquals_2) {
+        JvmOperation _itemCaptionProperty_1 = object.getItemCaptionProperty();
+        String _simpleName = null;
+        if (_itemCaptionProperty_1!=null) {
+          _simpleName=_itemCaptionProperty_1.getSimpleName();
+        }
+        String _propertyName = OperationExtensions.toPropertyName(_simpleName);
+        list_1.setCaptionProperty(_propertyName);
+      } else {
+        Class<?> _type_1 = list_1.getType();
+        String _findCaptionProperty = BeanHelper.findCaptionProperty(_type_1);
+        list_1.setCaptionProperty(_findCaptionProperty);
+      }
+      JvmOperation _itemImageProperty = object.getItemImageProperty();
+      String _simpleName_1 = null;
+      if (_itemImageProperty!=null) {
+        _simpleName_1=_itemImageProperty.getSimpleName();
+      }
+      String _propertyName_1 = OperationExtensions.toPropertyName(_simpleName_1);
+      list_1.setImageProperty(_propertyName_1);
+      this.associateUi(object, list_1);
+      return list_1;
+    }
   }
   
-  protected /* YEmbeddable */Object _create(final UiDateField object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYDateTime cannot be resolved to a type."
-      + "\ncreateDateTime cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ndateFormat cannot be resolved"
-      + "\nresolution cannot be resolved"
-      + "\ninitialEnabled cannot be resolved");
+  protected YEmbeddable _create(final UiDateField object) {
+    final YDateTime dateTime = this.factory.createDateTime();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    dateTime.setId(_pathId);
+    String _name = object.getName();
+    dateTime.setName(_name);
+    String _name_1 = object.getName();
+    dateTime.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    dateTime.setLabelI18nKey(_i18nKey);
+    UiDateFormat _dateFormat = object.getDateFormat();
+    YDateTimeFormat _yDateTimeFormat = this.toYDateTimeFormat(_dateFormat);
+    dateTime.setDateFormat(_yDateTimeFormat);
+    UiDateTimeResolution _resolution = object.getResolution();
+    YDateTimeResolution _yDateTimeResolution = this.toYDateTimeResolution(_resolution);
+    dateTime.setResolution(_yDateTimeResolution);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    dateTime.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    dateTime.setCssClass(_styles);
+    this.associateUi(object, dateTime);
+    return dateTime;
   }
   
-  protected /* YEmbeddable */Object _create(final UiBrowser object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYBrowser cannot be resolved to a type."
-      + "\ncreateBrowser cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved");
+  protected YEmbeddable _create(final UiBrowser object) {
+    final YBrowser browser = this.factory.createBrowser();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    browser.setId(_pathId);
+    String _name = object.getName();
+    browser.setName(_name);
+    String _name_1 = object.getName();
+    browser.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    browser.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    browser.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    browser.setCssClass(_styles);
+    this.associateUi(object, browser);
+    return browser;
   }
   
-  protected /* YEmbeddable */Object _create(final UiProgressBar object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYProgressBar cannot be resolved to a type."
-      + "\ncreateProgressBar cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved");
+  protected YEmbeddable _create(final UiProgressBar object) {
+    final YProgressBar progressBar = this.factory.createProgressBar();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    progressBar.setId(_pathId);
+    String _name = object.getName();
+    progressBar.setName(_name);
+    String _name_1 = object.getName();
+    progressBar.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    progressBar.setLabelI18nKey(_i18nKey);
+    String _styles = object.getStyles();
+    progressBar.setCssClass(_styles);
+    this.associateUi(object, progressBar);
+    return progressBar;
   }
   
-  protected /* YEmbeddable */Object _create(final UiImage object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYImage cannot be resolved to a type."
-      + "\ncreateImage cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\nvalue cannot be resolved");
+  protected YEmbeddable _create(final UiImage object) {
+    final YImage image = this.factory.createImage();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    image.setId(_pathId);
+    String _name = object.getName();
+    image.setName(_name);
+    String _name_1 = object.getName();
+    image.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    image.setLabelI18nKey(_i18nKey);
+    String _styles = object.getStyles();
+    image.setCssClass(_styles);
+    String _value = object.getValue();
+    image.setValue(_value);
+    this.associateUi(object, image);
+    return image;
   }
   
-  protected /* YEmbeddable */Object _create(final UiTable object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYTable cannot be resolved to a type."
-      + "\ncreateTable cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nuseBeanService cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\nselectionType cannot be resolved"
-      + "\ninitialEnabled cannot be resolved"
-      + "\nitemImageProperty cannot be resolved"
-      + "\ntypeQualifiedName cannot be resolved"
-      + "\ntype cannot be resolved");
+  protected YEmbeddable _create(final UiTable object) {
+    final YTable table = this.factory.createTable();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    table.setId(_pathId);
+    String _name = object.getName();
+    table.setName(_name);
+    String _name_1 = object.getName();
+    table.setLabel(_name_1);
+    boolean _isConsumeBeanService = object.isConsumeBeanService();
+    table.setUseBeanService(_isConsumeBeanService);
+    String _i18nKey = this.toI18nKey(object);
+    table.setLabelI18nKey(_i18nKey);
+    UiSelectionType _selectionType = object.getSelectionType();
+    YSelectionType _convert = this.convert(_selectionType);
+    table.setSelectionType(_convert);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    table.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    table.setCssClass(_styles);
+    JvmOperation _itemImageProperty = object.getItemImageProperty();
+    String _simpleName = null;
+    if (_itemImageProperty!=null) {
+      _simpleName=_itemImageProperty.getSimpleName();
+    }
+    String _propertyName = OperationExtensions.toPropertyName(_simpleName);
+    table.setItemImageProperty(_propertyName);
+    JvmTypeReference _jvmType = object.getJvmType();
+    boolean _notEquals = (!Objects.equal(_jvmType, null));
+    if (_notEquals) {
+      JvmTypeReference _jvmType_1 = object.getJvmType();
+      String _qualifiedName = _jvmType_1.getQualifiedName();
+      table.setTypeQualifiedName(_qualifiedName);
+      Resource _eResource = object.eResource();
+      ResourceSet _resourceSet = _eResource.getResourceSet();
+      JvmTypeReference _jvmType_2 = object.getJvmType();
+      String _qualifiedName_1 = _jvmType_2.getQualifiedName();
+      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+      table.setType(_loadClass);
+    }
+    this.associateUi(object, table);
+    return table;
   }
   
-  protected /* YField */Object _create(final UiSearchField eObject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYField cannot be resolved to a type."
-      + "\nThe method or field ExtensionModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field ExtensionModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field ExtensionModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field ExtensionModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYTextSearchField cannot be resolved"
-      + "\npropertyPath cannot be resolved"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYNumericSearchField cannot be resolved"
-      + "\npropertyPath cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\ntypeQualifiedName cannot be resolved"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYBooleanSearchField cannot be resolved"
-      + "\npropertyPath cannot be resolved"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYReferenceSearchField cannot be resolved"
-      + "\npropertyPath cannot be resolved"
-      + "\ntypeQualifiedName cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\ntypeQualifiedName cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved");
+  protected YField _create(final UiSearchField eObject) {
+    final UiNestedProperty property = eObject.getProperty();
+    boolean _notEquals = (!Objects.equal(property, null));
+    if (_notEquals) {
+      final JvmType type = property.getTypeofLastSegment();
+      YField newField = null;
+      boolean _isString = this.typeHelper.isString(type);
+      if (_isString) {
+        final YTextSearchField temp = ExtensionModelFactory.eINSTANCE.createYTextSearchField();
+        String _pathString = property.toPathString();
+        temp.setPropertyPath(_pathString);
+        newField = temp;
+      } else {
+        boolean _isNumber = this.typeHelper.isNumber(type);
+        if (_isNumber) {
+          final YNumericSearchField temp_1 = ExtensionModelFactory.eINSTANCE.createYNumericSearchField();
+          String _pathString_1 = property.toPathString();
+          temp_1.setPropertyPath(_pathString_1);
+          Class<? extends Number> _numericType = this.typeHelper.toNumericType(type);
+          temp_1.setType(_numericType);
+          String _numericQualifiedName = this.typeHelper.toNumericQualifiedName(type);
+          temp_1.setTypeQualifiedName(_numericQualifiedName);
+          newField = temp_1;
+        } else {
+          boolean _isBoolean = this.typeHelper.isBoolean(type);
+          if (_isBoolean) {
+            final YBooleanSearchField temp_2 = ExtensionModelFactory.eINSTANCE.createYBooleanSearchField();
+            String _pathString_2 = property.toPathString();
+            temp_2.setPropertyPath(_pathString_2);
+            newField = temp_2;
+          } else {
+            final YReferenceSearchField temp_3 = ExtensionModelFactory.eINSTANCE.createYReferenceSearchField();
+            String _pathString_3 = property.toPathString();
+            temp_3.setPropertyPath(_pathString_3);
+            JvmType _typeofLastSegment = property.getTypeofLastSegment();
+            String _qualifiedName = null;
+            if (_typeofLastSegment!=null) {
+              _qualifiedName=_typeofLastSegment.getQualifiedName();
+            }
+            temp_3.setTypeQualifiedName(_qualifiedName);
+            Resource _eResource = eObject.eResource();
+            ResourceSet _resourceSet = _eResource.getResourceSet();
+            String _typeQualifiedName = temp_3.getTypeQualifiedName();
+            Class<?> _loadClass = this.loadClass(_resourceSet, _typeQualifiedName);
+            temp_3.setType(_loadClass);
+            newField = temp_3;
+          }
+        }
+      }
+      boolean _notEquals_1 = (!Objects.equal(newField, null));
+      if (_notEquals_1) {
+        String _pathId = UiModelGrammarUtil.getPathId(eObject);
+        newField.setId(_pathId);
+        String _i18nKey = this.toI18nKey(eObject);
+        newField.setLabelI18nKey(_i18nKey);
+        boolean _isReadonly = eObject.isReadonly();
+        boolean _not = (!_isReadonly);
+        newField.setInitialEnabled(_not);
+        String _styles = eObject.getStyles();
+        newField.setCssClass(_styles);
+      }
+      return newField;
+    }
+    return null;
   }
   
-  public /* YSelectionType */Object convert(final UiSelectionType type) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field YSelectionType is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YSelectionType is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field YSelectionType is undefined for the type UiModelDerivedStateComputerx"
-      + "\nSINGLE cannot be resolved"
-      + "\nSINGLE cannot be resolved"
-      + "\nMULTI cannot be resolved");
+  public YSelectionType convert(final UiSelectionType type) {
+    if (type != null) {
+      switch (type) {
+        case NONE:
+          return YSelectionType.SINGLE;
+        case SINGLE:
+          return YSelectionType.SINGLE;
+        case MULTI:
+          return YSelectionType.MULTI;
+        default:
+          break;
+      }
+    }
+    return null;
   }
   
-  protected /* YEmbeddable */Object _create(final UiNumericField object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYNumericField cannot be resolved to a type."
-      + "\ncreateNumericField cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved"
-      + "\ncreateNumericDatatype cannot be resolved"
-      + "\ndatatype cannot be resolved"
-      + "\norphanDatatypes cannot be resolved"
-      + "\n+= cannot be resolved"
-      + "\ngrouping cannot be resolved"
-      + "\nmarkNegative cannot be resolved");
+  protected YEmbeddable _create(final UiNumericField object) {
+    final YNumericField field = this.factory.createNumericField();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    field.setId(_pathId);
+    String _name = object.getName();
+    field.setName(_name);
+    String _name_1 = object.getName();
+    field.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    field.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    field.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    field.setCssClass(_styles);
+    final YNumericDatatype dt = this.factory.createNumericDatatype();
+    field.setDatatype(dt);
+    EList<YDatatype> _orphanDatatypes = field.getOrphanDatatypes();
+    _orphanDatatypes.add(dt);
+    boolean _isNoGrouping = object.isNoGrouping();
+    boolean _not_1 = (!_isNoGrouping);
+    dt.setGrouping(_not_1);
+    boolean _isNoMarkNegative = object.isNoMarkNegative();
+    boolean _not_2 = (!_isNoMarkNegative);
+    dt.setMarkNegative(_not_2);
+    this.associateUi(object, field);
+    return field;
   }
   
-  protected /* YEmbeddable */Object _create(final UiCheckBox object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYCheckBox cannot be resolved to a type."
-      + "\ncreateCheckBox cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved");
+  protected YEmbeddable _create(final UiCheckBox object) {
+    final YCheckBox field = this.factory.createCheckBox();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    field.setId(_pathId);
+    String _name = object.getName();
+    field.setName(_name);
+    String _name_1 = object.getName();
+    field.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    field.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    field.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    field.setCssClass(_styles);
+    this.associateUi(object, field);
+    return field;
   }
   
-  protected /* YButton */Object _create(final UiButton object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYButton cannot be resolved to a type."
-      + "\ncreateButton cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved");
+  protected YButton _create(final UiButton object) {
+    final YButton field = this.factory.createButton();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    field.setId(_pathId);
+    String _name = object.getName();
+    field.setName(_name);
+    String _name_1 = object.getName();
+    field.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    field.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    field.setInitialEnabled(_not);
+    this.associateUi(object, field);
+    return field;
   }
   
-  protected /* VMNavigationButton */Object _create(final UiMobileNavigationButton object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nVMNavigationButton cannot be resolved to a type."
-      + "\nThe method or field VaadinMobileFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateVMNavigationButton cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved");
+  protected VMNavigationButton _create(final UiMobileNavigationButton object) {
+    final VMNavigationButton field = VaadinMobileFactory.eINSTANCE.createVMNavigationButton();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    field.setId(_pathId);
+    String _name = object.getName();
+    field.setName(_name);
+    String _name_1 = object.getName();
+    field.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    field.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    field.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    field.setCssClass(_styles);
+    this.associateUi(object, field);
+    return field;
   }
   
-  protected /* YEmbeddable */Object _create(final UiComboBox object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYEnumComboBox cannot be resolved to a type."
-      + "\nYComboBox cannot be resolved to a type."
-      + "\nThe method or field ExtensionModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYEnumComboBox cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved"
-      + "\ntypeQualifiedName cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\ncreateComboBox cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nuseBeanService cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved"
-      + "\ntypeQualifiedName cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\ncaptionProperty cannot be resolved"
-      + "\ncaptionProperty cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\nimageProperty cannot be resolved");
+  protected YEmbeddable _create(final UiComboBox object) {
+    JvmTypeReference _jvmType = object.getJvmType();
+    JvmType _type = null;
+    if (_jvmType!=null) {
+      _type=_jvmType.getType();
+    }
+    if ((_type instanceof JvmEnumerationType)) {
+      final YEnumComboBox field = ExtensionModelFactory.eINSTANCE.createYEnumComboBox();
+      String _pathId = UiModelGrammarUtil.getPathId(object);
+      field.setId(_pathId);
+      String _name = object.getName();
+      field.setName(_name);
+      String _name_1 = object.getName();
+      field.setLabel(_name_1);
+      String _i18nKey = this.toI18nKey(object);
+      field.setLabelI18nKey(_i18nKey);
+      boolean _isReadonly = object.isReadonly();
+      boolean _not = (!_isReadonly);
+      field.setInitialEnabled(_not);
+      String _styles = object.getStyles();
+      field.setCssClass(_styles);
+      JvmTypeReference _jvmType_1 = object.getJvmType();
+      boolean _notEquals = (!Objects.equal(_jvmType_1, null));
+      if (_notEquals) {
+        JvmTypeReference _jvmType_2 = object.getJvmType();
+        String _qualifiedName = _jvmType_2.getQualifiedName();
+        field.setTypeQualifiedName(_qualifiedName);
+        Resource _eResource = object.eResource();
+        ResourceSet _resourceSet = _eResource.getResourceSet();
+        JvmTypeReference _jvmType_3 = object.getJvmType();
+        String _qualifiedName_1 = _jvmType_3.getQualifiedName();
+        Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
+        field.setType(_loadClass);
+      }
+      this.associateUi(object, field);
+      return field;
+    } else {
+      final YComboBox field_1 = this.factory.createComboBox();
+      String _pathId_1 = UiModelGrammarUtil.getPathId(object);
+      field_1.setId(_pathId_1);
+      String _name_2 = object.getName();
+      field_1.setName(_name_2);
+      String _name_3 = object.getName();
+      field_1.setLabel(_name_3);
+      boolean _isConsumeBeanService = object.isConsumeBeanService();
+      field_1.setUseBeanService(_isConsumeBeanService);
+      String _i18nKey_1 = this.toI18nKey(object);
+      field_1.setLabelI18nKey(_i18nKey_1);
+      boolean _isReadonly_1 = object.isReadonly();
+      boolean _not_1 = (!_isReadonly_1);
+      field_1.setInitialEnabled(_not_1);
+      JvmTypeReference _jvmType_4 = object.getJvmType();
+      boolean _notEquals_1 = (!Objects.equal(_jvmType_4, null));
+      if (_notEquals_1) {
+        JvmTypeReference _jvmType_5 = object.getJvmType();
+        String _qualifiedName_2 = _jvmType_5.getQualifiedName();
+        field_1.setTypeQualifiedName(_qualifiedName_2);
+        Resource _eResource_1 = object.eResource();
+        ResourceSet _resourceSet_1 = _eResource_1.getResourceSet();
+        JvmTypeReference _jvmType_6 = object.getJvmType();
+        String _qualifiedName_3 = _jvmType_6.getQualifiedName();
+        Class<?> _loadClass_1 = this.loadClass(_resourceSet_1, _qualifiedName_3);
+        field_1.setType(_loadClass_1);
+      }
+      JvmOperation _itemCaptionProperty = object.getItemCaptionProperty();
+      boolean _notEquals_2 = (!Objects.equal(_itemCaptionProperty, null));
+      if (_notEquals_2) {
+        JvmOperation _itemCaptionProperty_1 = object.getItemCaptionProperty();
+        String _simpleName = null;
+        if (_itemCaptionProperty_1!=null) {
+          _simpleName=_itemCaptionProperty_1.getSimpleName();
+        }
+        String _propertyName = OperationExtensions.toPropertyName(_simpleName);
+        field_1.setCaptionProperty(_propertyName);
+      } else {
+        Class<?> _type_1 = field_1.getType();
+        String _findCaptionProperty = BeanHelper.findCaptionProperty(_type_1);
+        field_1.setCaptionProperty(_findCaptionProperty);
+      }
+      JvmOperation _itemImageProperty = object.getItemImageProperty();
+      String _simpleName_1 = null;
+      if (_itemImageProperty!=null) {
+        _simpleName_1=_itemImageProperty.getSimpleName();
+      }
+      String _propertyName_1 = OperationExtensions.toPropertyName(_simpleName_1);
+      field_1.setImageProperty(_propertyName_1);
+      this.associateUi(object, field_1);
+      return field_1;
+    }
   }
   
-  protected /* YEmbeddable */Object _create(final UiSwitch object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nVMSwitch cannot be resolved to a type."
-      + "\nThe method or field VaadinMobileFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateVMSwitch cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved");
+  protected YEmbeddable _create(final UiSwitch object) {
+    final VMSwitch field = VaadinMobileFactory.eINSTANCE.createVMSwitch();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    field.setId(_pathId);
+    String _name = object.getName();
+    field.setName(_name);
+    String _name_1 = object.getName();
+    field.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    field.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    field.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    field.setCssClass(_styles);
+    this.associateUi(object, field);
+    return field;
   }
   
-  protected /* YGridLayout */Object _create(final UiGridLayout object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYGridLayout cannot be resolved to a type."
-      + "\ncreateGridLayout cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\ncolumns cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved");
+  protected YGridLayout _create(final UiGridLayout object) {
+    final YGridLayout layout = this.factory.createGridLayout();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    layout.setId(_pathId);
+    String _name = object.getName();
+    layout.setName(_name);
+    int _columns = object.getColumns();
+    layout.setColumns(_columns);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
+    this.associateUi(object, layout);
+    return layout;
   }
   
-  protected /* YFormLayout */Object _create(final UiFormLayout object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYFormLayout cannot be resolved to a type."
-      + "\ncreateFormLayout cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved");
+  protected YFormLayout _create(final UiFormLayout object) {
+    final YFormLayout layout = this.factory.createFormLayout();
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
+    this.associateUi(object, layout);
+    return layout;
   }
   
-  protected /* YHorizontalLayout */Object _create(final UiHorizontalLayout object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYHorizontalLayout cannot be resolved to a type."
-      + "\ncreateHorizontalLayout cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved");
+  protected YHorizontalLayout _create(final UiHorizontalLayout object) {
+    final YHorizontalLayout layout = this.factory.createHorizontalLayout();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    layout.setId(_pathId);
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
+    this.associateUi(object, layout);
+    return layout;
   }
   
-  protected /* YSearchPanel */Object _create(final UiSearchPanel object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYSearchPanel cannot be resolved to a type."
-      + "\nThe method or field ExtensionModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYSearchPanel cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved");
+  protected YSearchPanel _create(final UiSearchPanel object) {
+    final YSearchPanel layout = ExtensionModelFactory.eINSTANCE.createYSearchPanel();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    layout.setId(_pathId);
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
+    this.associateUi(object, layout);
+    return layout;
   }
   
-  protected /* YSplitPanel */Object _create(final UiSplitpanel object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYSplitPanel cannot be resolved to a type."
-      + "\ncreateSplitPanel cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\nsplitPosition cannot be resolved"
-      + "\ninitialEnabled cannot be resolved");
+  protected YSplitPanel _create(final UiSplitpanel object) {
+    final YSplitPanel layout = this.factory.createSplitPanel();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    layout.setId(_pathId);
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    int _splitPosition = object.getSplitPosition();
+    layout.setSplitPosition(_splitPosition);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
+    this.associateUi(object, layout);
+    return layout;
   }
   
-  protected /* YPanel */Object _create(final UiPanel object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYPanel cannot be resolved to a type."
-      + "\ncreatePanel cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved");
+  protected YPanel _create(final UiPanel object) {
+    final YPanel layout = this.factory.createPanel();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    layout.setId(_pathId);
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
+    this.associateUi(object, layout);
+    return layout;
   }
   
-  protected /* YVerticalLayout */Object _create(final UiVerticalLayout object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYVerticalLayout cannot be resolved to a type."
-      + "\ncreateVerticalLayout cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved");
+  protected YVerticalLayout _create(final UiVerticalLayout object) {
+    final YVerticalLayout layout = this.factory.createVerticalLayout();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    layout.setId(_pathId);
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
+    this.associateUi(object, layout);
+    return layout;
   }
   
-  protected /* VMHorizontalButtonGroup */Object _create(final UiHorizontalButtonGroup object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nVMHorizontalButtonGroup cannot be resolved to a type."
-      + "\nThe method or field VaadinMobileFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateVMHorizontalButtonGroup cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved");
+  protected VMHorizontalButtonGroup _create(final UiHorizontalButtonGroup object) {
+    final VMHorizontalButtonGroup layout = VaadinMobileFactory.eINSTANCE.createVMHorizontalButtonGroup();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    layout.setId(_pathId);
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
+    this.associateUi(object, layout);
+    return layout;
   }
   
-  protected /* VMVerticalComponentGroup */Object _create(final UiVerticalComponentGroup object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nVMVerticalComponentGroup cannot be resolved to a type."
-      + "\nThe method or field VaadinMobileFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateVMVerticalComponentGroup cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved"
-      + "\ninitialEnabled cannot be resolved");
+  protected VMVerticalComponentGroup _create(final UiVerticalComponentGroup object) {
+    final VMVerticalComponentGroup layout = VaadinMobileFactory.eINSTANCE.createVMVerticalComponentGroup();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    layout.setId(_pathId);
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
+    this.associateUi(object, layout);
+    return layout;
   }
   
-  protected /* YTabSheet */Object _create(final UiTabSheet object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYTabSheet cannot be resolved to a type."
-      + "\ncreateTabSheet cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved");
+  protected YTabSheet _create(final UiTabSheet object) {
+    final YTabSheet layout = this.factory.createTabSheet();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    layout.setId(_pathId);
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
+    this.associateUi(object, layout);
+    return layout;
   }
   
-  protected /* VMTabSheet */Object _create(final UiMobileTabSheet object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nVMTabSheet cannot be resolved to a type."
-      + "\nThe method or field VaadinMobileFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateVMTabSheet cannot be resolved"
-      + "\nid cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nlabel cannot be resolved"
-      + "\nlabelI18nKey cannot be resolved");
+  protected VMTabSheet _create(final UiMobileTabSheet object) {
+    final VMTabSheet layout = VaadinMobileFactory.eINSTANCE.createVMTabSheet();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    layout.setId(_pathId);
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    this.associateUi(object, layout);
+    return layout;
   }
   
-  public void xxaddToParent(final /* YElement */Object embeddable) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYLayout cannot be resolved to a type."
-      + "\nYLayout cannot be resolved to a type."
-      + "\nYLayout cannot be resolved to a type."
-      + "\nYEmbeddable cannot be resolved to a type."
-      + "\nYView cannot be resolved to a type."
-      + "\nYView cannot be resolved to a type."
-      + "\nYView cannot be resolved to a type."
-      + "\nYEmbeddable cannot be resolved to a type."
-      + "\nYTab cannot be resolved to a type."
-      + "\nYTab cannot be resolved to a type."
-      + "\nYTab cannot be resolved to a type."
-      + "\nYEmbeddable cannot be resolved to a type."
-      + "\nVMTab cannot be resolved to a type."
-      + "\nVMTab cannot be resolved to a type."
-      + "\nVMTab cannot be resolved to a type."
-      + "\nYEmbeddable cannot be resolved to a type."
-      + "\nVMNavigationButton cannot be resolved to a type."
-      + "\nVMNavigationButton cannot be resolved to a type."
-      + "\nVMNavigationButton cannot be resolved to a type."
-      + "\nVMNavigationPage cannot be resolved to a type."
-      + "\nVMNavigationCommand cannot be resolved to a type."
-      + "\nVMNavigationCommand cannot be resolved to a type."
-      + "\nVMNavigationCommand cannot be resolved to a type."
-      + "\nVMNavigationPage cannot be resolved to a type."
-      + "\nYOpenDialogCommand cannot be resolved to a type."
-      + "\nYOpenDialogCommand cannot be resolved to a type."
-      + "\nYOpenDialogCommand cannot be resolved to a type."
-      + "\nYDialog cannot be resolved to a type."
-      + "\nYDialog cannot be resolved to a type."
-      + "\nYDialog cannot be resolved to a type."
-      + "\nYDialog cannot be resolved to a type."
-      + "\nYEmbeddable cannot be resolved to a type."
-      + "\nUnreachable code: The if condition can never match. It is already handled by a previous condition."
-      + "\nUnreachable code: The if condition can never match. It is already handled by a previous condition."
-      + "\nUnreachable code: The if condition can never match. It is already handled by a previous condition."
-      + "\nUnreachable code: The if condition can never match. It is already handled by a previous condition."
-      + "\nUnreachable code: The if condition can never match. It is already handled by a previous condition."
-      + "\nUnreachable code: The if condition can never match. It is already handled by a previous condition."
-      + "\nUnreachable code: The if condition can never match. It is already handled by a previous condition."
-      + "\naddElement cannot be resolved"
-      + "\ncontent cannot be resolved"
-      + "\nembeddable cannot be resolved"
-      + "\nembeddable cannot be resolved"
-      + "\npage cannot be resolved"
-      + "\ntargetPage cannot be resolved"
-      + "\ndialog cannot be resolved"
-      + "\ncontent cannot be resolved");
+  public void xxaddToParent(final YElement embeddable) {
+    final Object context = this.<Object>peek();
+    if ((context instanceof YLayout)) {
+      final YLayout layout = ((YLayout) context);
+      layout.addElement(((YEmbeddable) embeddable));
+    } else {
+      if ((context instanceof YView)) {
+        final YView yView = ((YView) context);
+        yView.setContent(((YEmbeddable) embeddable));
+      } else {
+        if ((context instanceof YTab)) {
+          final YTab yTab = ((YTab) context);
+          yTab.setEmbeddable(((YEmbeddable) embeddable));
+        } else {
+          if ((context instanceof VMTab)) {
+            final VMTab yTab_1 = ((VMTab) context);
+            yTab_1.setEmbeddable(((YEmbeddable) embeddable));
+          } else {
+            if ((context instanceof VMNavigationButton)) {
+              final VMNavigationButton yButton = ((VMNavigationButton) context);
+              yButton.setPage(((VMNavigationPage) embeddable));
+            } else {
+              if ((context instanceof VMNavigationCommand)) {
+                final VMNavigationCommand yCommand = ((VMNavigationCommand) context);
+                yCommand.setTargetPage(((VMNavigationPage) embeddable));
+              } else {
+                if ((context instanceof YOpenDialogCommand)) {
+                  final YOpenDialogCommand yCommand_1 = ((YOpenDialogCommand) context);
+                  yCommand_1.setDialog(((YDialog) embeddable));
+                } else {
+                  if ((context instanceof YDialog)) {
+                    final YDialog yDialog = ((YDialog) context);
+                    yDialog.setContent(((YEmbeddable) embeddable));
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
   
   protected void _map(final UiPoint object) {
@@ -1358,83 +2970,158 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   public void install(final UiBinding object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYBindingUpdateStrategy cannot be resolved to a type."
-      + "\nYBindingUpdateStrategy cannot be resolved to a type."
-      + "\nYBindingUpdateStrategy cannot be resolved to a type."
-      + "\nYBindingUpdateStrategy cannot be resolved to a type."
-      + "\nYBindingUpdateStrategy cannot be resolved to a type."
-      + "\nYBindingUpdateStrategy cannot be resolved to a type."
-      + "\nYBindingUpdateStrategy cannot be resolved to a type."
-      + "\nYBindingUpdateStrategy cannot be resolved to a type."
-      + "\nYBindingUpdateStrategy cannot be resolved to a type."
-      + "\nYBindingUpdateStrategy cannot be resolved to a type."
-      + "\nYBindingUpdateStrategy cannot be resolved to a type."
-      + "\nYBindingUpdateStrategy cannot be resolved to a type."
-      + "\nUPDATE cannot be resolved"
-      + "\nON_REQUEST cannot be resolved"
-      + "\nUPDATE cannot be resolved"
-      + "\nON_REQUEST cannot be resolved"
-      + "\norCreateBindingSet cannot be resolved"
-      + "\naddBinding cannot be resolved"
-      + "\nUPDATE cannot be resolved"
-      + "\nON_REQUEST cannot be resolved"
-      + "\nUPDATE cannot be resolved"
-      + "\nON_REQUEST cannot be resolved"
-      + "\norCreateBindingSet cannot be resolved"
-      + "\naddBinding cannot be resolved");
+    UiTypedBindable _sourceAlias = object.getSourceAlias();
+    final UiBindingEndpointAlias sourceAlias = ((UiBindingEndpointAlias) _sourceAlias);
+    final UiBindingExpression source = object.getSource();
+    UiTypedBindable _targetAlias = object.getTargetAlias();
+    final UiBindingEndpointAlias targetAlias = ((UiBindingEndpointAlias) _targetAlias);
+    final UiBindingExpression target = object.getTarget();
+    UiBindingEndpointAssignment sourceEndpoint = ((UiBindingEndpointAssignment) source);
+    boolean _notEquals = (!Objects.equal(sourceAlias, null));
+    if (_notEquals) {
+      UiBindingExpression _endpoint = sourceAlias.getEndpoint();
+      sourceEndpoint = ((UiBindingEndpointAssignment) _endpoint);
+    }
+    UiBindingEndpointAssignment targetEndpoint = ((UiBindingEndpointAssignment) target);
+    boolean _notEquals_1 = (!Objects.equal(targetAlias, null));
+    if (_notEquals_1) {
+      UiBindingExpression _endpoint_1 = targetAlias.getEndpoint();
+      targetEndpoint = ((UiBindingEndpointAssignment) _endpoint_1);
+    }
+    boolean _isListBinding = object.isListBinding();
+    boolean _not = (!_isListBinding);
+    if (_not) {
+      final YValueBindingEndpoint sourceResult = this.createValueBindingEndpoint(sourceEndpoint);
+      final YValueBindingEndpoint targetResult = this.createValueBindingEndpoint(targetEndpoint);
+      YBindingUpdateStrategy sourceToTargetStrategy = YBindingUpdateStrategy.UPDATE;
+      boolean _isSourceToTarget = object.isSourceToTarget();
+      boolean _not_1 = (!_isSourceToTarget);
+      if (_not_1) {
+        sourceToTargetStrategy = YBindingUpdateStrategy.ON_REQUEST;
+      }
+      YBindingUpdateStrategy targetToSourceStrategy = YBindingUpdateStrategy.UPDATE;
+      boolean _isTargetToSource = object.isTargetToSource();
+      boolean _not_2 = (!_isTargetToSource);
+      if (_not_2) {
+        targetToSourceStrategy = YBindingUpdateStrategy.ON_REQUEST;
+      }
+      YBindingSet _orCreateBindingSet = this.currentView.getOrCreateBindingSet();
+      _orCreateBindingSet.addBinding(targetResult, sourceResult, targetToSourceStrategy, sourceToTargetStrategy);
+    } else {
+      final YListBindingEndpoint sourceResult_1 = this.createListBindingEndpoint(sourceEndpoint);
+      final YListBindingEndpoint targetResult_1 = this.createListBindingEndpoint(targetEndpoint);
+      YBindingUpdateStrategy sourceToTargetStrategy_1 = YBindingUpdateStrategy.UPDATE;
+      boolean _isSourceToTarget_1 = object.isSourceToTarget();
+      boolean _not_3 = (!_isSourceToTarget_1);
+      if (_not_3) {
+        sourceToTargetStrategy_1 = YBindingUpdateStrategy.ON_REQUEST;
+      }
+      YBindingUpdateStrategy targetToSourceStrategy_1 = YBindingUpdateStrategy.UPDATE;
+      boolean _isTargetToSource_1 = object.isTargetToSource();
+      boolean _not_4 = (!_isTargetToSource_1);
+      if (_not_4) {
+        targetToSourceStrategy_1 = YBindingUpdateStrategy.ON_REQUEST;
+      }
+      YBindingSet _orCreateBindingSet_1 = this.currentView.getOrCreateBindingSet();
+      _orCreateBindingSet_1.addBinding(targetResult_1, sourceResult_1, targetToSourceStrategy_1, sourceToTargetStrategy_1);
+    }
   }
   
-  public /* YValueBindingEndpoint */Object createValueBindingEndpoint(final UiBindingEndpointAssignment epDef) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYValueBindingEndpoint cannot be resolved to a type."
-      + "\nYBeanSlot cannot be resolved to a type."
-      + "\nYBeanSlotValueBindingEndpoint cannot be resolved to a type."
-      + "\nYElement cannot be resolved to a type."
-      + "\nYECViewModelValueBindingEndpoint cannot be resolved to a type."
-      + "\nVMNavigationCommand cannot be resolved to a type."
-      + "\nYOpenDialogCommand cannot be resolved to a type."
-      + "\nYOpenDialogCommand cannot be resolved to a type."
-      + "\nThe method or field VaadinMobileFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field CoreModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\nThe method or field CoreModelFactory is undefined for the type UiModelDerivedStateComputerx"
-      + "\ncreateBeanSlotValueBindingEndpoint cannot be resolved"
-      + "\nbeanSlot cannot be resolved"
-      + "\nattributePath cannot be resolved"
-      + "\ncreateECViewModelValueBindingEndpoint cannot be resolved"
-      + "\nelement cannot be resolved"
-      + "\npropertyPath cannot be resolved"
-      + "\ntypeQualifiedName cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\ntypeQualifiedName cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\n&& cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\nisAssignableFrom cannot be resolved"
-      + "\nemfNsURI cannot be resolved"
-      + "\neClass cannot be resolved"
-      + "\nEPackage cannot be resolved"
-      + "\nnsURI cannot be resolved"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateVMNavigationCommand cannot be resolved"
-      + "\ncommandSet cannot be resolved"
-      + "\naddCommand cannot be resolved"
-      + "\npush cannot be resolved"
-      + "\nnavigationHandler cannot be resolved"
-      + "\ncreateNavigationValueEndpoint cannot be resolved"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYOpenDialogCommand cannot be resolved"
-      + "\ncommandSet cannot be resolved"
-      + "\naddCommand cannot be resolved"
-      + "\npush cannot be resolved"
-      + "\ncreateTriggerDialogEndpoint cannot be resolved"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateYOpenDialogCommand cannot be resolved"
-      + "\ncommandSet cannot be resolved"
-      + "\naddCommand cannot be resolved"
-      + "\npush cannot be resolved"
-      + "\ncreateTriggerDialogEndpoint cannot be resolved");
+  public YValueBindingEndpoint createValueBindingEndpoint(final UiBindingEndpointAssignment epDef) {
+    boolean _equals = Objects.equal(epDef, null);
+    if (_equals) {
+      return null;
+    }
+    YValueBindingEndpoint result = null;
+    final UiModelDerivedStateComputerx.BindingInfo info = new UiModelDerivedStateComputerx.BindingInfo();
+    this.collectBindingInfo(epDef, info);
+    if ((info.bindingRoot instanceof UiBeanSlot)) {
+      final UiBeanSlot uiBeanSlot = ((UiBeanSlot) info.bindingRoot);
+      final YBeanSlot yBeanSlot = this.<YBeanSlot>associatedUi(uiBeanSlot);
+      final YBeanSlotValueBindingEndpoint ep = this.factory.createBeanSlotValueBindingEndpoint();
+      ep.setBeanSlot(yBeanSlot);
+      String _string = info.path.toString();
+      ep.setAttributePath(_string);
+      result = ep;
+    } else {
+      if ((info.bindingRoot instanceof UiEmbeddable)) {
+        final YElement yElement = this.<YElement>associatedUi(info.bindingRoot);
+        final YECViewModelValueBindingEndpoint ep_1 = this.factory.createECViewModelValueBindingEndpoint();
+        ep_1.setElement(yElement);
+        String _string_1 = info.path.toString();
+        ep_1.setPropertyPath(_string_1);
+        boolean _notEquals = (!Objects.equal(info.typeForBinding, null));
+        if (_notEquals) {
+          String _qualifiedName = info.typeForBinding.getQualifiedName();
+          ep_1.setTypeQualifiedName(_qualifiedName);
+          Resource _eResource = epDef.eResource();
+          ResourceSet _resourceSet = _eResource.getResourceSet();
+          String _typeQualifiedName = ep_1.getTypeQualifiedName();
+          Class<?> _loadClass = this.loadClass(_resourceSet, _typeQualifiedName);
+          ep_1.setType(_loadClass);
+        }
+        boolean _and = false;
+        Class<?> _type = ep_1.getType();
+        boolean _notEquals_1 = (!Objects.equal(_type, null));
+        if (!_notEquals_1) {
+          _and = false;
+        } else {
+          Class<?> _type_1 = ep_1.getType();
+          boolean _isAssignableFrom = _type_1.isAssignableFrom(EObject.class);
+          _and = _isAssignableFrom;
+        }
+        if (_and) {
+          EClass _eClass = yElement.eClass();
+          EPackage _ePackage = _eClass.getEPackage();
+          String _nsURI = _ePackage.getNsURI();
+          ep_1.setEmfNsURI(_nsURI);
+        }
+        result = ep_1;
+      } else {
+        if ((info.bindingRoot instanceof UiMobileNavigationCommand)) {
+          final UiMobileNavigationCommand command = ((UiMobileNavigationCommand) info.bindingRoot);
+          final VMNavigationCommand yCommand = VaadinMobileFactory.eINSTANCE.createVMNavigationCommand();
+          YCommandSet _commandSet = this.currentView.getCommandSet();
+          _commandSet.addCommand(yCommand);
+          this.push(yCommand);
+          UiMobileNavigationPage _targetPage = command.getTargetPage();
+          this.map(_targetPage);
+          final UiMobileNavigationHandler navHandler = this.findNavHandler(epDef);
+          VMNavigationHandler _associatedUi = this.<VMNavigationHandler>associatedUi(((EObject) navHandler));
+          yCommand.setNavigationHandler(_associatedUi);
+          this.<Object>pop();
+          YECViewModelValueBindingEndpoint _createNavigationValueEndpoint = yCommand.createNavigationValueEndpoint();
+          result = _createNavigationValueEndpoint;
+        } else {
+          if ((info.bindingRoot instanceof UiOpenDialogCommand)) {
+            final UiOpenDialogCommand command_1 = ((UiOpenDialogCommand) info.bindingRoot);
+            final YOpenDialogCommand yCommand_1 = CoreModelFactory.eINSTANCE.createYOpenDialogCommand();
+            YCommandSet _commandSet_1 = this.currentView.getCommandSet();
+            _commandSet_1.addCommand(yCommand_1);
+            this.push(yCommand_1);
+            UiDialog _dialog = command_1.getDialog();
+            this.map(_dialog);
+            this.<Object>pop();
+            YECViewModelValueBindingEndpoint _createTriggerDialogEndpoint = yCommand_1.createTriggerDialogEndpoint();
+            result = _createTriggerDialogEndpoint;
+          } else {
+            if ((info.bindingRoot instanceof UiSearchWithDialogCommand)) {
+              final UiSearchWithDialogCommand command_2 = ((UiSearchWithDialogCommand) info.bindingRoot);
+              final YOpenDialogCommand yCommand_2 = CoreModelFactory.eINSTANCE.createYOpenDialogCommand();
+              YCommandSet _commandSet_2 = this.currentView.getCommandSet();
+              _commandSet_2.addCommand(yCommand_2);
+              this.push(yCommand_2);
+              UiSearchDialog _dialog_1 = command_2.getDialog();
+              this.map(_dialog_1);
+              this.<Object>pop();
+              YECViewModelValueBindingEndpoint _createTriggerDialogEndpoint_1 = yCommand_2.createTriggerDialogEndpoint();
+              result = _createTriggerDialogEndpoint_1;
+            }
+          }
+        }
+      }
+    }
+    return result;
   }
   
   public UiMobileNavigationHandler findNavHandler(final UiBindingEndpointAssignment assignment) {
@@ -1457,27 +3144,50 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return null;
   }
   
-  public /* YListBindingEndpoint */Object createListBindingEndpoint(final UiBindingEndpointAssignment epDef) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYListBindingEndpoint cannot be resolved to a type."
-      + "\nYBeanSlot cannot be resolved to a type."
-      + "\nYBeanSlotListBindingEndpoint cannot be resolved to a type."
-      + "\nYEmbeddable cannot be resolved to a type."
-      + "\nYECViewModelListBindingEndpoint cannot be resolved to a type."
-      + "\ncreateBeanSlotListBindingEndpoint cannot be resolved"
-      + "\nbeanSlot cannot be resolved"
-      + "\nattributePath cannot be resolved"
-      + "\ncreateECViewModelListBindingEndpoint cannot be resolved"
-      + "\nelement cannot be resolved"
-      + "\npropertyPath cannot be resolved"
-      + "\ntypeQualifiedName cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\ntypeQualifiedName cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nemfNsURI cannot be resolved"
-      + "\neClass cannot be resolved"
-      + "\nEPackage cannot be resolved"
-      + "\nnsURI cannot be resolved");
+  public YListBindingEndpoint createListBindingEndpoint(final UiBindingEndpointAssignment epDef) {
+    boolean _equals = Objects.equal(epDef, null);
+    if (_equals) {
+      return null;
+    }
+    YListBindingEndpoint result = null;
+    final UiModelDerivedStateComputerx.BindingInfo info = new UiModelDerivedStateComputerx.BindingInfo();
+    this.collectBindingInfo(epDef, info);
+    if ((info.bindingRoot instanceof UiBeanSlot)) {
+      final UiBeanSlot uiBeanSlot = ((UiBeanSlot) info.bindingRoot);
+      final YBeanSlot yBeanSlot = this.<YBeanSlot>associatedUi(uiBeanSlot);
+      final YBeanSlotListBindingEndpoint ep = this.factory.createBeanSlotListBindingEndpoint();
+      ep.setBeanSlot(yBeanSlot);
+      String _string = info.path.toString();
+      ep.setAttributePath(_string);
+      result = ep;
+    } else {
+      if ((info.bindingRoot instanceof UiEmbeddable)) {
+        final YEmbeddable yElement = this.<YEmbeddable>associatedUi(info.bindingRoot);
+        final YECViewModelListBindingEndpoint ep_1 = this.factory.createECViewModelListBindingEndpoint();
+        ep_1.setElement(yElement);
+        String _string_1 = info.path.toString();
+        ep_1.setPropertyPath(_string_1);
+        boolean _notEquals = (!Objects.equal(info.typeForBinding, null));
+        if (_notEquals) {
+          String _qualifiedName = info.typeForBinding.getQualifiedName();
+          ep_1.setTypeQualifiedName(_qualifiedName);
+          Resource _eResource = epDef.eResource();
+          ResourceSet _resourceSet = _eResource.getResourceSet();
+          String _typeQualifiedName = ep_1.getTypeQualifiedName();
+          Class<?> _loadClass = this.loadClass(_resourceSet, _typeQualifiedName);
+          ep_1.setType(_loadClass);
+        }
+        boolean _notEquals_1 = (!Objects.equal(yElement, null));
+        if (_notEquals_1) {
+          EClass _eClass = yElement.eClass();
+          EPackage _ePackage = _eClass.getEPackage();
+          String _nsURI = _ePackage.getNsURI();
+          ep_1.setEmfNsURI(_nsURI);
+        }
+        result = ep_1;
+      }
+    }
+    return result;
   }
   
   protected void _collectBindingInfo(final UiBindingEndpointAssignment assignment, final UiModelDerivedStateComputerx.BindingInfo info) {
@@ -1605,30 +3315,39 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return _xblockexpression;
   }
   
-  public Object loadClass(final ResourceSet resourceSet, final String qualifiedName) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nfindTypeByName cannot be resolved");
+  public Class<?> loadClass(final ResourceSet resourceSet, final String qualifiedName) {
+    return this.typeLoader.findTypeByName(qualifiedName);
   }
   
   protected void _map(final UiPathSegment object) {
   }
   
   protected void _map(final UiBeanSlot object) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nYView cannot be resolved to a type."
-      + "\nYView cannot be resolved to a type."
-      + "\nYViewSet cannot be resolved to a type."
-      + "\nYViewSet cannot be resolved to a type."
-      + "\nUnreachable code: The if condition can never match. It is already handled by a previous condition."
-      + "\ncreateBeanSlot cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nvalueTypeQualifiedName cannot be resolved"
-      + "\nvalueType cannot be resolved"
-      + "\nvalueTypeQualifiedName cannot be resolved"
-      + "\nbeanSlots cannot be resolved"
-      + "\n+= cannot be resolved"
-      + "\nbeanSlots cannot be resolved"
-      + "\n+= cannot be resolved");
+    final YBeanSlot yBeanSlot = this.factory.createBeanSlot();
+    String _name = object.getName();
+    yBeanSlot.setName(_name);
+    JvmTypeReference _jvmType = object.getJvmType();
+    String _qualifiedName = null;
+    if (_jvmType!=null) {
+      _qualifiedName=_jvmType.getQualifiedName();
+    }
+    yBeanSlot.setValueTypeQualifiedName(_qualifiedName);
+    Resource _eResource = object.eResource();
+    ResourceSet _resourceSet = _eResource.getResourceSet();
+    String _valueTypeQualifiedName = yBeanSlot.getValueTypeQualifiedName();
+    Class<?> _loadClass = this.loadClass(_resourceSet, _valueTypeQualifiedName);
+    yBeanSlot.setValueType(_loadClass);
+    this.associateUi(object, yBeanSlot);
+    final EObject lastElement = this.viewContext.peek();
+    if ((lastElement instanceof YView)) {
+      EList<YBeanSlot> _beanSlots = ((YView) lastElement).getBeanSlots();
+      _beanSlots.add(yBeanSlot);
+    } else {
+      if ((lastElement instanceof YViewSet)) {
+        EList<YBeanSlot> _beanSlots_1 = ((YViewSet) lastElement).getBeanSlots();
+        _beanSlots_1.add(yBeanSlot);
+      }
+    }
   }
   
   protected void _map(final EObject object) {

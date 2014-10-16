@@ -22,4 +22,6 @@ public interface UiEmbeddableValidator {
 	boolean validateReadonly(boolean value);
 
 	boolean validateInvisible(boolean value);
+
+	boolean validateStyles(String value);
 }
