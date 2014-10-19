@@ -244,6 +244,9 @@ public class IDEPreviewHandler {
 	 * @see org.lunifera.ecview.vaadin.ide.preview.parts.ECViewVaadinSynchronizer#notifyNewViewRendered(org.lunifera.ecview.core.common.context.IViewContext)
 	 */
 	public void notifyNewViewRendered(IViewContext context) {
+		if(part == null){
+			return;
+		}
 		part.notifyNewViewRendered(context);
 	}
 
