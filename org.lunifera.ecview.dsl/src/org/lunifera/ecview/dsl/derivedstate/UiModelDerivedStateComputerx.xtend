@@ -192,7 +192,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	@Inject
 	ITypeLoaderFactory typeLoaderFactory;
 	ITypeLoader typeLoader
-
+ 
 	@Inject BindableTypeProvider typeOfBoundPropertyProvider;
 	@Inject TypeHelper typeHelper;
 	@Inject extension IQualifiedNameProvider;

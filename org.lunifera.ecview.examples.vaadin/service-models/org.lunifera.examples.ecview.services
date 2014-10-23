@@ -1,0 +1,7 @@
+package org.lunifera.examples.ecview.services {
+	
+	/* Imports the original entity and dto package */
+	import org.lunifera.examples.ecview.*;
+	import org.lunifera.examples.ecview.dtos.*; 
+	
+}

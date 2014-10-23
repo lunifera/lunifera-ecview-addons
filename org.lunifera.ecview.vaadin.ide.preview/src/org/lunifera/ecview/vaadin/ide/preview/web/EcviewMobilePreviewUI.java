@@ -34,6 +34,8 @@ import org.lunifera.ecview.core.common.model.validation.ValidationPackage;
 import org.lunifera.ecview.core.common.services.IWidgetAssocationsService;
 import org.lunifera.ecview.core.common.tooling.IWidgetMouseClickService;
 import org.lunifera.ecview.core.common.types.ITypeProviderService;
+import org.lunifera.ecview.core.vaadin.databinding.VaadinObservables;
+import org.lunifera.ecview.core.vaadin.presentation.VaadinRenderer;
 import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.vaadin.ide.preview.Activator;
@@ -41,8 +43,6 @@ import org.lunifera.ecview.vaadin.ide.preview.parts.MobilePreviewHandler;
 import org.lunifera.ide.core.api.i18n.II18nRegistry;
 import org.lunifera.ide.core.api.i18n.II18nRegistry.Proposal;
 import org.lunifera.ide.core.ui.util.CoreUiUtil;
-import org.lunifera.runtime.web.ecview.presentation.vaadin.VaadinRenderer;
-import org.lunifera.runtime.web.vaadin.databinding.VaadinObservables;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
