@@ -478,7 +478,7 @@
    </extension>
    <extension point="org.eclipse.ui.editorActions">
       <editorContribution targetID="org.lunifera.ecview.uisemantics.UISemanticsGrammar" 
-                          id="org.lunifera.ecview.uisemantics.UISemanticsGrammar.ide.rulerActions">
+                          id="org.lunifera.ecview.uisemantics.UISemanticsGrammar.rulerActions">
 	     <action
 	             label="Not Used"
 	             class="org.lunifera.ecview.uisemantics.ui.UISemanticsGrammarExecutableExtensionFactory:org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
@@ -489,17 +489,29 @@
    </extension>
    <extension point="org.eclipse.ui.popupMenus">
       <viewerContribution
-         targetID="example.rulerContextMenuId"
-         id="org.lunifera.ecview.uisemantics.UISemanticsGrammar.ide.RulerPopupActions">
+         targetID="org.lunifera.ecview.uisemantics.UISemanticsGrammar.RulerContext"
+         id="org.lunifera.ecview.uisemantics.UISemanticsGrammar.RulerPopupActions">
          <action
             label="Toggle Breakpoint"
             class="org.lunifera.ecview.uisemantics.ui.UISemanticsGrammarExecutableExtensionFactory:org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
-            menubarPath="additions"
-            id="org.lunifera.ecview.uisemantics.UISemanticsGrammar.ide.rulerContextMenu.toggleBreakpointAction">
+            menubarPath="debug"
+            id="org.lunifera.ecview.uisemantics.UISemanticsGrammar.rulerContextMenu.toggleBreakpointAction">
+         </action>
+         <action
+            label="Not used"
+            class="org.lunifera.ecview.uisemantics.ui.UISemanticsGrammarExecutableExtensionFactory:org.eclipse.debug.ui.actions.RulerEnableDisableBreakpointActionDelegate"
+            menubarPath="debug"
+            id="org.lunifera.ecview.uisemantics.UISemanticsGrammar.rulerContextMenu.enableDisableBreakpointAction">
+         </action>
+         <action
+           label="Breakpoint Properties"
+           helpContextId="breakpoint_properties_action_context"
+           class="org.lunifera.ecview.uisemantics.ui.UISemanticsGrammarExecutableExtensionFactory:org.eclipse.jdt.debug.ui.actions.JavaBreakpointPropertiesRulerActionDelegate"
+           menubarPath="group.properties"
+           id="org.lunifera.ecview.uisemantics.UISemanticsGrammar.rulerContextMenu.openBreapointPropertiesAction">
          </action>
       </viewerContribution>
    </extension>
-   
     <!-- Introduce Local Variable Refactoring -->
 	<extension point="org.eclipse.ui.handlers">
 		<handler 

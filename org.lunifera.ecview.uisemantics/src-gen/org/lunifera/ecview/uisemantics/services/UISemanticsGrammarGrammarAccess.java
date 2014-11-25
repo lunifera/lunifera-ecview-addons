@@ -622,28 +622,40 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	}
 	
 	
-	private UxModelElements pUxModel;
-	private UxActionElements pUxAction;
-	private XImportDeclarationElements pXImportDeclaration;
-	private UxEPackageImportElements pUxEPackageImport;
-	private UxElementDefinitionElements pUxElementDefinition;
-	private UxAvailableValidatorPropertiesElements pUxAvailableValidatorProperties;
-	private UxValidatorPropertyElements pUxValidatorProperty;
-	private UxElementURIElements pUxElementURI;
-	private UxAvailableBindingsElements pUxAvailableBindings;
-	private UxAvailableVisibilityOptionsElements pUxAvailableVisibilityOptions;
-	private UxBindingableOptionElements pUxBindingableOption;
-	private UxVisibleableOptionElements pUxVisibleableOption;
+	private final UxModelElements pUxModel;
+	private final UxActionElements pUxAction;
+	private final XImportDeclarationElements pXImportDeclaration;
+	private final UxEPackageImportElements pUxEPackageImport;
+	private final UxElementDefinitionElements pUxElementDefinition;
+	private final UxAvailableValidatorPropertiesElements pUxAvailableValidatorProperties;
+	private final UxValidatorPropertyElements pUxValidatorProperty;
+	private final UxElementURIElements pUxElementURI;
+	private final UxAvailableBindingsElements pUxAvailableBindings;
+	private final UxAvailableVisibilityOptionsElements pUxAvailableVisibilityOptions;
+	private final UxBindingableOptionElements pUxBindingableOption;
+	private final UxVisibleableOptionElements pUxVisibleableOption;
 	
 	private final Grammar grammar;
 
-	private XbaseGrammarAccess gaXbase;
+	private final XbaseGrammarAccess gaXbase;
 
 	@Inject
 	public UISemanticsGrammarGrammarAccess(GrammarProvider grammarProvider,
 		XbaseGrammarAccess gaXbase) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaXbase = gaXbase;
+		this.pUxModel = new UxModelElements();
+		this.pUxAction = new UxActionElements();
+		this.pXImportDeclaration = new XImportDeclarationElements();
+		this.pUxEPackageImport = new UxEPackageImportElements();
+		this.pUxElementDefinition = new UxElementDefinitionElements();
+		this.pUxAvailableValidatorProperties = new UxAvailableValidatorPropertiesElements();
+		this.pUxValidatorProperty = new UxValidatorPropertyElements();
+		this.pUxElementURI = new UxElementURIElements();
+		this.pUxAvailableBindings = new UxAvailableBindingsElements();
+		this.pUxAvailableVisibilityOptions = new UxAvailableVisibilityOptionsElements();
+		this.pUxBindingableOption = new UxBindingableOptionElements();
+		this.pUxVisibleableOption = new UxVisibleableOptionElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -677,7 +689,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	//	{semantic::UxModel} importSection=XImportSection? ("actions" "{" viewActions+=UxAction* "}")?
 	//	elementDefinitions+=UxElementDefinition*;
 	public UxModelElements getUxModelAccess() {
-		return (pUxModel != null) ? pUxModel : (pUxModel = new UxModelElements());
+		return pUxModel;
 	}
 	
 	public ParserRule getUxModelRule() {
@@ -687,7 +699,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	//UxAction returns semantic::UxAction:
 	//	name=QualifiedName;
 	public UxActionElements getUxActionAccess() {
-		return (pUxAction != null) ? pUxAction : (pUxAction = new UxActionElements());
+		return pUxAction;
 	}
 	
 	public ParserRule getUxActionRule() {
@@ -700,7 +712,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	//	importedType=[JvmDeclaredType|QualifiedName] | importedNamespace=QualifiedNameWithWildcard)) | ("ePackage"
 	//	importedEPackage=UxEPackageImport) ";"?;
 	public XImportDeclarationElements getXImportDeclarationAccess() {
-		return (pXImportDeclaration != null) ? pXImportDeclaration : (pXImportDeclaration = new XImportDeclarationElements());
+		return pXImportDeclaration;
 	}
 	
 	public ParserRule getXImportDeclarationRule() {
@@ -710,7 +722,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	//UxEPackageImport returns semantic::UxEPackageImport:
 	//	ePackage=[ecore::EPackage|STRING] "as" alias=ID;
 	public UxEPackageImportElements getUxEPackageImportAccess() {
-		return (pUxEPackageImport != null) ? pUxEPackageImport : (pUxEPackageImport = new UxEPackageImportElements());
+		return pUxEPackageImport;
 	}
 	
 	public ParserRule getUxEPackageImportRule() {
@@ -722,7 +734,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	//	visibilityContainer=UxAvailableVisibilityOptions "}")? ("validator" "{"
 	//	validatorContainer=UxAvailableValidatorProperties "}")? "}";
 	public UxElementDefinitionElements getUxElementDefinitionAccess() {
-		return (pUxElementDefinition != null) ? pUxElementDefinition : (pUxElementDefinition = new UxElementDefinitionElements());
+		return pUxElementDefinition;
 	}
 	
 	public ParserRule getUxElementDefinitionRule() {
@@ -732,7 +744,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	//UxAvailableValidatorProperties returns semantic::UxAvailableValidatorProperties:
 	//	{semantic::UxAvailableValidatorProperties} properties+=UxValidatorProperty*;
 	public UxAvailableValidatorPropertiesElements getUxAvailableValidatorPropertiesAccess() {
-		return (pUxAvailableValidatorProperties != null) ? pUxAvailableValidatorProperties : (pUxAvailableValidatorProperties = new UxAvailableValidatorPropertiesElements());
+		return pUxAvailableValidatorProperties;
 	}
 	
 	public ParserRule getUxAvailableValidatorPropertiesRule() {
@@ -742,7 +754,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	//UxValidatorProperty returns semantic::UxValidatorProperty:
 	//	"property" name=ID;
 	public UxValidatorPropertyElements getUxValidatorPropertyAccess() {
-		return (pUxValidatorProperty != null) ? pUxValidatorProperty : (pUxValidatorProperty = new UxValidatorPropertyElements());
+		return pUxValidatorProperty;
 	}
 	
 	public ParserRule getUxValidatorPropertyRule() {
@@ -752,7 +764,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	//UxElementURI returns semantic::UxElementURI:
 	//	"uri" ePackage=[semantic::UxEPackageImport] ":" eClass=[ecore::EClass];
 	public UxElementURIElements getUxElementURIAccess() {
-		return (pUxElementURI != null) ? pUxElementURI : (pUxElementURI = new UxElementURIElements());
+		return pUxElementURI;
 	}
 	
 	public ParserRule getUxElementURIRule() {
@@ -762,7 +774,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	//UxAvailableBindings returns semantic::UxAvailableBindings:
 	//	{semantic::UxAvailableBindings} bindings+=UxBindingableOption*;
 	public UxAvailableBindingsElements getUxAvailableBindingsAccess() {
-		return (pUxAvailableBindings != null) ? pUxAvailableBindings : (pUxAvailableBindings = new UxAvailableBindingsElements());
+		return pUxAvailableBindings;
 	}
 	
 	public ParserRule getUxAvailableBindingsRule() {
@@ -772,7 +784,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	//UxAvailableVisibilityOptions returns semantic::UxAvailableVisibilityOptions:
 	//	{semantic::UxAvailableVisibilityOptions} bindings+=UxVisibleableOption*;
 	public UxAvailableVisibilityOptionsElements getUxAvailableVisibilityOptionsAccess() {
-		return (pUxAvailableVisibilityOptions != null) ? pUxAvailableVisibilityOptions : (pUxAvailableVisibilityOptions = new UxAvailableVisibilityOptionsElements());
+		return pUxAvailableVisibilityOptions;
 	}
 	
 	public ParserRule getUxAvailableVisibilityOptionsRule() {
@@ -782,7 +794,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	//UxBindingableOption returns semantic::UxBindingableOption:
 	//	final?="final"? listbinding?="list"? "endpoint" name=ID jvmType=JvmTypeReference ("target" targetName=ID)?;
 	public UxBindingableOptionElements getUxBindingableOptionAccess() {
-		return (pUxBindingableOption != null) ? pUxBindingableOption : (pUxBindingableOption = new UxBindingableOptionElements());
+		return pUxBindingableOption;
 	}
 	
 	public ParserRule getUxBindingableOptionRule() {
@@ -792,7 +804,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	//UxVisibleableOption returns semantic::UxVisibleableOption:
 	//	"endpoint" name=ID jvmType=JvmTypeReference;
 	public UxVisibleableOptionElements getUxVisibleableOptionAccess() {
-		return (pUxVisibleableOption != null) ? pUxVisibleableOption : (pUxVisibleableOption = new UxVisibleableOptionElements());
+		return pUxVisibleableOption;
 	}
 	
 	public ParserRule getUxVisibleableOptionRule() {
@@ -1171,7 +1183,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	}
 
 	//XCasePart:
-	//	{XCasePart} typeGuard=JvmTypeReference? ("case" case=XExpression)? (":" then=XExpression | ",");
+	//	{XCasePart} typeGuard=JvmTypeReference? ("case" case=XExpression)? (":" then=XExpression | fallThrough?=",");
 	public XbaseGrammarAccess.XCasePartElements getXCasePartAccess() {
 		return gaXbase.getXCasePartAccess();
 	}
@@ -1503,8 +1515,9 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	}
 
 	//JvmParameterizedTypeReference:
-	//	type=[JvmType|QualifiedName] ("<" arguments+=JvmArgumentTypeReference ("," arguments+=JvmArgumentTypeReference)*
-	//	">")?;
+	//	type=[JvmType|QualifiedName] ("<" arguments+=JvmArgumentTypeReference ("," arguments+=JvmArgumentTypeReference)* ">"
+	//	(=> ({JvmInnerTypeReference.outer=current} ".") type=[JvmType|ValidID] ("<" arguments+=JvmArgumentTypeReference (","
+	//	arguments+=JvmArgumentTypeReference)* ">")?)*)?;
 	public XtypeGrammarAccess.JvmParameterizedTypeReferenceElements getJvmParameterizedTypeReferenceAccess() {
 		return gaXbase.getJvmParameterizedTypeReferenceAccess();
 	}
@@ -1524,7 +1537,8 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	}
 
 	//JvmWildcardTypeReference:
-	//	{JvmWildcardTypeReference} "?" (constraints+=JvmUpperBound | constraints+=JvmLowerBound)?;
+	//	{JvmWildcardTypeReference} "?" (constraints+=JvmUpperBound constraints+=JvmUpperBoundAnded* |
+	//	constraints+=JvmLowerBound constraints+=JvmLowerBoundAnded*)?;
 	public XtypeGrammarAccess.JvmWildcardTypeReferenceElements getJvmWildcardTypeReferenceAccess() {
 		return gaXbase.getJvmWildcardTypeReferenceAccess();
 	}
@@ -1561,6 +1575,16 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	
 	public ParserRule getJvmLowerBoundRule() {
 		return getJvmLowerBoundAccess().getRule();
+	}
+
+	//JvmLowerBoundAnded returns JvmLowerBound:
+	//	"&" typeReference=JvmTypeReference;
+	public XtypeGrammarAccess.JvmLowerBoundAndedElements getJvmLowerBoundAndedAccess() {
+		return gaXbase.getJvmLowerBoundAndedAccess();
+	}
+	
+	public ParserRule getJvmLowerBoundAndedRule() {
+		return getJvmLowerBoundAndedAccess().getRule();
 	}
 
 	//JvmTypeParameter:
@@ -1620,8 +1644,8 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	} 
 
 	//terminal STRING:
-	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
-	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
+	//	"\"" ("\\" . / * ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') * / | !("\\" | "\""))* "\""? | "\'" ("\\" .
+	//	/ * ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') * / | !("\\" | "\'"))* "\'"?;
 	public TerminalRule getSTRINGRule() {
 		return gaXbase.getSTRINGRule();
 	} 

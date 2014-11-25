@@ -7588,117 +7588,218 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getFILL_FILLFillFillKeyword_16_0() { return cFILL_FILLFillFillKeyword_16_0; }
 	}
 	
-	private UiModelElements pUiModel;
-	private UiImportsElements pUiImports;
-	private UiRootElementsElements pUiRootElements;
-	private UiValidatorAliasElements pUiValidatorAlias;
-	private UiValidatorAssignmentElements pUiValidatorAssignment;
-	private UiValidatorDefElements pUiValidatorDef;
-	private UiViewSetElements pUiViewSet;
-	private UiBindingEndpointAliasElements pUiBindingEndpointAlias;
-	private UiBeanSlotElements pUiBeanSlot;
-	private UiBindingElements pUiBinding;
-	private UiBindingEndpointAssignmentElements pUiBindingEndpointAssignment;
-	private UiPathSegmentElements pUiPathSegment;
-	private UiNestedPropertyElements pUiNestedProperty;
-	private UiTypedBindableDefElements pUiTypedBindableDef;
-	private UiTypedBindableRawTypeElements pUiTypedBindableRawType;
-	private UiTypedBindableRawTypeAliasElements pUiTypedBindableRawTypeAlias;
-	private UiRawBindablePathSegmentElements pUiRawBindablePathSegment;
-	private UiCommandBindableDefElements pUiCommandBindableDef;
-	private UiCommandElements pUiCommand;
-	private UiMobileNavigationCommandElements pUiMobileNavigationCommand;
-	private UiOpenDialogCommandElements pUiOpenDialogCommand;
-	private UiSearchWithDialogCommandElements pUiSearchWithDialogCommand;
-	private UiViewElements pUiView;
-	private UiIDEViewElements pUiIDEView;
-	private UiExposedActionElements pUiExposedAction;
-	private UiMobileViewElements pUiMobileView;
-	private UiI18nInfoElements pUiI18nInfo;
-	private UiGridLayoutElements pUiGridLayout;
-	private UiVisibilityProcessorAssignmentElements pUiVisibilityProcessorAssignment;
-	private UiGridLayoutAssigmentElements pUiGridLayoutAssigment;
-	private UiFormLayoutElements pUiFormLayout;
-	private UiFormLayoutAssigmentElements pUiFormLayoutAssigment;
-	private UiVerticalLayoutElements pUiVerticalLayout;
-	private UiVerticalLayoutAssigmentElements pUiVerticalLayoutAssigment;
-	private UiMobileVerticalLayoutElements pUiMobileVerticalLayout;
-	private UiMobileVerticalLayoutAssigmentElements pUiMobileVerticalLayoutAssigment;
-	private UiHorizontalLayoutElements pUiHorizontalLayout;
-	private UiHorizontalLayoutAssigmentElements pUiHorizontalLayoutAssigment;
-	private UiMobileHorizontalLayoutElements pUiMobileHorizontalLayout;
-	private UiMobileHorizontalLayoutAssigmentElements pUiMobileHorizontalLayoutAssigment;
-	private UiMobileHorizontalButtonGroupElements pUiMobileHorizontalButtonGroup;
-	private UiMobileHorizontalButtonGroupAssigmentElements pUiMobileHorizontalButtonGroupAssigment;
-	private UiMobileVerticalComponentGroupElements pUiMobileVerticalComponentGroup;
-	private UiMobileVerticalComponentGroupAssigmentElements pUiMobileVerticalComponentGroupAssigment;
-	private UiSearchPanelElements pUiSearchPanel;
-	private UiMobileTabSheetElements pUiMobileTabSheet;
-	private UiMobileTabAssignmentElements pUiMobileTabAssignment;
-	private UiTabSheetElements pUiTabSheet;
-	private UiTabAssignmentElements pUiTabAssignment;
-	private UiSplitpanelElements pUiSplitpanel;
-	private UiSplitpanelAssigmentElements pUiSplitpanelAssigment;
-	private UiPanelElements pUiPanel;
-	private UiDialogElements pUiDialog;
-	private UiDialogAssignmentElements pUiDialogAssignment;
-	private UiSearchDialogElements pUiSearchDialog;
-	private UiDialogSearchFieldAssignmentElements pUiDialogSearchFieldAssignment;
-	private UiMobileNavigationPageElements pUiMobileNavigationPage;
-	private UiMobileNavigationPageAssignmentElements pUiMobileNavigationPageAssignment;
-	private UiPointElements pUiPoint;
-	private UiTextFieldElements pUiTextField;
-	private UiBeanReferenceFieldElements pUiBeanReferenceField;
-	private UiSearchFieldElements pUiSearchField;
-	private UiTextAreaElements pUiTextArea;
-	private UiDateFieldElements pUiDateField;
-	private UiDateFormatElements unknownRuleUiDateFormat;
-	private UiDateTimeResolutionElements unknownRuleUiDateTimeResolution;
-	private UiBrowserElements pUiBrowser;
-	private UiProgressBarElements pUiProgressBar;
-	private UiImageElements pUiImage;
-	private UiTableElements pUiTable;
-	private UiComboBoxElements pUiComboBox;
-	private UiButtonElements pUiButton;
-	private UiMobileNavigationButtonElements pUiMobileNavigationButton;
-	private UiMobileSwitchElements pUiMobileSwitch;
-	private UiLabelElements pUiLabel;
-	private UiDecimalFieldElements pUiDecimalField;
-	private UiOptionsGroupElements pUiOptionsGroup;
-	private UiListElements pUiList;
-	private UiSelectionTypeElements unknownRuleUiSelectionType;
-	private UiAlignmentElements unknownRuleUiAlignment;
-	private UiColumnsAssignmentElements pUiColumnsAssignment;
-	private UiColumnElements pUiColumn;
-	private UiEmbeddableElements pUiEmbeddable;
-	private UiMobileEmbeddableElements pUiMobileEmbeddable;
-	private UiMobileLayoutElements pUiMobileLayout;
-	private UiMobileFieldElements pUiMobileField;
-	private UiLayoutElements pUiLayout;
-	private UiFieldElements pUiField;
-	private UiActionElements pUiAction;
-	private UiMobileActionElements pUiMobileAction;
-	private UiNumericFieldElements pUiNumericField;
-	private UiCheckBoxElements pUiCheckBox;
-	private UiValidatorElements pUiValidator;
-	private UiMaxLengthValidatorElements pUiMaxLengthValidator;
-	private UiMinLengthValidatorElements pUiMinLengthValidator;
-	private UiRegexpValidatorElements pUiRegexpValidator;
-	private UiXbaseValidatorElements pUiXbaseValidator;
-	private UiErrorCodeElements pUiErrorCode;
-	private UiVisibilityProcessorElements pUiVisibilityProcessor;
-	private UiXbaseVisibilityRuleElements pUiXbaseVisibilityRule;
-	private UiChangeTriggerElements pUiChangeTrigger;
+	private final UiModelElements pUiModel;
+	private final UiImportsElements pUiImports;
+	private final UiRootElementsElements pUiRootElements;
+	private final UiValidatorAliasElements pUiValidatorAlias;
+	private final UiValidatorAssignmentElements pUiValidatorAssignment;
+	private final UiValidatorDefElements pUiValidatorDef;
+	private final UiViewSetElements pUiViewSet;
+	private final UiBindingEndpointAliasElements pUiBindingEndpointAlias;
+	private final UiBeanSlotElements pUiBeanSlot;
+	private final UiBindingElements pUiBinding;
+	private final UiBindingEndpointAssignmentElements pUiBindingEndpointAssignment;
+	private final UiPathSegmentElements pUiPathSegment;
+	private final UiNestedPropertyElements pUiNestedProperty;
+	private final UiTypedBindableDefElements pUiTypedBindableDef;
+	private final UiTypedBindableRawTypeElements pUiTypedBindableRawType;
+	private final UiTypedBindableRawTypeAliasElements pUiTypedBindableRawTypeAlias;
+	private final UiRawBindablePathSegmentElements pUiRawBindablePathSegment;
+	private final UiCommandBindableDefElements pUiCommandBindableDef;
+	private final UiCommandElements pUiCommand;
+	private final UiMobileNavigationCommandElements pUiMobileNavigationCommand;
+	private final UiOpenDialogCommandElements pUiOpenDialogCommand;
+	private final UiSearchWithDialogCommandElements pUiSearchWithDialogCommand;
+	private final UiViewElements pUiView;
+	private final UiIDEViewElements pUiIDEView;
+	private final UiExposedActionElements pUiExposedAction;
+	private final UiMobileViewElements pUiMobileView;
+	private final UiI18nInfoElements pUiI18nInfo;
+	private final UiGridLayoutElements pUiGridLayout;
+	private final UiVisibilityProcessorAssignmentElements pUiVisibilityProcessorAssignment;
+	private final UiGridLayoutAssigmentElements pUiGridLayoutAssigment;
+	private final UiFormLayoutElements pUiFormLayout;
+	private final UiFormLayoutAssigmentElements pUiFormLayoutAssigment;
+	private final UiVerticalLayoutElements pUiVerticalLayout;
+	private final UiVerticalLayoutAssigmentElements pUiVerticalLayoutAssigment;
+	private final UiMobileVerticalLayoutElements pUiMobileVerticalLayout;
+	private final UiMobileVerticalLayoutAssigmentElements pUiMobileVerticalLayoutAssigment;
+	private final UiHorizontalLayoutElements pUiHorizontalLayout;
+	private final UiHorizontalLayoutAssigmentElements pUiHorizontalLayoutAssigment;
+	private final UiMobileHorizontalLayoutElements pUiMobileHorizontalLayout;
+	private final UiMobileHorizontalLayoutAssigmentElements pUiMobileHorizontalLayoutAssigment;
+	private final UiMobileHorizontalButtonGroupElements pUiMobileHorizontalButtonGroup;
+	private final UiMobileHorizontalButtonGroupAssigmentElements pUiMobileHorizontalButtonGroupAssigment;
+	private final UiMobileVerticalComponentGroupElements pUiMobileVerticalComponentGroup;
+	private final UiMobileVerticalComponentGroupAssigmentElements pUiMobileVerticalComponentGroupAssigment;
+	private final UiSearchPanelElements pUiSearchPanel;
+	private final UiMobileTabSheetElements pUiMobileTabSheet;
+	private final UiMobileTabAssignmentElements pUiMobileTabAssignment;
+	private final UiTabSheetElements pUiTabSheet;
+	private final UiTabAssignmentElements pUiTabAssignment;
+	private final UiSplitpanelElements pUiSplitpanel;
+	private final UiSplitpanelAssigmentElements pUiSplitpanelAssigment;
+	private final UiPanelElements pUiPanel;
+	private final UiDialogElements pUiDialog;
+	private final UiDialogAssignmentElements pUiDialogAssignment;
+	private final UiSearchDialogElements pUiSearchDialog;
+	private final UiDialogSearchFieldAssignmentElements pUiDialogSearchFieldAssignment;
+	private final UiMobileNavigationPageElements pUiMobileNavigationPage;
+	private final UiMobileNavigationPageAssignmentElements pUiMobileNavigationPageAssignment;
+	private final UiPointElements pUiPoint;
+	private final UiTextFieldElements pUiTextField;
+	private final UiBeanReferenceFieldElements pUiBeanReferenceField;
+	private final UiSearchFieldElements pUiSearchField;
+	private final UiTextAreaElements pUiTextArea;
+	private final UiDateFieldElements pUiDateField;
+	private final UiDateFormatElements unknownRuleUiDateFormat;
+	private final UiDateTimeResolutionElements unknownRuleUiDateTimeResolution;
+	private final UiBrowserElements pUiBrowser;
+	private final UiProgressBarElements pUiProgressBar;
+	private final UiImageElements pUiImage;
+	private final UiTableElements pUiTable;
+	private final UiComboBoxElements pUiComboBox;
+	private final UiButtonElements pUiButton;
+	private final UiMobileNavigationButtonElements pUiMobileNavigationButton;
+	private final UiMobileSwitchElements pUiMobileSwitch;
+	private final UiLabelElements pUiLabel;
+	private final UiDecimalFieldElements pUiDecimalField;
+	private final UiOptionsGroupElements pUiOptionsGroup;
+	private final UiListElements pUiList;
+	private final UiSelectionTypeElements unknownRuleUiSelectionType;
+	private final UiAlignmentElements unknownRuleUiAlignment;
+	private final UiColumnsAssignmentElements pUiColumnsAssignment;
+	private final UiColumnElements pUiColumn;
+	private final UiEmbeddableElements pUiEmbeddable;
+	private final UiMobileEmbeddableElements pUiMobileEmbeddable;
+	private final UiMobileLayoutElements pUiMobileLayout;
+	private final UiMobileFieldElements pUiMobileField;
+	private final UiLayoutElements pUiLayout;
+	private final UiFieldElements pUiField;
+	private final UiActionElements pUiAction;
+	private final UiMobileActionElements pUiMobileAction;
+	private final UiNumericFieldElements pUiNumericField;
+	private final UiCheckBoxElements pUiCheckBox;
+	private final UiValidatorElements pUiValidator;
+	private final UiMaxLengthValidatorElements pUiMaxLengthValidator;
+	private final UiMinLengthValidatorElements pUiMinLengthValidator;
+	private final UiRegexpValidatorElements pUiRegexpValidator;
+	private final UiXbaseValidatorElements pUiXbaseValidator;
+	private final UiErrorCodeElements pUiErrorCode;
+	private final UiVisibilityProcessorElements pUiVisibilityProcessor;
+	private final UiXbaseVisibilityRuleElements pUiXbaseVisibilityRule;
+	private final UiChangeTriggerElements pUiChangeTrigger;
 	
 	private final Grammar grammar;
 
-	private XbaseGrammarAccess gaXbase;
+	private final XbaseGrammarAccess gaXbase;
 
 	@Inject
 	public UIGrammarGrammarAccess(GrammarProvider grammarProvider,
 		XbaseGrammarAccess gaXbase) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaXbase = gaXbase;
+		this.pUiModel = new UiModelElements();
+		this.pUiImports = new UiImportsElements();
+		this.pUiRootElements = new UiRootElementsElements();
+		this.pUiValidatorAlias = new UiValidatorAliasElements();
+		this.pUiValidatorAssignment = new UiValidatorAssignmentElements();
+		this.pUiValidatorDef = new UiValidatorDefElements();
+		this.pUiViewSet = new UiViewSetElements();
+		this.pUiBindingEndpointAlias = new UiBindingEndpointAliasElements();
+		this.pUiBeanSlot = new UiBeanSlotElements();
+		this.pUiBinding = new UiBindingElements();
+		this.pUiBindingEndpointAssignment = new UiBindingEndpointAssignmentElements();
+		this.pUiPathSegment = new UiPathSegmentElements();
+		this.pUiNestedProperty = new UiNestedPropertyElements();
+		this.pUiTypedBindableDef = new UiTypedBindableDefElements();
+		this.pUiTypedBindableRawType = new UiTypedBindableRawTypeElements();
+		this.pUiTypedBindableRawTypeAlias = new UiTypedBindableRawTypeAliasElements();
+		this.pUiRawBindablePathSegment = new UiRawBindablePathSegmentElements();
+		this.pUiCommandBindableDef = new UiCommandBindableDefElements();
+		this.pUiCommand = new UiCommandElements();
+		this.pUiMobileNavigationCommand = new UiMobileNavigationCommandElements();
+		this.pUiOpenDialogCommand = new UiOpenDialogCommandElements();
+		this.pUiSearchWithDialogCommand = new UiSearchWithDialogCommandElements();
+		this.pUiView = new UiViewElements();
+		this.pUiIDEView = new UiIDEViewElements();
+		this.pUiExposedAction = new UiExposedActionElements();
+		this.pUiMobileView = new UiMobileViewElements();
+		this.pUiI18nInfo = new UiI18nInfoElements();
+		this.pUiGridLayout = new UiGridLayoutElements();
+		this.pUiVisibilityProcessorAssignment = new UiVisibilityProcessorAssignmentElements();
+		this.pUiGridLayoutAssigment = new UiGridLayoutAssigmentElements();
+		this.pUiFormLayout = new UiFormLayoutElements();
+		this.pUiFormLayoutAssigment = new UiFormLayoutAssigmentElements();
+		this.pUiVerticalLayout = new UiVerticalLayoutElements();
+		this.pUiVerticalLayoutAssigment = new UiVerticalLayoutAssigmentElements();
+		this.pUiMobileVerticalLayout = new UiMobileVerticalLayoutElements();
+		this.pUiMobileVerticalLayoutAssigment = new UiMobileVerticalLayoutAssigmentElements();
+		this.pUiHorizontalLayout = new UiHorizontalLayoutElements();
+		this.pUiHorizontalLayoutAssigment = new UiHorizontalLayoutAssigmentElements();
+		this.pUiMobileHorizontalLayout = new UiMobileHorizontalLayoutElements();
+		this.pUiMobileHorizontalLayoutAssigment = new UiMobileHorizontalLayoutAssigmentElements();
+		this.pUiMobileHorizontalButtonGroup = new UiMobileHorizontalButtonGroupElements();
+		this.pUiMobileHorizontalButtonGroupAssigment = new UiMobileHorizontalButtonGroupAssigmentElements();
+		this.pUiMobileVerticalComponentGroup = new UiMobileVerticalComponentGroupElements();
+		this.pUiMobileVerticalComponentGroupAssigment = new UiMobileVerticalComponentGroupAssigmentElements();
+		this.pUiSearchPanel = new UiSearchPanelElements();
+		this.pUiMobileTabSheet = new UiMobileTabSheetElements();
+		this.pUiMobileTabAssignment = new UiMobileTabAssignmentElements();
+		this.pUiTabSheet = new UiTabSheetElements();
+		this.pUiTabAssignment = new UiTabAssignmentElements();
+		this.pUiSplitpanel = new UiSplitpanelElements();
+		this.pUiSplitpanelAssigment = new UiSplitpanelAssigmentElements();
+		this.pUiPanel = new UiPanelElements();
+		this.pUiDialog = new UiDialogElements();
+		this.pUiDialogAssignment = new UiDialogAssignmentElements();
+		this.pUiSearchDialog = new UiSearchDialogElements();
+		this.pUiDialogSearchFieldAssignment = new UiDialogSearchFieldAssignmentElements();
+		this.pUiMobileNavigationPage = new UiMobileNavigationPageElements();
+		this.pUiMobileNavigationPageAssignment = new UiMobileNavigationPageAssignmentElements();
+		this.pUiPoint = new UiPointElements();
+		this.pUiTextField = new UiTextFieldElements();
+		this.pUiBeanReferenceField = new UiBeanReferenceFieldElements();
+		this.pUiSearchField = new UiSearchFieldElements();
+		this.pUiTextArea = new UiTextAreaElements();
+		this.pUiDateField = new UiDateFieldElements();
+		this.unknownRuleUiDateFormat = new UiDateFormatElements();
+		this.unknownRuleUiDateTimeResolution = new UiDateTimeResolutionElements();
+		this.pUiBrowser = new UiBrowserElements();
+		this.pUiProgressBar = new UiProgressBarElements();
+		this.pUiImage = new UiImageElements();
+		this.pUiTable = new UiTableElements();
+		this.pUiComboBox = new UiComboBoxElements();
+		this.pUiButton = new UiButtonElements();
+		this.pUiMobileNavigationButton = new UiMobileNavigationButtonElements();
+		this.pUiMobileSwitch = new UiMobileSwitchElements();
+		this.pUiLabel = new UiLabelElements();
+		this.pUiDecimalField = new UiDecimalFieldElements();
+		this.pUiOptionsGroup = new UiOptionsGroupElements();
+		this.pUiList = new UiListElements();
+		this.unknownRuleUiSelectionType = new UiSelectionTypeElements();
+		this.unknownRuleUiAlignment = new UiAlignmentElements();
+		this.pUiColumnsAssignment = new UiColumnsAssignmentElements();
+		this.pUiColumn = new UiColumnElements();
+		this.pUiEmbeddable = new UiEmbeddableElements();
+		this.pUiMobileEmbeddable = new UiMobileEmbeddableElements();
+		this.pUiMobileLayout = new UiMobileLayoutElements();
+		this.pUiMobileField = new UiMobileFieldElements();
+		this.pUiLayout = new UiLayoutElements();
+		this.pUiField = new UiFieldElements();
+		this.pUiAction = new UiActionElements();
+		this.pUiMobileAction = new UiMobileActionElements();
+		this.pUiNumericField = new UiNumericFieldElements();
+		this.pUiCheckBox = new UiCheckBoxElements();
+		this.pUiValidator = new UiValidatorElements();
+		this.pUiMaxLengthValidator = new UiMaxLengthValidatorElements();
+		this.pUiMinLengthValidator = new UiMinLengthValidatorElements();
+		this.pUiRegexpValidator = new UiRegexpValidatorElements();
+		this.pUiXbaseValidator = new UiXbaseValidatorElements();
+		this.pUiErrorCode = new UiErrorCodeElements();
+		this.pUiVisibilityProcessor = new UiVisibilityProcessorElements();
+		this.pUiXbaseVisibilityRule = new UiXbaseVisibilityRuleElements();
+		this.pUiChangeTrigger = new UiChangeTriggerElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -7731,7 +7832,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiModel:
 	//	"package" packageName=QualifiedName imports+=UiImports* roots+=UiRootElements*;
 	public UiModelElements getUiModelAccess() {
-		return (pUiModel != null) ? pUiModel : (pUiModel = new UiModelElements());
+		return pUiModel;
 	}
 	
 	public ParserRule getUiModelRule() {
@@ -7741,7 +7842,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiImports:
 	//	"import" importedNamespace=QualifiedNameWithWildcard ";"?;
 	public UiImportsElements getUiImportsAccess() {
-		return (pUiImports != null) ? pUiImports : (pUiImports = new UiImportsElements());
+		return pUiImports;
 	}
 	
 	public ParserRule getUiImportsRule() {
@@ -7751,7 +7852,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiRootElements:
 	//	UiView | UiViewSet | UiValidatorAlias | UiMobileView;
 	public UiRootElementsElements getUiRootElementsAccess() {
-		return (pUiRootElements != null) ? pUiRootElements : (pUiRootElements = new UiRootElementsElements());
+		return pUiRootElements;
 	}
 	
 	public ParserRule getUiRootElementsRule() {
@@ -7761,7 +7862,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiValidatorAlias:
 	//	"validatorAlias" validator=UiValidator "as" alias=ID ";"?;
 	public UiValidatorAliasElements getUiValidatorAliasAccess() {
-		return (pUiValidatorAlias != null) ? pUiValidatorAlias : (pUiValidatorAlias = new UiValidatorAliasElements());
+		return pUiValidatorAlias;
 	}
 	
 	public ParserRule getUiValidatorAliasRule() {
@@ -7772,7 +7873,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	"fieldValidation" field=[UiField] "+=" (validatorDef=UiValidatorDef | validatorAlias=[UiValidatorAlias|QualifiedName]
 	//	";"?);
 	public UiValidatorAssignmentElements getUiValidatorAssignmentAccess() {
-		return (pUiValidatorAssignment != null) ? pUiValidatorAssignment : (pUiValidatorAssignment = new UiValidatorAssignmentElements());
+		return pUiValidatorAssignment;
 	}
 	
 	public ParserRule getUiValidatorAssignmentRule() {
@@ -7782,7 +7883,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiValidatorDef:
 	//	validator=UiValidator;
 	public UiValidatorDefElements getUiValidatorDefAccess() {
-		return (pUiValidatorDef != null) ? pUiValidatorDef : (pUiValidatorDef = new UiValidatorDefElements());
+		return pUiValidatorDef;
 	}
 	
 	public ParserRule getUiValidatorDefRule() {
@@ -7792,7 +7893,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiViewSet:
 	//	"viewset" name=ID "{" beanSlots+=UiBeanSlot* bindingEndpointAlias+=UiBindingEndpointAlias* "}";
 	public UiViewSetElements getUiViewSetAccess() {
-		return (pUiViewSet != null) ? pUiViewSet : (pUiViewSet = new UiViewSetElements());
+		return pUiViewSet;
 	}
 	
 	public ParserRule getUiViewSetRule() {
@@ -7802,7 +7903,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiBindingEndpointAlias:
 	//	"dataAlias" endpoint=UiBindingEndpointAssignment "as" alias=ID ";"?;
 	public UiBindingEndpointAliasElements getUiBindingEndpointAliasAccess() {
-		return (pUiBindingEndpointAlias != null) ? pUiBindingEndpointAlias : (pUiBindingEndpointAlias = new UiBindingEndpointAliasElements());
+		return pUiBindingEndpointAlias;
 	}
 	
 	public ParserRule getUiBindingEndpointAliasRule() {
@@ -7812,7 +7913,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiBeanSlot:
 	//	"datasource" name=ID ":" jvmType=JvmTypeReference ";"?;
 	public UiBeanSlotElements getUiBeanSlotAccess() {
-		return (pUiBeanSlot != null) ? pUiBeanSlot : (pUiBeanSlot = new UiBeanSlotElements());
+		return pUiBeanSlot;
 	}
 	
 	public ParserRule getUiBeanSlotRule() {
@@ -7823,7 +7924,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	"bind" listBinding?="list"? source=UiBindingEndpointAssignment (targetToSource?="<"? "--" sourceToTarget?=">"?)
 	//	target=UiBindingEndpointAssignment ";"?;
 	public UiBindingElements getUiBindingAccess() {
-		return (pUiBinding != null) ? pUiBinding : (pUiBinding = new UiBindingElements());
+		return pUiBinding;
 	}
 	
 	public ParserRule getUiBindingRule() {
@@ -7835,7 +7936,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	{UiBindingEndpointAssignment.typedBindableDef=current} | {UiBindingEndpointAssignment}
 	//	typedBindableAlias=[UiTypedBindable] path=UiPathSegment?;
 	public UiBindingEndpointAssignmentElements getUiBindingEndpointAssignmentAccess() {
-		return (pUiBindingEndpointAssignment != null) ? pUiBindingEndpointAssignment : (pUiBindingEndpointAssignment = new UiBindingEndpointAssignmentElements());
+		return pUiBindingEndpointAssignment;
 	}
 	
 	public ParserRule getUiBindingEndpointAssignmentRule() {
@@ -7845,7 +7946,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiPathSegment:
 	//	{UiPathSegment} "." getter=[JvmOperation] path=UiPathSegment?;
 	public UiPathSegmentElements getUiPathSegmentAccess() {
-		return (pUiPathSegment != null) ? pUiPathSegment : (pUiPathSegment = new UiPathSegmentElements());
+		return pUiPathSegment;
 	}
 	
 	public ParserRule getUiPathSegmentRule() {
@@ -7855,7 +7956,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiNestedProperty:
 	//	{UiNestedProperty} getter=[JvmOperation] path=UiPathSegment?;
 	public UiNestedPropertyElements getUiNestedPropertyAccess() {
-		return (pUiNestedProperty != null) ? pUiNestedProperty : (pUiNestedProperty = new UiNestedPropertyElements());
+		return pUiNestedProperty;
 	}
 	
 	public ParserRule getUiNestedPropertyRule() {
@@ -7866,7 +7967,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	{UiTypedBindableDef} ("[" rawBindable=[UiRawBindable] rawBindablePath=UiRawBindablePathSegment? "]" "."
 	//	method=[cfg::UxEndpointDef]);
 	public UiTypedBindableDefElements getUiTypedBindableDefAccess() {
-		return (pUiTypedBindableDef != null) ? pUiTypedBindableDef : (pUiTypedBindableDef = new UiTypedBindableDefElements());
+		return pUiTypedBindableDef;
 	}
 	
 	public ParserRule getUiTypedBindableDefRule() {
@@ -7876,7 +7977,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiTypedBindableRawType returns UiBindingExpression:
 	//	{UiTypedBindableRawType} "[" rawBindable=[UiRawBindable] rawBindablePath=UiRawBindablePathSegment? "]";
 	public UiTypedBindableRawTypeElements getUiTypedBindableRawTypeAccess() {
-		return (pUiTypedBindableRawType != null) ? pUiTypedBindableRawType : (pUiTypedBindableRawType = new UiTypedBindableRawTypeElements());
+		return pUiTypedBindableRawType;
 	}
 	
 	public ParserRule getUiTypedBindableRawTypeRule() {
@@ -7886,7 +7987,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiTypedBindableRawTypeAlias:
 	//	"ui" type=UiTypedBindableRawType "as" alias=ID ";"?;
 	public UiTypedBindableRawTypeAliasElements getUiTypedBindableRawTypeAliasAccess() {
-		return (pUiTypedBindableRawTypeAlias != null) ? pUiTypedBindableRawTypeAlias : (pUiTypedBindableRawTypeAlias = new UiTypedBindableRawTypeAliasElements());
+		return pUiTypedBindableRawTypeAlias;
 	}
 	
 	public ParserRule getUiTypedBindableRawTypeAliasRule() {
@@ -7896,7 +7997,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiRawBindablePathSegment:
 	//	{UiRawBindablePathSegment} "." rawBindable=[UiRawBindable] path=UiRawBindablePathSegment?;
 	public UiRawBindablePathSegmentElements getUiRawBindablePathSegmentAccess() {
-		return (pUiRawBindablePathSegment != null) ? pUiRawBindablePathSegment : (pUiRawBindablePathSegment = new UiRawBindablePathSegmentElements());
+		return pUiRawBindablePathSegment;
 	}
 	
 	public ParserRule getUiRawBindablePathSegmentRule() {
@@ -7906,7 +8007,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiCommandBindableDef:
 	//	{UiCommandBindableDef} command=UiCommand;
 	public UiCommandBindableDefElements getUiCommandBindableDefAccess() {
-		return (pUiCommandBindableDef != null) ? pUiCommandBindableDef : (pUiCommandBindableDef = new UiCommandBindableDefElements());
+		return pUiCommandBindableDef;
 	}
 	
 	public ParserRule getUiCommandBindableDefRule() {
@@ -7916,7 +8017,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiCommand:
 	//	UiMobileNavigationCommand | UiOpenDialogCommand | UiSearchWithDialogCommand;
 	public UiCommandElements getUiCommandAccess() {
-		return (pUiCommand != null) ? pUiCommand : (pUiCommand = new UiCommandElements());
+		return pUiCommand;
 	}
 	
 	public ParserRule getUiCommandRule() {
@@ -7926,7 +8027,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiMobileNavigationCommand:
 	//	{UiMobileNavigationCommand} "navigateTo" targetPage=UiMobileNavigationPage;
 	public UiMobileNavigationCommandElements getUiMobileNavigationCommandAccess() {
-		return (pUiMobileNavigationCommand != null) ? pUiMobileNavigationCommand : (pUiMobileNavigationCommand = new UiMobileNavigationCommandElements());
+		return pUiMobileNavigationCommand;
 	}
 	
 	public ParserRule getUiMobileNavigationCommandRule() {
@@ -7936,7 +8037,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiOpenDialogCommand:
 	//	{UiOpenDialogCommand} "openDialog" dialog=UiDialog;
 	public UiOpenDialogCommandElements getUiOpenDialogCommandAccess() {
-		return (pUiOpenDialogCommand != null) ? pUiOpenDialogCommand : (pUiOpenDialogCommand = new UiOpenDialogCommandElements());
+		return pUiOpenDialogCommand;
 	}
 	
 	public ParserRule getUiOpenDialogCommandRule() {
@@ -7946,7 +8047,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiSearchWithDialogCommand:
 	//	{UiSearchWithDialogCommand} "searchWith" dialog=UiSearchDialog;
 	public UiSearchWithDialogCommandElements getUiSearchWithDialogCommandAccess() {
-		return (pUiSearchWithDialogCommand != null) ? pUiSearchWithDialogCommand : (pUiSearchWithDialogCommand = new UiSearchWithDialogCommandElements());
+		return pUiSearchWithDialogCommand;
 	}
 	
 	public ParserRule getUiSearchWithDialogCommandRule() {
@@ -7956,7 +8057,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiView:
 	//	UiIDEView;
 	public UiViewElements getUiViewAccess() {
-		return (pUiView != null) ? pUiView : (pUiView = new UiViewElements());
+		return pUiView;
 	}
 	
 	public ParserRule getUiViewRule() {
@@ -7970,7 +8071,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	(bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding | validatorAssignments+=UiValidatorAssignment |
 	//	processorAssignments+=UiVisibilityProcessorAssignment)* "}";
 	public UiIDEViewElements getUiIDEViewAccess() {
-		return (pUiIDEView != null) ? pUiIDEView : (pUiIDEView = new UiIDEViewElements());
+		return pUiIDEView;
 	}
 	
 	public ParserRule getUiIDEViewRule() {
@@ -7980,7 +8081,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiExposedAction:
 	//	name=ID ("icon" iconName=STRING)? "id" (=> actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING) ";"?;
 	public UiExposedActionElements getUiExposedActionAccess() {
-		return (pUiExposedAction != null) ? pUiExposedAction : (pUiExposedAction = new UiExposedActionElements());
+		return pUiExposedAction;
 	}
 	
 	public ParserRule getUiExposedActionRule() {
@@ -7993,7 +8094,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	(bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding | validatorAssignments+=UiValidatorAssignment |
 	//	processorAssignments+=UiVisibilityProcessorAssignment)* "}";
 	public UiMobileViewElements getUiMobileViewAccess() {
-		return (pUiMobileView != null) ? pUiMobileView : (pUiMobileView = new UiMobileViewElements());
+		return pUiMobileView;
 	}
 	
 	public ParserRule getUiMobileViewRule() {
@@ -8003,7 +8104,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiI18nInfo:
 	//	"i18n" key=STRING;
 	public UiI18nInfoElements getUiI18nInfoAccess() {
-		return (pUiI18nInfo != null) ? pUiI18nInfo : (pUiI18nInfo = new UiI18nInfoElements());
+		return pUiI18nInfo;
 	}
 	
 	public ParserRule getUiI18nInfoRule() {
@@ -8015,7 +8116,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	readonly?="readonly"?) ")")? name=ID? "{" contents+=UiGridLayoutAssigment* bindings+=UiBinding*
 	//	processorAssignments+=UiVisibilityProcessorAssignment* "}";
 	public UiGridLayoutElements getUiGridLayoutAccess() {
-		return (pUiGridLayout != null) ? pUiGridLayout : (pUiGridLayout = new UiGridLayoutElements());
+		return pUiGridLayout;
 	}
 	
 	public ParserRule getUiGridLayoutRule() {
@@ -8025,7 +8126,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiVisibilityProcessorAssignment:
 	//	{UiVisibilityProcessorAssignment} processor=UiVisibilityProcessor;
 	public UiVisibilityProcessorAssignmentElements getUiVisibilityProcessorAssignmentAccess() {
-		return (pUiVisibilityProcessorAssignment != null) ? pUiVisibilityProcessorAssignment : (pUiVisibilityProcessorAssignment = new UiVisibilityProcessorAssignmentElements());
+		return pUiVisibilityProcessorAssignment;
 	}
 	
 	public ParserRule getUiVisibilityProcessorAssignmentRule() {
@@ -8035,7 +8136,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiGridLayoutAssigment:
 	//	element=UiEmbeddable ("align" alignment=UiAlignment)?;
 	public UiGridLayoutAssigmentElements getUiGridLayoutAssigmentAccess() {
-		return (pUiGridLayoutAssigment != null) ? pUiGridLayoutAssigment : (pUiGridLayoutAssigment = new UiGridLayoutAssigmentElements());
+		return pUiGridLayoutAssigment;
 	}
 	
 	public ParserRule getUiGridLayoutAssigmentRule() {
@@ -8046,7 +8147,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	{UiFormLayout} "form" ("(" i18nInfo=UiI18nInfo? & ("styles" styles=STRING)? & readonly?="readonly"? ")")? name=ID? "{"
 	//	contents+=UiFormLayoutAssigment* bindings+=UiBinding* processorAssignments+=UiVisibilityProcessorAssignment* "}";
 	public UiFormLayoutElements getUiFormLayoutAccess() {
-		return (pUiFormLayout != null) ? pUiFormLayout : (pUiFormLayout = new UiFormLayoutElements());
+		return pUiFormLayout;
 	}
 	
 	public ParserRule getUiFormLayoutRule() {
@@ -8056,7 +8157,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiFormLayoutAssigment:
 	//	element=UiEmbeddable;
 	public UiFormLayoutAssigmentElements getUiFormLayoutAssigmentAccess() {
-		return (pUiFormLayoutAssigment != null) ? pUiFormLayoutAssigment : (pUiFormLayoutAssigment = new UiFormLayoutAssigmentElements());
+		return pUiFormLayoutAssigment;
 	}
 	
 	public ParserRule getUiFormLayoutAssigmentRule() {
@@ -8068,7 +8169,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	")")? name=ID? "{" contents+=UiVerticalLayoutAssigment* bindings+=UiBinding*
 	//	processorAssignments+=UiVisibilityProcessorAssignment* "}";
 	public UiVerticalLayoutElements getUiVerticalLayoutAccess() {
-		return (pUiVerticalLayout != null) ? pUiVerticalLayout : (pUiVerticalLayout = new UiVerticalLayoutElements());
+		return pUiVerticalLayout;
 	}
 	
 	public ParserRule getUiVerticalLayoutRule() {
@@ -8078,7 +8179,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiVerticalLayoutAssigment:
 	//	element=UiEmbeddable ("align" alignment=UiAlignment)?;
 	public UiVerticalLayoutAssigmentElements getUiVerticalLayoutAssigmentAccess() {
-		return (pUiVerticalLayoutAssigment != null) ? pUiVerticalLayoutAssigment : (pUiVerticalLayoutAssigment = new UiVerticalLayoutAssigmentElements());
+		return pUiVerticalLayoutAssigment;
 	}
 	
 	public ParserRule getUiVerticalLayoutAssigmentRule() {
@@ -8090,7 +8191,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	readonly?="readonly"? ")")? name=ID? "{" contents+=UiMobileVerticalLayoutAssigment* bindings+=UiBinding*
 	//	processorAssignments+=UiVisibilityProcessorAssignment* "}";
 	public UiMobileVerticalLayoutElements getUiMobileVerticalLayoutAccess() {
-		return (pUiMobileVerticalLayout != null) ? pUiMobileVerticalLayout : (pUiMobileVerticalLayout = new UiMobileVerticalLayoutElements());
+		return pUiMobileVerticalLayout;
 	}
 	
 	public ParserRule getUiMobileVerticalLayoutRule() {
@@ -8100,7 +8201,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiMobileVerticalLayoutAssigment returns UiVerticalLayoutAssigment:
 	//	element=UiMobileEmbeddable ("align" alignment=UiAlignment)?;
 	public UiMobileVerticalLayoutAssigmentElements getUiMobileVerticalLayoutAssigmentAccess() {
-		return (pUiMobileVerticalLayoutAssigment != null) ? pUiMobileVerticalLayoutAssigment : (pUiMobileVerticalLayoutAssigment = new UiMobileVerticalLayoutAssigmentElements());
+		return pUiMobileVerticalLayoutAssigment;
 	}
 	
 	public ParserRule getUiMobileVerticalLayoutAssigmentRule() {
@@ -8113,7 +8214,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	contents+=UiHorizontalLayoutAssigment* bindings+=UiBinding* processorAssignments+=UiVisibilityProcessorAssignment*
 	//	"}";
 	public UiHorizontalLayoutElements getUiHorizontalLayoutAccess() {
-		return (pUiHorizontalLayout != null) ? pUiHorizontalLayout : (pUiHorizontalLayout = new UiHorizontalLayoutElements());
+		return pUiHorizontalLayout;
 	}
 	
 	public ParserRule getUiHorizontalLayoutRule() {
@@ -8123,7 +8224,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiHorizontalLayoutAssigment:
 	//	element=UiEmbeddable ("align" alignment=UiAlignment)?;
 	public UiHorizontalLayoutAssigmentElements getUiHorizontalLayoutAssigmentAccess() {
-		return (pUiHorizontalLayoutAssigment != null) ? pUiHorizontalLayoutAssigment : (pUiHorizontalLayoutAssigment = new UiHorizontalLayoutAssigmentElements());
+		return pUiHorizontalLayoutAssigment;
 	}
 	
 	public ParserRule getUiHorizontalLayoutAssigmentRule() {
@@ -8135,7 +8236,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	readonly?="readonly"? ")")? name=ID? "{" contents+=UiMobileHorizontalLayoutAssigment* bindings+=UiBinding*
 	//	processorAssignments+=UiVisibilityProcessorAssignment* "}";
 	public UiMobileHorizontalLayoutElements getUiMobileHorizontalLayoutAccess() {
-		return (pUiMobileHorizontalLayout != null) ? pUiMobileHorizontalLayout : (pUiMobileHorizontalLayout = new UiMobileHorizontalLayoutElements());
+		return pUiMobileHorizontalLayout;
 	}
 	
 	public ParserRule getUiMobileHorizontalLayoutRule() {
@@ -8145,7 +8246,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiMobileHorizontalLayoutAssigment returns UiHorizontalLayoutAssigment:
 	//	element=UiMobileEmbeddable ("align" alignment=UiAlignment)?;
 	public UiMobileHorizontalLayoutAssigmentElements getUiMobileHorizontalLayoutAssigmentAccess() {
-		return (pUiMobileHorizontalLayoutAssigment != null) ? pUiMobileHorizontalLayoutAssigment : (pUiMobileHorizontalLayoutAssigment = new UiMobileHorizontalLayoutAssigmentElements());
+		return pUiMobileHorizontalLayoutAssigment;
 	}
 	
 	public ParserRule getUiMobileHorizontalLayoutAssigmentRule() {
@@ -8157,7 +8258,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	readonly?="readonly"?) ")")? name=ID? "{" contents+=UiMobileHorizontalButtonGroupAssigment*
 	//	processorAssignments+=UiVisibilityProcessorAssignment* "}";
 	public UiMobileHorizontalButtonGroupElements getUiMobileHorizontalButtonGroupAccess() {
-		return (pUiMobileHorizontalButtonGroup != null) ? pUiMobileHorizontalButtonGroup : (pUiMobileHorizontalButtonGroup = new UiMobileHorizontalButtonGroupElements());
+		return pUiMobileHorizontalButtonGroup;
 	}
 	
 	public ParserRule getUiMobileHorizontalButtonGroupRule() {
@@ -8167,7 +8268,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiMobileHorizontalButtonGroupAssigment returns UiHorizontalButtonGroupAssigment:
 	//	element=UiMobileEmbeddable;
 	public UiMobileHorizontalButtonGroupAssigmentElements getUiMobileHorizontalButtonGroupAssigmentAccess() {
-		return (pUiMobileHorizontalButtonGroupAssigment != null) ? pUiMobileHorizontalButtonGroupAssigment : (pUiMobileHorizontalButtonGroupAssigment = new UiMobileHorizontalButtonGroupAssigmentElements());
+		return pUiMobileHorizontalButtonGroupAssigment;
 	}
 	
 	public ParserRule getUiMobileHorizontalButtonGroupAssigmentRule() {
@@ -8179,7 +8280,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	styles=STRING)?) ")")? name=ID? "{" contents+=UiMobileVerticalComponentGroupAssigment* bindings+=UiBinding*
 	//	processorAssignments+=UiVisibilityProcessorAssignment* "}";
 	public UiMobileVerticalComponentGroupElements getUiMobileVerticalComponentGroupAccess() {
-		return (pUiMobileVerticalComponentGroup != null) ? pUiMobileVerticalComponentGroup : (pUiMobileVerticalComponentGroup = new UiMobileVerticalComponentGroupElements());
+		return pUiMobileVerticalComponentGroup;
 	}
 	
 	public ParserRule getUiMobileVerticalComponentGroupRule() {
@@ -8189,7 +8290,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiMobileVerticalComponentGroupAssigment returns UiVerticalComponentGroupAssigment:
 	//	element=UiMobileEmbeddable;
 	public UiMobileVerticalComponentGroupAssigmentElements getUiMobileVerticalComponentGroupAssigmentAccess() {
-		return (pUiMobileVerticalComponentGroupAssigment != null) ? pUiMobileVerticalComponentGroupAssigment : (pUiMobileVerticalComponentGroupAssigment = new UiMobileVerticalComponentGroupAssigmentElements());
+		return pUiMobileVerticalComponentGroupAssigment;
 	}
 	
 	public ParserRule getUiMobileVerticalComponentGroupAssigmentRule() {
@@ -8201,7 +8302,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	jvmType=JvmTypeReference ";"? contents+=UiSearchField* bindings+=UiBinding*
 	//	processorAssignments+=UiVisibilityProcessorAssignment* "}";
 	public UiSearchPanelElements getUiSearchPanelAccess() {
-		return (pUiSearchPanel != null) ? pUiSearchPanel : (pUiSearchPanel = new UiSearchPanelElements());
+		return pUiSearchPanel;
 	}
 	
 	public ParserRule getUiSearchPanelRule() {
@@ -8212,7 +8313,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	{UiMobileTabSheet} "mobileTab" ("(" (i18nInfo=UiI18nInfo? & ("styles" styles=STRING)?) ")")? name=ID? "{"
 	//	tabs+=UiMobileTabAssignment* bindings+=UiBinding* processorAssignments+=UiVisibilityProcessorAssignment* "}";
 	public UiMobileTabSheetElements getUiMobileTabSheetAccess() {
-		return (pUiMobileTabSheet != null) ? pUiMobileTabSheet : (pUiMobileTabSheet = new UiMobileTabSheetElements());
+		return pUiMobileTabSheet;
 	}
 	
 	public ParserRule getUiMobileTabSheetRule() {
@@ -8222,7 +8323,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiMobileTabAssignment:
 	//	"tab" name=ID? element=UiMobileEmbeddable;
 	public UiMobileTabAssignmentElements getUiMobileTabAssignmentAccess() {
-		return (pUiMobileTabAssignment != null) ? pUiMobileTabAssignment : (pUiMobileTabAssignment = new UiMobileTabAssignmentElements());
+		return pUiMobileTabAssignment;
 	}
 	
 	public ParserRule getUiMobileTabAssignmentRule() {
@@ -8233,7 +8334,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	{UiTabSheet} "tabsheet" ("(" (i18nInfo=UiI18nInfo? & ("styles" styles=STRING)?) ")")? name=ID? "{"
 	//	tabs+=UiTabAssignment* bindings+=UiBinding* processorAssignments+=UiVisibilityProcessorAssignment* "}";
 	public UiTabSheetElements getUiTabSheetAccess() {
-		return (pUiTabSheet != null) ? pUiTabSheet : (pUiTabSheet = new UiTabSheetElements());
+		return pUiTabSheet;
 	}
 	
 	public ParserRule getUiTabSheetRule() {
@@ -8243,7 +8344,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiTabAssignment:
 	//	"tab" name=ID? element=UiEmbeddable;
 	public UiTabAssignmentElements getUiTabAssignmentAccess() {
-		return (pUiTabAssignment != null) ? pUiTabAssignment : (pUiTabAssignment = new UiTabAssignmentElements());
+		return pUiTabAssignment;
 	}
 	
 	public ParserRule getUiTabAssignmentRule() {
@@ -8255,7 +8356,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	firstContent=UiSplitpanelAssigment & "second" secondContent=UiSplitpanelAssigment & ("splitPos" splitPosition=INT)? &
 	//	readonly?="readonly"?) bindings+=UiBinding* processorAssignments+=UiVisibilityProcessorAssignment* "}";
 	public UiSplitpanelElements getUiSplitpanelAccess() {
-		return (pUiSplitpanel != null) ? pUiSplitpanel : (pUiSplitpanel = new UiSplitpanelElements());
+		return pUiSplitpanel;
 	}
 	
 	public ParserRule getUiSplitpanelRule() {
@@ -8265,7 +8366,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiSplitpanelAssigment:
 	//	element=UiEmbeddable;
 	public UiSplitpanelAssigmentElements getUiSplitpanelAssigmentAccess() {
-		return (pUiSplitpanelAssigment != null) ? pUiSplitpanelAssigment : (pUiSplitpanelAssigment = new UiSplitpanelAssigmentElements());
+		return pUiSplitpanelAssigment;
 	}
 	
 	public ParserRule getUiSplitpanelAssigmentRule() {
@@ -8276,7 +8377,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	"panel" ("(" (i18nInfo=UiI18nInfo? & readonly?="readonly"? & ("styles" styles=STRING)?) ")")? name=ID "{" "content"
 	//	content=UiEmbeddable bindings+=UiBinding* processorAssignments+=UiVisibilityProcessorAssignment* "}";
 	public UiPanelElements getUiPanelAccess() {
-		return (pUiPanel != null) ? pUiPanel : (pUiPanel = new UiPanelElements());
+		return pUiPanel;
 	}
 	
 	public ParserRule getUiPanelRule() {
@@ -8287,7 +8388,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	{UiDialog} "dialog" ("(" i18nInfo=UiI18nInfo? ")")? name=ID? "{" ("type" jvmType=JvmTypeReference ";"?)?
 	//	(content=UiDialogAssignment ";"?)? bindings+=UiBinding* processorAssignments+=UiVisibilityProcessorAssignment* "}";
 	public UiDialogElements getUiDialogAccess() {
-		return (pUiDialog != null) ? pUiDialog : (pUiDialog = new UiDialogElements());
+		return pUiDialog;
 	}
 	
 	public ParserRule getUiDialogRule() {
@@ -8297,7 +8398,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiDialogAssignment:
 	//	element=UiEmbeddable;
 	public UiDialogAssignmentElements getUiDialogAssignmentAccess() {
-		return (pUiDialogAssignment != null) ? pUiDialogAssignment : (pUiDialogAssignment = new UiDialogAssignmentElements());
+		return pUiDialogAssignment;
 	}
 	
 	public ParserRule getUiDialogAssignmentRule() {
@@ -8309,7 +8410,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	("search" "{" searchFields+=UiDialogSearchFieldAssignment* "}")? ("content" "{" content=UiDialogAssignment "}")?
 	//	bindings+=UiBinding* processorAssignments+=UiVisibilityProcessorAssignment* "}";
 	public UiSearchDialogElements getUiSearchDialogAccess() {
-		return (pUiSearchDialog != null) ? pUiSearchDialog : (pUiSearchDialog = new UiSearchDialogElements());
+		return pUiSearchDialog;
 	}
 	
 	public ParserRule getUiSearchDialogRule() {
@@ -8319,7 +8420,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiDialogSearchFieldAssignment:
 	//	element=UiSearchField;
 	public UiDialogSearchFieldAssignmentElements getUiDialogSearchFieldAssignmentAccess() {
-		return (pUiDialogSearchFieldAssignment != null) ? pUiDialogSearchFieldAssignment : (pUiDialogSearchFieldAssignment = new UiDialogSearchFieldAssignmentElements());
+		return pUiDialogSearchFieldAssignment;
 	}
 	
 	public ParserRule getUiDialogSearchFieldAssignmentRule() {
@@ -8331,7 +8432,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	jvmType=JvmTypeReference ";"?)? contents+=UiMobileNavigationPageAssignment* bindings+=UiBinding*
 	//	processorAssignments+=UiVisibilityProcessorAssignment* "}";
 	public UiMobileNavigationPageElements getUiMobileNavigationPageAccess() {
-		return (pUiMobileNavigationPage != null) ? pUiMobileNavigationPage : (pUiMobileNavigationPage = new UiMobileNavigationPageElements());
+		return pUiMobileNavigationPage;
 	}
 	
 	public ParserRule getUiMobileNavigationPageRule() {
@@ -8341,7 +8442,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiMobileNavigationPageAssignment:
 	//	element=UiMobileEmbeddable;
 	public UiMobileNavigationPageAssignmentElements getUiMobileNavigationPageAssignmentAccess() {
-		return (pUiMobileNavigationPageAssignment != null) ? pUiMobileNavigationPageAssignment : (pUiMobileNavigationPageAssignment = new UiMobileNavigationPageAssignmentElements());
+		return pUiMobileNavigationPageAssignment;
 	}
 	
 	public ParserRule getUiMobileNavigationPageAssignmentRule() {
@@ -8351,7 +8452,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiPoint:
 	//	x=INT "/" y=INT;
 	public UiPointElements getUiPointAccess() {
-		return (pUiPoint != null) ? pUiPoint : (pUiPoint = new UiPointElements());
+		return pUiPoint;
 	}
 	
 	public ParserRule getUiPointRule() {
@@ -8363,7 +8464,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	regex=STRING)? & ("styles" styles=STRING)? & i18nInfo=UiI18nInfo? & readonly?="readonly"?) ")")? name=ID? ("{"
 	//	(validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiTextFieldElements getUiTextFieldAccess() {
-		return (pUiTextField != null) ? pUiTextField : (pUiTextField = new UiTextFieldElements());
+		return pUiTextField;
 	}
 	
 	public ParserRule getUiTextFieldRule() {
@@ -8377,7 +8478,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	& ("inMemoryService" inMemoryBeanProvider=JvmTypeReference ";"?)?) (validators+=UiValidator | bindings+=UiBinding)*
 	//	processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiBeanReferenceFieldElements getUiBeanReferenceFieldAccess() {
-		return (pUiBeanReferenceField != null) ? pUiBeanReferenceField : (pUiBeanReferenceField = new UiBeanReferenceFieldElements());
+		return pUiBeanReferenceField;
 	}
 	
 	public ParserRule getUiBeanReferenceFieldRule() {
@@ -8387,7 +8488,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiSearchField:
 	//	{UiSearchField} "searchfield" ("(" (i18nInfo=UiI18nInfo? & ("styles" styles=STRING)?) ")")? property=UiNestedProperty;
 	public UiSearchFieldElements getUiSearchFieldAccess() {
-		return (pUiSearchField != null) ? pUiSearchField : (pUiSearchField = new UiSearchFieldElements());
+		return pUiSearchField;
 	}
 	
 	public ParserRule getUiSearchFieldRule() {
@@ -8398,7 +8499,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	{UiTextArea} "textarea" ("(" (i18nInfo=UiI18nInfo? & readonly?="readonly"? & ("styles" styles=STRING)?) ")")? name=ID?
 	//	("{" (validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiTextAreaElements getUiTextAreaAccess() {
-		return (pUiTextArea != null) ? pUiTextArea : (pUiTextArea = new UiTextAreaElements());
+		return pUiTextArea;
 	}
 	
 	public ParserRule getUiTextAreaRule() {
@@ -8410,7 +8511,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	styles=STRING)? & i18nInfo=UiI18nInfo? & readonly?="readonly"?) ")")? name=ID? ("{" (validators+=UiValidator |
 	//	bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiDateFieldElements getUiDateFieldAccess() {
-		return (pUiDateField != null) ? pUiDateField : (pUiDateField = new UiDateFieldElements());
+		return pUiDateField;
 	}
 	
 	public ParserRule getUiDateFieldRule() {
@@ -8420,7 +8521,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//enum UiDateFormat:
 	//	DATE="date" | DATE_TIME="datetime" | TIME="time";
 	public UiDateFormatElements getUiDateFormatAccess() {
-		return (unknownRuleUiDateFormat != null) ? unknownRuleUiDateFormat : (unknownRuleUiDateFormat = new UiDateFormatElements());
+		return unknownRuleUiDateFormat;
 	}
 	
 	public EnumRule getUiDateFormatRule() {
@@ -8430,7 +8531,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//enum UiDateTimeResolution:
 	//	UNDEFINED="undefined" | SECOND="second" | MINUTE="minute" | HOUR="hour" | DAY="day" | MONTH="month" | YEAR="year";
 	public UiDateTimeResolutionElements getUiDateTimeResolutionAccess() {
-		return (unknownRuleUiDateTimeResolution != null) ? unknownRuleUiDateTimeResolution : (unknownRuleUiDateTimeResolution = new UiDateTimeResolutionElements());
+		return unknownRuleUiDateTimeResolution;
 	}
 	
 	public EnumRule getUiDateTimeResolutionRule() {
@@ -8441,7 +8542,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	{UiBrowser} "browser" ("(" (i18nInfo=UiI18nInfo? & readonly?="readonly"? & ("styles" styles=STRING)?) ")")? name=ID?
 	//	("{" (validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiBrowserElements getUiBrowserAccess() {
-		return (pUiBrowser != null) ? pUiBrowser : (pUiBrowser = new UiBrowserElements());
+		return pUiBrowser;
 	}
 	
 	public ParserRule getUiBrowserRule() {
@@ -8452,7 +8553,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	{UiProgressBar} "progressbar" ("(" (i18nInfo=UiI18nInfo? & ("styles" styles=STRING)?) ")")? name=ID? ("{"
 	//	(validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiProgressBarElements getUiProgressBarAccess() {
-		return (pUiProgressBar != null) ? pUiProgressBar : (pUiProgressBar = new UiProgressBarElements());
+		return pUiProgressBar;
 	}
 	
 	public ParserRule getUiProgressBarRule() {
@@ -8463,7 +8564,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	{UiImage} "image" ("(" (i18nInfo=UiI18nInfo? & ("styles" styles=STRING)?) ")")? name=ID? ("{" ("iconPath" value=STRING
 	//	";"?)? bindings+=UiBinding* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiImageElements getUiImageAccess() {
-		return (pUiImage != null) ? pUiImage : (pUiImage = new UiImageElements());
+		return pUiImage;
 	}
 	
 	public ParserRule getUiImageRule() {
@@ -8477,7 +8578,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	columnAssignment=UiColumnsAssignment? (validators+=UiValidator | bindings+=UiBinding)*
 	//	processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiTableElements getUiTableAccess() {
-		return (pUiTable != null) ? pUiTable : (pUiTable = new UiTableElements());
+		return pUiTable;
 	}
 	
 	public ParserRule getUiTableRule() {
@@ -8491,7 +8592,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	(consumeBeanService?="useBeanService" ";"?)? & readonly?="readonly"?) (validators+=UiValidator | bindings+=UiBinding)*
 	//	processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiComboBoxElements getUiComboBoxAccess() {
-		return (pUiComboBox != null) ? pUiComboBox : (pUiComboBox = new UiComboBoxElements());
+		return pUiComboBox;
 	}
 	
 	public ParserRule getUiComboBoxRule() {
@@ -8501,7 +8602,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiButton:
 	//	{UiButton} "button" ("(" (i18nInfo=UiI18nInfo? & readonly?="readonly"? & ("styles" styles=STRING)?) ")")? name=ID?;
 	public UiButtonElements getUiButtonAccess() {
-		return (pUiButton != null) ? pUiButton : (pUiButton = new UiButtonElements());
+		return pUiButton;
 	}
 	
 	public ParserRule getUiButtonRule() {
@@ -8512,7 +8613,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	{UiMobileNavigationButton} "navButton" ("(" (i18nInfo=UiI18nInfo? & readonly?="readonly"? & ("styles" styles=STRING)?)
 	//	")")? name=ID? (targetPage=UiMobileNavigationPage | "alias" targetPageAlias=[UiMobileNavigationPage]);
 	public UiMobileNavigationButtonElements getUiMobileNavigationButtonAccess() {
-		return (pUiMobileNavigationButton != null) ? pUiMobileNavigationButton : (pUiMobileNavigationButton = new UiMobileNavigationButtonElements());
+		return pUiMobileNavigationButton;
 	}
 	
 	public ParserRule getUiMobileNavigationButtonRule() {
@@ -8523,7 +8624,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	{UiSwitch} "switchIt" ("(" (i18nInfo=UiI18nInfo? & readonly?="readonly"? & ("styles" styles=STRING)?) ")")? name=ID?
 	//	("{" processorAssignments+=UiVisibilityProcessorAssignment* (validators+=UiValidator | bindings+=UiBinding)* "}")?;
 	public UiMobileSwitchElements getUiMobileSwitchAccess() {
-		return (pUiMobileSwitch != null) ? pUiMobileSwitch : (pUiMobileSwitch = new UiMobileSwitchElements());
+		return pUiMobileSwitch;
 	}
 	
 	public ParserRule getUiMobileSwitchRule() {
@@ -8534,7 +8635,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	{UiLabel} "label" ("(" (i18nInfo=UiI18nInfo? & ("styles" styles=STRING)?) ")")? name=ID? ("{"
 	//	processorAssignments+=UiVisibilityProcessorAssignment* bindings+=UiBinding* "}")?;
 	public UiLabelElements getUiLabelAccess() {
-		return (pUiLabel != null) ? pUiLabel : (pUiLabel = new UiLabelElements());
+		return pUiLabel;
 	}
 	
 	public ParserRule getUiLabelRule() {
@@ -8546,7 +8647,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	styles=STRING)? & ("precision=" precision=INT)? & i18nInfo=UiI18nInfo? & readonly?="readonly"?) ")")? name=ID? ("{"
 	//	(validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiDecimalFieldElements getUiDecimalFieldAccess() {
-		return (pUiDecimalField != null) ? pUiDecimalField : (pUiDecimalField = new UiDecimalFieldElements());
+		return pUiDecimalField;
 	}
 	
 	public ParserRule getUiDecimalFieldRule() {
@@ -8560,7 +8661,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	itemImageProperty=[JvmOperation])? & (consumeBeanService?="useBeanService" ";"?)? & readonly?="readonly"?)
 	//	(validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiOptionsGroupElements getUiOptionsGroupAccess() {
-		return (pUiOptionsGroup != null) ? pUiOptionsGroup : (pUiOptionsGroup = new UiOptionsGroupElements());
+		return pUiOptionsGroup;
 	}
 	
 	public ParserRule getUiOptionsGroupRule() {
@@ -8574,7 +8675,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	itemImageProperty=[JvmOperation])? & (consumeBeanService?="useBeanService" ";"?)? & readonly?="readonly"?)
 	//	(validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiListElements getUiListAccess() {
-		return (pUiList != null) ? pUiList : (pUiList = new UiListElements());
+		return pUiList;
 	}
 	
 	public ParserRule getUiListRule() {
@@ -8584,7 +8685,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//enum UiSelectionType:
 	//	SINGLE="single" | MULTI="multi" | NONE="none";
 	public UiSelectionTypeElements getUiSelectionTypeAccess() {
-		return (unknownRuleUiSelectionType != null) ? unknownRuleUiSelectionType : (unknownRuleUiSelectionType = new UiSelectionTypeElements());
+		return unknownRuleUiSelectionType;
 	}
 	
 	public EnumRule getUiSelectionTypeRule() {
@@ -8598,7 +8699,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	TOP_FILL="top-fill" | FILL_CENTER="fill-center" | FILL_LEFT="fill-left" | FILL_RIGHT="fill-right" |
 	//	FILL_FILL="fill-fill";
 	public UiAlignmentElements getUiAlignmentAccess() {
-		return (unknownRuleUiAlignment != null) ? unknownRuleUiAlignment : (unknownRuleUiAlignment = new UiAlignmentElements());
+		return unknownRuleUiAlignment;
 	}
 	
 	public EnumRule getUiAlignmentRule() {
@@ -8608,7 +8709,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiColumnsAssignment:
 	//	{UiColumnsAssignment} "columns" "{" columns+=UiColumn* "}";
 	public UiColumnsAssignmentElements getUiColumnsAssignmentAccess() {
-		return (pUiColumnsAssignment != null) ? pUiColumnsAssignment : (pUiColumnsAssignment = new UiColumnsAssignmentElements());
+		return pUiColumnsAssignment;
 	}
 	
 	public ParserRule getUiColumnsAssignmentRule() {
@@ -8618,7 +8719,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiColumn:
 	//	{UiColumn} "column" property=UiNestedProperty ("icon" iconName=STRING)? ";"?;
 	public UiColumnElements getUiColumnAccess() {
-		return (pUiColumn != null) ? pUiColumn : (pUiColumn = new UiColumnElements());
+		return pUiColumn;
 	}
 	
 	public ParserRule getUiColumnRule() {
@@ -8628,7 +8729,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiEmbeddable:
 	//	UiLayout | UiField | UiAction | UiTabSheet;
 	public UiEmbeddableElements getUiEmbeddableAccess() {
-		return (pUiEmbeddable != null) ? pUiEmbeddable : (pUiEmbeddable = new UiEmbeddableElements());
+		return pUiEmbeddable;
 	}
 	
 	public ParserRule getUiEmbeddableRule() {
@@ -8638,7 +8739,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiMobileEmbeddable:
 	//	UiMobileLayout | UiMobileField | UiMobileTabSheet | UiMobileAction;
 	public UiMobileEmbeddableElements getUiMobileEmbeddableAccess() {
-		return (pUiMobileEmbeddable != null) ? pUiMobileEmbeddable : (pUiMobileEmbeddable = new UiMobileEmbeddableElements());
+		return pUiMobileEmbeddable;
 	}
 	
 	public ParserRule getUiMobileEmbeddableRule() {
@@ -8649,7 +8750,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	UiMobileHorizontalButtonGroup | UiMobileVerticalComponentGroup | UiMobileNavigationPage | UiMobileHorizontalLayout |
 	//	UiMobileVerticalLayout;
 	public UiMobileLayoutElements getUiMobileLayoutAccess() {
-		return (pUiMobileLayout != null) ? pUiMobileLayout : (pUiMobileLayout = new UiMobileLayoutElements());
+		return pUiMobileLayout;
 	}
 	
 	public ParserRule getUiMobileLayoutRule() {
@@ -8660,7 +8761,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	UiMobileSwitch | UiTextField | UiNumericField | UiTable | UiComboBox | UiImage | UiSearchField | UiLabel |
 	//	UiDecimalField | UiTextArea | UiDateField | UiBrowser | UiProgressBar | UiOptionsGroup;
 	public UiMobileFieldElements getUiMobileFieldAccess() {
-		return (pUiMobileField != null) ? pUiMobileField : (pUiMobileField = new UiMobileFieldElements());
+		return pUiMobileField;
 	}
 	
 	public ParserRule getUiMobileFieldRule() {
@@ -8670,7 +8771,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiLayout:
 	//	UiGridLayout | UiFormLayout | UiHorizontalLayout | UiVerticalLayout | UiSplitpanel | UiPanel | UiSearchPanel;
 	public UiLayoutElements getUiLayoutAccess() {
-		return (pUiLayout != null) ? pUiLayout : (pUiLayout = new UiLayoutElements());
+		return pUiLayout;
 	}
 	
 	public ParserRule getUiLayoutRule() {
@@ -8681,7 +8782,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	UiTextField | UiList | UiNumericField | UiCheckBox | UiTable | UiComboBox | UiImage | UiSearchField | UiLabel |
 	//	UiDecimalField | UiTextArea | UiDateField | UiBrowser | UiProgressBar | UiOptionsGroup | UiBeanReferenceField;
 	public UiFieldElements getUiFieldAccess() {
-		return (pUiField != null) ? pUiField : (pUiField = new UiFieldElements());
+		return pUiField;
 	}
 	
 	public ParserRule getUiFieldRule() {
@@ -8691,7 +8792,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiAction:
 	//	UiButton;
 	public UiActionElements getUiActionAccess() {
-		return (pUiAction != null) ? pUiAction : (pUiAction = new UiActionElements());
+		return pUiAction;
 	}
 	
 	public ParserRule getUiActionRule() {
@@ -8701,7 +8802,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiMobileAction:
 	//	UiMobileNavigationButton | UiButton;
 	public UiMobileActionElements getUiMobileActionAccess() {
-		return (pUiMobileAction != null) ? pUiMobileAction : (pUiMobileAction = new UiMobileActionElements());
+		return pUiMobileAction;
 	}
 	
 	public ParserRule getUiMobileActionRule() {
@@ -8713,7 +8814,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	noMarkNegative?="noMarkNegative"? & i18nInfo=UiI18nInfo? & readonly?="readonly"?) ")")? name=ID? ("{"
 	//	(validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiNumericFieldElements getUiNumericFieldAccess() {
-		return (pUiNumericField != null) ? pUiNumericField : (pUiNumericField = new UiNumericFieldElements());
+		return pUiNumericField;
 	}
 	
 	public ParserRule getUiNumericFieldRule() {
@@ -8724,7 +8825,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	{UiCheckBox} "checkbox" ("(" (i18nInfo=UiI18nInfo? & readonly?="readonly"? & ("styles" styles=STRING)?) ")")? name=ID?
 	//	("{" (validators+=UiValidator | bindings+=UiBinding)* processorAssignments+=UiVisibilityProcessorAssignment* "}")?;
 	public UiCheckBoxElements getUiCheckBoxAccess() {
-		return (pUiCheckBox != null) ? pUiCheckBox : (pUiCheckBox = new UiCheckBoxElements());
+		return pUiCheckBox;
 	}
 	
 	public ParserRule getUiCheckBoxRule() {
@@ -8734,7 +8835,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiValidator:
 	//	UiMaxLengthValidator | UiMinLengthValidator | UiRegexpValidator | UiXbaseValidator;
 	public UiValidatorElements getUiValidatorAccess() {
-		return (pUiValidator != null) ? pUiValidator : (pUiValidator = new UiValidatorElements());
+		return pUiValidator;
 	}
 	
 	public ParserRule getUiValidatorRule() {
@@ -8744,7 +8845,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiMaxLengthValidator:
 	//	{UiMaxLengthValidator} "MaxLengthValidator" name=ID? "(" maxLength=INT ")" errorCode=UiErrorCode?;
 	public UiMaxLengthValidatorElements getUiMaxLengthValidatorAccess() {
-		return (pUiMaxLengthValidator != null) ? pUiMaxLengthValidator : (pUiMaxLengthValidator = new UiMaxLengthValidatorElements());
+		return pUiMaxLengthValidator;
 	}
 	
 	public ParserRule getUiMaxLengthValidatorRule() {
@@ -8754,7 +8855,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiMinLengthValidator:
 	//	{UiMinLengthValidator} "MinLengthValidator" name=ID? "(" minLength=INT ")" errorCode=UiErrorCode?;
 	public UiMinLengthValidatorElements getUiMinLengthValidatorAccess() {
-		return (pUiMinLengthValidator != null) ? pUiMinLengthValidator : (pUiMinLengthValidator = new UiMinLengthValidatorElements());
+		return pUiMinLengthValidator;
 	}
 	
 	public ParserRule getUiMinLengthValidatorRule() {
@@ -8764,7 +8865,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiRegexpValidator:
 	//	{UiRegexpValidator} "RegexValidator" name=ID? "(" regExpression=STRING ")" errorCode=UiErrorCode?;
 	public UiRegexpValidatorElements getUiRegexpValidatorAccess() {
-		return (pUiRegexpValidator != null) ? pUiRegexpValidator : (pUiRegexpValidator = new UiRegexpValidatorElements());
+		return pUiRegexpValidator;
 	}
 	
 	public ParserRule getUiRegexpValidatorRule() {
@@ -8775,7 +8876,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	{UiXbaseValidator} "Expression" name=ID "(" jvmType=JvmTypeReference ")" errorCodes+=UiErrorCode*
 	//	expression=XBlockExpression?;
 	public UiXbaseValidatorElements getUiXbaseValidatorAccess() {
-		return (pUiXbaseValidator != null) ? pUiXbaseValidator : (pUiXbaseValidator = new UiXbaseValidatorElements());
+		return pUiXbaseValidator;
 	}
 	
 	public ParserRule getUiXbaseValidatorRule() {
@@ -8785,7 +8886,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiErrorCode:
 	//	"code" name=ID defaultMessage=STRING?;
 	public UiErrorCodeElements getUiErrorCodeAccess() {
-		return (pUiErrorCode != null) ? pUiErrorCode : (pUiErrorCode = new UiErrorCodeElements());
+		return pUiErrorCode;
 	}
 	
 	public ParserRule getUiErrorCodeRule() {
@@ -8796,7 +8897,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	{UiVisibilityProcessor} "visibility" name=ID "{" (dataUsed+=UiBindingEndpointAlias | changeTriggers+=UiChangeTrigger |
 	//	importedElements+=UiTypedBindableRawTypeAlias)* rule=UiXbaseVisibilityRule? "}";
 	public UiVisibilityProcessorElements getUiVisibilityProcessorAccess() {
-		return (pUiVisibilityProcessor != null) ? pUiVisibilityProcessor : (pUiVisibilityProcessor = new UiVisibilityProcessorElements());
+		return pUiVisibilityProcessor;
 	}
 	
 	public ParserRule getUiVisibilityProcessorRule() {
@@ -8806,7 +8907,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiXbaseVisibilityRule:
 	//	expression=XBlockExpression;
 	public UiXbaseVisibilityRuleElements getUiXbaseVisibilityRuleAccess() {
-		return (pUiXbaseVisibilityRule != null) ? pUiXbaseVisibilityRule : (pUiXbaseVisibilityRule = new UiXbaseVisibilityRuleElements());
+		return pUiXbaseVisibilityRule;
 	}
 	
 	public ParserRule getUiXbaseVisibilityRuleRule() {
@@ -8816,7 +8917,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//UiChangeTrigger:
 	//	"fireOn" endpoint=UiBindingEndpointAssignment "as" alias=ID ";"?;
 	public UiChangeTriggerElements getUiChangeTriggerAccess() {
-		return (pUiChangeTrigger != null) ? pUiChangeTrigger : (pUiChangeTrigger = new UiChangeTriggerElements());
+		return pUiChangeTrigger;
 	}
 	
 	public ParserRule getUiChangeTriggerRule() {
@@ -9195,7 +9296,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//XCasePart:
-	//	{XCasePart} typeGuard=JvmTypeReference? ("case" case=XExpression)? (":" then=XExpression | ",");
+	//	{XCasePart} typeGuard=JvmTypeReference? ("case" case=XExpression)? (":" then=XExpression | fallThrough?=",");
 	public XbaseGrammarAccess.XCasePartElements getXCasePartAccess() {
 		return gaXbase.getXCasePartAccess();
 	}
@@ -9527,8 +9628,9 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//JvmParameterizedTypeReference:
-	//	type=[JvmType|QualifiedName] ("<" arguments+=JvmArgumentTypeReference ("," arguments+=JvmArgumentTypeReference)*
-	//	">")?;
+	//	type=[JvmType|QualifiedName] ("<" arguments+=JvmArgumentTypeReference ("," arguments+=JvmArgumentTypeReference)* ">"
+	//	(=> ({JvmInnerTypeReference.outer=current} ".") type=[JvmType|ValidID] ("<" arguments+=JvmArgumentTypeReference (","
+	//	arguments+=JvmArgumentTypeReference)* ">")?)*)?;
 	public XtypeGrammarAccess.JvmParameterizedTypeReferenceElements getJvmParameterizedTypeReferenceAccess() {
 		return gaXbase.getJvmParameterizedTypeReferenceAccess();
 	}
@@ -9548,7 +9650,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//JvmWildcardTypeReference:
-	//	{JvmWildcardTypeReference} "?" (constraints+=JvmUpperBound | constraints+=JvmLowerBound)?;
+	//	{JvmWildcardTypeReference} "?" (constraints+=JvmUpperBound constraints+=JvmUpperBoundAnded* |
+	//	constraints+=JvmLowerBound constraints+=JvmLowerBoundAnded*)?;
 	public XtypeGrammarAccess.JvmWildcardTypeReferenceElements getJvmWildcardTypeReferenceAccess() {
 		return gaXbase.getJvmWildcardTypeReferenceAccess();
 	}
@@ -9585,6 +9688,16 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getJvmLowerBoundRule() {
 		return getJvmLowerBoundAccess().getRule();
+	}
+
+	//JvmLowerBoundAnded returns JvmLowerBound:
+	//	"&" typeReference=JvmTypeReference;
+	public XtypeGrammarAccess.JvmLowerBoundAndedElements getJvmLowerBoundAndedAccess() {
+		return gaXbase.getJvmLowerBoundAndedAccess();
+	}
+	
+	public ParserRule getJvmLowerBoundAndedRule() {
+		return getJvmLowerBoundAndedAccess().getRule();
 	}
 
 	//JvmTypeParameter:
@@ -9656,8 +9769,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal STRING:
-	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
-	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
+	//	"\"" ("\\" . / * ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') * / | !("\\" | "\""))* "\""? | "\'" ("\\" .
+	//	/ * ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') * / | !("\\" | "\'"))* "\'"?;
 	public TerminalRule getSTRINGRule() {
 		return gaXbase.getSTRINGRule();
 	} 

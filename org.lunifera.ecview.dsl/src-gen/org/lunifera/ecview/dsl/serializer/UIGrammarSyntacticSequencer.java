@@ -820,7 +820,7 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     (')' | '(')*
+	 *     ('(' | ')')*
 	 */
 	protected void emit_UiHorizontalLayout___LeftParenthesisKeyword_2_0_0_or_RightParenthesisKeyword_2_2_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -972,7 +972,7 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     (')' | '(')*
+	 *     ('(' | ')')*
 	 */
 	protected void emit_UiMobileHorizontalLayout___LeftParenthesisKeyword_2_0_0_or_RightParenthesisKeyword_2_2_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1356,7 +1356,7 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     (')' | '(')*
+	 *     ('(' | ')')*
 	 */
 	protected void emit_UiVerticalLayout___LeftParenthesisKeyword_2_0_0_or_RightParenthesisKeyword_2_2_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

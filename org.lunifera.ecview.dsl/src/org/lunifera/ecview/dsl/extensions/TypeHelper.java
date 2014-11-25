@@ -3,12 +3,13 @@ package org.lunifera.ecview.dsl.extensions;
 import java.util.Collection;
 import java.util.Date;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtend.typesystem.emf.EcoreUtil2;
 import org.eclipse.xtext.common.types.JvmAnnotationReference;
 import org.eclipse.xtext.common.types.JvmDeclaredType;
 import org.eclipse.xtext.common.types.JvmEnumerationType;
 import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmType;
-import org.eclipse.xtext.common.types.util.SuperTypeCollector;
 import org.eclipse.xtext.common.types.util.TypeReferences;
 import org.lunifera.ecview.dsl.extensions.OperationExtensions.OperationInfo;
 import org.lunifera.runtime.common.annotations.DomainReference;

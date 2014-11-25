@@ -6,18 +6,20 @@ Bundle-Version: 0.7.5.qualifier
 Bundle-SymbolicName: org.lunifera.ecview.uisemantics.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.lunifera.ecview.uisemantics;bundle-version="0.7.3";visibility:=reexport,
- org.eclipse.xtext.ui;bundle-version="[2.6.2,2.7.0)",
+ org.eclipse.xtext.ui;bundle-version="[2.7.3,2.8.0)",
  org.eclipse.ui.editors;bundle-version="3.5.0",
  org.eclipse.ui.ide;bundle-version="3.5.0",
- org.eclipse.xtext.ui.shared;bundle-version="[2.6.2,2.7.0)",
- org.eclipse.xtext.xbase.ui;bundle-version="[2.6.2,2.7.0)",
+ org.eclipse.xtext.ui.shared;bundle-version="[2.7.3,2.8.0)",
+ org.eclipse.xtext.xbase.ui;bundle-version="[2.7.3,2.8.0)",
  org.eclipse.ui,
- org.eclipse.xtext.builder;bundle-version="[2.6.2,2.7.0)",
+ org.eclipse.xtext.builder;bundle-version="[2.7.3,2.8.0)",
  org.antlr.runtime,
- org.eclipse.xtext.common.types.ui;bundle-version="[2.6.2,2.7.0)",
- org.eclipse.xtext.ui.codetemplates.ui;bundle-version="[2.6.2,2.7.0)",
+ org.eclipse.xtext.common.types.ui;bundle-version="[2.7.3,2.8.0)",
+ org.eclipse.xtext.ui.codetemplates.ui;bundle-version="[2.7.3,2.8.0)",
  org.eclipse.compare,
- org.lunifera.ecview.semantic.uisemantics;bundle-version="0.7.3"
+ org.lunifera.ecview.semantic.uisemantics;bundle-version="0.7.3",
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.jdt.debug.ui
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
