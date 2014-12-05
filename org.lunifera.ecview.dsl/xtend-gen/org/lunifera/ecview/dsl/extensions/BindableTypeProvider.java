@@ -55,45 +55,13 @@ public class BindableTypeProvider {
     }
     if (_and) {
       EObject temp = expression;
-      boolean _and_1 = false;
-      boolean _or_1 = false;
-      boolean _equals_2 = Objects.equal(result, null);
-      if (_equals_2) {
-        _or_1 = true;
-      } else {
-        _or_1 = (result instanceof JvmUnknownTypeReference);
-      }
-      if (!_or_1) {
-        _and_1 = false;
-      } else {
-        EObject _eContainer = temp.eContainer();
-        boolean _notEquals = (!Objects.equal(_eContainer, null));
-        _and_1 = _notEquals;
-      }
-      boolean _while = _and_1;
-      while (_while) {
+      while (((Objects.equal(result, null) || (result instanceof JvmUnknownTypeReference)) && (!Objects.equal(temp.eContainer(), null)))) {
         {
-          EObject _eContainer_1 = temp.eContainer();
-          temp = _eContainer_1;
+          EObject _eContainer = temp.eContainer();
+          temp = _eContainer;
           JvmTypeReference _doGetTypeReference = this.doGetTypeReference(temp);
           result = _doGetTypeReference;
         }
-        boolean _and_2 = false;
-        boolean _or_2 = false;
-        boolean _equals_3 = Objects.equal(result, null);
-        if (_equals_3) {
-          _or_2 = true;
-        } else {
-          _or_2 = (result instanceof JvmUnknownTypeReference);
-        }
-        if (!_or_2) {
-          _and_2 = false;
-        } else {
-          EObject _eContainer_1 = temp.eContainer();
-          boolean _notEquals_1 = (!Objects.equal(_eContainer_1, null));
-          _and_2 = _notEquals_1;
-        }
-        _while = _and_2;
       }
     }
     return result;
