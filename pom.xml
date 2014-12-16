@@ -40,6 +40,7 @@
 		<module>org.lunifera.ecview.dsl.lib</module>
 		<module>org.lunifera.ecview.eclipse.ui.examples</module>
 <!-- 		<module>org.lunifera.ecview.examples.vaadin</module> -->
+		<module>org.lunifera.ecview.jetty.manager</module>
 		<module>org.lunifera.ecview.semantic.uimodel</module>
 		<module>org.lunifera.ecview.semantic.uisemantics</module>
 		<module>org.lunifera.ecview.uisemantics</module>
@@ -49,6 +50,7 @@
 		<module>org.lunifera.ecview.xtext.builder.participant.i18n</module>
 
 		<module>org.lunifera.ecview.feature.ide</module>
+		<module>org.lunifera.ecview.feature.jetty</module>
 		<module>org.lunifera.ecview.feature.runtime</module>
 		<module>org.lunifera.ecview.feature.runtimeonly</module>
 	</modules>
