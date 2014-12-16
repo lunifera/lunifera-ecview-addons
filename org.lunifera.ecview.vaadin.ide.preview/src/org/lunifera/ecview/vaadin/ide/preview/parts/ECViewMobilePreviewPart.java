@@ -34,6 +34,7 @@ import org.lunifera.ecview.vaadin.ide.preview.Activator;
 
 import com.google.inject.Inject;
 
+@SuppressWarnings("restriction")
 public class ECViewMobilePreviewPart extends ViewPart implements
 		IBrowserViewerContainer, ISetSelectionTarget, IUiRenderedListener {
 

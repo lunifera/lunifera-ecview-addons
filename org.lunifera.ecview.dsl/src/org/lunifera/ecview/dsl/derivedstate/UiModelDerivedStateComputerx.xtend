@@ -372,17 +372,26 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		// create a view instance
 		val YView yView = factory.createView
-		object.associateUi(yView)
 		yView.deviceType = YDeviceType.MOBILE
+		yView.contentAlignment = object.contentAlignment.toYAlignment
+		object.associateUi(yView)
 		views += yView
 		currentView = yView
 		yView.push;
 
 		object.beanSlots.forEach[it.map]
+
 		val element = object.content.create
 		yView.content = element
-		object.content
+		object.content.map
+
 		object.bindings.forEach[it.map]
+
+		object.exposedActions.forEach[it.map]
+
+		pendingAutowires.forEach[
+			it.doAutowire
+		]
 
 		object.processorAssignments.forEach [
 			it.map
@@ -394,14 +403,30 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		]
 
 		// install all bindings
-		pendingBindings.forEach [
+		temporaryPendingBindings = newArrayList(pendingBindings)
+		pendingBindings.clear
+
+		temporaryPendingBindings.forEach [
 			it.install
 		]
+		if (pendingBindings.empty) {
+			object.validatorAssignments.forEach[it.map]
 
-		object.validatorAssignments.forEach[it.map]
+			pop
+			currentView = null
+		} else {
+			temporaryPendingBindings = newArrayList(pendingBindings)
+			pendingBindings.clear
 
-		pop
-		currentView = null
+			temporaryPendingBindings.forEach [
+				it.install
+			]
+			object.validatorAssignments.forEach[it.map]
+
+			pop
+			currentView = null
+		}
+		
 	}
 
 	def push(EObject eObject) {
@@ -815,11 +840,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			]
 			pop
 		}
-
 	}
 
 	def dispatch void map(UiMobileNavigationPage eObject) {
-		val VMNavigationPage yField = eObject.associatedUi
+		var VMNavigationPage yField = eObject.associatedUi
+		
 		yField.push
 
 		eObject.contents.forEach [
@@ -1166,6 +1191,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		button.push
 		if (object.targetPage != null) {
+			val page = object.targetPage.create as VMNavigationPage
+			button.page = page
 			object.targetPage.map
 		} else if (object.targetPageAlias != null) {
 			object.targetPageAlias.map
@@ -1814,6 +1841,20 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	def dispatch VMNavigationButton create(UiMobileNavigationButton object) {
 		val VMNavigationButton field = VaadinMobileFactory.eINSTANCE.createVMNavigationButton
+		field.id = UiModelGrammarUtil.getPathId(object)
+		field.name = object.name
+		field.label = object.name
+		field.labelI18nKey = object.toI18nKey
+		field.initialEnabled = !object.readonly
+		field.cssClass = object.styles
+
+		object.associateUi(field)
+
+		return field
+	}
+	
+	def dispatch VMNavigationPage create(UiMobileNavigationPage object) {
+		var VMNavigationPage field = VaadinMobileFactory.eINSTANCE.createVMNavigationPage
 		field.id = UiModelGrammarUtil.getPathId(object)
 		field.name = object.name
 		field.label = object.name

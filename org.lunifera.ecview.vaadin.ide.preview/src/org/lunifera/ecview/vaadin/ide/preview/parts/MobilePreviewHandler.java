@@ -88,7 +88,7 @@ public class MobilePreviewHandler {
 			return false;
 		}
 		if (this.ui != null && !this.ui.isClosing() && this.ui.isAttached()) {
-			ui.error("A preview UI is already active. Only one allowed!");
+			ui.warn("You are working with a copy of the Ui model, since the original model was already used!");
 			return false;
 		}
 		this.ui = ui;
@@ -232,6 +232,9 @@ public class MobilePreviewHandler {
 	 * @see org.lunifera.ecview.vaadin.ide.preview.parts.ECViewVaadinSynchronizer#notifyNewViewRendered(org.lunifera.ecview.core.common.context.IViewContext)
 	 */
 	public void notifyNewViewRendered(IViewContext context) {
+		if(part == null){
+			return;
+		}
 		part.notifyNewViewRendered(context);
 	}
 
