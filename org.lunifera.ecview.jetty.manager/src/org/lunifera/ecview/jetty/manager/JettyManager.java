@@ -39,7 +39,11 @@ import org.osgi.framework.Constants;
 public class JettyManager {
 
 	public static final String PROP_CONTEXT_PATH = "org.lunifera.ecview.jetty.contextpath";
+	private static final String PROP_SERVICE_TYPE = "org.lunifera.ecview.jetty.serviceType";
 	public static final String PROP_PORT = "org.lunifera.ecview.jetty.port";
+	private static final String SERVICE_TYPE__APPLICATION = "application";
+	private static final String SERVICE_TYPE__MOBILE = "mobile";
+
 	public static final String MOBILE_POSTFIX = "mobile";
 	private static final String CONTEXT_TEMPDIR = "javax.servlet.context.tempdir"; //$NON-NLS-1$
 	private static final String DIR_PREFIX = "preview"; //$NON-NLS-1$
@@ -108,8 +112,10 @@ public class JettyManager {
 		server.addConnector(httpConnector);
 
 		ContextHandlerCollection handlers = new ContextHandlerCollection();
-		ServletContextHandler applicationContext = createServletContext(getContextPath());
-		ServletContextHandler mobileContext = createServletContext(getMobileContextPath());
+		ServletContextHandler applicationContext = createServletContext(
+				getContextPath(), SERVICE_TYPE__APPLICATION);
+		ServletContextHandler mobileContext = createServletContext(
+				getMobileContextPath(), SERVICE_TYPE__MOBILE);
 		handlers.addHandler(applicationContext);
 		handlers.addHandler(mobileContext);
 
@@ -122,13 +128,15 @@ public class JettyManager {
 		this.server = server;
 	}
 
-	protected ServletContextHandler createServletContext(String contextPath) {
+	protected ServletContextHandler createServletContext(String contextPath,
+			String serviceType) {
 		ServletHolder holder = new ServletHolder(
 				new InternalHttpServiceServlet());
 		holder.setInitOrder(0);
 		holder.setInitParameter(Constants.SERVICE_VENDOR, "Lunifera.org"); //$NON-NLS-1$
 		holder.setInitParameter(Constants.SERVICE_DESCRIPTION,
 				"ECView" + contextPath); //$NON-NLS-1$
+		holder.setInitParameter(PROP_SERVICE_TYPE, serviceType);
 		holder.setInitParameter(JettyConstants.HTTP_PORT,
 				Integer.toString(port));
 		holder.setInitParameter(JettyConstants.OTHER_INFO, contextPath);
