@@ -11,7 +11,7 @@ public class AbstractUIGrammarValidator extends org.eclipse.xtext.xbase.validati
 
 	@Override
 	protected List<EPackage> getEPackages() {
-	    List<EPackage> result = new ArrayList<EPackage>();
+	    List<EPackage> result = new ArrayList<EPackage>(super.getEPackages());
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.lunifera.org/ecview/dsl/uimodel/core"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/xtext/xbase/Xbase"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/xtext/common/JavaVMTypes"));

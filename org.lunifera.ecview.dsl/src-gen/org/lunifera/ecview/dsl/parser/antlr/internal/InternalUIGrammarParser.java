@@ -37613,11 +37613,11 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                 {
                 int LA317_1 = input.LA(2);
 
-                if ( (LA317_1==EOF||(LA317_1>=RULE_ID && LA317_1<=RULE_DECIMAL)||(LA317_1>=14 && LA317_1<=15)||LA317_1==17||LA317_1==19||(LA317_1>=21 && LA317_1<=22)||LA317_1==25||(LA317_1>=28 && LA317_1<=33)||LA317_1==47||LA317_1==51||(LA317_1>=119 && LA317_1<=148)||(LA317_1>=150 && LA317_1<=174)) ) {
-                    alt317=2;
-                }
-                else if ( (LA317_1==118) ) {
+                if ( (LA317_1==118) ) {
                     alt317=1;
+                }
+                else if ( (LA317_1==EOF||(LA317_1>=RULE_ID && LA317_1<=RULE_DECIMAL)||(LA317_1>=14 && LA317_1<=15)||LA317_1==17||LA317_1==19||(LA317_1>=21 && LA317_1<=22)||LA317_1==25||(LA317_1>=28 && LA317_1<=33)||LA317_1==47||LA317_1==51||(LA317_1>=119 && LA317_1<=148)||(LA317_1>=150 && LA317_1<=174)) ) {
+                    alt317=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return current;}
@@ -37632,11 +37632,11 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                 {
                 int LA317_2 = input.LA(2);
 
-                if ( (LA317_2==EOF||(LA317_2>=RULE_ID && LA317_2<=RULE_DECIMAL)||(LA317_2>=14 && LA317_2<=15)||LA317_2==17||LA317_2==19||(LA317_2>=21 && LA317_2<=22)||LA317_2==25||(LA317_2>=28 && LA317_2<=33)||LA317_2==47||LA317_2==51||(LA317_2>=119 && LA317_2<=148)||(LA317_2>=150 && LA317_2<=174)) ) {
-                    alt317=2;
-                }
-                else if ( (LA317_2==118) ) {
+                if ( (LA317_2==118) ) {
                     alt317=1;
+                }
+                else if ( (LA317_2==EOF||(LA317_2>=RULE_ID && LA317_2<=RULE_DECIMAL)||(LA317_2>=14 && LA317_2<=15)||LA317_2==17||LA317_2==19||(LA317_2>=21 && LA317_2<=22)||LA317_2==25||(LA317_2>=28 && LA317_2<=33)||LA317_2==47||LA317_2==51||(LA317_2>=119 && LA317_2<=148)||(LA317_2>=150 && LA317_2<=174)) ) {
+                    alt317=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return current;}
@@ -37651,11 +37651,11 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                 {
                 int LA317_3 = input.LA(2);
 
-                if ( (LA317_3==118) ) {
-                    alt317=1;
-                }
-                else if ( (LA317_3==EOF||(LA317_3>=RULE_ID && LA317_3<=RULE_DECIMAL)||(LA317_3>=14 && LA317_3<=15)||LA317_3==17||LA317_3==19||(LA317_3>=21 && LA317_3<=22)||LA317_3==25||(LA317_3>=28 && LA317_3<=33)||LA317_3==47||LA317_3==51||(LA317_3>=119 && LA317_3<=148)||(LA317_3>=150 && LA317_3<=174)) ) {
+                if ( (LA317_3==EOF||(LA317_3>=RULE_ID && LA317_3<=RULE_DECIMAL)||(LA317_3>=14 && LA317_3<=15)||LA317_3==17||LA317_3==19||(LA317_3>=21 && LA317_3<=22)||LA317_3==25||(LA317_3>=28 && LA317_3<=33)||LA317_3==47||LA317_3==51||(LA317_3>=119 && LA317_3<=148)||(LA317_3>=150 && LA317_3<=174)) ) {
                     alt317=2;
+                }
+                else if ( (LA317_3==118) ) {
+                    alt317=1;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return current;}
@@ -39782,11 +39782,11 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                 {
                 int LA325_2 = input.LA(2);
 
-                if ( (LA325_2==EOF||(LA325_2>=RULE_ID && LA325_2<=RULE_DECIMAL)||LA325_2==14||LA325_2==21||LA325_2==28||LA325_2==32||LA325_2==47||(LA325_2>=137 && LA325_2<=138)||LA325_2==143||LA325_2==148||LA325_2==150||LA325_2==152||(LA325_2>=155 && LA325_2<=157)||(LA325_2>=160 && LA325_2<=171)||LA325_2==173) ) {
-                    alt325=4;
-                }
-                else if ( (LA325_2==118) ) {
+                if ( (LA325_2==118) ) {
                     alt325=2;
+                }
+                else if ( (LA325_2==EOF||(LA325_2>=RULE_ID && LA325_2<=RULE_DECIMAL)||LA325_2==14||LA325_2==21||LA325_2==28||LA325_2==32||LA325_2==47||(LA325_2>=137 && LA325_2<=138)||LA325_2==143||LA325_2==148||LA325_2==150||LA325_2==152||(LA325_2>=155 && LA325_2<=157)||(LA325_2>=160 && LA325_2<=171)||LA325_2==173) ) {
+                    alt325=4;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return current;}
@@ -46027,13 +46027,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXCasePart"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16425:1: ruleXCasePart returns [EObject current=null] : ( () ( (lv_typeGuard_1_0= ruleJvmTypeReference ) )? (otherlv_2= 'case' ( (lv_case_3_0= ruleXExpression ) ) )? ( (otherlv_4= ':' ( (lv_then_5_0= ruleXExpression ) ) ) | otherlv_6= ',' ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16425:1: ruleXCasePart returns [EObject current=null] : ( () ( (lv_typeGuard_1_0= ruleJvmTypeReference ) )? (otherlv_2= 'case' ( (lv_case_3_0= ruleXExpression ) ) )? ( (otherlv_4= ':' ( (lv_then_5_0= ruleXExpression ) ) ) | ( (lv_fallThrough_6_0= ',' ) ) ) ) ;
     public final EObject ruleXCasePart() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_2=null;
         Token otherlv_4=null;
-        Token otherlv_6=null;
+        Token lv_fallThrough_6_0=null;
         EObject lv_typeGuard_1_0 = null;
 
         EObject lv_case_3_0 = null;
@@ -46044,11 +46044,11 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16428:28: ( ( () ( (lv_typeGuard_1_0= ruleJvmTypeReference ) )? (otherlv_2= 'case' ( (lv_case_3_0= ruleXExpression ) ) )? ( (otherlv_4= ':' ( (lv_then_5_0= ruleXExpression ) ) ) | otherlv_6= ',' ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16429:1: ( () ( (lv_typeGuard_1_0= ruleJvmTypeReference ) )? (otherlv_2= 'case' ( (lv_case_3_0= ruleXExpression ) ) )? ( (otherlv_4= ':' ( (lv_then_5_0= ruleXExpression ) ) ) | otherlv_6= ',' ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16428:28: ( ( () ( (lv_typeGuard_1_0= ruleJvmTypeReference ) )? (otherlv_2= 'case' ( (lv_case_3_0= ruleXExpression ) ) )? ( (otherlv_4= ':' ( (lv_then_5_0= ruleXExpression ) ) ) | ( (lv_fallThrough_6_0= ',' ) ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16429:1: ( () ( (lv_typeGuard_1_0= ruleJvmTypeReference ) )? (otherlv_2= 'case' ( (lv_case_3_0= ruleXExpression ) ) )? ( (otherlv_4= ':' ( (lv_then_5_0= ruleXExpression ) ) ) | ( (lv_fallThrough_6_0= ',' ) ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16429:1: ( () ( (lv_typeGuard_1_0= ruleJvmTypeReference ) )? (otherlv_2= 'case' ( (lv_case_3_0= ruleXExpression ) ) )? ( (otherlv_4= ':' ( (lv_then_5_0= ruleXExpression ) ) ) | otherlv_6= ',' ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16429:2: () ( (lv_typeGuard_1_0= ruleJvmTypeReference ) )? (otherlv_2= 'case' ( (lv_case_3_0= ruleXExpression ) ) )? ( (otherlv_4= ':' ( (lv_then_5_0= ruleXExpression ) ) ) | otherlv_6= ',' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16429:1: ( () ( (lv_typeGuard_1_0= ruleJvmTypeReference ) )? (otherlv_2= 'case' ( (lv_case_3_0= ruleXExpression ) ) )? ( (otherlv_4= ':' ( (lv_then_5_0= ruleXExpression ) ) ) | ( (lv_fallThrough_6_0= ',' ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16429:2: () ( (lv_typeGuard_1_0= ruleJvmTypeReference ) )? (otherlv_2= 'case' ( (lv_case_3_0= ruleXExpression ) ) )? ( (otherlv_4= ':' ( (lv_then_5_0= ruleXExpression ) ) ) | ( (lv_fallThrough_6_0= ',' ) ) )
             {
             // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16429:2: ()
             // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16430:5: 
@@ -46167,7 +46167,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16475:4: ( (otherlv_4= ':' ( (lv_then_5_0= ruleXExpression ) ) ) | otherlv_6= ',' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16475:4: ( (otherlv_4= ':' ( (lv_then_5_0= ruleXExpression ) ) ) | ( (lv_fallThrough_6_0= ',' ) ) )
             int alt369=2;
             int LA369_0 = input.LA(1);
 
@@ -46239,14 +46239,34 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16498:7: otherlv_6= ','
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16498:6: ( (lv_fallThrough_6_0= ',' ) )
                     {
-                    otherlv_6=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleXCasePart38579); if (state.failed) return current;
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16498:6: ( (lv_fallThrough_6_0= ',' ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16499:1: (lv_fallThrough_6_0= ',' )
+                    {
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16499:1: (lv_fallThrough_6_0= ',' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16500:3: lv_fallThrough_6_0= ','
+                    {
+                    lv_fallThrough_6_0=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleXCasePart38585); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_6, grammarAccess.getXCasePartAccess().getCommaKeyword_3_1());
+                              newLeafNode(lv_fallThrough_6_0, grammarAccess.getXCasePartAccess().getFallThroughCommaKeyword_3_1_0());
                           
                     }
+                    if ( state.backtracking==0 ) {
+
+                      	        if (current==null) {
+                      	            current = createModelElement(grammarAccess.getXCasePartRule());
+                      	        }
+                             		setWithLastConsumed(current, "fallThrough", true, ",");
+                      	    
+                    }
+
+                    }
+
+
+                    }
+
 
                     }
                     break;
@@ -46276,7 +46296,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXForLoopExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16510:1: entryRuleXForLoopExpression returns [EObject current=null] : iv_ruleXForLoopExpression= ruleXForLoopExpression EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16521:1: entryRuleXForLoopExpression returns [EObject current=null] : iv_ruleXForLoopExpression= ruleXForLoopExpression EOF ;
     public final EObject entryRuleXForLoopExpression() throws RecognitionException {
         EObject current = null;
 
@@ -46284,13 +46304,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16511:2: (iv_ruleXForLoopExpression= ruleXForLoopExpression EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16512:2: iv_ruleXForLoopExpression= ruleXForLoopExpression EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16522:2: (iv_ruleXForLoopExpression= ruleXForLoopExpression EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16523:2: iv_ruleXForLoopExpression= ruleXForLoopExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXForLoopExpressionRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXForLoopExpression_in_entryRuleXForLoopExpression38616);
+            pushFollow(FollowSets001.FOLLOW_ruleXForLoopExpression_in_entryRuleXForLoopExpression38635);
             iv_ruleXForLoopExpression=ruleXForLoopExpression();
 
             state._fsp--;
@@ -46298,7 +46318,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXForLoopExpression; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXForLoopExpression38626); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXForLoopExpression38645); if (state.failed) return current;
 
             }
 
@@ -46316,7 +46336,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXForLoopExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16519:1: ruleXForLoopExpression returns [EObject current=null] : ( ( ( ( () 'for' '(' ( ( ruleJvmFormalParameter ) ) ':' ) )=> ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':' ) ) ( (lv_forExpression_5_0= ruleXExpression ) ) otherlv_6= ')' ( (lv_eachExpression_7_0= ruleXExpression ) ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16530:1: ruleXForLoopExpression returns [EObject current=null] : ( ( ( ( () 'for' '(' ( ( ruleJvmFormalParameter ) ) ':' ) )=> ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':' ) ) ( (lv_forExpression_5_0= ruleXExpression ) ) otherlv_6= ')' ( (lv_eachExpression_7_0= ruleXExpression ) ) ) ;
     public final EObject ruleXForLoopExpression() throws RecognitionException {
         EObject current = null;
 
@@ -46334,20 +46354,20 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16522:28: ( ( ( ( ( () 'for' '(' ( ( ruleJvmFormalParameter ) ) ':' ) )=> ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':' ) ) ( (lv_forExpression_5_0= ruleXExpression ) ) otherlv_6= ')' ( (lv_eachExpression_7_0= ruleXExpression ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16523:1: ( ( ( ( () 'for' '(' ( ( ruleJvmFormalParameter ) ) ':' ) )=> ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':' ) ) ( (lv_forExpression_5_0= ruleXExpression ) ) otherlv_6= ')' ( (lv_eachExpression_7_0= ruleXExpression ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16533:28: ( ( ( ( ( () 'for' '(' ( ( ruleJvmFormalParameter ) ) ':' ) )=> ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':' ) ) ( (lv_forExpression_5_0= ruleXExpression ) ) otherlv_6= ')' ( (lv_eachExpression_7_0= ruleXExpression ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16534:1: ( ( ( ( () 'for' '(' ( ( ruleJvmFormalParameter ) ) ':' ) )=> ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':' ) ) ( (lv_forExpression_5_0= ruleXExpression ) ) otherlv_6= ')' ( (lv_eachExpression_7_0= ruleXExpression ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16523:1: ( ( ( ( () 'for' '(' ( ( ruleJvmFormalParameter ) ) ':' ) )=> ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':' ) ) ( (lv_forExpression_5_0= ruleXExpression ) ) otherlv_6= ')' ( (lv_eachExpression_7_0= ruleXExpression ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16523:2: ( ( ( () 'for' '(' ( ( ruleJvmFormalParameter ) ) ':' ) )=> ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':' ) ) ( (lv_forExpression_5_0= ruleXExpression ) ) otherlv_6= ')' ( (lv_eachExpression_7_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16534:1: ( ( ( ( () 'for' '(' ( ( ruleJvmFormalParameter ) ) ':' ) )=> ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':' ) ) ( (lv_forExpression_5_0= ruleXExpression ) ) otherlv_6= ')' ( (lv_eachExpression_7_0= ruleXExpression ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16534:2: ( ( ( () 'for' '(' ( ( ruleJvmFormalParameter ) ) ':' ) )=> ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':' ) ) ( (lv_forExpression_5_0= ruleXExpression ) ) otherlv_6= ')' ( (lv_eachExpression_7_0= ruleXExpression ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16523:2: ( ( ( () 'for' '(' ( ( ruleJvmFormalParameter ) ) ':' ) )=> ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':' ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16523:3: ( ( () 'for' '(' ( ( ruleJvmFormalParameter ) ) ':' ) )=> ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16534:2: ( ( ( () 'for' '(' ( ( ruleJvmFormalParameter ) ) ':' ) )=> ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':' ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16534:3: ( ( () 'for' '(' ( ( ruleJvmFormalParameter ) ) ':' ) )=> ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':' )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16531:5: ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':' )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16531:6: () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':'
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16542:5: ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16542:6: () otherlv_1= 'for' otherlv_2= '(' ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) ) otherlv_4= ':'
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16531:6: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16532:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16542:6: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16543:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -46359,30 +46379,30 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,155,FollowSets001.FOLLOW_155_in_ruleXForLoopExpression38703); if (state.failed) return current;
+            otherlv_1=(Token)match(input,155,FollowSets001.FOLLOW_155_in_ruleXForLoopExpression38722); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXForLoopExpressionAccess().getForKeyword_0_0_1());
                   
             }
-            otherlv_2=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXForLoopExpression38715); if (state.failed) return current;
+            otherlv_2=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXForLoopExpression38734); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getXForLoopExpressionAccess().getLeftParenthesisKeyword_0_0_2());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16545:1: ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16546:1: (lv_declaredParam_3_0= ruleJvmFormalParameter )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16556:1: ( (lv_declaredParam_3_0= ruleJvmFormalParameter ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16557:1: (lv_declaredParam_3_0= ruleJvmFormalParameter )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16546:1: (lv_declaredParam_3_0= ruleJvmFormalParameter )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16547:3: lv_declaredParam_3_0= ruleJvmFormalParameter
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16557:1: (lv_declaredParam_3_0= ruleJvmFormalParameter )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16558:3: lv_declaredParam_3_0= ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getXForLoopExpressionAccess().getDeclaredParamJvmFormalParameterParserRuleCall_0_0_3_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleJvmFormalParameter_in_ruleXForLoopExpression38736);
+            pushFollow(FollowSets001.FOLLOW_ruleJvmFormalParameter_in_ruleXForLoopExpression38755);
             lv_declaredParam_3_0=ruleJvmFormalParameter();
 
             state._fsp--;
@@ -46406,7 +46426,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,25,FollowSets001.FOLLOW_25_in_ruleXForLoopExpression38748); if (state.failed) return current;
+            otherlv_4=(Token)match(input,25,FollowSets001.FOLLOW_25_in_ruleXForLoopExpression38767); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getXForLoopExpressionAccess().getColonKeyword_0_0_4());
@@ -46418,18 +46438,18 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16567:3: ( (lv_forExpression_5_0= ruleXExpression ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16568:1: (lv_forExpression_5_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16578:3: ( (lv_forExpression_5_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16579:1: (lv_forExpression_5_0= ruleXExpression )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16568:1: (lv_forExpression_5_0= ruleXExpression )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16569:3: lv_forExpression_5_0= ruleXExpression
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16579:1: (lv_forExpression_5_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16580:3: lv_forExpression_5_0= ruleXExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getXForLoopExpressionAccess().getForExpressionXExpressionParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXForLoopExpression38771);
+            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXForLoopExpression38790);
             lv_forExpression_5_0=ruleXExpression();
 
             state._fsp--;
@@ -46453,24 +46473,24 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXForLoopExpression38783); if (state.failed) return current;
+            otherlv_6=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXForLoopExpression38802); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_6, grammarAccess.getXForLoopExpressionAccess().getRightParenthesisKeyword_2());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16589:1: ( (lv_eachExpression_7_0= ruleXExpression ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16590:1: (lv_eachExpression_7_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16600:1: ( (lv_eachExpression_7_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16601:1: (lv_eachExpression_7_0= ruleXExpression )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16590:1: (lv_eachExpression_7_0= ruleXExpression )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16591:3: lv_eachExpression_7_0= ruleXExpression
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16601:1: (lv_eachExpression_7_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16602:3: lv_eachExpression_7_0= ruleXExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getXForLoopExpressionAccess().getEachExpressionXExpressionParserRuleCall_3_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXForLoopExpression38804);
+            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXForLoopExpression38823);
             lv_eachExpression_7_0=ruleXExpression();
 
             state._fsp--;
@@ -46517,7 +46537,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXBasicForLoopExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16615:1: entryRuleXBasicForLoopExpression returns [EObject current=null] : iv_ruleXBasicForLoopExpression= ruleXBasicForLoopExpression EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16626:1: entryRuleXBasicForLoopExpression returns [EObject current=null] : iv_ruleXBasicForLoopExpression= ruleXBasicForLoopExpression EOF ;
     public final EObject entryRuleXBasicForLoopExpression() throws RecognitionException {
         EObject current = null;
 
@@ -46525,13 +46545,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16616:2: (iv_ruleXBasicForLoopExpression= ruleXBasicForLoopExpression EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16617:2: iv_ruleXBasicForLoopExpression= ruleXBasicForLoopExpression EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16627:2: (iv_ruleXBasicForLoopExpression= ruleXBasicForLoopExpression EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16628:2: iv_ruleXBasicForLoopExpression= ruleXBasicForLoopExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXBasicForLoopExpressionRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXBasicForLoopExpression_in_entryRuleXBasicForLoopExpression38840);
+            pushFollow(FollowSets001.FOLLOW_ruleXBasicForLoopExpression_in_entryRuleXBasicForLoopExpression38859);
             iv_ruleXBasicForLoopExpression=ruleXBasicForLoopExpression();
 
             state._fsp--;
@@ -46539,7 +46559,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXBasicForLoopExpression; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXBasicForLoopExpression38850); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXBasicForLoopExpression38869); if (state.failed) return current;
 
             }
 
@@ -46557,7 +46577,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXBasicForLoopExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16624:1: ruleXBasicForLoopExpression returns [EObject current=null] : ( () otherlv_1= 'for' otherlv_2= '(' ( ( (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) ) )* )? otherlv_6= ';' ( (lv_expression_7_0= ruleXExpression ) )? otherlv_8= ';' ( ( (lv_updateExpressions_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) ) )* )? otherlv_12= ')' ( (lv_eachExpression_13_0= ruleXExpression ) ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16635:1: ruleXBasicForLoopExpression returns [EObject current=null] : ( () otherlv_1= 'for' otherlv_2= '(' ( ( (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) ) )* )? otherlv_6= ';' ( (lv_expression_7_0= ruleXExpression ) )? otherlv_8= ';' ( ( (lv_updateExpressions_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) ) )* )? otherlv_12= ')' ( (lv_eachExpression_13_0= ruleXExpression ) ) ) ;
     public final EObject ruleXBasicForLoopExpression() throws RecognitionException {
         EObject current = null;
 
@@ -46584,14 +46604,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16627:28: ( ( () otherlv_1= 'for' otherlv_2= '(' ( ( (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) ) )* )? otherlv_6= ';' ( (lv_expression_7_0= ruleXExpression ) )? otherlv_8= ';' ( ( (lv_updateExpressions_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) ) )* )? otherlv_12= ')' ( (lv_eachExpression_13_0= ruleXExpression ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16628:1: ( () otherlv_1= 'for' otherlv_2= '(' ( ( (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) ) )* )? otherlv_6= ';' ( (lv_expression_7_0= ruleXExpression ) )? otherlv_8= ';' ( ( (lv_updateExpressions_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) ) )* )? otherlv_12= ')' ( (lv_eachExpression_13_0= ruleXExpression ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16638:28: ( ( () otherlv_1= 'for' otherlv_2= '(' ( ( (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) ) )* )? otherlv_6= ';' ( (lv_expression_7_0= ruleXExpression ) )? otherlv_8= ';' ( ( (lv_updateExpressions_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) ) )* )? otherlv_12= ')' ( (lv_eachExpression_13_0= ruleXExpression ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16639:1: ( () otherlv_1= 'for' otherlv_2= '(' ( ( (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) ) )* )? otherlv_6= ';' ( (lv_expression_7_0= ruleXExpression ) )? otherlv_8= ';' ( ( (lv_updateExpressions_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) ) )* )? otherlv_12= ')' ( (lv_eachExpression_13_0= ruleXExpression ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16628:1: ( () otherlv_1= 'for' otherlv_2= '(' ( ( (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) ) )* )? otherlv_6= ';' ( (lv_expression_7_0= ruleXExpression ) )? otherlv_8= ';' ( ( (lv_updateExpressions_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) ) )* )? otherlv_12= ')' ( (lv_eachExpression_13_0= ruleXExpression ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16628:2: () otherlv_1= 'for' otherlv_2= '(' ( ( (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) ) )* )? otherlv_6= ';' ( (lv_expression_7_0= ruleXExpression ) )? otherlv_8= ';' ( ( (lv_updateExpressions_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) ) )* )? otherlv_12= ')' ( (lv_eachExpression_13_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16639:1: ( () otherlv_1= 'for' otherlv_2= '(' ( ( (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) ) )* )? otherlv_6= ';' ( (lv_expression_7_0= ruleXExpression ) )? otherlv_8= ';' ( ( (lv_updateExpressions_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) ) )* )? otherlv_12= ')' ( (lv_eachExpression_13_0= ruleXExpression ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16639:2: () otherlv_1= 'for' otherlv_2= '(' ( ( (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) ) )* )? otherlv_6= ';' ( (lv_expression_7_0= ruleXExpression ) )? otherlv_8= ';' ( ( (lv_updateExpressions_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) ) )* )? otherlv_12= ')' ( (lv_eachExpression_13_0= ruleXExpression ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16628:2: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16629:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16639:2: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16640:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -46603,19 +46623,19 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,155,FollowSets001.FOLLOW_155_in_ruleXBasicForLoopExpression38896); if (state.failed) return current;
+            otherlv_1=(Token)match(input,155,FollowSets001.FOLLOW_155_in_ruleXBasicForLoopExpression38915); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXBasicForLoopExpressionAccess().getForKeyword_1());
                   
             }
-            otherlv_2=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXBasicForLoopExpression38908); if (state.failed) return current;
+            otherlv_2=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXBasicForLoopExpression38927); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getXBasicForLoopExpressionAccess().getLeftParenthesisKeyword_2());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16642:1: ( ( (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) ) )* )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16653:1: ( ( (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) ) )* )?
             int alt371=2;
             int LA371_0 = input.LA(1);
 
@@ -46624,20 +46644,20 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             }
             switch (alt371) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16642:2: ( (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) ) )*
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16653:2: ( (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) ) )*
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16642:2: ( (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16643:1: (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16653:2: ( (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16654:1: (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16643:1: (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16644:3: lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16654:1: (lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16655:3: lv_initExpressions_3_0= ruleXExpressionOrVarDeclaration
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getXBasicForLoopExpressionAccess().getInitExpressionsXExpressionOrVarDeclarationParserRuleCall_3_0_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleXExpressionOrVarDeclaration_in_ruleXBasicForLoopExpression38930);
+                    pushFollow(FollowSets001.FOLLOW_ruleXExpressionOrVarDeclaration_in_ruleXBasicForLoopExpression38949);
                     lv_initExpressions_3_0=ruleXExpressionOrVarDeclaration();
 
                     state._fsp--;
@@ -46661,7 +46681,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16660:2: (otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) ) )*
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16671:2: (otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) ) )*
                     loop370:
                     do {
                         int alt370=2;
@@ -46674,26 +46694,26 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                         switch (alt370) {
                     	case 1 :
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16660:4: otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16671:4: otherlv_4= ',' ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) )
                     	    {
-                    	    otherlv_4=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleXBasicForLoopExpression38943); if (state.failed) return current;
+                    	    otherlv_4=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleXBasicForLoopExpression38962); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	          	newLeafNode(otherlv_4, grammarAccess.getXBasicForLoopExpressionAccess().getCommaKeyword_3_1_0());
                     	          
                     	    }
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16664:1: ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) )
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16665:1: (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16675:1: ( (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration ) )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16676:1: (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration )
                     	    {
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16665:1: (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration )
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16666:3: lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16676:1: (lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16677:3: lv_initExpressions_5_0= ruleXExpressionOrVarDeclaration
                     	    {
                     	    if ( state.backtracking==0 ) {
                     	       
                     	      	        newCompositeNode(grammarAccess.getXBasicForLoopExpressionAccess().getInitExpressionsXExpressionOrVarDeclarationParserRuleCall_3_1_1_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FollowSets001.FOLLOW_ruleXExpressionOrVarDeclaration_in_ruleXBasicForLoopExpression38964);
+                    	    pushFollow(FollowSets001.FOLLOW_ruleXExpressionOrVarDeclaration_in_ruleXBasicForLoopExpression38983);
                     	    lv_initExpressions_5_0=ruleXExpressionOrVarDeclaration();
 
                     	    state._fsp--;
@@ -46732,13 +46752,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleXBasicForLoopExpression38980); if (state.failed) return current;
+            otherlv_6=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleXBasicForLoopExpression38999); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_6, grammarAccess.getXBasicForLoopExpressionAccess().getSemicolonKeyword_4());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16686:1: ( (lv_expression_7_0= ruleXExpression ) )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16697:1: ( (lv_expression_7_0= ruleXExpression ) )?
             int alt372=2;
             int LA372_0 = input.LA(1);
 
@@ -46747,17 +46767,17 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             }
             switch (alt372) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16687:1: (lv_expression_7_0= ruleXExpression )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16698:1: (lv_expression_7_0= ruleXExpression )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16687:1: (lv_expression_7_0= ruleXExpression )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16688:3: lv_expression_7_0= ruleXExpression
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16698:1: (lv_expression_7_0= ruleXExpression )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16699:3: lv_expression_7_0= ruleXExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getXBasicForLoopExpressionAccess().getExpressionXExpressionParserRuleCall_5_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXBasicForLoopExpression39001);
+                    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXBasicForLoopExpression39020);
                     lv_expression_7_0=ruleXExpression();
 
                     state._fsp--;
@@ -46784,13 +46804,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_8=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleXBasicForLoopExpression39014); if (state.failed) return current;
+            otherlv_8=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleXBasicForLoopExpression39033); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_8, grammarAccess.getXBasicForLoopExpressionAccess().getSemicolonKeyword_6());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16708:1: ( ( (lv_updateExpressions_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) ) )* )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16719:1: ( ( (lv_updateExpressions_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) ) )* )?
             int alt374=2;
             int LA374_0 = input.LA(1);
 
@@ -46799,20 +46819,20 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             }
             switch (alt374) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16708:2: ( (lv_updateExpressions_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) ) )*
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16719:2: ( (lv_updateExpressions_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) ) )*
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16708:2: ( (lv_updateExpressions_9_0= ruleXExpression ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16709:1: (lv_updateExpressions_9_0= ruleXExpression )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16719:2: ( (lv_updateExpressions_9_0= ruleXExpression ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16720:1: (lv_updateExpressions_9_0= ruleXExpression )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16709:1: (lv_updateExpressions_9_0= ruleXExpression )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16710:3: lv_updateExpressions_9_0= ruleXExpression
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16720:1: (lv_updateExpressions_9_0= ruleXExpression )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16721:3: lv_updateExpressions_9_0= ruleXExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getXBasicForLoopExpressionAccess().getUpdateExpressionsXExpressionParserRuleCall_7_0_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXBasicForLoopExpression39036);
+                    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXBasicForLoopExpression39055);
                     lv_updateExpressions_9_0=ruleXExpression();
 
                     state._fsp--;
@@ -46836,7 +46856,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16726:2: (otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) ) )*
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16737:2: (otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) ) )*
                     loop373:
                     do {
                         int alt373=2;
@@ -46849,26 +46869,26 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                         switch (alt373) {
                     	case 1 :
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16726:4: otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16737:4: otherlv_10= ',' ( (lv_updateExpressions_11_0= ruleXExpression ) )
                     	    {
-                    	    otherlv_10=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleXBasicForLoopExpression39049); if (state.failed) return current;
+                    	    otherlv_10=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleXBasicForLoopExpression39068); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	          	newLeafNode(otherlv_10, grammarAccess.getXBasicForLoopExpressionAccess().getCommaKeyword_7_1_0());
                     	          
                     	    }
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16730:1: ( (lv_updateExpressions_11_0= ruleXExpression ) )
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16731:1: (lv_updateExpressions_11_0= ruleXExpression )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16741:1: ( (lv_updateExpressions_11_0= ruleXExpression ) )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16742:1: (lv_updateExpressions_11_0= ruleXExpression )
                     	    {
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16731:1: (lv_updateExpressions_11_0= ruleXExpression )
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16732:3: lv_updateExpressions_11_0= ruleXExpression
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16742:1: (lv_updateExpressions_11_0= ruleXExpression )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16743:3: lv_updateExpressions_11_0= ruleXExpression
                     	    {
                     	    if ( state.backtracking==0 ) {
                     	       
                     	      	        newCompositeNode(grammarAccess.getXBasicForLoopExpressionAccess().getUpdateExpressionsXExpressionParserRuleCall_7_1_1_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXBasicForLoopExpression39070);
+                    	    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXBasicForLoopExpression39089);
                     	    lv_updateExpressions_11_0=ruleXExpression();
 
                     	    state._fsp--;
@@ -46907,24 +46927,24 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_12=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXBasicForLoopExpression39086); if (state.failed) return current;
+            otherlv_12=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXBasicForLoopExpression39105); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_12, grammarAccess.getXBasicForLoopExpressionAccess().getRightParenthesisKeyword_8());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16752:1: ( (lv_eachExpression_13_0= ruleXExpression ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16753:1: (lv_eachExpression_13_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16763:1: ( (lv_eachExpression_13_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16764:1: (lv_eachExpression_13_0= ruleXExpression )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16753:1: (lv_eachExpression_13_0= ruleXExpression )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16754:3: lv_eachExpression_13_0= ruleXExpression
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16764:1: (lv_eachExpression_13_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16765:3: lv_eachExpression_13_0= ruleXExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getXBasicForLoopExpressionAccess().getEachExpressionXExpressionParserRuleCall_9_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXBasicForLoopExpression39107);
+            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXBasicForLoopExpression39126);
             lv_eachExpression_13_0=ruleXExpression();
 
             state._fsp--;
@@ -46971,7 +46991,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXWhileExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16778:1: entryRuleXWhileExpression returns [EObject current=null] : iv_ruleXWhileExpression= ruleXWhileExpression EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16789:1: entryRuleXWhileExpression returns [EObject current=null] : iv_ruleXWhileExpression= ruleXWhileExpression EOF ;
     public final EObject entryRuleXWhileExpression() throws RecognitionException {
         EObject current = null;
 
@@ -46979,13 +46999,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16779:2: (iv_ruleXWhileExpression= ruleXWhileExpression EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16780:2: iv_ruleXWhileExpression= ruleXWhileExpression EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16790:2: (iv_ruleXWhileExpression= ruleXWhileExpression EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16791:2: iv_ruleXWhileExpression= ruleXWhileExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXWhileExpressionRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXWhileExpression_in_entryRuleXWhileExpression39143);
+            pushFollow(FollowSets001.FOLLOW_ruleXWhileExpression_in_entryRuleXWhileExpression39162);
             iv_ruleXWhileExpression=ruleXWhileExpression();
 
             state._fsp--;
@@ -46993,7 +47013,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXWhileExpression; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXWhileExpression39153); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXWhileExpression39172); if (state.failed) return current;
 
             }
 
@@ -47011,7 +47031,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXWhileExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16787:1: ruleXWhileExpression returns [EObject current=null] : ( () otherlv_1= 'while' otherlv_2= '(' ( (lv_predicate_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_body_5_0= ruleXExpression ) ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16798:1: ruleXWhileExpression returns [EObject current=null] : ( () otherlv_1= 'while' otherlv_2= '(' ( (lv_predicate_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_body_5_0= ruleXExpression ) ) ) ;
     public final EObject ruleXWhileExpression() throws RecognitionException {
         EObject current = null;
 
@@ -47026,14 +47046,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16790:28: ( ( () otherlv_1= 'while' otherlv_2= '(' ( (lv_predicate_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_body_5_0= ruleXExpression ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16791:1: ( () otherlv_1= 'while' otherlv_2= '(' ( (lv_predicate_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_body_5_0= ruleXExpression ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16801:28: ( ( () otherlv_1= 'while' otherlv_2= '(' ( (lv_predicate_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_body_5_0= ruleXExpression ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16802:1: ( () otherlv_1= 'while' otherlv_2= '(' ( (lv_predicate_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_body_5_0= ruleXExpression ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16791:1: ( () otherlv_1= 'while' otherlv_2= '(' ( (lv_predicate_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_body_5_0= ruleXExpression ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16791:2: () otherlv_1= 'while' otherlv_2= '(' ( (lv_predicate_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_body_5_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16802:1: ( () otherlv_1= 'while' otherlv_2= '(' ( (lv_predicate_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_body_5_0= ruleXExpression ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16802:2: () otherlv_1= 'while' otherlv_2= '(' ( (lv_predicate_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_body_5_0= ruleXExpression ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16791:2: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16792:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16802:2: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16803:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -47045,30 +47065,30 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,156,FollowSets001.FOLLOW_156_in_ruleXWhileExpression39199); if (state.failed) return current;
+            otherlv_1=(Token)match(input,156,FollowSets001.FOLLOW_156_in_ruleXWhileExpression39218); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXWhileExpressionAccess().getWhileKeyword_1());
                   
             }
-            otherlv_2=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXWhileExpression39211); if (state.failed) return current;
+            otherlv_2=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXWhileExpression39230); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getXWhileExpressionAccess().getLeftParenthesisKeyword_2());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16805:1: ( (lv_predicate_3_0= ruleXExpression ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16806:1: (lv_predicate_3_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16816:1: ( (lv_predicate_3_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16817:1: (lv_predicate_3_0= ruleXExpression )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16806:1: (lv_predicate_3_0= ruleXExpression )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16807:3: lv_predicate_3_0= ruleXExpression
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16817:1: (lv_predicate_3_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16818:3: lv_predicate_3_0= ruleXExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getXWhileExpressionAccess().getPredicateXExpressionParserRuleCall_3_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXWhileExpression39232);
+            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXWhileExpression39251);
             lv_predicate_3_0=ruleXExpression();
 
             state._fsp--;
@@ -47092,24 +47112,24 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXWhileExpression39244); if (state.failed) return current;
+            otherlv_4=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXWhileExpression39263); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getXWhileExpressionAccess().getRightParenthesisKeyword_4());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16827:1: ( (lv_body_5_0= ruleXExpression ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16828:1: (lv_body_5_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16838:1: ( (lv_body_5_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16839:1: (lv_body_5_0= ruleXExpression )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16828:1: (lv_body_5_0= ruleXExpression )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16829:3: lv_body_5_0= ruleXExpression
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16839:1: (lv_body_5_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16840:3: lv_body_5_0= ruleXExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getXWhileExpressionAccess().getBodyXExpressionParserRuleCall_5_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXWhileExpression39265);
+            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXWhileExpression39284);
             lv_body_5_0=ruleXExpression();
 
             state._fsp--;
@@ -47156,7 +47176,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXDoWhileExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16853:1: entryRuleXDoWhileExpression returns [EObject current=null] : iv_ruleXDoWhileExpression= ruleXDoWhileExpression EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16864:1: entryRuleXDoWhileExpression returns [EObject current=null] : iv_ruleXDoWhileExpression= ruleXDoWhileExpression EOF ;
     public final EObject entryRuleXDoWhileExpression() throws RecognitionException {
         EObject current = null;
 
@@ -47164,13 +47184,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16854:2: (iv_ruleXDoWhileExpression= ruleXDoWhileExpression EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16855:2: iv_ruleXDoWhileExpression= ruleXDoWhileExpression EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16865:2: (iv_ruleXDoWhileExpression= ruleXDoWhileExpression EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16866:2: iv_ruleXDoWhileExpression= ruleXDoWhileExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXDoWhileExpressionRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXDoWhileExpression_in_entryRuleXDoWhileExpression39301);
+            pushFollow(FollowSets001.FOLLOW_ruleXDoWhileExpression_in_entryRuleXDoWhileExpression39320);
             iv_ruleXDoWhileExpression=ruleXDoWhileExpression();
 
             state._fsp--;
@@ -47178,7 +47198,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXDoWhileExpression; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXDoWhileExpression39311); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXDoWhileExpression39330); if (state.failed) return current;
 
             }
 
@@ -47196,7 +47216,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXDoWhileExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16862:1: ruleXDoWhileExpression returns [EObject current=null] : ( () otherlv_1= 'do' ( (lv_body_2_0= ruleXExpression ) ) otherlv_3= 'while' otherlv_4= '(' ( (lv_predicate_5_0= ruleXExpression ) ) otherlv_6= ')' ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16873:1: ruleXDoWhileExpression returns [EObject current=null] : ( () otherlv_1= 'do' ( (lv_body_2_0= ruleXExpression ) ) otherlv_3= 'while' otherlv_4= '(' ( (lv_predicate_5_0= ruleXExpression ) ) otherlv_6= ')' ) ;
     public final EObject ruleXDoWhileExpression() throws RecognitionException {
         EObject current = null;
 
@@ -47212,14 +47232,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16865:28: ( ( () otherlv_1= 'do' ( (lv_body_2_0= ruleXExpression ) ) otherlv_3= 'while' otherlv_4= '(' ( (lv_predicate_5_0= ruleXExpression ) ) otherlv_6= ')' ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16866:1: ( () otherlv_1= 'do' ( (lv_body_2_0= ruleXExpression ) ) otherlv_3= 'while' otherlv_4= '(' ( (lv_predicate_5_0= ruleXExpression ) ) otherlv_6= ')' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16876:28: ( ( () otherlv_1= 'do' ( (lv_body_2_0= ruleXExpression ) ) otherlv_3= 'while' otherlv_4= '(' ( (lv_predicate_5_0= ruleXExpression ) ) otherlv_6= ')' ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16877:1: ( () otherlv_1= 'do' ( (lv_body_2_0= ruleXExpression ) ) otherlv_3= 'while' otherlv_4= '(' ( (lv_predicate_5_0= ruleXExpression ) ) otherlv_6= ')' )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16866:1: ( () otherlv_1= 'do' ( (lv_body_2_0= ruleXExpression ) ) otherlv_3= 'while' otherlv_4= '(' ( (lv_predicate_5_0= ruleXExpression ) ) otherlv_6= ')' )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16866:2: () otherlv_1= 'do' ( (lv_body_2_0= ruleXExpression ) ) otherlv_3= 'while' otherlv_4= '(' ( (lv_predicate_5_0= ruleXExpression ) ) otherlv_6= ')'
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16877:1: ( () otherlv_1= 'do' ( (lv_body_2_0= ruleXExpression ) ) otherlv_3= 'while' otherlv_4= '(' ( (lv_predicate_5_0= ruleXExpression ) ) otherlv_6= ')' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16877:2: () otherlv_1= 'do' ( (lv_body_2_0= ruleXExpression ) ) otherlv_3= 'while' otherlv_4= '(' ( (lv_predicate_5_0= ruleXExpression ) ) otherlv_6= ')'
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16866:2: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16867:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16877:2: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16878:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -47231,24 +47251,24 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,157,FollowSets001.FOLLOW_157_in_ruleXDoWhileExpression39357); if (state.failed) return current;
+            otherlv_1=(Token)match(input,157,FollowSets001.FOLLOW_157_in_ruleXDoWhileExpression39376); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXDoWhileExpressionAccess().getDoKeyword_1());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16876:1: ( (lv_body_2_0= ruleXExpression ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16877:1: (lv_body_2_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16887:1: ( (lv_body_2_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16888:1: (lv_body_2_0= ruleXExpression )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16877:1: (lv_body_2_0= ruleXExpression )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16878:3: lv_body_2_0= ruleXExpression
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16888:1: (lv_body_2_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16889:3: lv_body_2_0= ruleXExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getXDoWhileExpressionAccess().getBodyXExpressionParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXDoWhileExpression39378);
+            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXDoWhileExpression39397);
             lv_body_2_0=ruleXExpression();
 
             state._fsp--;
@@ -47272,30 +47292,30 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,156,FollowSets001.FOLLOW_156_in_ruleXDoWhileExpression39390); if (state.failed) return current;
+            otherlv_3=(Token)match(input,156,FollowSets001.FOLLOW_156_in_ruleXDoWhileExpression39409); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getXDoWhileExpressionAccess().getWhileKeyword_3());
                   
             }
-            otherlv_4=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXDoWhileExpression39402); if (state.failed) return current;
+            otherlv_4=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXDoWhileExpression39421); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getXDoWhileExpressionAccess().getLeftParenthesisKeyword_4());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16902:1: ( (lv_predicate_5_0= ruleXExpression ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16903:1: (lv_predicate_5_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16913:1: ( (lv_predicate_5_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16914:1: (lv_predicate_5_0= ruleXExpression )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16903:1: (lv_predicate_5_0= ruleXExpression )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16904:3: lv_predicate_5_0= ruleXExpression
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16914:1: (lv_predicate_5_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16915:3: lv_predicate_5_0= ruleXExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getXDoWhileExpressionAccess().getPredicateXExpressionParserRuleCall_5_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXDoWhileExpression39423);
+            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXDoWhileExpression39442);
             lv_predicate_5_0=ruleXExpression();
 
             state._fsp--;
@@ -47319,7 +47339,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXDoWhileExpression39435); if (state.failed) return current;
+            otherlv_6=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXDoWhileExpression39454); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_6, grammarAccess.getXDoWhileExpressionAccess().getRightParenthesisKeyword_6());
@@ -47348,7 +47368,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXBlockExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16932:1: entryRuleXBlockExpression returns [EObject current=null] : iv_ruleXBlockExpression= ruleXBlockExpression EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16943:1: entryRuleXBlockExpression returns [EObject current=null] : iv_ruleXBlockExpression= ruleXBlockExpression EOF ;
     public final EObject entryRuleXBlockExpression() throws RecognitionException {
         EObject current = null;
 
@@ -47356,13 +47376,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16933:2: (iv_ruleXBlockExpression= ruleXBlockExpression EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16934:2: iv_ruleXBlockExpression= ruleXBlockExpression EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16944:2: (iv_ruleXBlockExpression= ruleXBlockExpression EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16945:2: iv_ruleXBlockExpression= ruleXBlockExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXBlockExpressionRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXBlockExpression_in_entryRuleXBlockExpression39471);
+            pushFollow(FollowSets001.FOLLOW_ruleXBlockExpression_in_entryRuleXBlockExpression39490);
             iv_ruleXBlockExpression=ruleXBlockExpression();
 
             state._fsp--;
@@ -47370,7 +47390,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXBlockExpression; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXBlockExpression39481); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXBlockExpression39500); if (state.failed) return current;
 
             }
 
@@ -47388,7 +47408,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXBlockExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16941:1: ruleXBlockExpression returns [EObject current=null] : ( () otherlv_1= '{' ( ( (lv_expressions_2_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}' ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16952:1: ruleXBlockExpression returns [EObject current=null] : ( () otherlv_1= '{' ( ( (lv_expressions_2_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}' ) ;
     public final EObject ruleXBlockExpression() throws RecognitionException {
         EObject current = null;
 
@@ -47401,14 +47421,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16944:28: ( ( () otherlv_1= '{' ( ( (lv_expressions_2_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}' ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16945:1: ( () otherlv_1= '{' ( ( (lv_expressions_2_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16955:28: ( ( () otherlv_1= '{' ( ( (lv_expressions_2_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}' ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16956:1: ( () otherlv_1= '{' ( ( (lv_expressions_2_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}' )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16945:1: ( () otherlv_1= '{' ( ( (lv_expressions_2_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}' )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16945:2: () otherlv_1= '{' ( ( (lv_expressions_2_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}'
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16956:1: ( () otherlv_1= '{' ( ( (lv_expressions_2_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16956:2: () otherlv_1= '{' ( ( (lv_expressions_2_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}'
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16945:2: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16946:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16956:2: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16957:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -47420,13 +47440,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,21,FollowSets001.FOLLOW_21_in_ruleXBlockExpression39527); if (state.failed) return current;
+            otherlv_1=(Token)match(input,21,FollowSets001.FOLLOW_21_in_ruleXBlockExpression39546); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXBlockExpressionAccess().getLeftCurlyBracketKeyword_1());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16955:1: ( ( (lv_expressions_2_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )*
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16966:1: ( ( (lv_expressions_2_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )*
             loop376:
             do {
                 int alt376=2;
@@ -47439,20 +47459,20 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                 switch (alt376) {
             	case 1 :
-            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16955:2: ( (lv_expressions_2_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_3= ';' )?
+            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16966:2: ( (lv_expressions_2_0= ruleXExpressionOrVarDeclaration ) ) (otherlv_3= ';' )?
             	    {
-            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16955:2: ( (lv_expressions_2_0= ruleXExpressionOrVarDeclaration ) )
-            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16956:1: (lv_expressions_2_0= ruleXExpressionOrVarDeclaration )
+            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16966:2: ( (lv_expressions_2_0= ruleXExpressionOrVarDeclaration ) )
+            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16967:1: (lv_expressions_2_0= ruleXExpressionOrVarDeclaration )
             	    {
-            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16956:1: (lv_expressions_2_0= ruleXExpressionOrVarDeclaration )
-            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16957:3: lv_expressions_2_0= ruleXExpressionOrVarDeclaration
+            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16967:1: (lv_expressions_2_0= ruleXExpressionOrVarDeclaration )
+            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16968:3: lv_expressions_2_0= ruleXExpressionOrVarDeclaration
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getXBlockExpressionAccess().getExpressionsXExpressionOrVarDeclarationParserRuleCall_2_0_0()); 
             	      	    
             	    }
-            	    pushFollow(FollowSets001.FOLLOW_ruleXExpressionOrVarDeclaration_in_ruleXBlockExpression39549);
+            	    pushFollow(FollowSets001.FOLLOW_ruleXExpressionOrVarDeclaration_in_ruleXBlockExpression39568);
             	    lv_expressions_2_0=ruleXExpressionOrVarDeclaration();
 
             	    state._fsp--;
@@ -47476,7 +47496,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16973:2: (otherlv_3= ';' )?
+            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16984:2: (otherlv_3= ';' )?
             	    int alt375=2;
             	    int LA375_0 = input.LA(1);
 
@@ -47485,9 +47505,9 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             	    }
             	    switch (alt375) {
             	        case 1 :
-            	            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16973:4: otherlv_3= ';'
+            	            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16984:4: otherlv_3= ';'
             	            {
-            	            otherlv_3=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleXBlockExpression39562); if (state.failed) return current;
+            	            otherlv_3=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleXBlockExpression39581); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_3, grammarAccess.getXBlockExpressionAccess().getSemicolonKeyword_2_1());
@@ -47508,7 +47528,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,22,FollowSets001.FOLLOW_22_in_ruleXBlockExpression39578); if (state.failed) return current;
+            otherlv_4=(Token)match(input,22,FollowSets001.FOLLOW_22_in_ruleXBlockExpression39597); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getXBlockExpressionAccess().getRightCurlyBracketKeyword_3());
@@ -47537,7 +47557,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXExpressionOrVarDeclaration"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16989:1: entryRuleXExpressionOrVarDeclaration returns [EObject current=null] : iv_ruleXExpressionOrVarDeclaration= ruleXExpressionOrVarDeclaration EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17000:1: entryRuleXExpressionOrVarDeclaration returns [EObject current=null] : iv_ruleXExpressionOrVarDeclaration= ruleXExpressionOrVarDeclaration EOF ;
     public final EObject entryRuleXExpressionOrVarDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -47545,13 +47565,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16990:2: (iv_ruleXExpressionOrVarDeclaration= ruleXExpressionOrVarDeclaration EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16991:2: iv_ruleXExpressionOrVarDeclaration= ruleXExpressionOrVarDeclaration EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17001:2: (iv_ruleXExpressionOrVarDeclaration= ruleXExpressionOrVarDeclaration EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17002:2: iv_ruleXExpressionOrVarDeclaration= ruleXExpressionOrVarDeclaration EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXExpressionOrVarDeclarationRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXExpressionOrVarDeclaration_in_entryRuleXExpressionOrVarDeclaration39614);
+            pushFollow(FollowSets001.FOLLOW_ruleXExpressionOrVarDeclaration_in_entryRuleXExpressionOrVarDeclaration39633);
             iv_ruleXExpressionOrVarDeclaration=ruleXExpressionOrVarDeclaration();
 
             state._fsp--;
@@ -47559,7 +47579,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXExpressionOrVarDeclaration; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXExpressionOrVarDeclaration39624); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXExpressionOrVarDeclaration39643); if (state.failed) return current;
 
             }
 
@@ -47577,7 +47597,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXExpressionOrVarDeclaration"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:16998:1: ruleXExpressionOrVarDeclaration returns [EObject current=null] : (this_XVariableDeclaration_0= ruleXVariableDeclaration | this_XExpression_1= ruleXExpression ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17009:1: ruleXExpressionOrVarDeclaration returns [EObject current=null] : (this_XVariableDeclaration_0= ruleXVariableDeclaration | this_XExpression_1= ruleXExpression ) ;
     public final EObject ruleXExpressionOrVarDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -47589,10 +47609,10 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17001:28: ( (this_XVariableDeclaration_0= ruleXVariableDeclaration | this_XExpression_1= ruleXExpression ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17002:1: (this_XVariableDeclaration_0= ruleXVariableDeclaration | this_XExpression_1= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17012:28: ( (this_XVariableDeclaration_0= ruleXVariableDeclaration | this_XExpression_1= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17013:1: (this_XVariableDeclaration_0= ruleXVariableDeclaration | this_XExpression_1= ruleXExpression )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17002:1: (this_XVariableDeclaration_0= ruleXVariableDeclaration | this_XExpression_1= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17013:1: (this_XVariableDeclaration_0= ruleXVariableDeclaration | this_XExpression_1= ruleXExpression )
             int alt377=2;
             int LA377_0 = input.LA(1);
 
@@ -47611,14 +47631,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             }
             switch (alt377) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17003:5: this_XVariableDeclaration_0= ruleXVariableDeclaration
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17014:5: this_XVariableDeclaration_0= ruleXVariableDeclaration
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getXExpressionOrVarDeclarationAccess().getXVariableDeclarationParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleXVariableDeclaration_in_ruleXExpressionOrVarDeclaration39671);
+                    pushFollow(FollowSets001.FOLLOW_ruleXVariableDeclaration_in_ruleXExpressionOrVarDeclaration39690);
                     this_XVariableDeclaration_0=ruleXVariableDeclaration();
 
                     state._fsp--;
@@ -47633,14 +47653,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17013:5: this_XExpression_1= ruleXExpression
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17024:5: this_XExpression_1= ruleXExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getXExpressionOrVarDeclarationAccess().getXExpressionParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXExpressionOrVarDeclaration39698);
+                    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXExpressionOrVarDeclaration39717);
                     this_XExpression_1=ruleXExpression();
 
                     state._fsp--;
@@ -47677,7 +47697,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXVariableDeclaration"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17029:1: entryRuleXVariableDeclaration returns [EObject current=null] : iv_ruleXVariableDeclaration= ruleXVariableDeclaration EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17040:1: entryRuleXVariableDeclaration returns [EObject current=null] : iv_ruleXVariableDeclaration= ruleXVariableDeclaration EOF ;
     public final EObject entryRuleXVariableDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -47685,13 +47705,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17030:2: (iv_ruleXVariableDeclaration= ruleXVariableDeclaration EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17031:2: iv_ruleXVariableDeclaration= ruleXVariableDeclaration EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17041:2: (iv_ruleXVariableDeclaration= ruleXVariableDeclaration EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17042:2: iv_ruleXVariableDeclaration= ruleXVariableDeclaration EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXVariableDeclarationRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXVariableDeclaration_in_entryRuleXVariableDeclaration39733);
+            pushFollow(FollowSets001.FOLLOW_ruleXVariableDeclaration_in_entryRuleXVariableDeclaration39752);
             iv_ruleXVariableDeclaration=ruleXVariableDeclaration();
 
             state._fsp--;
@@ -47699,7 +47719,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXVariableDeclaration; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXVariableDeclaration39743); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXVariableDeclaration39762); if (state.failed) return current;
 
             }
 
@@ -47717,7 +47737,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXVariableDeclaration"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17038:1: ruleXVariableDeclaration returns [EObject current=null] : ( () ( ( (lv_writeable_1_0= 'var' ) ) | otherlv_2= 'val' ) ( ( ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) ) ) | ( (lv_name_5_0= ruleValidID ) ) ) (otherlv_6= '=' ( (lv_right_7_0= ruleXExpression ) ) )? ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17049:1: ruleXVariableDeclaration returns [EObject current=null] : ( () ( ( (lv_writeable_1_0= 'var' ) ) | otherlv_2= 'val' ) ( ( ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) ) ) | ( (lv_name_5_0= ruleValidID ) ) ) (otherlv_6= '=' ( (lv_right_7_0= ruleXExpression ) ) )? ) ;
     public final EObject ruleXVariableDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -47736,14 +47756,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17041:28: ( ( () ( ( (lv_writeable_1_0= 'var' ) ) | otherlv_2= 'val' ) ( ( ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) ) ) | ( (lv_name_5_0= ruleValidID ) ) ) (otherlv_6= '=' ( (lv_right_7_0= ruleXExpression ) ) )? ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17042:1: ( () ( ( (lv_writeable_1_0= 'var' ) ) | otherlv_2= 'val' ) ( ( ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) ) ) | ( (lv_name_5_0= ruleValidID ) ) ) (otherlv_6= '=' ( (lv_right_7_0= ruleXExpression ) ) )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17052:28: ( ( () ( ( (lv_writeable_1_0= 'var' ) ) | otherlv_2= 'val' ) ( ( ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) ) ) | ( (lv_name_5_0= ruleValidID ) ) ) (otherlv_6= '=' ( (lv_right_7_0= ruleXExpression ) ) )? ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17053:1: ( () ( ( (lv_writeable_1_0= 'var' ) ) | otherlv_2= 'val' ) ( ( ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) ) ) | ( (lv_name_5_0= ruleValidID ) ) ) (otherlv_6= '=' ( (lv_right_7_0= ruleXExpression ) ) )? )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17042:1: ( () ( ( (lv_writeable_1_0= 'var' ) ) | otherlv_2= 'val' ) ( ( ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) ) ) | ( (lv_name_5_0= ruleValidID ) ) ) (otherlv_6= '=' ( (lv_right_7_0= ruleXExpression ) ) )? )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17042:2: () ( ( (lv_writeable_1_0= 'var' ) ) | otherlv_2= 'val' ) ( ( ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) ) ) | ( (lv_name_5_0= ruleValidID ) ) ) (otherlv_6= '=' ( (lv_right_7_0= ruleXExpression ) ) )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17053:1: ( () ( ( (lv_writeable_1_0= 'var' ) ) | otherlv_2= 'val' ) ( ( ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) ) ) | ( (lv_name_5_0= ruleValidID ) ) ) (otherlv_6= '=' ( (lv_right_7_0= ruleXExpression ) ) )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17053:2: () ( ( (lv_writeable_1_0= 'var' ) ) | otherlv_2= 'val' ) ( ( ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) ) ) | ( (lv_name_5_0= ruleValidID ) ) ) (otherlv_6= '=' ( (lv_right_7_0= ruleXExpression ) ) )?
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17042:2: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17043:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17053:2: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17054:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -47755,7 +47775,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17048:2: ( ( (lv_writeable_1_0= 'var' ) ) | otherlv_2= 'val' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17059:2: ( ( (lv_writeable_1_0= 'var' ) ) | otherlv_2= 'val' )
             int alt378=2;
             int LA378_0 = input.LA(1);
 
@@ -47774,15 +47794,15 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             }
             switch (alt378) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17048:3: ( (lv_writeable_1_0= 'var' ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17059:3: ( (lv_writeable_1_0= 'var' ) )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17048:3: ( (lv_writeable_1_0= 'var' ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17049:1: (lv_writeable_1_0= 'var' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17059:3: ( (lv_writeable_1_0= 'var' ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17060:1: (lv_writeable_1_0= 'var' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17049:1: (lv_writeable_1_0= 'var' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17050:3: lv_writeable_1_0= 'var'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17060:1: (lv_writeable_1_0= 'var' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17061:3: lv_writeable_1_0= 'var'
                     {
-                    lv_writeable_1_0=(Token)match(input,158,FollowSets001.FOLLOW_158_in_ruleXVariableDeclaration39796); if (state.failed) return current;
+                    lv_writeable_1_0=(Token)match(input,158,FollowSets001.FOLLOW_158_in_ruleXVariableDeclaration39815); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_writeable_1_0, grammarAccess.getXVariableDeclarationAccess().getWriteableVarKeyword_1_0_0());
@@ -47806,9 +47826,9 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17064:7: otherlv_2= 'val'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17075:7: otherlv_2= 'val'
                     {
-                    otherlv_2=(Token)match(input,159,FollowSets001.FOLLOW_159_in_ruleXVariableDeclaration39827); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,159,FollowSets001.FOLLOW_159_in_ruleXVariableDeclaration39846); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getXVariableDeclarationAccess().getValKeyword_1_1());
@@ -47820,7 +47840,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17068:2: ( ( ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) ) ) | ( (lv_name_5_0= ruleValidID ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17079:2: ( ( ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) ) ) | ( (lv_name_5_0= ruleValidID ) ) )
             int alt379=2;
             int LA379_0 = input.LA(1);
 
@@ -47856,26 +47876,26 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             }
             switch (alt379) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17068:3: ( ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17079:3: ( ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) ) )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17068:3: ( ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17068:4: ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17079:3: ( ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17079:4: ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )=> ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17076:6: ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17076:7: ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17087:6: ( ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17087:7: ( (lv_type_3_0= ruleJvmTypeReference ) ) ( (lv_name_4_0= ruleValidID ) )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17076:7: ( (lv_type_3_0= ruleJvmTypeReference ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17077:1: (lv_type_3_0= ruleJvmTypeReference )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17087:7: ( (lv_type_3_0= ruleJvmTypeReference ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17088:1: (lv_type_3_0= ruleJvmTypeReference )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17077:1: (lv_type_3_0= ruleJvmTypeReference )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17078:3: lv_type_3_0= ruleJvmTypeReference
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17088:1: (lv_type_3_0= ruleJvmTypeReference )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17089:3: lv_type_3_0= ruleJvmTypeReference
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getXVariableDeclarationAccess().getTypeJvmTypeReferenceParserRuleCall_2_0_0_0_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleXVariableDeclaration39875);
+                    pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleXVariableDeclaration39894);
                     lv_type_3_0=ruleJvmTypeReference();
 
                     state._fsp--;
@@ -47899,18 +47919,18 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17094:2: ( (lv_name_4_0= ruleValidID ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17095:1: (lv_name_4_0= ruleValidID )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17105:2: ( (lv_name_4_0= ruleValidID ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17106:1: (lv_name_4_0= ruleValidID )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17095:1: (lv_name_4_0= ruleValidID )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17096:3: lv_name_4_0= ruleValidID
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17106:1: (lv_name_4_0= ruleValidID )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17107:3: lv_name_4_0= ruleValidID
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getXVariableDeclarationAccess().getNameValidIDParserRuleCall_2_0_0_1_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleXVariableDeclaration39896);
+                    pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleXVariableDeclaration39915);
                     lv_name_4_0=ruleValidID();
 
                     state._fsp--;
@@ -47944,20 +47964,20 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17113:6: ( (lv_name_5_0= ruleValidID ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17124:6: ( (lv_name_5_0= ruleValidID ) )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17113:6: ( (lv_name_5_0= ruleValidID ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17114:1: (lv_name_5_0= ruleValidID )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17124:6: ( (lv_name_5_0= ruleValidID ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17125:1: (lv_name_5_0= ruleValidID )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17114:1: (lv_name_5_0= ruleValidID )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17115:3: lv_name_5_0= ruleValidID
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17125:1: (lv_name_5_0= ruleValidID )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17126:3: lv_name_5_0= ruleValidID
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getXVariableDeclarationAccess().getNameValidIDParserRuleCall_2_1_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleXVariableDeclaration39925);
+                    pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleXVariableDeclaration39944);
                     lv_name_5_0=ruleValidID();
 
                     state._fsp--;
@@ -47987,7 +48007,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17131:3: (otherlv_6= '=' ( (lv_right_7_0= ruleXExpression ) ) )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17142:3: (otherlv_6= '=' ( (lv_right_7_0= ruleXExpression ) ) )?
             int alt380=2;
             int LA380_0 = input.LA(1);
 
@@ -47996,26 +48016,26 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             }
             switch (alt380) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17131:5: otherlv_6= '=' ( (lv_right_7_0= ruleXExpression ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17142:5: otherlv_6= '=' ( (lv_right_7_0= ruleXExpression ) )
                     {
-                    otherlv_6=(Token)match(input,118,FollowSets001.FOLLOW_118_in_ruleXVariableDeclaration39939); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,118,FollowSets001.FOLLOW_118_in_ruleXVariableDeclaration39958); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_6, grammarAccess.getXVariableDeclarationAccess().getEqualsSignKeyword_3_0());
                           
                     }
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17135:1: ( (lv_right_7_0= ruleXExpression ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17136:1: (lv_right_7_0= ruleXExpression )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17146:1: ( (lv_right_7_0= ruleXExpression ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17147:1: (lv_right_7_0= ruleXExpression )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17136:1: (lv_right_7_0= ruleXExpression )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17137:3: lv_right_7_0= ruleXExpression
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17147:1: (lv_right_7_0= ruleXExpression )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17148:3: lv_right_7_0= ruleXExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getXVariableDeclarationAccess().getRightXExpressionParserRuleCall_3_1_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXVariableDeclaration39960);
+                    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXVariableDeclaration39979);
                     lv_right_7_0=ruleXExpression();
 
                     state._fsp--;
@@ -48068,7 +48088,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleJvmFormalParameter"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17161:1: entryRuleJvmFormalParameter returns [EObject current=null] : iv_ruleJvmFormalParameter= ruleJvmFormalParameter EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17172:1: entryRuleJvmFormalParameter returns [EObject current=null] : iv_ruleJvmFormalParameter= ruleJvmFormalParameter EOF ;
     public final EObject entryRuleJvmFormalParameter() throws RecognitionException {
         EObject current = null;
 
@@ -48076,13 +48096,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17162:2: (iv_ruleJvmFormalParameter= ruleJvmFormalParameter EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17163:2: iv_ruleJvmFormalParameter= ruleJvmFormalParameter EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17173:2: (iv_ruleJvmFormalParameter= ruleJvmFormalParameter EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17174:2: iv_ruleJvmFormalParameter= ruleJvmFormalParameter EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getJvmFormalParameterRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleJvmFormalParameter_in_entryRuleJvmFormalParameter39998);
+            pushFollow(FollowSets001.FOLLOW_ruleJvmFormalParameter_in_entryRuleJvmFormalParameter40017);
             iv_ruleJvmFormalParameter=ruleJvmFormalParameter();
 
             state._fsp--;
@@ -48090,7 +48110,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleJvmFormalParameter; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleJvmFormalParameter40008); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleJvmFormalParameter40027); if (state.failed) return current;
 
             }
 
@@ -48108,7 +48128,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleJvmFormalParameter"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17170:1: ruleJvmFormalParameter returns [EObject current=null] : ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) )? ( (lv_name_1_0= ruleValidID ) ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17181:1: ruleJvmFormalParameter returns [EObject current=null] : ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) )? ( (lv_name_1_0= ruleValidID ) ) ) ;
     public final EObject ruleJvmFormalParameter() throws RecognitionException {
         EObject current = null;
 
@@ -48120,13 +48140,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17173:28: ( ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) )? ( (lv_name_1_0= ruleValidID ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17174:1: ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) )? ( (lv_name_1_0= ruleValidID ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17184:28: ( ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) )? ( (lv_name_1_0= ruleValidID ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17185:1: ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) )? ( (lv_name_1_0= ruleValidID ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17174:1: ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) )? ( (lv_name_1_0= ruleValidID ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17174:2: ( (lv_parameterType_0_0= ruleJvmTypeReference ) )? ( (lv_name_1_0= ruleValidID ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17185:1: ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) )? ( (lv_name_1_0= ruleValidID ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17185:2: ( (lv_parameterType_0_0= ruleJvmTypeReference ) )? ( (lv_name_1_0= ruleValidID ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17174:2: ( (lv_parameterType_0_0= ruleJvmTypeReference ) )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17185:2: ( (lv_parameterType_0_0= ruleJvmTypeReference ) )?
             int alt381=2;
             int LA381_0 = input.LA(1);
 
@@ -48142,17 +48162,17 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             }
             switch (alt381) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17175:1: (lv_parameterType_0_0= ruleJvmTypeReference )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17186:1: (lv_parameterType_0_0= ruleJvmTypeReference )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17175:1: (lv_parameterType_0_0= ruleJvmTypeReference )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17176:3: lv_parameterType_0_0= ruleJvmTypeReference
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17186:1: (lv_parameterType_0_0= ruleJvmTypeReference )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17187:3: lv_parameterType_0_0= ruleJvmTypeReference
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getJvmFormalParameterAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleJvmFormalParameter40054);
+                    pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleJvmFormalParameter40073);
                     lv_parameterType_0_0=ruleJvmTypeReference();
 
                     state._fsp--;
@@ -48179,18 +48199,18 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17192:3: ( (lv_name_1_0= ruleValidID ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17193:1: (lv_name_1_0= ruleValidID )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17203:3: ( (lv_name_1_0= ruleValidID ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17204:1: (lv_name_1_0= ruleValidID )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17193:1: (lv_name_1_0= ruleValidID )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17194:3: lv_name_1_0= ruleValidID
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17204:1: (lv_name_1_0= ruleValidID )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17205:3: lv_name_1_0= ruleValidID
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getJvmFormalParameterAccess().getNameValidIDParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleJvmFormalParameter40076);
+            pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleJvmFormalParameter40095);
             lv_name_1_0=ruleValidID();
 
             state._fsp--;
@@ -48237,7 +48257,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFullJvmFormalParameter"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17218:1: entryRuleFullJvmFormalParameter returns [EObject current=null] : iv_ruleFullJvmFormalParameter= ruleFullJvmFormalParameter EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17229:1: entryRuleFullJvmFormalParameter returns [EObject current=null] : iv_ruleFullJvmFormalParameter= ruleFullJvmFormalParameter EOF ;
     public final EObject entryRuleFullJvmFormalParameter() throws RecognitionException {
         EObject current = null;
 
@@ -48245,13 +48265,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17219:2: (iv_ruleFullJvmFormalParameter= ruleFullJvmFormalParameter EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17220:2: iv_ruleFullJvmFormalParameter= ruleFullJvmFormalParameter EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17230:2: (iv_ruleFullJvmFormalParameter= ruleFullJvmFormalParameter EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17231:2: iv_ruleFullJvmFormalParameter= ruleFullJvmFormalParameter EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getFullJvmFormalParameterRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleFullJvmFormalParameter_in_entryRuleFullJvmFormalParameter40112);
+            pushFollow(FollowSets001.FOLLOW_ruleFullJvmFormalParameter_in_entryRuleFullJvmFormalParameter40131);
             iv_ruleFullJvmFormalParameter=ruleFullJvmFormalParameter();
 
             state._fsp--;
@@ -48259,7 +48279,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleFullJvmFormalParameter; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleFullJvmFormalParameter40122); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleFullJvmFormalParameter40141); if (state.failed) return current;
 
             }
 
@@ -48277,7 +48297,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFullJvmFormalParameter"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17227:1: ruleFullJvmFormalParameter returns [EObject current=null] : ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) ) ( (lv_name_1_0= ruleValidID ) ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17238:1: ruleFullJvmFormalParameter returns [EObject current=null] : ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) ) ( (lv_name_1_0= ruleValidID ) ) ) ;
     public final EObject ruleFullJvmFormalParameter() throws RecognitionException {
         EObject current = null;
 
@@ -48289,24 +48309,24 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17230:28: ( ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) ) ( (lv_name_1_0= ruleValidID ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17231:1: ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) ) ( (lv_name_1_0= ruleValidID ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17241:28: ( ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) ) ( (lv_name_1_0= ruleValidID ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17242:1: ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) ) ( (lv_name_1_0= ruleValidID ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17231:1: ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) ) ( (lv_name_1_0= ruleValidID ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17231:2: ( (lv_parameterType_0_0= ruleJvmTypeReference ) ) ( (lv_name_1_0= ruleValidID ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17242:1: ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) ) ( (lv_name_1_0= ruleValidID ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17242:2: ( (lv_parameterType_0_0= ruleJvmTypeReference ) ) ( (lv_name_1_0= ruleValidID ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17231:2: ( (lv_parameterType_0_0= ruleJvmTypeReference ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17232:1: (lv_parameterType_0_0= ruleJvmTypeReference )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17242:2: ( (lv_parameterType_0_0= ruleJvmTypeReference ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17243:1: (lv_parameterType_0_0= ruleJvmTypeReference )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17232:1: (lv_parameterType_0_0= ruleJvmTypeReference )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17233:3: lv_parameterType_0_0= ruleJvmTypeReference
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17243:1: (lv_parameterType_0_0= ruleJvmTypeReference )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17244:3: lv_parameterType_0_0= ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getFullJvmFormalParameterAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleFullJvmFormalParameter40168);
+            pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleFullJvmFormalParameter40187);
             lv_parameterType_0_0=ruleJvmTypeReference();
 
             state._fsp--;
@@ -48330,18 +48350,18 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17249:2: ( (lv_name_1_0= ruleValidID ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17250:1: (lv_name_1_0= ruleValidID )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17260:2: ( (lv_name_1_0= ruleValidID ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17261:1: (lv_name_1_0= ruleValidID )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17250:1: (lv_name_1_0= ruleValidID )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17251:3: lv_name_1_0= ruleValidID
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17261:1: (lv_name_1_0= ruleValidID )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17262:3: lv_name_1_0= ruleValidID
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getFullJvmFormalParameterAccess().getNameValidIDParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleFullJvmFormalParameter40189);
+            pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleFullJvmFormalParameter40208);
             lv_name_1_0=ruleValidID();
 
             state._fsp--;
@@ -48388,7 +48408,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXFeatureCall"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17275:1: entryRuleXFeatureCall returns [EObject current=null] : iv_ruleXFeatureCall= ruleXFeatureCall EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17286:1: entryRuleXFeatureCall returns [EObject current=null] : iv_ruleXFeatureCall= ruleXFeatureCall EOF ;
     public final EObject entryRuleXFeatureCall() throws RecognitionException {
         EObject current = null;
 
@@ -48396,13 +48416,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17276:2: (iv_ruleXFeatureCall= ruleXFeatureCall EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17277:2: iv_ruleXFeatureCall= ruleXFeatureCall EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17287:2: (iv_ruleXFeatureCall= ruleXFeatureCall EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17288:2: iv_ruleXFeatureCall= ruleXFeatureCall EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXFeatureCallRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXFeatureCall_in_entryRuleXFeatureCall40225);
+            pushFollow(FollowSets001.FOLLOW_ruleXFeatureCall_in_entryRuleXFeatureCall40244);
             iv_ruleXFeatureCall=ruleXFeatureCall();
 
             state._fsp--;
@@ -48410,7 +48430,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXFeatureCall; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXFeatureCall40235); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXFeatureCall40254); if (state.failed) return current;
 
             }
 
@@ -48428,7 +48448,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXFeatureCall"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17284:1: ruleXFeatureCall returns [EObject current=null] : ( () (otherlv_1= '<' ( (lv_typeArguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )? ( ( ruleIdOrSuper ) ) ( ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )? otherlv_12= ')' )? ( ( ( () '[' ) )=> (lv_featureCallArguments_13_0= ruleXClosure ) )? ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17295:1: ruleXFeatureCall returns [EObject current=null] : ( () (otherlv_1= '<' ( (lv_typeArguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )? ( ( ruleIdOrSuper ) ) ( ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )? otherlv_12= ')' )? ( ( ( () '[' ) )=> (lv_featureCallArguments_13_0= ruleXClosure ) )? ) ;
     public final EObject ruleXFeatureCall() throws RecognitionException {
         EObject current = null;
 
@@ -48454,14 +48474,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17287:28: ( ( () (otherlv_1= '<' ( (lv_typeArguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )? ( ( ruleIdOrSuper ) ) ( ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )? otherlv_12= ')' )? ( ( ( () '[' ) )=> (lv_featureCallArguments_13_0= ruleXClosure ) )? ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17288:1: ( () (otherlv_1= '<' ( (lv_typeArguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )? ( ( ruleIdOrSuper ) ) ( ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )? otherlv_12= ')' )? ( ( ( () '[' ) )=> (lv_featureCallArguments_13_0= ruleXClosure ) )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17298:28: ( ( () (otherlv_1= '<' ( (lv_typeArguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )? ( ( ruleIdOrSuper ) ) ( ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )? otherlv_12= ')' )? ( ( ( () '[' ) )=> (lv_featureCallArguments_13_0= ruleXClosure ) )? ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17299:1: ( () (otherlv_1= '<' ( (lv_typeArguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )? ( ( ruleIdOrSuper ) ) ( ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )? otherlv_12= ')' )? ( ( ( () '[' ) )=> (lv_featureCallArguments_13_0= ruleXClosure ) )? )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17288:1: ( () (otherlv_1= '<' ( (lv_typeArguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )? ( ( ruleIdOrSuper ) ) ( ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )? otherlv_12= ')' )? ( ( ( () '[' ) )=> (lv_featureCallArguments_13_0= ruleXClosure ) )? )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17288:2: () (otherlv_1= '<' ( (lv_typeArguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )? ( ( ruleIdOrSuper ) ) ( ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )? otherlv_12= ')' )? ( ( ( () '[' ) )=> (lv_featureCallArguments_13_0= ruleXClosure ) )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17299:1: ( () (otherlv_1= '<' ( (lv_typeArguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )? ( ( ruleIdOrSuper ) ) ( ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )? otherlv_12= ')' )? ( ( ( () '[' ) )=> (lv_featureCallArguments_13_0= ruleXClosure ) )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17299:2: () (otherlv_1= '<' ( (lv_typeArguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )? ( ( ruleIdOrSuper ) ) ( ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )? otherlv_12= ')' )? ( ( ( () '[' ) )=> (lv_featureCallArguments_13_0= ruleXClosure ) )?
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17288:2: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17289:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17299:2: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17300:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -48473,7 +48493,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17294:2: (otherlv_1= '<' ( (lv_typeArguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17305:2: (otherlv_1= '<' ( (lv_typeArguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )?
             int alt383=2;
             int LA383_0 = input.LA(1);
 
@@ -48482,26 +48502,26 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             }
             switch (alt383) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17294:4: otherlv_1= '<' ( (lv_typeArguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17305:4: otherlv_1= '<' ( (lv_typeArguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>'
                     {
-                    otherlv_1=(Token)match(input,28,FollowSets001.FOLLOW_28_in_ruleXFeatureCall40282); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,28,FollowSets001.FOLLOW_28_in_ruleXFeatureCall40301); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getXFeatureCallAccess().getLessThanSignKeyword_1_0());
                           
                     }
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17298:1: ( (lv_typeArguments_2_0= ruleJvmArgumentTypeReference ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17299:1: (lv_typeArguments_2_0= ruleJvmArgumentTypeReference )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17309:1: ( (lv_typeArguments_2_0= ruleJvmArgumentTypeReference ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17310:1: (lv_typeArguments_2_0= ruleJvmArgumentTypeReference )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17299:1: (lv_typeArguments_2_0= ruleJvmArgumentTypeReference )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17300:3: lv_typeArguments_2_0= ruleJvmArgumentTypeReference
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17310:1: (lv_typeArguments_2_0= ruleJvmArgumentTypeReference )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17311:3: lv_typeArguments_2_0= ruleJvmArgumentTypeReference
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getXFeatureCallAccess().getTypeArgumentsJvmArgumentTypeReferenceParserRuleCall_1_1_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleJvmArgumentTypeReference_in_ruleXFeatureCall40303);
+                    pushFollow(FollowSets001.FOLLOW_ruleJvmArgumentTypeReference_in_ruleXFeatureCall40322);
                     lv_typeArguments_2_0=ruleJvmArgumentTypeReference();
 
                     state._fsp--;
@@ -48525,7 +48545,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17316:2: (otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) )*
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17327:2: (otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) )*
                     loop382:
                     do {
                         int alt382=2;
@@ -48538,26 +48558,26 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                         switch (alt382) {
                     	case 1 :
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17316:4: otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17327:4: otherlv_3= ',' ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) )
                     	    {
-                    	    otherlv_3=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleXFeatureCall40316); if (state.failed) return current;
+                    	    otherlv_3=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleXFeatureCall40335); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	          	newLeafNode(otherlv_3, grammarAccess.getXFeatureCallAccess().getCommaKeyword_1_2_0());
                     	          
                     	    }
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17320:1: ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) )
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17321:1: (lv_typeArguments_4_0= ruleJvmArgumentTypeReference )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17331:1: ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17332:1: (lv_typeArguments_4_0= ruleJvmArgumentTypeReference )
                     	    {
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17321:1: (lv_typeArguments_4_0= ruleJvmArgumentTypeReference )
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17322:3: lv_typeArguments_4_0= ruleJvmArgumentTypeReference
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17332:1: (lv_typeArguments_4_0= ruleJvmArgumentTypeReference )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17333:3: lv_typeArguments_4_0= ruleJvmArgumentTypeReference
                     	    {
                     	    if ( state.backtracking==0 ) {
                     	       
                     	      	        newCompositeNode(grammarAccess.getXFeatureCallAccess().getTypeArgumentsJvmArgumentTypeReferenceParserRuleCall_1_2_1_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FollowSets001.FOLLOW_ruleJvmArgumentTypeReference_in_ruleXFeatureCall40337);
+                    	    pushFollow(FollowSets001.FOLLOW_ruleJvmArgumentTypeReference_in_ruleXFeatureCall40356);
                     	    lv_typeArguments_4_0=ruleJvmArgumentTypeReference();
 
                     	    state._fsp--;
@@ -48590,7 +48610,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_5=(Token)match(input,30,FollowSets001.FOLLOW_30_in_ruleXFeatureCall40351); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,30,FollowSets001.FOLLOW_30_in_ruleXFeatureCall40370); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_5, grammarAccess.getXFeatureCallAccess().getGreaterThanSignKeyword_1_3());
@@ -48602,11 +48622,11 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17342:3: ( ( ruleIdOrSuper ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17343:1: ( ruleIdOrSuper )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17353:3: ( ( ruleIdOrSuper ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17354:1: ( ruleIdOrSuper )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17343:1: ( ruleIdOrSuper )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17344:3: ruleIdOrSuper
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17354:1: ( ruleIdOrSuper )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17355:3: ruleIdOrSuper
             {
             if ( state.backtracking==0 ) {
 
@@ -48620,7 +48640,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getXFeatureCallAccess().getFeatureJvmIdentifiableElementCrossReference_2_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleIdOrSuper_in_ruleXFeatureCall40376);
+            pushFollow(FollowSets001.FOLLOW_ruleIdOrSuper_in_ruleXFeatureCall40395);
             ruleIdOrSuper();
 
             state._fsp--;
@@ -48636,20 +48656,20 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17357:2: ( ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )? otherlv_12= ')' )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17368:2: ( ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )? otherlv_12= ')' )?
             int alt386=2;
             alt386 = dfa386.predict(input);
             switch (alt386) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17357:3: ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )? otherlv_12= ')'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17368:3: ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )? otherlv_12= ')'
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17357:3: ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17357:4: ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17368:3: ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17368:4: ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17364:1: (lv_explicitOperationCall_7_0= '(' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17365:3: lv_explicitOperationCall_7_0= '('
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17375:1: (lv_explicitOperationCall_7_0= '(' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17376:3: lv_explicitOperationCall_7_0= '('
                     {
-                    lv_explicitOperationCall_7_0=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXFeatureCall40410); if (state.failed) return current;
+                    lv_explicitOperationCall_7_0=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXFeatureCall40429); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_explicitOperationCall_7_0, grammarAccess.getXFeatureCallAccess().getExplicitOperationCallLeftParenthesisKeyword_3_0_0());
@@ -48669,25 +48689,25 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17378:2: ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )?
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17389:2: ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )?
                     int alt385=3;
                     alt385 = dfa385.predict(input);
                     switch (alt385) {
                         case 1 :
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17378:3: ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17389:3: ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) )
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17378:3: ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17378:4: ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17389:3: ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17389:4: ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure )
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17395:1: (lv_featureCallArguments_8_0= ruleXShortClosure )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17396:3: lv_featureCallArguments_8_0= ruleXShortClosure
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17406:1: (lv_featureCallArguments_8_0= ruleXShortClosure )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17407:3: lv_featureCallArguments_8_0= ruleXShortClosure
                             {
                             if ( state.backtracking==0 ) {
                                
                               	        newCompositeNode(grammarAccess.getXFeatureCallAccess().getFeatureCallArgumentsXShortClosureParserRuleCall_3_1_0_0()); 
                               	    
                             }
-                            pushFollow(FollowSets001.FOLLOW_ruleXShortClosure_in_ruleXFeatureCall40495);
+                            pushFollow(FollowSets001.FOLLOW_ruleXShortClosure_in_ruleXFeatureCall40514);
                             lv_featureCallArguments_8_0=ruleXShortClosure();
 
                             state._fsp--;
@@ -48715,23 +48735,23 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17413:6: ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17424:6: ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* )
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17413:6: ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17413:7: ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )*
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17424:6: ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17424:7: ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )*
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17413:7: ( (lv_featureCallArguments_9_0= ruleXExpression ) )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17414:1: (lv_featureCallArguments_9_0= ruleXExpression )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17424:7: ( (lv_featureCallArguments_9_0= ruleXExpression ) )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17425:1: (lv_featureCallArguments_9_0= ruleXExpression )
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17414:1: (lv_featureCallArguments_9_0= ruleXExpression )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17415:3: lv_featureCallArguments_9_0= ruleXExpression
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17425:1: (lv_featureCallArguments_9_0= ruleXExpression )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17426:3: lv_featureCallArguments_9_0= ruleXExpression
                             {
                             if ( state.backtracking==0 ) {
                                
                               	        newCompositeNode(grammarAccess.getXFeatureCallAccess().getFeatureCallArgumentsXExpressionParserRuleCall_3_1_1_0_0()); 
                               	    
                             }
-                            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXFeatureCall40523);
+                            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXFeatureCall40542);
                             lv_featureCallArguments_9_0=ruleXExpression();
 
                             state._fsp--;
@@ -48755,7 +48775,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17431:2: (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )*
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17442:2: (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )*
                             loop384:
                             do {
                                 int alt384=2;
@@ -48768,26 +48788,26 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                                 switch (alt384) {
                             	case 1 :
-                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17431:4: otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) )
+                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17442:4: otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) )
                             	    {
-                            	    otherlv_10=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleXFeatureCall40536); if (state.failed) return current;
+                            	    otherlv_10=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleXFeatureCall40555); if (state.failed) return current;
                             	    if ( state.backtracking==0 ) {
 
                             	          	newLeafNode(otherlv_10, grammarAccess.getXFeatureCallAccess().getCommaKeyword_3_1_1_1_0());
                             	          
                             	    }
-                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17435:1: ( (lv_featureCallArguments_11_0= ruleXExpression ) )
-                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17436:1: (lv_featureCallArguments_11_0= ruleXExpression )
+                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17446:1: ( (lv_featureCallArguments_11_0= ruleXExpression ) )
+                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17447:1: (lv_featureCallArguments_11_0= ruleXExpression )
                             	    {
-                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17436:1: (lv_featureCallArguments_11_0= ruleXExpression )
-                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17437:3: lv_featureCallArguments_11_0= ruleXExpression
+                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17447:1: (lv_featureCallArguments_11_0= ruleXExpression )
+                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17448:3: lv_featureCallArguments_11_0= ruleXExpression
                             	    {
                             	    if ( state.backtracking==0 ) {
                             	       
                             	      	        newCompositeNode(grammarAccess.getXFeatureCallAccess().getFeatureCallArgumentsXExpressionParserRuleCall_3_1_1_1_1_0()); 
                             	      	    
                             	    }
-                            	    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXFeatureCall40557);
+                            	    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXFeatureCall40576);
                             	    lv_featureCallArguments_11_0=ruleXExpression();
 
                             	    state._fsp--;
@@ -48829,7 +48849,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_12=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXFeatureCall40574); if (state.failed) return current;
+                    otherlv_12=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXFeatureCall40593); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_12, grammarAccess.getXFeatureCallAccess().getRightParenthesisKeyword_3_2());
@@ -48841,22 +48861,22 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17457:3: ( ( ( () '[' ) )=> (lv_featureCallArguments_13_0= ruleXClosure ) )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17468:3: ( ( ( () '[' ) )=> (lv_featureCallArguments_13_0= ruleXClosure ) )?
             int alt387=2;
             alt387 = dfa387.predict(input);
             switch (alt387) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17457:4: ( ( () '[' ) )=> (lv_featureCallArguments_13_0= ruleXClosure )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17468:4: ( ( () '[' ) )=> (lv_featureCallArguments_13_0= ruleXClosure )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17460:1: (lv_featureCallArguments_13_0= ruleXClosure )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17461:3: lv_featureCallArguments_13_0= ruleXClosure
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17471:1: (lv_featureCallArguments_13_0= ruleXClosure )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17472:3: lv_featureCallArguments_13_0= ruleXClosure
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getXFeatureCallAccess().getFeatureCallArgumentsXClosureParserRuleCall_4_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleXClosure_in_ruleXFeatureCall40609);
+                    pushFollow(FollowSets001.FOLLOW_ruleXClosure_in_ruleXFeatureCall40628);
                     lv_featureCallArguments_13_0=ruleXClosure();
 
                     state._fsp--;
@@ -48906,7 +48926,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFeatureCallID"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17485:1: entryRuleFeatureCallID returns [String current=null] : iv_ruleFeatureCallID= ruleFeatureCallID EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17496:1: entryRuleFeatureCallID returns [String current=null] : iv_ruleFeatureCallID= ruleFeatureCallID EOF ;
     public final String entryRuleFeatureCallID() throws RecognitionException {
         String current = null;
 
@@ -48914,13 +48934,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17486:2: (iv_ruleFeatureCallID= ruleFeatureCallID EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17487:2: iv_ruleFeatureCallID= ruleFeatureCallID EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17497:2: (iv_ruleFeatureCallID= ruleFeatureCallID EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17498:2: iv_ruleFeatureCallID= ruleFeatureCallID EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getFeatureCallIDRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleFeatureCallID_in_entryRuleFeatureCallID40647);
+            pushFollow(FollowSets001.FOLLOW_ruleFeatureCallID_in_entryRuleFeatureCallID40666);
             iv_ruleFeatureCallID=ruleFeatureCallID();
 
             state._fsp--;
@@ -48928,7 +48948,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleFeatureCallID.getText(); 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleFeatureCallID40658); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleFeatureCallID40677); if (state.failed) return current;
 
             }
 
@@ -48946,7 +48966,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFeatureCallID"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17494:1: ruleFeatureCallID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ValidID_0= ruleValidID | kw= 'extends' | kw= 'static' | kw= 'import' | kw= 'extension' ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17505:1: ruleFeatureCallID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ValidID_0= ruleValidID | kw= 'extends' | kw= 'static' | kw= 'import' | kw= 'extension' ) ;
     public final AntlrDatatypeRuleToken ruleFeatureCallID() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -48957,10 +48977,10 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17497:28: ( (this_ValidID_0= ruleValidID | kw= 'extends' | kw= 'static' | kw= 'import' | kw= 'extension' ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17498:1: (this_ValidID_0= ruleValidID | kw= 'extends' | kw= 'static' | kw= 'import' | kw= 'extension' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17508:28: ( (this_ValidID_0= ruleValidID | kw= 'extends' | kw= 'static' | kw= 'import' | kw= 'extension' ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17509:1: (this_ValidID_0= ruleValidID | kw= 'extends' | kw= 'static' | kw= 'import' | kw= 'extension' )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17498:1: (this_ValidID_0= ruleValidID | kw= 'extends' | kw= 'static' | kw= 'import' | kw= 'extension' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17509:1: (this_ValidID_0= ruleValidID | kw= 'extends' | kw= 'static' | kw= 'import' | kw= 'extension' )
             int alt388=5;
             switch ( input.LA(1) ) {
             case RULE_ID:
@@ -48998,14 +49018,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             switch (alt388) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17499:5: this_ValidID_0= ruleValidID
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17510:5: this_ValidID_0= ruleValidID
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getFeatureCallIDAccess().getValidIDParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleFeatureCallID40705);
+                    pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleFeatureCallID40724);
                     this_ValidID_0=ruleValidID();
 
                     state._fsp--;
@@ -49024,9 +49044,9 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17511:2: kw= 'extends'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17522:2: kw= 'extends'
                     {
-                    kw=(Token)match(input,160,FollowSets001.FOLLOW_160_in_ruleFeatureCallID40729); if (state.failed) return current;
+                    kw=(Token)match(input,160,FollowSets001.FOLLOW_160_in_ruleFeatureCallID40748); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -49037,9 +49057,9 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17518:2: kw= 'static'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17529:2: kw= 'static'
                     {
-                    kw=(Token)match(input,161,FollowSets001.FOLLOW_161_in_ruleFeatureCallID40748); if (state.failed) return current;
+                    kw=(Token)match(input,161,FollowSets001.FOLLOW_161_in_ruleFeatureCallID40767); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -49050,9 +49070,9 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17525:2: kw= 'import'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17536:2: kw= 'import'
                     {
-                    kw=(Token)match(input,14,FollowSets001.FOLLOW_14_in_ruleFeatureCallID40767); if (state.failed) return current;
+                    kw=(Token)match(input,14,FollowSets001.FOLLOW_14_in_ruleFeatureCallID40786); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -49063,9 +49083,9 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17532:2: kw= 'extension'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17543:2: kw= 'extension'
                     {
-                    kw=(Token)match(input,162,FollowSets001.FOLLOW_162_in_ruleFeatureCallID40786); if (state.failed) return current;
+                    kw=(Token)match(input,162,FollowSets001.FOLLOW_162_in_ruleFeatureCallID40805); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -49098,7 +49118,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIdOrSuper"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17545:1: entryRuleIdOrSuper returns [String current=null] : iv_ruleIdOrSuper= ruleIdOrSuper EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17556:1: entryRuleIdOrSuper returns [String current=null] : iv_ruleIdOrSuper= ruleIdOrSuper EOF ;
     public final String entryRuleIdOrSuper() throws RecognitionException {
         String current = null;
 
@@ -49106,13 +49126,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17546:2: (iv_ruleIdOrSuper= ruleIdOrSuper EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17547:2: iv_ruleIdOrSuper= ruleIdOrSuper EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17557:2: (iv_ruleIdOrSuper= ruleIdOrSuper EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17558:2: iv_ruleIdOrSuper= ruleIdOrSuper EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getIdOrSuperRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleIdOrSuper_in_entryRuleIdOrSuper40827);
+            pushFollow(FollowSets001.FOLLOW_ruleIdOrSuper_in_entryRuleIdOrSuper40846);
             iv_ruleIdOrSuper=ruleIdOrSuper();
 
             state._fsp--;
@@ -49120,7 +49140,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleIdOrSuper.getText(); 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleIdOrSuper40838); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleIdOrSuper40857); if (state.failed) return current;
 
             }
 
@@ -49138,7 +49158,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIdOrSuper"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17554:1: ruleIdOrSuper returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_FeatureCallID_0= ruleFeatureCallID | kw= 'super' ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17565:1: ruleIdOrSuper returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_FeatureCallID_0= ruleFeatureCallID | kw= 'super' ) ;
     public final AntlrDatatypeRuleToken ruleIdOrSuper() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -49149,10 +49169,10 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17557:28: ( (this_FeatureCallID_0= ruleFeatureCallID | kw= 'super' ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17558:1: (this_FeatureCallID_0= ruleFeatureCallID | kw= 'super' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17568:28: ( (this_FeatureCallID_0= ruleFeatureCallID | kw= 'super' ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17569:1: (this_FeatureCallID_0= ruleFeatureCallID | kw= 'super' )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17558:1: (this_FeatureCallID_0= ruleFeatureCallID | kw= 'super' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17569:1: (this_FeatureCallID_0= ruleFeatureCallID | kw= 'super' )
             int alt389=2;
             int LA389_0 = input.LA(1);
 
@@ -49171,14 +49191,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             }
             switch (alt389) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17559:5: this_FeatureCallID_0= ruleFeatureCallID
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17570:5: this_FeatureCallID_0= ruleFeatureCallID
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getIdOrSuperAccess().getFeatureCallIDParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleFeatureCallID_in_ruleIdOrSuper40885);
+                    pushFollow(FollowSets001.FOLLOW_ruleFeatureCallID_in_ruleIdOrSuper40904);
                     this_FeatureCallID_0=ruleFeatureCallID();
 
                     state._fsp--;
@@ -49197,9 +49217,9 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17571:2: kw= 'super'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17582:2: kw= 'super'
                     {
-                    kw=(Token)match(input,163,FollowSets001.FOLLOW_163_in_ruleIdOrSuper40909); if (state.failed) return current;
+                    kw=(Token)match(input,163,FollowSets001.FOLLOW_163_in_ruleIdOrSuper40928); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -49232,7 +49252,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXConstructorCall"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17584:1: entryRuleXConstructorCall returns [EObject current=null] : iv_ruleXConstructorCall= ruleXConstructorCall EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17595:1: entryRuleXConstructorCall returns [EObject current=null] : iv_ruleXConstructorCall= ruleXConstructorCall EOF ;
     public final EObject entryRuleXConstructorCall() throws RecognitionException {
         EObject current = null;
 
@@ -49240,13 +49260,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17585:2: (iv_ruleXConstructorCall= ruleXConstructorCall EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17586:2: iv_ruleXConstructorCall= ruleXConstructorCall EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17596:2: (iv_ruleXConstructorCall= ruleXConstructorCall EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17597:2: iv_ruleXConstructorCall= ruleXConstructorCall EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXConstructorCallRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXConstructorCall_in_entryRuleXConstructorCall40949);
+            pushFollow(FollowSets001.FOLLOW_ruleXConstructorCall_in_entryRuleXConstructorCall40968);
             iv_ruleXConstructorCall=ruleXConstructorCall();
 
             state._fsp--;
@@ -49254,7 +49274,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXConstructorCall; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXConstructorCall40959); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXConstructorCall40978); if (state.failed) return current;
 
             }
 
@@ -49272,7 +49292,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXConstructorCall"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17593:1: ruleXConstructorCall returns [EObject current=null] : ( () otherlv_1= 'new' ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_3= '<' ) ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )* otherlv_7= '>' )? ( ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )? otherlv_13= ')' )? ( ( ( () '[' ) )=> (lv_arguments_14_0= ruleXClosure ) )? ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17604:1: ruleXConstructorCall returns [EObject current=null] : ( () otherlv_1= 'new' ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_3= '<' ) ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )* otherlv_7= '>' )? ( ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )? otherlv_13= ')' )? ( ( ( () '[' ) )=> (lv_arguments_14_0= ruleXClosure ) )? ) ;
     public final EObject ruleXConstructorCall() throws RecognitionException {
         EObject current = null;
 
@@ -49299,14 +49319,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17596:28: ( ( () otherlv_1= 'new' ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_3= '<' ) ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )* otherlv_7= '>' )? ( ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )? otherlv_13= ')' )? ( ( ( () '[' ) )=> (lv_arguments_14_0= ruleXClosure ) )? ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17597:1: ( () otherlv_1= 'new' ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_3= '<' ) ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )* otherlv_7= '>' )? ( ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )? otherlv_13= ')' )? ( ( ( () '[' ) )=> (lv_arguments_14_0= ruleXClosure ) )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17607:28: ( ( () otherlv_1= 'new' ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_3= '<' ) ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )* otherlv_7= '>' )? ( ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )? otherlv_13= ')' )? ( ( ( () '[' ) )=> (lv_arguments_14_0= ruleXClosure ) )? ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17608:1: ( () otherlv_1= 'new' ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_3= '<' ) ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )* otherlv_7= '>' )? ( ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )? otherlv_13= ')' )? ( ( ( () '[' ) )=> (lv_arguments_14_0= ruleXClosure ) )? )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17597:1: ( () otherlv_1= 'new' ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_3= '<' ) ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )* otherlv_7= '>' )? ( ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )? otherlv_13= ')' )? ( ( ( () '[' ) )=> (lv_arguments_14_0= ruleXClosure ) )? )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17597:2: () otherlv_1= 'new' ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_3= '<' ) ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )* otherlv_7= '>' )? ( ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )? otherlv_13= ')' )? ( ( ( () '[' ) )=> (lv_arguments_14_0= ruleXClosure ) )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17608:1: ( () otherlv_1= 'new' ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_3= '<' ) ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )* otherlv_7= '>' )? ( ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )? otherlv_13= ')' )? ( ( ( () '[' ) )=> (lv_arguments_14_0= ruleXClosure ) )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17608:2: () otherlv_1= 'new' ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_3= '<' ) ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )* otherlv_7= '>' )? ( ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )? otherlv_13= ')' )? ( ( ( () '[' ) )=> (lv_arguments_14_0= ruleXClosure ) )?
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17597:2: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17598:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17608:2: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17609:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -49318,17 +49338,17 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,164,FollowSets001.FOLLOW_164_in_ruleXConstructorCall41005); if (state.failed) return current;
+            otherlv_1=(Token)match(input,164,FollowSets001.FOLLOW_164_in_ruleXConstructorCall41024); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXConstructorCallAccess().getNewKeyword_1());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17607:1: ( ( ruleQualifiedName ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17608:1: ( ruleQualifiedName )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17618:1: ( ( ruleQualifiedName ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17619:1: ( ruleQualifiedName )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17608:1: ( ruleQualifiedName )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17609:3: ruleQualifiedName
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17619:1: ( ruleQualifiedName )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17620:3: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
 
@@ -49342,7 +49362,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getXConstructorCallAccess().getConstructorJvmConstructorCrossReference_2_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleQualifiedName_in_ruleXConstructorCall41028);
+            pushFollow(FollowSets001.FOLLOW_ruleQualifiedName_in_ruleXConstructorCall41047);
             ruleQualifiedName();
 
             state._fsp--;
@@ -49358,17 +49378,17 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17622:2: ( ( ( '<' )=>otherlv_3= '<' ) ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )* otherlv_7= '>' )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17633:2: ( ( ( '<' )=>otherlv_3= '<' ) ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )* otherlv_7= '>' )?
             int alt391=2;
             alt391 = dfa391.predict(input);
             switch (alt391) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17622:3: ( ( '<' )=>otherlv_3= '<' ) ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )* otherlv_7= '>'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17633:3: ( ( '<' )=>otherlv_3= '<' ) ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )* otherlv_7= '>'
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17622:3: ( ( '<' )=>otherlv_3= '<' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17622:4: ( '<' )=>otherlv_3= '<'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17633:3: ( ( '<' )=>otherlv_3= '<' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17633:4: ( '<' )=>otherlv_3= '<'
                     {
-                    otherlv_3=(Token)match(input,28,FollowSets001.FOLLOW_28_in_ruleXConstructorCall41049); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,28,FollowSets001.FOLLOW_28_in_ruleXConstructorCall41068); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_3, grammarAccess.getXConstructorCallAccess().getLessThanSignKeyword_3_0());
@@ -49377,18 +49397,18 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17627:2: ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17628:1: (lv_typeArguments_4_0= ruleJvmArgumentTypeReference )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17638:2: ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17639:1: (lv_typeArguments_4_0= ruleJvmArgumentTypeReference )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17628:1: (lv_typeArguments_4_0= ruleJvmArgumentTypeReference )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17629:3: lv_typeArguments_4_0= ruleJvmArgumentTypeReference
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17639:1: (lv_typeArguments_4_0= ruleJvmArgumentTypeReference )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17640:3: lv_typeArguments_4_0= ruleJvmArgumentTypeReference
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getXConstructorCallAccess().getTypeArgumentsJvmArgumentTypeReferenceParserRuleCall_3_1_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleJvmArgumentTypeReference_in_ruleXConstructorCall41071);
+                    pushFollow(FollowSets001.FOLLOW_ruleJvmArgumentTypeReference_in_ruleXConstructorCall41090);
                     lv_typeArguments_4_0=ruleJvmArgumentTypeReference();
 
                     state._fsp--;
@@ -49412,7 +49432,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17645:2: (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )*
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17656:2: (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )*
                     loop390:
                     do {
                         int alt390=2;
@@ -49425,26 +49445,26 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                         switch (alt390) {
                     	case 1 :
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17645:4: otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17656:4: otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) )
                     	    {
-                    	    otherlv_5=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleXConstructorCall41084); if (state.failed) return current;
+                    	    otherlv_5=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleXConstructorCall41103); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	          	newLeafNode(otherlv_5, grammarAccess.getXConstructorCallAccess().getCommaKeyword_3_2_0());
                     	          
                     	    }
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17649:1: ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) )
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17650:1: (lv_typeArguments_6_0= ruleJvmArgumentTypeReference )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17660:1: ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17661:1: (lv_typeArguments_6_0= ruleJvmArgumentTypeReference )
                     	    {
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17650:1: (lv_typeArguments_6_0= ruleJvmArgumentTypeReference )
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17651:3: lv_typeArguments_6_0= ruleJvmArgumentTypeReference
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17661:1: (lv_typeArguments_6_0= ruleJvmArgumentTypeReference )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17662:3: lv_typeArguments_6_0= ruleJvmArgumentTypeReference
                     	    {
                     	    if ( state.backtracking==0 ) {
                     	       
                     	      	        newCompositeNode(grammarAccess.getXConstructorCallAccess().getTypeArgumentsJvmArgumentTypeReferenceParserRuleCall_3_2_1_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FollowSets001.FOLLOW_ruleJvmArgumentTypeReference_in_ruleXConstructorCall41105);
+                    	    pushFollow(FollowSets001.FOLLOW_ruleJvmArgumentTypeReference_in_ruleXConstructorCall41124);
                     	    lv_typeArguments_6_0=ruleJvmArgumentTypeReference();
 
                     	    state._fsp--;
@@ -49477,7 +49497,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_7=(Token)match(input,30,FollowSets001.FOLLOW_30_in_ruleXConstructorCall41119); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,30,FollowSets001.FOLLOW_30_in_ruleXConstructorCall41138); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_7, grammarAccess.getXConstructorCallAccess().getGreaterThanSignKeyword_3_3());
@@ -49489,20 +49509,20 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17671:3: ( ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )? otherlv_13= ')' )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17682:3: ( ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )? otherlv_13= ')' )?
             int alt394=2;
             alt394 = dfa394.predict(input);
             switch (alt394) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17671:4: ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )? otherlv_13= ')'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17682:4: ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )? otherlv_13= ')'
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17671:4: ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17671:5: ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17682:4: ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17682:5: ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17678:1: (lv_explicitConstructorCall_8_0= '(' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17679:3: lv_explicitConstructorCall_8_0= '('
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17689:1: (lv_explicitConstructorCall_8_0= '(' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17690:3: lv_explicitConstructorCall_8_0= '('
                     {
-                    lv_explicitConstructorCall_8_0=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXConstructorCall41155); if (state.failed) return current;
+                    lv_explicitConstructorCall_8_0=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXConstructorCall41174); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_explicitConstructorCall_8_0, grammarAccess.getXConstructorCallAccess().getExplicitConstructorCallLeftParenthesisKeyword_4_0_0());
@@ -49522,25 +49542,25 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17692:2: ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )?
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17703:2: ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )?
                     int alt393=3;
                     alt393 = dfa393.predict(input);
                     switch (alt393) {
                         case 1 :
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17692:3: ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17703:3: ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) )
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17692:3: ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17692:4: ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17703:3: ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17703:4: ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure )
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17709:1: (lv_arguments_9_0= ruleXShortClosure )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17710:3: lv_arguments_9_0= ruleXShortClosure
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17720:1: (lv_arguments_9_0= ruleXShortClosure )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17721:3: lv_arguments_9_0= ruleXShortClosure
                             {
                             if ( state.backtracking==0 ) {
                                
                               	        newCompositeNode(grammarAccess.getXConstructorCallAccess().getArgumentsXShortClosureParserRuleCall_4_1_0_0()); 
                               	    
                             }
-                            pushFollow(FollowSets001.FOLLOW_ruleXShortClosure_in_ruleXConstructorCall41240);
+                            pushFollow(FollowSets001.FOLLOW_ruleXShortClosure_in_ruleXConstructorCall41259);
                             lv_arguments_9_0=ruleXShortClosure();
 
                             state._fsp--;
@@ -49568,23 +49588,23 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17727:6: ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17738:6: ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* )
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17727:6: ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17727:7: ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )*
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17738:6: ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17738:7: ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )*
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17727:7: ( (lv_arguments_10_0= ruleXExpression ) )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17728:1: (lv_arguments_10_0= ruleXExpression )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17738:7: ( (lv_arguments_10_0= ruleXExpression ) )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17739:1: (lv_arguments_10_0= ruleXExpression )
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17728:1: (lv_arguments_10_0= ruleXExpression )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17729:3: lv_arguments_10_0= ruleXExpression
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17739:1: (lv_arguments_10_0= ruleXExpression )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17740:3: lv_arguments_10_0= ruleXExpression
                             {
                             if ( state.backtracking==0 ) {
                                
                               	        newCompositeNode(grammarAccess.getXConstructorCallAccess().getArgumentsXExpressionParserRuleCall_4_1_1_0_0()); 
                               	    
                             }
-                            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXConstructorCall41268);
+                            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXConstructorCall41287);
                             lv_arguments_10_0=ruleXExpression();
 
                             state._fsp--;
@@ -49608,7 +49628,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17745:2: (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )*
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17756:2: (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )*
                             loop392:
                             do {
                                 int alt392=2;
@@ -49621,26 +49641,26 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                                 switch (alt392) {
                             	case 1 :
-                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17745:4: otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) )
+                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17756:4: otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) )
                             	    {
-                            	    otherlv_11=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleXConstructorCall41281); if (state.failed) return current;
+                            	    otherlv_11=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleXConstructorCall41300); if (state.failed) return current;
                             	    if ( state.backtracking==0 ) {
 
                             	          	newLeafNode(otherlv_11, grammarAccess.getXConstructorCallAccess().getCommaKeyword_4_1_1_1_0());
                             	          
                             	    }
-                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17749:1: ( (lv_arguments_12_0= ruleXExpression ) )
-                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17750:1: (lv_arguments_12_0= ruleXExpression )
+                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17760:1: ( (lv_arguments_12_0= ruleXExpression ) )
+                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17761:1: (lv_arguments_12_0= ruleXExpression )
                             	    {
-                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17750:1: (lv_arguments_12_0= ruleXExpression )
-                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17751:3: lv_arguments_12_0= ruleXExpression
+                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17761:1: (lv_arguments_12_0= ruleXExpression )
+                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17762:3: lv_arguments_12_0= ruleXExpression
                             	    {
                             	    if ( state.backtracking==0 ) {
                             	       
                             	      	        newCompositeNode(grammarAccess.getXConstructorCallAccess().getArgumentsXExpressionParserRuleCall_4_1_1_1_1_0()); 
                             	      	    
                             	    }
-                            	    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXConstructorCall41302);
+                            	    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXConstructorCall41321);
                             	    lv_arguments_12_0=ruleXExpression();
 
                             	    state._fsp--;
@@ -49682,7 +49702,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_13=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXConstructorCall41319); if (state.failed) return current;
+                    otherlv_13=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXConstructorCall41338); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_13, grammarAccess.getXConstructorCallAccess().getRightParenthesisKeyword_4_2());
@@ -49694,22 +49714,22 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17771:3: ( ( ( () '[' ) )=> (lv_arguments_14_0= ruleXClosure ) )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17782:3: ( ( ( () '[' ) )=> (lv_arguments_14_0= ruleXClosure ) )?
             int alt395=2;
             alt395 = dfa395.predict(input);
             switch (alt395) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17771:4: ( ( () '[' ) )=> (lv_arguments_14_0= ruleXClosure )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17782:4: ( ( () '[' ) )=> (lv_arguments_14_0= ruleXClosure )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17774:1: (lv_arguments_14_0= ruleXClosure )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17775:3: lv_arguments_14_0= ruleXClosure
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17785:1: (lv_arguments_14_0= ruleXClosure )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17786:3: lv_arguments_14_0= ruleXClosure
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getXConstructorCallAccess().getArgumentsXClosureParserRuleCall_5_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleXClosure_in_ruleXConstructorCall41354);
+                    pushFollow(FollowSets001.FOLLOW_ruleXClosure_in_ruleXConstructorCall41373);
                     lv_arguments_14_0=ruleXClosure();
 
                     state._fsp--;
@@ -49759,7 +49779,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXBooleanLiteral"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17799:1: entryRuleXBooleanLiteral returns [EObject current=null] : iv_ruleXBooleanLiteral= ruleXBooleanLiteral EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17810:1: entryRuleXBooleanLiteral returns [EObject current=null] : iv_ruleXBooleanLiteral= ruleXBooleanLiteral EOF ;
     public final EObject entryRuleXBooleanLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -49767,13 +49787,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17800:2: (iv_ruleXBooleanLiteral= ruleXBooleanLiteral EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17801:2: iv_ruleXBooleanLiteral= ruleXBooleanLiteral EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17811:2: (iv_ruleXBooleanLiteral= ruleXBooleanLiteral EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17812:2: iv_ruleXBooleanLiteral= ruleXBooleanLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXBooleanLiteralRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXBooleanLiteral_in_entryRuleXBooleanLiteral41391);
+            pushFollow(FollowSets001.FOLLOW_ruleXBooleanLiteral_in_entryRuleXBooleanLiteral41410);
             iv_ruleXBooleanLiteral=ruleXBooleanLiteral();
 
             state._fsp--;
@@ -49781,7 +49801,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXBooleanLiteral; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXBooleanLiteral41401); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXBooleanLiteral41420); if (state.failed) return current;
 
             }
 
@@ -49799,7 +49819,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXBooleanLiteral"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17808:1: ruleXBooleanLiteral returns [EObject current=null] : ( () (otherlv_1= 'false' | ( (lv_isTrue_2_0= 'true' ) ) ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17819:1: ruleXBooleanLiteral returns [EObject current=null] : ( () (otherlv_1= 'false' | ( (lv_isTrue_2_0= 'true' ) ) ) ) ;
     public final EObject ruleXBooleanLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -49809,14 +49829,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17811:28: ( ( () (otherlv_1= 'false' | ( (lv_isTrue_2_0= 'true' ) ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17812:1: ( () (otherlv_1= 'false' | ( (lv_isTrue_2_0= 'true' ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17822:28: ( ( () (otherlv_1= 'false' | ( (lv_isTrue_2_0= 'true' ) ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17823:1: ( () (otherlv_1= 'false' | ( (lv_isTrue_2_0= 'true' ) ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17812:1: ( () (otherlv_1= 'false' | ( (lv_isTrue_2_0= 'true' ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17812:2: () (otherlv_1= 'false' | ( (lv_isTrue_2_0= 'true' ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17823:1: ( () (otherlv_1= 'false' | ( (lv_isTrue_2_0= 'true' ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17823:2: () (otherlv_1= 'false' | ( (lv_isTrue_2_0= 'true' ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17812:2: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17813:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17823:2: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17824:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -49828,7 +49848,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17818:2: (otherlv_1= 'false' | ( (lv_isTrue_2_0= 'true' ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17829:2: (otherlv_1= 'false' | ( (lv_isTrue_2_0= 'true' ) ) )
             int alt396=2;
             int LA396_0 = input.LA(1);
 
@@ -49847,9 +49867,9 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             }
             switch (alt396) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17818:4: otherlv_1= 'false'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17829:4: otherlv_1= 'false'
                     {
-                    otherlv_1=(Token)match(input,165,FollowSets001.FOLLOW_165_in_ruleXBooleanLiteral41448); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,165,FollowSets001.FOLLOW_165_in_ruleXBooleanLiteral41467); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getXBooleanLiteralAccess().getFalseKeyword_1_0());
@@ -49859,15 +49879,15 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17823:6: ( (lv_isTrue_2_0= 'true' ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17834:6: ( (lv_isTrue_2_0= 'true' ) )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17823:6: ( (lv_isTrue_2_0= 'true' ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17824:1: (lv_isTrue_2_0= 'true' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17834:6: ( (lv_isTrue_2_0= 'true' ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17835:1: (lv_isTrue_2_0= 'true' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17824:1: (lv_isTrue_2_0= 'true' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17825:3: lv_isTrue_2_0= 'true'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17835:1: (lv_isTrue_2_0= 'true' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17836:3: lv_isTrue_2_0= 'true'
                     {
-                    lv_isTrue_2_0=(Token)match(input,166,FollowSets001.FOLLOW_166_in_ruleXBooleanLiteral41472); if (state.failed) return current;
+                    lv_isTrue_2_0=(Token)match(input,166,FollowSets001.FOLLOW_166_in_ruleXBooleanLiteral41491); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_isTrue_2_0, grammarAccess.getXBooleanLiteralAccess().getIsTrueTrueKeyword_1_1_0());
@@ -49916,7 +49936,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXNullLiteral"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17846:1: entryRuleXNullLiteral returns [EObject current=null] : iv_ruleXNullLiteral= ruleXNullLiteral EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17857:1: entryRuleXNullLiteral returns [EObject current=null] : iv_ruleXNullLiteral= ruleXNullLiteral EOF ;
     public final EObject entryRuleXNullLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -49924,13 +49944,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17847:2: (iv_ruleXNullLiteral= ruleXNullLiteral EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17848:2: iv_ruleXNullLiteral= ruleXNullLiteral EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17858:2: (iv_ruleXNullLiteral= ruleXNullLiteral EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17859:2: iv_ruleXNullLiteral= ruleXNullLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXNullLiteralRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXNullLiteral_in_entryRuleXNullLiteral41522);
+            pushFollow(FollowSets001.FOLLOW_ruleXNullLiteral_in_entryRuleXNullLiteral41541);
             iv_ruleXNullLiteral=ruleXNullLiteral();
 
             state._fsp--;
@@ -49938,7 +49958,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXNullLiteral; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXNullLiteral41532); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXNullLiteral41551); if (state.failed) return current;
 
             }
 
@@ -49956,7 +49976,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXNullLiteral"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17855:1: ruleXNullLiteral returns [EObject current=null] : ( () otherlv_1= 'null' ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17866:1: ruleXNullLiteral returns [EObject current=null] : ( () otherlv_1= 'null' ) ;
     public final EObject ruleXNullLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -49965,14 +49985,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17858:28: ( ( () otherlv_1= 'null' ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17859:1: ( () otherlv_1= 'null' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17869:28: ( ( () otherlv_1= 'null' ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17870:1: ( () otherlv_1= 'null' )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17859:1: ( () otherlv_1= 'null' )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17859:2: () otherlv_1= 'null'
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17870:1: ( () otherlv_1= 'null' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17870:2: () otherlv_1= 'null'
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17859:2: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17860:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17870:2: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17871:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -49984,7 +50004,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,167,FollowSets001.FOLLOW_167_in_ruleXNullLiteral41578); if (state.failed) return current;
+            otherlv_1=(Token)match(input,167,FollowSets001.FOLLOW_167_in_ruleXNullLiteral41597); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXNullLiteralAccess().getNullKeyword_1());
@@ -50013,7 +50033,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXNumberLiteral"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17877:1: entryRuleXNumberLiteral returns [EObject current=null] : iv_ruleXNumberLiteral= ruleXNumberLiteral EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17888:1: entryRuleXNumberLiteral returns [EObject current=null] : iv_ruleXNumberLiteral= ruleXNumberLiteral EOF ;
     public final EObject entryRuleXNumberLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -50021,13 +50041,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17878:2: (iv_ruleXNumberLiteral= ruleXNumberLiteral EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17879:2: iv_ruleXNumberLiteral= ruleXNumberLiteral EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17889:2: (iv_ruleXNumberLiteral= ruleXNumberLiteral EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17890:2: iv_ruleXNumberLiteral= ruleXNumberLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXNumberLiteralRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXNumberLiteral_in_entryRuleXNumberLiteral41614);
+            pushFollow(FollowSets001.FOLLOW_ruleXNumberLiteral_in_entryRuleXNumberLiteral41633);
             iv_ruleXNumberLiteral=ruleXNumberLiteral();
 
             state._fsp--;
@@ -50035,7 +50055,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXNumberLiteral; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXNumberLiteral41624); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXNumberLiteral41643); if (state.failed) return current;
 
             }
 
@@ -50053,7 +50073,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXNumberLiteral"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17886:1: ruleXNumberLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= ruleNumber ) ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17897:1: ruleXNumberLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= ruleNumber ) ) ) ;
     public final EObject ruleXNumberLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -50063,14 +50083,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17889:28: ( ( () ( (lv_value_1_0= ruleNumber ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17890:1: ( () ( (lv_value_1_0= ruleNumber ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17900:28: ( ( () ( (lv_value_1_0= ruleNumber ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17901:1: ( () ( (lv_value_1_0= ruleNumber ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17890:1: ( () ( (lv_value_1_0= ruleNumber ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17890:2: () ( (lv_value_1_0= ruleNumber ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17901:1: ( () ( (lv_value_1_0= ruleNumber ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17901:2: () ( (lv_value_1_0= ruleNumber ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17890:2: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17891:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17901:2: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17902:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -50082,18 +50102,18 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17896:2: ( (lv_value_1_0= ruleNumber ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17897:1: (lv_value_1_0= ruleNumber )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17907:2: ( (lv_value_1_0= ruleNumber ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17908:1: (lv_value_1_0= ruleNumber )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17897:1: (lv_value_1_0= ruleNumber )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17898:3: lv_value_1_0= ruleNumber
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17908:1: (lv_value_1_0= ruleNumber )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17909:3: lv_value_1_0= ruleNumber
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getXNumberLiteralAccess().getValueNumberParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleNumber_in_ruleXNumberLiteral41679);
+            pushFollow(FollowSets001.FOLLOW_ruleNumber_in_ruleXNumberLiteral41698);
             lv_value_1_0=ruleNumber();
 
             state._fsp--;
@@ -50140,7 +50160,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXStringLiteral"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17922:1: entryRuleXStringLiteral returns [EObject current=null] : iv_ruleXStringLiteral= ruleXStringLiteral EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17933:1: entryRuleXStringLiteral returns [EObject current=null] : iv_ruleXStringLiteral= ruleXStringLiteral EOF ;
     public final EObject entryRuleXStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -50148,13 +50168,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17923:2: (iv_ruleXStringLiteral= ruleXStringLiteral EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17924:2: iv_ruleXStringLiteral= ruleXStringLiteral EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17934:2: (iv_ruleXStringLiteral= ruleXStringLiteral EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17935:2: iv_ruleXStringLiteral= ruleXStringLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXStringLiteralRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXStringLiteral_in_entryRuleXStringLiteral41715);
+            pushFollow(FollowSets001.FOLLOW_ruleXStringLiteral_in_entryRuleXStringLiteral41734);
             iv_ruleXStringLiteral=ruleXStringLiteral();
 
             state._fsp--;
@@ -50162,7 +50182,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXStringLiteral; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXStringLiteral41725); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXStringLiteral41744); if (state.failed) return current;
 
             }
 
@@ -50180,7 +50200,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXStringLiteral"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17931:1: ruleXStringLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_STRING ) ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17942:1: ruleXStringLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleXStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -50189,14 +50209,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17934:28: ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17935:1: ( () ( (lv_value_1_0= RULE_STRING ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17945:28: ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17946:1: ( () ( (lv_value_1_0= RULE_STRING ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17935:1: ( () ( (lv_value_1_0= RULE_STRING ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17935:2: () ( (lv_value_1_0= RULE_STRING ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17946:1: ( () ( (lv_value_1_0= RULE_STRING ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17946:2: () ( (lv_value_1_0= RULE_STRING ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17935:2: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17936:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17946:2: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17947:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -50208,13 +50228,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17941:2: ( (lv_value_1_0= RULE_STRING ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17942:1: (lv_value_1_0= RULE_STRING )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17952:2: ( (lv_value_1_0= RULE_STRING ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17953:1: (lv_value_1_0= RULE_STRING )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17942:1: (lv_value_1_0= RULE_STRING )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17943:3: lv_value_1_0= RULE_STRING
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17953:1: (lv_value_1_0= RULE_STRING )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17954:3: lv_value_1_0= RULE_STRING
             {
-            lv_value_1_0=(Token)match(input,RULE_STRING,FollowSets001.FOLLOW_RULE_STRING_in_ruleXStringLiteral41776); if (state.failed) return current;
+            lv_value_1_0=(Token)match(input,RULE_STRING,FollowSets001.FOLLOW_RULE_STRING_in_ruleXStringLiteral41795); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_value_1_0, grammarAccess.getXStringLiteralAccess().getValueSTRINGTerminalRuleCall_1_0()); 
@@ -50261,7 +50281,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXTypeLiteral"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17967:1: entryRuleXTypeLiteral returns [EObject current=null] : iv_ruleXTypeLiteral= ruleXTypeLiteral EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17978:1: entryRuleXTypeLiteral returns [EObject current=null] : iv_ruleXTypeLiteral= ruleXTypeLiteral EOF ;
     public final EObject entryRuleXTypeLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -50269,13 +50289,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17968:2: (iv_ruleXTypeLiteral= ruleXTypeLiteral EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17969:2: iv_ruleXTypeLiteral= ruleXTypeLiteral EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17979:2: (iv_ruleXTypeLiteral= ruleXTypeLiteral EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17980:2: iv_ruleXTypeLiteral= ruleXTypeLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXTypeLiteralRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXTypeLiteral_in_entryRuleXTypeLiteral41817);
+            pushFollow(FollowSets001.FOLLOW_ruleXTypeLiteral_in_entryRuleXTypeLiteral41836);
             iv_ruleXTypeLiteral=ruleXTypeLiteral();
 
             state._fsp--;
@@ -50283,7 +50303,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXTypeLiteral; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXTypeLiteral41827); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXTypeLiteral41846); if (state.failed) return current;
 
             }
 
@@ -50301,7 +50321,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXTypeLiteral"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17976:1: ruleXTypeLiteral returns [EObject current=null] : ( () otherlv_1= 'typeof' otherlv_2= '(' ( ( ruleQualifiedName ) ) ( (lv_arrayDimensions_4_0= ruleArrayBrackets ) )* otherlv_5= ')' ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17987:1: ruleXTypeLiteral returns [EObject current=null] : ( () otherlv_1= 'typeof' otherlv_2= '(' ( ( ruleQualifiedName ) ) ( (lv_arrayDimensions_4_0= ruleArrayBrackets ) )* otherlv_5= ')' ) ;
     public final EObject ruleXTypeLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -50314,14 +50334,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17979:28: ( ( () otherlv_1= 'typeof' otherlv_2= '(' ( ( ruleQualifiedName ) ) ( (lv_arrayDimensions_4_0= ruleArrayBrackets ) )* otherlv_5= ')' ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17980:1: ( () otherlv_1= 'typeof' otherlv_2= '(' ( ( ruleQualifiedName ) ) ( (lv_arrayDimensions_4_0= ruleArrayBrackets ) )* otherlv_5= ')' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17990:28: ( ( () otherlv_1= 'typeof' otherlv_2= '(' ( ( ruleQualifiedName ) ) ( (lv_arrayDimensions_4_0= ruleArrayBrackets ) )* otherlv_5= ')' ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17991:1: ( () otherlv_1= 'typeof' otherlv_2= '(' ( ( ruleQualifiedName ) ) ( (lv_arrayDimensions_4_0= ruleArrayBrackets ) )* otherlv_5= ')' )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17980:1: ( () otherlv_1= 'typeof' otherlv_2= '(' ( ( ruleQualifiedName ) ) ( (lv_arrayDimensions_4_0= ruleArrayBrackets ) )* otherlv_5= ')' )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17980:2: () otherlv_1= 'typeof' otherlv_2= '(' ( ( ruleQualifiedName ) ) ( (lv_arrayDimensions_4_0= ruleArrayBrackets ) )* otherlv_5= ')'
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17991:1: ( () otherlv_1= 'typeof' otherlv_2= '(' ( ( ruleQualifiedName ) ) ( (lv_arrayDimensions_4_0= ruleArrayBrackets ) )* otherlv_5= ')' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17991:2: () otherlv_1= 'typeof' otherlv_2= '(' ( ( ruleQualifiedName ) ) ( (lv_arrayDimensions_4_0= ruleArrayBrackets ) )* otherlv_5= ')'
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17980:2: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17981:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17991:2: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17992:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -50333,23 +50353,23 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,168,FollowSets001.FOLLOW_168_in_ruleXTypeLiteral41873); if (state.failed) return current;
+            otherlv_1=(Token)match(input,168,FollowSets001.FOLLOW_168_in_ruleXTypeLiteral41892); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXTypeLiteralAccess().getTypeofKeyword_1());
                   
             }
-            otherlv_2=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXTypeLiteral41885); if (state.failed) return current;
+            otherlv_2=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXTypeLiteral41904); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getXTypeLiteralAccess().getLeftParenthesisKeyword_2());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17994:1: ( ( ruleQualifiedName ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17995:1: ( ruleQualifiedName )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18005:1: ( ( ruleQualifiedName ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18006:1: ( ruleQualifiedName )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17995:1: ( ruleQualifiedName )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17996:3: ruleQualifiedName
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18006:1: ( ruleQualifiedName )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18007:3: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
 
@@ -50363,7 +50383,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getXTypeLiteralAccess().getTypeJvmTypeCrossReference_3_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleQualifiedName_in_ruleXTypeLiteral41908);
+            pushFollow(FollowSets001.FOLLOW_ruleQualifiedName_in_ruleXTypeLiteral41927);
             ruleQualifiedName();
 
             state._fsp--;
@@ -50379,7 +50399,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18009:2: ( (lv_arrayDimensions_4_0= ruleArrayBrackets ) )*
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18020:2: ( (lv_arrayDimensions_4_0= ruleArrayBrackets ) )*
             loop397:
             do {
                 int alt397=2;
@@ -50392,17 +50412,17 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                 switch (alt397) {
             	case 1 :
-            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18010:1: (lv_arrayDimensions_4_0= ruleArrayBrackets )
+            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18021:1: (lv_arrayDimensions_4_0= ruleArrayBrackets )
             	    {
-            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18010:1: (lv_arrayDimensions_4_0= ruleArrayBrackets )
-            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18011:3: lv_arrayDimensions_4_0= ruleArrayBrackets
+            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18021:1: (lv_arrayDimensions_4_0= ruleArrayBrackets )
+            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18022:3: lv_arrayDimensions_4_0= ruleArrayBrackets
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getXTypeLiteralAccess().getArrayDimensionsArrayBracketsParserRuleCall_4_0()); 
             	      	    
             	    }
-            	    pushFollow(FollowSets001.FOLLOW_ruleArrayBrackets_in_ruleXTypeLiteral41929);
+            	    pushFollow(FollowSets001.FOLLOW_ruleArrayBrackets_in_ruleXTypeLiteral41948);
             	    lv_arrayDimensions_4_0=ruleArrayBrackets();
 
             	    state._fsp--;
@@ -50432,7 +50452,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXTypeLiteral41942); if (state.failed) return current;
+            otherlv_5=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXTypeLiteral41961); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getXTypeLiteralAccess().getRightParenthesisKeyword_5());
@@ -50461,7 +50481,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXThrowExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18039:1: entryRuleXThrowExpression returns [EObject current=null] : iv_ruleXThrowExpression= ruleXThrowExpression EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18050:1: entryRuleXThrowExpression returns [EObject current=null] : iv_ruleXThrowExpression= ruleXThrowExpression EOF ;
     public final EObject entryRuleXThrowExpression() throws RecognitionException {
         EObject current = null;
 
@@ -50469,13 +50489,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18040:2: (iv_ruleXThrowExpression= ruleXThrowExpression EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18041:2: iv_ruleXThrowExpression= ruleXThrowExpression EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18051:2: (iv_ruleXThrowExpression= ruleXThrowExpression EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18052:2: iv_ruleXThrowExpression= ruleXThrowExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXThrowExpressionRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXThrowExpression_in_entryRuleXThrowExpression41978);
+            pushFollow(FollowSets001.FOLLOW_ruleXThrowExpression_in_entryRuleXThrowExpression41997);
             iv_ruleXThrowExpression=ruleXThrowExpression();
 
             state._fsp--;
@@ -50483,7 +50503,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXThrowExpression; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXThrowExpression41988); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXThrowExpression42007); if (state.failed) return current;
 
             }
 
@@ -50501,7 +50521,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXThrowExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18048:1: ruleXThrowExpression returns [EObject current=null] : ( () otherlv_1= 'throw' ( (lv_expression_2_0= ruleXExpression ) ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18059:1: ruleXThrowExpression returns [EObject current=null] : ( () otherlv_1= 'throw' ( (lv_expression_2_0= ruleXExpression ) ) ) ;
     public final EObject ruleXThrowExpression() throws RecognitionException {
         EObject current = null;
 
@@ -50512,14 +50532,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18051:28: ( ( () otherlv_1= 'throw' ( (lv_expression_2_0= ruleXExpression ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18052:1: ( () otherlv_1= 'throw' ( (lv_expression_2_0= ruleXExpression ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18062:28: ( ( () otherlv_1= 'throw' ( (lv_expression_2_0= ruleXExpression ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18063:1: ( () otherlv_1= 'throw' ( (lv_expression_2_0= ruleXExpression ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18052:1: ( () otherlv_1= 'throw' ( (lv_expression_2_0= ruleXExpression ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18052:2: () otherlv_1= 'throw' ( (lv_expression_2_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18063:1: ( () otherlv_1= 'throw' ( (lv_expression_2_0= ruleXExpression ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18063:2: () otherlv_1= 'throw' ( (lv_expression_2_0= ruleXExpression ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18052:2: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18053:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18063:2: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18064:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -50531,24 +50551,24 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,169,FollowSets001.FOLLOW_169_in_ruleXThrowExpression42034); if (state.failed) return current;
+            otherlv_1=(Token)match(input,169,FollowSets001.FOLLOW_169_in_ruleXThrowExpression42053); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXThrowExpressionAccess().getThrowKeyword_1());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18062:1: ( (lv_expression_2_0= ruleXExpression ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18063:1: (lv_expression_2_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18073:1: ( (lv_expression_2_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18074:1: (lv_expression_2_0= ruleXExpression )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18063:1: (lv_expression_2_0= ruleXExpression )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18064:3: lv_expression_2_0= ruleXExpression
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18074:1: (lv_expression_2_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18075:3: lv_expression_2_0= ruleXExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getXThrowExpressionAccess().getExpressionXExpressionParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXThrowExpression42055);
+            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXThrowExpression42074);
             lv_expression_2_0=ruleXExpression();
 
             state._fsp--;
@@ -50595,7 +50615,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXReturnExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18088:1: entryRuleXReturnExpression returns [EObject current=null] : iv_ruleXReturnExpression= ruleXReturnExpression EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18099:1: entryRuleXReturnExpression returns [EObject current=null] : iv_ruleXReturnExpression= ruleXReturnExpression EOF ;
     public final EObject entryRuleXReturnExpression() throws RecognitionException {
         EObject current = null;
 
@@ -50603,13 +50623,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18089:2: (iv_ruleXReturnExpression= ruleXReturnExpression EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18090:2: iv_ruleXReturnExpression= ruleXReturnExpression EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18100:2: (iv_ruleXReturnExpression= ruleXReturnExpression EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18101:2: iv_ruleXReturnExpression= ruleXReturnExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXReturnExpressionRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXReturnExpression_in_entryRuleXReturnExpression42091);
+            pushFollow(FollowSets001.FOLLOW_ruleXReturnExpression_in_entryRuleXReturnExpression42110);
             iv_ruleXReturnExpression=ruleXReturnExpression();
 
             state._fsp--;
@@ -50617,7 +50637,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXReturnExpression; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXReturnExpression42101); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXReturnExpression42120); if (state.failed) return current;
 
             }
 
@@ -50635,7 +50655,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXReturnExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18097:1: ruleXReturnExpression returns [EObject current=null] : ( () otherlv_1= 'return' ( ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )=> (lv_expression_2_0= ruleXExpression ) )? ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18108:1: ruleXReturnExpression returns [EObject current=null] : ( () otherlv_1= 'return' ( ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )=> (lv_expression_2_0= ruleXExpression ) )? ) ;
     public final EObject ruleXReturnExpression() throws RecognitionException {
         EObject current = null;
 
@@ -50646,14 +50666,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18100:28: ( ( () otherlv_1= 'return' ( ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )=> (lv_expression_2_0= ruleXExpression ) )? ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18101:1: ( () otherlv_1= 'return' ( ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )=> (lv_expression_2_0= ruleXExpression ) )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18111:28: ( ( () otherlv_1= 'return' ( ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )=> (lv_expression_2_0= ruleXExpression ) )? ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18112:1: ( () otherlv_1= 'return' ( ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )=> (lv_expression_2_0= ruleXExpression ) )? )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18101:1: ( () otherlv_1= 'return' ( ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )=> (lv_expression_2_0= ruleXExpression ) )? )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18101:2: () otherlv_1= 'return' ( ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )=> (lv_expression_2_0= ruleXExpression ) )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18112:1: ( () otherlv_1= 'return' ( ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )=> (lv_expression_2_0= ruleXExpression ) )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18112:2: () otherlv_1= 'return' ( ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )=> (lv_expression_2_0= ruleXExpression ) )?
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18101:2: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18102:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18112:2: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18113:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -50665,28 +50685,28 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,170,FollowSets001.FOLLOW_170_in_ruleXReturnExpression42147); if (state.failed) return current;
+            otherlv_1=(Token)match(input,170,FollowSets001.FOLLOW_170_in_ruleXReturnExpression42166); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXReturnExpressionAccess().getReturnKeyword_1());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18111:1: ( ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )=> (lv_expression_2_0= ruleXExpression ) )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18122:1: ( ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )=> (lv_expression_2_0= ruleXExpression ) )?
             int alt398=2;
             alt398 = dfa398.predict(input);
             switch (alt398) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18111:2: ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )=> (lv_expression_2_0= ruleXExpression )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18122:2: ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )=> (lv_expression_2_0= ruleXExpression )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18139:1: (lv_expression_2_0= ruleXExpression )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18140:3: lv_expression_2_0= ruleXExpression
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18150:1: (lv_expression_2_0= ruleXExpression )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18151:3: lv_expression_2_0= ruleXExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getXReturnExpressionAccess().getExpressionXExpressionParserRuleCall_2_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXReturnExpression42382);
+                    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXReturnExpression42401);
                     lv_expression_2_0=ruleXExpression();
 
                     state._fsp--;
@@ -50736,7 +50756,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXTryCatchFinallyExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18164:1: entryRuleXTryCatchFinallyExpression returns [EObject current=null] : iv_ruleXTryCatchFinallyExpression= ruleXTryCatchFinallyExpression EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18175:1: entryRuleXTryCatchFinallyExpression returns [EObject current=null] : iv_ruleXTryCatchFinallyExpression= ruleXTryCatchFinallyExpression EOF ;
     public final EObject entryRuleXTryCatchFinallyExpression() throws RecognitionException {
         EObject current = null;
 
@@ -50744,13 +50764,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18165:2: (iv_ruleXTryCatchFinallyExpression= ruleXTryCatchFinallyExpression EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18166:2: iv_ruleXTryCatchFinallyExpression= ruleXTryCatchFinallyExpression EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18176:2: (iv_ruleXTryCatchFinallyExpression= ruleXTryCatchFinallyExpression EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18177:2: iv_ruleXTryCatchFinallyExpression= ruleXTryCatchFinallyExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXTryCatchFinallyExpressionRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXTryCatchFinallyExpression_in_entryRuleXTryCatchFinallyExpression42419);
+            pushFollow(FollowSets001.FOLLOW_ruleXTryCatchFinallyExpression_in_entryRuleXTryCatchFinallyExpression42438);
             iv_ruleXTryCatchFinallyExpression=ruleXTryCatchFinallyExpression();
 
             state._fsp--;
@@ -50758,7 +50778,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXTryCatchFinallyExpression; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXTryCatchFinallyExpression42429); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXTryCatchFinallyExpression42448); if (state.failed) return current;
 
             }
 
@@ -50776,7 +50796,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXTryCatchFinallyExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18173:1: ruleXTryCatchFinallyExpression returns [EObject current=null] : ( () otherlv_1= 'try' ( (lv_expression_2_0= ruleXExpression ) ) ( ( ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )? ) | (otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) ) ) ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18184:1: ruleXTryCatchFinallyExpression returns [EObject current=null] : ( () otherlv_1= 'try' ( (lv_expression_2_0= ruleXExpression ) ) ( ( ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )? ) | (otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) ) ) ) ) ;
     public final EObject ruleXTryCatchFinallyExpression() throws RecognitionException {
         EObject current = null;
 
@@ -50795,14 +50815,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18176:28: ( ( () otherlv_1= 'try' ( (lv_expression_2_0= ruleXExpression ) ) ( ( ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )? ) | (otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) ) ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18177:1: ( () otherlv_1= 'try' ( (lv_expression_2_0= ruleXExpression ) ) ( ( ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )? ) | (otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18187:28: ( ( () otherlv_1= 'try' ( (lv_expression_2_0= ruleXExpression ) ) ( ( ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )? ) | (otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) ) ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18188:1: ( () otherlv_1= 'try' ( (lv_expression_2_0= ruleXExpression ) ) ( ( ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )? ) | (otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) ) ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18177:1: ( () otherlv_1= 'try' ( (lv_expression_2_0= ruleXExpression ) ) ( ( ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )? ) | (otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18177:2: () otherlv_1= 'try' ( (lv_expression_2_0= ruleXExpression ) ) ( ( ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )? ) | (otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18188:1: ( () otherlv_1= 'try' ( (lv_expression_2_0= ruleXExpression ) ) ( ( ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )? ) | (otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18188:2: () otherlv_1= 'try' ( (lv_expression_2_0= ruleXExpression ) ) ( ( ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )? ) | (otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18177:2: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18178:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18188:2: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18189:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -50814,24 +50834,24 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,171,FollowSets001.FOLLOW_171_in_ruleXTryCatchFinallyExpression42475); if (state.failed) return current;
+            otherlv_1=(Token)match(input,171,FollowSets001.FOLLOW_171_in_ruleXTryCatchFinallyExpression42494); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXTryCatchFinallyExpressionAccess().getTryKeyword_1());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18187:1: ( (lv_expression_2_0= ruleXExpression ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18188:1: (lv_expression_2_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18198:1: ( (lv_expression_2_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18199:1: (lv_expression_2_0= ruleXExpression )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18188:1: (lv_expression_2_0= ruleXExpression )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18189:3: lv_expression_2_0= ruleXExpression
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18199:1: (lv_expression_2_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18200:3: lv_expression_2_0= ruleXExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getXTryCatchFinallyExpressionAccess().getExpressionXExpressionParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXTryCatchFinallyExpression42496);
+            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXTryCatchFinallyExpression42515);
             lv_expression_2_0=ruleXExpression();
 
             state._fsp--;
@@ -50855,7 +50875,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18205:2: ( ( ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )? ) | (otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18216:2: ( ( ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )? ) | (otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) ) ) )
             int alt401=2;
             int LA401_0 = input.LA(1);
 
@@ -50874,12 +50894,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             }
             switch (alt401) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18205:3: ( ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )? )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18216:3: ( ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )? )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18205:3: ( ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )? )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18205:4: ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )?
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18216:3: ( ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )? )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18216:4: ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+ ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )?
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18205:4: ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18216:4: ( ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause ) )+
                     int cnt399=0;
                     loop399:
                     do {
@@ -50899,17 +50919,17 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                         switch (alt399) {
                     	case 1 :
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18205:5: ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18216:5: ( 'catch' )=> (lv_catchClauses_3_0= ruleXCatchClause )
                     	    {
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18207:1: (lv_catchClauses_3_0= ruleXCatchClause )
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18208:3: lv_catchClauses_3_0= ruleXCatchClause
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18218:1: (lv_catchClauses_3_0= ruleXCatchClause )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18219:3: lv_catchClauses_3_0= ruleXCatchClause
                     	    {
                     	    if ( state.backtracking==0 ) {
                     	       
                     	      	        newCompositeNode(grammarAccess.getXTryCatchFinallyExpressionAccess().getCatchClausesXCatchClauseParserRuleCall_3_0_0_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FollowSets001.FOLLOW_ruleXCatchClause_in_ruleXTryCatchFinallyExpression42526);
+                    	    pushFollow(FollowSets001.FOLLOW_ruleXCatchClause_in_ruleXTryCatchFinallyExpression42545);
                     	    lv_catchClauses_3_0=ruleXCatchClause();
 
                     	    state._fsp--;
@@ -50944,7 +50964,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                         cnt399++;
                     } while (true);
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18224:3: ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )?
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18235:3: ( ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) ) )?
                     int alt400=2;
                     int LA400_0 = input.LA(1);
 
@@ -50957,12 +50977,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt400) {
                         case 1 :
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18224:4: ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18235:4: ( ( 'finally' )=>otherlv_4= 'finally' ) ( (lv_finallyExpression_5_0= ruleXExpression ) )
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18224:4: ( ( 'finally' )=>otherlv_4= 'finally' )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18224:5: ( 'finally' )=>otherlv_4= 'finally'
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18235:4: ( ( 'finally' )=>otherlv_4= 'finally' )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18235:5: ( 'finally' )=>otherlv_4= 'finally'
                             {
-                            otherlv_4=(Token)match(input,172,FollowSets001.FOLLOW_172_in_ruleXTryCatchFinallyExpression42548); if (state.failed) return current;
+                            otherlv_4=(Token)match(input,172,FollowSets001.FOLLOW_172_in_ruleXTryCatchFinallyExpression42567); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                   	newLeafNode(otherlv_4, grammarAccess.getXTryCatchFinallyExpressionAccess().getFinallyKeyword_3_0_1_0());
@@ -50971,18 +50991,18 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18229:2: ( (lv_finallyExpression_5_0= ruleXExpression ) )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18230:1: (lv_finallyExpression_5_0= ruleXExpression )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18240:2: ( (lv_finallyExpression_5_0= ruleXExpression ) )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18241:1: (lv_finallyExpression_5_0= ruleXExpression )
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18230:1: (lv_finallyExpression_5_0= ruleXExpression )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18231:3: lv_finallyExpression_5_0= ruleXExpression
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18241:1: (lv_finallyExpression_5_0= ruleXExpression )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18242:3: lv_finallyExpression_5_0= ruleXExpression
                             {
                             if ( state.backtracking==0 ) {
                                
                               	        newCompositeNode(grammarAccess.getXTryCatchFinallyExpressionAccess().getFinallyExpressionXExpressionParserRuleCall_3_0_1_1_0()); 
                               	    
                             }
-                            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXTryCatchFinallyExpression42570);
+                            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXTryCatchFinallyExpression42589);
                             lv_finallyExpression_5_0=ruleXExpression();
 
                             state._fsp--;
@@ -51019,29 +51039,29 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18248:6: (otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18259:6: (otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) ) )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18248:6: (otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18248:8: otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18259:6: (otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18259:8: otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) )
                     {
-                    otherlv_6=(Token)match(input,172,FollowSets001.FOLLOW_172_in_ruleXTryCatchFinallyExpression42592); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,172,FollowSets001.FOLLOW_172_in_ruleXTryCatchFinallyExpression42611); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_6, grammarAccess.getXTryCatchFinallyExpressionAccess().getFinallyKeyword_3_1_0());
                           
                     }
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18252:1: ( (lv_finallyExpression_7_0= ruleXExpression ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18253:1: (lv_finallyExpression_7_0= ruleXExpression )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18263:1: ( (lv_finallyExpression_7_0= ruleXExpression ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18264:1: (lv_finallyExpression_7_0= ruleXExpression )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18253:1: (lv_finallyExpression_7_0= ruleXExpression )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18254:3: lv_finallyExpression_7_0= ruleXExpression
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18264:1: (lv_finallyExpression_7_0= ruleXExpression )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18265:3: lv_finallyExpression_7_0= ruleXExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getXTryCatchFinallyExpressionAccess().getFinallyExpressionXExpressionParserRuleCall_3_1_1_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXTryCatchFinallyExpression42613);
+                    pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXTryCatchFinallyExpression42632);
                     lv_finallyExpression_7_0=ruleXExpression();
 
                     state._fsp--;
@@ -51097,7 +51117,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXSynchronizedExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18278:1: entryRuleXSynchronizedExpression returns [EObject current=null] : iv_ruleXSynchronizedExpression= ruleXSynchronizedExpression EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18289:1: entryRuleXSynchronizedExpression returns [EObject current=null] : iv_ruleXSynchronizedExpression= ruleXSynchronizedExpression EOF ;
     public final EObject entryRuleXSynchronizedExpression() throws RecognitionException {
         EObject current = null;
 
@@ -51105,13 +51125,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18279:2: (iv_ruleXSynchronizedExpression= ruleXSynchronizedExpression EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18280:2: iv_ruleXSynchronizedExpression= ruleXSynchronizedExpression EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18290:2: (iv_ruleXSynchronizedExpression= ruleXSynchronizedExpression EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18291:2: iv_ruleXSynchronizedExpression= ruleXSynchronizedExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXSynchronizedExpressionRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXSynchronizedExpression_in_entryRuleXSynchronizedExpression42651);
+            pushFollow(FollowSets001.FOLLOW_ruleXSynchronizedExpression_in_entryRuleXSynchronizedExpression42670);
             iv_ruleXSynchronizedExpression=ruleXSynchronizedExpression();
 
             state._fsp--;
@@ -51119,7 +51139,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXSynchronizedExpression; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXSynchronizedExpression42661); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXSynchronizedExpression42680); if (state.failed) return current;
 
             }
 
@@ -51137,7 +51157,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXSynchronizedExpression"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18287:1: ruleXSynchronizedExpression returns [EObject current=null] : ( ( ( ( () 'synchronized' '(' ) )=> ( () otherlv_1= 'synchronized' otherlv_2= '(' ) ) ( (lv_param_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_expression_5_0= ruleXExpression ) ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18298:1: ruleXSynchronizedExpression returns [EObject current=null] : ( ( ( ( () 'synchronized' '(' ) )=> ( () otherlv_1= 'synchronized' otherlv_2= '(' ) ) ( (lv_param_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_expression_5_0= ruleXExpression ) ) ) ;
     public final EObject ruleXSynchronizedExpression() throws RecognitionException {
         EObject current = null;
 
@@ -51152,20 +51172,20 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18290:28: ( ( ( ( ( () 'synchronized' '(' ) )=> ( () otherlv_1= 'synchronized' otherlv_2= '(' ) ) ( (lv_param_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_expression_5_0= ruleXExpression ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18291:1: ( ( ( ( () 'synchronized' '(' ) )=> ( () otherlv_1= 'synchronized' otherlv_2= '(' ) ) ( (lv_param_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_expression_5_0= ruleXExpression ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18301:28: ( ( ( ( ( () 'synchronized' '(' ) )=> ( () otherlv_1= 'synchronized' otherlv_2= '(' ) ) ( (lv_param_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_expression_5_0= ruleXExpression ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18302:1: ( ( ( ( () 'synchronized' '(' ) )=> ( () otherlv_1= 'synchronized' otherlv_2= '(' ) ) ( (lv_param_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_expression_5_0= ruleXExpression ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18291:1: ( ( ( ( () 'synchronized' '(' ) )=> ( () otherlv_1= 'synchronized' otherlv_2= '(' ) ) ( (lv_param_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_expression_5_0= ruleXExpression ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18291:2: ( ( ( () 'synchronized' '(' ) )=> ( () otherlv_1= 'synchronized' otherlv_2= '(' ) ) ( (lv_param_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_expression_5_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18302:1: ( ( ( ( () 'synchronized' '(' ) )=> ( () otherlv_1= 'synchronized' otherlv_2= '(' ) ) ( (lv_param_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_expression_5_0= ruleXExpression ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18302:2: ( ( ( () 'synchronized' '(' ) )=> ( () otherlv_1= 'synchronized' otherlv_2= '(' ) ) ( (lv_param_3_0= ruleXExpression ) ) otherlv_4= ')' ( (lv_expression_5_0= ruleXExpression ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18291:2: ( ( ( () 'synchronized' '(' ) )=> ( () otherlv_1= 'synchronized' otherlv_2= '(' ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18291:3: ( ( () 'synchronized' '(' ) )=> ( () otherlv_1= 'synchronized' otherlv_2= '(' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18302:2: ( ( ( () 'synchronized' '(' ) )=> ( () otherlv_1= 'synchronized' otherlv_2= '(' ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18302:3: ( ( () 'synchronized' '(' ) )=> ( () otherlv_1= 'synchronized' otherlv_2= '(' )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18294:5: ( () otherlv_1= 'synchronized' otherlv_2= '(' )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18294:6: () otherlv_1= 'synchronized' otherlv_2= '('
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18305:5: ( () otherlv_1= 'synchronized' otherlv_2= '(' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18305:6: () otherlv_1= 'synchronized' otherlv_2= '('
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18294:6: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18295:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18305:6: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18306:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -51177,13 +51197,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,173,FollowSets001.FOLLOW_173_in_ruleXSynchronizedExpression42725); if (state.failed) return current;
+            otherlv_1=(Token)match(input,173,FollowSets001.FOLLOW_173_in_ruleXSynchronizedExpression42744); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXSynchronizedExpressionAccess().getSynchronizedKeyword_0_0_1());
                   
             }
-            otherlv_2=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXSynchronizedExpression42737); if (state.failed) return current;
+            otherlv_2=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXSynchronizedExpression42756); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getXSynchronizedExpressionAccess().getLeftParenthesisKeyword_0_0_2());
@@ -51195,18 +51215,18 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18308:3: ( (lv_param_3_0= ruleXExpression ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18309:1: (lv_param_3_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18319:3: ( (lv_param_3_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18320:1: (lv_param_3_0= ruleXExpression )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18309:1: (lv_param_3_0= ruleXExpression )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18310:3: lv_param_3_0= ruleXExpression
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18320:1: (lv_param_3_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18321:3: lv_param_3_0= ruleXExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getXSynchronizedExpressionAccess().getParamXExpressionParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXSynchronizedExpression42760);
+            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXSynchronizedExpression42779);
             lv_param_3_0=ruleXExpression();
 
             state._fsp--;
@@ -51230,24 +51250,24 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXSynchronizedExpression42772); if (state.failed) return current;
+            otherlv_4=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXSynchronizedExpression42791); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getXSynchronizedExpressionAccess().getRightParenthesisKeyword_2());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18330:1: ( (lv_expression_5_0= ruleXExpression ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18331:1: (lv_expression_5_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18341:1: ( (lv_expression_5_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18342:1: (lv_expression_5_0= ruleXExpression )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18331:1: (lv_expression_5_0= ruleXExpression )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18332:3: lv_expression_5_0= ruleXExpression
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18342:1: (lv_expression_5_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18343:3: lv_expression_5_0= ruleXExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getXSynchronizedExpressionAccess().getExpressionXExpressionParserRuleCall_3_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXSynchronizedExpression42793);
+            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXSynchronizedExpression42812);
             lv_expression_5_0=ruleXExpression();
 
             state._fsp--;
@@ -51294,7 +51314,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXCatchClause"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18356:1: entryRuleXCatchClause returns [EObject current=null] : iv_ruleXCatchClause= ruleXCatchClause EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18367:1: entryRuleXCatchClause returns [EObject current=null] : iv_ruleXCatchClause= ruleXCatchClause EOF ;
     public final EObject entryRuleXCatchClause() throws RecognitionException {
         EObject current = null;
 
@@ -51302,13 +51322,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18357:2: (iv_ruleXCatchClause= ruleXCatchClause EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18358:2: iv_ruleXCatchClause= ruleXCatchClause EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18368:2: (iv_ruleXCatchClause= ruleXCatchClause EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18369:2: iv_ruleXCatchClause= ruleXCatchClause EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXCatchClauseRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXCatchClause_in_entryRuleXCatchClause42829);
+            pushFollow(FollowSets001.FOLLOW_ruleXCatchClause_in_entryRuleXCatchClause42848);
             iv_ruleXCatchClause=ruleXCatchClause();
 
             state._fsp--;
@@ -51316,7 +51336,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXCatchClause; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXCatchClause42839); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXCatchClause42858); if (state.failed) return current;
 
             }
 
@@ -51334,7 +51354,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXCatchClause"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18365:1: ruleXCatchClause returns [EObject current=null] : ( ( ( 'catch' )=>otherlv_0= 'catch' ) otherlv_1= '(' ( (lv_declaredParam_2_0= ruleFullJvmFormalParameter ) ) otherlv_3= ')' ( (lv_expression_4_0= ruleXExpression ) ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18376:1: ruleXCatchClause returns [EObject current=null] : ( ( ( 'catch' )=>otherlv_0= 'catch' ) otherlv_1= '(' ( (lv_declaredParam_2_0= ruleFullJvmFormalParameter ) ) otherlv_3= ')' ( (lv_expression_4_0= ruleXExpression ) ) ) ;
     public final EObject ruleXCatchClause() throws RecognitionException {
         EObject current = null;
 
@@ -51349,16 +51369,16 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18368:28: ( ( ( ( 'catch' )=>otherlv_0= 'catch' ) otherlv_1= '(' ( (lv_declaredParam_2_0= ruleFullJvmFormalParameter ) ) otherlv_3= ')' ( (lv_expression_4_0= ruleXExpression ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18369:1: ( ( ( 'catch' )=>otherlv_0= 'catch' ) otherlv_1= '(' ( (lv_declaredParam_2_0= ruleFullJvmFormalParameter ) ) otherlv_3= ')' ( (lv_expression_4_0= ruleXExpression ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18379:28: ( ( ( ( 'catch' )=>otherlv_0= 'catch' ) otherlv_1= '(' ( (lv_declaredParam_2_0= ruleFullJvmFormalParameter ) ) otherlv_3= ')' ( (lv_expression_4_0= ruleXExpression ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18380:1: ( ( ( 'catch' )=>otherlv_0= 'catch' ) otherlv_1= '(' ( (lv_declaredParam_2_0= ruleFullJvmFormalParameter ) ) otherlv_3= ')' ( (lv_expression_4_0= ruleXExpression ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18369:1: ( ( ( 'catch' )=>otherlv_0= 'catch' ) otherlv_1= '(' ( (lv_declaredParam_2_0= ruleFullJvmFormalParameter ) ) otherlv_3= ')' ( (lv_expression_4_0= ruleXExpression ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18369:2: ( ( 'catch' )=>otherlv_0= 'catch' ) otherlv_1= '(' ( (lv_declaredParam_2_0= ruleFullJvmFormalParameter ) ) otherlv_3= ')' ( (lv_expression_4_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18380:1: ( ( ( 'catch' )=>otherlv_0= 'catch' ) otherlv_1= '(' ( (lv_declaredParam_2_0= ruleFullJvmFormalParameter ) ) otherlv_3= ')' ( (lv_expression_4_0= ruleXExpression ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18380:2: ( ( 'catch' )=>otherlv_0= 'catch' ) otherlv_1= '(' ( (lv_declaredParam_2_0= ruleFullJvmFormalParameter ) ) otherlv_3= ')' ( (lv_expression_4_0= ruleXExpression ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18369:2: ( ( 'catch' )=>otherlv_0= 'catch' )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18369:3: ( 'catch' )=>otherlv_0= 'catch'
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18380:2: ( ( 'catch' )=>otherlv_0= 'catch' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18380:3: ( 'catch' )=>otherlv_0= 'catch'
             {
-            otherlv_0=(Token)match(input,174,FollowSets001.FOLLOW_174_in_ruleXCatchClause42884); if (state.failed) return current;
+            otherlv_0=(Token)match(input,174,FollowSets001.FOLLOW_174_in_ruleXCatchClause42903); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getXCatchClauseAccess().getCatchKeyword_0());
@@ -51367,24 +51387,24 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXCatchClause42897); if (state.failed) return current;
+            otherlv_1=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXCatchClause42916); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXCatchClauseAccess().getLeftParenthesisKeyword_1());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18378:1: ( (lv_declaredParam_2_0= ruleFullJvmFormalParameter ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18379:1: (lv_declaredParam_2_0= ruleFullJvmFormalParameter )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18389:1: ( (lv_declaredParam_2_0= ruleFullJvmFormalParameter ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18390:1: (lv_declaredParam_2_0= ruleFullJvmFormalParameter )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18379:1: (lv_declaredParam_2_0= ruleFullJvmFormalParameter )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18380:3: lv_declaredParam_2_0= ruleFullJvmFormalParameter
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18390:1: (lv_declaredParam_2_0= ruleFullJvmFormalParameter )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18391:3: lv_declaredParam_2_0= ruleFullJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getXCatchClauseAccess().getDeclaredParamFullJvmFormalParameterParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleFullJvmFormalParameter_in_ruleXCatchClause42918);
+            pushFollow(FollowSets001.FOLLOW_ruleFullJvmFormalParameter_in_ruleXCatchClause42937);
             lv_declaredParam_2_0=ruleFullJvmFormalParameter();
 
             state._fsp--;
@@ -51408,24 +51428,24 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXCatchClause42930); if (state.failed) return current;
+            otherlv_3=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXCatchClause42949); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getXCatchClauseAccess().getRightParenthesisKeyword_3());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18400:1: ( (lv_expression_4_0= ruleXExpression ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18401:1: (lv_expression_4_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18411:1: ( (lv_expression_4_0= ruleXExpression ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18412:1: (lv_expression_4_0= ruleXExpression )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18401:1: (lv_expression_4_0= ruleXExpression )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18402:3: lv_expression_4_0= ruleXExpression
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18412:1: (lv_expression_4_0= ruleXExpression )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18413:3: lv_expression_4_0= ruleXExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getXCatchClauseAccess().getExpressionXExpressionParserRuleCall_4_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXCatchClause42951);
+            pushFollow(FollowSets001.FOLLOW_ruleXExpression_in_ruleXCatchClause42970);
             lv_expression_4_0=ruleXExpression();
 
             state._fsp--;
@@ -51472,7 +51492,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQualifiedName"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18426:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18437:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
     public final String entryRuleQualifiedName() throws RecognitionException {
         String current = null;
 
@@ -51480,13 +51500,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18427:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18428:2: iv_ruleQualifiedName= ruleQualifiedName EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18438:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18439:2: iv_ruleQualifiedName= ruleQualifiedName EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getQualifiedNameRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName42988);
+            pushFollow(FollowSets001.FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName43007);
             iv_ruleQualifiedName=ruleQualifiedName();
 
             state._fsp--;
@@ -51494,7 +51514,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleQualifiedName.getText(); 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleQualifiedName42999); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleQualifiedName43018); if (state.failed) return current;
 
             }
 
@@ -51512,7 +51532,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQualifiedName"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18435:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ValidID_0= ruleValidID ( ( ( '.' )=>kw= '.' ) this_ValidID_2= ruleValidID )* ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18446:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ValidID_0= ruleValidID ( ( ( '.' )=>kw= '.' ) this_ValidID_2= ruleValidID )* ) ;
     public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -51525,18 +51545,18 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18438:28: ( (this_ValidID_0= ruleValidID ( ( ( '.' )=>kw= '.' ) this_ValidID_2= ruleValidID )* ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18439:1: (this_ValidID_0= ruleValidID ( ( ( '.' )=>kw= '.' ) this_ValidID_2= ruleValidID )* )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18449:28: ( (this_ValidID_0= ruleValidID ( ( ( '.' )=>kw= '.' ) this_ValidID_2= ruleValidID )* ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18450:1: (this_ValidID_0= ruleValidID ( ( ( '.' )=>kw= '.' ) this_ValidID_2= ruleValidID )* )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18439:1: (this_ValidID_0= ruleValidID ( ( ( '.' )=>kw= '.' ) this_ValidID_2= ruleValidID )* )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18440:5: this_ValidID_0= ruleValidID ( ( ( '.' )=>kw= '.' ) this_ValidID_2= ruleValidID )*
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18450:1: (this_ValidID_0= ruleValidID ( ( ( '.' )=>kw= '.' ) this_ValidID_2= ruleValidID )* )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18451:5: this_ValidID_0= ruleValidID ( ( ( '.' )=>kw= '.' ) this_ValidID_2= ruleValidID )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getQualifiedNameAccess().getValidIDParserRuleCall_0()); 
                   
             }
-            pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleQualifiedName43046);
+            pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleQualifiedName43065);
             this_ValidID_0=ruleValidID();
 
             state._fsp--;
@@ -51551,7 +51571,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18450:1: ( ( ( '.' )=>kw= '.' ) this_ValidID_2= ruleValidID )*
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18461:1: ( ( ( '.' )=>kw= '.' ) this_ValidID_2= ruleValidID )*
             loop402:
             do {
                 int alt402=2;
@@ -51576,12 +51596,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                 switch (alt402) {
             	case 1 :
-            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18450:2: ( ( '.' )=>kw= '.' ) this_ValidID_2= ruleValidID
+            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18461:2: ( ( '.' )=>kw= '.' ) this_ValidID_2= ruleValidID
             	    {
-            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18450:2: ( ( '.' )=>kw= '.' )
-            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18450:3: ( '.' )=>kw= '.'
+            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18461:2: ( ( '.' )=>kw= '.' )
+            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18461:3: ( '.' )=>kw= '.'
             	    {
-            	    kw=(Token)match(input,31,FollowSets001.FOLLOW_31_in_ruleQualifiedName43074); if (state.failed) return current;
+            	    kw=(Token)match(input,31,FollowSets001.FOLLOW_31_in_ruleQualifiedName43093); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -51596,7 +51616,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             	              newCompositeNode(grammarAccess.getQualifiedNameAccess().getValidIDParserRuleCall_1_1()); 
             	          
             	    }
-            	    pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleQualifiedName43097);
+            	    pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleQualifiedName43116);
             	    this_ValidID_2=ruleValidID();
 
             	    state._fsp--;
@@ -51643,7 +51663,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNumber"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18477:1: entryRuleNumber returns [String current=null] : iv_ruleNumber= ruleNumber EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18488:1: entryRuleNumber returns [String current=null] : iv_ruleNumber= ruleNumber EOF ;
     public final String entryRuleNumber() throws RecognitionException {
         String current = null;
 
@@ -51654,13 +51674,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
         	
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18481:2: (iv_ruleNumber= ruleNumber EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18482:2: iv_ruleNumber= ruleNumber EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18492:2: (iv_ruleNumber= ruleNumber EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18493:2: iv_ruleNumber= ruleNumber EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNumberRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleNumber_in_entryRuleNumber43151);
+            pushFollow(FollowSets001.FOLLOW_ruleNumber_in_entryRuleNumber43170);
             iv_ruleNumber=ruleNumber();
 
             state._fsp--;
@@ -51668,7 +51688,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNumber.getText(); 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleNumber43162); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleNumber43181); if (state.failed) return current;
 
             }
 
@@ -51689,7 +51709,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNumber"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18492:1: ruleNumber returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_HEX_0= RULE_HEX | ( (this_INT_1= RULE_INT | this_DECIMAL_2= RULE_DECIMAL ) (kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL ) )? ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18503:1: ruleNumber returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_HEX_0= RULE_HEX | ( (this_INT_1= RULE_INT | this_DECIMAL_2= RULE_DECIMAL ) (kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL ) )? ) ) ;
     public final AntlrDatatypeRuleToken ruleNumber() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -51704,10 +51724,10 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18496:28: ( (this_HEX_0= RULE_HEX | ( (this_INT_1= RULE_INT | this_DECIMAL_2= RULE_DECIMAL ) (kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL ) )? ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18497:1: (this_HEX_0= RULE_HEX | ( (this_INT_1= RULE_INT | this_DECIMAL_2= RULE_DECIMAL ) (kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL ) )? ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18507:28: ( (this_HEX_0= RULE_HEX | ( (this_INT_1= RULE_INT | this_DECIMAL_2= RULE_DECIMAL ) (kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL ) )? ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18508:1: (this_HEX_0= RULE_HEX | ( (this_INT_1= RULE_INT | this_DECIMAL_2= RULE_DECIMAL ) (kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL ) )? ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18497:1: (this_HEX_0= RULE_HEX | ( (this_INT_1= RULE_INT | this_DECIMAL_2= RULE_DECIMAL ) (kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL ) )? ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18508:1: (this_HEX_0= RULE_HEX | ( (this_INT_1= RULE_INT | this_DECIMAL_2= RULE_DECIMAL ) (kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL ) )? ) )
             int alt406=2;
             int LA406_0 = input.LA(1);
 
@@ -51726,9 +51746,9 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             }
             switch (alt406) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18497:6: this_HEX_0= RULE_HEX
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18508:6: this_HEX_0= RULE_HEX
                     {
-                    this_HEX_0=(Token)match(input,RULE_HEX,FollowSets001.FOLLOW_RULE_HEX_in_ruleNumber43206); if (state.failed) return current;
+                    this_HEX_0=(Token)match(input,RULE_HEX,FollowSets001.FOLLOW_RULE_HEX_in_ruleNumber43225); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       		current.merge(this_HEX_0);
@@ -51743,12 +51763,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18505:6: ( (this_INT_1= RULE_INT | this_DECIMAL_2= RULE_DECIMAL ) (kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL ) )? )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18516:6: ( (this_INT_1= RULE_INT | this_DECIMAL_2= RULE_DECIMAL ) (kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL ) )? )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18505:6: ( (this_INT_1= RULE_INT | this_DECIMAL_2= RULE_DECIMAL ) (kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL ) )? )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18505:7: (this_INT_1= RULE_INT | this_DECIMAL_2= RULE_DECIMAL ) (kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL ) )?
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18516:6: ( (this_INT_1= RULE_INT | this_DECIMAL_2= RULE_DECIMAL ) (kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL ) )? )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18516:7: (this_INT_1= RULE_INT | this_DECIMAL_2= RULE_DECIMAL ) (kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL ) )?
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18505:7: (this_INT_1= RULE_INT | this_DECIMAL_2= RULE_DECIMAL )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18516:7: (this_INT_1= RULE_INT | this_DECIMAL_2= RULE_DECIMAL )
                     int alt403=2;
                     int LA403_0 = input.LA(1);
 
@@ -51767,9 +51787,9 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt403) {
                         case 1 :
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18505:12: this_INT_1= RULE_INT
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18516:12: this_INT_1= RULE_INT
                             {
-                            this_INT_1=(Token)match(input,RULE_INT,FollowSets001.FOLLOW_RULE_INT_in_ruleNumber43234); if (state.failed) return current;
+                            this_INT_1=(Token)match(input,RULE_INT,FollowSets001.FOLLOW_RULE_INT_in_ruleNumber43253); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               		current.merge(this_INT_1);
@@ -51784,9 +51804,9 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18513:10: this_DECIMAL_2= RULE_DECIMAL
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18524:10: this_DECIMAL_2= RULE_DECIMAL
                             {
-                            this_DECIMAL_2=(Token)match(input,RULE_DECIMAL,FollowSets001.FOLLOW_RULE_DECIMAL_in_ruleNumber43260); if (state.failed) return current;
+                            this_DECIMAL_2=(Token)match(input,RULE_DECIMAL,FollowSets001.FOLLOW_RULE_DECIMAL_in_ruleNumber43279); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               		current.merge(this_DECIMAL_2);
@@ -51803,7 +51823,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18520:2: (kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL ) )?
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18531:2: (kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL ) )?
                     int alt405=2;
                     int LA405_0 = input.LA(1);
 
@@ -51816,16 +51836,16 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt405) {
                         case 1 :
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18521:2: kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18532:2: kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL )
                             {
-                            kw=(Token)match(input,31,FollowSets001.FOLLOW_31_in_ruleNumber43280); if (state.failed) return current;
+                            kw=(Token)match(input,31,FollowSets001.FOLLOW_31_in_ruleNumber43299); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       current.merge(kw);
                                       newLeafNode(kw, grammarAccess.getNumberAccess().getFullStopKeyword_1_1_0()); 
                                   
                             }
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18526:1: (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18537:1: (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL )
                             int alt404=2;
                             int LA404_0 = input.LA(1);
 
@@ -51844,9 +51864,9 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                             }
                             switch (alt404) {
                                 case 1 :
-                                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18526:6: this_INT_4= RULE_INT
+                                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18537:6: this_INT_4= RULE_INT
                                     {
-                                    this_INT_4=(Token)match(input,RULE_INT,FollowSets001.FOLLOW_RULE_INT_in_ruleNumber43296); if (state.failed) return current;
+                                    this_INT_4=(Token)match(input,RULE_INT,FollowSets001.FOLLOW_RULE_INT_in_ruleNumber43315); if (state.failed) return current;
                                     if ( state.backtracking==0 ) {
 
                                       		current.merge(this_INT_4);
@@ -51861,9 +51881,9 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                                     }
                                     break;
                                 case 2 :
-                                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18534:10: this_DECIMAL_5= RULE_DECIMAL
+                                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18545:10: this_DECIMAL_5= RULE_DECIMAL
                                     {
-                                    this_DECIMAL_5=(Token)match(input,RULE_DECIMAL,FollowSets001.FOLLOW_RULE_DECIMAL_in_ruleNumber43322); if (state.failed) return current;
+                                    this_DECIMAL_5=(Token)match(input,RULE_DECIMAL,FollowSets001.FOLLOW_RULE_DECIMAL_in_ruleNumber43341); if (state.failed) return current;
                                     if ( state.backtracking==0 ) {
 
                                       		current.merge(this_DECIMAL_5);
@@ -51918,7 +51938,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleJvmTypeReference"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18554:1: entryRuleJvmTypeReference returns [EObject current=null] : iv_ruleJvmTypeReference= ruleJvmTypeReference EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18565:1: entryRuleJvmTypeReference returns [EObject current=null] : iv_ruleJvmTypeReference= ruleJvmTypeReference EOF ;
     public final EObject entryRuleJvmTypeReference() throws RecognitionException {
         EObject current = null;
 
@@ -51926,13 +51946,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18555:2: (iv_ruleJvmTypeReference= ruleJvmTypeReference EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18556:2: iv_ruleJvmTypeReference= ruleJvmTypeReference EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18566:2: (iv_ruleJvmTypeReference= ruleJvmTypeReference EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18567:2: iv_ruleJvmTypeReference= ruleJvmTypeReference EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getJvmTypeReferenceRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_entryRuleJvmTypeReference43377);
+            pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_entryRuleJvmTypeReference43396);
             iv_ruleJvmTypeReference=ruleJvmTypeReference();
 
             state._fsp--;
@@ -51940,7 +51960,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleJvmTypeReference; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleJvmTypeReference43387); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleJvmTypeReference43406); if (state.failed) return current;
 
             }
 
@@ -51958,7 +51978,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleJvmTypeReference"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18563:1: ruleJvmTypeReference returns [EObject current=null] : ( (this_JvmParameterizedTypeReference_0= ruleJvmParameterizedTypeReference ( ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets ) )* ) | this_XFunctionTypeRef_3= ruleXFunctionTypeRef ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18574:1: ruleJvmTypeReference returns [EObject current=null] : ( (this_JvmParameterizedTypeReference_0= ruleJvmParameterizedTypeReference ( ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets ) )* ) | this_XFunctionTypeRef_3= ruleXFunctionTypeRef ) ;
     public final EObject ruleJvmTypeReference() throws RecognitionException {
         EObject current = null;
 
@@ -51970,10 +51990,10 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18566:28: ( ( (this_JvmParameterizedTypeReference_0= ruleJvmParameterizedTypeReference ( ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets ) )* ) | this_XFunctionTypeRef_3= ruleXFunctionTypeRef ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18567:1: ( (this_JvmParameterizedTypeReference_0= ruleJvmParameterizedTypeReference ( ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets ) )* ) | this_XFunctionTypeRef_3= ruleXFunctionTypeRef )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18577:28: ( ( (this_JvmParameterizedTypeReference_0= ruleJvmParameterizedTypeReference ( ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets ) )* ) | this_XFunctionTypeRef_3= ruleXFunctionTypeRef ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18578:1: ( (this_JvmParameterizedTypeReference_0= ruleJvmParameterizedTypeReference ( ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets ) )* ) | this_XFunctionTypeRef_3= ruleXFunctionTypeRef )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18567:1: ( (this_JvmParameterizedTypeReference_0= ruleJvmParameterizedTypeReference ( ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets ) )* ) | this_XFunctionTypeRef_3= ruleXFunctionTypeRef )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18578:1: ( (this_JvmParameterizedTypeReference_0= ruleJvmParameterizedTypeReference ( ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets ) )* ) | this_XFunctionTypeRef_3= ruleXFunctionTypeRef )
             int alt408=2;
             int LA408_0 = input.LA(1);
 
@@ -51992,17 +52012,17 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             }
             switch (alt408) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18567:2: (this_JvmParameterizedTypeReference_0= ruleJvmParameterizedTypeReference ( ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets ) )* )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18578:2: (this_JvmParameterizedTypeReference_0= ruleJvmParameterizedTypeReference ( ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets ) )* )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18567:2: (this_JvmParameterizedTypeReference_0= ruleJvmParameterizedTypeReference ( ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets ) )* )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18568:5: this_JvmParameterizedTypeReference_0= ruleJvmParameterizedTypeReference ( ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets ) )*
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18578:2: (this_JvmParameterizedTypeReference_0= ruleJvmParameterizedTypeReference ( ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets ) )* )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18579:5: this_JvmParameterizedTypeReference_0= ruleJvmParameterizedTypeReference ( ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets ) )*
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getJvmTypeReferenceAccess().getJvmParameterizedTypeReferenceParserRuleCall_0_0()); 
                           
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleJvmParameterizedTypeReference_in_ruleJvmTypeReference43435);
+                    pushFollow(FollowSets001.FOLLOW_ruleJvmParameterizedTypeReference_in_ruleJvmTypeReference43454);
                     this_JvmParameterizedTypeReference_0=ruleJvmParameterizedTypeReference();
 
                     state._fsp--;
@@ -52013,7 +52033,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                               afterParserOrEnumRuleCall();
                           
                     }
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18576:1: ( ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets ) )*
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18587:1: ( ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets ) )*
                     loop407:
                     do {
                         int alt407=2;
@@ -52038,13 +52058,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                         switch (alt407) {
                     	case 1 :
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18576:2: ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18587:2: ( ( () ruleArrayBrackets ) )=> ( () ruleArrayBrackets )
                     	    {
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18577:24: ( () ruleArrayBrackets )
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18577:25: () ruleArrayBrackets
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18588:24: ( () ruleArrayBrackets )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18588:25: () ruleArrayBrackets
                     	    {
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18577:25: ()
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18578:5: 
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18588:25: ()
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18589:5: 
                     	    {
                     	    if ( state.backtracking==0 ) {
 
@@ -52061,7 +52081,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     	              newCompositeNode(grammarAccess.getJvmTypeReferenceAccess().getArrayBracketsParserRuleCall_0_1_0_1()); 
                     	          
                     	    }
-                    	    pushFollow(FollowSets001.FOLLOW_ruleArrayBrackets_in_ruleJvmTypeReference43471);
+                    	    pushFollow(FollowSets001.FOLLOW_ruleArrayBrackets_in_ruleJvmTypeReference43490);
                     	    ruleArrayBrackets();
 
                     	    state._fsp--;
@@ -52090,14 +52110,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18593:5: this_XFunctionTypeRef_3= ruleXFunctionTypeRef
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18604:5: this_XFunctionTypeRef_3= ruleXFunctionTypeRef
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getJvmTypeReferenceAccess().getXFunctionTypeRefParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleXFunctionTypeRef_in_ruleJvmTypeReference43502);
+                    pushFollow(FollowSets001.FOLLOW_ruleXFunctionTypeRef_in_ruleJvmTypeReference43521);
                     this_XFunctionTypeRef_3=ruleXFunctionTypeRef();
 
                     state._fsp--;
@@ -52134,7 +52154,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleArrayBrackets"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18609:1: entryRuleArrayBrackets returns [String current=null] : iv_ruleArrayBrackets= ruleArrayBrackets EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18620:1: entryRuleArrayBrackets returns [String current=null] : iv_ruleArrayBrackets= ruleArrayBrackets EOF ;
     public final String entryRuleArrayBrackets() throws RecognitionException {
         String current = null;
 
@@ -52142,13 +52162,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18610:2: (iv_ruleArrayBrackets= ruleArrayBrackets EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18611:2: iv_ruleArrayBrackets= ruleArrayBrackets EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18621:2: (iv_ruleArrayBrackets= ruleArrayBrackets EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18622:2: iv_ruleArrayBrackets= ruleArrayBrackets EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getArrayBracketsRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleArrayBrackets_in_entryRuleArrayBrackets43538);
+            pushFollow(FollowSets001.FOLLOW_ruleArrayBrackets_in_entryRuleArrayBrackets43557);
             iv_ruleArrayBrackets=ruleArrayBrackets();
 
             state._fsp--;
@@ -52156,7 +52176,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleArrayBrackets.getText(); 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleArrayBrackets43549); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleArrayBrackets43568); if (state.failed) return current;
 
             }
 
@@ -52174,7 +52194,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleArrayBrackets"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18618:1: ruleArrayBrackets returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '[' kw= ']' ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18629:1: ruleArrayBrackets returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '[' kw= ']' ) ;
     public final AntlrDatatypeRuleToken ruleArrayBrackets() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -52183,20 +52203,20 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18621:28: ( (kw= '[' kw= ']' ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18622:1: (kw= '[' kw= ']' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18632:28: ( (kw= '[' kw= ']' ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18633:1: (kw= '[' kw= ']' )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18622:1: (kw= '[' kw= ']' )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18623:2: kw= '[' kw= ']'
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18633:1: (kw= '[' kw= ']' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18634:2: kw= '[' kw= ']'
             {
-            kw=(Token)match(input,32,FollowSets001.FOLLOW_32_in_ruleArrayBrackets43587); if (state.failed) return current;
+            kw=(Token)match(input,32,FollowSets001.FOLLOW_32_in_ruleArrayBrackets43606); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       current.merge(kw);
                       newLeafNode(kw, grammarAccess.getArrayBracketsAccess().getLeftSquareBracketKeyword_0()); 
                   
             }
-            kw=(Token)match(input,33,FollowSets001.FOLLOW_33_in_ruleArrayBrackets43600); if (state.failed) return current;
+            kw=(Token)match(input,33,FollowSets001.FOLLOW_33_in_ruleArrayBrackets43619); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       current.merge(kw);
@@ -52226,7 +52246,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXFunctionTypeRef"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18642:1: entryRuleXFunctionTypeRef returns [EObject current=null] : iv_ruleXFunctionTypeRef= ruleXFunctionTypeRef EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18653:1: entryRuleXFunctionTypeRef returns [EObject current=null] : iv_ruleXFunctionTypeRef= ruleXFunctionTypeRef EOF ;
     public final EObject entryRuleXFunctionTypeRef() throws RecognitionException {
         EObject current = null;
 
@@ -52234,13 +52254,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18643:2: (iv_ruleXFunctionTypeRef= ruleXFunctionTypeRef EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18644:2: iv_ruleXFunctionTypeRef= ruleXFunctionTypeRef EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18654:2: (iv_ruleXFunctionTypeRef= ruleXFunctionTypeRef EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18655:2: iv_ruleXFunctionTypeRef= ruleXFunctionTypeRef EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXFunctionTypeRefRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXFunctionTypeRef_in_entryRuleXFunctionTypeRef43640);
+            pushFollow(FollowSets001.FOLLOW_ruleXFunctionTypeRef_in_entryRuleXFunctionTypeRef43659);
             iv_ruleXFunctionTypeRef=ruleXFunctionTypeRef();
 
             state._fsp--;
@@ -52248,7 +52268,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXFunctionTypeRef; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXFunctionTypeRef43650); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXFunctionTypeRef43669); if (state.failed) return current;
 
             }
 
@@ -52266,7 +52286,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXFunctionTypeRef"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18651:1: ruleXFunctionTypeRef returns [EObject current=null] : ( (otherlv_0= '(' ( ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )* )? otherlv_4= ')' )? otherlv_5= '=>' ( (lv_returnType_6_0= ruleJvmTypeReference ) ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18662:1: ruleXFunctionTypeRef returns [EObject current=null] : ( (otherlv_0= '(' ( ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )* )? otherlv_4= ')' )? otherlv_5= '=>' ( (lv_returnType_6_0= ruleJvmTypeReference ) ) ) ;
     public final EObject ruleXFunctionTypeRef() throws RecognitionException {
         EObject current = null;
 
@@ -52284,13 +52304,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18654:28: ( ( (otherlv_0= '(' ( ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )* )? otherlv_4= ')' )? otherlv_5= '=>' ( (lv_returnType_6_0= ruleJvmTypeReference ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18655:1: ( (otherlv_0= '(' ( ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )* )? otherlv_4= ')' )? otherlv_5= '=>' ( (lv_returnType_6_0= ruleJvmTypeReference ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18665:28: ( ( (otherlv_0= '(' ( ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )* )? otherlv_4= ')' )? otherlv_5= '=>' ( (lv_returnType_6_0= ruleJvmTypeReference ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18666:1: ( (otherlv_0= '(' ( ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )* )? otherlv_4= ')' )? otherlv_5= '=>' ( (lv_returnType_6_0= ruleJvmTypeReference ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18655:1: ( (otherlv_0= '(' ( ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )* )? otherlv_4= ')' )? otherlv_5= '=>' ( (lv_returnType_6_0= ruleJvmTypeReference ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18655:2: (otherlv_0= '(' ( ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )* )? otherlv_4= ')' )? otherlv_5= '=>' ( (lv_returnType_6_0= ruleJvmTypeReference ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18666:1: ( (otherlv_0= '(' ( ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )* )? otherlv_4= ')' )? otherlv_5= '=>' ( (lv_returnType_6_0= ruleJvmTypeReference ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18666:2: (otherlv_0= '(' ( ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )* )? otherlv_4= ')' )? otherlv_5= '=>' ( (lv_returnType_6_0= ruleJvmTypeReference ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18655:2: (otherlv_0= '(' ( ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )* )? otherlv_4= ')' )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18666:2: (otherlv_0= '(' ( ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )* )? otherlv_4= ')' )?
             int alt411=2;
             int LA411_0 = input.LA(1);
 
@@ -52299,15 +52319,15 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             }
             switch (alt411) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18655:4: otherlv_0= '(' ( ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )* )? otherlv_4= ')'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18666:4: otherlv_0= '(' ( ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )* )? otherlv_4= ')'
                     {
-                    otherlv_0=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXFunctionTypeRef43688); if (state.failed) return current;
+                    otherlv_0=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleXFunctionTypeRef43707); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_0, grammarAccess.getXFunctionTypeRefAccess().getLeftParenthesisKeyword_0_0());
                           
                     }
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18659:1: ( ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )* )?
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18670:1: ( ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )* )?
                     int alt410=2;
                     int LA410_0 = input.LA(1);
 
@@ -52316,20 +52336,20 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt410) {
                         case 1 :
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18659:2: ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )*
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18670:2: ( (lv_paramTypes_1_0= ruleJvmTypeReference ) ) (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )*
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18659:2: ( (lv_paramTypes_1_0= ruleJvmTypeReference ) )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18660:1: (lv_paramTypes_1_0= ruleJvmTypeReference )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18670:2: ( (lv_paramTypes_1_0= ruleJvmTypeReference ) )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18671:1: (lv_paramTypes_1_0= ruleJvmTypeReference )
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18660:1: (lv_paramTypes_1_0= ruleJvmTypeReference )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18661:3: lv_paramTypes_1_0= ruleJvmTypeReference
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18671:1: (lv_paramTypes_1_0= ruleJvmTypeReference )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18672:3: lv_paramTypes_1_0= ruleJvmTypeReference
                             {
                             if ( state.backtracking==0 ) {
                                
                               	        newCompositeNode(grammarAccess.getXFunctionTypeRefAccess().getParamTypesJvmTypeReferenceParserRuleCall_0_1_0_0()); 
                               	    
                             }
-                            pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleXFunctionTypeRef43710);
+                            pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleXFunctionTypeRef43729);
                             lv_paramTypes_1_0=ruleJvmTypeReference();
 
                             state._fsp--;
@@ -52353,7 +52373,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18677:2: (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )*
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18688:2: (otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) ) )*
                             loop409:
                             do {
                                 int alt409=2;
@@ -52366,26 +52386,26 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                                 switch (alt409) {
                             	case 1 :
-                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18677:4: otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) )
+                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18688:4: otherlv_2= ',' ( (lv_paramTypes_3_0= ruleJvmTypeReference ) )
                             	    {
-                            	    otherlv_2=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleXFunctionTypeRef43723); if (state.failed) return current;
+                            	    otherlv_2=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleXFunctionTypeRef43742); if (state.failed) return current;
                             	    if ( state.backtracking==0 ) {
 
                             	          	newLeafNode(otherlv_2, grammarAccess.getXFunctionTypeRefAccess().getCommaKeyword_0_1_1_0());
                             	          
                             	    }
-                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18681:1: ( (lv_paramTypes_3_0= ruleJvmTypeReference ) )
-                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18682:1: (lv_paramTypes_3_0= ruleJvmTypeReference )
+                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18692:1: ( (lv_paramTypes_3_0= ruleJvmTypeReference ) )
+                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18693:1: (lv_paramTypes_3_0= ruleJvmTypeReference )
                             	    {
-                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18682:1: (lv_paramTypes_3_0= ruleJvmTypeReference )
-                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18683:3: lv_paramTypes_3_0= ruleJvmTypeReference
+                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18693:1: (lv_paramTypes_3_0= ruleJvmTypeReference )
+                            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18694:3: lv_paramTypes_3_0= ruleJvmTypeReference
                             	    {
                             	    if ( state.backtracking==0 ) {
                             	       
                             	      	        newCompositeNode(grammarAccess.getXFunctionTypeRefAccess().getParamTypesJvmTypeReferenceParserRuleCall_0_1_1_1_0()); 
                             	      	    
                             	    }
-                            	    pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleXFunctionTypeRef43744);
+                            	    pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleXFunctionTypeRef43763);
                             	    lv_paramTypes_3_0=ruleJvmTypeReference();
 
                             	    state._fsp--;
@@ -52424,7 +52444,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_4=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXFunctionTypeRef43760); if (state.failed) return current;
+                    otherlv_4=(Token)match(input,51,FollowSets001.FOLLOW_51_in_ruleXFunctionTypeRef43779); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_4, grammarAccess.getXFunctionTypeRefAccess().getRightParenthesisKeyword_0_2());
@@ -52436,24 +52456,24 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,134,FollowSets001.FOLLOW_134_in_ruleXFunctionTypeRef43774); if (state.failed) return current;
+            otherlv_5=(Token)match(input,134,FollowSets001.FOLLOW_134_in_ruleXFunctionTypeRef43793); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getXFunctionTypeRefAccess().getEqualsSignGreaterThanSignKeyword_1());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18707:1: ( (lv_returnType_6_0= ruleJvmTypeReference ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18708:1: (lv_returnType_6_0= ruleJvmTypeReference )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18718:1: ( (lv_returnType_6_0= ruleJvmTypeReference ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18719:1: (lv_returnType_6_0= ruleJvmTypeReference )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18708:1: (lv_returnType_6_0= ruleJvmTypeReference )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18709:3: lv_returnType_6_0= ruleJvmTypeReference
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18719:1: (lv_returnType_6_0= ruleJvmTypeReference )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18720:3: lv_returnType_6_0= ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getXFunctionTypeRefAccess().getReturnTypeJvmTypeReferenceParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleXFunctionTypeRef43795);
+            pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleXFunctionTypeRef43814);
             lv_returnType_6_0=ruleJvmTypeReference();
 
             state._fsp--;
@@ -52500,7 +52520,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleJvmParameterizedTypeReference"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18733:1: entryRuleJvmParameterizedTypeReference returns [EObject current=null] : iv_ruleJvmParameterizedTypeReference= ruleJvmParameterizedTypeReference EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18744:1: entryRuleJvmParameterizedTypeReference returns [EObject current=null] : iv_ruleJvmParameterizedTypeReference= ruleJvmParameterizedTypeReference EOF ;
     public final EObject entryRuleJvmParameterizedTypeReference() throws RecognitionException {
         EObject current = null;
 
@@ -52508,13 +52528,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18734:2: (iv_ruleJvmParameterizedTypeReference= ruleJvmParameterizedTypeReference EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18735:2: iv_ruleJvmParameterizedTypeReference= ruleJvmParameterizedTypeReference EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18745:2: (iv_ruleJvmParameterizedTypeReference= ruleJvmParameterizedTypeReference EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18746:2: iv_ruleJvmParameterizedTypeReference= ruleJvmParameterizedTypeReference EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getJvmParameterizedTypeReferenceRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleJvmParameterizedTypeReference_in_entryRuleJvmParameterizedTypeReference43831);
+            pushFollow(FollowSets001.FOLLOW_ruleJvmParameterizedTypeReference_in_entryRuleJvmParameterizedTypeReference43850);
             iv_ruleJvmParameterizedTypeReference=ruleJvmParameterizedTypeReference();
 
             state._fsp--;
@@ -52522,7 +52542,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleJvmParameterizedTypeReference; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleJvmParameterizedTypeReference43841); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleJvmParameterizedTypeReference43860); if (state.failed) return current;
 
             }
 
@@ -52540,32 +52560,40 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleJvmParameterizedTypeReference"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18742:1: ruleJvmParameterizedTypeReference returns [EObject current=null] : ( ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_1= '<' ) ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )? ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18753:1: ruleJvmParameterizedTypeReference returns [EObject current=null] : ( ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_1= '<' ) ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( ( ruleValidID ) ) ( ( ( '<' )=>otherlv_9= '<' ) ( (lv_arguments_10_0= ruleJvmArgumentTypeReference ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleJvmArgumentTypeReference ) ) )* otherlv_13= '>' )? )* )? ) ;
     public final EObject ruleJvmParameterizedTypeReference() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
         Token otherlv_3=null;
         Token otherlv_5=null;
+        Token otherlv_7=null;
+        Token otherlv_9=null;
+        Token otherlv_11=null;
+        Token otherlv_13=null;
         EObject lv_arguments_2_0 = null;
 
         EObject lv_arguments_4_0 = null;
+
+        EObject lv_arguments_10_0 = null;
+
+        EObject lv_arguments_12_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18745:28: ( ( ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_1= '<' ) ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )? ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18746:1: ( ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_1= '<' ) ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18756:28: ( ( ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_1= '<' ) ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( ( ruleValidID ) ) ( ( ( '<' )=>otherlv_9= '<' ) ( (lv_arguments_10_0= ruleJvmArgumentTypeReference ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleJvmArgumentTypeReference ) ) )* otherlv_13= '>' )? )* )? ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18757:1: ( ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_1= '<' ) ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( ( ruleValidID ) ) ( ( ( '<' )=>otherlv_9= '<' ) ( (lv_arguments_10_0= ruleJvmArgumentTypeReference ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleJvmArgumentTypeReference ) ) )* otherlv_13= '>' )? )* )? )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18746:1: ( ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_1= '<' ) ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )? )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18746:2: ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_1= '<' ) ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18757:1: ( ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_1= '<' ) ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( ( ruleValidID ) ) ( ( ( '<' )=>otherlv_9= '<' ) ( (lv_arguments_10_0= ruleJvmArgumentTypeReference ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleJvmArgumentTypeReference ) ) )* otherlv_13= '>' )? )* )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18757:2: ( ( ruleQualifiedName ) ) ( ( ( '<' )=>otherlv_1= '<' ) ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( ( ruleValidID ) ) ( ( ( '<' )=>otherlv_9= '<' ) ( (lv_arguments_10_0= ruleJvmArgumentTypeReference ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleJvmArgumentTypeReference ) ) )* otherlv_13= '>' )? )* )?
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18746:2: ( ( ruleQualifiedName ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18747:1: ( ruleQualifiedName )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18757:2: ( ( ruleQualifiedName ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18758:1: ( ruleQualifiedName )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18747:1: ( ruleQualifiedName )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18748:3: ruleQualifiedName
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18758:1: ( ruleQualifiedName )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18759:3: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
 
@@ -52579,7 +52607,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getJvmParameterizedTypeReferenceAccess().getTypeJvmTypeCrossReference_0_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleQualifiedName_in_ruleJvmParameterizedTypeReference43889);
+            pushFollow(FollowSets001.FOLLOW_ruleQualifiedName_in_ruleJvmParameterizedTypeReference43908);
             ruleQualifiedName();
 
             state._fsp--;
@@ -52595,17 +52623,17 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18761:2: ( ( ( '<' )=>otherlv_1= '<' ) ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )?
-            int alt413=2;
-            alt413 = dfa413.predict(input);
-            switch (alt413) {
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18772:2: ( ( ( '<' )=>otherlv_1= '<' ) ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( ( ruleValidID ) ) ( ( ( '<' )=>otherlv_9= '<' ) ( (lv_arguments_10_0= ruleJvmArgumentTypeReference ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleJvmArgumentTypeReference ) ) )* otherlv_13= '>' )? )* )?
+            int alt416=2;
+            alt416 = dfa416.predict(input);
+            switch (alt416) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18761:3: ( ( '<' )=>otherlv_1= '<' ) ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18772:3: ( ( '<' )=>otherlv_1= '<' ) ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( ( ruleValidID ) ) ( ( ( '<' )=>otherlv_9= '<' ) ( (lv_arguments_10_0= ruleJvmArgumentTypeReference ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleJvmArgumentTypeReference ) ) )* otherlv_13= '>' )? )*
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18761:3: ( ( '<' )=>otherlv_1= '<' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18761:4: ( '<' )=>otherlv_1= '<'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18772:3: ( ( '<' )=>otherlv_1= '<' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18772:4: ( '<' )=>otherlv_1= '<'
                     {
-                    otherlv_1=(Token)match(input,28,FollowSets001.FOLLOW_28_in_ruleJvmParameterizedTypeReference43910); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,28,FollowSets001.FOLLOW_28_in_ruleJvmParameterizedTypeReference43929); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getJvmParameterizedTypeReferenceAccess().getLessThanSignKeyword_1_0());
@@ -52614,18 +52642,18 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18766:2: ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18767:1: (lv_arguments_2_0= ruleJvmArgumentTypeReference )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18777:2: ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18778:1: (lv_arguments_2_0= ruleJvmArgumentTypeReference )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18767:1: (lv_arguments_2_0= ruleJvmArgumentTypeReference )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18768:3: lv_arguments_2_0= ruleJvmArgumentTypeReference
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18778:1: (lv_arguments_2_0= ruleJvmArgumentTypeReference )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18779:3: lv_arguments_2_0= ruleJvmArgumentTypeReference
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getJvmParameterizedTypeReferenceAccess().getArgumentsJvmArgumentTypeReferenceParserRuleCall_1_1_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleJvmArgumentTypeReference_in_ruleJvmParameterizedTypeReference43932);
+                    pushFollow(FollowSets001.FOLLOW_ruleJvmArgumentTypeReference_in_ruleJvmParameterizedTypeReference43951);
                     lv_arguments_2_0=ruleJvmArgumentTypeReference();
 
                     state._fsp--;
@@ -52649,7 +52677,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18784:2: (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )*
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18795:2: (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )*
                     loop412:
                     do {
                         int alt412=2;
@@ -52662,26 +52690,26 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                         switch (alt412) {
                     	case 1 :
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18784:4: otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18795:4: otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) )
                     	    {
-                    	    otherlv_3=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleJvmParameterizedTypeReference43945); if (state.failed) return current;
+                    	    otherlv_3=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleJvmParameterizedTypeReference43964); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	          	newLeafNode(otherlv_3, grammarAccess.getJvmParameterizedTypeReferenceAccess().getCommaKeyword_1_2_0());
                     	          
                     	    }
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18788:1: ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) )
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18789:1: (lv_arguments_4_0= ruleJvmArgumentTypeReference )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18799:1: ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18800:1: (lv_arguments_4_0= ruleJvmArgumentTypeReference )
                     	    {
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18789:1: (lv_arguments_4_0= ruleJvmArgumentTypeReference )
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18790:3: lv_arguments_4_0= ruleJvmArgumentTypeReference
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18800:1: (lv_arguments_4_0= ruleJvmArgumentTypeReference )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18801:3: lv_arguments_4_0= ruleJvmArgumentTypeReference
                     	    {
                     	    if ( state.backtracking==0 ) {
                     	       
                     	      	        newCompositeNode(grammarAccess.getJvmParameterizedTypeReferenceAccess().getArgumentsJvmArgumentTypeReferenceParserRuleCall_1_2_1_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FollowSets001.FOLLOW_ruleJvmArgumentTypeReference_in_ruleJvmParameterizedTypeReference43966);
+                    	    pushFollow(FollowSets001.FOLLOW_ruleJvmArgumentTypeReference_in_ruleJvmParameterizedTypeReference43985);
                     	    lv_arguments_4_0=ruleJvmArgumentTypeReference();
 
                     	    state._fsp--;
@@ -52714,12 +52742,244 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_5=(Token)match(input,30,FollowSets001.FOLLOW_30_in_ruleJvmParameterizedTypeReference43980); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,30,FollowSets001.FOLLOW_30_in_ruleJvmParameterizedTypeReference43999); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_5, grammarAccess.getJvmParameterizedTypeReferenceAccess().getGreaterThanSignKeyword_1_3());
                           
                     }
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18821:1: ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( ( ruleValidID ) ) ( ( ( '<' )=>otherlv_9= '<' ) ( (lv_arguments_10_0= ruleJvmArgumentTypeReference ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleJvmArgumentTypeReference ) ) )* otherlv_13= '>' )? )*
+                    loop415:
+                    do {
+                        int alt415=2;
+                        int LA415_0 = input.LA(1);
+
+                        if ( (LA415_0==31) ) {
+                            int LA415_2 = input.LA(2);
+
+                            if ( (LA415_2==RULE_ID) ) {
+                                int LA415_3 = input.LA(3);
+
+                                if ( (synpred46_InternalUIGrammar()) ) {
+                                    alt415=1;
+                                }
+
+
+                            }
+
+
+                        }
+
+
+                        switch (alt415) {
+                    	case 1 :
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18821:2: ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( ( ruleValidID ) ) ( ( ( '<' )=>otherlv_9= '<' ) ( (lv_arguments_10_0= ruleJvmArgumentTypeReference ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleJvmArgumentTypeReference ) ) )* otherlv_13= '>' )?
+                    	    {
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18821:2: ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18821:3: ( ( () '.' ) )=> ( () otherlv_7= '.' )
+                    	    {
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18823:5: ( () otherlv_7= '.' )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18823:6: () otherlv_7= '.'
+                    	    {
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18823:6: ()
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18824:5: 
+                    	    {
+                    	    if ( state.backtracking==0 ) {
+
+                    	              current = forceCreateModelElementAndSet(
+                    	                  grammarAccess.getJvmParameterizedTypeReferenceAccess().getJvmInnerTypeReferenceOuterAction_1_4_0_0_0(),
+                    	                  current);
+                    	          
+                    	    }
+
+                    	    }
+
+                    	    otherlv_7=(Token)match(input,31,FollowSets001.FOLLOW_31_in_ruleJvmParameterizedTypeReference44035); if (state.failed) return current;
+                    	    if ( state.backtracking==0 ) {
+
+                    	          	newLeafNode(otherlv_7, grammarAccess.getJvmParameterizedTypeReferenceAccess().getFullStopKeyword_1_4_0_0_1());
+                    	          
+                    	    }
+
+                    	    }
+
+
+                    	    }
+
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18833:3: ( ( ruleValidID ) )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18834:1: ( ruleValidID )
+                    	    {
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18834:1: ( ruleValidID )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18835:3: ruleValidID
+                    	    {
+                    	    if ( state.backtracking==0 ) {
+
+                    	      			if (current==null) {
+                    	      	            current = createModelElement(grammarAccess.getJvmParameterizedTypeReferenceRule());
+                    	      	        }
+                    	              
+                    	    }
+                    	    if ( state.backtracking==0 ) {
+                    	       
+                    	      	        newCompositeNode(grammarAccess.getJvmParameterizedTypeReferenceAccess().getTypeJvmTypeCrossReference_1_4_1_0()); 
+                    	      	    
+                    	    }
+                    	    pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleJvmParameterizedTypeReference44060);
+                    	    ruleValidID();
+
+                    	    state._fsp--;
+                    	    if (state.failed) return current;
+                    	    if ( state.backtracking==0 ) {
+                    	       
+                    	      	        afterParserOrEnumRuleCall();
+                    	      	    
+                    	    }
+
+                    	    }
+
+
+                    	    }
+
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18848:2: ( ( ( '<' )=>otherlv_9= '<' ) ( (lv_arguments_10_0= ruleJvmArgumentTypeReference ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleJvmArgumentTypeReference ) ) )* otherlv_13= '>' )?
+                    	    int alt414=2;
+                    	    alt414 = dfa414.predict(input);
+                    	    switch (alt414) {
+                    	        case 1 :
+                    	            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18848:3: ( ( '<' )=>otherlv_9= '<' ) ( (lv_arguments_10_0= ruleJvmArgumentTypeReference ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleJvmArgumentTypeReference ) ) )* otherlv_13= '>'
+                    	            {
+                    	            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18848:3: ( ( '<' )=>otherlv_9= '<' )
+                    	            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18848:4: ( '<' )=>otherlv_9= '<'
+                    	            {
+                    	            otherlv_9=(Token)match(input,28,FollowSets001.FOLLOW_28_in_ruleJvmParameterizedTypeReference44081); if (state.failed) return current;
+                    	            if ( state.backtracking==0 ) {
+
+                    	                  	newLeafNode(otherlv_9, grammarAccess.getJvmParameterizedTypeReferenceAccess().getLessThanSignKeyword_1_4_2_0());
+                    	                  
+                    	            }
+
+                    	            }
+
+                    	            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18853:2: ( (lv_arguments_10_0= ruleJvmArgumentTypeReference ) )
+                    	            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18854:1: (lv_arguments_10_0= ruleJvmArgumentTypeReference )
+                    	            {
+                    	            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18854:1: (lv_arguments_10_0= ruleJvmArgumentTypeReference )
+                    	            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18855:3: lv_arguments_10_0= ruleJvmArgumentTypeReference
+                    	            {
+                    	            if ( state.backtracking==0 ) {
+                    	               
+                    	              	        newCompositeNode(grammarAccess.getJvmParameterizedTypeReferenceAccess().getArgumentsJvmArgumentTypeReferenceParserRuleCall_1_4_2_1_0()); 
+                    	              	    
+                    	            }
+                    	            pushFollow(FollowSets001.FOLLOW_ruleJvmArgumentTypeReference_in_ruleJvmParameterizedTypeReference44103);
+                    	            lv_arguments_10_0=ruleJvmArgumentTypeReference();
+
+                    	            state._fsp--;
+                    	            if (state.failed) return current;
+                    	            if ( state.backtracking==0 ) {
+
+                    	              	        if (current==null) {
+                    	              	            current = createModelElementForParent(grammarAccess.getJvmParameterizedTypeReferenceRule());
+                    	              	        }
+                    	                     		add(
+                    	                     			current, 
+                    	                     			"arguments",
+                    	                      		lv_arguments_10_0, 
+                    	                      		"JvmArgumentTypeReference");
+                    	              	        afterParserOrEnumRuleCall();
+                    	              	    
+                    	            }
+
+                    	            }
+
+
+                    	            }
+
+                    	            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18871:2: (otherlv_11= ',' ( (lv_arguments_12_0= ruleJvmArgumentTypeReference ) ) )*
+                    	            loop413:
+                    	            do {
+                    	                int alt413=2;
+                    	                int LA413_0 = input.LA(1);
+
+                    	                if ( (LA413_0==147) ) {
+                    	                    alt413=1;
+                    	                }
+
+
+                    	                switch (alt413) {
+                    	            	case 1 :
+                    	            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18871:4: otherlv_11= ',' ( (lv_arguments_12_0= ruleJvmArgumentTypeReference ) )
+                    	            	    {
+                    	            	    otherlv_11=(Token)match(input,147,FollowSets001.FOLLOW_147_in_ruleJvmParameterizedTypeReference44116); if (state.failed) return current;
+                    	            	    if ( state.backtracking==0 ) {
+
+                    	            	          	newLeafNode(otherlv_11, grammarAccess.getJvmParameterizedTypeReferenceAccess().getCommaKeyword_1_4_2_2_0());
+                    	            	          
+                    	            	    }
+                    	            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18875:1: ( (lv_arguments_12_0= ruleJvmArgumentTypeReference ) )
+                    	            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18876:1: (lv_arguments_12_0= ruleJvmArgumentTypeReference )
+                    	            	    {
+                    	            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18876:1: (lv_arguments_12_0= ruleJvmArgumentTypeReference )
+                    	            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18877:3: lv_arguments_12_0= ruleJvmArgumentTypeReference
+                    	            	    {
+                    	            	    if ( state.backtracking==0 ) {
+                    	            	       
+                    	            	      	        newCompositeNode(grammarAccess.getJvmParameterizedTypeReferenceAccess().getArgumentsJvmArgumentTypeReferenceParserRuleCall_1_4_2_2_1_0()); 
+                    	            	      	    
+                    	            	    }
+                    	            	    pushFollow(FollowSets001.FOLLOW_ruleJvmArgumentTypeReference_in_ruleJvmParameterizedTypeReference44137);
+                    	            	    lv_arguments_12_0=ruleJvmArgumentTypeReference();
+
+                    	            	    state._fsp--;
+                    	            	    if (state.failed) return current;
+                    	            	    if ( state.backtracking==0 ) {
+
+                    	            	      	        if (current==null) {
+                    	            	      	            current = createModelElementForParent(grammarAccess.getJvmParameterizedTypeReferenceRule());
+                    	            	      	        }
+                    	            	             		add(
+                    	            	             			current, 
+                    	            	             			"arguments",
+                    	            	              		lv_arguments_12_0, 
+                    	            	              		"JvmArgumentTypeReference");
+                    	            	      	        afterParserOrEnumRuleCall();
+                    	            	      	    
+                    	            	    }
+
+                    	            	    }
+
+
+                    	            	    }
+
+
+                    	            	    }
+                    	            	    break;
+
+                    	            	default :
+                    	            	    break loop413;
+                    	                }
+                    	            } while (true);
+
+                    	            otherlv_13=(Token)match(input,30,FollowSets001.FOLLOW_30_in_ruleJvmParameterizedTypeReference44151); if (state.failed) return current;
+                    	            if ( state.backtracking==0 ) {
+
+                    	                  	newLeafNode(otherlv_13, grammarAccess.getJvmParameterizedTypeReferenceAccess().getGreaterThanSignKeyword_1_4_2_3());
+                    	                  
+                    	            }
+
+                    	            }
+                    	            break;
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop415;
+                        }
+                    } while (true);
+
 
                     }
                     break;
@@ -52749,7 +53009,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleJvmArgumentTypeReference"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18818:1: entryRuleJvmArgumentTypeReference returns [EObject current=null] : iv_ruleJvmArgumentTypeReference= ruleJvmArgumentTypeReference EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18905:1: entryRuleJvmArgumentTypeReference returns [EObject current=null] : iv_ruleJvmArgumentTypeReference= ruleJvmArgumentTypeReference EOF ;
     public final EObject entryRuleJvmArgumentTypeReference() throws RecognitionException {
         EObject current = null;
 
@@ -52757,13 +53017,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18819:2: (iv_ruleJvmArgumentTypeReference= ruleJvmArgumentTypeReference EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18820:2: iv_ruleJvmArgumentTypeReference= ruleJvmArgumentTypeReference EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18906:2: (iv_ruleJvmArgumentTypeReference= ruleJvmArgumentTypeReference EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18907:2: iv_ruleJvmArgumentTypeReference= ruleJvmArgumentTypeReference EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getJvmArgumentTypeReferenceRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleJvmArgumentTypeReference_in_entryRuleJvmArgumentTypeReference44018);
+            pushFollow(FollowSets001.FOLLOW_ruleJvmArgumentTypeReference_in_entryRuleJvmArgumentTypeReference44193);
             iv_ruleJvmArgumentTypeReference=ruleJvmArgumentTypeReference();
 
             state._fsp--;
@@ -52771,7 +53031,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleJvmArgumentTypeReference; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleJvmArgumentTypeReference44028); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleJvmArgumentTypeReference44203); if (state.failed) return current;
 
             }
 
@@ -52789,7 +53049,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleJvmArgumentTypeReference"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18827:1: ruleJvmArgumentTypeReference returns [EObject current=null] : (this_JvmTypeReference_0= ruleJvmTypeReference | this_JvmWildcardTypeReference_1= ruleJvmWildcardTypeReference ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18914:1: ruleJvmArgumentTypeReference returns [EObject current=null] : (this_JvmTypeReference_0= ruleJvmTypeReference | this_JvmWildcardTypeReference_1= ruleJvmWildcardTypeReference ) ;
     public final EObject ruleJvmArgumentTypeReference() throws RecognitionException {
         EObject current = null;
 
@@ -52801,36 +53061,36 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18830:28: ( (this_JvmTypeReference_0= ruleJvmTypeReference | this_JvmWildcardTypeReference_1= ruleJvmWildcardTypeReference ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18831:1: (this_JvmTypeReference_0= ruleJvmTypeReference | this_JvmWildcardTypeReference_1= ruleJvmWildcardTypeReference )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18917:28: ( (this_JvmTypeReference_0= ruleJvmTypeReference | this_JvmWildcardTypeReference_1= ruleJvmWildcardTypeReference ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18918:1: (this_JvmTypeReference_0= ruleJvmTypeReference | this_JvmWildcardTypeReference_1= ruleJvmWildcardTypeReference )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18831:1: (this_JvmTypeReference_0= ruleJvmTypeReference | this_JvmWildcardTypeReference_1= ruleJvmWildcardTypeReference )
-            int alt414=2;
-            int LA414_0 = input.LA(1);
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18918:1: (this_JvmTypeReference_0= ruleJvmTypeReference | this_JvmWildcardTypeReference_1= ruleJvmWildcardTypeReference )
+            int alt417=2;
+            int LA417_0 = input.LA(1);
 
-            if ( (LA414_0==RULE_ID||LA414_0==47||LA414_0==134) ) {
-                alt414=1;
+            if ( (LA417_0==RULE_ID||LA417_0==47||LA417_0==134) ) {
+                alt417=1;
             }
-            else if ( (LA414_0==175) ) {
-                alt414=2;
+            else if ( (LA417_0==175) ) {
+                alt417=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 414, 0, input);
+                    new NoViableAltException("", 417, 0, input);
 
                 throw nvae;
             }
-            switch (alt414) {
+            switch (alt417) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18832:5: this_JvmTypeReference_0= ruleJvmTypeReference
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18919:5: this_JvmTypeReference_0= ruleJvmTypeReference
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getJvmArgumentTypeReferenceAccess().getJvmTypeReferenceParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleJvmArgumentTypeReference44075);
+                    pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleJvmArgumentTypeReference44250);
                     this_JvmTypeReference_0=ruleJvmTypeReference();
 
                     state._fsp--;
@@ -52845,14 +53105,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18842:5: this_JvmWildcardTypeReference_1= ruleJvmWildcardTypeReference
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18929:5: this_JvmWildcardTypeReference_1= ruleJvmWildcardTypeReference
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getJvmArgumentTypeReferenceAccess().getJvmWildcardTypeReferenceParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleJvmWildcardTypeReference_in_ruleJvmArgumentTypeReference44102);
+                    pushFollow(FollowSets001.FOLLOW_ruleJvmWildcardTypeReference_in_ruleJvmArgumentTypeReference44277);
                     this_JvmWildcardTypeReference_1=ruleJvmWildcardTypeReference();
 
                     state._fsp--;
@@ -52889,7 +53149,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleJvmWildcardTypeReference"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18858:1: entryRuleJvmWildcardTypeReference returns [EObject current=null] : iv_ruleJvmWildcardTypeReference= ruleJvmWildcardTypeReference EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18945:1: entryRuleJvmWildcardTypeReference returns [EObject current=null] : iv_ruleJvmWildcardTypeReference= ruleJvmWildcardTypeReference EOF ;
     public final EObject entryRuleJvmWildcardTypeReference() throws RecognitionException {
         EObject current = null;
 
@@ -52897,13 +53157,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18859:2: (iv_ruleJvmWildcardTypeReference= ruleJvmWildcardTypeReference EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18860:2: iv_ruleJvmWildcardTypeReference= ruleJvmWildcardTypeReference EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18946:2: (iv_ruleJvmWildcardTypeReference= ruleJvmWildcardTypeReference EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18947:2: iv_ruleJvmWildcardTypeReference= ruleJvmWildcardTypeReference EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getJvmWildcardTypeReferenceRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleJvmWildcardTypeReference_in_entryRuleJvmWildcardTypeReference44137);
+            pushFollow(FollowSets001.FOLLOW_ruleJvmWildcardTypeReference_in_entryRuleJvmWildcardTypeReference44312);
             iv_ruleJvmWildcardTypeReference=ruleJvmWildcardTypeReference();
 
             state._fsp--;
@@ -52911,7 +53171,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleJvmWildcardTypeReference; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleJvmWildcardTypeReference44147); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleJvmWildcardTypeReference44322); if (state.failed) return current;
 
             }
 
@@ -52929,7 +53189,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleJvmWildcardTypeReference"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18867:1: ruleJvmWildcardTypeReference returns [EObject current=null] : ( () otherlv_1= '?' ( ( (lv_constraints_2_0= ruleJvmUpperBound ) ) | ( (lv_constraints_3_0= ruleJvmLowerBound ) ) )? ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18954:1: ruleJvmWildcardTypeReference returns [EObject current=null] : ( () otherlv_1= '?' ( ( ( (lv_constraints_2_0= ruleJvmUpperBound ) ) ( (lv_constraints_3_0= ruleJvmUpperBoundAnded ) )* ) | ( ( (lv_constraints_4_0= ruleJvmLowerBound ) ) ( (lv_constraints_5_0= ruleJvmLowerBoundAnded ) )* ) )? ) ;
     public final EObject ruleJvmWildcardTypeReference() throws RecognitionException {
         EObject current = null;
 
@@ -52938,18 +53198,22 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
         EObject lv_constraints_3_0 = null;
 
+        EObject lv_constraints_4_0 = null;
+
+        EObject lv_constraints_5_0 = null;
+
 
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18870:28: ( ( () otherlv_1= '?' ( ( (lv_constraints_2_0= ruleJvmUpperBound ) ) | ( (lv_constraints_3_0= ruleJvmLowerBound ) ) )? ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18871:1: ( () otherlv_1= '?' ( ( (lv_constraints_2_0= ruleJvmUpperBound ) ) | ( (lv_constraints_3_0= ruleJvmLowerBound ) ) )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18957:28: ( ( () otherlv_1= '?' ( ( ( (lv_constraints_2_0= ruleJvmUpperBound ) ) ( (lv_constraints_3_0= ruleJvmUpperBoundAnded ) )* ) | ( ( (lv_constraints_4_0= ruleJvmLowerBound ) ) ( (lv_constraints_5_0= ruleJvmLowerBoundAnded ) )* ) )? ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18958:1: ( () otherlv_1= '?' ( ( ( (lv_constraints_2_0= ruleJvmUpperBound ) ) ( (lv_constraints_3_0= ruleJvmUpperBoundAnded ) )* ) | ( ( (lv_constraints_4_0= ruleJvmLowerBound ) ) ( (lv_constraints_5_0= ruleJvmLowerBoundAnded ) )* ) )? )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18871:1: ( () otherlv_1= '?' ( ( (lv_constraints_2_0= ruleJvmUpperBound ) ) | ( (lv_constraints_3_0= ruleJvmLowerBound ) ) )? )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18871:2: () otherlv_1= '?' ( ( (lv_constraints_2_0= ruleJvmUpperBound ) ) | ( (lv_constraints_3_0= ruleJvmLowerBound ) ) )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18958:1: ( () otherlv_1= '?' ( ( ( (lv_constraints_2_0= ruleJvmUpperBound ) ) ( (lv_constraints_3_0= ruleJvmUpperBoundAnded ) )* ) | ( ( (lv_constraints_4_0= ruleJvmLowerBound ) ) ( (lv_constraints_5_0= ruleJvmLowerBoundAnded ) )* ) )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18958:2: () otherlv_1= '?' ( ( ( (lv_constraints_2_0= ruleJvmUpperBound ) ) ( (lv_constraints_3_0= ruleJvmUpperBoundAnded ) )* ) | ( ( (lv_constraints_4_0= ruleJvmLowerBound ) ) ( (lv_constraints_5_0= ruleJvmLowerBoundAnded ) )* ) )?
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18871:2: ()
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18872:5: 
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18958:2: ()
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18959:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -52961,38 +53225,41 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,175,FollowSets001.FOLLOW_175_in_ruleJvmWildcardTypeReference44193); if (state.failed) return current;
+            otherlv_1=(Token)match(input,175,FollowSets001.FOLLOW_175_in_ruleJvmWildcardTypeReference44368); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getJvmWildcardTypeReferenceAccess().getQuestionMarkKeyword_1());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18881:1: ( ( (lv_constraints_2_0= ruleJvmUpperBound ) ) | ( (lv_constraints_3_0= ruleJvmLowerBound ) ) )?
-            int alt415=3;
-            int LA415_0 = input.LA(1);
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18968:1: ( ( ( (lv_constraints_2_0= ruleJvmUpperBound ) ) ( (lv_constraints_3_0= ruleJvmUpperBoundAnded ) )* ) | ( ( (lv_constraints_4_0= ruleJvmLowerBound ) ) ( (lv_constraints_5_0= ruleJvmLowerBoundAnded ) )* ) )?
+            int alt420=3;
+            int LA420_0 = input.LA(1);
 
-            if ( (LA415_0==160) ) {
-                alt415=1;
+            if ( (LA420_0==160) ) {
+                alt420=1;
             }
-            else if ( (LA415_0==163) ) {
-                alt415=2;
+            else if ( (LA420_0==163) ) {
+                alt420=2;
             }
-            switch (alt415) {
+            switch (alt420) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18881:2: ( (lv_constraints_2_0= ruleJvmUpperBound ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18968:2: ( ( (lv_constraints_2_0= ruleJvmUpperBound ) ) ( (lv_constraints_3_0= ruleJvmUpperBoundAnded ) )* )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18881:2: ( (lv_constraints_2_0= ruleJvmUpperBound ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18882:1: (lv_constraints_2_0= ruleJvmUpperBound )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18968:2: ( ( (lv_constraints_2_0= ruleJvmUpperBound ) ) ( (lv_constraints_3_0= ruleJvmUpperBoundAnded ) )* )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18968:3: ( (lv_constraints_2_0= ruleJvmUpperBound ) ) ( (lv_constraints_3_0= ruleJvmUpperBoundAnded ) )*
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18882:1: (lv_constraints_2_0= ruleJvmUpperBound )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18883:3: lv_constraints_2_0= ruleJvmUpperBound
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18968:3: ( (lv_constraints_2_0= ruleJvmUpperBound ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18969:1: (lv_constraints_2_0= ruleJvmUpperBound )
+                    {
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18969:1: (lv_constraints_2_0= ruleJvmUpperBound )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18970:3: lv_constraints_2_0= ruleJvmUpperBound
                     {
                     if ( state.backtracking==0 ) {
                        
-                      	        newCompositeNode(grammarAccess.getJvmWildcardTypeReferenceAccess().getConstraintsJvmUpperBoundParserRuleCall_2_0_0()); 
+                      	        newCompositeNode(grammarAccess.getJvmWildcardTypeReferenceAccess().getConstraintsJvmUpperBoundParserRuleCall_2_0_0_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleJvmUpperBound_in_ruleJvmWildcardTypeReference44215);
+                    pushFollow(FollowSets001.FOLLOW_ruleJvmUpperBound_in_ruleJvmWildcardTypeReference44391);
                     lv_constraints_2_0=ruleJvmUpperBound();
 
                     state._fsp--;
@@ -53016,25 +53283,84 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18986:2: ( (lv_constraints_3_0= ruleJvmUpperBoundAnded ) )*
+                    loop418:
+                    do {
+                        int alt418=2;
+                        int LA418_0 = input.LA(1);
+
+                        if ( (LA418_0==176) ) {
+                            alt418=1;
+                        }
+
+
+                        switch (alt418) {
+                    	case 1 :
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18987:1: (lv_constraints_3_0= ruleJvmUpperBoundAnded )
+                    	    {
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18987:1: (lv_constraints_3_0= ruleJvmUpperBoundAnded )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18988:3: lv_constraints_3_0= ruleJvmUpperBoundAnded
+                    	    {
+                    	    if ( state.backtracking==0 ) {
+                    	       
+                    	      	        newCompositeNode(grammarAccess.getJvmWildcardTypeReferenceAccess().getConstraintsJvmUpperBoundAndedParserRuleCall_2_0_1_0()); 
+                    	      	    
+                    	    }
+                    	    pushFollow(FollowSets001.FOLLOW_ruleJvmUpperBoundAnded_in_ruleJvmWildcardTypeReference44412);
+                    	    lv_constraints_3_0=ruleJvmUpperBoundAnded();
+
+                    	    state._fsp--;
+                    	    if (state.failed) return current;
+                    	    if ( state.backtracking==0 ) {
+
+                    	      	        if (current==null) {
+                    	      	            current = createModelElementForParent(grammarAccess.getJvmWildcardTypeReferenceRule());
+                    	      	        }
+                    	             		add(
+                    	             			current, 
+                    	             			"constraints",
+                    	              		lv_constraints_3_0, 
+                    	              		"JvmUpperBoundAnded");
+                    	      	        afterParserOrEnumRuleCall();
+                    	      	    
+                    	    }
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop418;
+                        }
+                    } while (true);
+
+
+                    }
+
 
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18900:6: ( (lv_constraints_3_0= ruleJvmLowerBound ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19005:6: ( ( (lv_constraints_4_0= ruleJvmLowerBound ) ) ( (lv_constraints_5_0= ruleJvmLowerBoundAnded ) )* )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18900:6: ( (lv_constraints_3_0= ruleJvmLowerBound ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18901:1: (lv_constraints_3_0= ruleJvmLowerBound )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19005:6: ( ( (lv_constraints_4_0= ruleJvmLowerBound ) ) ( (lv_constraints_5_0= ruleJvmLowerBoundAnded ) )* )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19005:7: ( (lv_constraints_4_0= ruleJvmLowerBound ) ) ( (lv_constraints_5_0= ruleJvmLowerBoundAnded ) )*
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18901:1: (lv_constraints_3_0= ruleJvmLowerBound )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18902:3: lv_constraints_3_0= ruleJvmLowerBound
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19005:7: ( (lv_constraints_4_0= ruleJvmLowerBound ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19006:1: (lv_constraints_4_0= ruleJvmLowerBound )
+                    {
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19006:1: (lv_constraints_4_0= ruleJvmLowerBound )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19007:3: lv_constraints_4_0= ruleJvmLowerBound
                     {
                     if ( state.backtracking==0 ) {
                        
-                      	        newCompositeNode(grammarAccess.getJvmWildcardTypeReferenceAccess().getConstraintsJvmLowerBoundParserRuleCall_2_1_0()); 
+                      	        newCompositeNode(grammarAccess.getJvmWildcardTypeReferenceAccess().getConstraintsJvmLowerBoundParserRuleCall_2_1_0_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleJvmLowerBound_in_ruleJvmWildcardTypeReference44242);
-                    lv_constraints_3_0=ruleJvmLowerBound();
+                    pushFollow(FollowSets001.FOLLOW_ruleJvmLowerBound_in_ruleJvmWildcardTypeReference44442);
+                    lv_constraints_4_0=ruleJvmLowerBound();
 
                     state._fsp--;
                     if (state.failed) return current;
@@ -53046,13 +53372,69 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                              		add(
                              			current, 
                              			"constraints",
-                              		lv_constraints_3_0, 
+                              		lv_constraints_4_0, 
                               		"JvmLowerBound");
                       	        afterParserOrEnumRuleCall();
                       	    
                     }
 
                     }
+
+
+                    }
+
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19023:2: ( (lv_constraints_5_0= ruleJvmLowerBoundAnded ) )*
+                    loop419:
+                    do {
+                        int alt419=2;
+                        int LA419_0 = input.LA(1);
+
+                        if ( (LA419_0==176) ) {
+                            alt419=1;
+                        }
+
+
+                        switch (alt419) {
+                    	case 1 :
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19024:1: (lv_constraints_5_0= ruleJvmLowerBoundAnded )
+                    	    {
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19024:1: (lv_constraints_5_0= ruleJvmLowerBoundAnded )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19025:3: lv_constraints_5_0= ruleJvmLowerBoundAnded
+                    	    {
+                    	    if ( state.backtracking==0 ) {
+                    	       
+                    	      	        newCompositeNode(grammarAccess.getJvmWildcardTypeReferenceAccess().getConstraintsJvmLowerBoundAndedParserRuleCall_2_1_1_0()); 
+                    	      	    
+                    	    }
+                    	    pushFollow(FollowSets001.FOLLOW_ruleJvmLowerBoundAnded_in_ruleJvmWildcardTypeReference44463);
+                    	    lv_constraints_5_0=ruleJvmLowerBoundAnded();
+
+                    	    state._fsp--;
+                    	    if (state.failed) return current;
+                    	    if ( state.backtracking==0 ) {
+
+                    	      	        if (current==null) {
+                    	      	            current = createModelElementForParent(grammarAccess.getJvmWildcardTypeReferenceRule());
+                    	      	        }
+                    	             		add(
+                    	             			current, 
+                    	             			"constraints",
+                    	              		lv_constraints_5_0, 
+                    	              		"JvmLowerBoundAnded");
+                    	      	        afterParserOrEnumRuleCall();
+                    	      	    
+                    	    }
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop419;
+                        }
+                    } while (true);
 
 
                     }
@@ -53086,7 +53468,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleJvmUpperBound"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18926:1: entryRuleJvmUpperBound returns [EObject current=null] : iv_ruleJvmUpperBound= ruleJvmUpperBound EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19049:1: entryRuleJvmUpperBound returns [EObject current=null] : iv_ruleJvmUpperBound= ruleJvmUpperBound EOF ;
     public final EObject entryRuleJvmUpperBound() throws RecognitionException {
         EObject current = null;
 
@@ -53094,13 +53476,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18927:2: (iv_ruleJvmUpperBound= ruleJvmUpperBound EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18928:2: iv_ruleJvmUpperBound= ruleJvmUpperBound EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19050:2: (iv_ruleJvmUpperBound= ruleJvmUpperBound EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19051:2: iv_ruleJvmUpperBound= ruleJvmUpperBound EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getJvmUpperBoundRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleJvmUpperBound_in_entryRuleJvmUpperBound44280);
+            pushFollow(FollowSets001.FOLLOW_ruleJvmUpperBound_in_entryRuleJvmUpperBound44503);
             iv_ruleJvmUpperBound=ruleJvmUpperBound();
 
             state._fsp--;
@@ -53108,7 +53490,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleJvmUpperBound; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleJvmUpperBound44290); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleJvmUpperBound44513); if (state.failed) return current;
 
             }
 
@@ -53126,7 +53508,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleJvmUpperBound"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18935:1: ruleJvmUpperBound returns [EObject current=null] : (otherlv_0= 'extends' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19058:1: ruleJvmUpperBound returns [EObject current=null] : (otherlv_0= 'extends' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) ) ;
     public final EObject ruleJvmUpperBound() throws RecognitionException {
         EObject current = null;
 
@@ -53137,30 +53519,30 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18938:28: ( (otherlv_0= 'extends' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18939:1: (otherlv_0= 'extends' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19061:28: ( (otherlv_0= 'extends' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19062:1: (otherlv_0= 'extends' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18939:1: (otherlv_0= 'extends' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18939:3: otherlv_0= 'extends' ( (lv_typeReference_1_0= ruleJvmTypeReference ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19062:1: (otherlv_0= 'extends' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19062:3: otherlv_0= 'extends' ( (lv_typeReference_1_0= ruleJvmTypeReference ) )
             {
-            otherlv_0=(Token)match(input,160,FollowSets001.FOLLOW_160_in_ruleJvmUpperBound44327); if (state.failed) return current;
+            otherlv_0=(Token)match(input,160,FollowSets001.FOLLOW_160_in_ruleJvmUpperBound44550); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getJvmUpperBoundAccess().getExtendsKeyword_0());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18943:1: ( (lv_typeReference_1_0= ruleJvmTypeReference ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18944:1: (lv_typeReference_1_0= ruleJvmTypeReference )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19066:1: ( (lv_typeReference_1_0= ruleJvmTypeReference ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19067:1: (lv_typeReference_1_0= ruleJvmTypeReference )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18944:1: (lv_typeReference_1_0= ruleJvmTypeReference )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18945:3: lv_typeReference_1_0= ruleJvmTypeReference
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19067:1: (lv_typeReference_1_0= ruleJvmTypeReference )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19068:3: lv_typeReference_1_0= ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getJvmUpperBoundAccess().getTypeReferenceJvmTypeReferenceParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleJvmUpperBound44348);
+            pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleJvmUpperBound44571);
             lv_typeReference_1_0=ruleJvmTypeReference();
 
             state._fsp--;
@@ -53207,7 +53589,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleJvmUpperBoundAnded"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18969:1: entryRuleJvmUpperBoundAnded returns [EObject current=null] : iv_ruleJvmUpperBoundAnded= ruleJvmUpperBoundAnded EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19092:1: entryRuleJvmUpperBoundAnded returns [EObject current=null] : iv_ruleJvmUpperBoundAnded= ruleJvmUpperBoundAnded EOF ;
     public final EObject entryRuleJvmUpperBoundAnded() throws RecognitionException {
         EObject current = null;
 
@@ -53215,13 +53597,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18970:2: (iv_ruleJvmUpperBoundAnded= ruleJvmUpperBoundAnded EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18971:2: iv_ruleJvmUpperBoundAnded= ruleJvmUpperBoundAnded EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19093:2: (iv_ruleJvmUpperBoundAnded= ruleJvmUpperBoundAnded EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19094:2: iv_ruleJvmUpperBoundAnded= ruleJvmUpperBoundAnded EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getJvmUpperBoundAndedRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleJvmUpperBoundAnded_in_entryRuleJvmUpperBoundAnded44384);
+            pushFollow(FollowSets001.FOLLOW_ruleJvmUpperBoundAnded_in_entryRuleJvmUpperBoundAnded44607);
             iv_ruleJvmUpperBoundAnded=ruleJvmUpperBoundAnded();
 
             state._fsp--;
@@ -53229,7 +53611,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleJvmUpperBoundAnded; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleJvmUpperBoundAnded44394); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleJvmUpperBoundAnded44617); if (state.failed) return current;
 
             }
 
@@ -53247,7 +53629,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleJvmUpperBoundAnded"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18978:1: ruleJvmUpperBoundAnded returns [EObject current=null] : (otherlv_0= '&' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19101:1: ruleJvmUpperBoundAnded returns [EObject current=null] : (otherlv_0= '&' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) ) ;
     public final EObject ruleJvmUpperBoundAnded() throws RecognitionException {
         EObject current = null;
 
@@ -53258,30 +53640,30 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18981:28: ( (otherlv_0= '&' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18982:1: (otherlv_0= '&' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19104:28: ( (otherlv_0= '&' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19105:1: (otherlv_0= '&' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18982:1: (otherlv_0= '&' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18982:3: otherlv_0= '&' ( (lv_typeReference_1_0= ruleJvmTypeReference ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19105:1: (otherlv_0= '&' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19105:3: otherlv_0= '&' ( (lv_typeReference_1_0= ruleJvmTypeReference ) )
             {
-            otherlv_0=(Token)match(input,176,FollowSets001.FOLLOW_176_in_ruleJvmUpperBoundAnded44431); if (state.failed) return current;
+            otherlv_0=(Token)match(input,176,FollowSets001.FOLLOW_176_in_ruleJvmUpperBoundAnded44654); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getJvmUpperBoundAndedAccess().getAmpersandKeyword_0());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18986:1: ( (lv_typeReference_1_0= ruleJvmTypeReference ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18987:1: (lv_typeReference_1_0= ruleJvmTypeReference )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19109:1: ( (lv_typeReference_1_0= ruleJvmTypeReference ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19110:1: (lv_typeReference_1_0= ruleJvmTypeReference )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18987:1: (lv_typeReference_1_0= ruleJvmTypeReference )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18988:3: lv_typeReference_1_0= ruleJvmTypeReference
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19110:1: (lv_typeReference_1_0= ruleJvmTypeReference )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19111:3: lv_typeReference_1_0= ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getJvmUpperBoundAndedAccess().getTypeReferenceJvmTypeReferenceParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleJvmUpperBoundAnded44452);
+            pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleJvmUpperBoundAnded44675);
             lv_typeReference_1_0=ruleJvmTypeReference();
 
             state._fsp--;
@@ -53328,7 +53710,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleJvmLowerBound"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19012:1: entryRuleJvmLowerBound returns [EObject current=null] : iv_ruleJvmLowerBound= ruleJvmLowerBound EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19135:1: entryRuleJvmLowerBound returns [EObject current=null] : iv_ruleJvmLowerBound= ruleJvmLowerBound EOF ;
     public final EObject entryRuleJvmLowerBound() throws RecognitionException {
         EObject current = null;
 
@@ -53336,13 +53718,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19013:2: (iv_ruleJvmLowerBound= ruleJvmLowerBound EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19014:2: iv_ruleJvmLowerBound= ruleJvmLowerBound EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19136:2: (iv_ruleJvmLowerBound= ruleJvmLowerBound EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19137:2: iv_ruleJvmLowerBound= ruleJvmLowerBound EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getJvmLowerBoundRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleJvmLowerBound_in_entryRuleJvmLowerBound44488);
+            pushFollow(FollowSets001.FOLLOW_ruleJvmLowerBound_in_entryRuleJvmLowerBound44711);
             iv_ruleJvmLowerBound=ruleJvmLowerBound();
 
             state._fsp--;
@@ -53350,7 +53732,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleJvmLowerBound; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleJvmLowerBound44498); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleJvmLowerBound44721); if (state.failed) return current;
 
             }
 
@@ -53368,7 +53750,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleJvmLowerBound"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19021:1: ruleJvmLowerBound returns [EObject current=null] : (otherlv_0= 'super' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19144:1: ruleJvmLowerBound returns [EObject current=null] : (otherlv_0= 'super' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) ) ;
     public final EObject ruleJvmLowerBound() throws RecognitionException {
         EObject current = null;
 
@@ -53379,30 +53761,30 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19024:28: ( (otherlv_0= 'super' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19025:1: (otherlv_0= 'super' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19147:28: ( (otherlv_0= 'super' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19148:1: (otherlv_0= 'super' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19025:1: (otherlv_0= 'super' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19025:3: otherlv_0= 'super' ( (lv_typeReference_1_0= ruleJvmTypeReference ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19148:1: (otherlv_0= 'super' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19148:3: otherlv_0= 'super' ( (lv_typeReference_1_0= ruleJvmTypeReference ) )
             {
-            otherlv_0=(Token)match(input,163,FollowSets001.FOLLOW_163_in_ruleJvmLowerBound44535); if (state.failed) return current;
+            otherlv_0=(Token)match(input,163,FollowSets001.FOLLOW_163_in_ruleJvmLowerBound44758); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getJvmLowerBoundAccess().getSuperKeyword_0());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19029:1: ( (lv_typeReference_1_0= ruleJvmTypeReference ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19030:1: (lv_typeReference_1_0= ruleJvmTypeReference )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19152:1: ( (lv_typeReference_1_0= ruleJvmTypeReference ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19153:1: (lv_typeReference_1_0= ruleJvmTypeReference )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19030:1: (lv_typeReference_1_0= ruleJvmTypeReference )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19031:3: lv_typeReference_1_0= ruleJvmTypeReference
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19153:1: (lv_typeReference_1_0= ruleJvmTypeReference )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19154:3: lv_typeReference_1_0= ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getJvmLowerBoundAccess().getTypeReferenceJvmTypeReferenceParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleJvmLowerBound44556);
+            pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleJvmLowerBound44779);
             lv_typeReference_1_0=ruleJvmTypeReference();
 
             state._fsp--;
@@ -53448,8 +53830,129 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleJvmLowerBound"
 
 
+    // $ANTLR start "entryRuleJvmLowerBoundAnded"
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19178:1: entryRuleJvmLowerBoundAnded returns [EObject current=null] : iv_ruleJvmLowerBoundAnded= ruleJvmLowerBoundAnded EOF ;
+    public final EObject entryRuleJvmLowerBoundAnded() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleJvmLowerBoundAnded = null;
+
+
+        try {
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19179:2: (iv_ruleJvmLowerBoundAnded= ruleJvmLowerBoundAnded EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19180:2: iv_ruleJvmLowerBoundAnded= ruleJvmLowerBoundAnded EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getJvmLowerBoundAndedRule()); 
+            }
+            pushFollow(FollowSets001.FOLLOW_ruleJvmLowerBoundAnded_in_entryRuleJvmLowerBoundAnded44815);
+            iv_ruleJvmLowerBoundAnded=ruleJvmLowerBoundAnded();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleJvmLowerBoundAnded; 
+            }
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleJvmLowerBoundAnded44825); if (state.failed) return current;
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleJvmLowerBoundAnded"
+
+
+    // $ANTLR start "ruleJvmLowerBoundAnded"
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19187:1: ruleJvmLowerBoundAnded returns [EObject current=null] : (otherlv_0= '&' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) ) ;
+    public final EObject ruleJvmLowerBoundAnded() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        EObject lv_typeReference_1_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19190:28: ( (otherlv_0= '&' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19191:1: (otherlv_0= '&' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) )
+            {
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19191:1: (otherlv_0= '&' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19191:3: otherlv_0= '&' ( (lv_typeReference_1_0= ruleJvmTypeReference ) )
+            {
+            otherlv_0=(Token)match(input,176,FollowSets001.FOLLOW_176_in_ruleJvmLowerBoundAnded44862); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+                  	newLeafNode(otherlv_0, grammarAccess.getJvmLowerBoundAndedAccess().getAmpersandKeyword_0());
+                  
+            }
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19195:1: ( (lv_typeReference_1_0= ruleJvmTypeReference ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19196:1: (lv_typeReference_1_0= ruleJvmTypeReference )
+            {
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19196:1: (lv_typeReference_1_0= ruleJvmTypeReference )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19197:3: lv_typeReference_1_0= ruleJvmTypeReference
+            {
+            if ( state.backtracking==0 ) {
+               
+              	        newCompositeNode(grammarAccess.getJvmLowerBoundAndedAccess().getTypeReferenceJvmTypeReferenceParserRuleCall_1_0()); 
+              	    
+            }
+            pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_ruleJvmLowerBoundAnded44883);
+            lv_typeReference_1_0=ruleJvmTypeReference();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              	        if (current==null) {
+              	            current = createModelElementForParent(grammarAccess.getJvmLowerBoundAndedRule());
+              	        }
+                     		set(
+                     			current, 
+                     			"typeReference",
+                      		lv_typeReference_1_0, 
+                      		"JvmTypeReference");
+              	        afterParserOrEnumRuleCall();
+              	    
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+               leaveRule(); 
+            }
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleJvmLowerBoundAnded"
+
+
     // $ANTLR start "entryRuleQualifiedNameWithWildcard"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19057:1: entryRuleQualifiedNameWithWildcard returns [String current=null] : iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19223:1: entryRuleQualifiedNameWithWildcard returns [String current=null] : iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF ;
     public final String entryRuleQualifiedNameWithWildcard() throws RecognitionException {
         String current = null;
 
@@ -53457,13 +53960,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19058:2: (iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19059:2: iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19224:2: (iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19225:2: iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getQualifiedNameWithWildcardRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleQualifiedNameWithWildcard_in_entryRuleQualifiedNameWithWildcard44595);
+            pushFollow(FollowSets001.FOLLOW_ruleQualifiedNameWithWildcard_in_entryRuleQualifiedNameWithWildcard44922);
             iv_ruleQualifiedNameWithWildcard=ruleQualifiedNameWithWildcard();
 
             state._fsp--;
@@ -53471,7 +53974,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleQualifiedNameWithWildcard.getText(); 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleQualifiedNameWithWildcard44606); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleQualifiedNameWithWildcard44933); if (state.failed) return current;
 
             }
 
@@ -53489,7 +53992,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQualifiedNameWithWildcard"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19066:1: ruleQualifiedNameWithWildcard returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_QualifiedName_0= ruleQualifiedName kw= '.' kw= '*' ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19232:1: ruleQualifiedNameWithWildcard returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_QualifiedName_0= ruleQualifiedName kw= '.' kw= '*' ) ;
     public final AntlrDatatypeRuleToken ruleQualifiedNameWithWildcard() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -53500,18 +54003,18 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19069:28: ( (this_QualifiedName_0= ruleQualifiedName kw= '.' kw= '*' ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19070:1: (this_QualifiedName_0= ruleQualifiedName kw= '.' kw= '*' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19235:28: ( (this_QualifiedName_0= ruleQualifiedName kw= '.' kw= '*' ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19236:1: (this_QualifiedName_0= ruleQualifiedName kw= '.' kw= '*' )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19070:1: (this_QualifiedName_0= ruleQualifiedName kw= '.' kw= '*' )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19071:5: this_QualifiedName_0= ruleQualifiedName kw= '.' kw= '*'
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19236:1: (this_QualifiedName_0= ruleQualifiedName kw= '.' kw= '*' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19237:5: this_QualifiedName_0= ruleQualifiedName kw= '.' kw= '*'
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getQualifiedNameWithWildcardAccess().getQualifiedNameParserRuleCall_0()); 
                   
             }
-            pushFollow(FollowSets001.FOLLOW_ruleQualifiedName_in_ruleQualifiedNameWithWildcard44653);
+            pushFollow(FollowSets001.FOLLOW_ruleQualifiedName_in_ruleQualifiedNameWithWildcard44980);
             this_QualifiedName_0=ruleQualifiedName();
 
             state._fsp--;
@@ -53526,14 +54029,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            kw=(Token)match(input,31,FollowSets001.FOLLOW_31_in_ruleQualifiedNameWithWildcard44671); if (state.failed) return current;
+            kw=(Token)match(input,31,FollowSets001.FOLLOW_31_in_ruleQualifiedNameWithWildcard44998); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       current.merge(kw);
                       newLeafNode(kw, grammarAccess.getQualifiedNameWithWildcardAccess().getFullStopKeyword_1()); 
                   
             }
-            kw=(Token)match(input,139,FollowSets001.FOLLOW_139_in_ruleQualifiedNameWithWildcard44684); if (state.failed) return current;
+            kw=(Token)match(input,139,FollowSets001.FOLLOW_139_in_ruleQualifiedNameWithWildcard45011); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       current.merge(kw);
@@ -53563,7 +54066,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleValidID"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19101:1: entryRuleValidID returns [String current=null] : iv_ruleValidID= ruleValidID EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19267:1: entryRuleValidID returns [String current=null] : iv_ruleValidID= ruleValidID EOF ;
     public final String entryRuleValidID() throws RecognitionException {
         String current = null;
 
@@ -53571,13 +54074,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19102:2: (iv_ruleValidID= ruleValidID EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19103:2: iv_ruleValidID= ruleValidID EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19268:2: (iv_ruleValidID= ruleValidID EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19269:2: iv_ruleValidID= ruleValidID EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getValidIDRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleValidID_in_entryRuleValidID44725);
+            pushFollow(FollowSets001.FOLLOW_ruleValidID_in_entryRuleValidID45052);
             iv_ruleValidID=ruleValidID();
 
             state._fsp--;
@@ -53585,7 +54088,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleValidID.getText(); 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleValidID44736); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleValidID45063); if (state.failed) return current;
 
             }
 
@@ -53603,7 +54106,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleValidID"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19110:1: ruleValidID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_ID_0= RULE_ID ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19276:1: ruleValidID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_ID_0= RULE_ID ;
     public final AntlrDatatypeRuleToken ruleValidID() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -53612,10 +54115,10 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19113:28: (this_ID_0= RULE_ID )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19114:5: this_ID_0= RULE_ID
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19279:28: (this_ID_0= RULE_ID )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19280:5: this_ID_0= RULE_ID
             {
-            this_ID_0=(Token)match(input,RULE_ID,FollowSets001.FOLLOW_RULE_ID_in_ruleValidID44775); if (state.failed) return current;
+            this_ID_0=(Token)match(input,RULE_ID,FollowSets001.FOLLOW_RULE_ID_in_ruleValidID45102); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		current.merge(this_ID_0);
@@ -53646,7 +54149,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXImportDeclaration"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19131:1: entryRuleXImportDeclaration returns [EObject current=null] : iv_ruleXImportDeclaration= ruleXImportDeclaration EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19297:1: entryRuleXImportDeclaration returns [EObject current=null] : iv_ruleXImportDeclaration= ruleXImportDeclaration EOF ;
     public final EObject entryRuleXImportDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -53654,13 +54157,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19132:2: (iv_ruleXImportDeclaration= ruleXImportDeclaration EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19133:2: iv_ruleXImportDeclaration= ruleXImportDeclaration EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19298:2: (iv_ruleXImportDeclaration= ruleXImportDeclaration EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19299:2: iv_ruleXImportDeclaration= ruleXImportDeclaration EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXImportDeclarationRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleXImportDeclaration_in_entryRuleXImportDeclaration44821);
+            pushFollow(FollowSets001.FOLLOW_ruleXImportDeclaration_in_entryRuleXImportDeclaration45148);
             iv_ruleXImportDeclaration=ruleXImportDeclaration();
 
             state._fsp--;
@@ -53668,7 +54171,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXImportDeclaration; 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXImportDeclaration44831); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleXImportDeclaration45158); if (state.failed) return current;
 
             }
 
@@ -53686,7 +54189,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXImportDeclaration"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19140:1: ruleXImportDeclaration returns [EObject current=null] : (otherlv_0= 'import' ( ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) ) | ( ( ruleQualifiedName ) ) | ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) ) ) (otherlv_8= ';' )? ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19306:1: ruleXImportDeclaration returns [EObject current=null] : (otherlv_0= 'import' ( ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) ) | ( ( ruleQualifiedName ) ) | ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) ) ) (otherlv_8= ';' )? ) ;
     public final EObject ruleXImportDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -53703,35 +54206,35 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19143:28: ( (otherlv_0= 'import' ( ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) ) | ( ( ruleQualifiedName ) ) | ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) ) ) (otherlv_8= ';' )? ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19144:1: (otherlv_0= 'import' ( ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) ) | ( ( ruleQualifiedName ) ) | ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) ) ) (otherlv_8= ';' )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19309:28: ( (otherlv_0= 'import' ( ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) ) | ( ( ruleQualifiedName ) ) | ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) ) ) (otherlv_8= ';' )? ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19310:1: (otherlv_0= 'import' ( ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) ) | ( ( ruleQualifiedName ) ) | ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) ) ) (otherlv_8= ';' )? )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19144:1: (otherlv_0= 'import' ( ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) ) | ( ( ruleQualifiedName ) ) | ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) ) ) (otherlv_8= ';' )? )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19144:3: otherlv_0= 'import' ( ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) ) | ( ( ruleQualifiedName ) ) | ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) ) ) (otherlv_8= ';' )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19310:1: (otherlv_0= 'import' ( ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) ) | ( ( ruleQualifiedName ) ) | ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) ) ) (otherlv_8= ';' )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19310:3: otherlv_0= 'import' ( ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) ) | ( ( ruleQualifiedName ) ) | ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) ) ) (otherlv_8= ';' )?
             {
-            otherlv_0=(Token)match(input,14,FollowSets001.FOLLOW_14_in_ruleXImportDeclaration44868); if (state.failed) return current;
+            otherlv_0=(Token)match(input,14,FollowSets001.FOLLOW_14_in_ruleXImportDeclaration45195); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getXImportDeclarationAccess().getImportKeyword_0());
                   
             }
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19148:1: ( ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) ) | ( ( ruleQualifiedName ) ) | ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) ) )
-            int alt418=3;
-            alt418 = dfa418.predict(input);
-            switch (alt418) {
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19314:1: ( ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) ) | ( ( ruleQualifiedName ) ) | ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) ) )
+            int alt423=3;
+            alt423 = dfa423.predict(input);
+            switch (alt423) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19148:2: ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19314:2: ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19148:2: ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19148:3: ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19314:2: ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19314:3: ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19148:3: ( (lv_static_1_0= 'static' ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19149:1: (lv_static_1_0= 'static' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19314:3: ( (lv_static_1_0= 'static' ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19315:1: (lv_static_1_0= 'static' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19149:1: (lv_static_1_0= 'static' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19150:3: lv_static_1_0= 'static'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19315:1: (lv_static_1_0= 'static' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19316:3: lv_static_1_0= 'static'
                     {
-                    lv_static_1_0=(Token)match(input,161,FollowSets001.FOLLOW_161_in_ruleXImportDeclaration44888); if (state.failed) return current;
+                    lv_static_1_0=(Token)match(input,161,FollowSets001.FOLLOW_161_in_ruleXImportDeclaration45215); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_static_1_0, grammarAccess.getXImportDeclarationAccess().getStaticStaticKeyword_1_0_0_0());
@@ -53751,21 +54254,21 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19163:2: ( (lv_extension_2_0= 'extension' ) )?
-                    int alt416=2;
-                    int LA416_0 = input.LA(1);
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19329:2: ( (lv_extension_2_0= 'extension' ) )?
+                    int alt421=2;
+                    int LA421_0 = input.LA(1);
 
-                    if ( (LA416_0==162) ) {
-                        alt416=1;
+                    if ( (LA421_0==162) ) {
+                        alt421=1;
                     }
-                    switch (alt416) {
+                    switch (alt421) {
                         case 1 :
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19164:1: (lv_extension_2_0= 'extension' )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19330:1: (lv_extension_2_0= 'extension' )
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19164:1: (lv_extension_2_0= 'extension' )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19165:3: lv_extension_2_0= 'extension'
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19330:1: (lv_extension_2_0= 'extension' )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19331:3: lv_extension_2_0= 'extension'
                             {
-                            lv_extension_2_0=(Token)match(input,162,FollowSets001.FOLLOW_162_in_ruleXImportDeclaration44919); if (state.failed) return current;
+                            lv_extension_2_0=(Token)match(input,162,FollowSets001.FOLLOW_162_in_ruleXImportDeclaration45246); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       newLeafNode(lv_extension_2_0, grammarAccess.getXImportDeclarationAccess().getExtensionExtensionKeyword_1_0_1_0());
@@ -53788,11 +54291,11 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19178:3: ( ( ruleQualifiedNameInStaticImport ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19179:1: ( ruleQualifiedNameInStaticImport )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19344:3: ( ( ruleQualifiedNameInStaticImport ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19345:1: ( ruleQualifiedNameInStaticImport )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19179:1: ( ruleQualifiedNameInStaticImport )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19180:3: ruleQualifiedNameInStaticImport
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19345:1: ( ruleQualifiedNameInStaticImport )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19346:3: ruleQualifiedNameInStaticImport
                     {
                     if ( state.backtracking==0 ) {
 
@@ -53806,7 +54309,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getXImportDeclarationAccess().getImportedTypeJvmDeclaredTypeCrossReference_1_0_2_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleQualifiedNameInStaticImport_in_ruleXImportDeclaration44956);
+                    pushFollow(FollowSets001.FOLLOW_ruleQualifiedNameInStaticImport_in_ruleXImportDeclaration45283);
                     ruleQualifiedNameInStaticImport();
 
                     state._fsp--;
@@ -53822,34 +54325,34 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19193:2: ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) )
-                    int alt417=2;
-                    int LA417_0 = input.LA(1);
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19359:2: ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) )
+                    int alt422=2;
+                    int LA422_0 = input.LA(1);
 
-                    if ( (LA417_0==139) ) {
-                        alt417=1;
+                    if ( (LA422_0==139) ) {
+                        alt422=1;
                     }
-                    else if ( (LA417_0==RULE_ID) ) {
-                        alt417=2;
+                    else if ( (LA422_0==RULE_ID) ) {
+                        alt422=2;
                     }
                     else {
                         if (state.backtracking>0) {state.failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 417, 0, input);
+                            new NoViableAltException("", 422, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt417) {
+                    switch (alt422) {
                         case 1 :
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19193:3: ( (lv_wildcard_4_0= '*' ) )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19359:3: ( (lv_wildcard_4_0= '*' ) )
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19193:3: ( (lv_wildcard_4_0= '*' ) )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19194:1: (lv_wildcard_4_0= '*' )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19359:3: ( (lv_wildcard_4_0= '*' ) )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19360:1: (lv_wildcard_4_0= '*' )
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19194:1: (lv_wildcard_4_0= '*' )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19195:3: lv_wildcard_4_0= '*'
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19360:1: (lv_wildcard_4_0= '*' )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19361:3: lv_wildcard_4_0= '*'
                             {
-                            lv_wildcard_4_0=(Token)match(input,139,FollowSets001.FOLLOW_139_in_ruleXImportDeclaration44975); if (state.failed) return current;
+                            lv_wildcard_4_0=(Token)match(input,139,FollowSets001.FOLLOW_139_in_ruleXImportDeclaration45302); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       newLeafNode(lv_wildcard_4_0, grammarAccess.getXImportDeclarationAccess().getWildcardAsteriskKeyword_1_0_3_0_0());
@@ -53873,20 +54376,20 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19209:6: ( (lv_memberName_5_0= ruleValidID ) )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19375:6: ( (lv_memberName_5_0= ruleValidID ) )
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19209:6: ( (lv_memberName_5_0= ruleValidID ) )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19210:1: (lv_memberName_5_0= ruleValidID )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19375:6: ( (lv_memberName_5_0= ruleValidID ) )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19376:1: (lv_memberName_5_0= ruleValidID )
                             {
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19210:1: (lv_memberName_5_0= ruleValidID )
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19211:3: lv_memberName_5_0= ruleValidID
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19376:1: (lv_memberName_5_0= ruleValidID )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19377:3: lv_memberName_5_0= ruleValidID
                             {
                             if ( state.backtracking==0 ) {
                                
                               	        newCompositeNode(grammarAccess.getXImportDeclarationAccess().getMemberNameValidIDParserRuleCall_1_0_3_1_0()); 
                               	    
                             }
-                            pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleXImportDeclaration45015);
+                            pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleXImportDeclaration45342);
                             lv_memberName_5_0=ruleValidID();
 
                             state._fsp--;
@@ -53923,13 +54426,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19228:6: ( ( ruleQualifiedName ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19394:6: ( ( ruleQualifiedName ) )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19228:6: ( ( ruleQualifiedName ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19229:1: ( ruleQualifiedName )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19394:6: ( ( ruleQualifiedName ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19395:1: ( ruleQualifiedName )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19229:1: ( ruleQualifiedName )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19230:3: ruleQualifiedName
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19395:1: ( ruleQualifiedName )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19396:3: ruleQualifiedName
                     {
                     if ( state.backtracking==0 ) {
 
@@ -53943,7 +54446,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getXImportDeclarationAccess().getImportedTypeJvmDeclaredTypeCrossReference_1_1_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleQualifiedName_in_ruleXImportDeclaration45046);
+                    pushFollow(FollowSets001.FOLLOW_ruleQualifiedName_in_ruleXImportDeclaration45373);
                     ruleQualifiedName();
 
                     state._fsp--;
@@ -53963,20 +54466,20 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19244:6: ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19410:6: ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19244:6: ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19245:1: (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19410:6: ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19411:1: (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19245:1: (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19246:3: lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19411:1: (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19412:3: lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getXImportDeclarationAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_2_0()); 
                       	    
                     }
-                    pushFollow(FollowSets001.FOLLOW_ruleQualifiedNameWithWildcard_in_ruleXImportDeclaration45073);
+                    pushFollow(FollowSets001.FOLLOW_ruleQualifiedNameWithWildcard_in_ruleXImportDeclaration45400);
                     lv_importedNamespace_7_0=ruleQualifiedNameWithWildcard();
 
                     state._fsp--;
@@ -54006,18 +54509,18 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19262:3: (otherlv_8= ';' )?
-            int alt419=2;
-            int LA419_0 = input.LA(1);
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19428:3: (otherlv_8= ';' )?
+            int alt424=2;
+            int LA424_0 = input.LA(1);
 
-            if ( (LA419_0==15) ) {
-                alt419=1;
+            if ( (LA424_0==15) ) {
+                alt424=1;
             }
-            switch (alt419) {
+            switch (alt424) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19262:5: otherlv_8= ';'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19428:5: otherlv_8= ';'
                     {
-                    otherlv_8=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleXImportDeclaration45087); if (state.failed) return current;
+                    otherlv_8=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleXImportDeclaration45414); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_8, grammarAccess.getXImportDeclarationAccess().getSemicolonKeyword_2());
@@ -54052,7 +54555,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQualifiedNameInStaticImport"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19274:1: entryRuleQualifiedNameInStaticImport returns [String current=null] : iv_ruleQualifiedNameInStaticImport= ruleQualifiedNameInStaticImport EOF ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19440:1: entryRuleQualifiedNameInStaticImport returns [String current=null] : iv_ruleQualifiedNameInStaticImport= ruleQualifiedNameInStaticImport EOF ;
     public final String entryRuleQualifiedNameInStaticImport() throws RecognitionException {
         String current = null;
 
@@ -54060,13 +54563,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19275:2: (iv_ruleQualifiedNameInStaticImport= ruleQualifiedNameInStaticImport EOF )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19276:2: iv_ruleQualifiedNameInStaticImport= ruleQualifiedNameInStaticImport EOF
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19441:2: (iv_ruleQualifiedNameInStaticImport= ruleQualifiedNameInStaticImport EOF )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19442:2: iv_ruleQualifiedNameInStaticImport= ruleQualifiedNameInStaticImport EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getQualifiedNameInStaticImportRule()); 
             }
-            pushFollow(FollowSets001.FOLLOW_ruleQualifiedNameInStaticImport_in_entryRuleQualifiedNameInStaticImport45126);
+            pushFollow(FollowSets001.FOLLOW_ruleQualifiedNameInStaticImport_in_entryRuleQualifiedNameInStaticImport45453);
             iv_ruleQualifiedNameInStaticImport=ruleQualifiedNameInStaticImport();
 
             state._fsp--;
@@ -54074,7 +54577,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleQualifiedNameInStaticImport.getText(); 
             }
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleQualifiedNameInStaticImport45137); if (state.failed) return current;
+            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleQualifiedNameInStaticImport45464); if (state.failed) return current;
 
             }
 
@@ -54092,7 +54595,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQualifiedNameInStaticImport"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19283:1: ruleQualifiedNameInStaticImport returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ValidID_0= ruleValidID kw= '.' )+ ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19449:1: ruleQualifiedNameInStaticImport returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ValidID_0= ruleValidID kw= '.' )+ ;
     public final AntlrDatatypeRuleToken ruleQualifiedNameInStaticImport() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -54103,37 +54606,37 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19286:28: ( (this_ValidID_0= ruleValidID kw= '.' )+ )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19287:1: (this_ValidID_0= ruleValidID kw= '.' )+
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19452:28: ( (this_ValidID_0= ruleValidID kw= '.' )+ )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19453:1: (this_ValidID_0= ruleValidID kw= '.' )+
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19287:1: (this_ValidID_0= ruleValidID kw= '.' )+
-            int cnt420=0;
-            loop420:
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19453:1: (this_ValidID_0= ruleValidID kw= '.' )+
+            int cnt425=0;
+            loop425:
             do {
-                int alt420=2;
-                int LA420_0 = input.LA(1);
+                int alt425=2;
+                int LA425_0 = input.LA(1);
 
-                if ( (LA420_0==RULE_ID) ) {
-                    int LA420_2 = input.LA(2);
+                if ( (LA425_0==RULE_ID) ) {
+                    int LA425_2 = input.LA(2);
 
-                    if ( (LA420_2==31) ) {
-                        alt420=1;
+                    if ( (LA425_2==31) ) {
+                        alt425=1;
                     }
 
 
                 }
 
 
-                switch (alt420) {
+                switch (alt425) {
             	case 1 :
-            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19288:5: this_ValidID_0= ruleValidID kw= '.'
+            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19454:5: this_ValidID_0= ruleValidID kw= '.'
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	              newCompositeNode(grammarAccess.getQualifiedNameInStaticImportAccess().getValidIDParserRuleCall_0()); 
             	          
             	    }
-            	    pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleQualifiedNameInStaticImport45184);
+            	    pushFollow(FollowSets001.FOLLOW_ruleValidID_in_ruleQualifiedNameInStaticImport45511);
             	    this_ValidID_0=ruleValidID();
 
             	    state._fsp--;
@@ -54148,7 +54651,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             	              afterParserOrEnumRuleCall();
             	          
             	    }
-            	    kw=(Token)match(input,31,FollowSets001.FOLLOW_31_in_ruleQualifiedNameInStaticImport45202); if (state.failed) return current;
+            	    kw=(Token)match(input,31,FollowSets001.FOLLOW_31_in_ruleQualifiedNameInStaticImport45529); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -54160,13 +54663,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt420 >= 1 ) break loop420;
+            	    if ( cnt425 >= 1 ) break loop425;
             	    if (state.backtracking>0) {state.failed=true; return current;}
                         EarlyExitException eee =
-                            new EarlyExitException(420, input);
+                            new EarlyExitException(425, input);
                         throw eee;
                 }
-                cnt420++;
+                cnt425++;
             } while (true);
 
 
@@ -54189,7 +54692,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUiDateFormat"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19312:1: ruleUiDateFormat returns [Enumerator current=null] : ( (enumLiteral_0= 'date' ) | (enumLiteral_1= 'datetime' ) | (enumLiteral_2= 'time' ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19478:1: ruleUiDateFormat returns [Enumerator current=null] : ( (enumLiteral_0= 'date' ) | (enumLiteral_1= 'datetime' ) | (enumLiteral_2= 'time' ) ) ;
     public final Enumerator ruleUiDateFormat() throws RecognitionException {
         Enumerator current = null;
 
@@ -54199,43 +54702,43 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19314:28: ( ( (enumLiteral_0= 'date' ) | (enumLiteral_1= 'datetime' ) | (enumLiteral_2= 'time' ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19315:1: ( (enumLiteral_0= 'date' ) | (enumLiteral_1= 'datetime' ) | (enumLiteral_2= 'time' ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19480:28: ( ( (enumLiteral_0= 'date' ) | (enumLiteral_1= 'datetime' ) | (enumLiteral_2= 'time' ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19481:1: ( (enumLiteral_0= 'date' ) | (enumLiteral_1= 'datetime' ) | (enumLiteral_2= 'time' ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19315:1: ( (enumLiteral_0= 'date' ) | (enumLiteral_1= 'datetime' ) | (enumLiteral_2= 'time' ) )
-            int alt421=3;
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19481:1: ( (enumLiteral_0= 'date' ) | (enumLiteral_1= 'datetime' ) | (enumLiteral_2= 'time' ) )
+            int alt426=3;
             switch ( input.LA(1) ) {
             case 177:
                 {
-                alt421=1;
+                alt426=1;
                 }
                 break;
             case 178:
                 {
-                alt421=2;
+                alt426=2;
                 }
                 break;
             case 179:
                 {
-                alt421=3;
+                alt426=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 421, 0, input);
+                    new NoViableAltException("", 426, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt421) {
+            switch (alt426) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19315:2: (enumLiteral_0= 'date' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19481:2: (enumLiteral_0= 'date' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19315:2: (enumLiteral_0= 'date' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19315:4: enumLiteral_0= 'date'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19481:2: (enumLiteral_0= 'date' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19481:4: enumLiteral_0= 'date'
                     {
-                    enumLiteral_0=(Token)match(input,177,FollowSets001.FOLLOW_177_in_ruleUiDateFormat45257); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,177,FollowSets001.FOLLOW_177_in_ruleUiDateFormat45584); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiDateFormatAccess().getDATEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -54249,12 +54752,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19321:6: (enumLiteral_1= 'datetime' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19487:6: (enumLiteral_1= 'datetime' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19321:6: (enumLiteral_1= 'datetime' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19321:8: enumLiteral_1= 'datetime'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19487:6: (enumLiteral_1= 'datetime' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19487:8: enumLiteral_1= 'datetime'
                     {
-                    enumLiteral_1=(Token)match(input,178,FollowSets001.FOLLOW_178_in_ruleUiDateFormat45274); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,178,FollowSets001.FOLLOW_178_in_ruleUiDateFormat45601); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiDateFormatAccess().getDATE_TIMEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -54268,12 +54771,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19327:6: (enumLiteral_2= 'time' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19493:6: (enumLiteral_2= 'time' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19327:6: (enumLiteral_2= 'time' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19327:8: enumLiteral_2= 'time'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19493:6: (enumLiteral_2= 'time' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19493:8: enumLiteral_2= 'time'
                     {
-                    enumLiteral_2=(Token)match(input,179,FollowSets001.FOLLOW_179_in_ruleUiDateFormat45291); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,179,FollowSets001.FOLLOW_179_in_ruleUiDateFormat45618); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiDateFormatAccess().getTIMEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -54309,7 +54812,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUiDateTimeResolution"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19337:1: ruleUiDateTimeResolution returns [Enumerator current=null] : ( (enumLiteral_0= 'undefined' ) | (enumLiteral_1= 'second' ) | (enumLiteral_2= 'minute' ) | (enumLiteral_3= 'hour' ) | (enumLiteral_4= 'day' ) | (enumLiteral_5= 'month' ) | (enumLiteral_6= 'year' ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19503:1: ruleUiDateTimeResolution returns [Enumerator current=null] : ( (enumLiteral_0= 'undefined' ) | (enumLiteral_1= 'second' ) | (enumLiteral_2= 'minute' ) | (enumLiteral_3= 'hour' ) | (enumLiteral_4= 'day' ) | (enumLiteral_5= 'month' ) | (enumLiteral_6= 'year' ) ) ;
     public final Enumerator ruleUiDateTimeResolution() throws RecognitionException {
         Enumerator current = null;
 
@@ -54323,63 +54826,63 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19339:28: ( ( (enumLiteral_0= 'undefined' ) | (enumLiteral_1= 'second' ) | (enumLiteral_2= 'minute' ) | (enumLiteral_3= 'hour' ) | (enumLiteral_4= 'day' ) | (enumLiteral_5= 'month' ) | (enumLiteral_6= 'year' ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19340:1: ( (enumLiteral_0= 'undefined' ) | (enumLiteral_1= 'second' ) | (enumLiteral_2= 'minute' ) | (enumLiteral_3= 'hour' ) | (enumLiteral_4= 'day' ) | (enumLiteral_5= 'month' ) | (enumLiteral_6= 'year' ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19505:28: ( ( (enumLiteral_0= 'undefined' ) | (enumLiteral_1= 'second' ) | (enumLiteral_2= 'minute' ) | (enumLiteral_3= 'hour' ) | (enumLiteral_4= 'day' ) | (enumLiteral_5= 'month' ) | (enumLiteral_6= 'year' ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19506:1: ( (enumLiteral_0= 'undefined' ) | (enumLiteral_1= 'second' ) | (enumLiteral_2= 'minute' ) | (enumLiteral_3= 'hour' ) | (enumLiteral_4= 'day' ) | (enumLiteral_5= 'month' ) | (enumLiteral_6= 'year' ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19340:1: ( (enumLiteral_0= 'undefined' ) | (enumLiteral_1= 'second' ) | (enumLiteral_2= 'minute' ) | (enumLiteral_3= 'hour' ) | (enumLiteral_4= 'day' ) | (enumLiteral_5= 'month' ) | (enumLiteral_6= 'year' ) )
-            int alt422=7;
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19506:1: ( (enumLiteral_0= 'undefined' ) | (enumLiteral_1= 'second' ) | (enumLiteral_2= 'minute' ) | (enumLiteral_3= 'hour' ) | (enumLiteral_4= 'day' ) | (enumLiteral_5= 'month' ) | (enumLiteral_6= 'year' ) )
+            int alt427=7;
             switch ( input.LA(1) ) {
             case 180:
                 {
-                alt422=1;
+                alt427=1;
                 }
                 break;
             case 68:
                 {
-                alt422=2;
+                alt427=2;
                 }
                 break;
             case 181:
                 {
-                alt422=3;
+                alt427=3;
                 }
                 break;
             case 182:
                 {
-                alt422=4;
+                alt427=4;
                 }
                 break;
             case 183:
                 {
-                alt422=5;
+                alt427=5;
                 }
                 break;
             case 184:
                 {
-                alt422=6;
+                alt427=6;
                 }
                 break;
             case 185:
                 {
-                alt422=7;
+                alt427=7;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 422, 0, input);
+                    new NoViableAltException("", 427, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt422) {
+            switch (alt427) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19340:2: (enumLiteral_0= 'undefined' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19506:2: (enumLiteral_0= 'undefined' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19340:2: (enumLiteral_0= 'undefined' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19340:4: enumLiteral_0= 'undefined'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19506:2: (enumLiteral_0= 'undefined' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19506:4: enumLiteral_0= 'undefined'
                     {
-                    enumLiteral_0=(Token)match(input,180,FollowSets001.FOLLOW_180_in_ruleUiDateTimeResolution45336); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,180,FollowSets001.FOLLOW_180_in_ruleUiDateTimeResolution45663); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiDateTimeResolutionAccess().getUNDEFINEDEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -54393,12 +54896,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19346:6: (enumLiteral_1= 'second' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19512:6: (enumLiteral_1= 'second' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19346:6: (enumLiteral_1= 'second' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19346:8: enumLiteral_1= 'second'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19512:6: (enumLiteral_1= 'second' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19512:8: enumLiteral_1= 'second'
                     {
-                    enumLiteral_1=(Token)match(input,68,FollowSets001.FOLLOW_68_in_ruleUiDateTimeResolution45353); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,68,FollowSets001.FOLLOW_68_in_ruleUiDateTimeResolution45680); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiDateTimeResolutionAccess().getSECONDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -54412,12 +54915,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19352:6: (enumLiteral_2= 'minute' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19518:6: (enumLiteral_2= 'minute' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19352:6: (enumLiteral_2= 'minute' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19352:8: enumLiteral_2= 'minute'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19518:6: (enumLiteral_2= 'minute' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19518:8: enumLiteral_2= 'minute'
                     {
-                    enumLiteral_2=(Token)match(input,181,FollowSets001.FOLLOW_181_in_ruleUiDateTimeResolution45370); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,181,FollowSets001.FOLLOW_181_in_ruleUiDateTimeResolution45697); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiDateTimeResolutionAccess().getMINUTEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -54431,12 +54934,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19358:6: (enumLiteral_3= 'hour' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19524:6: (enumLiteral_3= 'hour' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19358:6: (enumLiteral_3= 'hour' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19358:8: enumLiteral_3= 'hour'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19524:6: (enumLiteral_3= 'hour' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19524:8: enumLiteral_3= 'hour'
                     {
-                    enumLiteral_3=(Token)match(input,182,FollowSets001.FOLLOW_182_in_ruleUiDateTimeResolution45387); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,182,FollowSets001.FOLLOW_182_in_ruleUiDateTimeResolution45714); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiDateTimeResolutionAccess().getHOUREnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -54450,12 +54953,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19364:6: (enumLiteral_4= 'day' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19530:6: (enumLiteral_4= 'day' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19364:6: (enumLiteral_4= 'day' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19364:8: enumLiteral_4= 'day'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19530:6: (enumLiteral_4= 'day' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19530:8: enumLiteral_4= 'day'
                     {
-                    enumLiteral_4=(Token)match(input,183,FollowSets001.FOLLOW_183_in_ruleUiDateTimeResolution45404); if (state.failed) return current;
+                    enumLiteral_4=(Token)match(input,183,FollowSets001.FOLLOW_183_in_ruleUiDateTimeResolution45731); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiDateTimeResolutionAccess().getDAYEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -54469,12 +54972,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19370:6: (enumLiteral_5= 'month' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19536:6: (enumLiteral_5= 'month' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19370:6: (enumLiteral_5= 'month' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19370:8: enumLiteral_5= 'month'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19536:6: (enumLiteral_5= 'month' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19536:8: enumLiteral_5= 'month'
                     {
-                    enumLiteral_5=(Token)match(input,184,FollowSets001.FOLLOW_184_in_ruleUiDateTimeResolution45421); if (state.failed) return current;
+                    enumLiteral_5=(Token)match(input,184,FollowSets001.FOLLOW_184_in_ruleUiDateTimeResolution45748); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiDateTimeResolutionAccess().getMONTHEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
@@ -54488,12 +54991,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19376:6: (enumLiteral_6= 'year' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19542:6: (enumLiteral_6= 'year' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19376:6: (enumLiteral_6= 'year' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19376:8: enumLiteral_6= 'year'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19542:6: (enumLiteral_6= 'year' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19542:8: enumLiteral_6= 'year'
                     {
-                    enumLiteral_6=(Token)match(input,185,FollowSets001.FOLLOW_185_in_ruleUiDateTimeResolution45438); if (state.failed) return current;
+                    enumLiteral_6=(Token)match(input,185,FollowSets001.FOLLOW_185_in_ruleUiDateTimeResolution45765); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiDateTimeResolutionAccess().getYEAREnumLiteralDeclaration_6().getEnumLiteral().getInstance();
@@ -54529,7 +55032,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUiSelectionType"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19386:1: ruleUiSelectionType returns [Enumerator current=null] : ( (enumLiteral_0= 'single' ) | (enumLiteral_1= 'multi' ) | (enumLiteral_2= 'none' ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19552:1: ruleUiSelectionType returns [Enumerator current=null] : ( (enumLiteral_0= 'single' ) | (enumLiteral_1= 'multi' ) | (enumLiteral_2= 'none' ) ) ;
     public final Enumerator ruleUiSelectionType() throws RecognitionException {
         Enumerator current = null;
 
@@ -54539,43 +55042,43 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19388:28: ( ( (enumLiteral_0= 'single' ) | (enumLiteral_1= 'multi' ) | (enumLiteral_2= 'none' ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19389:1: ( (enumLiteral_0= 'single' ) | (enumLiteral_1= 'multi' ) | (enumLiteral_2= 'none' ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19554:28: ( ( (enumLiteral_0= 'single' ) | (enumLiteral_1= 'multi' ) | (enumLiteral_2= 'none' ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19555:1: ( (enumLiteral_0= 'single' ) | (enumLiteral_1= 'multi' ) | (enumLiteral_2= 'none' ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19389:1: ( (enumLiteral_0= 'single' ) | (enumLiteral_1= 'multi' ) | (enumLiteral_2= 'none' ) )
-            int alt423=3;
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19555:1: ( (enumLiteral_0= 'single' ) | (enumLiteral_1= 'multi' ) | (enumLiteral_2= 'none' ) )
+            int alt428=3;
             switch ( input.LA(1) ) {
             case 186:
                 {
-                alt423=1;
+                alt428=1;
                 }
                 break;
             case 187:
                 {
-                alt423=2;
+                alt428=2;
                 }
                 break;
             case 188:
                 {
-                alt423=3;
+                alt428=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 423, 0, input);
+                    new NoViableAltException("", 428, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt423) {
+            switch (alt428) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19389:2: (enumLiteral_0= 'single' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19555:2: (enumLiteral_0= 'single' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19389:2: (enumLiteral_0= 'single' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19389:4: enumLiteral_0= 'single'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19555:2: (enumLiteral_0= 'single' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19555:4: enumLiteral_0= 'single'
                     {
-                    enumLiteral_0=(Token)match(input,186,FollowSets001.FOLLOW_186_in_ruleUiSelectionType45483); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,186,FollowSets001.FOLLOW_186_in_ruleUiSelectionType45810); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiSelectionTypeAccess().getSINGLEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -54589,12 +55092,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19395:6: (enumLiteral_1= 'multi' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19561:6: (enumLiteral_1= 'multi' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19395:6: (enumLiteral_1= 'multi' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19395:8: enumLiteral_1= 'multi'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19561:6: (enumLiteral_1= 'multi' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19561:8: enumLiteral_1= 'multi'
                     {
-                    enumLiteral_1=(Token)match(input,187,FollowSets001.FOLLOW_187_in_ruleUiSelectionType45500); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,187,FollowSets001.FOLLOW_187_in_ruleUiSelectionType45827); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiSelectionTypeAccess().getMULTIEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -54608,12 +55111,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19401:6: (enumLiteral_2= 'none' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19567:6: (enumLiteral_2= 'none' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19401:6: (enumLiteral_2= 'none' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19401:8: enumLiteral_2= 'none'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19567:6: (enumLiteral_2= 'none' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19567:8: enumLiteral_2= 'none'
                     {
-                    enumLiteral_2=(Token)match(input,188,FollowSets001.FOLLOW_188_in_ruleUiSelectionType45517); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,188,FollowSets001.FOLLOW_188_in_ruleUiSelectionType45844); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiSelectionTypeAccess().getNONEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -54649,7 +55152,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUiAlignment"
-    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19411:1: ruleUiAlignment returns [Enumerator current=null] : ( (enumLiteral_0= 'undefined' ) | (enumLiteral_1= 'bottom-center' ) | (enumLiteral_2= 'bottom-left' ) | (enumLiteral_3= 'bottom-right' ) | (enumLiteral_4= 'bottom-fill' ) | (enumLiteral_5= 'middle-center' ) | (enumLiteral_6= 'middle-left' ) | (enumLiteral_7= 'middle-right' ) | (enumLiteral_8= 'middle-fill' ) | (enumLiteral_9= 'top-center' ) | (enumLiteral_10= 'top-left' ) | (enumLiteral_11= 'top-right' ) | (enumLiteral_12= 'top-fill' ) | (enumLiteral_13= 'fill-center' ) | (enumLiteral_14= 'fill-left' ) | (enumLiteral_15= 'fill-right' ) | (enumLiteral_16= 'fill-fill' ) ) ;
+    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19577:1: ruleUiAlignment returns [Enumerator current=null] : ( (enumLiteral_0= 'undefined' ) | (enumLiteral_1= 'bottom-center' ) | (enumLiteral_2= 'bottom-left' ) | (enumLiteral_3= 'bottom-right' ) | (enumLiteral_4= 'bottom-fill' ) | (enumLiteral_5= 'middle-center' ) | (enumLiteral_6= 'middle-left' ) | (enumLiteral_7= 'middle-right' ) | (enumLiteral_8= 'middle-fill' ) | (enumLiteral_9= 'top-center' ) | (enumLiteral_10= 'top-left' ) | (enumLiteral_11= 'top-right' ) | (enumLiteral_12= 'top-fill' ) | (enumLiteral_13= 'fill-center' ) | (enumLiteral_14= 'fill-left' ) | (enumLiteral_15= 'fill-right' ) | (enumLiteral_16= 'fill-fill' ) ) ;
     public final Enumerator ruleUiAlignment() throws RecognitionException {
         Enumerator current = null;
 
@@ -54673,113 +55176,113 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19413:28: ( ( (enumLiteral_0= 'undefined' ) | (enumLiteral_1= 'bottom-center' ) | (enumLiteral_2= 'bottom-left' ) | (enumLiteral_3= 'bottom-right' ) | (enumLiteral_4= 'bottom-fill' ) | (enumLiteral_5= 'middle-center' ) | (enumLiteral_6= 'middle-left' ) | (enumLiteral_7= 'middle-right' ) | (enumLiteral_8= 'middle-fill' ) | (enumLiteral_9= 'top-center' ) | (enumLiteral_10= 'top-left' ) | (enumLiteral_11= 'top-right' ) | (enumLiteral_12= 'top-fill' ) | (enumLiteral_13= 'fill-center' ) | (enumLiteral_14= 'fill-left' ) | (enumLiteral_15= 'fill-right' ) | (enumLiteral_16= 'fill-fill' ) ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19414:1: ( (enumLiteral_0= 'undefined' ) | (enumLiteral_1= 'bottom-center' ) | (enumLiteral_2= 'bottom-left' ) | (enumLiteral_3= 'bottom-right' ) | (enumLiteral_4= 'bottom-fill' ) | (enumLiteral_5= 'middle-center' ) | (enumLiteral_6= 'middle-left' ) | (enumLiteral_7= 'middle-right' ) | (enumLiteral_8= 'middle-fill' ) | (enumLiteral_9= 'top-center' ) | (enumLiteral_10= 'top-left' ) | (enumLiteral_11= 'top-right' ) | (enumLiteral_12= 'top-fill' ) | (enumLiteral_13= 'fill-center' ) | (enumLiteral_14= 'fill-left' ) | (enumLiteral_15= 'fill-right' ) | (enumLiteral_16= 'fill-fill' ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19579:28: ( ( (enumLiteral_0= 'undefined' ) | (enumLiteral_1= 'bottom-center' ) | (enumLiteral_2= 'bottom-left' ) | (enumLiteral_3= 'bottom-right' ) | (enumLiteral_4= 'bottom-fill' ) | (enumLiteral_5= 'middle-center' ) | (enumLiteral_6= 'middle-left' ) | (enumLiteral_7= 'middle-right' ) | (enumLiteral_8= 'middle-fill' ) | (enumLiteral_9= 'top-center' ) | (enumLiteral_10= 'top-left' ) | (enumLiteral_11= 'top-right' ) | (enumLiteral_12= 'top-fill' ) | (enumLiteral_13= 'fill-center' ) | (enumLiteral_14= 'fill-left' ) | (enumLiteral_15= 'fill-right' ) | (enumLiteral_16= 'fill-fill' ) ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19580:1: ( (enumLiteral_0= 'undefined' ) | (enumLiteral_1= 'bottom-center' ) | (enumLiteral_2= 'bottom-left' ) | (enumLiteral_3= 'bottom-right' ) | (enumLiteral_4= 'bottom-fill' ) | (enumLiteral_5= 'middle-center' ) | (enumLiteral_6= 'middle-left' ) | (enumLiteral_7= 'middle-right' ) | (enumLiteral_8= 'middle-fill' ) | (enumLiteral_9= 'top-center' ) | (enumLiteral_10= 'top-left' ) | (enumLiteral_11= 'top-right' ) | (enumLiteral_12= 'top-fill' ) | (enumLiteral_13= 'fill-center' ) | (enumLiteral_14= 'fill-left' ) | (enumLiteral_15= 'fill-right' ) | (enumLiteral_16= 'fill-fill' ) )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19414:1: ( (enumLiteral_0= 'undefined' ) | (enumLiteral_1= 'bottom-center' ) | (enumLiteral_2= 'bottom-left' ) | (enumLiteral_3= 'bottom-right' ) | (enumLiteral_4= 'bottom-fill' ) | (enumLiteral_5= 'middle-center' ) | (enumLiteral_6= 'middle-left' ) | (enumLiteral_7= 'middle-right' ) | (enumLiteral_8= 'middle-fill' ) | (enumLiteral_9= 'top-center' ) | (enumLiteral_10= 'top-left' ) | (enumLiteral_11= 'top-right' ) | (enumLiteral_12= 'top-fill' ) | (enumLiteral_13= 'fill-center' ) | (enumLiteral_14= 'fill-left' ) | (enumLiteral_15= 'fill-right' ) | (enumLiteral_16= 'fill-fill' ) )
-            int alt424=17;
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19580:1: ( (enumLiteral_0= 'undefined' ) | (enumLiteral_1= 'bottom-center' ) | (enumLiteral_2= 'bottom-left' ) | (enumLiteral_3= 'bottom-right' ) | (enumLiteral_4= 'bottom-fill' ) | (enumLiteral_5= 'middle-center' ) | (enumLiteral_6= 'middle-left' ) | (enumLiteral_7= 'middle-right' ) | (enumLiteral_8= 'middle-fill' ) | (enumLiteral_9= 'top-center' ) | (enumLiteral_10= 'top-left' ) | (enumLiteral_11= 'top-right' ) | (enumLiteral_12= 'top-fill' ) | (enumLiteral_13= 'fill-center' ) | (enumLiteral_14= 'fill-left' ) | (enumLiteral_15= 'fill-right' ) | (enumLiteral_16= 'fill-fill' ) )
+            int alt429=17;
             switch ( input.LA(1) ) {
             case 180:
                 {
-                alt424=1;
+                alt429=1;
                 }
                 break;
             case 189:
                 {
-                alt424=2;
+                alt429=2;
                 }
                 break;
             case 190:
                 {
-                alt424=3;
+                alt429=3;
                 }
                 break;
             case 191:
                 {
-                alt424=4;
+                alt429=4;
                 }
                 break;
             case 192:
                 {
-                alt424=5;
+                alt429=5;
                 }
                 break;
             case 193:
                 {
-                alt424=6;
+                alt429=6;
                 }
                 break;
             case 194:
                 {
-                alt424=7;
+                alt429=7;
                 }
                 break;
             case 195:
                 {
-                alt424=8;
+                alt429=8;
                 }
                 break;
             case 196:
                 {
-                alt424=9;
+                alt429=9;
                 }
                 break;
             case 197:
                 {
-                alt424=10;
+                alt429=10;
                 }
                 break;
             case 198:
                 {
-                alt424=11;
+                alt429=11;
                 }
                 break;
             case 199:
                 {
-                alt424=12;
+                alt429=12;
                 }
                 break;
             case 200:
                 {
-                alt424=13;
+                alt429=13;
                 }
                 break;
             case 201:
                 {
-                alt424=14;
+                alt429=14;
                 }
                 break;
             case 202:
                 {
-                alt424=15;
+                alt429=15;
                 }
                 break;
             case 203:
                 {
-                alt424=16;
+                alt429=16;
                 }
                 break;
             case 204:
                 {
-                alt424=17;
+                alt429=17;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 424, 0, input);
+                    new NoViableAltException("", 429, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt424) {
+            switch (alt429) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19414:2: (enumLiteral_0= 'undefined' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19580:2: (enumLiteral_0= 'undefined' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19414:2: (enumLiteral_0= 'undefined' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19414:4: enumLiteral_0= 'undefined'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19580:2: (enumLiteral_0= 'undefined' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19580:4: enumLiteral_0= 'undefined'
                     {
-                    enumLiteral_0=(Token)match(input,180,FollowSets001.FOLLOW_180_in_ruleUiAlignment45562); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,180,FollowSets001.FOLLOW_180_in_ruleUiAlignment45889); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiAlignmentAccess().getUNDEFINEDEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -54793,12 +55296,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19420:6: (enumLiteral_1= 'bottom-center' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19586:6: (enumLiteral_1= 'bottom-center' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19420:6: (enumLiteral_1= 'bottom-center' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19420:8: enumLiteral_1= 'bottom-center'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19586:6: (enumLiteral_1= 'bottom-center' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19586:8: enumLiteral_1= 'bottom-center'
                     {
-                    enumLiteral_1=(Token)match(input,189,FollowSets001.FOLLOW_189_in_ruleUiAlignment45579); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,189,FollowSets001.FOLLOW_189_in_ruleUiAlignment45906); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiAlignmentAccess().getBOTTOM_CENTEREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -54812,12 +55315,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19426:6: (enumLiteral_2= 'bottom-left' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19592:6: (enumLiteral_2= 'bottom-left' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19426:6: (enumLiteral_2= 'bottom-left' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19426:8: enumLiteral_2= 'bottom-left'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19592:6: (enumLiteral_2= 'bottom-left' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19592:8: enumLiteral_2= 'bottom-left'
                     {
-                    enumLiteral_2=(Token)match(input,190,FollowSets001.FOLLOW_190_in_ruleUiAlignment45596); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,190,FollowSets001.FOLLOW_190_in_ruleUiAlignment45923); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiAlignmentAccess().getBOTTOM_LEFTEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -54831,12 +55334,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19432:6: (enumLiteral_3= 'bottom-right' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19598:6: (enumLiteral_3= 'bottom-right' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19432:6: (enumLiteral_3= 'bottom-right' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19432:8: enumLiteral_3= 'bottom-right'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19598:6: (enumLiteral_3= 'bottom-right' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19598:8: enumLiteral_3= 'bottom-right'
                     {
-                    enumLiteral_3=(Token)match(input,191,FollowSets001.FOLLOW_191_in_ruleUiAlignment45613); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,191,FollowSets001.FOLLOW_191_in_ruleUiAlignment45940); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiAlignmentAccess().getBOTTOM_RIGHTEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -54850,12 +55353,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19438:6: (enumLiteral_4= 'bottom-fill' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19604:6: (enumLiteral_4= 'bottom-fill' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19438:6: (enumLiteral_4= 'bottom-fill' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19438:8: enumLiteral_4= 'bottom-fill'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19604:6: (enumLiteral_4= 'bottom-fill' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19604:8: enumLiteral_4= 'bottom-fill'
                     {
-                    enumLiteral_4=(Token)match(input,192,FollowSets001.FOLLOW_192_in_ruleUiAlignment45630); if (state.failed) return current;
+                    enumLiteral_4=(Token)match(input,192,FollowSets001.FOLLOW_192_in_ruleUiAlignment45957); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiAlignmentAccess().getBOTTOM_FILLEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -54869,12 +55372,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19444:6: (enumLiteral_5= 'middle-center' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19610:6: (enumLiteral_5= 'middle-center' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19444:6: (enumLiteral_5= 'middle-center' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19444:8: enumLiteral_5= 'middle-center'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19610:6: (enumLiteral_5= 'middle-center' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19610:8: enumLiteral_5= 'middle-center'
                     {
-                    enumLiteral_5=(Token)match(input,193,FollowSets001.FOLLOW_193_in_ruleUiAlignment45647); if (state.failed) return current;
+                    enumLiteral_5=(Token)match(input,193,FollowSets001.FOLLOW_193_in_ruleUiAlignment45974); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiAlignmentAccess().getMIDDLE_CENTEREnumLiteralDeclaration_5().getEnumLiteral().getInstance();
@@ -54888,12 +55391,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19450:6: (enumLiteral_6= 'middle-left' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19616:6: (enumLiteral_6= 'middle-left' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19450:6: (enumLiteral_6= 'middle-left' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19450:8: enumLiteral_6= 'middle-left'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19616:6: (enumLiteral_6= 'middle-left' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19616:8: enumLiteral_6= 'middle-left'
                     {
-                    enumLiteral_6=(Token)match(input,194,FollowSets001.FOLLOW_194_in_ruleUiAlignment45664); if (state.failed) return current;
+                    enumLiteral_6=(Token)match(input,194,FollowSets001.FOLLOW_194_in_ruleUiAlignment45991); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiAlignmentAccess().getMIDDLE_LEFTEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
@@ -54907,12 +55410,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19456:6: (enumLiteral_7= 'middle-right' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19622:6: (enumLiteral_7= 'middle-right' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19456:6: (enumLiteral_7= 'middle-right' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19456:8: enumLiteral_7= 'middle-right'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19622:6: (enumLiteral_7= 'middle-right' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19622:8: enumLiteral_7= 'middle-right'
                     {
-                    enumLiteral_7=(Token)match(input,195,FollowSets001.FOLLOW_195_in_ruleUiAlignment45681); if (state.failed) return current;
+                    enumLiteral_7=(Token)match(input,195,FollowSets001.FOLLOW_195_in_ruleUiAlignment46008); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiAlignmentAccess().getMIDDLE_RIGHTEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
@@ -54926,12 +55429,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19462:6: (enumLiteral_8= 'middle-fill' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19628:6: (enumLiteral_8= 'middle-fill' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19462:6: (enumLiteral_8= 'middle-fill' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19462:8: enumLiteral_8= 'middle-fill'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19628:6: (enumLiteral_8= 'middle-fill' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19628:8: enumLiteral_8= 'middle-fill'
                     {
-                    enumLiteral_8=(Token)match(input,196,FollowSets001.FOLLOW_196_in_ruleUiAlignment45698); if (state.failed) return current;
+                    enumLiteral_8=(Token)match(input,196,FollowSets001.FOLLOW_196_in_ruleUiAlignment46025); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiAlignmentAccess().getMIDDLE_FILLEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
@@ -54945,12 +55448,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19468:6: (enumLiteral_9= 'top-center' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19634:6: (enumLiteral_9= 'top-center' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19468:6: (enumLiteral_9= 'top-center' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19468:8: enumLiteral_9= 'top-center'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19634:6: (enumLiteral_9= 'top-center' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19634:8: enumLiteral_9= 'top-center'
                     {
-                    enumLiteral_9=(Token)match(input,197,FollowSets001.FOLLOW_197_in_ruleUiAlignment45715); if (state.failed) return current;
+                    enumLiteral_9=(Token)match(input,197,FollowSets001.FOLLOW_197_in_ruleUiAlignment46042); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiAlignmentAccess().getTOP_CENTEREnumLiteralDeclaration_9().getEnumLiteral().getInstance();
@@ -54964,12 +55467,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19474:6: (enumLiteral_10= 'top-left' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19640:6: (enumLiteral_10= 'top-left' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19474:6: (enumLiteral_10= 'top-left' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19474:8: enumLiteral_10= 'top-left'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19640:6: (enumLiteral_10= 'top-left' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19640:8: enumLiteral_10= 'top-left'
                     {
-                    enumLiteral_10=(Token)match(input,198,FollowSets001.FOLLOW_198_in_ruleUiAlignment45732); if (state.failed) return current;
+                    enumLiteral_10=(Token)match(input,198,FollowSets001.FOLLOW_198_in_ruleUiAlignment46059); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiAlignmentAccess().getTOP_LEFTEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
@@ -54983,12 +55486,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 12 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19480:6: (enumLiteral_11= 'top-right' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19646:6: (enumLiteral_11= 'top-right' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19480:6: (enumLiteral_11= 'top-right' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19480:8: enumLiteral_11= 'top-right'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19646:6: (enumLiteral_11= 'top-right' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19646:8: enumLiteral_11= 'top-right'
                     {
-                    enumLiteral_11=(Token)match(input,199,FollowSets001.FOLLOW_199_in_ruleUiAlignment45749); if (state.failed) return current;
+                    enumLiteral_11=(Token)match(input,199,FollowSets001.FOLLOW_199_in_ruleUiAlignment46076); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiAlignmentAccess().getTOP_RIGHTEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
@@ -55002,12 +55505,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 13 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19486:6: (enumLiteral_12= 'top-fill' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19652:6: (enumLiteral_12= 'top-fill' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19486:6: (enumLiteral_12= 'top-fill' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19486:8: enumLiteral_12= 'top-fill'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19652:6: (enumLiteral_12= 'top-fill' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19652:8: enumLiteral_12= 'top-fill'
                     {
-                    enumLiteral_12=(Token)match(input,200,FollowSets001.FOLLOW_200_in_ruleUiAlignment45766); if (state.failed) return current;
+                    enumLiteral_12=(Token)match(input,200,FollowSets001.FOLLOW_200_in_ruleUiAlignment46093); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiAlignmentAccess().getTOP_FILLEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
@@ -55021,12 +55524,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 14 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19492:6: (enumLiteral_13= 'fill-center' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19658:6: (enumLiteral_13= 'fill-center' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19492:6: (enumLiteral_13= 'fill-center' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19492:8: enumLiteral_13= 'fill-center'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19658:6: (enumLiteral_13= 'fill-center' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19658:8: enumLiteral_13= 'fill-center'
                     {
-                    enumLiteral_13=(Token)match(input,201,FollowSets001.FOLLOW_201_in_ruleUiAlignment45783); if (state.failed) return current;
+                    enumLiteral_13=(Token)match(input,201,FollowSets001.FOLLOW_201_in_ruleUiAlignment46110); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiAlignmentAccess().getFILL_CENTEREnumLiteralDeclaration_13().getEnumLiteral().getInstance();
@@ -55040,12 +55543,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 15 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19498:6: (enumLiteral_14= 'fill-left' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19664:6: (enumLiteral_14= 'fill-left' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19498:6: (enumLiteral_14= 'fill-left' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19498:8: enumLiteral_14= 'fill-left'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19664:6: (enumLiteral_14= 'fill-left' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19664:8: enumLiteral_14= 'fill-left'
                     {
-                    enumLiteral_14=(Token)match(input,202,FollowSets001.FOLLOW_202_in_ruleUiAlignment45800); if (state.failed) return current;
+                    enumLiteral_14=(Token)match(input,202,FollowSets001.FOLLOW_202_in_ruleUiAlignment46127); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiAlignmentAccess().getFILL_LEFTEnumLiteralDeclaration_14().getEnumLiteral().getInstance();
@@ -55059,12 +55562,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 16 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19504:6: (enumLiteral_15= 'fill-right' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19670:6: (enumLiteral_15= 'fill-right' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19504:6: (enumLiteral_15= 'fill-right' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19504:8: enumLiteral_15= 'fill-right'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19670:6: (enumLiteral_15= 'fill-right' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19670:8: enumLiteral_15= 'fill-right'
                     {
-                    enumLiteral_15=(Token)match(input,203,FollowSets001.FOLLOW_203_in_ruleUiAlignment45817); if (state.failed) return current;
+                    enumLiteral_15=(Token)match(input,203,FollowSets001.FOLLOW_203_in_ruleUiAlignment46144); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiAlignmentAccess().getFILL_RIGHTEnumLiteralDeclaration_15().getEnumLiteral().getInstance();
@@ -55078,12 +55581,12 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 17 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19510:6: (enumLiteral_16= 'fill-fill' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19676:6: (enumLiteral_16= 'fill-fill' )
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19510:6: (enumLiteral_16= 'fill-fill' )
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19510:8: enumLiteral_16= 'fill-fill'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19676:6: (enumLiteral_16= 'fill-fill' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:19676:8: enumLiteral_16= 'fill-fill'
                     {
-                    enumLiteral_16=(Token)match(input,204,FollowSets001.FOLLOW_204_in_ruleUiAlignment45834); if (state.failed) return current;
+                    enumLiteral_16=(Token)match(input,204,FollowSets001.FOLLOW_204_in_ruleUiAlignment46161); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getUiAlignmentAccess().getFILL_FILLEnumLiteralDeclaration_16().getEnumLiteral().getInstance();
@@ -55574,23 +56077,23 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
         }
 
         // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:15007:2: ( '.' | ( ( '::' ) ) )
-        int alt425=2;
-        int LA425_0 = input.LA(1);
+        int alt430=2;
+        int LA430_0 = input.LA(1);
 
-        if ( (LA425_0==31) ) {
-            alt425=1;
+        if ( (LA430_0==31) ) {
+            alt430=1;
         }
-        else if ( (LA425_0==145) ) {
-            alt425=2;
+        else if ( (LA430_0==145) ) {
+            alt430=2;
         }
         else {
             if (state.backtracking>0) {state.failed=true; return ;}
             NoViableAltException nvae =
-                new NoViableAltException("", 425, 0, input);
+                new NoViableAltException("", 430, 0, input);
 
             throw nvae;
         }
-        switch (alt425) {
+        switch (alt430) {
             case 1 :
                 // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:15007:4: '.'
                 {
@@ -55664,32 +56167,32 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
         }
 
         // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:15088:2: ( '.' | ( ( '?.' ) ) | ( ( '::' ) ) )
-        int alt426=3;
+        int alt431=3;
         switch ( input.LA(1) ) {
         case 31:
             {
-            alt426=1;
+            alt431=1;
             }
             break;
         case 146:
             {
-            alt426=2;
+            alt431=2;
             }
             break;
         case 145:
             {
-            alt426=3;
+            alt431=3;
             }
             break;
         default:
             if (state.backtracking>0) {state.failed=true; return ;}
             NoViableAltException nvae =
-                new NoViableAltException("", 426, 0, input);
+                new NoViableAltException("", 431, 0, input);
 
             throw nvae;
         }
 
-        switch (alt426) {
+        switch (alt431) {
             case 1 :
                 // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:15088:4: '.'
                 {
@@ -55777,13 +56280,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
         }
 
         // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:15230:2: ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )?
-        int alt428=2;
-        int LA428_0 = input.LA(1);
+        int alt433=2;
+        int LA433_0 = input.LA(1);
 
-        if ( (LA428_0==RULE_ID||LA428_0==47||LA428_0==134) ) {
-            alt428=1;
+        if ( (LA433_0==RULE_ID||LA433_0==47||LA433_0==134) ) {
+            alt433=1;
         }
-        switch (alt428) {
+        switch (alt433) {
             case 1 :
                 // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:15230:3: ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )*
                 {
@@ -55805,17 +56308,17 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                 }
 
                 // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:15234:2: ( ',' ( ( ruleJvmFormalParameter ) ) )*
-                loop427:
+                loop432:
                 do {
-                    int alt427=2;
-                    int LA427_0 = input.LA(1);
+                    int alt432=2;
+                    int LA432_0 = input.LA(1);
 
-                    if ( (LA427_0==147) ) {
-                        alt427=1;
+                    if ( (LA432_0==147) ) {
+                        alt432=1;
                     }
 
 
-                    switch (alt427) {
+                    switch (alt432) {
                 	case 1 :
                 	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:15234:4: ',' ( ( ruleJvmFormalParameter ) )
                 	    {
@@ -55842,7 +56345,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                 	    break;
 
                 	default :
-                	    break loop427;
+                	    break loop432;
                     }
                 } while (true);
 
@@ -55990,13 +56493,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
         // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:15832:6: ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) )
         {
         // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:15832:6: ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )?
-        int alt430=2;
-        int LA430_0 = input.LA(1);
+        int alt435=2;
+        int LA435_0 = input.LA(1);
 
-        if ( (LA430_0==RULE_ID||LA430_0==47||LA430_0==134) ) {
-            alt430=1;
+        if ( (LA435_0==RULE_ID||LA435_0==47||LA435_0==134) ) {
+            alt435=1;
         }
-        switch (alt430) {
+        switch (alt435) {
             case 1 :
                 // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:15832:7: ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )*
                 {
@@ -56018,17 +56521,17 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                 }
 
                 // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:15836:2: ( ',' ( ( ruleJvmFormalParameter ) ) )*
-                loop429:
+                loop434:
                 do {
-                    int alt429=2;
-                    int LA429_0 = input.LA(1);
+                    int alt434=2;
+                    int LA434_0 = input.LA(1);
 
-                    if ( (LA429_0==147) ) {
-                        alt429=1;
+                    if ( (LA434_0==147) ) {
+                        alt434=1;
                     }
 
 
-                    switch (alt429) {
+                    switch (alt434) {
                 	case 1 :
                 	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:15836:4: ',' ( ( ruleJvmFormalParameter ) )
                 	    {
@@ -56055,7 +56558,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                 	    break;
 
                 	default :
-                	    break loop429;
+                	    break loop434;
                     }
                 } while (true);
 
@@ -56168,19 +56671,19 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred30_InternalUIGrammar
     public final void synpred30_InternalUIGrammar_fragment() throws RecognitionException {   
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17068:4: ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17068:5: ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17079:4: ( ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17079:5: ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) )
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17068:5: ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17068:6: ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17079:5: ( ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17079:6: ( ( ruleJvmTypeReference ) ) ( ( ruleValidID ) )
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17068:6: ( ( ruleJvmTypeReference ) )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17069:1: ( ruleJvmTypeReference )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17079:6: ( ( ruleJvmTypeReference ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17080:1: ( ruleJvmTypeReference )
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17069:1: ( ruleJvmTypeReference )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17070:1: ruleJvmTypeReference
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17080:1: ( ruleJvmTypeReference )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17081:1: ruleJvmTypeReference
         {
-        pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_synpred30_InternalUIGrammar39845);
+        pushFollow(FollowSets001.FOLLOW_ruleJvmTypeReference_in_synpred30_InternalUIGrammar39864);
         ruleJvmTypeReference();
 
         state._fsp--;
@@ -56191,13 +56694,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
         }
 
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17072:2: ( ( ruleValidID ) )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17073:1: ( ruleValidID )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17083:2: ( ( ruleValidID ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17084:1: ( ruleValidID )
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17073:1: ( ruleValidID )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17074:1: ruleValidID
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17084:1: ( ruleValidID )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17085:1: ruleValidID
         {
-        pushFollow(FollowSets001.FOLLOW_ruleValidID_in_synpred30_InternalUIGrammar39854);
+        pushFollow(FollowSets001.FOLLOW_ruleValidID_in_synpred30_InternalUIGrammar39873);
         ruleValidID();
 
         state._fsp--;
@@ -56218,13 +56721,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred31_InternalUIGrammar
     public final void synpred31_InternalUIGrammar_fragment() throws RecognitionException {   
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17357:4: ( ( '(' ) )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17358:1: ( '(' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17368:4: ( ( '(' ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17369:1: ( '(' )
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17358:1: ( '(' )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17359:2: '('
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17369:1: ( '(' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17370:2: '('
         {
-        match(input,47,FollowSets001.FOLLOW_47_in_synpred31_InternalUIGrammar40392); if (state.failed) return ;
+        match(input,47,FollowSets001.FOLLOW_47_in_synpred31_InternalUIGrammar40411); if (state.failed) return ;
 
         }
 
@@ -56235,35 +56738,35 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred32_InternalUIGrammar
     public final void synpred32_InternalUIGrammar_fragment() throws RecognitionException {   
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17378:4: ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17378:5: ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17389:4: ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17389:5: ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) )
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17378:5: ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17378:6: () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17389:5: ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17389:6: () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) )
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17378:6: ()
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17379:1: 
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17389:6: ()
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17390:1: 
         {
         }
 
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17379:2: ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )?
-        int alt434=2;
-        int LA434_0 = input.LA(1);
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17390:2: ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )?
+        int alt439=2;
+        int LA439_0 = input.LA(1);
 
-        if ( (LA434_0==RULE_ID||LA434_0==47||LA434_0==134) ) {
-            alt434=1;
+        if ( (LA439_0==RULE_ID||LA439_0==47||LA439_0==134) ) {
+            alt439=1;
         }
-        switch (alt434) {
+        switch (alt439) {
             case 1 :
-                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17379:3: ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )*
+                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17390:3: ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )*
                 {
-                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17379:3: ( ( ruleJvmFormalParameter ) )
-                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17380:1: ( ruleJvmFormalParameter )
+                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17390:3: ( ( ruleJvmFormalParameter ) )
+                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17391:1: ( ruleJvmFormalParameter )
                 {
-                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17380:1: ( ruleJvmFormalParameter )
-                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17381:1: ruleJvmFormalParameter
+                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17391:1: ( ruleJvmFormalParameter )
+                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17392:1: ruleJvmFormalParameter
                 {
-                pushFollow(FollowSets001.FOLLOW_ruleJvmFormalParameter_in_synpred32_InternalUIGrammar40444);
+                pushFollow(FollowSets001.FOLLOW_ruleJvmFormalParameter_in_synpred32_InternalUIGrammar40463);
                 ruleJvmFormalParameter();
 
                 state._fsp--;
@@ -56274,29 +56777,29 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                 }
 
-                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17383:2: ( ',' ( ( ruleJvmFormalParameter ) ) )*
-                loop433:
+                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17394:2: ( ',' ( ( ruleJvmFormalParameter ) ) )*
+                loop438:
                 do {
-                    int alt433=2;
-                    int LA433_0 = input.LA(1);
+                    int alt438=2;
+                    int LA438_0 = input.LA(1);
 
-                    if ( (LA433_0==147) ) {
-                        alt433=1;
+                    if ( (LA438_0==147) ) {
+                        alt438=1;
                     }
 
 
-                    switch (alt433) {
+                    switch (alt438) {
                 	case 1 :
-                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17383:4: ',' ( ( ruleJvmFormalParameter ) )
+                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17394:4: ',' ( ( ruleJvmFormalParameter ) )
                 	    {
-                	    match(input,147,FollowSets001.FOLLOW_147_in_synpred32_InternalUIGrammar40451); if (state.failed) return ;
-                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17384:1: ( ( ruleJvmFormalParameter ) )
-                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17385:1: ( ruleJvmFormalParameter )
+                	    match(input,147,FollowSets001.FOLLOW_147_in_synpred32_InternalUIGrammar40470); if (state.failed) return ;
+                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17395:1: ( ( ruleJvmFormalParameter ) )
+                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17396:1: ( ruleJvmFormalParameter )
                 	    {
-                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17385:1: ( ruleJvmFormalParameter )
-                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17386:1: ruleJvmFormalParameter
+                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17396:1: ( ruleJvmFormalParameter )
+                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17397:1: ruleJvmFormalParameter
                 	    {
-                	    pushFollow(FollowSets001.FOLLOW_ruleJvmFormalParameter_in_synpred32_InternalUIGrammar40458);
+                	    pushFollow(FollowSets001.FOLLOW_ruleJvmFormalParameter_in_synpred32_InternalUIGrammar40477);
                 	    ruleJvmFormalParameter();
 
                 	    state._fsp--;
@@ -56312,7 +56815,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                 	    break;
 
                 	default :
-                	    break loop433;
+                	    break loop438;
                     }
                 } while (true);
 
@@ -56322,13 +56825,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
         }
 
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17388:6: ( ( '|' ) )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17389:1: ( '|' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17399:6: ( ( '|' ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17400:1: ( '|' )
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17389:1: ( '|' )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17390:2: '|'
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17400:1: ( '|' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17401:2: '|'
         {
-        match(input,149,FollowSets001.FOLLOW_149_in_synpred32_InternalUIGrammar40472); if (state.failed) return ;
+        match(input,149,FollowSets001.FOLLOW_149_in_synpred32_InternalUIGrammar40491); if (state.failed) return ;
 
         }
 
@@ -56345,18 +56848,18 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred33_InternalUIGrammar
     public final void synpred33_InternalUIGrammar_fragment() throws RecognitionException {   
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17457:4: ( ( () '[' ) )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17457:5: ( () '[' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17468:4: ( ( () '[' ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17468:5: ( () '[' )
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17457:5: ( () '[' )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17457:6: () '['
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17468:5: ( () '[' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17468:6: () '['
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17457:6: ()
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17458:1: 
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17468:6: ()
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17469:1: 
         {
         }
 
-        match(input,32,FollowSets001.FOLLOW_32_in_synpred33_InternalUIGrammar40592); if (state.failed) return ;
+        match(input,32,FollowSets001.FOLLOW_32_in_synpred33_InternalUIGrammar40611); if (state.failed) return ;
 
         }
 
@@ -56367,10 +56870,10 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred34_InternalUIGrammar
     public final void synpred34_InternalUIGrammar_fragment() throws RecognitionException {   
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17622:4: ( '<' )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17622:6: '<'
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17633:4: ( '<' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17633:6: '<'
         {
-        match(input,28,FollowSets001.FOLLOW_28_in_synpred34_InternalUIGrammar41041); if (state.failed) return ;
+        match(input,28,FollowSets001.FOLLOW_28_in_synpred34_InternalUIGrammar41060); if (state.failed) return ;
 
         }
     }
@@ -56378,13 +56881,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred35_InternalUIGrammar
     public final void synpred35_InternalUIGrammar_fragment() throws RecognitionException {   
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17671:5: ( ( '(' ) )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17672:1: ( '(' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17682:5: ( ( '(' ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17683:1: ( '(' )
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17672:1: ( '(' )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17673:2: '('
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17683:1: ( '(' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17684:2: '('
         {
-        match(input,47,FollowSets001.FOLLOW_47_in_synpred35_InternalUIGrammar41137); if (state.failed) return ;
+        match(input,47,FollowSets001.FOLLOW_47_in_synpred35_InternalUIGrammar41156); if (state.failed) return ;
 
         }
 
@@ -56395,35 +56898,35 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred36_InternalUIGrammar
     public final void synpred36_InternalUIGrammar_fragment() throws RecognitionException {   
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17692:4: ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17692:5: ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17703:4: ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17703:5: ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) )
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17692:5: ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17692:6: () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17703:5: ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17703:6: () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) )
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17692:6: ()
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17693:1: 
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17703:6: ()
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17704:1: 
         {
         }
 
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17693:2: ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )?
-        int alt436=2;
-        int LA436_0 = input.LA(1);
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17704:2: ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )?
+        int alt441=2;
+        int LA441_0 = input.LA(1);
 
-        if ( (LA436_0==RULE_ID||LA436_0==47||LA436_0==134) ) {
-            alt436=1;
+        if ( (LA441_0==RULE_ID||LA441_0==47||LA441_0==134) ) {
+            alt441=1;
         }
-        switch (alt436) {
+        switch (alt441) {
             case 1 :
-                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17693:3: ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )*
+                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17704:3: ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )*
                 {
-                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17693:3: ( ( ruleJvmFormalParameter ) )
-                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17694:1: ( ruleJvmFormalParameter )
+                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17704:3: ( ( ruleJvmFormalParameter ) )
+                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17705:1: ( ruleJvmFormalParameter )
                 {
-                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17694:1: ( ruleJvmFormalParameter )
-                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17695:1: ruleJvmFormalParameter
+                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17705:1: ( ruleJvmFormalParameter )
+                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17706:1: ruleJvmFormalParameter
                 {
-                pushFollow(FollowSets001.FOLLOW_ruleJvmFormalParameter_in_synpred36_InternalUIGrammar41189);
+                pushFollow(FollowSets001.FOLLOW_ruleJvmFormalParameter_in_synpred36_InternalUIGrammar41208);
                 ruleJvmFormalParameter();
 
                 state._fsp--;
@@ -56434,29 +56937,29 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                 }
 
-                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17697:2: ( ',' ( ( ruleJvmFormalParameter ) ) )*
-                loop435:
+                // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17708:2: ( ',' ( ( ruleJvmFormalParameter ) ) )*
+                loop440:
                 do {
-                    int alt435=2;
-                    int LA435_0 = input.LA(1);
+                    int alt440=2;
+                    int LA440_0 = input.LA(1);
 
-                    if ( (LA435_0==147) ) {
-                        alt435=1;
+                    if ( (LA440_0==147) ) {
+                        alt440=1;
                     }
 
 
-                    switch (alt435) {
+                    switch (alt440) {
                 	case 1 :
-                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17697:4: ',' ( ( ruleJvmFormalParameter ) )
+                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17708:4: ',' ( ( ruleJvmFormalParameter ) )
                 	    {
-                	    match(input,147,FollowSets001.FOLLOW_147_in_synpred36_InternalUIGrammar41196); if (state.failed) return ;
-                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17698:1: ( ( ruleJvmFormalParameter ) )
-                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17699:1: ( ruleJvmFormalParameter )
+                	    match(input,147,FollowSets001.FOLLOW_147_in_synpred36_InternalUIGrammar41215); if (state.failed) return ;
+                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17709:1: ( ( ruleJvmFormalParameter ) )
+                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17710:1: ( ruleJvmFormalParameter )
                 	    {
-                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17699:1: ( ruleJvmFormalParameter )
-                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17700:1: ruleJvmFormalParameter
+                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17710:1: ( ruleJvmFormalParameter )
+                	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17711:1: ruleJvmFormalParameter
                 	    {
-                	    pushFollow(FollowSets001.FOLLOW_ruleJvmFormalParameter_in_synpred36_InternalUIGrammar41203);
+                	    pushFollow(FollowSets001.FOLLOW_ruleJvmFormalParameter_in_synpred36_InternalUIGrammar41222);
                 	    ruleJvmFormalParameter();
 
                 	    state._fsp--;
@@ -56472,7 +56975,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                 	    break;
 
                 	default :
-                	    break loop435;
+                	    break loop440;
                     }
                 } while (true);
 
@@ -56482,13 +56985,13 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
         }
 
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17702:6: ( ( '|' ) )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17703:1: ( '|' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17713:6: ( ( '|' ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17714:1: ( '|' )
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17703:1: ( '|' )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17704:2: '|'
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17714:1: ( '|' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17715:2: '|'
         {
-        match(input,149,FollowSets001.FOLLOW_149_in_synpred36_InternalUIGrammar41217); if (state.failed) return ;
+        match(input,149,FollowSets001.FOLLOW_149_in_synpred36_InternalUIGrammar41236); if (state.failed) return ;
 
         }
 
@@ -56505,18 +57008,18 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred37_InternalUIGrammar
     public final void synpred37_InternalUIGrammar_fragment() throws RecognitionException {   
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17771:4: ( ( () '[' ) )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17771:5: ( () '[' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17782:4: ( ( () '[' ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17782:5: ( () '[' )
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17771:5: ( () '[' )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17771:6: () '['
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17782:5: ( () '[' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17782:6: () '['
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17771:6: ()
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17772:1: 
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17782:6: ()
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:17783:1: 
         {
         }
 
-        match(input,32,FollowSets001.FOLLOW_32_in_synpred37_InternalUIGrammar41337); if (state.failed) return ;
+        match(input,32,FollowSets001.FOLLOW_32_in_synpred37_InternalUIGrammar41356); if (state.failed) return ;
 
         }
 
@@ -56527,7 +57030,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred38_InternalUIGrammar
     public final void synpred38_InternalUIGrammar_fragment() throws RecognitionException {   
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18111:2: ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18122:2: ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )
         // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:
         {
         if ( (input.LA(1)>=RULE_ID && input.LA(1)<=RULE_DECIMAL)||input.LA(1)==14||input.LA(1)==21||input.LA(1)==28||input.LA(1)==32||input.LA(1)==47||(input.LA(1)>=137 && input.LA(1)<=138)||input.LA(1)==143||input.LA(1)==148||input.LA(1)==150||input.LA(1)==152||(input.LA(1)>=155 && input.LA(1)<=157)||(input.LA(1)>=160 && input.LA(1)<=171)||input.LA(1)==173 ) {
@@ -56547,10 +57050,10 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred39_InternalUIGrammar
     public final void synpred39_InternalUIGrammar_fragment() throws RecognitionException {   
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18205:5: ( 'catch' )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18205:7: 'catch'
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18216:5: ( 'catch' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18216:7: 'catch'
         {
-        match(input,174,FollowSets001.FOLLOW_174_in_synpred39_InternalUIGrammar42510); if (state.failed) return ;
+        match(input,174,FollowSets001.FOLLOW_174_in_synpred39_InternalUIGrammar42529); if (state.failed) return ;
 
         }
     }
@@ -56558,10 +57061,10 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred40_InternalUIGrammar
     public final void synpred40_InternalUIGrammar_fragment() throws RecognitionException {   
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18224:5: ( 'finally' )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18224:7: 'finally'
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18235:5: ( 'finally' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18235:7: 'finally'
         {
-        match(input,172,FollowSets001.FOLLOW_172_in_synpred40_InternalUIGrammar42540); if (state.failed) return ;
+        match(input,172,FollowSets001.FOLLOW_172_in_synpred40_InternalUIGrammar42559); if (state.failed) return ;
 
         }
     }
@@ -56569,10 +57072,10 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred43_InternalUIGrammar
     public final void synpred43_InternalUIGrammar_fragment() throws RecognitionException {   
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18450:3: ( '.' )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18451:2: '.'
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18461:3: ( '.' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18462:2: '.'
         {
-        match(input,31,FollowSets001.FOLLOW_31_in_synpred43_InternalUIGrammar43065); if (state.failed) return ;
+        match(input,31,FollowSets001.FOLLOW_31_in_synpred43_InternalUIGrammar43084); if (state.failed) return ;
 
         }
     }
@@ -56580,18 +57083,18 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred44_InternalUIGrammar
     public final void synpred44_InternalUIGrammar_fragment() throws RecognitionException {   
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18576:2: ( ( () ruleArrayBrackets ) )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18576:3: ( () ruleArrayBrackets )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18587:2: ( ( () ruleArrayBrackets ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18587:3: ( () ruleArrayBrackets )
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18576:3: ( () ruleArrayBrackets )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18576:4: () ruleArrayBrackets
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18587:3: ( () ruleArrayBrackets )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18587:4: () ruleArrayBrackets
         {
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18576:4: ()
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18577:1: 
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18587:4: ()
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18588:1: 
         {
         }
 
-        pushFollow(FollowSets001.FOLLOW_ruleArrayBrackets_in_synpred44_InternalUIGrammar43450);
+        pushFollow(FollowSets001.FOLLOW_ruleArrayBrackets_in_synpred44_InternalUIGrammar43469);
         ruleArrayBrackets();
 
         state._fsp--;
@@ -56606,14 +57109,47 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred45_InternalUIGrammar
     public final void synpred45_InternalUIGrammar_fragment() throws RecognitionException {   
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18761:4: ( '<' )
-        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18761:6: '<'
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18772:4: ( '<' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18772:6: '<'
         {
-        match(input,28,FollowSets001.FOLLOW_28_in_synpred45_InternalUIGrammar43902); if (state.failed) return ;
+        match(input,28,FollowSets001.FOLLOW_28_in_synpred45_InternalUIGrammar43921); if (state.failed) return ;
 
         }
     }
     // $ANTLR end synpred45_InternalUIGrammar
+
+    // $ANTLR start synpred46_InternalUIGrammar
+    public final void synpred46_InternalUIGrammar_fragment() throws RecognitionException {   
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18821:3: ( ( () '.' ) )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18821:4: ( () '.' )
+        {
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18821:4: ( () '.' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18821:5: () '.'
+        {
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18821:5: ()
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18822:1: 
+        {
+        }
+
+        match(input,31,FollowSets001.FOLLOW_31_in_synpred46_InternalUIGrammar44016); if (state.failed) return ;
+
+        }
+
+
+        }
+    }
+    // $ANTLR end synpred46_InternalUIGrammar
+
+    // $ANTLR start synpred47_InternalUIGrammar
+    public final void synpred47_InternalUIGrammar_fragment() throws RecognitionException {   
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18848:4: ( '<' )
+        // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:18848:6: '<'
+        {
+        match(input,28,FollowSets001.FOLLOW_28_in_synpred47_InternalUIGrammar44073); if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred47_InternalUIGrammar
 
     // Delegated rules
 
@@ -56762,6 +57298,20 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
         int start = input.mark();
         try {
             synpred39_InternalUIGrammar_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred47_InternalUIGrammar() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred47_InternalUIGrammar_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -57149,6 +57699,20 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
         state.failed=false;
         return success;
     }
+    public final boolean synpred46_InternalUIGrammar() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred46_InternalUIGrammar_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
     public final boolean synpred3_InternalUIGrammar() {
         state.backtracking++;
         int start = input.mark();
@@ -57197,8 +57761,9 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     protected DFA393 dfa393 = new DFA393(this);
     protected DFA395 dfa395 = new DFA395(this);
     protected DFA398 dfa398 = new DFA398(this);
-    protected DFA413 dfa413 = new DFA413(this);
-    protected DFA418 dfa418 = new DFA418(this);
+    protected DFA416 dfa416 = new DFA416(this);
+    protected DFA414 dfa414 = new DFA414(this);
+    protected DFA423 dfa423 = new DFA423(this);
     static final String DFA316_eotS =
         "\12\uffff";
     static final String DFA316_eofS =
@@ -57210,11 +57775,9 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA316_acceptS =
         "\10\uffff\1\2\1\1";
     static final String DFA316_specialS =
-        "\1\uffff\1\3\1\2\1\5\1\4\1\0\1\1\1\6\2\uffff}>";
+        "\1\uffff\1\2\1\3\1\5\1\4\1\6\1\0\1\1\2\uffff}>";
     static final String[] DFA316_transitionS = {
-            "\5\10\5\uffff\2\10\1\uffff\1\10\1\uffff\1\1\1\uffff\2\10\2\uffff"+
-            "\1\10\2\uffff\1\6\1\10\1\7\3\10\15\uffff\1\10\3\uffff\1\10\103"+
-            "\uffff\1\2\1\3\1\4\1\5\32\10\1\uffff\31\10",
+            "\5\10\5\uffff\2\10\1\uffff\1\10\1\uffff\1\1\1\uffff\2\10\2\uffff\1\10\2\uffff\1\6\1\10\1\7\3\10\15\uffff\1\10\3\uffff\1\10\103\uffff\1\2\1\3\1\4\1\5\32\10\1\uffff\31\10",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
@@ -57263,21 +57826,6 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA316_5 = input.LA(1);
-
-                         
-                        int index316_5 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred2_InternalUIGrammar()) ) {s = 9;}
-
-                        else if ( (true) ) {s = 8;}
-
-                         
-                        input.seek(index316_5);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
                         int LA316_6 = input.LA(1);
 
                          
@@ -57292,11 +57840,11 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                         input.seek(index316_6);
                         if ( s>=0 ) return s;
                         break;
-                    case 2 : 
-                        int LA316_2 = input.LA(1);
+                    case 1 : 
+                        int LA316_7 = input.LA(1);
 
                          
-                        int index316_2 = input.index();
+                        int index316_7 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred2_InternalUIGrammar()) ) {s = 9;}
@@ -57304,10 +57852,10 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                         else if ( (true) ) {s = 8;}
 
                          
-                        input.seek(index316_2);
+                        input.seek(index316_7);
                         if ( s>=0 ) return s;
                         break;
-                    case 3 : 
+                    case 2 : 
                         int LA316_1 = input.LA(1);
 
                          
@@ -57320,6 +57868,21 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                          
                         input.seek(index316_1);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA316_2 = input.LA(1);
+
+                         
+                        int index316_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalUIGrammar()) ) {s = 9;}
+
+                        else if ( (true) ) {s = 8;}
+
+                         
+                        input.seek(index316_2);
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
@@ -57353,10 +57916,10 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA316_7 = input.LA(1);
+                        int LA316_5 = input.LA(1);
 
                          
-                        int index316_7 = input.index();
+                        int index316_5 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred2_InternalUIGrammar()) ) {s = 9;}
@@ -57364,7 +57927,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                         else if ( (true) ) {s = 8;}
 
                          
-                        input.seek(index316_7);
+                        input.seek(index316_5);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -57386,11 +57949,9 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA326_acceptS =
         "\1\uffff\1\2\10\uffff\1\1";
     static final String DFA326_specialS =
-        "\2\uffff\1\7\1\0\1\6\1\5\1\4\1\2\1\1\1\3\1\uffff}>";
+        "\2\uffff\1\2\1\1\1\7\1\0\1\3\1\4\1\5\1\6\1\uffff}>";
     static final String[] DFA326_transitionS = {
-            "\5\1\5\uffff\2\1\1\uffff\1\1\1\uffff\1\1\1\uffff\2\1\2\uffff"+
-            "\1\1\2\uffff\1\2\1\1\1\3\3\1\15\uffff\1\1\3\uffff\1\1\103\uffff"+
-            "\14\1\1\4\1\5\1\6\1\7\1\10\1\11\14\1\1\uffff\31\1",
+            "\5\1\5\uffff\2\1\1\uffff\1\1\1\uffff\1\1\1\uffff\2\1\2\uffff\1\1\2\uffff\1\2\1\1\1\3\3\1\15\uffff\1\1\3\uffff\1\1\103\uffff\14\1\1\4\1\5\1\6\1\7\1\10\1\11\14\1\1\uffff\31\1",
             "",
             "\1\uffff",
             "\1\uffff",
@@ -57440,81 +58001,6 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA326_3 = input.LA(1);
-
-                         
-                        int index326_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred8_InternalUIGrammar()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index326_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA326_8 = input.LA(1);
-
-                         
-                        int index326_8 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred8_InternalUIGrammar()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index326_8);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA326_7 = input.LA(1);
-
-                         
-                        int index326_7 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred8_InternalUIGrammar()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index326_7);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA326_9 = input.LA(1);
-
-                         
-                        int index326_9 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred8_InternalUIGrammar()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index326_9);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA326_6 = input.LA(1);
-
-                         
-                        int index326_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred8_InternalUIGrammar()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index326_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
                         int LA326_5 = input.LA(1);
 
                          
@@ -57529,11 +58015,11 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                         input.seek(index326_5);
                         if ( s>=0 ) return s;
                         break;
-                    case 6 : 
-                        int LA326_4 = input.LA(1);
+                    case 1 : 
+                        int LA326_3 = input.LA(1);
 
                          
-                        int index326_4 = input.index();
+                        int index326_3 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred8_InternalUIGrammar()) ) {s = 10;}
@@ -57541,10 +58027,10 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index326_4);
+                        input.seek(index326_3);
                         if ( s>=0 ) return s;
                         break;
-                    case 7 : 
+                    case 2 : 
                         int LA326_2 = input.LA(1);
 
                          
@@ -57557,6 +58043,81 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
 
                          
                         input.seek(index326_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA326_6 = input.LA(1);
+
+                         
+                        int index326_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred8_InternalUIGrammar()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index326_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA326_7 = input.LA(1);
+
+                         
+                        int index326_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred8_InternalUIGrammar()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index326_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA326_8 = input.LA(1);
+
+                         
+                        int index326_8 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred8_InternalUIGrammar()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index326_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA326_9 = input.LA(1);
+
+                         
+                        int index326_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred8_InternalUIGrammar()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index326_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA326_4 = input.LA(1);
+
+                         
+                        int index326_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred8_InternalUIGrammar()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index326_4);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -57576,14 +58137,14 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA329_maxS =
         "\1\u0088\2\uffff\1\u0085\7\uffff";
     static final String DFA329_acceptS =
-        "\1\uffff\1\1\1\2\1\uffff\1\4\1\5\1\7\1\10\1\11\1\3\1\6";
+        "\1\uffff\1\1\1\2\1\uffff\1\4\1\5\1\7\1\10\1\11\1\6\1\3";
     static final String DFA329_specialS =
         "\13\uffff}>";
     static final String[] DFA329_transitionS = {
             "\1\6\1\uffff\1\3\144\uffff\1\1\1\2\1\4\1\5\1\7\1\10",
             "",
             "",
-            "\1\12\146\uffff\1\11",
+            "\1\11\146\uffff\1\12",
             "",
             "",
             "",
@@ -57639,9 +58200,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA345_specialS =
         "\1\uffff\1\0\114\uffff}>";
     static final String[] DFA345_transitionS = {
-            "\5\2\5\uffff\2\2\1\uffff\1\2\1\uffff\1\2\1\uffff\2\2\2\uffff"+
-            "\1\2\2\uffff\6\2\15\uffff\1\1\3\uffff\1\2\103\uffff\36\2\1\uffff"+
-            "\31\2",
+            "\5\2\5\uffff\2\2\1\uffff\1\2\1\uffff\1\2\1\uffff\2\2\2\uffff\1\2\2\uffff\6\2\15\uffff\1\1\3\uffff\1\2\103\uffff\36\2\1\uffff\31\2",
             "\1\uffff",
             "",
             "",
@@ -57793,10 +58352,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA344_specialS =
         "\1\0\1\1\1\2\41\uffff}>";
     static final String[] DFA344_transitionS = {
-            "\1\1\4\5\5\uffff\1\5\6\uffff\1\5\6\uffff\1\5\3\uffff\1\5\16"+
-            "\uffff\1\2\3\uffff\1\43\122\uffff\1\3\2\uffff\2\5\4\uffff\1"+
-            "\5\4\uffff\1\5\1\4\1\5\1\uffff\1\5\2\uffff\3\5\2\uffff\14\5"+
-            "\1\uffff\1\5",
+            "\1\1\4\5\5\uffff\1\5\6\uffff\1\5\6\uffff\1\5\3\uffff\1\5\16\uffff\1\2\3\uffff\1\43\122\uffff\1\3\2\uffff\2\5\4\uffff\1\5\4\uffff\1\5\1\4\1\5\1\uffff\1\5\2\uffff\3\5\2\uffff\14\5\1\uffff\1\5",
             "\1\uffff",
             "\1\uffff",
             "",
@@ -57944,9 +58500,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA346_specialS =
         "\1\uffff\1\0\114\uffff}>";
     static final String[] DFA346_transitionS = {
-            "\5\2\5\uffff\2\2\1\uffff\1\2\1\uffff\1\2\1\uffff\2\2\2\uffff"+
-            "\1\2\2\uffff\4\2\1\1\1\2\15\uffff\1\2\3\uffff\1\2\103\uffff"+
-            "\36\2\1\uffff\31\2",
+            "\5\2\5\uffff\2\2\1\uffff\1\2\1\uffff\1\2\1\uffff\2\2\2\uffff\1\2\2\uffff\4\2\1\1\1\2\15\uffff\1\2\3\uffff\1\2\103\uffff\36\2\1\uffff\31\2",
             "\1\uffff",
             "",
             "",
@@ -58094,15 +58648,11 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA348_maxS =
         "\1\u00ad\26\uffff\1\0\10\uffff";
     static final String DFA348_acceptS =
-        "\1\uffff\1\1\1\2\1\3\1\4\1\5\6\uffff\1\6\11\uffff\1\7\1\uffff\1"+
-        "\12\1\13\1\14\1\15\1\16\1\17\1\10\1\11";
+        "\1\uffff\1\1\1\2\1\3\1\4\1\5\6\uffff\1\6\11\uffff\1\7\1\uffff\1\12\1\13\1\14\1\15\1\16\1\17\1\10\1\11";
     static final String DFA348_specialS =
         "\1\0\26\uffff\1\1\10\uffff}>";
     static final String[] DFA348_transitionS = {
-            "\1\5\4\14\5\uffff\1\5\6\uffff\1\2\6\uffff\1\5\3\uffff\1\14\16"+
-            "\uffff\1\35\144\uffff\1\14\1\uffff\1\26\1\uffff\1\3\2\uffff"+
-            "\1\27\1\30\1\31\2\uffff\4\5\1\1\4\14\1\32\1\33\1\34\1\uffff"+
-            "\1\4",
+            "\1\5\4\14\5\uffff\1\5\6\uffff\1\2\6\uffff\1\5\3\uffff\1\14\16\uffff\1\35\144\uffff\1\14\1\uffff\1\26\1\uffff\1\3\2\uffff\1\27\1\30\1\31\2\uffff\4\5\1\1\4\14\1\32\1\33\1\34\1\uffff\1\4",
             "",
             "",
             "",
@@ -58247,9 +58797,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA357_specialS =
         "\1\0\1\1\1\2\43\uffff}>";
     static final String[] DFA357_transitionS = {
-            "\1\1\4\5\5\uffff\1\5\6\uffff\1\5\6\uffff\1\5\3\uffff\2\5\15"+
-            "\uffff\1\2\126\uffff\1\3\2\uffff\2\5\4\uffff\1\5\4\uffff\1\5"+
-            "\1\4\1\5\1\uffff\1\5\2\uffff\21\5\1\uffff\1\5",
+            "\1\1\4\5\5\uffff\1\5\6\uffff\1\5\6\uffff\1\5\3\uffff\2\5\15\uffff\1\2\126\uffff\1\3\2\uffff\2\5\4\uffff\1\5\4\uffff\1\5\1\4\1\5\1\uffff\1\5\2\uffff\21\5\1\uffff\1\5",
             "\1\uffff",
             "\1\uffff",
             "",
@@ -58397,9 +58945,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA364_specialS =
         "\1\uffff\1\0\41\uffff}>";
     static final String[] DFA364_transitionS = {
-            "\5\2\5\uffff\1\2\6\uffff\1\2\6\uffff\1\2\3\uffff\1\2\16\uffff"+
-            "\1\1\126\uffff\1\2\2\uffff\2\2\4\uffff\1\2\4\uffff\1\2\1\uffff"+
-            "\1\2\1\uffff\1\2\2\uffff\3\2\2\uffff\14\2\1\uffff\1\2",
+            "\5\2\5\uffff\1\2\6\uffff\1\2\6\uffff\1\2\3\uffff\1\2\16\uffff\1\1\126\uffff\1\2\2\uffff\2\2\4\uffff\1\2\4\uffff\1\2\1\uffff\1\2\1\uffff\1\2\2\uffff\3\2\2\uffff\14\2\1\uffff\1\2",
             "\1\uffff",
             "",
             "",
@@ -58508,10 +59054,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA363_specialS =
         "\1\0\1\1\1\2\37\uffff}>";
     static final String[] DFA363_transitionS = {
-            "\1\1\4\4\5\uffff\1\4\6\uffff\1\4\6\uffff\1\4\3\uffff\1\4\16"+
-            "\uffff\1\2\126\uffff\1\3\2\uffff\2\4\4\uffff\1\4\4\uffff\1\4"+
-            "\1\uffff\1\4\1\uffff\1\4\2\uffff\3\4\2\uffff\14\4\1\uffff\1"+
-            "\4",
+            "\1\1\4\4\5\uffff\1\4\6\uffff\1\4\6\uffff\1\4\3\uffff\1\4\16\uffff\1\2\126\uffff\1\3\2\uffff\2\4\4\uffff\1\4\4\uffff\1\4\1\uffff\1\4\1\uffff\1\4\2\uffff\3\4\2\uffff\14\4\1\uffff\1\4",
             "\1\uffff",
             "\1\uffff",
             "",
@@ -58653,9 +59196,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA386_specialS =
         "\1\uffff\1\0\114\uffff}>";
     static final String[] DFA386_transitionS = {
-            "\5\2\5\uffff\2\2\1\uffff\1\2\1\uffff\1\2\1\uffff\2\2\2\uffff"+
-            "\1\2\2\uffff\6\2\15\uffff\1\1\3\uffff\1\2\103\uffff\36\2\1\uffff"+
-            "\31\2",
+            "\5\2\5\uffff\2\2\1\uffff\1\2\1\uffff\1\2\1\uffff\2\2\2\uffff\1\2\2\uffff\6\2\15\uffff\1\1\3\uffff\1\2\103\uffff\36\2\1\uffff\31\2",
             "\1\uffff",
             "",
             "",
@@ -58765,7 +59306,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             this.transition = DFA386_transition;
         }
         public String getDescription() {
-            return "17357:2: ( ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )? otherlv_12= ')' )?";
+            return "17368:2: ( ( ( ( '(' ) )=> (lv_explicitOperationCall_7_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )? otherlv_12= ')' )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -58807,10 +59348,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA385_specialS =
         "\1\0\1\1\1\2\41\uffff}>";
     static final String[] DFA385_transitionS = {
-            "\1\1\4\5\5\uffff\1\5\6\uffff\1\5\6\uffff\1\5\3\uffff\1\5\16"+
-            "\uffff\1\2\3\uffff\1\43\122\uffff\1\3\2\uffff\2\5\4\uffff\1"+
-            "\5\4\uffff\1\5\1\4\1\5\1\uffff\1\5\2\uffff\3\5\2\uffff\14\5"+
-            "\1\uffff\1\5",
+            "\1\1\4\5\5\uffff\1\5\6\uffff\1\5\6\uffff\1\5\3\uffff\1\5\16\uffff\1\2\3\uffff\1\43\122\uffff\1\3\2\uffff\2\5\4\uffff\1\5\4\uffff\1\5\1\4\1\5\1\uffff\1\5\2\uffff\3\5\2\uffff\14\5\1\uffff\1\5",
             "\1\uffff",
             "\1\uffff",
             "",
@@ -58878,7 +59416,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             this.transition = DFA385_transition;
         }
         public String getDescription() {
-            return "17378:2: ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )?";
+            return "17389:2: ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_featureCallArguments_8_0= ruleXShortClosure ) ) | ( ( (lv_featureCallArguments_9_0= ruleXExpression ) ) (otherlv_10= ',' ( (lv_featureCallArguments_11_0= ruleXExpression ) ) )* ) )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -58958,9 +59496,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA387_specialS =
         "\1\uffff\1\0\114\uffff}>";
     static final String[] DFA387_transitionS = {
-            "\5\2\5\uffff\2\2\1\uffff\1\2\1\uffff\1\2\1\uffff\2\2\2\uffff"+
-            "\1\2\2\uffff\4\2\1\1\1\2\15\uffff\1\2\3\uffff\1\2\103\uffff"+
-            "\36\2\1\uffff\31\2",
+            "\5\2\5\uffff\2\2\1\uffff\1\2\1\uffff\1\2\1\uffff\2\2\2\uffff\1\2\2\uffff\4\2\1\1\1\2\15\uffff\1\2\3\uffff\1\2\103\uffff\36\2\1\uffff\31\2",
             "\1\uffff",
             "",
             "",
@@ -59070,7 +59606,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             this.transition = DFA387_transition;
         }
         public String getDescription() {
-            return "17457:3: ( ( ( () '[' ) )=> (lv_featureCallArguments_13_0= ruleXClosure ) )?";
+            return "17468:3: ( ( ( () '[' ) )=> (lv_featureCallArguments_13_0= ruleXClosure ) )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -59112,9 +59648,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA391_specialS =
         "\1\uffff\1\0\114\uffff}>";
     static final String[] DFA391_transitionS = {
-            "\5\2\5\uffff\2\2\1\uffff\1\2\1\uffff\1\2\1\uffff\2\2\2\uffff"+
-            "\1\2\2\uffff\1\1\5\2\15\uffff\1\2\3\uffff\1\2\103\uffff\36\2"+
-            "\1\uffff\31\2",
+            "\5\2\5\uffff\2\2\1\uffff\1\2\1\uffff\1\2\1\uffff\2\2\2\uffff\1\2\2\uffff\1\1\5\2\15\uffff\1\2\3\uffff\1\2\103\uffff\36\2\1\uffff\31\2",
             "\1\uffff",
             "",
             "",
@@ -59224,7 +59758,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             this.transition = DFA391_transition;
         }
         public String getDescription() {
-            return "17622:2: ( ( ( '<' )=>otherlv_3= '<' ) ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )* otherlv_7= '>' )?";
+            return "17633:2: ( ( ( '<' )=>otherlv_3= '<' ) ( (lv_typeArguments_4_0= ruleJvmArgumentTypeReference ) ) (otherlv_5= ',' ( (lv_typeArguments_6_0= ruleJvmArgumentTypeReference ) ) )* otherlv_7= '>' )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -59266,9 +59800,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA394_specialS =
         "\1\uffff\1\0\114\uffff}>";
     static final String[] DFA394_transitionS = {
-            "\5\2\5\uffff\2\2\1\uffff\1\2\1\uffff\1\2\1\uffff\2\2\2\uffff"+
-            "\1\2\2\uffff\6\2\15\uffff\1\1\3\uffff\1\2\103\uffff\36\2\1\uffff"+
-            "\31\2",
+            "\5\2\5\uffff\2\2\1\uffff\1\2\1\uffff\1\2\1\uffff\2\2\2\uffff\1\2\2\uffff\6\2\15\uffff\1\1\3\uffff\1\2\103\uffff\36\2\1\uffff\31\2",
             "\1\uffff",
             "",
             "",
@@ -59378,7 +59910,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             this.transition = DFA394_transition;
         }
         public String getDescription() {
-            return "17671:3: ( ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )? otherlv_13= ')' )?";
+            return "17682:3: ( ( ( ( '(' ) )=> (lv_explicitConstructorCall_8_0= '(' ) ) ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )? otherlv_13= ')' )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -59420,10 +59952,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA393_specialS =
         "\1\0\1\1\1\2\41\uffff}>";
     static final String[] DFA393_transitionS = {
-            "\1\1\4\5\5\uffff\1\5\6\uffff\1\5\6\uffff\1\5\3\uffff\1\5\16"+
-            "\uffff\1\2\3\uffff\1\43\122\uffff\1\3\2\uffff\2\5\4\uffff\1"+
-            "\5\4\uffff\1\5\1\4\1\5\1\uffff\1\5\2\uffff\3\5\2\uffff\14\5"+
-            "\1\uffff\1\5",
+            "\1\1\4\5\5\uffff\1\5\6\uffff\1\5\6\uffff\1\5\3\uffff\1\5\16\uffff\1\2\3\uffff\1\43\122\uffff\1\3\2\uffff\2\5\4\uffff\1\5\4\uffff\1\5\1\4\1\5\1\uffff\1\5\2\uffff\3\5\2\uffff\14\5\1\uffff\1\5",
             "\1\uffff",
             "\1\uffff",
             "",
@@ -59491,7 +60020,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             this.transition = DFA393_transition;
         }
         public String getDescription() {
-            return "17692:2: ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )?";
+            return "17703:2: ( ( ( ( () ( ( ( ruleJvmFormalParameter ) ) ( ',' ( ( ruleJvmFormalParameter ) ) )* )? ( ( '|' ) ) ) )=> (lv_arguments_9_0= ruleXShortClosure ) ) | ( ( (lv_arguments_10_0= ruleXExpression ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleXExpression ) ) )* ) )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -59571,9 +60100,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA395_specialS =
         "\1\uffff\1\0\114\uffff}>";
     static final String[] DFA395_transitionS = {
-            "\5\2\5\uffff\2\2\1\uffff\1\2\1\uffff\1\2\1\uffff\2\2\2\uffff"+
-            "\1\2\2\uffff\4\2\1\1\1\2\15\uffff\1\2\3\uffff\1\2\103\uffff"+
-            "\36\2\1\uffff\31\2",
+            "\5\2\5\uffff\2\2\1\uffff\1\2\1\uffff\1\2\1\uffff\2\2\2\uffff\1\2\2\uffff\4\2\1\1\1\2\15\uffff\1\2\3\uffff\1\2\103\uffff\36\2\1\uffff\31\2",
             "\1\uffff",
             "",
             "",
@@ -59683,7 +60210,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             this.transition = DFA395_transition;
         }
         public String getDescription() {
-            return "17771:3: ( ( ( () '[' ) )=> (lv_arguments_14_0= ruleXClosure ) )?";
+            return "17782:3: ( ( ( () '[' ) )=> (lv_arguments_14_0= ruleXClosure ) )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -59723,16 +60250,9 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
     static final String DFA398_acceptS =
         "\41\uffff\1\2\53\uffff\1\1";
     static final String DFA398_specialS =
-        "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14"+
-        "\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31"+
-        "\1\32\1\33\1\34\1\35\1\36\1\37\55\uffff}>";
+        "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\37\55\uffff}>";
     static final String[] DFA398_transitionS = {
-            "\1\1\1\27\1\24\1\23\1\25\5\uffff\1\4\1\41\1\uffff\1\41\1\uffff"+
-            "\1\41\1\uffff\1\12\1\41\2\uffff\1\41\2\uffff\1\15\3\41\1\20"+
-            "\1\41\15\uffff\1\40\3\uffff\1\41\103\uffff\22\41\1\10\1\7\4"+
-            "\41\1\6\4\41\1\17\1\uffff\1\31\1\41\1\13\2\41\1\32\1\33\1\34"+
-            "\2\41\1\2\1\3\1\5\1\16\1\11\1\21\1\22\1\26\1\30\1\35\1\36\1"+
-            "\37\1\41\1\14\1\41",
+            "\1\1\1\27\1\24\1\23\1\25\5\uffff\1\4\1\41\1\uffff\1\41\1\uffff\1\41\1\uffff\1\12\1\41\2\uffff\1\41\2\uffff\1\15\3\41\1\20\1\41\15\uffff\1\40\3\uffff\1\41\103\uffff\22\41\1\10\1\7\4\41\1\6\4\41\1\17\1\uffff\1\31\1\41\1\13\2\41\1\32\1\33\1\34\2\41\1\2\1\3\1\5\1\16\1\11\1\21\1\22\1\26\1\30\1\35\1\36\1\37\1\41\1\14\1\41",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
@@ -59842,7 +60362,7 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             this.transition = DFA398_transition;
         }
         public String getDescription() {
-            return "18111:1: ( ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )=> (lv_expression_2_0= ruleXExpression ) )?";
+            return "18122:1: ( ( 'extends' | 'static' | 'import' | 'extension' | '!' | '-' | '+' | 'new' | '{' | 'switch' | 'synchronized' | '<' | 'super' | '#' | '[' | 'false' | 'true' | 'null' | 'typeof' | 'if' | 'for' | 'while' | 'do' | 'throw' | 'return' | 'try' | '(' | RULE_ID | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_STRING )=> (lv_expression_2_0= ruleXExpression ) )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -60336,24 +60856,20 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String DFA413_eotS =
-        "\u0085\uffff";
-    static final String DFA413_eofS =
-        "\1\2\u0084\uffff";
-    static final String DFA413_minS =
-        "\1\4\1\0\u0083\uffff";
-    static final String DFA413_maxS =
-        "\1\u00ae\1\0\u0083\uffff";
-    static final String DFA413_acceptS =
-        "\2\uffff\1\2\u0081\uffff\1\1";
-    static final String DFA413_specialS =
-        "\1\uffff\1\0\u0083\uffff}>";
-    static final String[] DFA413_transitionS = {
-            "\5\2\5\uffff\2\2\1\uffff\1\2\1\uffff\10\2\1\uffff\1\1\5\2\5"+
-            "\uffff\2\2\5\uffff\2\2\2\uffff\6\2\2\uffff\6\2\1\uffff\2\2\3"+
-            "\uffff\2\2\2\uffff\3\2\3\uffff\13\2\1\uffff\6\2\1\uffff\3\2"+
-            "\3\uffff\3\2\1\uffff\6\2\1\uffff\1\2\2\uffff\36\2\1\uffff\31"+
-            "\2",
+    static final String DFA416_eotS =
+        "\u0086\uffff";
+    static final String DFA416_eofS =
+        "\1\2\u0085\uffff";
+    static final String DFA416_minS =
+        "\1\4\1\0\u0084\uffff";
+    static final String DFA416_maxS =
+        "\1\u00b0\1\0\u0084\uffff";
+    static final String DFA416_acceptS =
+        "\2\uffff\1\2\u0082\uffff\1\1";
+    static final String DFA416_specialS =
+        "\1\uffff\1\0\u0084\uffff}>";
+    static final String[] DFA416_transitionS = {
+            "\5\2\5\uffff\2\2\1\uffff\1\2\1\uffff\10\2\1\uffff\1\1\5\2\5\uffff\2\2\5\uffff\2\2\2\uffff\6\2\2\uffff\6\2\1\uffff\2\2\3\uffff\2\2\2\uffff\3\2\3\uffff\13\2\1\uffff\6\2\1\uffff\3\2\3\uffff\3\2\1\uffff\6\2\1\uffff\1\2\2\uffff\36\2\1\uffff\31\2\1\uffff\1\2",
             "\1\uffff",
             "",
             "",
@@ -60485,81 +61001,290 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             "",
             "",
             "",
+            "",
             ""
     };
 
-    static final short[] DFA413_eot = DFA.unpackEncodedString(DFA413_eotS);
-    static final short[] DFA413_eof = DFA.unpackEncodedString(DFA413_eofS);
-    static final char[] DFA413_min = DFA.unpackEncodedStringToUnsignedChars(DFA413_minS);
-    static final char[] DFA413_max = DFA.unpackEncodedStringToUnsignedChars(DFA413_maxS);
-    static final short[] DFA413_accept = DFA.unpackEncodedString(DFA413_acceptS);
-    static final short[] DFA413_special = DFA.unpackEncodedString(DFA413_specialS);
-    static final short[][] DFA413_transition;
+    static final short[] DFA416_eot = DFA.unpackEncodedString(DFA416_eotS);
+    static final short[] DFA416_eof = DFA.unpackEncodedString(DFA416_eofS);
+    static final char[] DFA416_min = DFA.unpackEncodedStringToUnsignedChars(DFA416_minS);
+    static final char[] DFA416_max = DFA.unpackEncodedStringToUnsignedChars(DFA416_maxS);
+    static final short[] DFA416_accept = DFA.unpackEncodedString(DFA416_acceptS);
+    static final short[] DFA416_special = DFA.unpackEncodedString(DFA416_specialS);
+    static final short[][] DFA416_transition;
 
     static {
-        int numStates = DFA413_transitionS.length;
-        DFA413_transition = new short[numStates][];
+        int numStates = DFA416_transitionS.length;
+        DFA416_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA413_transition[i] = DFA.unpackEncodedString(DFA413_transitionS[i]);
+            DFA416_transition[i] = DFA.unpackEncodedString(DFA416_transitionS[i]);
         }
     }
 
-    class DFA413 extends DFA {
+    class DFA416 extends DFA {
 
-        public DFA413(BaseRecognizer recognizer) {
+        public DFA416(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 413;
-            this.eot = DFA413_eot;
-            this.eof = DFA413_eof;
-            this.min = DFA413_min;
-            this.max = DFA413_max;
-            this.accept = DFA413_accept;
-            this.special = DFA413_special;
-            this.transition = DFA413_transition;
+            this.decisionNumber = 416;
+            this.eot = DFA416_eot;
+            this.eof = DFA416_eof;
+            this.min = DFA416_min;
+            this.max = DFA416_max;
+            this.accept = DFA416_accept;
+            this.special = DFA416_special;
+            this.transition = DFA416_transition;
         }
         public String getDescription() {
-            return "18761:2: ( ( ( '<' )=>otherlv_1= '<' ) ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' )?";
+            return "18772:2: ( ( ( '<' )=>otherlv_1= '<' ) ( (lv_arguments_2_0= ruleJvmArgumentTypeReference ) ) (otherlv_3= ',' ( (lv_arguments_4_0= ruleJvmArgumentTypeReference ) ) )* otherlv_5= '>' ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( ( ruleValidID ) ) ( ( ( '<' )=>otherlv_9= '<' ) ( (lv_arguments_10_0= ruleJvmArgumentTypeReference ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleJvmArgumentTypeReference ) ) )* otherlv_13= '>' )? )* )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA413_1 = input.LA(1);
+                        int LA416_1 = input.LA(1);
 
                          
-                        int index413_1 = input.index();
+                        int index416_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred45_InternalUIGrammar()) ) {s = 132;}
+                        if ( (synpred45_InternalUIGrammar()) ) {s = 133;}
 
                         else if ( (true) ) {s = 2;}
 
                          
-                        input.seek(index413_1);
+                        input.seek(index416_1);
                         if ( s>=0 ) return s;
                         break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 413, _s, input);
+                new NoViableAltException(getDescription(), 416, _s, input);
             error(nvae);
             throw nvae;
         }
     }
-    static final String DFA418_eotS =
+    static final String DFA414_eotS =
+        "\u0086\uffff";
+    static final String DFA414_eofS =
+        "\1\2\u0085\uffff";
+    static final String DFA414_minS =
+        "\1\4\1\0\u0084\uffff";
+    static final String DFA414_maxS =
+        "\1\u00b0\1\0\u0084\uffff";
+    static final String DFA414_acceptS =
+        "\2\uffff\1\2\u0082\uffff\1\1";
+    static final String DFA414_specialS =
+        "\1\uffff\1\0\u0084\uffff}>";
+    static final String[] DFA414_transitionS = {
+            "\5\2\5\uffff\2\2\1\uffff\1\2\1\uffff\10\2\1\uffff\1\1\5\2\5\uffff\2\2\5\uffff\2\2\2\uffff\6\2\2\uffff\6\2\1\uffff\2\2\3\uffff\2\2\2\uffff\3\2\3\uffff\13\2\1\uffff\6\2\1\uffff\3\2\3\uffff\3\2\1\uffff\6\2\1\uffff\1\2\2\uffff\36\2\1\uffff\31\2\1\uffff\1\2",
+            "\1\uffff",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+    };
+
+    static final short[] DFA414_eot = DFA.unpackEncodedString(DFA414_eotS);
+    static final short[] DFA414_eof = DFA.unpackEncodedString(DFA414_eofS);
+    static final char[] DFA414_min = DFA.unpackEncodedStringToUnsignedChars(DFA414_minS);
+    static final char[] DFA414_max = DFA.unpackEncodedStringToUnsignedChars(DFA414_maxS);
+    static final short[] DFA414_accept = DFA.unpackEncodedString(DFA414_acceptS);
+    static final short[] DFA414_special = DFA.unpackEncodedString(DFA414_specialS);
+    static final short[][] DFA414_transition;
+
+    static {
+        int numStates = DFA414_transitionS.length;
+        DFA414_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA414_transition[i] = DFA.unpackEncodedString(DFA414_transitionS[i]);
+        }
+    }
+
+    class DFA414 extends DFA {
+
+        public DFA414(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 414;
+            this.eot = DFA414_eot;
+            this.eof = DFA414_eof;
+            this.min = DFA414_min;
+            this.max = DFA414_max;
+            this.accept = DFA414_accept;
+            this.special = DFA414_special;
+            this.transition = DFA414_transition;
+        }
+        public String getDescription() {
+            return "18848:2: ( ( ( '<' )=>otherlv_9= '<' ) ( (lv_arguments_10_0= ruleJvmArgumentTypeReference ) ) (otherlv_11= ',' ( (lv_arguments_12_0= ruleJvmArgumentTypeReference ) ) )* otherlv_13= '>' )?";
+        }
+        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
+            TokenStream input = (TokenStream)_input;
+        	int _s = s;
+            switch ( s ) {
+                    case 0 : 
+                        int LA414_1 = input.LA(1);
+
+                         
+                        int index414_1 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred47_InternalUIGrammar()) ) {s = 133;}
+
+                        else if ( (true) ) {s = 2;}
+
+                         
+                        input.seek(index414_1);
+                        if ( s>=0 ) return s;
+                        break;
+            }
+            if (state.backtracking>0) {state.failed=true; return -1;}
+            NoViableAltException nvae =
+                new NoViableAltException(getDescription(), 414, _s, input);
+            error(nvae);
+            throw nvae;
+        }
+    }
+    static final String DFA423_eotS =
         "\7\uffff";
-    static final String DFA418_eofS =
+    static final String DFA423_eofS =
         "\2\uffff\1\4\2\uffff\1\4\1\uffff";
-    static final String DFA418_minS =
+    static final String DFA423_minS =
         "\1\4\1\uffff\1\17\1\4\1\uffff\1\17\1\uffff";
-    static final String DFA418_maxS =
+    static final String DFA423_maxS =
         "\1\u00a1\1\uffff\1\37\1\u008b\1\uffff\1\37\1\uffff";
-    static final String DFA418_acceptS =
+    static final String DFA423_acceptS =
         "\1\uffff\1\1\2\uffff\1\2\1\uffff\1\3";
-    static final String DFA418_specialS =
+    static final String DFA423_specialS =
         "\7\uffff}>";
-    static final String[] DFA418_transitionS = {
+    static final String[] DFA423_transitionS = {
             "\1\2\u009c\uffff\1\1",
             "",
             "\1\4\17\uffff\1\3",
@@ -60569,37 +61294,37 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
             ""
     };
 
-    static final short[] DFA418_eot = DFA.unpackEncodedString(DFA418_eotS);
-    static final short[] DFA418_eof = DFA.unpackEncodedString(DFA418_eofS);
-    static final char[] DFA418_min = DFA.unpackEncodedStringToUnsignedChars(DFA418_minS);
-    static final char[] DFA418_max = DFA.unpackEncodedStringToUnsignedChars(DFA418_maxS);
-    static final short[] DFA418_accept = DFA.unpackEncodedString(DFA418_acceptS);
-    static final short[] DFA418_special = DFA.unpackEncodedString(DFA418_specialS);
-    static final short[][] DFA418_transition;
+    static final short[] DFA423_eot = DFA.unpackEncodedString(DFA423_eotS);
+    static final short[] DFA423_eof = DFA.unpackEncodedString(DFA423_eofS);
+    static final char[] DFA423_min = DFA.unpackEncodedStringToUnsignedChars(DFA423_minS);
+    static final char[] DFA423_max = DFA.unpackEncodedStringToUnsignedChars(DFA423_maxS);
+    static final short[] DFA423_accept = DFA.unpackEncodedString(DFA423_acceptS);
+    static final short[] DFA423_special = DFA.unpackEncodedString(DFA423_specialS);
+    static final short[][] DFA423_transition;
 
     static {
-        int numStates = DFA418_transitionS.length;
-        DFA418_transition = new short[numStates][];
+        int numStates = DFA423_transitionS.length;
+        DFA423_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA418_transition[i] = DFA.unpackEncodedString(DFA418_transitionS[i]);
+            DFA423_transition[i] = DFA.unpackEncodedString(DFA423_transitionS[i]);
         }
     }
 
-    class DFA418 extends DFA {
+    class DFA423 extends DFA {
 
-        public DFA418(BaseRecognizer recognizer) {
+        public DFA423(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 418;
-            this.eot = DFA418_eot;
-            this.eof = DFA418_eof;
-            this.min = DFA418_min;
-            this.max = DFA418_max;
-            this.accept = DFA418_accept;
-            this.special = DFA418_special;
-            this.transition = DFA418_transition;
+            this.decisionNumber = 423;
+            this.eot = DFA423_eot;
+            this.eof = DFA423_eof;
+            this.min = DFA423_min;
+            this.max = DFA423_max;
+            this.accept = DFA423_accept;
+            this.special = DFA423_special;
+            this.transition = DFA423_transition;
         }
         public String getDescription() {
-            return "19148:1: ( ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) ) | ( ( ruleQualifiedName ) ) | ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) ) )";
+            return "19314:1: ( ( ( (lv_static_1_0= 'static' ) ) ( (lv_extension_2_0= 'extension' ) )? ( ( ruleQualifiedNameInStaticImport ) ) ( ( (lv_wildcard_4_0= '*' ) ) | ( (lv_memberName_5_0= ruleValidID ) ) ) ) | ( ( ruleQualifiedName ) ) | ( (lv_importedNamespace_7_0= ruleQualifiedNameWithWildcard ) ) )";
         }
     }
  
@@ -61874,279 +62599,292 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_ruleXExpression_in_ruleXCasePart38523 = new BitSet(new long[]{0x0000000002000000L,0x0000000000000000L,0x0000000000080000L});
         public static final BitSet FOLLOW_25_in_ruleXCasePart38539 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
         public static final BitSet FOLLOW_ruleXExpression_in_ruleXCasePart38560 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_147_in_ruleXCasePart38579 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXForLoopExpression_in_entryRuleXForLoopExpression38616 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXForLoopExpression38626 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_155_in_ruleXForLoopExpression38703 = new BitSet(new long[]{0x0000800000000000L});
-        public static final BitSet FOLLOW_47_in_ruleXForLoopExpression38715 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
-        public static final BitSet FOLLOW_ruleJvmFormalParameter_in_ruleXForLoopExpression38736 = new BitSet(new long[]{0x0000000002000000L});
-        public static final BitSet FOLLOW_25_in_ruleXForLoopExpression38748 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXForLoopExpression38771 = new BitSet(new long[]{0x0008000000000000L});
-        public static final BitSet FOLLOW_51_in_ruleXForLoopExpression38783 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXForLoopExpression38804 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXBasicForLoopExpression_in_entryRuleXBasicForLoopExpression38840 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXBasicForLoopExpression38850 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_155_in_ruleXBasicForLoopExpression38896 = new BitSet(new long[]{0x0000800000000000L});
-        public static final BitSet FOLLOW_47_in_ruleXBasicForLoopExpression38908 = new BitSet(new long[]{0x000080011020C1F0L,0x0000000000000000L,0x00002FFFF9508600L});
-        public static final BitSet FOLLOW_ruleXExpressionOrVarDeclaration_in_ruleXBasicForLoopExpression38930 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000080000L});
-        public static final BitSet FOLLOW_147_in_ruleXBasicForLoopExpression38943 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFFF9508600L});
-        public static final BitSet FOLLOW_ruleXExpressionOrVarDeclaration_in_ruleXBasicForLoopExpression38964 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000080000L});
-        public static final BitSet FOLLOW_15_in_ruleXBasicForLoopExpression38980 = new BitSet(new long[]{0x000080011020C1F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXBasicForLoopExpression39001 = new BitSet(new long[]{0x0000000000008000L});
-        public static final BitSet FOLLOW_15_in_ruleXBasicForLoopExpression39014 = new BitSet(new long[]{0x00088001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXBasicForLoopExpression39036 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000080000L});
-        public static final BitSet FOLLOW_147_in_ruleXBasicForLoopExpression39049 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXBasicForLoopExpression39070 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000080000L});
-        public static final BitSet FOLLOW_51_in_ruleXBasicForLoopExpression39086 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXBasicForLoopExpression39107 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXWhileExpression_in_entryRuleXWhileExpression39143 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXWhileExpression39153 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_156_in_ruleXWhileExpression39199 = new BitSet(new long[]{0x0000800000000000L});
-        public static final BitSet FOLLOW_47_in_ruleXWhileExpression39211 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXWhileExpression39232 = new BitSet(new long[]{0x0008000000000000L});
-        public static final BitSet FOLLOW_51_in_ruleXWhileExpression39244 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXWhileExpression39265 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXDoWhileExpression_in_entryRuleXDoWhileExpression39301 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXDoWhileExpression39311 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_157_in_ruleXDoWhileExpression39357 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXDoWhileExpression39378 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000010000000L});
-        public static final BitSet FOLLOW_156_in_ruleXDoWhileExpression39390 = new BitSet(new long[]{0x0000800000000000L});
-        public static final BitSet FOLLOW_47_in_ruleXDoWhileExpression39402 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXDoWhileExpression39423 = new BitSet(new long[]{0x0008000000000000L});
-        public static final BitSet FOLLOW_51_in_ruleXDoWhileExpression39435 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXBlockExpression_in_entryRuleXBlockExpression39471 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXBlockExpression39481 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_21_in_ruleXBlockExpression39527 = new BitSet(new long[]{0x00008001106041F0L,0x0000000000000000L,0x00002FFFF9508600L});
-        public static final BitSet FOLLOW_ruleXExpressionOrVarDeclaration_in_ruleXBlockExpression39549 = new BitSet(new long[]{0x000080011060C1F0L,0x0000000000000000L,0x00002FFFF9508600L});
-        public static final BitSet FOLLOW_15_in_ruleXBlockExpression39562 = new BitSet(new long[]{0x00008001106041F0L,0x0000000000000000L,0x00002FFFF9508600L});
-        public static final BitSet FOLLOW_22_in_ruleXBlockExpression39578 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXExpressionOrVarDeclaration_in_entryRuleXExpressionOrVarDeclaration39614 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXExpressionOrVarDeclaration39624 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXVariableDeclaration_in_ruleXExpressionOrVarDeclaration39671 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXExpressionOrVarDeclaration39698 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXVariableDeclaration_in_entryRuleXVariableDeclaration39733 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXVariableDeclaration39743 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_158_in_ruleXVariableDeclaration39796 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
-        public static final BitSet FOLLOW_159_in_ruleXVariableDeclaration39827 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
-        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXVariableDeclaration39875 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_ruleValidID_in_ruleXVariableDeclaration39896 = new BitSet(new long[]{0x0000000000000002L,0x0040000000000000L});
-        public static final BitSet FOLLOW_ruleValidID_in_ruleXVariableDeclaration39925 = new BitSet(new long[]{0x0000000000000002L,0x0040000000000000L});
-        public static final BitSet FOLLOW_118_in_ruleXVariableDeclaration39939 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXVariableDeclaration39960 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleJvmFormalParameter_in_entryRuleJvmFormalParameter39998 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleJvmFormalParameter40008 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleJvmFormalParameter40054 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_ruleValidID_in_ruleJvmFormalParameter40076 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleFullJvmFormalParameter_in_entryRuleFullJvmFormalParameter40112 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleFullJvmFormalParameter40122 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleFullJvmFormalParameter40168 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_ruleValidID_in_ruleFullJvmFormalParameter40189 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXFeatureCall_in_entryRuleXFeatureCall40225 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXFeatureCall40235 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_28_in_ruleXFeatureCall40282 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000800000000040L});
-        public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXFeatureCall40303 = new BitSet(new long[]{0x0000000040000000L,0x0000000000000000L,0x0000000000080000L});
-        public static final BitSet FOLLOW_147_in_ruleXFeatureCall40316 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000800000000040L});
-        public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXFeatureCall40337 = new BitSet(new long[]{0x0000000040000000L,0x0000000000000000L,0x0000000000080000L});
-        public static final BitSet FOLLOW_30_in_ruleXFeatureCall40351 = new BitSet(new long[]{0x0000000010004010L,0x0000000000000000L,0x0000000F00000000L});
-        public static final BitSet FOLLOW_ruleIdOrSuper_in_ruleXFeatureCall40376 = new BitSet(new long[]{0x0000800100000002L});
-        public static final BitSet FOLLOW_47_in_ruleXFeatureCall40410 = new BitSet(new long[]{0x00088001102041F0L,0x0000000000000000L,0x00002FFF39708640L});
-        public static final BitSet FOLLOW_ruleXShortClosure_in_ruleXFeatureCall40495 = new BitSet(new long[]{0x0008000000000000L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXFeatureCall40523 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000080000L});
-        public static final BitSet FOLLOW_147_in_ruleXFeatureCall40536 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXFeatureCall40557 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000080000L});
-        public static final BitSet FOLLOW_51_in_ruleXFeatureCall40574 = new BitSet(new long[]{0x0000000100000002L});
-        public static final BitSet FOLLOW_ruleXClosure_in_ruleXFeatureCall40609 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleFeatureCallID_in_entryRuleFeatureCallID40647 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleFeatureCallID40658 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleValidID_in_ruleFeatureCallID40705 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_160_in_ruleFeatureCallID40729 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_161_in_ruleFeatureCallID40748 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_14_in_ruleFeatureCallID40767 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_162_in_ruleFeatureCallID40786 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleIdOrSuper_in_entryRuleIdOrSuper40827 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleIdOrSuper40838 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleFeatureCallID_in_ruleIdOrSuper40885 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_163_in_ruleIdOrSuper40909 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXConstructorCall_in_entryRuleXConstructorCall40949 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXConstructorCall40959 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_164_in_ruleXConstructorCall41005 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_ruleQualifiedName_in_ruleXConstructorCall41028 = new BitSet(new long[]{0x0000800110000002L});
-        public static final BitSet FOLLOW_28_in_ruleXConstructorCall41049 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000800000000040L});
-        public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXConstructorCall41071 = new BitSet(new long[]{0x0000000040000000L,0x0000000000000000L,0x0000000000080000L});
-        public static final BitSet FOLLOW_147_in_ruleXConstructorCall41084 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000800000000040L});
-        public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXConstructorCall41105 = new BitSet(new long[]{0x0000000040000000L,0x0000000000000000L,0x0000000000080000L});
-        public static final BitSet FOLLOW_30_in_ruleXConstructorCall41119 = new BitSet(new long[]{0x0000800100000002L});
-        public static final BitSet FOLLOW_47_in_ruleXConstructorCall41155 = new BitSet(new long[]{0x00088001102041F0L,0x0000000000000000L,0x00002FFF39708640L});
-        public static final BitSet FOLLOW_ruleXShortClosure_in_ruleXConstructorCall41240 = new BitSet(new long[]{0x0008000000000000L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXConstructorCall41268 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000080000L});
-        public static final BitSet FOLLOW_147_in_ruleXConstructorCall41281 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXConstructorCall41302 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000080000L});
-        public static final BitSet FOLLOW_51_in_ruleXConstructorCall41319 = new BitSet(new long[]{0x0000000100000002L});
-        public static final BitSet FOLLOW_ruleXClosure_in_ruleXConstructorCall41354 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXBooleanLiteral_in_entryRuleXBooleanLiteral41391 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXBooleanLiteral41401 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_165_in_ruleXBooleanLiteral41448 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_166_in_ruleXBooleanLiteral41472 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXNullLiteral_in_entryRuleXNullLiteral41522 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXNullLiteral41532 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_167_in_ruleXNullLiteral41578 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXNumberLiteral_in_entryRuleXNumberLiteral41614 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXNumberLiteral41624 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleNumber_in_ruleXNumberLiteral41679 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXStringLiteral_in_entryRuleXStringLiteral41715 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXStringLiteral41725 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_STRING_in_ruleXStringLiteral41776 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXTypeLiteral_in_entryRuleXTypeLiteral41817 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXTypeLiteral41827 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_168_in_ruleXTypeLiteral41873 = new BitSet(new long[]{0x0000800000000000L});
-        public static final BitSet FOLLOW_47_in_ruleXTypeLiteral41885 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_ruleQualifiedName_in_ruleXTypeLiteral41908 = new BitSet(new long[]{0x0008000100000000L});
-        public static final BitSet FOLLOW_ruleArrayBrackets_in_ruleXTypeLiteral41929 = new BitSet(new long[]{0x0008000100000000L});
-        public static final BitSet FOLLOW_51_in_ruleXTypeLiteral41942 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXThrowExpression_in_entryRuleXThrowExpression41978 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXThrowExpression41988 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_169_in_ruleXThrowExpression42034 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXThrowExpression42055 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXReturnExpression_in_entryRuleXReturnExpression42091 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXReturnExpression42101 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_170_in_ruleXReturnExpression42147 = new BitSet(new long[]{0x00008001102041F2L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXReturnExpression42382 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXTryCatchFinallyExpression_in_entryRuleXTryCatchFinallyExpression42419 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXTryCatchFinallyExpression42429 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_171_in_ruleXTryCatchFinallyExpression42475 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXTryCatchFinallyExpression42496 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000500000000000L});
-        public static final BitSet FOLLOW_ruleXCatchClause_in_ruleXTryCatchFinallyExpression42526 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000500000000000L});
-        public static final BitSet FOLLOW_172_in_ruleXTryCatchFinallyExpression42548 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXTryCatchFinallyExpression42570 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_172_in_ruleXTryCatchFinallyExpression42592 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXTryCatchFinallyExpression42613 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXSynchronizedExpression_in_entryRuleXSynchronizedExpression42651 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXSynchronizedExpression42661 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_173_in_ruleXSynchronizedExpression42725 = new BitSet(new long[]{0x0000800000000000L});
-        public static final BitSet FOLLOW_47_in_ruleXSynchronizedExpression42737 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXSynchronizedExpression42760 = new BitSet(new long[]{0x0008000000000000L});
-        public static final BitSet FOLLOW_51_in_ruleXSynchronizedExpression42772 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXSynchronizedExpression42793 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXCatchClause_in_entryRuleXCatchClause42829 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXCatchClause42839 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_174_in_ruleXCatchClause42884 = new BitSet(new long[]{0x0000800000000000L});
-        public static final BitSet FOLLOW_47_in_ruleXCatchClause42897 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
-        public static final BitSet FOLLOW_ruleFullJvmFormalParameter_in_ruleXCatchClause42918 = new BitSet(new long[]{0x0008000000000000L});
-        public static final BitSet FOLLOW_51_in_ruleXCatchClause42930 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
-        public static final BitSet FOLLOW_ruleXExpression_in_ruleXCatchClause42951 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName42988 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName42999 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleValidID_in_ruleQualifiedName43046 = new BitSet(new long[]{0x0000000080000002L});
-        public static final BitSet FOLLOW_31_in_ruleQualifiedName43074 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_ruleValidID_in_ruleQualifiedName43097 = new BitSet(new long[]{0x0000000080000002L});
-        public static final BitSet FOLLOW_ruleNumber_in_entryRuleNumber43151 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleNumber43162 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_HEX_in_ruleNumber43206 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_INT_in_ruleNumber43234 = new BitSet(new long[]{0x0000000080000002L});
-        public static final BitSet FOLLOW_RULE_DECIMAL_in_ruleNumber43260 = new BitSet(new long[]{0x0000000080000002L});
-        public static final BitSet FOLLOW_31_in_ruleNumber43280 = new BitSet(new long[]{0x0000000000000140L});
-        public static final BitSet FOLLOW_RULE_INT_in_ruleNumber43296 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_DECIMAL_in_ruleNumber43322 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleJvmTypeReference_in_entryRuleJvmTypeReference43377 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleJvmTypeReference43387 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleJvmParameterizedTypeReference_in_ruleJvmTypeReference43435 = new BitSet(new long[]{0x0000000100000002L});
-        public static final BitSet FOLLOW_ruleArrayBrackets_in_ruleJvmTypeReference43471 = new BitSet(new long[]{0x0000000100000002L});
-        public static final BitSet FOLLOW_ruleXFunctionTypeRef_in_ruleJvmTypeReference43502 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleArrayBrackets_in_entryRuleArrayBrackets43538 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleArrayBrackets43549 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_32_in_ruleArrayBrackets43587 = new BitSet(new long[]{0x0000000200000000L});
-        public static final BitSet FOLLOW_33_in_ruleArrayBrackets43600 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXFunctionTypeRef_in_entryRuleXFunctionTypeRef43640 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXFunctionTypeRef43650 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_47_in_ruleXFunctionTypeRef43688 = new BitSet(new long[]{0x0008800000000010L,0x0000000000000000L,0x0000000000000040L});
-        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXFunctionTypeRef43710 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000080000L});
-        public static final BitSet FOLLOW_147_in_ruleXFunctionTypeRef43723 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
-        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXFunctionTypeRef43744 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000080000L});
-        public static final BitSet FOLLOW_51_in_ruleXFunctionTypeRef43760 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
-        public static final BitSet FOLLOW_134_in_ruleXFunctionTypeRef43774 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
-        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXFunctionTypeRef43795 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleJvmParameterizedTypeReference_in_entryRuleJvmParameterizedTypeReference43831 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleJvmParameterizedTypeReference43841 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleQualifiedName_in_ruleJvmParameterizedTypeReference43889 = new BitSet(new long[]{0x0000000010000002L});
-        public static final BitSet FOLLOW_28_in_ruleJvmParameterizedTypeReference43910 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000800000000040L});
-        public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleJvmParameterizedTypeReference43932 = new BitSet(new long[]{0x0000000040000000L,0x0000000000000000L,0x0000000000080000L});
-        public static final BitSet FOLLOW_147_in_ruleJvmParameterizedTypeReference43945 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000800000000040L});
-        public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleJvmParameterizedTypeReference43966 = new BitSet(new long[]{0x0000000040000000L,0x0000000000000000L,0x0000000000080000L});
-        public static final BitSet FOLLOW_30_in_ruleJvmParameterizedTypeReference43980 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_entryRuleJvmArgumentTypeReference44018 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleJvmArgumentTypeReference44028 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleJvmArgumentTypeReference44075 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleJvmWildcardTypeReference_in_ruleJvmArgumentTypeReference44102 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleJvmWildcardTypeReference_in_entryRuleJvmWildcardTypeReference44137 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleJvmWildcardTypeReference44147 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_175_in_ruleJvmWildcardTypeReference44193 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000900000000L});
-        public static final BitSet FOLLOW_ruleJvmUpperBound_in_ruleJvmWildcardTypeReference44215 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleJvmLowerBound_in_ruleJvmWildcardTypeReference44242 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleJvmUpperBound_in_entryRuleJvmUpperBound44280 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleJvmUpperBound44290 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_160_in_ruleJvmUpperBound44327 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
-        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleJvmUpperBound44348 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleJvmUpperBoundAnded_in_entryRuleJvmUpperBoundAnded44384 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleJvmUpperBoundAnded44394 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_176_in_ruleJvmUpperBoundAnded44431 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
-        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleJvmUpperBoundAnded44452 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleJvmLowerBound_in_entryRuleJvmLowerBound44488 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleJvmLowerBound44498 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_163_in_ruleJvmLowerBound44535 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
-        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleJvmLowerBound44556 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleQualifiedNameWithWildcard_in_entryRuleQualifiedNameWithWildcard44595 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedNameWithWildcard44606 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleQualifiedName_in_ruleQualifiedNameWithWildcard44653 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleQualifiedNameWithWildcard44671 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000800L});
-        public static final BitSet FOLLOW_139_in_ruleQualifiedNameWithWildcard44684 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleValidID_in_entryRuleValidID44725 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleValidID44736 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleValidID44775 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXImportDeclaration_in_entryRuleXImportDeclaration44821 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXImportDeclaration44831 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_14_in_ruleXImportDeclaration44868 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x0000000200000000L});
-        public static final BitSet FOLLOW_161_in_ruleXImportDeclaration44888 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x0000000400000000L});
-        public static final BitSet FOLLOW_162_in_ruleXImportDeclaration44919 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x0000000400000000L});
-        public static final BitSet FOLLOW_ruleQualifiedNameInStaticImport_in_ruleXImportDeclaration44956 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x0000000000000800L});
-        public static final BitSet FOLLOW_139_in_ruleXImportDeclaration44975 = new BitSet(new long[]{0x0000000000008002L});
-        public static final BitSet FOLLOW_ruleValidID_in_ruleXImportDeclaration45015 = new BitSet(new long[]{0x0000000000008002L});
-        public static final BitSet FOLLOW_ruleQualifiedName_in_ruleXImportDeclaration45046 = new BitSet(new long[]{0x0000000000008002L});
-        public static final BitSet FOLLOW_ruleQualifiedNameWithWildcard_in_ruleXImportDeclaration45073 = new BitSet(new long[]{0x0000000000008002L});
-        public static final BitSet FOLLOW_15_in_ruleXImportDeclaration45087 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleQualifiedNameInStaticImport_in_entryRuleQualifiedNameInStaticImport45126 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedNameInStaticImport45137 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleValidID_in_ruleQualifiedNameInStaticImport45184 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleQualifiedNameInStaticImport45202 = new BitSet(new long[]{0x0000000000000012L});
-        public static final BitSet FOLLOW_177_in_ruleUiDateFormat45257 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_178_in_ruleUiDateFormat45274 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_179_in_ruleUiDateFormat45291 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_180_in_ruleUiDateTimeResolution45336 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_68_in_ruleUiDateTimeResolution45353 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_181_in_ruleUiDateTimeResolution45370 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_182_in_ruleUiDateTimeResolution45387 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_183_in_ruleUiDateTimeResolution45404 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_184_in_ruleUiDateTimeResolution45421 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_185_in_ruleUiDateTimeResolution45438 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_186_in_ruleUiSelectionType45483 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_187_in_ruleUiSelectionType45500 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_188_in_ruleUiSelectionType45517 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_180_in_ruleUiAlignment45562 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_189_in_ruleUiAlignment45579 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_190_in_ruleUiAlignment45596 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_191_in_ruleUiAlignment45613 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_192_in_ruleUiAlignment45630 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_193_in_ruleUiAlignment45647 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_194_in_ruleUiAlignment45664 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_195_in_ruleUiAlignment45681 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_196_in_ruleUiAlignment45698 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_197_in_ruleUiAlignment45715 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_198_in_ruleUiAlignment45732 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_199_in_ruleUiAlignment45749 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_200_in_ruleUiAlignment45766 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_201_in_ruleUiAlignment45783 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_202_in_ruleUiAlignment45800 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_203_in_ruleUiAlignment45817 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_204_in_ruleUiAlignment45834 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_147_in_ruleXCasePart38585 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXForLoopExpression_in_entryRuleXForLoopExpression38635 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXForLoopExpression38645 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_155_in_ruleXForLoopExpression38722 = new BitSet(new long[]{0x0000800000000000L});
+        public static final BitSet FOLLOW_47_in_ruleXForLoopExpression38734 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
+        public static final BitSet FOLLOW_ruleJvmFormalParameter_in_ruleXForLoopExpression38755 = new BitSet(new long[]{0x0000000002000000L});
+        public static final BitSet FOLLOW_25_in_ruleXForLoopExpression38767 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXForLoopExpression38790 = new BitSet(new long[]{0x0008000000000000L});
+        public static final BitSet FOLLOW_51_in_ruleXForLoopExpression38802 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXForLoopExpression38823 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXBasicForLoopExpression_in_entryRuleXBasicForLoopExpression38859 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXBasicForLoopExpression38869 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_155_in_ruleXBasicForLoopExpression38915 = new BitSet(new long[]{0x0000800000000000L});
+        public static final BitSet FOLLOW_47_in_ruleXBasicForLoopExpression38927 = new BitSet(new long[]{0x000080011020C1F0L,0x0000000000000000L,0x00002FFFF9508600L});
+        public static final BitSet FOLLOW_ruleXExpressionOrVarDeclaration_in_ruleXBasicForLoopExpression38949 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_147_in_ruleXBasicForLoopExpression38962 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFFF9508600L});
+        public static final BitSet FOLLOW_ruleXExpressionOrVarDeclaration_in_ruleXBasicForLoopExpression38983 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_15_in_ruleXBasicForLoopExpression38999 = new BitSet(new long[]{0x000080011020C1F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXBasicForLoopExpression39020 = new BitSet(new long[]{0x0000000000008000L});
+        public static final BitSet FOLLOW_15_in_ruleXBasicForLoopExpression39033 = new BitSet(new long[]{0x00088001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXBasicForLoopExpression39055 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_147_in_ruleXBasicForLoopExpression39068 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXBasicForLoopExpression39089 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_51_in_ruleXBasicForLoopExpression39105 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXBasicForLoopExpression39126 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXWhileExpression_in_entryRuleXWhileExpression39162 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXWhileExpression39172 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_156_in_ruleXWhileExpression39218 = new BitSet(new long[]{0x0000800000000000L});
+        public static final BitSet FOLLOW_47_in_ruleXWhileExpression39230 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXWhileExpression39251 = new BitSet(new long[]{0x0008000000000000L});
+        public static final BitSet FOLLOW_51_in_ruleXWhileExpression39263 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXWhileExpression39284 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXDoWhileExpression_in_entryRuleXDoWhileExpression39320 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXDoWhileExpression39330 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_157_in_ruleXDoWhileExpression39376 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXDoWhileExpression39397 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000010000000L});
+        public static final BitSet FOLLOW_156_in_ruleXDoWhileExpression39409 = new BitSet(new long[]{0x0000800000000000L});
+        public static final BitSet FOLLOW_47_in_ruleXDoWhileExpression39421 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXDoWhileExpression39442 = new BitSet(new long[]{0x0008000000000000L});
+        public static final BitSet FOLLOW_51_in_ruleXDoWhileExpression39454 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXBlockExpression_in_entryRuleXBlockExpression39490 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXBlockExpression39500 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_21_in_ruleXBlockExpression39546 = new BitSet(new long[]{0x00008001106041F0L,0x0000000000000000L,0x00002FFFF9508600L});
+        public static final BitSet FOLLOW_ruleXExpressionOrVarDeclaration_in_ruleXBlockExpression39568 = new BitSet(new long[]{0x000080011060C1F0L,0x0000000000000000L,0x00002FFFF9508600L});
+        public static final BitSet FOLLOW_15_in_ruleXBlockExpression39581 = new BitSet(new long[]{0x00008001106041F0L,0x0000000000000000L,0x00002FFFF9508600L});
+        public static final BitSet FOLLOW_22_in_ruleXBlockExpression39597 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXExpressionOrVarDeclaration_in_entryRuleXExpressionOrVarDeclaration39633 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXExpressionOrVarDeclaration39643 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXVariableDeclaration_in_ruleXExpressionOrVarDeclaration39690 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXExpressionOrVarDeclaration39717 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXVariableDeclaration_in_entryRuleXVariableDeclaration39752 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXVariableDeclaration39762 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_158_in_ruleXVariableDeclaration39815 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
+        public static final BitSet FOLLOW_159_in_ruleXVariableDeclaration39846 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
+        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXVariableDeclaration39894 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleValidID_in_ruleXVariableDeclaration39915 = new BitSet(new long[]{0x0000000000000002L,0x0040000000000000L});
+        public static final BitSet FOLLOW_ruleValidID_in_ruleXVariableDeclaration39944 = new BitSet(new long[]{0x0000000000000002L,0x0040000000000000L});
+        public static final BitSet FOLLOW_118_in_ruleXVariableDeclaration39958 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXVariableDeclaration39979 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleJvmFormalParameter_in_entryRuleJvmFormalParameter40017 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleJvmFormalParameter40027 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleJvmFormalParameter40073 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleValidID_in_ruleJvmFormalParameter40095 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFullJvmFormalParameter_in_entryRuleFullJvmFormalParameter40131 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleFullJvmFormalParameter40141 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleFullJvmFormalParameter40187 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleValidID_in_ruleFullJvmFormalParameter40208 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXFeatureCall_in_entryRuleXFeatureCall40244 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXFeatureCall40254 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_28_in_ruleXFeatureCall40301 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000800000000040L});
+        public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXFeatureCall40322 = new BitSet(new long[]{0x0000000040000000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_147_in_ruleXFeatureCall40335 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000800000000040L});
+        public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXFeatureCall40356 = new BitSet(new long[]{0x0000000040000000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_30_in_ruleXFeatureCall40370 = new BitSet(new long[]{0x0000000010004010L,0x0000000000000000L,0x0000000F00000000L});
+        public static final BitSet FOLLOW_ruleIdOrSuper_in_ruleXFeatureCall40395 = new BitSet(new long[]{0x0000800100000002L});
+        public static final BitSet FOLLOW_47_in_ruleXFeatureCall40429 = new BitSet(new long[]{0x00088001102041F0L,0x0000000000000000L,0x00002FFF39708640L});
+        public static final BitSet FOLLOW_ruleXShortClosure_in_ruleXFeatureCall40514 = new BitSet(new long[]{0x0008000000000000L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXFeatureCall40542 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_147_in_ruleXFeatureCall40555 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXFeatureCall40576 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_51_in_ruleXFeatureCall40593 = new BitSet(new long[]{0x0000000100000002L});
+        public static final BitSet FOLLOW_ruleXClosure_in_ruleXFeatureCall40628 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFeatureCallID_in_entryRuleFeatureCallID40666 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleFeatureCallID40677 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleValidID_in_ruleFeatureCallID40724 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_160_in_ruleFeatureCallID40748 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_161_in_ruleFeatureCallID40767 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_14_in_ruleFeatureCallID40786 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_162_in_ruleFeatureCallID40805 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleIdOrSuper_in_entryRuleIdOrSuper40846 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleIdOrSuper40857 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFeatureCallID_in_ruleIdOrSuper40904 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_163_in_ruleIdOrSuper40928 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXConstructorCall_in_entryRuleXConstructorCall40968 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXConstructorCall40978 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_164_in_ruleXConstructorCall41024 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleQualifiedName_in_ruleXConstructorCall41047 = new BitSet(new long[]{0x0000800110000002L});
+        public static final BitSet FOLLOW_28_in_ruleXConstructorCall41068 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000800000000040L});
+        public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXConstructorCall41090 = new BitSet(new long[]{0x0000000040000000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_147_in_ruleXConstructorCall41103 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000800000000040L});
+        public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXConstructorCall41124 = new BitSet(new long[]{0x0000000040000000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_30_in_ruleXConstructorCall41138 = new BitSet(new long[]{0x0000800100000002L});
+        public static final BitSet FOLLOW_47_in_ruleXConstructorCall41174 = new BitSet(new long[]{0x00088001102041F0L,0x0000000000000000L,0x00002FFF39708640L});
+        public static final BitSet FOLLOW_ruleXShortClosure_in_ruleXConstructorCall41259 = new BitSet(new long[]{0x0008000000000000L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXConstructorCall41287 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_147_in_ruleXConstructorCall41300 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXConstructorCall41321 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_51_in_ruleXConstructorCall41338 = new BitSet(new long[]{0x0000000100000002L});
+        public static final BitSet FOLLOW_ruleXClosure_in_ruleXConstructorCall41373 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXBooleanLiteral_in_entryRuleXBooleanLiteral41410 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXBooleanLiteral41420 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_165_in_ruleXBooleanLiteral41467 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_166_in_ruleXBooleanLiteral41491 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXNullLiteral_in_entryRuleXNullLiteral41541 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXNullLiteral41551 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_167_in_ruleXNullLiteral41597 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXNumberLiteral_in_entryRuleXNumberLiteral41633 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXNumberLiteral41643 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleNumber_in_ruleXNumberLiteral41698 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXStringLiteral_in_entryRuleXStringLiteral41734 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXStringLiteral41744 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_ruleXStringLiteral41795 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXTypeLiteral_in_entryRuleXTypeLiteral41836 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXTypeLiteral41846 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_168_in_ruleXTypeLiteral41892 = new BitSet(new long[]{0x0000800000000000L});
+        public static final BitSet FOLLOW_47_in_ruleXTypeLiteral41904 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleQualifiedName_in_ruleXTypeLiteral41927 = new BitSet(new long[]{0x0008000100000000L});
+        public static final BitSet FOLLOW_ruleArrayBrackets_in_ruleXTypeLiteral41948 = new BitSet(new long[]{0x0008000100000000L});
+        public static final BitSet FOLLOW_51_in_ruleXTypeLiteral41961 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXThrowExpression_in_entryRuleXThrowExpression41997 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXThrowExpression42007 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_169_in_ruleXThrowExpression42053 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXThrowExpression42074 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXReturnExpression_in_entryRuleXReturnExpression42110 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXReturnExpression42120 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_170_in_ruleXReturnExpression42166 = new BitSet(new long[]{0x00008001102041F2L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXReturnExpression42401 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXTryCatchFinallyExpression_in_entryRuleXTryCatchFinallyExpression42438 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXTryCatchFinallyExpression42448 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_171_in_ruleXTryCatchFinallyExpression42494 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXTryCatchFinallyExpression42515 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000500000000000L});
+        public static final BitSet FOLLOW_ruleXCatchClause_in_ruleXTryCatchFinallyExpression42545 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000500000000000L});
+        public static final BitSet FOLLOW_172_in_ruleXTryCatchFinallyExpression42567 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXTryCatchFinallyExpression42589 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_172_in_ruleXTryCatchFinallyExpression42611 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXTryCatchFinallyExpression42632 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXSynchronizedExpression_in_entryRuleXSynchronizedExpression42670 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXSynchronizedExpression42680 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_173_in_ruleXSynchronizedExpression42744 = new BitSet(new long[]{0x0000800000000000L});
+        public static final BitSet FOLLOW_47_in_ruleXSynchronizedExpression42756 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXSynchronizedExpression42779 = new BitSet(new long[]{0x0008000000000000L});
+        public static final BitSet FOLLOW_51_in_ruleXSynchronizedExpression42791 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXSynchronizedExpression42812 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXCatchClause_in_entryRuleXCatchClause42848 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXCatchClause42858 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_174_in_ruleXCatchClause42903 = new BitSet(new long[]{0x0000800000000000L});
+        public static final BitSet FOLLOW_47_in_ruleXCatchClause42916 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
+        public static final BitSet FOLLOW_ruleFullJvmFormalParameter_in_ruleXCatchClause42937 = new BitSet(new long[]{0x0008000000000000L});
+        public static final BitSet FOLLOW_51_in_ruleXCatchClause42949 = new BitSet(new long[]{0x00008001102041F0L,0x0000000000000000L,0x00002FFF39508600L});
+        public static final BitSet FOLLOW_ruleXExpression_in_ruleXCatchClause42970 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName43007 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName43018 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleValidID_in_ruleQualifiedName43065 = new BitSet(new long[]{0x0000000080000002L});
+        public static final BitSet FOLLOW_31_in_ruleQualifiedName43093 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleValidID_in_ruleQualifiedName43116 = new BitSet(new long[]{0x0000000080000002L});
+        public static final BitSet FOLLOW_ruleNumber_in_entryRuleNumber43170 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleNumber43181 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_HEX_in_ruleNumber43225 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_INT_in_ruleNumber43253 = new BitSet(new long[]{0x0000000080000002L});
+        public static final BitSet FOLLOW_RULE_DECIMAL_in_ruleNumber43279 = new BitSet(new long[]{0x0000000080000002L});
+        public static final BitSet FOLLOW_31_in_ruleNumber43299 = new BitSet(new long[]{0x0000000000000140L});
+        public static final BitSet FOLLOW_RULE_INT_in_ruleNumber43315 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_DECIMAL_in_ruleNumber43341 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleJvmTypeReference_in_entryRuleJvmTypeReference43396 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleJvmTypeReference43406 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleJvmParameterizedTypeReference_in_ruleJvmTypeReference43454 = new BitSet(new long[]{0x0000000100000002L});
+        public static final BitSet FOLLOW_ruleArrayBrackets_in_ruleJvmTypeReference43490 = new BitSet(new long[]{0x0000000100000002L});
+        public static final BitSet FOLLOW_ruleXFunctionTypeRef_in_ruleJvmTypeReference43521 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleArrayBrackets_in_entryRuleArrayBrackets43557 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleArrayBrackets43568 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_32_in_ruleArrayBrackets43606 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleArrayBrackets43619 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXFunctionTypeRef_in_entryRuleXFunctionTypeRef43659 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXFunctionTypeRef43669 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_47_in_ruleXFunctionTypeRef43707 = new BitSet(new long[]{0x0008800000000010L,0x0000000000000000L,0x0000000000000040L});
+        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXFunctionTypeRef43729 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_147_in_ruleXFunctionTypeRef43742 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
+        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXFunctionTypeRef43763 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_51_in_ruleXFunctionTypeRef43779 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+        public static final BitSet FOLLOW_134_in_ruleXFunctionTypeRef43793 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
+        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXFunctionTypeRef43814 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleJvmParameterizedTypeReference_in_entryRuleJvmParameterizedTypeReference43850 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleJvmParameterizedTypeReference43860 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleQualifiedName_in_ruleJvmParameterizedTypeReference43908 = new BitSet(new long[]{0x0000000010000002L});
+        public static final BitSet FOLLOW_28_in_ruleJvmParameterizedTypeReference43929 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000800000000040L});
+        public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleJvmParameterizedTypeReference43951 = new BitSet(new long[]{0x0000000040000000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_147_in_ruleJvmParameterizedTypeReference43964 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000800000000040L});
+        public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleJvmParameterizedTypeReference43985 = new BitSet(new long[]{0x0000000040000000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_30_in_ruleJvmParameterizedTypeReference43999 = new BitSet(new long[]{0x0000000080000002L});
+        public static final BitSet FOLLOW_31_in_ruleJvmParameterizedTypeReference44035 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleValidID_in_ruleJvmParameterizedTypeReference44060 = new BitSet(new long[]{0x0000000090000002L});
+        public static final BitSet FOLLOW_28_in_ruleJvmParameterizedTypeReference44081 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000800000000040L});
+        public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleJvmParameterizedTypeReference44103 = new BitSet(new long[]{0x0000000040000000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_147_in_ruleJvmParameterizedTypeReference44116 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000800000000040L});
+        public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleJvmParameterizedTypeReference44137 = new BitSet(new long[]{0x0000000040000000L,0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_30_in_ruleJvmParameterizedTypeReference44151 = new BitSet(new long[]{0x0000000080000002L});
+        public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_entryRuleJvmArgumentTypeReference44193 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleJvmArgumentTypeReference44203 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleJvmArgumentTypeReference44250 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleJvmWildcardTypeReference_in_ruleJvmArgumentTypeReference44277 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleJvmWildcardTypeReference_in_entryRuleJvmWildcardTypeReference44312 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleJvmWildcardTypeReference44322 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_175_in_ruleJvmWildcardTypeReference44368 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000900000000L});
+        public static final BitSet FOLLOW_ruleJvmUpperBound_in_ruleJvmWildcardTypeReference44391 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0001000000000000L});
+        public static final BitSet FOLLOW_ruleJvmUpperBoundAnded_in_ruleJvmWildcardTypeReference44412 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0001000000000000L});
+        public static final BitSet FOLLOW_ruleJvmLowerBound_in_ruleJvmWildcardTypeReference44442 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0001000000000000L});
+        public static final BitSet FOLLOW_ruleJvmLowerBoundAnded_in_ruleJvmWildcardTypeReference44463 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0001000000000000L});
+        public static final BitSet FOLLOW_ruleJvmUpperBound_in_entryRuleJvmUpperBound44503 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleJvmUpperBound44513 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_160_in_ruleJvmUpperBound44550 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
+        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleJvmUpperBound44571 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleJvmUpperBoundAnded_in_entryRuleJvmUpperBoundAnded44607 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleJvmUpperBoundAnded44617 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_176_in_ruleJvmUpperBoundAnded44654 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
+        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleJvmUpperBoundAnded44675 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleJvmLowerBound_in_entryRuleJvmLowerBound44711 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleJvmLowerBound44721 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_163_in_ruleJvmLowerBound44758 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
+        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleJvmLowerBound44779 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleJvmLowerBoundAnded_in_entryRuleJvmLowerBoundAnded44815 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleJvmLowerBoundAnded44825 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_176_in_ruleJvmLowerBoundAnded44862 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
+        public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleJvmLowerBoundAnded44883 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleQualifiedNameWithWildcard_in_entryRuleQualifiedNameWithWildcard44922 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedNameWithWildcard44933 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleQualifiedName_in_ruleQualifiedNameWithWildcard44980 = new BitSet(new long[]{0x0000000080000000L});
+        public static final BitSet FOLLOW_31_in_ruleQualifiedNameWithWildcard44998 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000800L});
+        public static final BitSet FOLLOW_139_in_ruleQualifiedNameWithWildcard45011 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleValidID_in_entryRuleValidID45052 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleValidID45063 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleValidID45102 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXImportDeclaration_in_entryRuleXImportDeclaration45148 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXImportDeclaration45158 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_14_in_ruleXImportDeclaration45195 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x0000000200000000L});
+        public static final BitSet FOLLOW_161_in_ruleXImportDeclaration45215 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x0000000400000000L});
+        public static final BitSet FOLLOW_162_in_ruleXImportDeclaration45246 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x0000000400000000L});
+        public static final BitSet FOLLOW_ruleQualifiedNameInStaticImport_in_ruleXImportDeclaration45283 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x0000000000000800L});
+        public static final BitSet FOLLOW_139_in_ruleXImportDeclaration45302 = new BitSet(new long[]{0x0000000000008002L});
+        public static final BitSet FOLLOW_ruleValidID_in_ruleXImportDeclaration45342 = new BitSet(new long[]{0x0000000000008002L});
+        public static final BitSet FOLLOW_ruleQualifiedName_in_ruleXImportDeclaration45373 = new BitSet(new long[]{0x0000000000008002L});
+        public static final BitSet FOLLOW_ruleQualifiedNameWithWildcard_in_ruleXImportDeclaration45400 = new BitSet(new long[]{0x0000000000008002L});
+        public static final BitSet FOLLOW_15_in_ruleXImportDeclaration45414 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleQualifiedNameInStaticImport_in_entryRuleQualifiedNameInStaticImport45453 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedNameInStaticImport45464 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleValidID_in_ruleQualifiedNameInStaticImport45511 = new BitSet(new long[]{0x0000000080000000L});
+        public static final BitSet FOLLOW_31_in_ruleQualifiedNameInStaticImport45529 = new BitSet(new long[]{0x0000000000000012L});
+        public static final BitSet FOLLOW_177_in_ruleUiDateFormat45584 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_178_in_ruleUiDateFormat45601 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_179_in_ruleUiDateFormat45618 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_180_in_ruleUiDateTimeResolution45663 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_68_in_ruleUiDateTimeResolution45680 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_181_in_ruleUiDateTimeResolution45697 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_182_in_ruleUiDateTimeResolution45714 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_183_in_ruleUiDateTimeResolution45731 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_184_in_ruleUiDateTimeResolution45748 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_185_in_ruleUiDateTimeResolution45765 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_186_in_ruleUiSelectionType45810 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_187_in_ruleUiSelectionType45827 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_188_in_ruleUiSelectionType45844 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_180_in_ruleUiAlignment45889 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_189_in_ruleUiAlignment45906 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_190_in_ruleUiAlignment45923 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_191_in_ruleUiAlignment45940 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_192_in_ruleUiAlignment45957 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_193_in_ruleUiAlignment45974 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_194_in_ruleUiAlignment45991 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_195_in_ruleUiAlignment46008 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_196_in_ruleUiAlignment46025 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_197_in_ruleUiAlignment46042 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_198_in_ruleUiAlignment46059 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_199_in_ruleUiAlignment46076 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_200_in_ruleUiAlignment46093 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_201_in_ruleUiAlignment46110 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_202_in_ruleUiAlignment46127 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_203_in_ruleUiAlignment46144 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_204_in_ruleUiAlignment46161 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleQualifiedName_in_synpred1_InternalUIGrammar4255 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleOpMultiAssign_in_synpred2_InternalUIGrammar31493 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleOpOr_in_synpred3_InternalUIGrammar32016 = new BitSet(new long[]{0x0000000000000002L});
@@ -62193,27 +62931,29 @@ public class InternalUIGrammarParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_25_in_synpred27_InternalUIGrammar38128 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred28_InternalUIGrammar38230 = new BitSet(new long[]{0x0000000002000000L});
         public static final BitSet FOLLOW_25_in_synpred28_InternalUIGrammar38236 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleJvmTypeReference_in_synpred30_InternalUIGrammar39845 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_ruleValidID_in_synpred30_InternalUIGrammar39854 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_47_in_synpred31_InternalUIGrammar40392 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred32_InternalUIGrammar40444 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000280000L});
-        public static final BitSet FOLLOW_147_in_synpred32_InternalUIGrammar40451 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
-        public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred32_InternalUIGrammar40458 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000280000L});
-        public static final BitSet FOLLOW_149_in_synpred32_InternalUIGrammar40472 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_32_in_synpred33_InternalUIGrammar40592 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_28_in_synpred34_InternalUIGrammar41041 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_47_in_synpred35_InternalUIGrammar41137 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred36_InternalUIGrammar41189 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000280000L});
-        public static final BitSet FOLLOW_147_in_synpred36_InternalUIGrammar41196 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
-        public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred36_InternalUIGrammar41203 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000280000L});
-        public static final BitSet FOLLOW_149_in_synpred36_InternalUIGrammar41217 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_32_in_synpred37_InternalUIGrammar41337 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_set_in_synpred38_InternalUIGrammar42157 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_174_in_synpred39_InternalUIGrammar42510 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_172_in_synpred40_InternalUIGrammar42540 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_31_in_synpred43_InternalUIGrammar43065 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleArrayBrackets_in_synpred44_InternalUIGrammar43450 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_28_in_synpred45_InternalUIGrammar43902 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleJvmTypeReference_in_synpred30_InternalUIGrammar39864 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleValidID_in_synpred30_InternalUIGrammar39873 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_47_in_synpred31_InternalUIGrammar40411 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred32_InternalUIGrammar40463 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000280000L});
+        public static final BitSet FOLLOW_147_in_synpred32_InternalUIGrammar40470 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
+        public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred32_InternalUIGrammar40477 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000280000L});
+        public static final BitSet FOLLOW_149_in_synpred32_InternalUIGrammar40491 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_32_in_synpred33_InternalUIGrammar40611 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_28_in_synpred34_InternalUIGrammar41060 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_47_in_synpred35_InternalUIGrammar41156 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred36_InternalUIGrammar41208 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000280000L});
+        public static final BitSet FOLLOW_147_in_synpred36_InternalUIGrammar41215 = new BitSet(new long[]{0x0000800000000010L,0x0000000000000000L,0x0000000000000040L});
+        public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred36_InternalUIGrammar41222 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000280000L});
+        public static final BitSet FOLLOW_149_in_synpred36_InternalUIGrammar41236 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_32_in_synpred37_InternalUIGrammar41356 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_set_in_synpred38_InternalUIGrammar42176 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_174_in_synpred39_InternalUIGrammar42529 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_172_in_synpred40_InternalUIGrammar42559 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_31_in_synpred43_InternalUIGrammar43084 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleArrayBrackets_in_synpred44_InternalUIGrammar43469 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_28_in_synpred45_InternalUIGrammar43921 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_31_in_synpred46_InternalUIGrammar44016 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_28_in_synpred47_InternalUIGrammar44073 = new BitSet(new long[]{0x0000000000000002L});
     }
 
 

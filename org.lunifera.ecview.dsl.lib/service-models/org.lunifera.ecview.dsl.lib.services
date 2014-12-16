@@ -1,0 +1,7 @@
+package org.lunifera.ecview.dsl.lib.services {
+	
+	/* Imports the original entity and dto package */
+	import org.lunifera.ecview.dsl.lib.*;
+	import org.lunifera.ecview.dsl.lib.dtos.*; 
+	
+}
