@@ -27,7 +27,7 @@ Require-Bundle: org.eclipse.xtext;bundle-version="[2.7.3,2.8.0)";visibility:=ree
  org.lunifera.xtext.builder.types.loader.runtime,
  org.lunifera.xtext.builder.types.loader.api
 Import-Package: org.apache.log4j,
- org.eclipse.xtext.xbase.lib
+ org.eclipse.xtext.xbase.lib;bundle-version="[2.7.3,2.8.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.lunifera.ecview.uisemantics,
  org.lunifera.ecview.uisemantics.formatting,

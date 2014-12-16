@@ -21,7 +21,7 @@ Require-Bundle: org.lunifera.ecview.uisemantics;bundle-version="0.7.3";visibilit
  org.eclipse.xtext.xbase.lib,
  org.eclipse.jdt.debug.ui
 Import-Package: org.apache.log4j,
- org.eclipse.xtext.xbase.lib
+ org.eclipse.xtext.xbase.lib;bundle-version="[2.7.3,2.8.0)"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.lunifera.ecview.uisemantics.ui.quickfix,
  org.lunifera.ecview.uisemantics.ui.contentassist,
