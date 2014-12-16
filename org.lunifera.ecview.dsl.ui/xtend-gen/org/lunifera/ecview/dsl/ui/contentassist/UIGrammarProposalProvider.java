@@ -89,19 +89,39 @@ public class UIGrammarProposalProvider extends AbstractUIGrammarProposalProvider
    */
   public String findPackage(final EObject model) {
     EObject temp = model;
-    while (((!Objects.equal(temp, null)) && (!Objects.equal(temp.eContainer(), null)))) {
+    boolean _and = false;
+    boolean _notEquals = (!Objects.equal(temp, null));
+    if (!_notEquals) {
+      _and = false;
+    } else {
+      EObject _eContainer = temp.eContainer();
+      boolean _notEquals_1 = (!Objects.equal(_eContainer, null));
+      _and = _notEquals_1;
+    }
+    boolean _while = _and;
+    while (_while) {
       {
         if ((temp instanceof UiModel)) {
           final UiModel uiModel = ((UiModel) temp);
           return uiModel.getPackageName();
         }
-        EObject _eContainer = temp.eContainer();
-        temp = _eContainer;
+        EObject _eContainer_1 = temp.eContainer();
+        temp = _eContainer_1;
         if ((temp instanceof UiModel)) {
           final UiModel uiModel_1 = ((UiModel) temp);
           return uiModel_1.getPackageName();
         }
       }
+      boolean _and_1 = false;
+      boolean _notEquals_2 = (!Objects.equal(temp, null));
+      if (!_notEquals_2) {
+        _and_1 = false;
+      } else {
+        EObject _eContainer_1 = temp.eContainer();
+        boolean _notEquals_3 = (!Objects.equal(_eContainer_1, null));
+        _and_1 = _notEquals_3;
+      }
+      _while = _and_1;
     }
     return "";
   }
