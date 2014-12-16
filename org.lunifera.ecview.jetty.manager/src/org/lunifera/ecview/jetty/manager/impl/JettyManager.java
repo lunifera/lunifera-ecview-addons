@@ -10,7 +10,7 @@
  *     Florian Pirchner - added to preview bundle
  *******************************************************************************/
 
-package org.lunifera.ecview.jetty.manager;
+package org.lunifera.ecview.jetty.manager.impl;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,19 +34,13 @@ import org.eclipse.jetty.server.session.HashSessionManager;
 import org.eclipse.jetty.server.session.SessionHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import org.lunifera.ecview.jetty.manager.IJettyManager;
 import org.osgi.framework.Constants;
 
-public class JettyManager {
+public class JettyManager implements IJettyManager {
 
-	public static final String PROP_CONTEXT_PATH = "org.lunifera.ecview.jetty.contextpath";
-	private static final String PROP_SERVICE_TYPE = "org.lunifera.ecview.jetty.serviceType";
-	public static final String PROP_PORT = "org.lunifera.ecview.jetty.port";
-	private static final String SERVICE_TYPE__APPLICATION = "application";
-	private static final String SERVICE_TYPE__MOBILE = "mobile";
-
-	public static final String MOBILE_POSTFIX = "mobile";
-	private static final String CONTEXT_TEMPDIR = "javax.servlet.context.tempdir"; //$NON-NLS-1$
-	private static final String DIR_PREFIX = "preview"; //$NON-NLS-1$
+	public static final String CONTEXT_TEMPDIR = "javax.servlet.context.tempdir"; //$NON-NLS-1$
+	private static final String DIR_PREFIX = "application"; //$NON-NLS-1$
 	private static final String INTERNAL_CONTEXT_CLASSLOADER = "org.eclipse.equinox.http.jetty.internal.ContextClassLoader"; //$NON-NLS-1$
 
 	private Server server;
