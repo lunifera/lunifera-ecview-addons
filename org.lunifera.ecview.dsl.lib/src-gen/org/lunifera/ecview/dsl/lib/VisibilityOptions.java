@@ -3,6 +3,7 @@ package org.lunifera.ecview.dsl.lib;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
+import org.lunifera.dsl.dto.lib.Context;
 import org.lunifera.ecview.core.common.visibility.Color;
 
 @SuppressWarnings("all")
@@ -287,5 +288,55 @@ public class VisibilityOptions implements Serializable {
    */
   public void setUnderline(final boolean underline) {
     firePropertyChange("underline", this.underline, this.underline = underline );
+  }
+  
+  public VisibilityOptions createDto() {
+    return new VisibilityOptions();
+  }
+  
+  public VisibilityOptions copy(final Context context) {
+    checkDisposed();
+    
+    if (context == null) {
+    	throw new IllegalArgumentException("Context must not be null!");
+    }
+    
+    // if context contains a copied instance of this object
+    // then return it
+    VisibilityOptions newDto = context.getTarget(this);
+    if(newDto != null){
+    	return newDto;
+    }
+    
+    try{
+    	context.increaseLevel();
+    	
+    	newDto = createDto();
+    	context.register(this, newDto);
+    	
+    	// first copy the containments and attributes
+    	copyContainments(this, newDto, context);
+    	
+    	// then copy cross references to ensure proper
+    	// opposite references are copied too.
+    	copyCrossReferences(this, newDto, context);
+    } finally {
+    	context.decreaseLevel();
+    }
+    
+    return newDto;
+  }
+  
+  public void copyContainments(final VisibilityOptions dto, final VisibilityOptions newDto, final Context context) {
+    checkDisposed();
+    
+    if (context == null) {
+    	throw new IllegalArgumentException("Context must not be null!");
+    }
+    
+  }
+  
+  public void copyCrossReferences(final VisibilityOptions dto, final VisibilityOptions newDto, final org.lunifera.dsl.dto.lib.Context context) {
+    
   }
 }
