@@ -23,7 +23,7 @@ import org.eclipse.equinox.http.jetty.JettyConstants;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.shared.SharedStateModule;
 import org.eclipse.xtext.util.Modules2;
-import org.lunifera.ecview.vaadin.ide.preview.jetty.JettyManager;
+import org.lunifera.ecview.vaadin.ide.preview.jetty.PreviewJettyManager;
 import org.lunifera.ecview.vaadin.ide.preview.parts.ECViewVaadinSynchronizer;
 import org.lunifera.ecview.vaadin.ide.preview.parts.IDEPreviewHandler;
 import org.lunifera.ecview.vaadin.ide.preview.parts.MobilePreviewHandler;
@@ -76,7 +76,7 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 	private Injector injector;
 
 	// http services
-	private JettyManager jettyManager;
+	private PreviewJettyManager jettyManager;
 	private ServiceTracker<HttpService, HttpService> ideTracker;
 	private ServiceTracker<HttpService, HttpService> mobileTracker;
 
@@ -138,7 +138,7 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 		// Start a HttpService-Tracker to get an instance of HttpService
 		String filter = String.format("(&(objectClass=%s)(%s=%s))",
 				HttpService.class.getName(), JettyConstants.OTHER_INFO,
-				JettyManager.PROP_IDEPREVIEW);
+				PreviewJettyManager.PROP_IDEPREVIEW);
 		ideTracker = new ServiceTracker<HttpService, HttpService>(
 				bundleContext, bundleContext.createFilter(filter), null);
 		ideTracker.open();
@@ -169,7 +169,7 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 		// Start a HttpService-Tracker to get an instance of HttpService
 		String filter = String.format("(&(objectClass=%s)(%s=%s))",
 				HttpService.class.getName(), JettyConstants.OTHER_INFO,
-				JettyManager.PROP_MOBILEPREVIEW);
+				PreviewJettyManager.PROP_MOBILEPREVIEW);
 		mobileTracker = new ServiceTracker<HttpService, HttpService>(
 				bundleContext, bundleContext.createFilter(filter), null);
 		mobileTracker.open();
@@ -201,7 +201,7 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 		File jettyWorkDir = new File(
 				bundleContext.getDataFile(""), "vaadinpreview"); //$NON-NLS-1$ 
 		jettyWorkDir.mkdir();
-		jettyManager = new JettyManager(jettyWorkDir);
+		jettyManager = new PreviewJettyManager(jettyWorkDir);
 		jettyManager.start();
 	}
 

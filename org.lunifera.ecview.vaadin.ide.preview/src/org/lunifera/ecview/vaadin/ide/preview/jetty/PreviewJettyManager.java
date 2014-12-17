@@ -36,7 +36,7 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.osgi.framework.Constants;
 
-public class JettyManager {
+public class PreviewJettyManager {
 
 	public static final String PROP_MOBILEPREVIEW = "mobilepreview";
 	public static final String PROP_IDEPREVIEW = "idepreview";
@@ -48,7 +48,7 @@ public class JettyManager {
 	private Server server;
 	private File workDir;
 
-	public JettyManager(File workDir) {
+	public PreviewJettyManager(File workDir) {
 		this.workDir = workDir;
 	}
 

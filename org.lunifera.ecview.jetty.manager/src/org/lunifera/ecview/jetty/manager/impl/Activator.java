@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2011 - 2014, Lunifera GmbH (Gross Enzersdorf), Loetz KG (Heidelberg)
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors: 
+ * 		Florian Pirchner - Initial implementation
+ */
 package org.lunifera.ecview.jetty.manager.impl;
 
 import java.io.File;
@@ -43,11 +53,11 @@ public class Activator implements BundleActivator {
 	protected void startJetty(BundleContext bundleContext)
 			throws InterruptedException, IOException {
 
+		jettyManager = new JettyManager();
 		File jettyWorkDir = new File(
 				bundleContext.getDataFile(""), jettyManager.getContextPath()); //$NON-NLS-1$ 
 		jettyWorkDir.mkdir();
-		jettyManager = new JettyManager(jettyWorkDir);
-		jettyManager.start();
+		jettyManager.start(jettyWorkDir);
 	}
 
 	public void stop(BundleContext bundleContext) throws Exception {

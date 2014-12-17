@@ -48,11 +48,9 @@ public class JettyManager implements IJettyManager {
 	private int port;
 	private String contextPath;
 
-	public JettyManager(File workDir) {
-		this.workDir = workDir;
-
+	public JettyManager() {
 		try {
-			port = Integer.valueOf(System.getProperty(PROP_PORT, "8080"));
+			port = Integer.valueOf(System.getProperty(PROP_PORT, "8088"));
 		} catch (NumberFormatException e) {
 			port = 8080;
 		}
@@ -98,7 +96,9 @@ public class JettyManager implements IJettyManager {
 		return this.getClass().getName();
 	}
 
-	public synchronized void start() {
+	public synchronized void start(File workDir) {
+		this.workDir = workDir;
+
 		stop();
 		Server server = new Server();
 
@@ -109,7 +109,7 @@ public class JettyManager implements IJettyManager {
 		ServletContextHandler applicationContext = createServletContext(
 				getContextPath(), SERVICE_TYPE__APPLICATION);
 		ServletContextHandler mobileContext = createServletContext(
-				getMobileContextPath(), SERVICE_TYPE__MOBILE);
+				getContextPath(), SERVICE_TYPE__MOBILE);
 		handlers.addHandler(applicationContext);
 		handlers.addHandler(mobileContext);
 
