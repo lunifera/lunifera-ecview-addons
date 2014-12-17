@@ -3191,14 +3191,20 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   public UiMobileNavigationHandler findNavHandler(final UiBindingEndpointAssignment assignment) {
     EObject temp = assignment;
-    while ((!Objects.equal(temp.eContainer(), null))) {
+    EObject _eContainer = temp.eContainer();
+    boolean _notEquals = (!Objects.equal(_eContainer, null));
+    boolean _while = _notEquals;
+    while (_while) {
       {
-        EObject _eContainer = temp.eContainer();
-        temp = _eContainer;
+        EObject _eContainer_1 = temp.eContainer();
+        temp = _eContainer_1;
         if ((temp instanceof UiMobileNavigationHandler)) {
           return ((UiMobileNavigationHandler) temp);
         }
       }
+      EObject _eContainer_1 = temp.eContainer();
+      boolean _notEquals_1 = (!Objects.equal(_eContainer_1, null));
+      _while = _notEquals_1;
     }
     return null;
   }

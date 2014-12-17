@@ -21,10 +21,8 @@
 
 	<artifactId>org.lunifera.ecview.jetty.manager</artifactId>
 	<packaging>eclipse-plugin</packaging>
-	<name>JvmTypes Builder Participant</name>
-	<description>This bundle contains a builder participant. It will setup the Xtext types model and exposes a service IJvmTypeMetadataService. 
-
-Using the method &quot;JvmType getJvmType(String qualifiedName)&quot; the JvmType for the given name will be returned. All bundles in the BundleSpace will be scanned for a matching class.</description>
+	<name>ECView Jetty Manager</name>
+	<description>This bundle enables the use of more than one Jetty instances in order to address desktop and mobile users simultaneously.</description>
 
 	<build>
 		<sourceDirectory>src</sourceDirectory>
