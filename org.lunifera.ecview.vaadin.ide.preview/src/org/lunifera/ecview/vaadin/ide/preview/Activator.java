@@ -221,7 +221,7 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 			jettyManager = null;
 		}
 
-		bundleContext.removeBundleListener(this);
+		
 
 		Activator.context = null;
 		plugin = null;
