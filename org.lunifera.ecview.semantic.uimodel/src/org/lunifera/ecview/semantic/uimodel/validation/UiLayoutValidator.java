@@ -4,6 +4,9 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
+import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
+import org.lunifera.ecview.semantic.uimodel.UiTypedBindable;
+
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiLayout}.
@@ -13,5 +16,11 @@ package org.lunifera.ecview.semantic.uimodel.validation;
  */
 public interface UiLayoutValidator {
 	boolean validate();
+
+	boolean validateAutowire(boolean value);
+
+	boolean validateAutoWireSource(UiBindingExpression value);
+
+	boolean validateAutoWireSourceAlias(UiTypedBindable value);
 
 }

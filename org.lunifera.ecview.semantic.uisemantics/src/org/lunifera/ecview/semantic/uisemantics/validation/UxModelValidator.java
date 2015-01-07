@@ -8,6 +8,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.xtext.xtype.XImportSection;
 
+import org.lunifera.ecview.semantic.uisemantics.UxAction;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 
 /**
@@ -21,4 +22,6 @@ public interface UxModelValidator {
 
 	boolean validateImportSection(XImportSection value);
 	boolean validateElementDefinitions(EList<UxElementDefinition> value);
+
+	boolean validateViewActions(EList<UxAction> value);
 }

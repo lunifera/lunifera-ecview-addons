@@ -261,7 +261,7 @@ public class UiRawBindablePathSegmentImpl extends MinimalEObjectImpl.Container
 			} else {
 				result = getRawBindable().getName();
 			}
-		} else {
+		} else if(getRawBindable() != null) {
 			return getRawBindable().getName();
 		}
 

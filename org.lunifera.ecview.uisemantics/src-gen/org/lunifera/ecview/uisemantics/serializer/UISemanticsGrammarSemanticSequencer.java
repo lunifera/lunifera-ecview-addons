@@ -5,6 +5,7 @@ import com.google.inject.Provider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.common.types.JvmFormalParameter;
 import org.eclipse.xtext.common.types.JvmGenericArrayTypeReference;
+import org.eclipse.xtext.common.types.JvmInnerTypeReference;
 import org.eclipse.xtext.common.types.JvmLowerBound;
 import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
 import org.eclipse.xtext.common.types.JvmTypeParameter;
@@ -57,6 +58,7 @@ import org.eclipse.xtext.xtype.XFunctionTypeRef;
 import org.eclipse.xtext.xtype.XImportSection;
 import org.eclipse.xtext.xtype.XtypePackage;
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
+import org.lunifera.ecview.semantic.uisemantics.UxAction;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableBindings;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableValidatorProperties;
 import org.lunifera.ecview.semantic.uisemantics.UxAvailableVisibilityOptions;
@@ -96,8 +98,22 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 					return; 
 				}
 				else break;
+			case TypesPackage.JVM_INNER_TYPE_REFERENCE:
+				if(context == grammarAccess.getJvmArgumentTypeReferenceRule() ||
+				   context == grammarAccess.getJvmParameterizedTypeReferenceRule() ||
+				   context == grammarAccess.getJvmParameterizedTypeReferenceAccess().getJvmInnerTypeReferenceOuterAction_1_4_0_0_0() ||
+				   context == grammarAccess.getJvmTypeReferenceRule() ||
+				   context == grammarAccess.getJvmTypeReferenceAccess().getJvmGenericArrayTypeReferenceComponentTypeAction_0_1_0_0()) {
+					sequence_JvmParameterizedTypeReference(context, (JvmInnerTypeReference) semanticObject); 
+					return; 
+				}
+				else break;
 			case TypesPackage.JVM_LOWER_BOUND:
-				if(context == grammarAccess.getJvmLowerBoundRule()) {
+				if(context == grammarAccess.getJvmLowerBoundAndedRule()) {
+					sequence_JvmLowerBoundAnded(context, (JvmLowerBound) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getJvmLowerBoundRule()) {
 					sequence_JvmLowerBound(context, (JvmLowerBound) semanticObject); 
 					return; 
 				}
@@ -105,6 +121,7 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 			case TypesPackage.JVM_PARAMETERIZED_TYPE_REFERENCE:
 				if(context == grammarAccess.getJvmArgumentTypeReferenceRule() ||
 				   context == grammarAccess.getJvmParameterizedTypeReferenceRule() ||
+				   context == grammarAccess.getJvmParameterizedTypeReferenceAccess().getJvmInnerTypeReferenceOuterAction_1_4_0_0_0() ||
 				   context == grammarAccess.getJvmTypeReferenceRule() ||
 				   context == grammarAccess.getJvmTypeReferenceAccess().getJvmGenericArrayTypeReferenceComponentTypeAction_0_1_0_0()) {
 					sequence_JvmParameterizedTypeReference(context, (JvmParameterizedTypeReference) semanticObject); 
@@ -136,6 +153,12 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 				else break;
 			}
 		else if(semanticObject.eClass().getEPackage() == UiSemanticsPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case UiSemanticsPackage.UX_ACTION:
+				if(context == grammarAccess.getUxActionRule()) {
+					sequence_UxAction(context, (UxAction) semanticObject); 
+					return; 
+				}
+				else break;
 			case UiSemanticsPackage.UX_AVAILABLE_BINDINGS:
 				if(context == grammarAccess.getUxAvailableBindingsRule()) {
 					sequence_UxAvailableBindings(context, (UxAvailableBindings) semanticObject); 
@@ -1236,6 +1259,22 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
+	 *     name=QualifiedName
+	 */
+	protected void sequence_UxAction(EObject context, UxAction semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, UiSemanticsPackage.Literals.UX_ACTION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiSemanticsPackage.Literals.UX_ACTION__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUxActionAccess().getNameQualifiedNameParserRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (bindings+=UxBindingableOption*)
 	 */
 	protected void sequence_UxAvailableBindings(EObject context, UxAvailableBindings semanticObject) {
@@ -1325,7 +1364,7 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (importSection=XImportSection? elementDefinitions+=UxElementDefinition*)
+	 *     (importSection=XImportSection? viewActions+=UxAction* elementDefinitions+=UxElementDefinition*)
 	 */
 	protected void sequence_UxModel(EObject context, UxModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

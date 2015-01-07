@@ -1,4 +1,11 @@
 ePackage "http://www.lunifera.org/ecview/dsl/uimodel/core" as view
+
+actions {
+	org.lunifera.^actions.save
+	org.lunifera.^actions.load
+	org.lunifera.^actions.delete
+	org.lunifera.^actions.find
+}
  
 element TextField {  
 	uri view:UiTextField
@@ -117,12 +124,13 @@ element List {
 	uri view:UiList
 	
 	bindings {
-		final endpoint selection String
+		final endpoint selection Object
 		endpoint editable Boolean
-		endpoint inputList Object
+		endpoint visible Boolean
+		list endpoint collection Object
 		endpoint multiSelection Object
 	}
-	
+
 	validator {
 		property validators
 	}
@@ -170,7 +178,6 @@ element ComboBox {
 		endpoint editable Boolean
 		endpoint visible Boolean
 		list endpoint collection Object
-		endpoint multiSelection Object
 	}
 
 	validator {
@@ -179,7 +186,7 @@ element ComboBox {
 }
 
 
-element MobileNavigationPage {  
+element MobileNavigationPage {   
 	uri view:UiMobileNavigationPage
 	  
 	bindings {
@@ -312,5 +319,15 @@ element SearchPanel {
 		 * The type of returned filter depends on the used UI-Kit.
 		 */
 		endpoint filter Object
+	}
+}
+
+element BeanReferenceField {  
+	uri view:UiBeanReferenceField
+	
+	bindings {
+		endpoint value Object
+		endpoint editable Boolean
+		endpoint visible Boolean
 	}
 }

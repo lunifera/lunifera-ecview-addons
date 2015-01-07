@@ -3,12 +3,17 @@ package org.lunifera.ecview.vaadin.ide.preview.parts;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.annotation.PreDestroy;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.IconifyAction;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.dnd.DND;
@@ -29,6 +34,8 @@ import org.eclipse.ui.internal.browser.WebBrowserUtil;
 import org.eclipse.ui.internal.browser.WebBrowserViewDropAdapter;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.eclipse.ui.part.ViewPart;
+import org.lunifera.ecview.core.common.context.IViewContext;
+import org.lunifera.ecview.core.common.editpart.IExposedActionEditpart;
 import org.lunifera.ecview.vaadin.ide.preview.Activator;
 
 import com.google.inject.Inject;
@@ -38,7 +45,7 @@ import com.google.inject.Inject;
  */
 @SuppressWarnings("restriction")
 public class ECViewIDEPreviewPart extends ViewPart implements
-		IBrowserViewerContainer, ISetSelectionTarget {
+		IBrowserViewerContainer, ISetSelectionTarget, IUiRenderedListener {
 
 	private static String URL = "http://localhost:8099/idepreview";
 
@@ -47,6 +54,8 @@ public class ECViewIDEPreviewPart extends ViewPart implements
 
 	@Inject
 	private ECViewVaadinSynchronizer synchronizer;
+
+	private Set<Action> exposedActions = new HashSet<Action>();
 
 	public ECViewIDEPreviewPart() {
 
@@ -78,6 +87,7 @@ public class ECViewIDEPreviewPart extends ViewPart implements
 	public void init(IViewSite site) throws PartInitException {
 		super.init(site);
 		synchronizer.start(site);
+		Activator.getIDEPreviewHandler().setPart(this);
 	}
 
 	@PreDestroy
@@ -86,6 +96,7 @@ public class ECViewIDEPreviewPart extends ViewPart implements
 	}
 
 	public void dispose() {
+		Activator.getIDEPreviewHandler().setPart(null);
 		synchronizer.stop(getSite());
 
 		if (viewer != null)
@@ -219,6 +230,63 @@ public class ECViewIDEPreviewPart extends ViewPart implements
 		setTitleToolTip(tip);
 	}
 
+	public void notifyNewViewRendered(final IViewContext context) {
+		viewer.getDisplay().asyncExec(new Runnable() {
+			@Override
+			public void run() {
+				// remove old actions
+				for (Action action : exposedActions) {
+					getViewSite().getActionBars().getToolBarManager()
+							.remove(action.getId());
+				}
+				exposedActions.clear();
+
+				// add the new exposed actions
+				for (IExposedActionEditpart exposedAction : context
+						.getExposedActions()) {
+					
+					// get the path of the icon
+					String theme = Activator.getIDEPreviewHandler().getThemeName();
+					String iconPath = String.format("VAADIN/themes/%s/%s", theme, exposedAction.getIconName());
+					URL iconURL = Activator.getDefault().findResource(iconPath);
+					
+					Action action = null;
+					if (exposedAction.getId().equals(
+							"org.lunifera.actions.load")) {
+						action = new ExposedLoadAction(exposedAction.getId(),exposedAction
+								.getDescription(), exposedAction.getIconName(), iconURL);
+					} else if (exposedAction.getId().equals(
+							"org.lunifera.actions.save")) {
+						action = new ExposedSaveAction(exposedAction.getId(),exposedAction
+								.getDescription(), exposedAction.getIconName(), iconURL);
+					} else if (exposedAction.getId().equals(
+							"org.lunifera.actions.delete")) {
+						action = new ExposedDeleteAction(exposedAction.getId(),exposedAction
+								.getDescription(), exposedAction.getIconName(), iconURL);
+					} else if (exposedAction.getId().equals(
+							"org.lunifera.actions.find")) {
+						action = new ExposedFindAction(exposedAction.getId(),exposedAction
+								.getDescription(), exposedAction.getIconName(), iconURL);
+					} else if (exposedAction.getId().equals(
+							"org.lunifera.actions.create")) {
+						action = new ExposedCreateAction(exposedAction.getId(),exposedAction
+								.getDescription(), exposedAction.getIconName(), iconURL);
+					} else {
+						action = new ExposedNullAction(exposedAction.getId(),exposedAction
+								.getDescription(), exposedAction.getIconName(), iconURL);
+					}
+					
+					if (action != null) {
+						exposedActions.add(action);
+						getViewSite().getActionBars().getToolBarManager()
+								.add(action);
+					}
+				}
+				getViewSite().getActionBars().updateActionBars();
+			}
+		});
+	}
+
 	private static class CustomWebBrowserViewDropAdapter extends
 			WebBrowserViewDropAdapter {
 
@@ -260,4 +328,128 @@ public class ECViewIDEPreviewPart extends ViewPart implements
 			Activator.getIDEPreviewHandler().setShowLayoutBounds(isChecked());
 		}
 	}
+
+	private class ExposedLoadAction extends Action {
+
+		public ExposedLoadAction(String id, String text, String icon, URL iconURL) {
+			super(text, IAction.AS_PUSH_BUTTON);
+			setId(id);
+			if(iconURL != null){
+				setImageDescriptor(ImageDescriptor.createFromURL(iconURL));
+			}else{
+				setImageDescriptor(Activator.imageDescriptorFromPlugin(
+						Activator.BUNDLE_ID, "icons/load.gif"));
+			}
+			setChecked(false);
+			setEnabled(true);
+		}
+
+		@Override
+		public void run() {
+
+		}
+	}
+
+	private class ExposedSaveAction extends Action {
+
+		public ExposedSaveAction(String id, String text, String icon, URL iconURL) {
+			super(text, IAction.AS_PUSH_BUTTON);
+			setId(id);
+			if(iconURL != null){
+				setImageDescriptor(ImageDescriptor.createFromURL(iconURL));
+			}else{
+				setImageDescriptor(Activator.imageDescriptorFromPlugin(
+						Activator.BUNDLE_ID, "icons/save.gif"));
+			}
+			setChecked(false);
+			setEnabled(true);
+		}
+
+		@Override
+		public void run() {
+
+		}
+	}
+
+	private class ExposedDeleteAction extends Action {
+
+		public ExposedDeleteAction(String id, String text, String icon, URL iconURL) {
+			super(text, IAction.AS_PUSH_BUTTON);
+			setId(id);
+			if(iconURL != null){
+				setImageDescriptor(ImageDescriptor.createFromURL(iconURL));
+			}else{
+				setImageDescriptor(Activator.imageDescriptorFromPlugin(
+						Activator.BUNDLE_ID, "icons/trash.gif"));
+			}
+			setChecked(false);
+			setEnabled(true);
+		}
+
+		@Override
+		public void run() {
+
+		}
+	}
+
+	private class ExposedFindAction extends Action {
+
+		public ExposedFindAction(String id, String text, String icon, URL iconURL) {
+			super(text, IAction.AS_PUSH_BUTTON);
+			setId(id);
+			if(iconURL != null){
+				setImageDescriptor(ImageDescriptor.createFromURL(iconURL));
+			}else{
+				setImageDescriptor(Activator.imageDescriptorFromPlugin(
+						Activator.BUNDLE_ID, "icons/search.gif"));
+			}
+			setChecked(false);
+			setEnabled(true);
+		}
+
+		@Override
+		public void run() {
+
+		}
+	}
+
+	private class ExposedCreateAction extends Action {
+
+		public ExposedCreateAction(String id, String text, String icon, URL iconURL) {
+			super(text, IAction.AS_PUSH_BUTTON);
+			setId(id);
+			if(iconURL != null){
+				setImageDescriptor(ImageDescriptor.createFromURL(iconURL));
+			}else{
+				setImageDescriptor(Activator.imageDescriptorFromPlugin(
+						Activator.BUNDLE_ID, "icons/new.gif"));
+			}
+			setChecked(false);
+			setEnabled(true);
+		}
+
+		@Override
+		public void run() {
+
+		}
+	}
+	
+	private class ExposedNullAction extends Action {
+
+		public ExposedNullAction(String id, String text, String icon, URL iconURL) {
+			super(text, IAction.AS_PUSH_BUTTON);
+			setId(id);
+			if(iconURL != null){
+				setImageDescriptor(ImageDescriptor.createFromURL(iconURL));
+			}
+			setChecked(false);
+			setEnabled(true);
+		}
+
+		@Override
+		public void run() {
+
+		}
+	}
+
 }

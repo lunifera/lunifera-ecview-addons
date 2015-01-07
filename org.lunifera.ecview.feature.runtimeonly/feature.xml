@@ -2,7 +2,7 @@
 <feature
       id="org.lunifera.ecview.feature.runtimeonly"
       label="%featureName"
-      version="0.7.4"
+      version="0.8.0"
       provider-name="%providerName">
 
    <description>
@@ -18,12 +18,12 @@
    </license>
 
    <url>
-      <discovery label="Xtext 2.5.0" url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
-      <discovery label="Kepler" url="http://download.eclipse.org/releases/kepler"/>
+      <discovery label="Xtext 2.7.3" url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+      <discovery label="Luna" url="http://download.eclipse.org/releases/luna"/>
    </url>
 
    <requires>
-      <import feature="org.lunifera.ecview.feature.runtime" version="0.7.3" match="greaterOrEqual"/>
+      <import feature="org.lunifera.ecview.feature.runtime" version="0.8.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin

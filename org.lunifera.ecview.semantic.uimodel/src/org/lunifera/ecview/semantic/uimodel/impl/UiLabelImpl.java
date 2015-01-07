@@ -34,6 +34,9 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl#isReadonly <em>Readonly</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl#isInvisible <em>Invisible</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl#getStyles <em>Styles</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiLabelImpl#getValidators <em>Validators</em>}</li>
  * </ul>
  * </p>
@@ -100,6 +103,66 @@ public class UiLabelImpl extends UiVisibilityProcessableImpl implements UiLabel 
 	 * @ordered
 	 */
 	protected EList<UiBinding> bindings;
+
+	/**
+	 * The default value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean READONLY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean readonly = READONLY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INVISIBLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean invisible = INVISIBLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getStyles() <em>Styles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyles()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STYLES_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStyles() <em>Styles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyles()
+	 * @generated
+	 * @ordered
+	 */
+	protected String styles = STYLES_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' containment reference list.
@@ -182,6 +245,69 @@ public class UiLabelImpl extends UiVisibilityProcessableImpl implements UiLabel 
 			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_LABEL__BINDINGS);
 		}
 		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isReadonly() {
+		return readonly;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReadonly(boolean newReadonly) {
+		boolean oldReadonly = readonly;
+		readonly = newReadonly;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_LABEL__READONLY, oldReadonly, readonly));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isInvisible() {
+		return invisible;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInvisible(boolean newInvisible) {
+		boolean oldInvisible = invisible;
+		invisible = newInvisible;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_LABEL__INVISIBLE, oldInvisible, invisible));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getStyles() {
+		return styles;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStyles(String newStyles) {
+		String oldStyles = styles;
+		styles = newStyles;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_LABEL__STYLES, oldStyles, styles));
 	}
 
 	/**
@@ -297,6 +423,12 @@ public class UiLabelImpl extends UiVisibilityProcessableImpl implements UiLabel 
 				return basicGetI18nInfo();
 			case UiModelPackage.UI_LABEL__BINDINGS:
 				return getBindings();
+			case UiModelPackage.UI_LABEL__READONLY:
+				return isReadonly();
+			case UiModelPackage.UI_LABEL__INVISIBLE:
+				return isInvisible();
+			case UiModelPackage.UI_LABEL__STYLES:
+				return getStyles();
 			case UiModelPackage.UI_LABEL__VALIDATORS:
 				return getValidators();
 		}
@@ -324,6 +456,15 @@ public class UiLabelImpl extends UiVisibilityProcessableImpl implements UiLabel 
 			case UiModelPackage.UI_LABEL__BINDINGS:
 				getBindings().clear();
 				getBindings().addAll((Collection<? extends UiBinding>)newValue);
+				return;
+			case UiModelPackage.UI_LABEL__READONLY:
+				setReadonly((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_LABEL__INVISIBLE:
+				setInvisible((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_LABEL__STYLES:
+				setStyles((String)newValue);
 				return;
 			case UiModelPackage.UI_LABEL__VALIDATORS:
 				getValidators().clear();
@@ -353,6 +494,15 @@ public class UiLabelImpl extends UiVisibilityProcessableImpl implements UiLabel 
 			case UiModelPackage.UI_LABEL__BINDINGS:
 				getBindings().clear();
 				return;
+			case UiModelPackage.UI_LABEL__READONLY:
+				setReadonly(READONLY_EDEFAULT);
+				return;
+			case UiModelPackage.UI_LABEL__INVISIBLE:
+				setInvisible(INVISIBLE_EDEFAULT);
+				return;
+			case UiModelPackage.UI_LABEL__STYLES:
+				setStyles(STYLES_EDEFAULT);
+				return;
 			case UiModelPackage.UI_LABEL__VALIDATORS:
 				getValidators().clear();
 				return;
@@ -376,6 +526,12 @@ public class UiLabelImpl extends UiVisibilityProcessableImpl implements UiLabel 
 				return i18nInfo != null;
 			case UiModelPackage.UI_LABEL__BINDINGS:
 				return bindings != null && !bindings.isEmpty();
+			case UiModelPackage.UI_LABEL__READONLY:
+				return readonly != READONLY_EDEFAULT;
+			case UiModelPackage.UI_LABEL__INVISIBLE:
+				return invisible != INVISIBLE_EDEFAULT;
+			case UiModelPackage.UI_LABEL__STYLES:
+				return STYLES_EDEFAULT == null ? styles != null : !STYLES_EDEFAULT.equals(styles);
 			case UiModelPackage.UI_LABEL__VALIDATORS:
 				return validators != null && !validators.isEmpty();
 		}
@@ -472,6 +628,12 @@ public class UiLabelImpl extends UiVisibilityProcessableImpl implements UiLabel 
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", readonly: ");
+		result.append(readonly);
+		result.append(", invisible: ");
+		result.append(invisible);
+		result.append(", styles: ");
+		result.append(styles);
 		result.append(')');
 		return result.toString();
 	}

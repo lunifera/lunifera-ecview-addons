@@ -9,8 +9,9 @@ import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
+import org.lunifera.ecview.core.common.context.IViewContext;
 import org.lunifera.ecview.core.common.model.core.YView;
-import org.lunifera.ecview.dsl.derivedstate.UiModelUtil;
+import org.lunifera.ecview.dsl.derivedstate.UiModelGrammarUtil;
 import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.vaadin.ide.preview.Activator;
 import org.lunifera.ecview.vaadin.ide.preview.web.EcviewMobilePreviewUI;
@@ -31,8 +32,25 @@ public class MobilePreviewHandler {
 	private boolean linkedWithEditor;
 	private boolean showLayoutBounds;
 
+	private ECViewMobilePreviewPart part;
+
 	public Injector getInjector() {
 		return Activator.getDefault().getInjector();
+	}
+
+	/**
+	 * @return the part showing the view
+	 */
+	public ECViewMobilePreviewPart getPart() {
+		return part;
+	}
+
+	/**
+	 * @param part
+	 *            the part to set
+	 */
+	public void setPart(ECViewMobilePreviewPart part) {
+		this.part = part;
 	}
 
 	/**
@@ -51,7 +69,7 @@ public class MobilePreviewHandler {
 	 * @return
 	 */
 	public synchronized UiView getActiveViewFromGrammar() {
-		return (UiView) UiModelUtil.getUiGrammarElement(yView);
+		return (UiView) UiModelGrammarUtil.getUiGrammarElement(yView);
 	}
 
 	public synchronized void setActiveViewFromXtextEditor(YView yView) {
@@ -70,7 +88,7 @@ public class MobilePreviewHandler {
 			return false;
 		}
 		if (this.ui != null && !this.ui.isClosing() && this.ui.isAttached()) {
-			ui.error("A preview UI is already active. Only one allowed!");
+			ui.warn("You are working with a copy of the Ui model, since the original model was already used!");
 			return false;
 		}
 		this.ui = ui;
@@ -207,6 +225,17 @@ public class MobilePreviewHandler {
 		// }
 		//
 		// notifySelectWidget(selected);
+	}
+
+	/**
+	 * @param context
+	 * @see org.lunifera.ecview.vaadin.ide.preview.parts.ECViewVaadinSynchronizer#notifyNewViewRendered(org.lunifera.ecview.core.common.context.IViewContext)
+	 */
+	public void notifyNewViewRendered(IViewContext context) {
+		if(part == null){
+			return;
+		}
+		part.notifyNewViewRendered(context);
 	}
 
 	public void dispose() {

@@ -15,6 +15,8 @@ import org.eclipse.xtext.common.types.JvmOperation;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiList#getSelectionType <em>Selection Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiList#getItemImageProperty <em>Item Image Property</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiList#getItemCaptionProperty <em>Item Caption Property</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiList#getDescriptionProperty <em>Description Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -22,7 +24,7 @@ import org.eclipse.xtext.common.types.JvmOperation;
  * @model
  * @generated
  */
-public interface UiList extends UiField, UiTypeProvider {
+public interface UiList extends UiField, UiTypeProvider, UiBeanServiceConsumer {
 
 	/**
 	 * Returns the value of the '<em><b>Selection Type</b></em>' attribute.
@@ -79,4 +81,56 @@ public interface UiList extends UiField, UiTypeProvider {
 	 * @generated
 	 */
 	void setItemImageProperty(JvmOperation value);
+
+	/**
+	 * Returns the value of the '<em><b>Item Caption Property</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Item Caption Property</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Item Caption Property</em>' reference.
+	 * @see #setItemCaptionProperty(JvmOperation)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiList_ItemCaptionProperty()
+	 * @model
+	 * @generated
+	 */
+	JvmOperation getItemCaptionProperty();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiList#getItemCaptionProperty <em>Item Caption Property</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Item Caption Property</em>' reference.
+	 * @see #getItemCaptionProperty()
+	 * @generated
+	 */
+	void setItemCaptionProperty(JvmOperation value);
+
+	/**
+	 * Returns the value of the '<em><b>Description Property</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description Property</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description Property</em>' containment reference.
+	 * @see #setDescriptionProperty(UiNestedProperty)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiList_DescriptionProperty()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	UiNestedProperty getDescriptionProperty();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiList#getDescriptionProperty <em>Description Property</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description Property</em>' containment reference.
+	 * @see #getDescriptionProperty()
+	 * @generated
+	 */
+	void setDescriptionProperty(UiNestedProperty value);
 } // UiList

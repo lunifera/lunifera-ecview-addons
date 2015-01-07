@@ -137,6 +137,7 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_MODEL: return createUiModel();
 			case UiModelPackage.UI_IMPORTS: return createUiImports();
 			case UiModelPackage.UI_CONTEXT: return createUiContext();
+			case UiModelPackage.UI_EXPOSED_ACTION: return createUiExposedAction();
 			case UiModelPackage.UI_VIEW_SET: return createUiViewSet();
 			case UiModelPackage.UI_VIEW: return createUiView();
 			case UiModelPackage.UI_DIALOG: return createUiDialog();
@@ -166,6 +167,7 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_FORM_LAYOUT_ASSIGMENT: return createUiFormLayoutAssigment();
 			case UiModelPackage.UI_FORM_LAYOUT: return createUiFormLayout();
 			case UiModelPackage.UI_SEARCH_PANEL: return createUiSearchPanel();
+			case UiModelPackage.UI_BEAN_REFERENCE_FIELD: return createUiBeanReferenceField();
 			case UiModelPackage.UI_TEXT_FIELD: return createUiTextField();
 			case UiModelPackage.UI_IMAGE: return createUiImage();
 			case UiModelPackage.UI_LIST: return createUiList();
@@ -299,6 +301,16 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiContext createUiContext() {
 		UiContextImpl uiContext = new UiContextImpl();
 		return uiContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiExposedAction createUiExposedAction() {
+		UiExposedActionImpl uiExposedAction = new UiExposedActionImpl();
+		return uiExposedAction;
 	}
 
 	/**
@@ -589,6 +601,16 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiSearchPanel createUiSearchPanel() {
 		UiSearchPanelImpl uiSearchPanel = new UiSearchPanelImpl();
 		return uiSearchPanel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiBeanReferenceField createUiBeanReferenceField() {
+		UiBeanReferenceFieldImpl uiBeanReferenceField = new UiBeanReferenceFieldImpl();
+		return uiBeanReferenceField;
 	}
 
 	/**

@@ -69,6 +69,10 @@ public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
 
 		List<URL> results = new ArrayList<URL>();
 		BundleWiring wiring = suspect.adapt(BundleWiring.class);
+		suspect.getState();
+		if(wiring == null){
+			System.out.println("---------------- wiring is null --------------------------");
+		}
 		results.addAll(wiring.findEntries("/", "*.uimodel",
 				BundleWiring.LISTRESOURCES_RECURSE));
 		results.addAll(wiring.findEntries("/", "*.uisemantics",

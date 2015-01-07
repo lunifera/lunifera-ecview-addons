@@ -7,10 +7,11 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.emf.ecore.EObject;
-import org.lunifera.ecview.core.common.model.core.YView;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
-import org.lunifera.ecview.dsl.derivedstate.UiModelUtil;
+import org.lunifera.ecview.core.common.context.IViewContext;
+import org.lunifera.ecview.core.common.model.core.YView;
+import org.lunifera.ecview.dsl.derivedstate.UiModelGrammarUtil;
 import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.vaadin.ide.preview.Activator;
 import org.lunifera.ecview.vaadin.ide.preview.web.EcviewPreviewUI;
@@ -30,6 +31,7 @@ public class IDEPreviewHandler {
 	private EcviewPreviewUI ui;
 	private boolean linkedWithEditor;
 	private boolean showLayoutBounds;
+	private ECViewIDEPreviewPart part;
 
 	public IDEPreviewHandler() {
 
@@ -37,6 +39,21 @@ public class IDEPreviewHandler {
 
 	public Injector getInjector() {
 		return Activator.getDefault().getInjector();
+	}
+
+	/**
+	 * @return the part showing the view
+	 */
+	public ECViewIDEPreviewPart getPart() {
+		return part;
+	}
+
+	/**
+	 * @param part
+	 *            the part to set
+	 */
+	public void setPart(ECViewIDEPreviewPart part) {
+		this.part = part;
 	}
 
 	/**
@@ -49,13 +66,22 @@ public class IDEPreviewHandler {
 	}
 
 	/**
+	 * Returns the theme name.
+	 * 
+	 * @return
+	 */
+	public synchronized String getThemeName() {
+		return ui != null ? ui.getTheme() : "";
+	}
+
+	/**
 	 * Returns the view from the grammar model. The current view was created by
 	 * the {@link UiView}.
 	 * 
 	 * @return
 	 */
 	public synchronized UiView getActiveViewFromGrammar() {
-		return (UiView) UiModelUtil.getUiGrammarElement(yView);
+		return (UiView) UiModelGrammarUtil.getUiGrammarElement(yView);
 	}
 
 	public synchronized void setActiveViewFromXtextEditor(YView yView) {
@@ -211,6 +237,17 @@ public class IDEPreviewHandler {
 		// }
 		//
 		// notifySelectWidget(selected);
+	}
+
+	/**
+	 * @param context
+	 * @see org.lunifera.ecview.vaadin.ide.preview.parts.ECViewVaadinSynchronizer#notifyNewViewRendered(org.lunifera.ecview.core.common.context.IViewContext)
+	 */
+	public void notifyNewViewRendered(IViewContext context) {
+		if(part == null){
+			return;
+		}
+		part.notifyNewViewRendered(context);
 	}
 
 	public void dispose() {

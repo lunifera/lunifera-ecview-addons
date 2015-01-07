@@ -23,10 +23,16 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference beanSlots : UiBeanSlot<<0..*>>
     Reference bindingEndpointAlias : UiBindingEndpointAlias<<0..*>>
     Reference bindings : UiBinding<<0..*>>
+    Reference exposedActions : UiExposedAction<<0..*>>
+
+  Class UiExposedAction -> UiNamedElement
+    Reference actionReference : UxAction
+    Attribute actionID : EString
+    Attribute iconName : EString
 
   Class UiViewSet -> UiContext
 
-  Class UiView -> UiContext, UiVisibilityProcessable, UiRawBindable
+  Class UiView -> UiContext, UiVisibilityProcessable, UiRawBindable, UiTypeProvider
     Reference viewSet : UiViewSet
     Reference content : UiEmbeddable
     Attribute contentAlignment : UiAlignment
@@ -108,11 +114,16 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiEmbeddable -> UiVisibilityProcessable, UiRawBindable, UiI18nInfoable
     Reference bindings : UiBinding<<0..*>>
+    Attribute readonly : EBoolean
+    Attribute invisible : EBoolean
+    Attribute styles : EString
 
   Class UiField -> UiEmbeddable
     Reference validators : UiValidator<<0..*>>
 
   Class UiLayout -> UiEmbeddable
+    Attribute autowire : EBoolean
+    Reference autoWireSource : UiBindingExpression
 
   Class UiLayoutAssignment -> UiNamedElement, UiRawBindableProvider
 
@@ -159,6 +170,12 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiSearchPanel -> UiLayout, UiTypeProvider
     Reference contents : UiSearchField<<0..*>>
 
+  Class UiBeanReferenceField -> UiField, UiMobileField, UiTypeProvider, UiBeanServiceConsumer
+    Reference captionProperty : UiNestedProperty
+    Reference imageProperty : UiNestedProperty
+    Reference inMemoryBeanProvider : JvmTypeReference
+    Reference descriptionProperty : UiNestedProperty
+
   Class UiTextField -> UiField, UiMobileField
     Attribute maxLength : EInt
     Attribute minLength : EInt
@@ -167,18 +184,21 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiImage -> UiField, UiMobileField
     Attribute value : EString
 
-  Class UiList -> UiField, UiTypeProvider
+  Class UiList -> UiField, UiTypeProvider, UiBeanServiceConsumer
     Attribute selectionType : UiSelectionType<<1..1>>
     Reference itemImageProperty : JvmOperation
+    Reference itemCaptionProperty : JvmOperation
+    Reference descriptionProperty : UiNestedProperty
 
-  Class UiTable -> UiField, UiTypeProvider, UiMobileField
+  Class UiTable -> UiField, UiTypeProvider, UiMobileField, UiBeanServiceConsumer
     Reference columnAssignment : UiColumnsAssignment
     Attribute selectionType : UiSelectionType<<1..1>>
     Reference itemImageProperty : JvmOperation
 
-  Class UiComboBox -> UiField, UiTypeProvider, UiMobileField
+  Class UiComboBox -> UiField, UiTypeProvider, UiMobileField, UiBeanServiceConsumer
     Reference itemCaptionProperty : JvmOperation
     Reference itemImageProperty : JvmOperation
+    Reference descriptionProperty : UiNestedProperty
 
   Class UiTypeProvider
     Reference jvmType : JvmTypeReference
@@ -338,10 +358,11 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiTextArea -> UiField, UiMobileField
 
-  Class UiOptionsGroup -> UiField, UiTypeProvider, UiMobileField
+  Class UiOptionsGroup -> UiField, UiTypeProvider, UiMobileField, UiBeanServiceConsumer
     Attribute selectionType : UiSelectionType
     Reference itemImageProperty : JvmOperation
     Reference itemCaptionProperty : JvmOperation
+    Reference descriptionProperty : UiNestedProperty
 
   Class UiDateField -> UiField, UiMobileField
     Attribute dateFormat : UiDateFormat
@@ -373,6 +394,9 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiErrorCode -> UiNamedElement
     Attribute defaultMessage : EString
+
+  Class UiBeanServiceConsumer
+    Attribute consumeBeanService : EBoolean
 
   Enum UiFlatAlignment
     Literal LEFT = 0

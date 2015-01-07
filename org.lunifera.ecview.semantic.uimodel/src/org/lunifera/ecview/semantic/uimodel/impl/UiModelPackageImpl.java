@@ -12,6 +12,8 @@ import org.eclipse.xtext.common.types.TypesPackage;
 import org.eclipse.xtext.xbase.XbasePackage;
 import org.lunifera.ecview.semantic.uimodel.UiAction;
 import org.lunifera.ecview.semantic.uimodel.UiAlignment;
+import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
+import org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
@@ -36,6 +38,7 @@ import org.lunifera.ecview.semantic.uimodel.UiDialogAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiDialogSearchFieldAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
+import org.lunifera.ecview.semantic.uimodel.UiExposedAction;
 import org.lunifera.ecview.semantic.uimodel.UiField;
 import org.lunifera.ecview.semantic.uimodel.UiFlatAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiFormLayout;
@@ -160,6 +163,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiContextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiExposedActionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -447,6 +457,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiSearchPanelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiBeanReferenceFieldEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -880,6 +897,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass uiBeanServiceConsumerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum uiFlatAlignmentEEnum = null;
 
 	/**
@@ -1090,6 +1114,51 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiContext_Bindings() {
 		return (EReference)uiContextEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiContext_ExposedActions() {
+		return (EReference)uiContextEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiExposedAction() {
+		return uiExposedActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiExposedAction_ActionReference() {
+		return (EReference)uiExposedActionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiExposedAction_ActionID() {
+		return (EAttribute)uiExposedActionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiExposedAction_IconName() {
+		return (EAttribute)uiExposedActionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1646,6 +1715,33 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUiEmbeddable_Readonly() {
+		return (EAttribute)uiEmbeddableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiEmbeddable_Invisible() {
+		return (EAttribute)uiEmbeddableEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiEmbeddable_Styles() {
+		return (EAttribute)uiEmbeddableEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiField() {
 		return uiFieldEClass;
 	}
@@ -1666,6 +1762,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EClass getUiLayout() {
 		return uiLayoutEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiLayout_Autowire() {
+		return (EAttribute)uiLayoutEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiLayout_AutoWireSource() {
+		return (EReference)uiLayoutEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1943,6 +2057,51 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiBeanReferenceField() {
+		return uiBeanReferenceFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiBeanReferenceField_CaptionProperty() {
+		return (EReference)uiBeanReferenceFieldEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiBeanReferenceField_ImageProperty() {
+		return (EReference)uiBeanReferenceFieldEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiBeanReferenceField_InMemoryBeanProvider() {
+		return (EReference)uiBeanReferenceFieldEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiBeanReferenceField_DescriptionProperty() {
+		return (EReference)uiBeanReferenceFieldEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiTextField() {
 		return uiTextFieldEClass;
 	}
@@ -2024,6 +2183,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getUiList_ItemCaptionProperty() {
+		return (EReference)uiListEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiList_DescriptionProperty() {
+		return (EReference)uiListEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiTable() {
 		return uiTableEClass;
 	}
@@ -2080,6 +2257,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiComboBox_ItemImageProperty() {
 		return (EReference)uiComboBoxEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiComboBox_DescriptionProperty() {
+		return (EReference)uiComboBoxEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3131,6 +3317,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getUiOptionsGroup_DescriptionProperty() {
+		return (EReference)uiOptionsGroupEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiDateField() {
 		return uiDateFieldEClass;
 	}
@@ -3329,6 +3524,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiBeanServiceConsumer() {
+		return uiBeanServiceConsumerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiBeanServiceConsumer_ConsumeBeanService() {
+		return (EAttribute)uiBeanServiceConsumerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getUiFlatAlignment() {
 		return uiFlatAlignmentEEnum;
 	}
@@ -3413,6 +3626,12 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiContextEClass, UI_CONTEXT__BEAN_SLOTS);
 		createEReference(uiContextEClass, UI_CONTEXT__BINDING_ENDPOINT_ALIAS);
 		createEReference(uiContextEClass, UI_CONTEXT__BINDINGS);
+		createEReference(uiContextEClass, UI_CONTEXT__EXPOSED_ACTIONS);
+
+		uiExposedActionEClass = createEClass(UI_EXPOSED_ACTION);
+		createEReference(uiExposedActionEClass, UI_EXPOSED_ACTION__ACTION_REFERENCE);
+		createEAttribute(uiExposedActionEClass, UI_EXPOSED_ACTION__ACTION_ID);
+		createEAttribute(uiExposedActionEClass, UI_EXPOSED_ACTION__ICON_NAME);
 
 		uiViewSetEClass = createEClass(UI_VIEW_SET);
 
@@ -3498,11 +3717,16 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiEmbeddableEClass = createEClass(UI_EMBEDDABLE);
 		createEReference(uiEmbeddableEClass, UI_EMBEDDABLE__BINDINGS);
+		createEAttribute(uiEmbeddableEClass, UI_EMBEDDABLE__READONLY);
+		createEAttribute(uiEmbeddableEClass, UI_EMBEDDABLE__INVISIBLE);
+		createEAttribute(uiEmbeddableEClass, UI_EMBEDDABLE__STYLES);
 
 		uiFieldEClass = createEClass(UI_FIELD);
 		createEReference(uiFieldEClass, UI_FIELD__VALIDATORS);
 
 		uiLayoutEClass = createEClass(UI_LAYOUT);
+		createEAttribute(uiLayoutEClass, UI_LAYOUT__AUTOWIRE);
+		createEReference(uiLayoutEClass, UI_LAYOUT__AUTO_WIRE_SOURCE);
 
 		uiLayoutAssignmentEClass = createEClass(UI_LAYOUT_ASSIGNMENT);
 
@@ -3549,6 +3773,12 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiSearchPanelEClass = createEClass(UI_SEARCH_PANEL);
 		createEReference(uiSearchPanelEClass, UI_SEARCH_PANEL__CONTENTS);
 
+		uiBeanReferenceFieldEClass = createEClass(UI_BEAN_REFERENCE_FIELD);
+		createEReference(uiBeanReferenceFieldEClass, UI_BEAN_REFERENCE_FIELD__CAPTION_PROPERTY);
+		createEReference(uiBeanReferenceFieldEClass, UI_BEAN_REFERENCE_FIELD__IMAGE_PROPERTY);
+		createEReference(uiBeanReferenceFieldEClass, UI_BEAN_REFERENCE_FIELD__IN_MEMORY_BEAN_PROVIDER);
+		createEReference(uiBeanReferenceFieldEClass, UI_BEAN_REFERENCE_FIELD__DESCRIPTION_PROPERTY);
+
 		uiTextFieldEClass = createEClass(UI_TEXT_FIELD);
 		createEAttribute(uiTextFieldEClass, UI_TEXT_FIELD__MAX_LENGTH);
 		createEAttribute(uiTextFieldEClass, UI_TEXT_FIELD__MIN_LENGTH);
@@ -3560,6 +3790,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiListEClass = createEClass(UI_LIST);
 		createEAttribute(uiListEClass, UI_LIST__SELECTION_TYPE);
 		createEReference(uiListEClass, UI_LIST__ITEM_IMAGE_PROPERTY);
+		createEReference(uiListEClass, UI_LIST__ITEM_CAPTION_PROPERTY);
+		createEReference(uiListEClass, UI_LIST__DESCRIPTION_PROPERTY);
 
 		uiTableEClass = createEClass(UI_TABLE);
 		createEReference(uiTableEClass, UI_TABLE__COLUMN_ASSIGNMENT);
@@ -3569,6 +3801,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiComboBoxEClass = createEClass(UI_COMBO_BOX);
 		createEReference(uiComboBoxEClass, UI_COMBO_BOX__ITEM_CAPTION_PROPERTY);
 		createEReference(uiComboBoxEClass, UI_COMBO_BOX__ITEM_IMAGE_PROPERTY);
+		createEReference(uiComboBoxEClass, UI_COMBO_BOX__DESCRIPTION_PROPERTY);
 
 		uiTypeProviderEClass = createEClass(UI_TYPE_PROVIDER);
 		createEReference(uiTypeProviderEClass, UI_TYPE_PROVIDER__JVM_TYPE);
@@ -3732,6 +3965,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEAttribute(uiOptionsGroupEClass, UI_OPTIONS_GROUP__SELECTION_TYPE);
 		createEReference(uiOptionsGroupEClass, UI_OPTIONS_GROUP__ITEM_IMAGE_PROPERTY);
 		createEReference(uiOptionsGroupEClass, UI_OPTIONS_GROUP__ITEM_CAPTION_PROPERTY);
+		createEReference(uiOptionsGroupEClass, UI_OPTIONS_GROUP__DESCRIPTION_PROPERTY);
 
 		uiDateFieldEClass = createEClass(UI_DATE_FIELD);
 		createEAttribute(uiDateFieldEClass, UI_DATE_FIELD__DATE_FORMAT);
@@ -3763,6 +3997,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiErrorCodeEClass = createEClass(UI_ERROR_CODE);
 		createEAttribute(uiErrorCodeEClass, UI_ERROR_CODE__DEFAULT_MESSAGE);
+
+		uiBeanServiceConsumerEClass = createEClass(UI_BEAN_SERVICE_CONSUMER);
+		createEAttribute(uiBeanServiceConsumerEClass, UI_BEAN_SERVICE_CONSUMER__CONSUME_BEAN_SERVICE);
 
 		// Create enums
 		uiFlatAlignmentEEnum = createEEnum(UI_FLAT_ALIGNMENT);
@@ -3796,8 +4033,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
 		UiSemanticsPackage theUiSemanticsPackage = (UiSemanticsPackage)EPackage.Registry.INSTANCE.getEPackage(UiSemanticsPackage.eNS_URI);
+		TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
 		XbasePackage theXbasePackage = (XbasePackage)EPackage.Registry.INSTANCE.getEPackage(XbasePackage.eNS_URI);
 
 		// Create type parameters
@@ -3808,10 +4045,12 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiModelEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiImportsEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiContextEClass.getESuperTypes().add(this.getUiRootElements());
+		uiExposedActionEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiViewSetEClass.getESuperTypes().add(this.getUiContext());
 		uiViewEClass.getESuperTypes().add(this.getUiContext());
 		uiViewEClass.getESuperTypes().add(this.getUiVisibilityProcessable());
 		uiViewEClass.getESuperTypes().add(this.getUiRawBindable());
+		uiViewEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiDialogEClass.getESuperTypes().add(this.getUiEmbeddable());
 		uiDialogEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiDialogEClass.getESuperTypes().add(this.getUiI18nInfoable());
@@ -3861,18 +4100,25 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiFormLayoutEClass.getESuperTypes().add(this.getUiLayout());
 		uiSearchPanelEClass.getESuperTypes().add(this.getUiLayout());
 		uiSearchPanelEClass.getESuperTypes().add(this.getUiTypeProvider());
+		uiBeanReferenceFieldEClass.getESuperTypes().add(this.getUiField());
+		uiBeanReferenceFieldEClass.getESuperTypes().add(this.getUiMobileField());
+		uiBeanReferenceFieldEClass.getESuperTypes().add(this.getUiTypeProvider());
+		uiBeanReferenceFieldEClass.getESuperTypes().add(this.getUiBeanServiceConsumer());
 		uiTextFieldEClass.getESuperTypes().add(this.getUiField());
 		uiTextFieldEClass.getESuperTypes().add(this.getUiMobileField());
 		uiImageEClass.getESuperTypes().add(this.getUiField());
 		uiImageEClass.getESuperTypes().add(this.getUiMobileField());
 		uiListEClass.getESuperTypes().add(this.getUiField());
 		uiListEClass.getESuperTypes().add(this.getUiTypeProvider());
+		uiListEClass.getESuperTypes().add(this.getUiBeanServiceConsumer());
 		uiTableEClass.getESuperTypes().add(this.getUiField());
 		uiTableEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiTableEClass.getESuperTypes().add(this.getUiMobileField());
+		uiTableEClass.getESuperTypes().add(this.getUiBeanServiceConsumer());
 		uiComboBoxEClass.getESuperTypes().add(this.getUiField());
 		uiComboBoxEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiComboBoxEClass.getESuperTypes().add(this.getUiMobileField());
+		uiComboBoxEClass.getESuperTypes().add(this.getUiBeanServiceConsumer());
 		uiColumnEClass.getESuperTypes().add(this.getUiField());
 		uiColumnsAssignmentEClass.getESuperTypes().add(this.getUiField());
 		uiNumericFieldEClass.getESuperTypes().add(this.getUiField());
@@ -3929,6 +4175,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiOptionsGroupEClass.getESuperTypes().add(this.getUiField());
 		uiOptionsGroupEClass.getESuperTypes().add(this.getUiTypeProvider());
 		uiOptionsGroupEClass.getESuperTypes().add(this.getUiMobileField());
+		uiOptionsGroupEClass.getESuperTypes().add(this.getUiBeanServiceConsumer());
 		uiDateFieldEClass.getESuperTypes().add(this.getUiField());
 		uiDateFieldEClass.getESuperTypes().add(this.getUiMobileField());
 		uiBrowserEClass.getESuperTypes().add(this.getUiField());
@@ -3957,6 +4204,12 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiContext_BeanSlots(), this.getUiBeanSlot(), null, "beanSlots", null, 0, -1, UiContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiContext_BindingEndpointAlias(), this.getUiBindingEndpointAlias(), null, "bindingEndpointAlias", null, 0, -1, UiContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiContext_Bindings(), this.getUiBinding(), null, "bindings", null, 0, -1, UiContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiContext_ExposedActions(), this.getUiExposedAction(), null, "exposedActions", null, 0, -1, UiContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiExposedActionEClass, UiExposedAction.class, "UiExposedAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiExposedAction_ActionReference(), theUiSemanticsPackage.getUxAction(), null, "actionReference", null, 0, 1, UiExposedAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiExposedAction_ActionID(), ecorePackage.getEString(), "actionID", null, 0, 1, UiExposedAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiExposedAction_IconName(), ecorePackage.getEString(), "iconName", null, 0, 1, UiExposedAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiViewSetEClass, UiViewSet.class, "UiViewSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4042,11 +4295,16 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiEmbeddableEClass, UiEmbeddable.class, "UiEmbeddable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiEmbeddable_Bindings(), this.getUiBinding(), null, "bindings", null, 0, -1, UiEmbeddable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiEmbeddable_Readonly(), ecorePackage.getEBoolean(), "readonly", null, 0, 1, UiEmbeddable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiEmbeddable_Invisible(), ecorePackage.getEBoolean(), "invisible", null, 0, 1, UiEmbeddable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiEmbeddable_Styles(), ecorePackage.getEString(), "styles", null, 0, 1, UiEmbeddable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiFieldEClass, UiField.class, "UiField", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiField_Validators(), this.getUiValidator(), null, "validators", null, 0, -1, UiField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiLayoutEClass, UiLayout.class, "UiLayout", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUiLayout_Autowire(), ecorePackage.getEBoolean(), "autowire", null, 0, 1, UiLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiLayout_AutoWireSource(), this.getUiBindingExpression(), null, "autoWireSource", null, 0, 1, UiLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiLayoutAssignmentEClass, UiLayoutAssignment.class, "UiLayoutAssignment", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4093,6 +4351,12 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiSearchPanelEClass, UiSearchPanel.class, "UiSearchPanel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiSearchPanel_Contents(), this.getUiSearchField(), null, "contents", null, 0, -1, UiSearchPanel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(uiBeanReferenceFieldEClass, UiBeanReferenceField.class, "UiBeanReferenceField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiBeanReferenceField_CaptionProperty(), this.getUiNestedProperty(), null, "captionProperty", null, 0, 1, UiBeanReferenceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiBeanReferenceField_ImageProperty(), this.getUiNestedProperty(), null, "imageProperty", null, 0, 1, UiBeanReferenceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiBeanReferenceField_InMemoryBeanProvider(), theTypesPackage.getJvmTypeReference(), null, "inMemoryBeanProvider", null, 0, 1, UiBeanReferenceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiBeanReferenceField_DescriptionProperty(), this.getUiNestedProperty(), null, "descriptionProperty", null, 0, 1, UiBeanReferenceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(uiTextFieldEClass, UiTextField.class, "UiTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiTextField_MaxLength(), ecorePackage.getEInt(), "maxLength", "-1", 0, 1, UiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiTextField_MinLength(), ecorePackage.getEInt(), "minLength", "-1", 0, 1, UiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4104,6 +4368,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiListEClass, UiList.class, "UiList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiList_SelectionType(), this.getUiSelectionType(), "selectionType", "SINGLE", 1, 1, UiList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiList_ItemImageProperty(), theTypesPackage.getJvmOperation(), null, "itemImageProperty", null, 0, 1, UiList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiList_ItemCaptionProperty(), theTypesPackage.getJvmOperation(), null, "itemCaptionProperty", null, 0, 1, UiList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiList_DescriptionProperty(), this.getUiNestedProperty(), null, "descriptionProperty", null, 0, 1, UiList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiTableEClass, UiTable.class, "UiTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiTable_ColumnAssignment(), this.getUiColumnsAssignment(), null, "columnAssignment", null, 0, 1, UiTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4113,6 +4379,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiComboBoxEClass, UiComboBox.class, "UiComboBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiComboBox_ItemCaptionProperty(), theTypesPackage.getJvmOperation(), null, "itemCaptionProperty", null, 0, 1, UiComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiComboBox_ItemImageProperty(), theTypesPackage.getJvmOperation(), null, "itemImageProperty", null, 0, 1, UiComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiComboBox_DescriptionProperty(), this.getUiNestedProperty(), null, "descriptionProperty", null, 0, 1, UiComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiTypeProviderEClass, UiTypeProvider.class, "UiTypeProvider", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiTypeProvider_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, UiTypeProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4276,6 +4543,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEAttribute(getUiOptionsGroup_SelectionType(), this.getUiSelectionType(), "selectionType", "SINGLE", 0, 1, UiOptionsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiOptionsGroup_ItemImageProperty(), theTypesPackage.getJvmOperation(), null, "itemImageProperty", null, 0, 1, UiOptionsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiOptionsGroup_ItemCaptionProperty(), theTypesPackage.getJvmOperation(), null, "itemCaptionProperty", null, 0, 1, UiOptionsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiOptionsGroup_DescriptionProperty(), this.getUiNestedProperty(), null, "descriptionProperty", null, 0, 1, UiOptionsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiDateFieldEClass, UiDateField.class, "UiDateField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiDateField_DateFormat(), this.getUiDateFormat(), "dateFormat", "DATE", 0, 1, UiDateField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4307,6 +4575,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiErrorCodeEClass, UiErrorCode.class, "UiErrorCode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiErrorCode_DefaultMessage(), ecorePackage.getEString(), "defaultMessage", null, 0, 1, UiErrorCode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiBeanServiceConsumerEClass, UiBeanServiceConsumer.class, "UiBeanServiceConsumer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUiBeanServiceConsumer_ConsumeBeanService(), ecorePackage.getEBoolean(), "consumeBeanService", null, 0, 1, UiBeanServiceConsumer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(uiFlatAlignmentEEnum, UiFlatAlignment.class, "UiFlatAlignment");

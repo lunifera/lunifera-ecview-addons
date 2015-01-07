@@ -3,17 +3,30 @@
  */
 package org.lunifera.ecview.dsl.validation;
 
+import com.google.common.base.Objects;
 import com.google.inject.Inject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.xtext.common.types.JvmEnumerationType;
+import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
+import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.lunifera.ecview.dsl.derivedstate.TypeHelper;
+import org.lunifera.ecview.dsl.extensions.BeanHelper;
+import org.lunifera.ecview.dsl.extensions.TypeHelper;
 import org.lunifera.ecview.dsl.validation.AbstractUIGrammarValidator;
+import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
+import org.lunifera.ecview.semantic.uimodel.UiComboBox;
+import org.lunifera.ecview.semantic.uimodel.UiList;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
+import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup;
 import org.lunifera.ecview.semantic.uimodel.UiSearchField;
+import org.lunifera.xtext.builder.types.loader.api.ITypeLoader;
+import org.lunifera.xtext.builder.types.loader.api.ITypeLoaderFactory;
 
 /**
  * Custom validation rules.
@@ -22,6 +35,11 @@ import org.lunifera.ecview.semantic.uimodel.UiSearchField;
  */
 @SuppressWarnings("all")
 public class UIGrammarValidator extends AbstractUIGrammarValidator {
+  @Inject
+  private ITypeLoaderFactory typeLoaderFactory;
+  
+  private ITypeLoader typeLoader;
+  
   @Inject
   @Extension
   private TypeHelper _typeHelper;
@@ -65,5 +83,149 @@ public class UIGrammarValidator extends AbstractUIGrammarValidator {
       _xblockexpression = _xifexpression;
     }
     return _xblockexpression;
+  }
+  
+  @Check
+  public void checkCaptionProperty(final UiOptionsGroup field) {
+    String result = null;
+    JvmOperation _itemCaptionProperty = field.getItemCaptionProperty();
+    boolean _notEquals = (!Objects.equal(_itemCaptionProperty, null));
+    if (_notEquals) {
+      return;
+    }
+    JvmTypeReference _jvmType = field.getJvmType();
+    JvmType _type = null;
+    if (_jvmType!=null) {
+      _type=_jvmType.getType();
+    }
+    if ((_type instanceof JvmEnumerationType)) {
+      return;
+    }
+    Resource _eResource = field.eResource();
+    ResourceSet _resourceSet = _eResource.getResourceSet();
+    final ITypeLoader typeLoader = this.typeLoaderFactory.createTypeLoader(_resourceSet);
+    JvmTypeReference _jvmType_1 = field.getJvmType();
+    String _qualifiedName = null;
+    if (_jvmType_1!=null) {
+      _qualifiedName=_jvmType_1.getQualifiedName();
+    }
+    final Class<?> type = typeLoader.findTypeByName(_qualifiedName);
+    boolean _notEquals_1 = (!Objects.equal(type, null));
+    if (_notEquals_1) {
+      String _findCaptionProperty = BeanHelper.findCaptionProperty(type);
+      result = _findCaptionProperty;
+    }
+    typeLoader.dispose();
+    boolean _equals = Objects.equal(result, null);
+    if (_equals) {
+      this.warning("Caption property could not be calculated by Type.", field, 
+        UiModelPackage.Literals.UI_OPTIONS_GROUP__ITEM_CAPTION_PROPERTY);
+    }
+  }
+  
+  @Check
+  public void checkCaptionProperty(final UiList field) {
+    String result = null;
+    JvmOperation _itemCaptionProperty = field.getItemCaptionProperty();
+    boolean _notEquals = (!Objects.equal(_itemCaptionProperty, null));
+    if (_notEquals) {
+      return;
+    }
+    JvmTypeReference _jvmType = field.getJvmType();
+    JvmType _type = null;
+    if (_jvmType!=null) {
+      _type=_jvmType.getType();
+    }
+    if ((_type instanceof JvmEnumerationType)) {
+      return;
+    }
+    Resource _eResource = field.eResource();
+    ResourceSet _resourceSet = _eResource.getResourceSet();
+    final ITypeLoader typeLoader = this.typeLoaderFactory.createTypeLoader(_resourceSet);
+    JvmTypeReference _jvmType_1 = field.getJvmType();
+    String _qualifiedName = null;
+    if (_jvmType_1!=null) {
+      _qualifiedName=_jvmType_1.getQualifiedName();
+    }
+    final Class<?> type = typeLoader.findTypeByName(_qualifiedName);
+    boolean _notEquals_1 = (!Objects.equal(type, null));
+    if (_notEquals_1) {
+      String _findCaptionProperty = BeanHelper.findCaptionProperty(type);
+      result = _findCaptionProperty;
+    }
+    typeLoader.dispose();
+    boolean _equals = Objects.equal(result, null);
+    if (_equals) {
+      this.warning("Caption property could not be calculated by Type.", field, 
+        UiModelPackage.Literals.UI_LIST__ITEM_CAPTION_PROPERTY);
+    }
+  }
+  
+  @Check
+  public void checkCaptionProperty(final UiComboBox field) {
+    String result = null;
+    JvmOperation _itemCaptionProperty = field.getItemCaptionProperty();
+    boolean _notEquals = (!Objects.equal(_itemCaptionProperty, null));
+    if (_notEquals) {
+      return;
+    }
+    JvmTypeReference _jvmType = field.getJvmType();
+    JvmType _type = null;
+    if (_jvmType!=null) {
+      _type=_jvmType.getType();
+    }
+    if ((_type instanceof JvmEnumerationType)) {
+      return;
+    }
+    Resource _eResource = field.eResource();
+    ResourceSet _resourceSet = _eResource.getResourceSet();
+    final ITypeLoader typeLoader = this.typeLoaderFactory.createTypeLoader(_resourceSet);
+    JvmTypeReference _jvmType_1 = field.getJvmType();
+    String _qualifiedName = null;
+    if (_jvmType_1!=null) {
+      _qualifiedName=_jvmType_1.getQualifiedName();
+    }
+    final Class<?> type = typeLoader.findTypeByName(_qualifiedName);
+    boolean _notEquals_1 = (!Objects.equal(type, null));
+    if (_notEquals_1) {
+      String _findCaptionProperty = BeanHelper.findCaptionProperty(type);
+      result = _findCaptionProperty;
+    }
+    typeLoader.dispose();
+    boolean _equals = Objects.equal(result, null);
+    if (_equals) {
+      this.warning("Caption property could not be calculated by Type.", field, 
+        UiModelPackage.Literals.UI_COMBO_BOX__ITEM_CAPTION_PROPERTY);
+    }
+  }
+  
+  @Check
+  public void checkCaptionProperty(final UiBeanReferenceField field) {
+    String result = null;
+    UiNestedProperty _captionProperty = field.getCaptionProperty();
+    boolean _notEquals = (!Objects.equal(_captionProperty, null));
+    if (_notEquals) {
+      return;
+    }
+    Resource _eResource = field.eResource();
+    ResourceSet _resourceSet = _eResource.getResourceSet();
+    final ITypeLoader typeLoader = this.typeLoaderFactory.createTypeLoader(_resourceSet);
+    JvmTypeReference _jvmType = field.getJvmType();
+    String _qualifiedName = null;
+    if (_jvmType!=null) {
+      _qualifiedName=_jvmType.getQualifiedName();
+    }
+    final Class<?> type = typeLoader.findTypeByName(_qualifiedName);
+    boolean _notEquals_1 = (!Objects.equal(type, null));
+    if (_notEquals_1) {
+      String _findCaptionProperty = BeanHelper.findCaptionProperty(type);
+      result = _findCaptionProperty;
+    }
+    typeLoader.dispose();
+    boolean _equals = Objects.equal(result, null);
+    if (_equals) {
+      this.warning("Caption property could not be calculated by Type.", field, 
+        UiModelPackage.Literals.UI_BEAN_REFERENCE_FIELD__CAPTION_PROPERTY);
+    }
   }
 }

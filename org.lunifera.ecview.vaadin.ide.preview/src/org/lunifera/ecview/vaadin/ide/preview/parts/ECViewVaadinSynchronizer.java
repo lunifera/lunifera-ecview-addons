@@ -29,7 +29,7 @@ import org.eclipse.xtext.util.ITextRegion;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.lunifera.ecview.core.common.model.core.YDeviceType;
 import org.lunifera.ecview.core.common.model.core.YView;
-import org.lunifera.ecview.dsl.derivedstate.UiModelUtil;
+import org.lunifera.ecview.dsl.derivedstate.UiModelGrammarUtil;
 import org.lunifera.ecview.vaadin.ide.preview.Activator;
 
 import com.google.inject.Singleton;
@@ -62,7 +62,8 @@ public class ECViewVaadinSynchronizer implements IPartListener,
 
 	public void selectInXtextEditor(EObject element) {
 		@SuppressWarnings("restriction")
-		EObject grammarElement = UiModelUtil.getUiGrammarElement(element);
+		EObject grammarElement = UiModelGrammarUtil
+				.getUiGrammarElement(element);
 		if (grammarElement != null) {
 			CompositeNodeWithSemanticElement node = (CompositeNodeWithSemanticElement) NodeModelUtils
 					.getNode(grammarElement);
@@ -158,7 +159,7 @@ public class ECViewVaadinSynchronizer implements IPartListener,
 	public void selectionChanged(SelectionChangedEvent event) {
 		final ISelection selection = event.getSelection();
 		if (selection instanceof ITextSelection) {
-			ITextSelection textSelection = (ITextSelection) selection;
+			// ITextSelection textSelection = (ITextSelection) selection;
 			// ITextRegion selectedTextRegion = new TextRegion(
 			// textSelection.getOffset(), textSelection.getLength());
 			// Object input = viewer.getInput();

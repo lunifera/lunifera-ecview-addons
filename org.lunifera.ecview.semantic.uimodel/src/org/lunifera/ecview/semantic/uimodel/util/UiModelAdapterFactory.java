@@ -81,6 +81,10 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiContextAdapter();
 			}
 			@Override
+			public Adapter caseUiExposedAction(UiExposedAction object) {
+				return createUiExposedActionAdapter();
+			}
+			@Override
 			public Adapter caseUiViewSet(UiViewSet object) {
 				return createUiViewSetAdapter();
 			}
@@ -243,6 +247,10 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUiSearchPanel(UiSearchPanel object) {
 				return createUiSearchPanelAdapter();
+			}
+			@Override
+			public Adapter caseUiBeanReferenceField(UiBeanReferenceField object) {
+				return createUiBeanReferenceFieldAdapter();
 			}
 			@Override
 			public Adapter caseUiTextField(UiTextField object) {
@@ -489,6 +497,10 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiErrorCodeAdapter();
 			}
 			@Override
+			public Adapter caseUiBeanServiceConsumer(UiBeanServiceConsumer object) {
+				return createUiBeanServiceConsumerAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -561,6 +573,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiExposedAction <em>Ui Exposed Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiExposedAction
+	 * @generated
+	 */
+	public Adapter createUiExposedActionAdapter() {
 		return null;
 	}
 
@@ -1135,6 +1161,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiSearchPanelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField <em>Ui Bean Reference Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField
+	 * @generated
+	 */
+	public Adapter createUiBeanReferenceFieldAdapter() {
 		return null;
 	}
 
@@ -1989,6 +2029,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiErrorCodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer <em>Ui Bean Service Consumer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer
+	 * @generated
+	 */
+	public Adapter createUiBeanServiceConsumerAdapter() {
 		return null;
 	}
 

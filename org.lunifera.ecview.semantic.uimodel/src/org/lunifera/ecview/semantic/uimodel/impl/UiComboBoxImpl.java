@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmTypeReference;
+import org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiComboBox;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
@@ -21,6 +22,7 @@ import org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiMobileField;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
+import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTypeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiValidator;
@@ -36,10 +38,15 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#isReadonly <em>Readonly</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#isInvisible <em>Invisible</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getStyles <em>Styles</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getValidators <em>Validators</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getJvmType <em>Jvm Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#isConsumeBeanService <em>Consume Bean Service</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getItemCaptionProperty <em>Item Caption Property</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getItemImageProperty <em>Item Image Property</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiComboBoxImpl#getDescriptionProperty <em>Description Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,6 +114,66 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 	protected EList<UiBinding> bindings;
 
 	/**
+	 * The default value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean READONLY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean readonly = READONLY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INVISIBLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean invisible = INVISIBLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getStyles() <em>Styles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyles()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STYLES_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStyles() <em>Styles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyles()
+	 * @generated
+	 * @ordered
+	 */
+	protected String styles = STYLES_EDEFAULT;
+
+	/**
 	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -127,6 +194,26 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 	protected JvmTypeReference jvmType;
 
 	/**
+	 * The default value of the '{@link #isConsumeBeanService() <em>Consume Bean Service</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isConsumeBeanService()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CONSUME_BEAN_SERVICE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isConsumeBeanService() <em>Consume Bean Service</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isConsumeBeanService()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean consumeBeanService = CONSUME_BEAN_SERVICE_EDEFAULT;
+
+	/**
 	 * The cached value of the '{@link #getItemCaptionProperty() <em>Item Caption Property</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -145,6 +232,16 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 	 * @ordered
 	 */
 	protected JvmOperation itemImageProperty;
+
+	/**
+	 * The cached value of the '{@link #getDescriptionProperty() <em>Description Property</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescriptionProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected UiNestedProperty descriptionProperty;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -217,6 +314,69 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_COMBO_BOX__BINDINGS);
 		}
 		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isReadonly() {
+		return readonly;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReadonly(boolean newReadonly) {
+		boolean oldReadonly = readonly;
+		readonly = newReadonly;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_COMBO_BOX__READONLY, oldReadonly, readonly));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isInvisible() {
+		return invisible;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInvisible(boolean newInvisible) {
+		boolean oldInvisible = invisible;
+		invisible = newInvisible;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_COMBO_BOX__INVISIBLE, oldInvisible, invisible));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getStyles() {
+		return styles;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStyles(String newStyles) {
+		String oldStyles = styles;
+		styles = newStyles;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_COMBO_BOX__STYLES, oldStyles, styles));
 	}
 
 	/**
@@ -368,6 +528,27 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isConsumeBeanService() {
+		return consumeBeanService;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConsumeBeanService(boolean newConsumeBeanService) {
+		boolean oldConsumeBeanService = consumeBeanService;
+		consumeBeanService = newConsumeBeanService;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_COMBO_BOX__CONSUME_BEAN_SERVICE, oldConsumeBeanService, consumeBeanService));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JvmOperation getItemCaptionProperty() {
 		if (itemCaptionProperty != null && itemCaptionProperty.eIsProxy()) {
 			InternalEObject oldItemCaptionProperty = (InternalEObject)itemCaptionProperty;
@@ -444,6 +625,72 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UiNestedProperty getDescriptionProperty() {
+		if (descriptionProperty != null && descriptionProperty.eIsProxy()) {
+			InternalEObject oldDescriptionProperty = (InternalEObject)descriptionProperty;
+			descriptionProperty = (UiNestedProperty)eResolveProxy(oldDescriptionProperty);
+			if (descriptionProperty != oldDescriptionProperty) {
+				InternalEObject newDescriptionProperty = (InternalEObject)descriptionProperty;
+				NotificationChain msgs = oldDescriptionProperty.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY, null, null);
+				if (newDescriptionProperty.eInternalContainer() == null) {
+					msgs = newDescriptionProperty.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY, oldDescriptionProperty, descriptionProperty));
+			}
+		}
+		return descriptionProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiNestedProperty basicGetDescriptionProperty() {
+		return descriptionProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDescriptionProperty(UiNestedProperty newDescriptionProperty, NotificationChain msgs) {
+		UiNestedProperty oldDescriptionProperty = descriptionProperty;
+		descriptionProperty = newDescriptionProperty;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY, oldDescriptionProperty, newDescriptionProperty);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescriptionProperty(UiNestedProperty newDescriptionProperty) {
+		if (newDescriptionProperty != descriptionProperty) {
+			NotificationChain msgs = null;
+			if (descriptionProperty != null)
+				msgs = ((InternalEObject)descriptionProperty).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY, null, msgs);
+			if (newDescriptionProperty != null)
+				msgs = ((InternalEObject)newDescriptionProperty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY, null, msgs);
+			msgs = basicSetDescriptionProperty(newDescriptionProperty, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY, newDescriptionProperty, newDescriptionProperty));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -455,6 +702,8 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 				return ((InternalEList<?>)getValidators()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_COMBO_BOX__JVM_TYPE:
 				return basicSetJvmType(null, msgs);
+			case UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY:
+				return basicSetDescriptionProperty(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -476,17 +725,28 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 				return basicGetI18nInfo();
 			case UiModelPackage.UI_COMBO_BOX__BINDINGS:
 				return getBindings();
+			case UiModelPackage.UI_COMBO_BOX__READONLY:
+				return isReadonly();
+			case UiModelPackage.UI_COMBO_BOX__INVISIBLE:
+				return isInvisible();
+			case UiModelPackage.UI_COMBO_BOX__STYLES:
+				return getStyles();
 			case UiModelPackage.UI_COMBO_BOX__VALIDATORS:
 				return getValidators();
 			case UiModelPackage.UI_COMBO_BOX__JVM_TYPE:
 				if (resolve) return getJvmType();
 				return basicGetJvmType();
+			case UiModelPackage.UI_COMBO_BOX__CONSUME_BEAN_SERVICE:
+				return isConsumeBeanService();
 			case UiModelPackage.UI_COMBO_BOX__ITEM_CAPTION_PROPERTY:
 				if (resolve) return getItemCaptionProperty();
 				return basicGetItemCaptionProperty();
 			case UiModelPackage.UI_COMBO_BOX__ITEM_IMAGE_PROPERTY:
 				if (resolve) return getItemImageProperty();
 				return basicGetItemImageProperty();
+			case UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY:
+				if (resolve) return getDescriptionProperty();
+				return basicGetDescriptionProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -513,6 +773,15 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 				getBindings().clear();
 				getBindings().addAll((Collection<? extends UiBinding>)newValue);
 				return;
+			case UiModelPackage.UI_COMBO_BOX__READONLY:
+				setReadonly((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_COMBO_BOX__INVISIBLE:
+				setInvisible((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_COMBO_BOX__STYLES:
+				setStyles((String)newValue);
+				return;
 			case UiModelPackage.UI_COMBO_BOX__VALIDATORS:
 				getValidators().clear();
 				getValidators().addAll((Collection<? extends UiValidator>)newValue);
@@ -520,11 +789,17 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 			case UiModelPackage.UI_COMBO_BOX__JVM_TYPE:
 				setJvmType((JvmTypeReference)newValue);
 				return;
+			case UiModelPackage.UI_COMBO_BOX__CONSUME_BEAN_SERVICE:
+				setConsumeBeanService((Boolean)newValue);
+				return;
 			case UiModelPackage.UI_COMBO_BOX__ITEM_CAPTION_PROPERTY:
 				setItemCaptionProperty((JvmOperation)newValue);
 				return;
 			case UiModelPackage.UI_COMBO_BOX__ITEM_IMAGE_PROPERTY:
 				setItemImageProperty((JvmOperation)newValue);
+				return;
+			case UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY:
+				setDescriptionProperty((UiNestedProperty)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -550,17 +825,32 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 			case UiModelPackage.UI_COMBO_BOX__BINDINGS:
 				getBindings().clear();
 				return;
+			case UiModelPackage.UI_COMBO_BOX__READONLY:
+				setReadonly(READONLY_EDEFAULT);
+				return;
+			case UiModelPackage.UI_COMBO_BOX__INVISIBLE:
+				setInvisible(INVISIBLE_EDEFAULT);
+				return;
+			case UiModelPackage.UI_COMBO_BOX__STYLES:
+				setStyles(STYLES_EDEFAULT);
+				return;
 			case UiModelPackage.UI_COMBO_BOX__VALIDATORS:
 				getValidators().clear();
 				return;
 			case UiModelPackage.UI_COMBO_BOX__JVM_TYPE:
 				setJvmType((JvmTypeReference)null);
 				return;
+			case UiModelPackage.UI_COMBO_BOX__CONSUME_BEAN_SERVICE:
+				setConsumeBeanService(CONSUME_BEAN_SERVICE_EDEFAULT);
+				return;
 			case UiModelPackage.UI_COMBO_BOX__ITEM_CAPTION_PROPERTY:
 				setItemCaptionProperty((JvmOperation)null);
 				return;
 			case UiModelPackage.UI_COMBO_BOX__ITEM_IMAGE_PROPERTY:
 				setItemImageProperty((JvmOperation)null);
+				return;
+			case UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY:
+				setDescriptionProperty((UiNestedProperty)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -582,14 +872,24 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 				return i18nInfo != null;
 			case UiModelPackage.UI_COMBO_BOX__BINDINGS:
 				return bindings != null && !bindings.isEmpty();
+			case UiModelPackage.UI_COMBO_BOX__READONLY:
+				return readonly != READONLY_EDEFAULT;
+			case UiModelPackage.UI_COMBO_BOX__INVISIBLE:
+				return invisible != INVISIBLE_EDEFAULT;
+			case UiModelPackage.UI_COMBO_BOX__STYLES:
+				return STYLES_EDEFAULT == null ? styles != null : !STYLES_EDEFAULT.equals(styles);
 			case UiModelPackage.UI_COMBO_BOX__VALIDATORS:
 				return validators != null && !validators.isEmpty();
 			case UiModelPackage.UI_COMBO_BOX__JVM_TYPE:
 				return jvmType != null;
+			case UiModelPackage.UI_COMBO_BOX__CONSUME_BEAN_SERVICE:
+				return consumeBeanService != CONSUME_BEAN_SERVICE_EDEFAULT;
 			case UiModelPackage.UI_COMBO_BOX__ITEM_CAPTION_PROPERTY:
 				return itemCaptionProperty != null;
 			case UiModelPackage.UI_COMBO_BOX__ITEM_IMAGE_PROPERTY:
 				return itemImageProperty != null;
+			case UiModelPackage.UI_COMBO_BOX__DESCRIPTION_PROPERTY:
+				return descriptionProperty != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -632,6 +932,12 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 		}
 		if (baseClass == UiMobileField.class) {
 			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiBeanServiceConsumer.class) {
+			switch (derivedFeatureID) {
+				case UiModelPackage.UI_COMBO_BOX__CONSUME_BEAN_SERVICE: return UiModelPackage.UI_BEAN_SERVICE_CONSUMER__CONSUME_BEAN_SERVICE;
 				default: return -1;
 			}
 		}
@@ -679,6 +985,12 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 				default: return -1;
 			}
 		}
+		if (baseClass == UiBeanServiceConsumer.class) {
+			switch (baseFeatureID) {
+				case UiModelPackage.UI_BEAN_SERVICE_CONSUMER__CONSUME_BEAN_SERVICE: return UiModelPackage.UI_COMBO_BOX__CONSUME_BEAN_SERVICE;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -696,6 +1008,14 @@ public class UiComboBoxImpl extends UiVisibilityProcessableImpl implements UiCom
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", readonly: ");
+		result.append(readonly);
+		result.append(", invisible: ");
+		result.append(invisible);
+		result.append(", styles: ");
+		result.append(styles);
+		result.append(", consumeBeanService: ");
+		result.append(consumeBeanService);
 		result.append(')');
 		return result.toString();
 	}

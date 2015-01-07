@@ -97,8 +97,8 @@ public class I18nRegistry {
 	 * @return
 	 */
 	private String putFastAccess(Locale locale, String key, String translation) {
-		return (String) fastAccess.put(createFastAccessKey(locale, key),
-				translation);
+		fastAccess.put(createFastAccessKey(locale, key), translation);
+		return translation;
 	}
 
 	/**

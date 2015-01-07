@@ -56,6 +56,8 @@ import org.lunifera.ecview.semantic.uimodel.UiView
 import org.lunifera.ecview.semantic.uimodel.UiViewSet
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo
+import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField
+import org.lunifera.ecview.semantic.uimodel.UiExposedAction
 
 /**
  * Provides labels for a EObjects.
@@ -76,7 +78,7 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 	def text(UiImports ele) {
 		if(ele.name != null) ele.name else "Import"
 	}
-
+	
 	def text(UiIDEView ele) {
 		if(ele.name != null) ele.name else "IDE View"
 	}
@@ -107,6 +109,10 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 
 	def text(UiFormLayout ele) {
 		if(ele.name != null) ele.name else "Form"
+	}
+	
+	def text(UiExposedAction ele) {
+		if(ele.name != null) ele.name else "Action"
 	}
 
 	def text(UiVerticalLayout ele) {
@@ -155,6 +161,10 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 
 	def text(UiComboBox ele) {
 		if(ele.name != null) ele.name else "Checkbox"
+	}
+	
+	def text(UiBeanReferenceField ele) {
+		if(ele.name != null) ele.name else "Reference Field"
 	}
 
 	def text(UiButton ele) {
@@ -331,6 +341,14 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 
 	def image(UiComboBox ele) {
 		'UiCombobox.gif'
+	}
+	
+	def image(UiBeanReferenceField ele) {
+		'UiBeanReferenceField.gif'
+	}
+	
+	def image(UiExposedAction ele) {
+		'UiExposedAction.png'
 	}
 
 	def image(UiCommand ele) {

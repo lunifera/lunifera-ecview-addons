@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.xtext.xtype.XImportSection;
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
+import org.lunifera.ecview.semantic.uisemantics.UxAction;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxModel;
 
@@ -26,6 +27,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxModel;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxModelImpl#getImportSection <em>Import Section</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxModelImpl#getElementDefinitions <em>Element Definitions</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxModelImpl#getViewActions <em>View Actions</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,6 +53,16 @@ public class UxModelImpl extends MinimalEObjectImpl.Container implements UxModel
 	 * @ordered
 	 */
 	protected EList<UxElementDefinition> elementDefinitions;
+
+	/**
+	 * The cached value of the '{@link #getViewActions() <em>View Actions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getViewActions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UxAction> viewActions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -131,6 +143,18 @@ public class UxModelImpl extends MinimalEObjectImpl.Container implements UxModel
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<UxAction> getViewActions() {
+		if (viewActions == null) {
+			viewActions = new EObjectContainmentEList<UxAction>(UxAction.class, this, UiSemanticsPackage.UX_MODEL__VIEW_ACTIONS);
+		}
+		return viewActions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -138,6 +162,8 @@ public class UxModelImpl extends MinimalEObjectImpl.Container implements UxModel
 				return basicSetImportSection(null, msgs);
 			case UiSemanticsPackage.UX_MODEL__ELEMENT_DEFINITIONS:
 				return ((InternalEList<?>)getElementDefinitions()).basicRemove(otherEnd, msgs);
+			case UiSemanticsPackage.UX_MODEL__VIEW_ACTIONS:
+				return ((InternalEList<?>)getViewActions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -154,6 +180,8 @@ public class UxModelImpl extends MinimalEObjectImpl.Container implements UxModel
 				return getImportSection();
 			case UiSemanticsPackage.UX_MODEL__ELEMENT_DEFINITIONS:
 				return getElementDefinitions();
+			case UiSemanticsPackage.UX_MODEL__VIEW_ACTIONS:
+				return getViewActions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -174,6 +202,10 @@ public class UxModelImpl extends MinimalEObjectImpl.Container implements UxModel
 				getElementDefinitions().clear();
 				getElementDefinitions().addAll((Collection<? extends UxElementDefinition>)newValue);
 				return;
+			case UiSemanticsPackage.UX_MODEL__VIEW_ACTIONS:
+				getViewActions().clear();
+				getViewActions().addAll((Collection<? extends UxAction>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -192,6 +224,9 @@ public class UxModelImpl extends MinimalEObjectImpl.Container implements UxModel
 			case UiSemanticsPackage.UX_MODEL__ELEMENT_DEFINITIONS:
 				getElementDefinitions().clear();
 				return;
+			case UiSemanticsPackage.UX_MODEL__VIEW_ACTIONS:
+				getViewActions().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -208,6 +243,8 @@ public class UxModelImpl extends MinimalEObjectImpl.Container implements UxModel
 				return importSection != null;
 			case UiSemanticsPackage.UX_MODEL__ELEMENT_DEFINITIONS:
 				return elementDefinitions != null && !elementDefinitions.isEmpty();
+			case UiSemanticsPackage.UX_MODEL__VIEW_ACTIONS:
+				return viewActions != null && !viewActions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

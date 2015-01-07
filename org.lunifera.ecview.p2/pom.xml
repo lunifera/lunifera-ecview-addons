@@ -16,16 +16,16 @@
 	<parent>
 		<groupId>org.lunifera.releng.maven</groupId>
 		<artifactId>lunifera-releng-maven-parent-tycho</artifactId>
-		<version>0.10.1-SNAPSHOT</version>
+		<version>0.12.5-SNAPSHOT</version>
 	</parent>
 
 	<groupId>org.lunifera.ecview</groupId>
 	<artifactId>org.lunifera.ecview.p2</artifactId>
-	<version>0.7.4</version>
+	<version>0.8.0</version>
 	<packaging>eclipse-repository</packaging>
 
 	<properties>
-		<lunifera.deployment.p2.label>lunifera-ecview</lunifera.deployment.p2.label>
+		<lunifera.deployment.p2.label>lunifera-ecview-addons</lunifera.deployment.p2.label>
 	</properties>
 
 	<pluginRepositories>
@@ -138,58 +138,5 @@
 		</profile>
 	</profiles>
 
-<!-- 	<dependencyManagement> -->
-<!-- 		<dependencies> -->
-<!-- 			<dependency> -->
-<!-- 				<groupId>org.lunifera.dsl</groupId> -->
-<!-- 				<artifactId>org.lunifera.dsl.parent</artifactId> -->
-<!-- 				<version>0.0.1-SNAPSHOT</version> -->
-<!-- 				<type>pom</type> -->
-<!-- 				<scope>import</scope> -->
-<!-- 			</dependency> -->
-<!-- 		</dependencies> -->
-<!-- 	</dependencyManagement> -->
 
-	<!-- <dependencies> -->
-	<!-- <dependency> -->
-	<!-- <groupId>org.lunifera.dsl</groupId> -->
-	<!-- <artifactId>org.lunifera.dsl.feature.eclipse.ui</artifactId> -->
-	<!-- <version>${project.version}</version> -->
-	<!-- </dependency> -->
-	<!-- <dependency> -->
-	<!-- <groupId>org.lunifera.dsl</groupId> -->
-	<!-- <artifactId>org.lunifera.dsl.feature.common</artifactId> -->
-	<!-- <version>${project.version}</version> -->
-	<!-- </dependency> -->
-	<!-- <dependency> -->
-	<!-- <groupId>org.lunifera.dsl</groupId> -->
-	<!-- <artifactId>org.lunifera.dsl.feature.common.headless</artifactId> -->
-	<!-- <version>${project.version}</version> -->
-	<!-- </dependency> -->
-	<!-- <dependency> -->
-	<!-- <groupId>org.lunifera.dsl</groupId> -->
-	<!-- <artifactId>org.lunifera.dsl.feature.entities</artifactId> -->
-	<!-- <version>${project.version}</version> -->
-	<!-- </dependency> -->
-	<!-- <dependency> -->
-	<!-- <groupId>org.lunifera.dsl</groupId> -->
-	<!-- <artifactId>org.lunifera.dsl.feature.entities.headless</artifactId> -->
-	<!-- <version>${project.version}</version> -->
-	<!-- </dependency> -->
-	<!-- <dependency> -->
-	<!-- <groupId>org.lunifera.dsl</groupId> -->
-	<!-- <artifactId>org.lunifera.dsl.feature.dto</artifactId> -->
-	<!-- <version>${project.version}</version> -->
-	<!-- </dependency> -->
-	<!-- <dependency> -->
-	<!-- <groupId>org.lunifera.dsl</groupId> -->
-	<!-- <artifactId>org.lunifera.dsl.feature.dto.headless</artifactId> -->
-	<!-- <version>${project.version}</version> -->
-	<!-- </dependency> -->
-	<!-- <dependency> -->
-	<!-- <groupId>org.lunifera.dsl</groupId> -->
-	<!-- <artifactId>org.lunifera.dsl.feature.metadata</artifactId> -->
-	<!-- <version>${project.version}</version> -->
-	<!-- </dependency> -->
-	<!-- </dependencies> -->
 </project>

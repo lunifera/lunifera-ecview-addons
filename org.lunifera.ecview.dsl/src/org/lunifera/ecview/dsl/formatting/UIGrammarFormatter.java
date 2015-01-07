@@ -5,6 +5,8 @@ import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter;
 import org.eclipse.xtext.formatting.impl.FormattingConfig;
 import org.eclipse.xtext.xbase.formatting.XbaseFormatter;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess;
+import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiActionElements;
+import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiBeanReferenceFieldElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiBeanSlotElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiBindingElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiBindingEndpointAliasElements;
@@ -19,6 +21,7 @@ import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiDateFieldElemen
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiDecimalFieldElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiDialogElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiErrorCodeElements;
+import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiExposedActionElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiFormLayoutElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiGridLayoutElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiHorizontalLayoutElements;
@@ -84,6 +87,8 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		configureMobileView(c, f.getUiMobileViewAccess());
 		// Viewset
 		configureUiViewSet(c, f.getUiViewSetAccess());
+		// Actions
+		configureExposedActions(c, f.getUiExposedActionAccess());
 		// Tabsheet
 		configureUiTabSheet(c, f.getUiTabSheetAccess());
 		// Tab
@@ -122,6 +127,8 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		configureUiOptionsGroup(c, f.getUiOptionsGroupAccess());
 		// Progressbar
 		configureUiProgressbar(c, f.getUiProgressBarAccess());
+		// BeanField
+		configureUiBeanReferenceField(c, f.getUiBeanReferenceFieldAccess());
 		// Searchdialog
 		configureUiSearchDialog(c, f.getUiSearchDialogAccess());
 		// Searchfield
@@ -224,6 +231,11 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		for (Keyword kw : ga.findKeywords("]")) {
 			c.setNoSpace().before(kw);
 		}
+	}
+
+	private void configureExposedActions(FormattingConfig c,
+			UiExposedActionElements ele) {
+		c.setLinewrap(1, 1, 2).around(ele.getRule());
 	}
 
 	private void configureUiErrorCode(FormattingConfig c,
@@ -508,6 +520,23 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		// ele.getRightCurlyBracketKeyword_3_5());
 	}
 
+	private void configureUiBeanReferenceField(FormattingConfig c,
+			UiBeanReferenceFieldElements ele) {
+		// Keywords
+		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_4_1_0_0());
+		c.setLinewrap(1, 1, 2).before(ele.getCaptionFieldKeyword_4_1_1_0());
+		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_4_1_3_0());
+		c.setLinewrap(1, 1, 2).before(ele.getInMemoryServiceKeyword_4_1_4_0());
+		// Brackets
+		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_5());
+		// c.setLinewrap(1, 1, 2).after(ele.getRightCurlyBracketKeyword_3_5());
+		// // Indentation
+		// c.setIndentationIncrement().after(ele.getLeftCurlyBracketKeyword_3_0());
+		// c.setIndentationDecrement().before(
+		// ele.getRightCurlyBracketKeyword_3_5());
+	}
+
 	public void configureUiModel(FormattingConfig c,
 			UIGrammarGrammarAccess.UiModelElements ele) {
 		// linewrap
@@ -519,7 +548,7 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 	private void configureUiIdeView(FormattingConfig c, UiIDEViewElements ele) {
 		// Keyword
 		c.setLinewrap(1).before(ele.getIdeviewKeyword_0());
-		c.setLinewrap(1, 1, 2).before(ele.getViewsetKeyword_3_0());
+		c.setLinewrap(1, 1, 2).before(ele.getViewsetKeyword_3_0_0());
 		c.setLinewrap(1, 1, 2).before(
 				ele.getProcessorAssignmentsAssignment_7_3());
 		// Brackets
@@ -667,7 +696,7 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		// Keywords
 		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_4_1_0_0());
 		c.setLinewrap(1, 1, 2).before(ele.getCaptionFieldKeyword_4_1_1_0());
-		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_4_1_2_0());
+		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_4_1_3_0());
 		// Brackets
 		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
 		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_4());

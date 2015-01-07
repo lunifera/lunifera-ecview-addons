@@ -39,11 +39,11 @@ public class UIGrammarUiModule extends
 		binder.bind(IJdtTypeLoaderProvider.class)
 				.to(JdtTypeLoaderProvider.class).in(Singleton.class);
 	}
-
+ 
 	public Class<? extends org.eclipse.xtext.ui.editor.hover.html.IEObjectHoverDocumentationProvider> bindIEObjectHoverDocumentationProvider() {
 		return UiGrammarHoverDocumentationProvider.class;
 	}
-
+ 
 	public com.google.inject.Provider<II18nRegistry> provideII18nRegistry() {
 		return org.lunifera.ide.core.ui.shared.Access.getII18nRegistry();
 	}

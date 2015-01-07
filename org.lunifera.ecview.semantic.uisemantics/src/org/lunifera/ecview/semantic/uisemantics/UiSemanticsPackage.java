@@ -85,13 +85,22 @@ public interface UiSemanticsPackage extends EPackage {
 	int UX_MODEL__ELEMENT_DEFINITIONS = 1;
 
 	/**
+	 * The feature id for the '<em><b>View Actions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_MODEL__VIEW_ACTIONS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Ux Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UX_MODEL_FEATURE_COUNT = 2;
+	int UX_MODEL_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxEPackageImportImpl <em>Ux EPackage Import</em>}' class.
@@ -684,6 +693,35 @@ public interface UiSemanticsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxActionImpl <em>Ux Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxActionImpl
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxAction()
+	 * @generated
+	 */
+	int UX_ACTION = 13;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_ACTION__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Ux Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_ACTION_FEATURE_COUNT = 1;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxModel <em>Ux Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -714,6 +752,17 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUxModel_ElementDefinitions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uisemantics.UxModel#getViewActions <em>View Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>View Actions</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxModel#getViewActions()
+	 * @see #getUxModel()
+	 * @generated
+	 */
+	EReference getUxModel_ViewActions();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxEPackageImport <em>Ux EPackage Import</em>}'.
@@ -1024,6 +1073,27 @@ public interface UiSemanticsPackage extends EPackage {
 	EClass getUxVisibleableOption();
 
 	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxAction <em>Ux Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ux Action</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxAction
+	 * @generated
+	 */
+	EClass getUxAction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uisemantics.UxAction#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxAction#getName()
+	 * @see #getUxAction()
+	 * @generated
+	 */
+	EAttribute getUxAction_Name();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxImportSectionDeclaration <em>Ux Import Section Declaration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1091,6 +1161,14 @@ public interface UiSemanticsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UX_MODEL__ELEMENT_DEFINITIONS = eINSTANCE.getUxModel_ElementDefinitions();
+
+		/**
+		 * The meta object literal for the '<em><b>View Actions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UX_MODEL__VIEW_ACTIONS = eINSTANCE.getUxModel_ViewActions();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxEPackageImportImpl <em>Ux EPackage Import</em>}' class.
@@ -1345,6 +1423,24 @@ public interface UiSemanticsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UX_VISIBLEABLE_OPTION = eINSTANCE.getUxVisibleableOption();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxActionImpl <em>Ux Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxActionImpl
+		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxAction()
+		 * @generated
+		 */
+		EClass UX_ACTION = eINSTANCE.getUxAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UX_ACTION__NAME = eINSTANCE.getUxAction_Name();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxImportSectionDeclarationImpl <em>Ux Import Section Declaration</em>}' class.

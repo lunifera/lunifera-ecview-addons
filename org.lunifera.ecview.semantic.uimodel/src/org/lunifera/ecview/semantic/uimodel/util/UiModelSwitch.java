@@ -92,6 +92,13 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_EXPOSED_ACTION: {
+				UiExposedAction uiExposedAction = (UiExposedAction)theEObject;
+				T result = caseUiExposedAction(uiExposedAction);
+				if (result == null) result = caseUiNamedElement(uiExposedAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case UiModelPackage.UI_VIEW_SET: {
 				UiViewSet uiViewSet = (UiViewSet)theEObject;
 				T result = caseUiViewSet(uiViewSet);
@@ -107,6 +114,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiContext(uiView);
 				if (result == null) result = caseUiVisibilityProcessable(uiView);
 				if (result == null) result = caseUiRawBindable(uiView);
+				if (result == null) result = caseUiTypeProvider(uiView);
 				if (result == null) result = caseUiRootElements(uiView);
 				if (result == null) result = caseUiNamedElement(uiView);
 				if (result == null) result = defaultCase(theEObject);
@@ -140,6 +148,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiContext(uiIDEView);
 				if (result == null) result = caseUiVisibilityProcessable(uiIDEView);
 				if (result == null) result = caseUiRawBindable(uiIDEView);
+				if (result == null) result = caseUiTypeProvider(uiIDEView);
 				if (result == null) result = caseUiRootElements(uiIDEView);
 				if (result == null) result = caseUiNamedElement(uiIDEView);
 				if (result == null) result = defaultCase(theEObject);
@@ -152,6 +161,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseUiContext(uiMobileView);
 				if (result == null) result = caseUiVisibilityProcessable(uiMobileView);
 				if (result == null) result = caseUiRawBindable(uiMobileView);
+				if (result == null) result = caseUiTypeProvider(uiMobileView);
 				if (result == null) result = caseUiRootElements(uiMobileView);
 				if (result == null) result = caseUiNamedElement(uiMobileView);
 				if (result == null) result = defaultCase(theEObject);
@@ -484,6 +494,22 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_BEAN_REFERENCE_FIELD: {
+				UiBeanReferenceField uiBeanReferenceField = (UiBeanReferenceField)theEObject;
+				T result = caseUiBeanReferenceField(uiBeanReferenceField);
+				if (result == null) result = caseUiMobileField(uiBeanReferenceField);
+				if (result == null) result = caseUiTypeProvider(uiBeanReferenceField);
+				if (result == null) result = caseUiBeanServiceConsumer(uiBeanReferenceField);
+				if (result == null) result = caseUiField(uiBeanReferenceField);
+				if (result == null) result = caseUiMobileEmbeddable(uiBeanReferenceField);
+				if (result == null) result = caseUiEmbeddable(uiBeanReferenceField);
+				if (result == null) result = caseUiVisibilityProcessable(uiBeanReferenceField);
+				if (result == null) result = caseUiRawBindable(uiBeanReferenceField);
+				if (result == null) result = caseUiI18nInfoable(uiBeanReferenceField);
+				if (result == null) result = caseUiNamedElement(uiBeanReferenceField);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case UiModelPackage.UI_TEXT_FIELD: {
 				UiTextField uiTextField = (UiTextField)theEObject;
 				T result = caseUiTextField(uiTextField);
@@ -517,6 +543,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiList(uiList);
 				if (result == null) result = caseUiField(uiList);
 				if (result == null) result = caseUiTypeProvider(uiList);
+				if (result == null) result = caseUiBeanServiceConsumer(uiList);
 				if (result == null) result = caseUiEmbeddable(uiList);
 				if (result == null) result = caseUiVisibilityProcessable(uiList);
 				if (result == null) result = caseUiRawBindable(uiList);
@@ -530,6 +557,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiTable(uiTable);
 				if (result == null) result = caseUiTypeProvider(uiTable);
 				if (result == null) result = caseUiMobileField(uiTable);
+				if (result == null) result = caseUiBeanServiceConsumer(uiTable);
 				if (result == null) result = caseUiField(uiTable);
 				if (result == null) result = caseUiMobileEmbeddable(uiTable);
 				if (result == null) result = caseUiEmbeddable(uiTable);
@@ -545,6 +573,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiComboBox(uiComboBox);
 				if (result == null) result = caseUiTypeProvider(uiComboBox);
 				if (result == null) result = caseUiMobileField(uiComboBox);
+				if (result == null) result = caseUiBeanServiceConsumer(uiComboBox);
 				if (result == null) result = caseUiField(uiComboBox);
 				if (result == null) result = caseUiMobileEmbeddable(uiComboBox);
 				if (result == null) result = caseUiEmbeddable(uiComboBox);
@@ -1020,6 +1049,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseUiOptionsGroup(uiOptionsGroup);
 				if (result == null) result = caseUiTypeProvider(uiOptionsGroup);
 				if (result == null) result = caseUiMobileField(uiOptionsGroup);
+				if (result == null) result = caseUiBeanServiceConsumer(uiOptionsGroup);
 				if (result == null) result = caseUiField(uiOptionsGroup);
 				if (result == null) result = caseUiMobileEmbeddable(uiOptionsGroup);
 				if (result == null) result = caseUiEmbeddable(uiOptionsGroup);
@@ -1124,6 +1154,12 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_BEAN_SERVICE_CONSUMER: {
+				UiBeanServiceConsumer uiBeanServiceConsumer = (UiBeanServiceConsumer)theEObject;
+				T result = caseUiBeanServiceConsumer(uiBeanServiceConsumer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -1185,6 +1221,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiContext(UiContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Exposed Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Exposed Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiExposedAction(UiExposedAction object) {
 		return null;
 	}
 
@@ -1800,6 +1851,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiSearchPanel(UiSearchPanel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Bean Reference Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Bean Reference Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiBeanReferenceField(UiBeanReferenceField object) {
 		return null;
 	}
 
@@ -2715,6 +2781,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiErrorCode(UiErrorCode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Bean Service Consumer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Bean Service Consumer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiBeanServiceConsumer(UiBeanServiceConsumer object) {
 		return null;
 	}
 

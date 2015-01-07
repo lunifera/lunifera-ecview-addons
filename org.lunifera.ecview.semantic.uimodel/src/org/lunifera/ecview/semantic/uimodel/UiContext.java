@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiContext#getBeanSlots <em>Bean Slots</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiContext#getBindingEndpointAlias <em>Binding Endpoint Alias</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiContext#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiContext#getExposedActions <em>Exposed Actions</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,5 +71,21 @@ public interface UiContext extends UiRootElements {
 	 * @generated
 	 */
 	EList<UiBinding> getBindings();
+
+	/**
+	 * Returns the value of the '<em><b>Exposed Actions</b></em>' containment reference list.
+	 * The list contents are of type {@link org.lunifera.ecview.semantic.uimodel.UiExposedAction}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Exposed Actions</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Exposed Actions</em>' containment reference list.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiContext_ExposedActions()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<UiExposedAction> getExposedActions();
 
 } // UiContext

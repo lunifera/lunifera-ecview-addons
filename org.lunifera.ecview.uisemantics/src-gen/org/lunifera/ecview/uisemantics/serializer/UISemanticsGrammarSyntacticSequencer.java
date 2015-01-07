@@ -18,6 +18,7 @@ import org.lunifera.ecview.uisemantics.services.UISemanticsGrammarGrammarAccess;
 public class UISemanticsGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected UISemanticsGrammarGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_UxModel___ActionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q;
 	protected AbstractElementAlias match_XBlockExpression_SemicolonKeyword_2_1_q;
 	protected AbstractElementAlias match_XExpressionInClosure_SemicolonKeyword_1_1_q;
 	protected AbstractElementAlias match_XFunctionTypeRef___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_2__q;
@@ -28,6 +29,7 @@ public class UISemanticsGrammarSyntacticSequencer extends AbstractSyntacticSeque
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (UISemanticsGrammarGrammarAccess) access;
+		match_UxModel___ActionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUxModelAccess().getActionsKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUxModelAccess().getLeftCurlyBracketKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getUxModelAccess().getRightCurlyBracketKeyword_2_3()));
 		match_XBlockExpression_SemicolonKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getXBlockExpressionAccess().getSemicolonKeyword_2_1());
 		match_XExpressionInClosure_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getXExpressionInClosureAccess().getSemicolonKeyword_1_1());
 		match_XFunctionTypeRef___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getXFunctionTypeRefAccess().getLeftParenthesisKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getXFunctionTypeRefAccess().getRightParenthesisKeyword_0_2()));
@@ -73,7 +75,9 @@ public class UISemanticsGrammarSyntacticSequencer extends AbstractSyntacticSeque
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_XBlockExpression_SemicolonKeyword_2_1_q.equals(syntax))
+			if(match_UxModel___ActionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q.equals(syntax))
+				emit_UxModel___ActionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_XBlockExpression_SemicolonKeyword_2_1_q.equals(syntax))
 				emit_XBlockExpression_SemicolonKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_XExpressionInClosure_SemicolonKeyword_1_1_q.equals(syntax))
 				emit_XExpressionInClosure_SemicolonKeyword_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -89,6 +93,14 @@ public class UISemanticsGrammarSyntacticSequencer extends AbstractSyntacticSeque
 		}
 	}
 
+	/**
+	 * Syntax:
+	 *     ('actions' '{' '}')?
+	 */
+	protected void emit_UxModel___ActionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Syntax:
 	 *     ';'?

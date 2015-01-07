@@ -68,6 +68,7 @@ public class UiSemanticsFactoryImpl extends EFactoryImpl implements UiSemanticsF
 			case UiSemanticsPackage.UX_VALIDATOR_PROPERTY: return createUxValidatorProperty();
 			case UiSemanticsPackage.UX_BINDINGABLE_OPTION: return createUxBindingableOption();
 			case UiSemanticsPackage.UX_VISIBLEABLE_OPTION: return createUxVisibleableOption();
+			case UiSemanticsPackage.UX_ACTION: return createUxAction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -181,6 +182,16 @@ public class UiSemanticsFactoryImpl extends EFactoryImpl implements UiSemanticsF
 	public UxVisibleableOption createUxVisibleableOption() {
 		UxVisibleableOptionImpl uxVisibleableOption = new UxVisibleableOptionImpl();
 		return uxVisibleableOption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UxAction createUxAction() {
+		UxActionImpl uxAction = new UxActionImpl();
+		return uxAction;
 	}
 
 	/**

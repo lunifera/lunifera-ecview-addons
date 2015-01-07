@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmTypeReference;
+import org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
@@ -38,8 +39,12 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#getI18nInfo <em>I1 8n Info</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#isReadonly <em>Readonly</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#isInvisible <em>Invisible</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#getStyles <em>Styles</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#getValidators <em>Validators</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#getJvmType <em>Jvm Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#isConsumeBeanService <em>Consume Bean Service</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#getColumnAssignment <em>Column Assignment</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#getSelectionType <em>Selection Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiTableImpl#getItemImageProperty <em>Item Image Property</em>}</li>
@@ -110,6 +115,66 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 	protected EList<UiBinding> bindings;
 
 	/**
+	 * The default value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean READONLY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadonly()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean readonly = READONLY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INVISIBLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isInvisible() <em>Invisible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean invisible = INVISIBLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getStyles() <em>Styles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyles()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STYLES_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStyles() <em>Styles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyles()
+	 * @generated
+	 * @ordered
+	 */
+	protected String styles = STYLES_EDEFAULT;
+
+	/**
 	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,6 +193,26 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 	 * @ordered
 	 */
 	protected JvmTypeReference jvmType;
+
+	/**
+	 * The default value of the '{@link #isConsumeBeanService() <em>Consume Bean Service</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isConsumeBeanService()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CONSUME_BEAN_SERVICE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isConsumeBeanService() <em>Consume Bean Service</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isConsumeBeanService()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean consumeBeanService = CONSUME_BEAN_SERVICE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getColumnAssignment() <em>Column Assignment</em>}' containment reference.
@@ -240,6 +325,69 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 			bindings = new EObjectContainmentEList.Resolving<UiBinding>(UiBinding.class, this, UiModelPackage.UI_TABLE__BINDINGS);
 		}
 		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isReadonly() {
+		return readonly;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReadonly(boolean newReadonly) {
+		boolean oldReadonly = readonly;
+		readonly = newReadonly;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_TABLE__READONLY, oldReadonly, readonly));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isInvisible() {
+		return invisible;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInvisible(boolean newInvisible) {
+		boolean oldInvisible = invisible;
+		invisible = newInvisible;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_TABLE__INVISIBLE, oldInvisible, invisible));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getStyles() {
+		return styles;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStyles(String newStyles) {
+		String oldStyles = styles;
+		styles = newStyles;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_TABLE__STYLES, oldStyles, styles));
 	}
 
 	/**
@@ -516,6 +664,27 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isConsumeBeanService() {
+		return consumeBeanService;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConsumeBeanService(boolean newConsumeBeanService) {
+		boolean oldConsumeBeanService = consumeBeanService;
+		consumeBeanService = newConsumeBeanService;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_TABLE__CONSUME_BEAN_SERVICE, oldConsumeBeanService, consumeBeanService));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -550,11 +719,19 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 				return basicGetI18nInfo();
 			case UiModelPackage.UI_TABLE__BINDINGS:
 				return getBindings();
+			case UiModelPackage.UI_TABLE__READONLY:
+				return isReadonly();
+			case UiModelPackage.UI_TABLE__INVISIBLE:
+				return isInvisible();
+			case UiModelPackage.UI_TABLE__STYLES:
+				return getStyles();
 			case UiModelPackage.UI_TABLE__VALIDATORS:
 				return getValidators();
 			case UiModelPackage.UI_TABLE__JVM_TYPE:
 				if (resolve) return getJvmType();
 				return basicGetJvmType();
+			case UiModelPackage.UI_TABLE__CONSUME_BEAN_SERVICE:
+				return isConsumeBeanService();
 			case UiModelPackage.UI_TABLE__COLUMN_ASSIGNMENT:
 				if (resolve) return getColumnAssignment();
 				return basicGetColumnAssignment();
@@ -589,12 +766,24 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 				getBindings().clear();
 				getBindings().addAll((Collection<? extends UiBinding>)newValue);
 				return;
+			case UiModelPackage.UI_TABLE__READONLY:
+				setReadonly((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_TABLE__INVISIBLE:
+				setInvisible((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_TABLE__STYLES:
+				setStyles((String)newValue);
+				return;
 			case UiModelPackage.UI_TABLE__VALIDATORS:
 				getValidators().clear();
 				getValidators().addAll((Collection<? extends UiValidator>)newValue);
 				return;
 			case UiModelPackage.UI_TABLE__JVM_TYPE:
 				setJvmType((JvmTypeReference)newValue);
+				return;
+			case UiModelPackage.UI_TABLE__CONSUME_BEAN_SERVICE:
+				setConsumeBeanService((Boolean)newValue);
 				return;
 			case UiModelPackage.UI_TABLE__COLUMN_ASSIGNMENT:
 				setColumnAssignment((UiColumnsAssignment)newValue);
@@ -629,11 +818,23 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 			case UiModelPackage.UI_TABLE__BINDINGS:
 				getBindings().clear();
 				return;
+			case UiModelPackage.UI_TABLE__READONLY:
+				setReadonly(READONLY_EDEFAULT);
+				return;
+			case UiModelPackage.UI_TABLE__INVISIBLE:
+				setInvisible(INVISIBLE_EDEFAULT);
+				return;
+			case UiModelPackage.UI_TABLE__STYLES:
+				setStyles(STYLES_EDEFAULT);
+				return;
 			case UiModelPackage.UI_TABLE__VALIDATORS:
 				getValidators().clear();
 				return;
 			case UiModelPackage.UI_TABLE__JVM_TYPE:
 				setJvmType((JvmTypeReference)null);
+				return;
+			case UiModelPackage.UI_TABLE__CONSUME_BEAN_SERVICE:
+				setConsumeBeanService(CONSUME_BEAN_SERVICE_EDEFAULT);
 				return;
 			case UiModelPackage.UI_TABLE__COLUMN_ASSIGNMENT:
 				setColumnAssignment((UiColumnsAssignment)null);
@@ -664,10 +865,18 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 				return i18nInfo != null;
 			case UiModelPackage.UI_TABLE__BINDINGS:
 				return bindings != null && !bindings.isEmpty();
+			case UiModelPackage.UI_TABLE__READONLY:
+				return readonly != READONLY_EDEFAULT;
+			case UiModelPackage.UI_TABLE__INVISIBLE:
+				return invisible != INVISIBLE_EDEFAULT;
+			case UiModelPackage.UI_TABLE__STYLES:
+				return STYLES_EDEFAULT == null ? styles != null : !STYLES_EDEFAULT.equals(styles);
 			case UiModelPackage.UI_TABLE__VALIDATORS:
 				return validators != null && !validators.isEmpty();
 			case UiModelPackage.UI_TABLE__JVM_TYPE:
 				return jvmType != null;
+			case UiModelPackage.UI_TABLE__CONSUME_BEAN_SERVICE:
+				return consumeBeanService != CONSUME_BEAN_SERVICE_EDEFAULT;
 			case UiModelPackage.UI_TABLE__COLUMN_ASSIGNMENT:
 				return columnAssignment != null;
 			case UiModelPackage.UI_TABLE__SELECTION_TYPE:
@@ -719,6 +928,12 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 				default: return -1;
 			}
 		}
+		if (baseClass == UiBeanServiceConsumer.class) {
+			switch (derivedFeatureID) {
+				case UiModelPackage.UI_TABLE__CONSUME_BEAN_SERVICE: return UiModelPackage.UI_BEAN_SERVICE_CONSUMER__CONSUME_BEAN_SERVICE;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -763,6 +978,12 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 				default: return -1;
 			}
 		}
+		if (baseClass == UiBeanServiceConsumer.class) {
+			switch (baseFeatureID) {
+				case UiModelPackage.UI_BEAN_SERVICE_CONSUMER__CONSUME_BEAN_SERVICE: return UiModelPackage.UI_TABLE__CONSUME_BEAN_SERVICE;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -780,6 +1001,14 @@ public class UiTableImpl extends UiVisibilityProcessableImpl implements UiTable 
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", readonly: ");
+		result.append(readonly);
+		result.append(", invisible: ");
+		result.append(invisible);
+		result.append(", styles: ");
+		result.append(styles);
+		result.append(", consumeBeanService: ");
+		result.append(consumeBeanService);
 		result.append(", selectionType: ");
 		result.append(selectionType);
 		result.append(')');

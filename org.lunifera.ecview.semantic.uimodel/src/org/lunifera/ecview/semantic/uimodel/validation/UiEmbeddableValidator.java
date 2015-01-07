@@ -18,4 +18,10 @@ public interface UiEmbeddableValidator {
 	boolean validate();
 
 	boolean validateBindings(EList<UiBinding> value);
+
+	boolean validateReadonly(boolean value);
+
+	boolean validateInvisible(boolean value);
+
+	boolean validateStyles(String value);
 }

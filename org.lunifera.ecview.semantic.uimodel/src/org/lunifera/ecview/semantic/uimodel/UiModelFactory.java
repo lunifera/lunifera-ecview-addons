@@ -49,6 +49,15 @@ public interface UiModelFactory extends EFactory {
 	UiContext createUiContext();
 
 	/**
+	 * Returns a new object of class '<em>Ui Exposed Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Exposed Action</em>'.
+	 * @generated
+	 */
+	UiExposedAction createUiExposedAction();
+
+	/**
 	 * Returns a new object of class '<em>Ui View</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -326,6 +335,15 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiSearchPanel createUiSearchPanel();
+
+	/**
+	 * Returns a new object of class '<em>Ui Bean Reference Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Bean Reference Field</em>'.
+	 * @generated
+	 */
+	UiBeanReferenceField createUiBeanReferenceField();
 
 	/**
 	 * Returns a new object of class '<em>Ui Text Field</em>'.

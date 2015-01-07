@@ -22,15 +22,18 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import org.eclipse.core.internal.resources.Workspace;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.lunifera.ecview.core.common.context.I18nAdapter;
 import org.lunifera.ecview.core.common.context.II18nService;
 import org.lunifera.ecview.core.common.context.IViewContext;
 import org.lunifera.ecview.core.common.model.core.YBeanSlot;
 import org.lunifera.ecview.core.common.model.core.YView;
 import org.lunifera.ecview.core.common.model.validation.ValidationPackage;
+import org.lunifera.ecview.core.common.model.visibility.VisibilityPackage;
 import org.lunifera.ecview.core.common.services.IWidgetAssocationsService;
 import org.lunifera.ecview.core.common.tooling.IWidgetMouseClickService;
 import org.lunifera.ecview.core.common.types.ITypeProviderService;
@@ -77,6 +80,10 @@ public class EcviewMobilePreviewUI extends UI {
 	private ECViewTypeProviderAdapter classLoadingHelper = new ECViewTypeProviderAdapter();
 	private Component selectedComponent;
 
+	private boolean worksWithCopy;
+
+	protected boolean buildNotificationSent;
+	
 	@Override
 	protected void init(VaadinRequest request) {
 		setErrorHandler(new ErrorHandler() {
@@ -92,8 +99,7 @@ public class EcviewMobilePreviewUI extends UI {
 		});
 
 		if (!Activator.getMobilePreviewHandler().setPreviewUI(this)) {
-			close();
-			return;
+			worksWithCopy = true;
 		}
 
 		setStyleName(Reindeer.LAYOUT_BLUE);
@@ -105,9 +111,14 @@ public class EcviewMobilePreviewUI extends UI {
 
 		modelChanged();
 	}
+	
+	protected void refresh(VaadinRequest request) {
+		modelChanged();
+	}
 
 	public void modelChanged() {
 		access(new Runnable() {
+			@SuppressWarnings("restriction")
 			@Override
 			public void run() {
 				VaadinObservables.activateRealm(getUI());
@@ -140,13 +151,37 @@ public class EcviewMobilePreviewUI extends UI {
 
 						YView view = Activator.getMobilePreviewHandler()
 								.getActiveView();
+						if (worksWithCopy) {
+							view = EcoreUtil.copy(view);
+						}
 						context = renderer.render(layout, view, params);
 
 						registerBeans(view);
+						
+						// Notify the eclipse view, about the new rendered view.
+						// So the part can install the exposed actions.
+						Activator.getMobilePreviewHandler().notifyNewViewRendered(
+								context);
 
 						if (Activator.getMobilePreviewHandler()
 								.isLinkedWithEditor()) {
 							installSourceViewSelectionSupport();
+						}
+						
+						Workspace ws = (Workspace) Activator.getDefault()
+								.getWorkspace();
+						if (!buildNotificationSent
+								&& ws.getBuildManager()
+										.isAutobuildBuildPending()) {
+							buildNotificationSent = true;
+							context.exec(new Runnable() {
+								@Override
+								public void run() {
+									Notification
+											.show("Build is not finished yet. So labels and icons may not be initialized properly.",
+													Notification.Type.TRAY_NOTIFICATION);
+								}
+							});
 						}
 
 					} catch (Exception e) {
@@ -254,6 +289,10 @@ public class EcviewMobilePreviewUI extends UI {
 	public void error(String value) {
 		Notification.show(value, Notification.Type.ERROR_MESSAGE);
 	}
+	
+	public void warn(String value) {
+		Notification.show(value, Notification.Type.WARNING_MESSAGE);
+	}
 
 	/**
 	 * Disposes the current context.
@@ -279,6 +318,9 @@ public class EcviewMobilePreviewUI extends UI {
 			if (clazz instanceof EClass) {
 
 				if (clazz == ValidationPackage.Literals.YCLASS_DELEGATE_VALIDATOR) {
+					return Activator.getDefault().getXtextUtilService()
+							.reloadClass(qualifiedName);
+				} else if (clazz == VisibilityPackage.Literals.YVISIBILITY_PROCESSOR) {
 					return Activator.getDefault().getXtextUtilService()
 							.reloadClass(qualifiedName);
 				}

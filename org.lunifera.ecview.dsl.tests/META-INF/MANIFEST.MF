@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.lunifera.ecview.dsl.tests
 Bundle-Vendor: Lunifera GmbH
-Bundle-Version: 0.7.3.qualifier
+Bundle-Version: 0.8.0
 Bundle-SymbolicName: org.lunifera.ecview.dsl.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.lunifera.ecview.dsl,

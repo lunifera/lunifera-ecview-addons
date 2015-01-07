@@ -12,10 +12,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.lunifera.ecview.semantic.uimodel.UiAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
+import org.lunifera.ecview.semantic.uimodel.UiTypeProvider;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.semantic.uimodel.UiViewSet;
@@ -30,6 +32,7 @@ import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getProcessorAssignments <em>Processor Assignments</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getJvmType <em>Jvm Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getViewSet <em>View Set</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getContentAlignment <em>Content Alignment</em>}</li>
@@ -49,6 +52,15 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	 * @ordered
 	 */
 	protected EList<UiVisibilityProcessorAssignment> processorAssignments;
+	/**
+	 * The cached value of the '{@link #getJvmType() <em>Jvm Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJvmType()
+	 * @generated
+	 * @ordered
+	 */
+	protected JvmTypeReference jvmType;
 	/**
 	 * The cached value of the '{@link #getViewSet() <em>View Set</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -123,6 +135,72 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 			processorAssignments = new EObjectContainmentEList.Resolving<UiVisibilityProcessorAssignment>(UiVisibilityProcessorAssignment.class, this, UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS);
 		}
 		return processorAssignments;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JvmTypeReference getJvmType() {
+		if (jvmType != null && jvmType.eIsProxy()) {
+			InternalEObject oldJvmType = (InternalEObject)jvmType;
+			jvmType = (JvmTypeReference)eResolveProxy(oldJvmType);
+			if (jvmType != oldJvmType) {
+				InternalEObject newJvmType = (InternalEObject)jvmType;
+				NotificationChain msgs = oldJvmType.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VIEW__JVM_TYPE, null, null);
+				if (newJvmType.eInternalContainer() == null) {
+					msgs = newJvmType.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VIEW__JVM_TYPE, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_VIEW__JVM_TYPE, oldJvmType, jvmType));
+			}
+		}
+		return jvmType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JvmTypeReference basicGetJvmType() {
+		return jvmType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetJvmType(JvmTypeReference newJvmType, NotificationChain msgs) {
+		JvmTypeReference oldJvmType = jvmType;
+		jvmType = newJvmType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_VIEW__JVM_TYPE, oldJvmType, newJvmType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJvmType(JvmTypeReference newJvmType) {
+		if (newJvmType != jvmType) {
+			NotificationChain msgs = null;
+			if (jvmType != null)
+				msgs = ((InternalEObject)jvmType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VIEW__JVM_TYPE, null, msgs);
+			if (newJvmType != null)
+				msgs = ((InternalEObject)newJvmType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_VIEW__JVM_TYPE, null, msgs);
+			msgs = basicSetJvmType(newJvmType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_VIEW__JVM_TYPE, newJvmType, newJvmType));
 	}
 
 	/**
@@ -272,6 +350,8 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 		switch (featureID) {
 			case UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS:
 				return ((InternalEList<?>)getProcessorAssignments()).basicRemove(otherEnd, msgs);
+			case UiModelPackage.UI_VIEW__JVM_TYPE:
+				return basicSetJvmType(null, msgs);
 			case UiModelPackage.UI_VIEW__CONTENT:
 				return basicSetContent(null, msgs);
 			case UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS:
@@ -290,6 +370,9 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 		switch (featureID) {
 			case UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS:
 				return getProcessorAssignments();
+			case UiModelPackage.UI_VIEW__JVM_TYPE:
+				if (resolve) return getJvmType();
+				return basicGetJvmType();
 			case UiModelPackage.UI_VIEW__VIEW_SET:
 				if (resolve) return getViewSet();
 				return basicGetViewSet();
@@ -316,6 +399,9 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 			case UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS:
 				getProcessorAssignments().clear();
 				getProcessorAssignments().addAll((Collection<? extends UiVisibilityProcessorAssignment>)newValue);
+				return;
+			case UiModelPackage.UI_VIEW__JVM_TYPE:
+				setJvmType((JvmTypeReference)newValue);
 				return;
 			case UiModelPackage.UI_VIEW__VIEW_SET:
 				setViewSet((UiViewSet)newValue);
@@ -345,6 +431,9 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 			case UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS:
 				getProcessorAssignments().clear();
 				return;
+			case UiModelPackage.UI_VIEW__JVM_TYPE:
+				setJvmType((JvmTypeReference)null);
+				return;
 			case UiModelPackage.UI_VIEW__VIEW_SET:
 				setViewSet((UiViewSet)null);
 				return;
@@ -371,6 +460,8 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 		switch (featureID) {
 			case UiModelPackage.UI_VIEW__PROCESSOR_ASSIGNMENTS:
 				return processorAssignments != null && !processorAssignments.isEmpty();
+			case UiModelPackage.UI_VIEW__JVM_TYPE:
+				return jvmType != null;
 			case UiModelPackage.UI_VIEW__VIEW_SET:
 				return viewSet != null;
 			case UiModelPackage.UI_VIEW__CONTENT:
@@ -401,6 +492,12 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 				default: return -1;
 			}
 		}
+		if (baseClass == UiTypeProvider.class) {
+			switch (derivedFeatureID) {
+				case UiModelPackage.UI_VIEW__JVM_TYPE: return UiModelPackage.UI_TYPE_PROVIDER__JVM_TYPE;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -419,6 +516,12 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 		}
 		if (baseClass == UiRawBindable.class) {
 			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == UiTypeProvider.class) {
+			switch (baseFeatureID) {
+				case UiModelPackage.UI_TYPE_PROVIDER__JVM_TYPE: return UiModelPackage.UI_VIEW__JVM_TYPE;
 				default: return -1;
 			}
 		}
