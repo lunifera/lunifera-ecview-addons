@@ -2,7 +2,7 @@
 <feature
       id="org.lunifera.ecview.feature.runtime"
       label="%featureName"
-      version="0.7.5.qualifier"
+      version="0.8.0"
       provider-name="%providerName">
 
    <description>
@@ -18,8 +18,8 @@
    </license>
 
    <url>
-      <discovery label="Xtext 2.5.0" url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
-      <discovery label="Kepler" url="http://download.eclipse.org/releases/kepler"/>
+      <discovery label="Xtext 2.7.3" url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+      <discovery label="Luna" url="http://download.eclipse.org/releases/luna"/>
    </url>
 
    <plugin

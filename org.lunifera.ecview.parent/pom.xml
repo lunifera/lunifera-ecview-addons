@@ -17,14 +17,14 @@
 	<parent>
 		<groupId>org.lunifera.releng.maven</groupId>
 		<artifactId>lunifera-releng-maven-parent-tycho</artifactId>
-		<version>0.12.3-SNAPSHOT</version>
+		<version>0.12.5-SNAPSHOT</version>
 		<relativePath />
 	</parent>
 
 	<groupId>org.lunifera.ecview</groupId>
 	<artifactId>org.lunifera.ecview.parent</artifactId>
 	<packaging>pom</packaging>
-	<version>0.7.5-SNAPSHOT</version>
+	<version>0.8.0</version>
 
 	<url>${distribution.site.url}</url>
 	<distributionManagement>
@@ -145,7 +145,7 @@
 <!-- 			<dependency> -->
 <!-- 				<groupId>org.eclipse.xtext</groupId> -->
 <!-- 				<artifactId>org.eclipse.xtext.ecore</artifactId> -->
-<!-- 				<version>2.6.2</version> -->
+<!-- 				<version>0.8.0</version> -->
 <!-- 			</dependency> -->
 <!-- 		</dependencies> -->
 <!-- 	</dependencyManagement> -->
