@@ -15,28 +15,24 @@
  */
 package org.lunifera.ecview.vaadin.ide.preview.web;
 
-import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.DeploymentConfiguration;
 import com.vaadin.server.ServiceException;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.server.VaadinServletService;
 
-/**
- * An implementation of VaadinServlet that uses SimpleUI as its base UI.
- */
-@SuppressWarnings("serial")
-@VaadinServletConfiguration(ui = EcviewPreviewUI.class, widgetset = "org.lunifera.runtime.web.vaadin.widgetset.LuniferaWidget", productionMode = false)
-public class EcviewPreviewVaadinServlet extends VaadinServlet {
+public class ServletService extends VaadinServletService {
 
-	@Override
-	protected VaadinServletService createServletService(
+	public ServletService(VaadinServlet servlet,
 			DeploymentConfiguration deploymentConfiguration)
 			throws ServiceException {
+		super(servlet, deploymentConfiguration);
+	}
+
+	@Override
+	public ClassLoader getClassLoader() {
+		// return the bundle classloader
 		// see http://dev.vaadin.com/ticket/15516
-		ServletService service = new ServletService(this,
-				deploymentConfiguration);
-		service.init();
-		return service;
+		return ServletService.class.getClassLoader();
 	}
 
 }
