@@ -222,6 +222,12 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_SPLITPANEL: return createUiSplitpanel();
 			case UiModelPackage.UI_PANEL: return createUiPanel();
 			case UiModelPackage.UI_ERROR_CODE: return createUiErrorCode();
+			case UiModelPackage.UI_MOBILE_SEARCH_PANEL: return createUiMobileSearchPanel();
+			case UiModelPackage.UI_MOBILE_NAVIGATION_ROOT: return createUiMobileNavigationRoot();
+			case UiModelPackage.UI_MOBILE_NAVIGATION_ROOT_ASSIGMENT: return createUiMobileNavigationRootAssigment();
+			case UiModelPackage.UI_MOBILE_NAV_BAR_ACTION: return createUiMobileNavBarAction();
+			case UiModelPackage.UI_ADD_TO_TABLE_COMMAND: return createUiAddToTableCommand();
+			case UiModelPackage.UI_REMOVE_FROM_TABLE_COMMAND: return createUiRemoveFromTableCommand();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1151,6 +1157,66 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiErrorCode createUiErrorCode() {
 		UiErrorCodeImpl uiErrorCode = new UiErrorCodeImpl();
 		return uiErrorCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiMobileSearchPanel createUiMobileSearchPanel() {
+		UiMobileSearchPanelImpl uiMobileSearchPanel = new UiMobileSearchPanelImpl();
+		return uiMobileSearchPanel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiMobileNavigationRoot createUiMobileNavigationRoot() {
+		UiMobileNavigationRootImpl uiMobileNavigationRoot = new UiMobileNavigationRootImpl();
+		return uiMobileNavigationRoot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiMobileNavigationRootAssigment createUiMobileNavigationRootAssigment() {
+		UiMobileNavigationRootAssigmentImpl uiMobileNavigationRootAssigment = new UiMobileNavigationRootAssigmentImpl();
+		return uiMobileNavigationRootAssigment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiMobileNavBarAction createUiMobileNavBarAction() {
+		UiMobileNavBarActionImpl uiMobileNavBarAction = new UiMobileNavBarActionImpl();
+		return uiMobileNavBarAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiAddToTableCommand createUiAddToTableCommand() {
+		UiAddToTableCommandImpl uiAddToTableCommand = new UiAddToTableCommandImpl();
+		return uiAddToTableCommand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiRemoveFromTableCommand createUiRemoveFromTableCommand() {
+		UiRemoveFromTableCommandImpl uiRemoveFromTableCommand = new UiRemoveFromTableCommandImpl();
+		return uiRemoveFromTableCommand;
 	}
 
 	/**

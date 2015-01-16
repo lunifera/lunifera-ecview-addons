@@ -73,6 +73,7 @@ import org.lunifera.ecview.core.extension.model.datatypes.YDecimalDatatype;
 import org.lunifera.ecview.core.extension.model.datatypes.YNumericDatatype;
 import org.lunifera.ecview.core.extension.model.datatypes.YTextDatatype;
 import org.lunifera.ecview.core.extension.model.extension.ExtensionModelFactory;
+import org.lunifera.ecview.core.extension.model.extension.YAddToTableCommand;
 import org.lunifera.ecview.core.extension.model.extension.YBeanReferenceField;
 import org.lunifera.ecview.core.extension.model.extension.YBooleanSearchField;
 import org.lunifera.ecview.core.extension.model.extension.YBrowser;
@@ -99,6 +100,7 @@ import org.lunifera.ecview.core.extension.model.extension.YOptionsGroup;
 import org.lunifera.ecview.core.extension.model.extension.YPanel;
 import org.lunifera.ecview.core.extension.model.extension.YProgressBar;
 import org.lunifera.ecview.core.extension.model.extension.YReferenceSearchField;
+import org.lunifera.ecview.core.extension.model.extension.YRemoveFromTableCommand;
 import org.lunifera.ecview.core.extension.model.extension.YSearchPanel;
 import org.lunifera.ecview.core.extension.model.extension.YSelectionType;
 import org.lunifera.ecview.core.extension.model.extension.YSplitPanel;
@@ -119,6 +121,7 @@ import org.lunifera.ecview.dsl.extensions.BindableTypeProvider;
 import org.lunifera.ecview.dsl.extensions.I18nKeyProvider;
 import org.lunifera.ecview.dsl.extensions.OperationExtensions;
 import org.lunifera.ecview.dsl.extensions.TypeHelper;
+import org.lunifera.ecview.semantic.uimodel.UiAddToTableCommand;
 import org.lunifera.ecview.semantic.uimodel.UiAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
@@ -162,11 +165,16 @@ import org.lunifera.ecview.semantic.uimodel.UiLayout;
 import org.lunifera.ecview.semantic.uimodel.UiList;
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
+import org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavBarAction;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationCommand;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationHandler;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRoot;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRootAssigment;
+import org.lunifera.ecview.semantic.uimodel.UiMobileSearchPanel;
 import org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet;
 import org.lunifera.ecview.semantic.uimodel.UiMobileView;
@@ -182,6 +190,7 @@ import org.lunifera.ecview.semantic.uimodel.UiPoint;
 import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
+import org.lunifera.ecview.semantic.uimodel.UiRemoveFromTableCommand;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
 import org.lunifera.ecview.semantic.uimodel.UiSearchDialog;
 import org.lunifera.ecview.semantic.uimodel.UiSearchField;
@@ -213,10 +222,13 @@ import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 import org.lunifera.ecview.semantic.uisemantics.UxAction;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 import org.lunifera.mobile.vaadin.ecview.model.VMHorizontalButtonGroup;
+import org.lunifera.mobile.vaadin.ecview.model.VMNavigationBarButton;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationButton;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationCommand;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationHandler;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationPage;
+import org.lunifera.mobile.vaadin.ecview.model.VMNavigationRoot;
+import org.lunifera.mobile.vaadin.ecview.model.VMSearchPanel;
 import org.lunifera.mobile.vaadin.ecview.model.VMSwitch;
 import org.lunifera.mobile.vaadin.ecview.model.VMTab;
 import org.lunifera.mobile.vaadin.ecview.model.VMTabSheet;
@@ -311,6 +323,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   private DerivedStateAwareResource resource;
   
+  private List<Runnable> pendingMappings = CollectionLiterals.<Runnable>newArrayList();
+  
   private List<UiBinding> pendingBindings = CollectionLiterals.<UiBinding>newArrayList();
   
   private List<UiBinding> temporaryPendingBindings = CollectionLiterals.<UiBinding>newArrayList();
@@ -387,6 +401,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       this.views.clear();
       this.viewContext.clear();
       this.pendingBindings.clear();
+      this.pendingMappings.clear();
       this.pendingVisibilityProcessors.clear();
       this.pendingAutowires.clear();
     }
@@ -492,46 +507,28 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiVisibilityProcessorAssignment>forEach(this.pendingVisibilityProcessors, _function_5);
-    ArrayList<UiBinding> _newArrayList = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
-    this.temporaryPendingBindings = _newArrayList;
-    this.pendingBindings.clear();
-    final Procedure1<UiBinding> _function_6 = new Procedure1<UiBinding>() {
-      public void apply(final UiBinding it) {
-        UiModelDerivedStateComputerx.this.install(it);
+    final Procedure1<Runnable> _function_6 = new Procedure1<Runnable>() {
+      public void apply(final Runnable it) {
+        it.run();
       }
     };
-    IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_6);
-    boolean _isEmpty = this.pendingBindings.isEmpty();
-    if (_isEmpty) {
-      EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
-      final Procedure1<UiValidatorAssignment> _function_7 = new Procedure1<UiValidatorAssignment>() {
-        public void apply(final UiValidatorAssignment it) {
-          UiModelDerivedStateComputerx.this.map(it);
-        }
-      };
-      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_7);
-      this.<Object>pop();
-      this.currentView = null;
-    } else {
-      ArrayList<UiBinding> _newArrayList_1 = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
-      this.temporaryPendingBindings = _newArrayList_1;
-      this.pendingBindings.clear();
-      final Procedure1<UiBinding> _function_8 = new Procedure1<UiBinding>() {
-        public void apply(final UiBinding it) {
-          UiModelDerivedStateComputerx.this.install(it);
-        }
-      };
-      IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_8);
-      EList<UiValidatorAssignment> _validatorAssignments_1 = object.getValidatorAssignments();
-      final Procedure1<UiValidatorAssignment> _function_9 = new Procedure1<UiValidatorAssignment>() {
-        public void apply(final UiValidatorAssignment it) {
-          UiModelDerivedStateComputerx.this.map(it);
-        }
-      };
-      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments_1, _function_9);
-      this.<Object>pop();
-      this.currentView = null;
-    }
+    IterableExtensions.<Runnable>forEach(this.pendingMappings, _function_6);
+    this.processBindings();
+    final Procedure1<Runnable> _function_7 = new Procedure1<Runnable>() {
+      public void apply(final Runnable it) {
+        it.run();
+      }
+    };
+    IterableExtensions.<Runnable>forEach(this.pendingMappings, _function_7);
+    EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
+    final Procedure1<UiValidatorAssignment> _function_8 = new Procedure1<UiValidatorAssignment>() {
+      public void apply(final UiValidatorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_8);
+    this.<Object>pop();
+    this.currentView = null;
   }
   
   public void doAutowire(final UiLayout embeddable) {
@@ -570,73 +567,65 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     };
     IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
-    EList<UiExposedAction> _exposedActions = object.getExposedActions();
-    final Procedure1<UiExposedAction> _function_2 = new Procedure1<UiExposedAction>() {
-      public void apply(final UiExposedAction it) {
-        UiModelDerivedStateComputerx.this.map(it);
-      }
-    };
-    IterableExtensions.<UiExposedAction>forEach(_exposedActions, _function_2);
-    final Procedure1<UiLayout> _function_3 = new Procedure1<UiLayout>() {
+    final Procedure1<UiLayout> _function_2 = new Procedure1<UiLayout>() {
       public void apply(final UiLayout it) {
         UiModelDerivedStateComputerx.this.doAutowire(it);
       }
     };
-    IterableExtensions.<UiLayout>forEach(this.pendingAutowires, _function_3);
+    IterableExtensions.<UiLayout>forEach(this.pendingAutowires, _function_2);
     EList<UiVisibilityProcessorAssignment> _processorAssignments = object.getProcessorAssignments();
-    final Procedure1<UiVisibilityProcessorAssignment> _function_4 = new Procedure1<UiVisibilityProcessorAssignment>() {
+    final Procedure1<UiVisibilityProcessorAssignment> _function_3 = new Procedure1<UiVisibilityProcessorAssignment>() {
       public void apply(final UiVisibilityProcessorAssignment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_4);
-    final Procedure1<UiVisibilityProcessorAssignment> _function_5 = new Procedure1<UiVisibilityProcessorAssignment>() {
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_3);
+    final Procedure1<UiVisibilityProcessorAssignment> _function_4 = new Procedure1<UiVisibilityProcessorAssignment>() {
       public void apply(final UiVisibilityProcessorAssignment it) {
         UiVisibilityProcessor _processor = it.getProcessor();
         UiModelDerivedStateComputerx.this.map(_processor);
       }
     };
-    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(this.pendingVisibilityProcessors, _function_5);
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(this.pendingVisibilityProcessors, _function_4);
+    final Procedure1<Runnable> _function_5 = new Procedure1<Runnable>() {
+      public void apply(final Runnable it) {
+        it.run();
+      }
+    };
+    IterableExtensions.<Runnable>forEach(this.pendingMappings, _function_5);
+    this.processBindings();
+    final Procedure1<Runnable> _function_6 = new Procedure1<Runnable>() {
+      public void apply(final Runnable it) {
+        it.run();
+      }
+    };
+    IterableExtensions.<Runnable>forEach(this.pendingMappings, _function_6);
+    EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
+    final Procedure1<UiValidatorAssignment> _function_7 = new Procedure1<UiValidatorAssignment>() {
+      public void apply(final UiValidatorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_7);
+    this.<Object>pop();
+    this.currentView = null;
+  }
+  
+  public void processBindings() {
+    boolean _isEmpty = this.pendingBindings.isEmpty();
+    if (_isEmpty) {
+      return;
+    }
     ArrayList<UiBinding> _newArrayList = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
     this.temporaryPendingBindings = _newArrayList;
     this.pendingBindings.clear();
-    final Procedure1<UiBinding> _function_6 = new Procedure1<UiBinding>() {
+    final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
       public void apply(final UiBinding it) {
         UiModelDerivedStateComputerx.this.install(it);
       }
     };
-    IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_6);
-    boolean _isEmpty = this.pendingBindings.isEmpty();
-    if (_isEmpty) {
-      EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
-      final Procedure1<UiValidatorAssignment> _function_7 = new Procedure1<UiValidatorAssignment>() {
-        public void apply(final UiValidatorAssignment it) {
-          UiModelDerivedStateComputerx.this.map(it);
-        }
-      };
-      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_7);
-      this.<Object>pop();
-      this.currentView = null;
-    } else {
-      ArrayList<UiBinding> _newArrayList_1 = CollectionLiterals.<UiBinding>newArrayList(((UiBinding[])Conversions.unwrapArray(this.pendingBindings, UiBinding.class)));
-      this.temporaryPendingBindings = _newArrayList_1;
-      this.pendingBindings.clear();
-      final Procedure1<UiBinding> _function_8 = new Procedure1<UiBinding>() {
-        public void apply(final UiBinding it) {
-          UiModelDerivedStateComputerx.this.install(it);
-        }
-      };
-      IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function_8);
-      EList<UiValidatorAssignment> _validatorAssignments_1 = object.getValidatorAssignments();
-      final Procedure1<UiValidatorAssignment> _function_9 = new Procedure1<UiValidatorAssignment>() {
-        public void apply(final UiValidatorAssignment it) {
-          UiModelDerivedStateComputerx.this.map(it);
-        }
-      };
-      IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments_1, _function_9);
-      this.<Object>pop();
-      this.currentView = null;
-    }
+    IterableExtensions.<UiBinding>forEach(this.temporaryPendingBindings, _function);
+    this.processBindings();
   }
   
   public EObject push(final EObject eObject) {
@@ -756,6 +745,56 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     }
   }
   
+  protected void _map(final UiMobileNavigationRoot eObject) {
+    final VMNavigationRoot yField = this.<VMNavigationRoot>associatedUi(eObject);
+    this.push(yField);
+    EList<UiMobileNavigationRootAssigment> _contents = eObject.getContents();
+    final Procedure1<UiMobileNavigationRootAssigment> _function = new Procedure1<UiMobileNavigationRootAssigment>() {
+      public void apply(final UiMobileNavigationRootAssigment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiMobileNavigationRootAssigment>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    this.<Object>pop();
+  }
+  
+  protected void _map(final UiMobileNavigationRootAssigment eObject) {
+    final VMNavigationRoot layout = this.<VMNavigationRoot>peek();
+    final UiMobileEmbeddable element = eObject.getElement();
+    final YEmbeddable newField = this.create(element);
+    layout.addElement(newField);
+    this.map(element);
+    if ((element instanceof UiField)) {
+      boolean _notEquals = (!Objects.equal(newField, null));
+      if (_notEquals) {
+        this.push(newField);
+        final UiField yField = ((UiField) element);
+        EList<UiValidator> _validators = yField.getValidators();
+        final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+          public void apply(final UiValidator it) {
+            UiModelDerivedStateComputerx.this.map(it);
+          }
+        };
+        IterableExtensions.<UiValidator>forEach(_validators, _function);
+        this.<Object>pop();
+      }
+    }
+  }
+  
   protected void _map(final UiHorizontalLayout eObject) {
     final YHorizontalLayout yField = this.<YHorizontalLayout>associatedUi(eObject);
     this.push(yField);
@@ -817,6 +856,49 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected void _map(final UiSearchPanel eObject) {
     final YSearchPanel yPanel = this.<YSearchPanel>associatedUi(eObject);
+    this.push(yPanel);
+    EList<UiSearchField> _contents = eObject.getContents();
+    final Procedure1<UiSearchField> _function = new Procedure1<UiSearchField>() {
+      public void apply(final UiSearchField it) {
+        final YEmbeddable newField = UiModelDerivedStateComputerx.this.create(it);
+        boolean _equals = Objects.equal(newField, null);
+        if (_equals) {
+          return;
+        }
+        yPanel.addElement(newField);
+        UiModelDerivedStateComputerx.this.map(it);
+        UiModelDerivedStateComputerx.this.push(newField);
+        final UiField yField = ((UiField) it);
+        EList<UiValidator> _validators = yField.getValidators();
+        final Procedure1<UiValidator> _function = new Procedure1<UiValidator>() {
+          public void apply(final UiValidator it) {
+            UiModelDerivedStateComputerx.this.map(it);
+          }
+        };
+        IterableExtensions.<UiValidator>forEach(_validators, _function);
+        UiModelDerivedStateComputerx.this.<Object>pop();
+      }
+    };
+    IterableExtensions.<UiSearchField>forEach(_contents, _function);
+    EList<UiBinding> _bindings = eObject.getBindings();
+    final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function_1);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    this.<Object>pop();
+  }
+  
+  protected void _map(final UiMobileSearchPanel eObject) {
+    final VMSearchPanel yPanel = this.<VMSearchPanel>associatedUi(eObject);
     this.push(yPanel);
     EList<UiSearchField> _contents = eObject.getContents();
     final Procedure1<UiSearchField> _function = new Procedure1<UiSearchField>() {
@@ -1148,33 +1230,43 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiMobileNavigationPage eObject) {
-    VMNavigationPage yField = this.<VMNavigationPage>associatedUi(eObject);
+    final VMNavigationPage yField = this.<VMNavigationPage>associatedUi(eObject);
     this.push(yField);
+    EList<UiMobileNavBarAction> _barActions = eObject.getBarActions();
+    final Procedure1<UiMobileNavBarAction> _function = new Procedure1<UiMobileNavBarAction>() {
+      public void apply(final UiMobileNavBarAction it) {
+        final YEmbeddable newField = UiModelDerivedStateComputerx.this.create(it);
+        EList<VMNavigationBarButton> _barActions = yField.getBarActions();
+        _barActions.add(((VMNavigationBarButton) newField));
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiMobileNavBarAction>forEach(_barActions, _function);
     EList<UiMobileNavigationPageAssignment> _contents = eObject.getContents();
-    final Procedure1<UiMobileNavigationPageAssignment> _function = new Procedure1<UiMobileNavigationPageAssignment>() {
+    final Procedure1<UiMobileNavigationPageAssignment> _function_1 = new Procedure1<UiMobileNavigationPageAssignment>() {
       public void apply(final UiMobileNavigationPageAssignment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiMobileNavigationPageAssignment>forEach(_contents, _function);
+    IterableExtensions.<UiMobileNavigationPageAssignment>forEach(_contents, _function_1);
     EList<UiBinding> _bindings = eObject.getBindings();
     boolean _notEquals = (!Objects.equal(_bindings, null));
     if (_notEquals) {
       EList<UiBinding> _bindings_1 = eObject.getBindings();
-      final Procedure1<UiBinding> _function_1 = new Procedure1<UiBinding>() {
+      final Procedure1<UiBinding> _function_2 = new Procedure1<UiBinding>() {
         public void apply(final UiBinding it) {
           UiModelDerivedStateComputerx.this.map(it);
         }
       };
-      IterableExtensions.<UiBinding>forEach(_bindings_1, _function_1);
+      IterableExtensions.<UiBinding>forEach(_bindings_1, _function_2);
     }
     EList<UiVisibilityProcessorAssignment> _processorAssignments = eObject.getProcessorAssignments();
-    final Procedure1<UiVisibilityProcessorAssignment> _function_2 = new Procedure1<UiVisibilityProcessorAssignment>() {
+    final Procedure1<UiVisibilityProcessorAssignment> _function_3 = new Procedure1<UiVisibilityProcessorAssignment>() {
       public void apply(final UiVisibilityProcessorAssignment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_2);
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_3);
     this.<Object>pop();
   }
   
@@ -1594,6 +1686,24 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected void _map(final UiButton object) {
     final YButton yField = this.<YButton>associatedUi(object);
+    EList<UiBinding> _bindings = object.getBindings();
+    final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function);
+    EList<UiVisibilityProcessorAssignment> _processorAssignments = object.getProcessorAssignments();
+    final Procedure1<UiVisibilityProcessorAssignment> _function_1 = new Procedure1<UiVisibilityProcessorAssignment>() {
+      public void apply(final UiVisibilityProcessorAssignment it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiVisibilityProcessorAssignment>forEach(_processorAssignments, _function_1);
+  }
+  
+  protected void _map(final UiMobileNavBarAction object) {
+    final VMNavigationBarButton yField = this.<VMNavigationBarButton>associatedUi(object);
     EList<UiBinding> _bindings = object.getBindings();
     final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
       public void apply(final UiBinding it) {
@@ -2629,6 +2739,23 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return field;
   }
   
+  protected VMNavigationBarButton _create(final UiMobileNavBarAction object) {
+    final VMNavigationBarButton field = VaadinMobileFactory.eINSTANCE.createVMNavigationBarButton();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    field.setId(_pathId);
+    String _name = object.getName();
+    field.setName(_name);
+    String _name_1 = object.getName();
+    field.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    field.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    field.setInitialEnabled(_not);
+    this.associateUi(object, field);
+    return field;
+  }
+  
   protected VMNavigationButton _create(final UiMobileNavigationButton object) {
     final VMNavigationButton field = VaadinMobileFactory.eINSTANCE.createVMNavigationButton();
     String _pathId = UiModelGrammarUtil.getPathId(object);
@@ -2832,8 +2959,46 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     return layout;
   }
   
+  protected VMNavigationRoot _create(final UiMobileNavigationRoot object) {
+    final VMNavigationRoot layout = VaadinMobileFactory.eINSTANCE.createVMNavigationRoot();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    layout.setId(_pathId);
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
+    this.associateUi(object, layout);
+    return layout;
+  }
+  
   protected YSearchPanel _create(final UiSearchPanel object) {
     final YSearchPanel layout = ExtensionModelFactory.eINSTANCE.createYSearchPanel();
+    String _pathId = UiModelGrammarUtil.getPathId(object);
+    layout.setId(_pathId);
+    String _name = object.getName();
+    layout.setName(_name);
+    String _name_1 = object.getName();
+    layout.setLabel(_name_1);
+    String _i18nKey = this.toI18nKey(object);
+    layout.setLabelI18nKey(_i18nKey);
+    boolean _isReadonly = object.isReadonly();
+    boolean _not = (!_isReadonly);
+    layout.setInitialEnabled(_not);
+    String _styles = object.getStyles();
+    layout.setCssClass(_styles);
+    this.associateUi(object, layout);
+    return layout;
+  }
+  
+  protected VMSearchPanel _create(final UiMobileSearchPanel object) {
+    final VMSearchPanel layout = VaadinMobileFactory.eINSTANCE.createVMSearchPanel();
     String _pathId = UiModelGrammarUtil.getPathId(object);
     layout.setId(_pathId);
     String _name = object.getName();
@@ -3150,10 +3315,15 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
           _commandSet.addCommand(yCommand);
           this.push(yCommand);
           UiMobileNavigationPage _targetPage = command.getTargetPage();
-          this.map(_targetPage);
+          this.create(_targetPage);
+          UiMobileNavigationPage _targetPage_1 = command.getTargetPage();
+          this.map(_targetPage_1);
+          UiMobileNavigationPage _targetPage_2 = command.getTargetPage();
+          VMNavigationPage _associatedUi = this.<VMNavigationPage>associatedUi(_targetPage_2);
+          yCommand.setTargetPage(_associatedUi);
           final UiMobileNavigationHandler navHandler = this.findNavHandler(epDef);
-          VMNavigationHandler _associatedUi = this.<VMNavigationHandler>associatedUi(((EObject) navHandler));
-          yCommand.setNavigationHandler(_associatedUi);
+          VMNavigationHandler _associatedUi_1 = this.<VMNavigationHandler>associatedUi(((EObject) navHandler));
+          yCommand.setNavigationHandler(_associatedUi_1);
           this.<Object>pop();
           YECViewModelValueBindingEndpoint _createNavigationValueEndpoint = yCommand.createNavigationValueEndpoint();
           result = _createNavigationValueEndpoint;
@@ -3181,6 +3351,40 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
               this.<Object>pop();
               YECViewModelValueBindingEndpoint _createTriggerDialogEndpoint_1 = yCommand_2.createTriggerDialogEndpoint();
               result = _createTriggerDialogEndpoint_1;
+            } else {
+              if ((info.bindingRoot instanceof UiAddToTableCommand)) {
+                final UiAddToTableCommand command_3 = ((UiAddToTableCommand) info.bindingRoot);
+                final YAddToTableCommand yCommand_3 = ExtensionModelFactory.eINSTANCE.createYAddToTableCommand();
+                YCommandSet _commandSet_3 = this.currentView.getCommandSet();
+                _commandSet_3.addCommand(yCommand_3);
+                final Runnable _function = new Runnable() {
+                  public void run() {
+                    UiTable _table = command_3.getTable();
+                    YTable _associatedUi = UiModelDerivedStateComputerx.this.<YTable>associatedUi(_table);
+                    yCommand_3.setTable(_associatedUi);
+                  }
+                };
+                this.pendingMappings.add(_function);
+                YECViewModelValueBindingEndpoint _createTriggerEndpoint = yCommand_3.createTriggerEndpoint();
+                result = _createTriggerEndpoint;
+              } else {
+                if ((info.bindingRoot instanceof UiRemoveFromTableCommand)) {
+                  final UiRemoveFromTableCommand command_4 = ((UiRemoveFromTableCommand) info.bindingRoot);
+                  final YRemoveFromTableCommand yCommand_4 = ExtensionModelFactory.eINSTANCE.createYRemoveFromTableCommand();
+                  YCommandSet _commandSet_4 = this.currentView.getCommandSet();
+                  _commandSet_4.addCommand(yCommand_4);
+                  final Runnable _function_1 = new Runnable() {
+                    public void run() {
+                      UiTable _table = command_4.getTable();
+                      YTable _associatedUi = UiModelDerivedStateComputerx.this.<YTable>associatedUi(_table);
+                      yCommand_4.setTable(_associatedUi);
+                    }
+                  };
+                  this.pendingMappings.add(_function_1);
+                  YECViewModelValueBindingEndpoint _createTriggerEndpoint_1 = yCommand_4.createTriggerEndpoint();
+                  result = _createTriggerEndpoint_1;
+                }
+              }
             }
           }
         }
@@ -3441,11 +3645,20 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     } else if (object instanceof UiImage) {
       _map((UiImage)object);
       return;
+    } else if (object instanceof UiMobileNavBarAction) {
+      _map((UiMobileNavBarAction)object);
+      return;
     } else if (object instanceof UiMobileNavigationButton) {
       _map((UiMobileNavigationButton)object);
       return;
     } else if (object instanceof UiMobileNavigationPage) {
       _map((UiMobileNavigationPage)object);
+      return;
+    } else if (object instanceof UiMobileNavigationRoot) {
+      _map((UiMobileNavigationRoot)object);
+      return;
+    } else if (object instanceof UiMobileSearchPanel) {
+      _map((UiMobileSearchPanel)object);
       return;
     } else if (object instanceof UiOptionsGroup) {
       _map((UiOptionsGroup)object);
@@ -3549,6 +3762,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     } else if (object instanceof UiMobileNavigationPageAssignment) {
       _map((UiMobileNavigationPageAssignment)object);
       return;
+    } else if (object instanceof UiMobileNavigationRootAssigment) {
+      _map((UiMobileNavigationRootAssigment)object);
+      return;
     } else if (object instanceof UiSplitpanelAssigment) {
       _map((UiSplitpanelAssigment)object);
       return;
@@ -3624,10 +3840,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return _create((UiImage)object);
     } else if (object instanceof UiLabel) {
       return _create((UiLabel)object);
+    } else if (object instanceof UiMobileNavBarAction) {
+      return _create((UiMobileNavBarAction)object);
     } else if (object instanceof UiMobileNavigationButton) {
       return _create((UiMobileNavigationButton)object);
     } else if (object instanceof UiMobileNavigationPage) {
       return _create((UiMobileNavigationPage)object);
+    } else if (object instanceof UiMobileNavigationRoot) {
+      return _create((UiMobileNavigationRoot)object);
+    } else if (object instanceof UiMobileSearchPanel) {
+      return _create((UiMobileSearchPanel)object);
     } else if (object instanceof UiNumericField) {
       return _create((UiNumericField)object);
     } else if (object instanceof UiOptionsGroup) {

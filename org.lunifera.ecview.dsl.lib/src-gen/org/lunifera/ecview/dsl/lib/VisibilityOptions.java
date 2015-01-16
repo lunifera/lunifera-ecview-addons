@@ -301,6 +301,10 @@ public class VisibilityOptions implements Serializable {
     	throw new IllegalArgumentException("Context must not be null!");
     }
     
+    if(context.isMaxLevel()){
+    	return null;
+    }
+    
     // if context contains a copied instance of this object
     // then return it
     VisibilityOptions newDto = context.getTarget(this);
@@ -334,9 +338,40 @@ public class VisibilityOptions implements Serializable {
     	throw new IllegalArgumentException("Context must not be null!");
     }
     
+    
+    // copy attributes and beans (beans if derived from entity model)
+    // copy foregroundColor
+    newDto.setForegroundColor(getForegroundColor());
+    // copy backgroundColor
+    newDto.setBackgroundColor(getBackgroundColor());
+    // copy editable
+    newDto.setEditable(isEditable());
+    // copy enabled
+    newDto.setEnabled(isEnabled());
+    // copy visible
+    newDto.setVisible(isVisible());
+    // copy bold
+    newDto.setBold(isBold());
+    // copy border
+    newDto.setBorder(isBorder());
+    // copy italic
+    newDto.setItalic(isItalic());
+    // copy strikethrough
+    newDto.setStrikethrough(isStrikethrough());
+    // copy underline
+    newDto.setUnderline(isUnderline());
+    
+    // copy containment references (cascading is true)
   }
   
   public void copyCrossReferences(final VisibilityOptions dto, final VisibilityOptions newDto, final org.lunifera.dsl.dto.lib.Context context) {
+    checkDisposed();
     
+    if (context == null) {
+    	throw new IllegalArgumentException("Context must not be null!");
+    }
+    
+    
+    // copy cross references (cascading is false)
   }
 }

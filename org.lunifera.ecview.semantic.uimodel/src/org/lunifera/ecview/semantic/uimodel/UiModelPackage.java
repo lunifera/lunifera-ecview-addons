@@ -296,22 +296,13 @@ public interface UiModelPackage extends EPackage {
 	int UI_CONTEXT__BINDINGS = UI_ROOT_ELEMENTS_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Exposed Actions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_CONTEXT__EXPOSED_ACTIONS = UI_ROOT_ELEMENTS_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>Ui Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_CONTEXT_FEATURE_COUNT = UI_ROOT_ELEMENTS_FEATURE_COUNT + 4;
+	int UI_CONTEXT_FEATURE_COUNT = UI_ROOT_ELEMENTS_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiExposedActionImpl <em>Ui Exposed Action</em>}' class.
@@ -503,15 +494,6 @@ public interface UiModelPackage extends EPackage {
 	int UI_VIEW_SET__BINDINGS = UI_CONTEXT__BINDINGS;
 
 	/**
-	 * The feature id for the '<em><b>Exposed Actions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_VIEW_SET__EXPOSED_ACTIONS = UI_CONTEXT__EXPOSED_ACTIONS;
-
-	/**
 	 * The number of structural features of the '<em>Ui View Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -564,15 +546,6 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_VIEW__BINDINGS = UI_CONTEXT__BINDINGS;
-
-	/**
-	 * The feature id for the '<em><b>Exposed Actions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_VIEW__EXPOSED_ACTIONS = UI_CONTEXT__EXPOSED_ACTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignments</b></em>' containment reference list.
@@ -1134,15 +1107,6 @@ public interface UiModelPackage extends EPackage {
 	int UI_IDE_VIEW__BINDINGS = UI_VIEW__BINDINGS;
 
 	/**
-	 * The feature id for the '<em><b>Exposed Actions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_IDE_VIEW__EXPOSED_ACTIONS = UI_VIEW__EXPOSED_ACTIONS;
-
-	/**
 	 * The feature id for the '<em><b>Processor Assignments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1197,13 +1161,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_IDE_VIEW__VALIDATOR_ASSIGNMENTS = UI_VIEW__VALIDATOR_ASSIGNMENTS;
 
 	/**
+	 * The feature id for the '<em><b>Exposed Actions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_IDE_VIEW__EXPOSED_ACTIONS = UI_VIEW_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Ui IDE View</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_IDE_VIEW_FEATURE_COUNT = UI_VIEW_FEATURE_COUNT + 0;
+	int UI_IDE_VIEW_FEATURE_COUNT = UI_VIEW_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1249,15 +1222,6 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_MOBILE_VIEW__BINDINGS = UI_VIEW__BINDINGS;
-
-	/**
-	 * The feature id for the '<em><b>Exposed Actions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UI_MOBILE_VIEW__EXPOSED_ACTIONS = UI_VIEW__EXPOSED_ACTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignments</b></em>' containment reference list.
@@ -6650,13 +6614,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_MOBILE_NAVIGATION_PAGE__CONTENTS = UI_MOBILE_LAYOUT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Bar Actions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE__BAR_ACTIONS = UI_MOBILE_LAYOUT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Ui Mobile Navigation Page</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_MOBILE_NAVIGATION_PAGE_FEATURE_COUNT = UI_MOBILE_LAYOUT_FEATURE_COUNT + 2;
+	int UI_MOBILE_NAVIGATION_PAGE_FEATURE_COUNT = UI_MOBILE_LAYOUT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageAssignmentImpl <em>Ui Mobile Navigation Page Assignment</em>}' class.
@@ -8527,6 +8500,507 @@ public interface UiModelPackage extends EPackage {
 	int UI_BEAN_SERVICE_CONSUMER_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileSearchPanelImpl <em>Ui Mobile Search Panel</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileSearchPanelImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileSearchPanel()
+	 * @generated
+	 */
+	int UI_MOBILE_SEARCH_PANEL = 109;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_SEARCH_PANEL__PROCESSOR_ASSIGNMENTS = UI_MOBILE_LAYOUT__PROCESSOR_ASSIGNMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_SEARCH_PANEL__ID = UI_MOBILE_LAYOUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_SEARCH_PANEL__NAME = UI_MOBILE_LAYOUT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_SEARCH_PANEL__I18N_INFO = UI_MOBILE_LAYOUT__I18N_INFO;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_SEARCH_PANEL__BINDINGS = UI_MOBILE_LAYOUT__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_SEARCH_PANEL__READONLY = UI_MOBILE_LAYOUT__READONLY;
+
+	/**
+	 * The feature id for the '<em><b>Invisible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_SEARCH_PANEL__INVISIBLE = UI_MOBILE_LAYOUT__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_SEARCH_PANEL__STYLES = UI_MOBILE_LAYOUT__STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Autowire</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_SEARCH_PANEL__AUTOWIRE = UI_MOBILE_LAYOUT__AUTOWIRE;
+
+	/**
+	 * The feature id for the '<em><b>Auto Wire Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_SEARCH_PANEL__AUTO_WIRE_SOURCE = UI_MOBILE_LAYOUT__AUTO_WIRE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_SEARCH_PANEL__JVM_TYPE = UI_MOBILE_LAYOUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_SEARCH_PANEL__CONTENTS = UI_MOBILE_LAYOUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Ui Mobile Search Panel</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_SEARCH_PANEL_FEATURE_COUNT = UI_MOBILE_LAYOUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationRootImpl <em>Ui Mobile Navigation Root</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationRootImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileNavigationRoot()
+	 * @generated
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT = 110;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT__PROCESSOR_ASSIGNMENTS = UI_MOBILE_LAYOUT__PROCESSOR_ASSIGNMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT__ID = UI_MOBILE_LAYOUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT__NAME = UI_MOBILE_LAYOUT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT__I18N_INFO = UI_MOBILE_LAYOUT__I18N_INFO;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT__BINDINGS = UI_MOBILE_LAYOUT__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT__READONLY = UI_MOBILE_LAYOUT__READONLY;
+
+	/**
+	 * The feature id for the '<em><b>Invisible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT__INVISIBLE = UI_MOBILE_LAYOUT__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT__STYLES = UI_MOBILE_LAYOUT__STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Autowire</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT__AUTOWIRE = UI_MOBILE_LAYOUT__AUTOWIRE;
+
+	/**
+	 * The feature id for the '<em><b>Auto Wire Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT__AUTO_WIRE_SOURCE = UI_MOBILE_LAYOUT__AUTO_WIRE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT__CONTENTS = UI_MOBILE_LAYOUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Mobile Navigation Root</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT_FEATURE_COUNT = UI_MOBILE_LAYOUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationRootAssigmentImpl <em>Ui Mobile Navigation Root Assigment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationRootAssigmentImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileNavigationRootAssigment()
+	 * @generated
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT_ASSIGMENT = 111;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT_ASSIGMENT__ID = UI_LAYOUT_ASSIGNMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT_ASSIGMENT__NAME = UI_LAYOUT_ASSIGNMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Element</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT_ASSIGMENT__ELEMENT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Mobile Navigation Root Assigment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_ROOT_ASSIGMENT_FEATURE_COUNT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavBarActionImpl <em>Ui Mobile Nav Bar Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavBarActionImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileNavBarAction()
+	 * @generated
+	 */
+	int UI_MOBILE_NAV_BAR_ACTION = 112;
+
+	/**
+	 * The feature id for the '<em><b>Processor Assignments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAV_BAR_ACTION__PROCESSOR_ASSIGNMENTS = UI_MOBILE_ACTION__PROCESSOR_ASSIGNMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAV_BAR_ACTION__ID = UI_MOBILE_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAV_BAR_ACTION__NAME = UI_MOBILE_ACTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>I1 8n Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAV_BAR_ACTION__I18N_INFO = UI_MOBILE_ACTION__I18N_INFO;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAV_BAR_ACTION__BINDINGS = UI_MOBILE_ACTION__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAV_BAR_ACTION__READONLY = UI_MOBILE_ACTION__READONLY;
+
+	/**
+	 * The feature id for the '<em><b>Invisible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAV_BAR_ACTION__INVISIBLE = UI_MOBILE_ACTION__INVISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Styles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAV_BAR_ACTION__STYLES = UI_MOBILE_ACTION__STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Action Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAV_BAR_ACTION__ACTION_REFERENCE = UI_MOBILE_ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Action ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAV_BAR_ACTION__ACTION_ID = UI_MOBILE_ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Icon Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAV_BAR_ACTION__ICON_NAME = UI_MOBILE_ACTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Ui Mobile Nav Bar Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAV_BAR_ACTION_FEATURE_COUNT = UI_MOBILE_ACTION_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiAddToTableCommandImpl <em>Ui Add To Table Command</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiAddToTableCommandImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiAddToTableCommand()
+	 * @generated
+	 */
+	int UI_ADD_TO_TABLE_COMMAND = 113;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_ADD_TO_TABLE_COMMAND__ID = UI_COMMAND__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_ADD_TO_TABLE_COMMAND__NAME = UI_COMMAND__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_ADD_TO_TABLE_COMMAND__TABLE = UI_COMMAND_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Add To Table Command</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_ADD_TO_TABLE_COMMAND_FEATURE_COUNT = UI_COMMAND_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiRemoveFromTableCommandImpl <em>Ui Remove From Table Command</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiRemoveFromTableCommandImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiRemoveFromTableCommand()
+	 * @generated
+	 */
+	int UI_REMOVE_FROM_TABLE_COMMAND = 114;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_REMOVE_FROM_TABLE_COMMAND__ID = UI_COMMAND__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_REMOVE_FROM_TABLE_COMMAND__NAME = UI_COMMAND__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_REMOVE_FROM_TABLE_COMMAND__TABLE = UI_COMMAND_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Remove From Table Command</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_REMOVE_FROM_TABLE_COMMAND_FEATURE_COUNT = UI_COMMAND_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8534,7 +9008,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiFlatAlignment()
 	 * @generated
 	 */
-	int UI_FLAT_ALIGNMENT = 109;
+	int UI_FLAT_ALIGNMENT = 115;
 
 
 	/**
@@ -8545,7 +9019,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiAlignment()
 	 * @generated
 	 */
-	int UI_ALIGNMENT = 110;
+	int UI_ALIGNMENT = 116;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiSelectionType <em>Ui Selection Type</em>}' enum.
@@ -8555,7 +9029,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSelectionType()
 	 * @generated
 	 */
-	int UI_SELECTION_TYPE = 111;
+	int UI_SELECTION_TYPE = 117;
 
 
 	/**
@@ -8566,7 +9040,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDateFormat()
 	 * @generated
 	 */
-	int UI_DATE_FORMAT = 112;
+	int UI_DATE_FORMAT = 118;
 
 
 	/**
@@ -8577,7 +9051,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDateTimeResolution()
 	 * @generated
 	 */
-	int UI_DATE_TIME_RESOLUTION = 113;
+	int UI_DATE_TIME_RESOLUTION = 119;
 
 
 	/**
@@ -8718,17 +9192,6 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUiContext_Bindings();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiContext#getExposedActions <em>Exposed Actions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Exposed Actions</em>'.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiContext#getExposedActions()
-	 * @see #getUiContext()
-	 * @generated
-	 */
-	EReference getUiContext_ExposedActions();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiExposedAction <em>Ui Exposed Action</em>}'.
@@ -8878,6 +9341,17 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUiIDEView();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiIDEView#getExposedActions <em>Exposed Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Exposed Actions</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiIDEView#getExposedActions()
+	 * @see #getUiIDEView()
+	 * @generated
+	 */
+	EReference getUiIDEView_ExposedActions();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileView <em>Ui Mobile View</em>}'.
@@ -10992,6 +11466,17 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiMobileNavigationPage_Contents();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage#getBarActions <em>Bar Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Bar Actions</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage#getBarActions()
+	 * @see #getUiMobileNavigationPage()
+	 * @generated
+	 */
+	EReference getUiMobileNavigationPage_BarActions();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment <em>Ui Mobile Navigation Page Assignment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11479,6 +11964,154 @@ public interface UiModelPackage extends EPackage {
 	EAttribute getUiBeanServiceConsumer_ConsumeBeanService();
 
 	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileSearchPanel <em>Ui Mobile Search Panel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Mobile Search Panel</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileSearchPanel
+	 * @generated
+	 */
+	EClass getUiMobileSearchPanel();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiMobileSearchPanel#getContents <em>Contents</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Contents</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileSearchPanel#getContents()
+	 * @see #getUiMobileSearchPanel()
+	 * @generated
+	 */
+	EReference getUiMobileSearchPanel_Contents();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRoot <em>Ui Mobile Navigation Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Mobile Navigation Root</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRoot
+	 * @generated
+	 */
+	EClass getUiMobileNavigationRoot();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRoot#getContents <em>Contents</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Contents</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRoot#getContents()
+	 * @see #getUiMobileNavigationRoot()
+	 * @generated
+	 */
+	EReference getUiMobileNavigationRoot_Contents();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRootAssigment <em>Ui Mobile Navigation Root Assigment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Mobile Navigation Root Assigment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRootAssigment
+	 * @generated
+	 */
+	EClass getUiMobileNavigationRootAssigment();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRootAssigment#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Element</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRootAssigment#getElement()
+	 * @see #getUiMobileNavigationRootAssigment()
+	 * @generated
+	 */
+	EReference getUiMobileNavigationRootAssigment_Element();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavBarAction <em>Ui Mobile Nav Bar Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Mobile Nav Bar Action</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavBarAction
+	 * @generated
+	 */
+	EClass getUiMobileNavBarAction();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavBarAction#getActionReference <em>Action Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Action Reference</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavBarAction#getActionReference()
+	 * @see #getUiMobileNavBarAction()
+	 * @generated
+	 */
+	EReference getUiMobileNavBarAction_ActionReference();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavBarAction#getActionID <em>Action ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Action ID</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavBarAction#getActionID()
+	 * @see #getUiMobileNavBarAction()
+	 * @generated
+	 */
+	EAttribute getUiMobileNavBarAction_ActionID();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavBarAction#getIconName <em>Icon Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Icon Name</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavBarAction#getIconName()
+	 * @see #getUiMobileNavBarAction()
+	 * @generated
+	 */
+	EAttribute getUiMobileNavBarAction_IconName();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiAddToTableCommand <em>Ui Add To Table Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Add To Table Command</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiAddToTableCommand
+	 * @generated
+	 */
+	EClass getUiAddToTableCommand();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiAddToTableCommand#getTable <em>Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Table</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiAddToTableCommand#getTable()
+	 * @see #getUiAddToTableCommand()
+	 * @generated
+	 */
+	EReference getUiAddToTableCommand_Table();
+
+	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiRemoveFromTableCommand <em>Ui Remove From Table Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Remove From Table Command</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRemoveFromTableCommand
+	 * @generated
+	 */
+	EClass getUiRemoveFromTableCommand();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiRemoveFromTableCommand#getTable <em>Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Table</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRemoveFromTableCommand#getTable()
+	 * @see #getUiRemoveFromTableCommand()
+	 * @generated
+	 */
+	EReference getUiRemoveFromTableCommand_Table();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiSearchField <em>Ui Search Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11758,14 +12391,6 @@ public interface UiModelPackage extends EPackage {
 		EReference UI_CONTEXT__BINDINGS = eINSTANCE.getUiContext_Bindings();
 
 		/**
-		 * The meta object literal for the '<em><b>Exposed Actions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UI_CONTEXT__EXPOSED_ACTIONS = eINSTANCE.getUiContext_ExposedActions();
-
-		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiExposedActionImpl <em>Ui Exposed Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -11886,6 +12511,14 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UI_IDE_VIEW = eINSTANCE.getUiIDEView();
+
+		/**
+		 * The meta object literal for the '<em><b>Exposed Actions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_IDE_VIEW__EXPOSED_ACTIONS = eINSTANCE.getUiIDEView_ExposedActions();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileViewImpl <em>Ui Mobile View</em>}' class.
@@ -13634,6 +14267,14 @@ public interface UiModelPackage extends EPackage {
 		EReference UI_MOBILE_NAVIGATION_PAGE__CONTENTS = eINSTANCE.getUiMobileNavigationPage_Contents();
 
 		/**
+		 * The meta object literal for the '<em><b>Bar Actions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_MOBILE_NAVIGATION_PAGE__BAR_ACTIONS = eINSTANCE.getUiMobileNavigationPage_BarActions();
+
+		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageAssignmentImpl <em>Ui Mobile Navigation Page Assignment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -14118,6 +14759,130 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UI_BEAN_SERVICE_CONSUMER__CONSUME_BEAN_SERVICE = eINSTANCE.getUiBeanServiceConsumer_ConsumeBeanService();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileSearchPanelImpl <em>Ui Mobile Search Panel</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileSearchPanelImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileSearchPanel()
+		 * @generated
+		 */
+		EClass UI_MOBILE_SEARCH_PANEL = eINSTANCE.getUiMobileSearchPanel();
+
+		/**
+		 * The meta object literal for the '<em><b>Contents</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_MOBILE_SEARCH_PANEL__CONTENTS = eINSTANCE.getUiMobileSearchPanel_Contents();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationRootImpl <em>Ui Mobile Navigation Root</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationRootImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileNavigationRoot()
+		 * @generated
+		 */
+		EClass UI_MOBILE_NAVIGATION_ROOT = eINSTANCE.getUiMobileNavigationRoot();
+
+		/**
+		 * The meta object literal for the '<em><b>Contents</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_MOBILE_NAVIGATION_ROOT__CONTENTS = eINSTANCE.getUiMobileNavigationRoot_Contents();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationRootAssigmentImpl <em>Ui Mobile Navigation Root Assigment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationRootAssigmentImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileNavigationRootAssigment()
+		 * @generated
+		 */
+		EClass UI_MOBILE_NAVIGATION_ROOT_ASSIGMENT = eINSTANCE.getUiMobileNavigationRootAssigment();
+
+		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_MOBILE_NAVIGATION_ROOT_ASSIGMENT__ELEMENT = eINSTANCE.getUiMobileNavigationRootAssigment_Element();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavBarActionImpl <em>Ui Mobile Nav Bar Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavBarActionImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiMobileNavBarAction()
+		 * @generated
+		 */
+		EClass UI_MOBILE_NAV_BAR_ACTION = eINSTANCE.getUiMobileNavBarAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Action Reference</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_MOBILE_NAV_BAR_ACTION__ACTION_REFERENCE = eINSTANCE.getUiMobileNavBarAction_ActionReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Action ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_MOBILE_NAV_BAR_ACTION__ACTION_ID = eINSTANCE.getUiMobileNavBarAction_ActionID();
+
+		/**
+		 * The meta object literal for the '<em><b>Icon Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_MOBILE_NAV_BAR_ACTION__ICON_NAME = eINSTANCE.getUiMobileNavBarAction_IconName();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiAddToTableCommandImpl <em>Ui Add To Table Command</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiAddToTableCommandImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiAddToTableCommand()
+		 * @generated
+		 */
+		EClass UI_ADD_TO_TABLE_COMMAND = eINSTANCE.getUiAddToTableCommand();
+
+		/**
+		 * The meta object literal for the '<em><b>Table</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_ADD_TO_TABLE_COMMAND__TABLE = eINSTANCE.getUiAddToTableCommand_Table();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiRemoveFromTableCommandImpl <em>Ui Remove From Table Command</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiRemoveFromTableCommandImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiRemoveFromTableCommand()
+		 * @generated
+		 */
+		EClass UI_REMOVE_FROM_TABLE_COMMAND = eINSTANCE.getUiRemoveFromTableCommand();
+
+		/**
+		 * The meta object literal for the '<em><b>Table</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_REMOVE_FROM_TABLE_COMMAND__TABLE = eINSTANCE.getUiRemoveFromTableCommand_Table();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.

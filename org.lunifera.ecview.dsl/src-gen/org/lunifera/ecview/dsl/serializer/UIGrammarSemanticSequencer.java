@@ -59,6 +59,7 @@ import org.eclipse.xtext.xtype.XImportDeclaration;
 import org.eclipse.xtext.xtype.XImportSection;
 import org.eclipse.xtext.xtype.XtypePackage;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess;
+import org.lunifera.ecview.semantic.uimodel.UiAddToTableCommand;
 import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
@@ -95,10 +96,14 @@ import org.lunifera.ecview.semantic.uimodel.UiLabel;
 import org.lunifera.ecview.semantic.uimodel.UiList;
 import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavBarAction;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationCommand;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRoot;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRootAssigment;
+import org.lunifera.ecview.semantic.uimodel.UiMobileSearchPanel;
 import org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet;
 import org.lunifera.ecview.semantic.uimodel.UiMobileView;
@@ -114,6 +119,7 @@ import org.lunifera.ecview.semantic.uimodel.UiPoint;
 import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
+import org.lunifera.ecview.semantic.uimodel.UiRemoveFromTableCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSearchDialog;
 import org.lunifera.ecview.semantic.uimodel.UiSearchField;
 import org.lunifera.ecview.semantic.uimodel.UiSearchPanel;
@@ -223,6 +229,13 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 				else break;
 			}
 		else if(semanticObject.eClass().getEPackage() == UiModelPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case UiModelPackage.UI_ADD_TO_TABLE_COMMAND:
+				if(context == grammarAccess.getUiAddToTableCommandRule() ||
+				   context == grammarAccess.getUiCommandRule()) {
+					sequence_UiAddToTableCommand(context, (UiAddToTableCommand) semanticObject); 
+					return; 
+				}
+				else break;
 			case UiModelPackage.UI_BEAN_REFERENCE_FIELD:
 				if(context == grammarAccess.getUiBeanReferenceFieldRule() ||
 				   context == grammarAccess.getUiEmbeddableRule() ||
@@ -496,6 +509,12 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 					return; 
 				}
 				else break;
+			case UiModelPackage.UI_MOBILE_NAV_BAR_ACTION:
+				if(context == grammarAccess.getUiMobileNavBarActionRule()) {
+					sequence_UiMobileNavBarAction(context, (UiMobileNavBarAction) semanticObject); 
+					return; 
+				}
+				else break;
 			case UiModelPackage.UI_MOBILE_NAVIGATION_BUTTON:
 				if(context == grammarAccess.getUiMobileActionRule() ||
 				   context == grammarAccess.getUiMobileEmbeddableRule() ||
@@ -522,6 +541,28 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT:
 				if(context == grammarAccess.getUiMobileNavigationPageAssignmentRule()) {
 					sequence_UiMobileNavigationPageAssignment(context, (UiMobileNavigationPageAssignment) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_MOBILE_NAVIGATION_ROOT:
+				if(context == grammarAccess.getUiMobileEmbeddableRule() ||
+				   context == grammarAccess.getUiMobileLayoutRule() ||
+				   context == grammarAccess.getUiMobileNavigationRootRule()) {
+					sequence_UiMobileNavigationRoot(context, (UiMobileNavigationRoot) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_MOBILE_NAVIGATION_ROOT_ASSIGMENT:
+				if(context == grammarAccess.getUiMobileNavigationRootAssigmentRule()) {
+					sequence_UiMobileNavigationRootAssigment(context, (UiMobileNavigationRootAssigment) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_MOBILE_SEARCH_PANEL:
+				if(context == grammarAccess.getUiMobileEmbeddableRule() ||
+				   context == grammarAccess.getUiMobileLayoutRule() ||
+				   context == grammarAccess.getUiMobileSearchPanelRule()) {
+					sequence_UiMobileSearchPanel(context, (UiMobileSearchPanel) semanticObject); 
 					return; 
 				}
 				else break;
@@ -624,6 +665,13 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 				if(context == grammarAccess.getUiRegexpValidatorRule() ||
 				   context == grammarAccess.getUiValidatorRule()) {
 					sequence_UiRegexpValidator(context, (UiRegexpValidator) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_REMOVE_FROM_TABLE_COMMAND:
+				if(context == grammarAccess.getUiCommandRule() ||
+				   context == grammarAccess.getUiRemoveFromTableCommandRule()) {
+					sequence_UiRemoveFromTableCommand(context, (UiRemoveFromTableCommand) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1871,6 +1919,15 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     table=[UiTable|ID]
+	 */
+	protected void sequence_UiAddToTableCommand(EObject context, UiAddToTableCommand semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         (i18nInfo=UiI18nInfo? styles=STRING?)? 
 	 *         name=ID? 
@@ -2326,12 +2383,22 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *     (
 	 *         (i18nInfo=UiI18nInfo? styles=STRING? readonly?='readonly'?)? 
 	 *         name=ID? 
+	 *         (autowire?='autowire' autoWireSource=UiBindingEndpointAssignment)? 
 	 *         contents+=UiMobileHorizontalLayoutAssigment* 
 	 *         bindings+=UiBinding* 
 	 *         processorAssignments+=UiVisibilityProcessorAssignment*
 	 *     )
 	 */
 	protected void sequence_UiMobileHorizontalLayout(EObject context, UiHorizontalLayout semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID iconName=STRING? (actionReference=[UxAction|QualifiedName] | actionID=STRING))
+	 */
+	protected void sequence_UiMobileNavBarAction(EObject context, UiMobileNavBarAction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2373,12 +2440,47 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *         (i18nInfo=UiI18nInfo? styles=STRING?)? 
 	 *         name=ID? 
 	 *         jvmType=JvmTypeReference? 
+	 *         barActions+=UiMobileNavBarAction* 
 	 *         contents+=UiMobileNavigationPageAssignment* 
 	 *         bindings+=UiBinding* 
 	 *         processorAssignments+=UiVisibilityProcessorAssignment*
 	 *     )
 	 */
 	protected void sequence_UiMobileNavigationPage(EObject context, UiMobileNavigationPage semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     element=UiMobileNavigationPage
+	 */
+	protected void sequence_UiMobileNavigationRootAssigment(EObject context, UiMobileNavigationRootAssigment semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID? contents+=UiMobileNavigationRootAssigment)
+	 */
+	protected void sequence_UiMobileNavigationRoot(EObject context, UiMobileNavigationRoot semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         (i18nInfo=UiI18nInfo? styles=STRING?)? 
+	 *         name=ID? 
+	 *         jvmType=JvmTypeReference 
+	 *         contents+=UiSearchField* 
+	 *         bindings+=UiBinding* 
+	 *         processorAssignments+=UiVisibilityProcessorAssignment*
+	 *     )
+	 */
+	protected void sequence_UiMobileSearchPanel(EObject context, UiMobileSearchPanel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2473,6 +2575,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *     (
 	 *         name=ID 
 	 *         viewSet=[UiViewSet|ID]? 
+	 *         jvmType=JvmTypeReference? 
 	 *         (beanSlots+=UiBeanSlot | bindingEndpointAlias+=UiBindingEndpointAlias)* 
 	 *         content=UiMobileEmbeddable 
 	 *         contentAlignment=UiAlignment? 
@@ -2622,6 +2725,15 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *     (name=ID? regExpression=STRING errorCode=UiErrorCode?)
 	 */
 	protected void sequence_UiRegexpValidator(EObject context, UiRegexpValidator semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     table=[UiTable|ID]
+	 */
+	protected void sequence_UiRemoveFromTableCommand(EObject context, UiRemoveFromTableCommand semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

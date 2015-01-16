@@ -501,6 +501,30 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiBeanServiceConsumerAdapter();
 			}
 			@Override
+			public Adapter caseUiMobileSearchPanel(UiMobileSearchPanel object) {
+				return createUiMobileSearchPanelAdapter();
+			}
+			@Override
+			public Adapter caseUiMobileNavigationRoot(UiMobileNavigationRoot object) {
+				return createUiMobileNavigationRootAdapter();
+			}
+			@Override
+			public Adapter caseUiMobileNavigationRootAssigment(UiMobileNavigationRootAssigment object) {
+				return createUiMobileNavigationRootAssigmentAdapter();
+			}
+			@Override
+			public Adapter caseUiMobileNavBarAction(UiMobileNavBarAction object) {
+				return createUiMobileNavBarActionAdapter();
+			}
+			@Override
+			public Adapter caseUiAddToTableCommand(UiAddToTableCommand object) {
+				return createUiAddToTableCommandAdapter();
+			}
+			@Override
+			public Adapter caseUiRemoveFromTableCommand(UiRemoveFromTableCommand object) {
+				return createUiRemoveFromTableCommandAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -2043,6 +2067,90 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiBeanServiceConsumerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileSearchPanel <em>Ui Mobile Search Panel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileSearchPanel
+	 * @generated
+	 */
+	public Adapter createUiMobileSearchPanelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRoot <em>Ui Mobile Navigation Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRoot
+	 * @generated
+	 */
+	public Adapter createUiMobileNavigationRootAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRootAssigment <em>Ui Mobile Navigation Root Assigment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRootAssigment
+	 * @generated
+	 */
+	public Adapter createUiMobileNavigationRootAssigmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavBarAction <em>Ui Mobile Nav Bar Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavBarAction
+	 * @generated
+	 */
+	public Adapter createUiMobileNavBarActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiAddToTableCommand <em>Ui Add To Table Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiAddToTableCommand
+	 * @generated
+	 */
+	public Adapter createUiAddToTableCommandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiRemoveFromTableCommand <em>Ui Remove From Table Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRemoveFromTableCommand
+	 * @generated
+	 */
+	public Adapter createUiRemoveFromTableCommandAdapter() {
 		return null;
 	}
 

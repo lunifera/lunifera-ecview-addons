@@ -6,6 +6,7 @@ package org.lunifera.ecview.semantic.uimodel.validation;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavBarAction;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment;
 
 /**
@@ -18,4 +19,6 @@ public interface UiMobileNavigationPageValidator {
 	boolean validate();
 
 	boolean validateContents(EList<UiMobileNavigationPageAssignment> value);
+
+	boolean validateBarActions(EList<UiMobileNavBarAction> value);
 }

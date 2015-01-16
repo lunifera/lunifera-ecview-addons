@@ -563,7 +563,7 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 			UiMobileViewElements ele) {
 		// Keyword
 		c.setLinewrap(1, 1, 2).before(ele.getMobileKeyword_0());
-		c.setLinewrap(1, 1, 2).before(ele.getViewsetKeyword_3_0());
+		c.setLinewrap(1, 1, 2).before(ele.getViewsetKeyword_3_0_0());
 		c.setLinewrap(1, 1, 2).before(
 				ele.getProcessorAssignmentsAssignment_7_3());
 		// Brackets

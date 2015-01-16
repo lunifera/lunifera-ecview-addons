@@ -16,13 +16,12 @@ Import-Package: com.vaadin.addon.touchkit.server,
  org.slf4j;version="1.7.5"
 Service-Component: OSGI-INF/org.lunifera.ecview.xtext.builder.participant.impl.LuniferaDslsBuilderParticipant.xml
 Require-Bundle: org.lunifera.runtime.web.vaadin.databinding,
- org.json;bundle-version="0.0.20131108",
+ org.json;bundle-version="0.0.1",
  com.vaadin.client;bundle-version="7.3.1",
  com.vaadin.server;bundle-version="7.3.1",
  com.vaadin.client-compiled;bundle-version="7.3.1",
  com.vaadin.external.atmosphere.runtime;bundle-version="2.1.2",
  com.vaadin.push;bundle-version="7.3.1",
- com.vaadin.shared.deps;bundle-version="1.0.2",
  com.vaadin.themes;bundle-version="7.3.1"
 Bundle-Activator: org.lunifera.ecview.servlet.mobile.impl.Activator
 Bundle-ActivationPolicy: lazy

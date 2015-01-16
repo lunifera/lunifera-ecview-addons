@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage#getContents <em>Contents</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage#getBarActions <em>Bar Actions</em>}</li>
  * </ul>
  * </p>
  *
@@ -38,4 +39,20 @@ public interface UiMobileNavigationPage extends UiMobileLayout, UiTypeProvider, 
 	 * @generated
 	 */
 	EList<UiMobileNavigationPageAssignment> getContents();
+
+	/**
+	 * Returns the value of the '<em><b>Bar Actions</b></em>' containment reference list.
+	 * The list contents are of type {@link org.lunifera.ecview.semantic.uimodel.UiMobileNavBarAction}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Bar Actions</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Bar Actions</em>' containment reference list.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiMobileNavigationPage_BarActions()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<UiMobileNavBarAction> getBarActions();
 } // UiMobileNavigationPage

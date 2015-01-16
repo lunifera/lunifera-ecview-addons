@@ -23,7 +23,6 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference beanSlots : UiBeanSlot<<0..*>>
     Reference bindingEndpointAlias : UiBindingEndpointAlias<<0..*>>
     Reference bindings : UiBinding<<0..*>>
-    Reference exposedActions : UiExposedAction<<0..*>>
 
   Class UiExposedAction -> UiNamedElement
     Reference actionReference : UxAction
@@ -45,6 +44,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference element : UiEmbeddable
 
   Class UiIDEView -> UiView
+    Reference exposedActions : UiExposedAction<<0..*>>
 
   Class UiMobileView -> UiView
 
@@ -319,6 +319,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiMobileNavigationPage -> UiMobileLayout, UiTypeProvider, UiMobileNavigationHandler
     Reference contents : UiMobileNavigationPageAssignment<<0..*>>
+    Reference barActions : UiMobileNavBarAction<<0..*>>
 
   Class UiMobileNavigationPageAssignment -> UiLayoutAssignment
     Reference element : UiEmbeddable
@@ -397,6 +398,26 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiBeanServiceConsumer
     Attribute consumeBeanService : EBoolean
+
+  Class UiMobileSearchPanel -> UiMobileLayout, UiTypeProvider
+    Reference contents : UiSearchField<<0..*>>
+
+  Class UiMobileNavigationRoot -> UiMobileLayout, UiMobileNavigationHandler
+    Reference contents : UiMobileNavigationRootAssigment<<0..*>>
+
+  Class UiMobileNavigationRootAssigment -> UiLayoutAssignment
+    Reference element : UiMobileEmbeddable
+
+  Class UiMobileNavBarAction -> UiMobileAction
+    Reference actionReference : UxAction
+    Attribute actionID : EString
+    Attribute iconName : EString
+
+  Class UiAddToTableCommand -> UiCommand
+    Reference table : UiTable
+
+  Class UiRemoveFromTableCommand -> UiCommand
+    Reference table : UiTable
 
   Enum UiFlatAlignment
     Literal LEFT = 0

@@ -1160,6 +1160,75 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_MOBILE_SEARCH_PANEL: {
+				UiMobileSearchPanel uiMobileSearchPanel = (UiMobileSearchPanel)theEObject;
+				T result = caseUiMobileSearchPanel(uiMobileSearchPanel);
+				if (result == null) result = caseUiMobileLayout(uiMobileSearchPanel);
+				if (result == null) result = caseUiTypeProvider(uiMobileSearchPanel);
+				if (result == null) result = caseUiMobileEmbeddable(uiMobileSearchPanel);
+				if (result == null) result = caseUiLayout(uiMobileSearchPanel);
+				if (result == null) result = caseUiEmbeddable(uiMobileSearchPanel);
+				if (result == null) result = caseUiVisibilityProcessable(uiMobileSearchPanel);
+				if (result == null) result = caseUiRawBindable(uiMobileSearchPanel);
+				if (result == null) result = caseUiI18nInfoable(uiMobileSearchPanel);
+				if (result == null) result = caseUiNamedElement(uiMobileSearchPanel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_MOBILE_NAVIGATION_ROOT: {
+				UiMobileNavigationRoot uiMobileNavigationRoot = (UiMobileNavigationRoot)theEObject;
+				T result = caseUiMobileNavigationRoot(uiMobileNavigationRoot);
+				if (result == null) result = caseUiMobileLayout(uiMobileNavigationRoot);
+				if (result == null) result = caseUiMobileNavigationHandler(uiMobileNavigationRoot);
+				if (result == null) result = caseUiMobileEmbeddable(uiMobileNavigationRoot);
+				if (result == null) result = caseUiLayout(uiMobileNavigationRoot);
+				if (result == null) result = caseUiEmbeddable(uiMobileNavigationRoot);
+				if (result == null) result = caseUiVisibilityProcessable(uiMobileNavigationRoot);
+				if (result == null) result = caseUiRawBindable(uiMobileNavigationRoot);
+				if (result == null) result = caseUiI18nInfoable(uiMobileNavigationRoot);
+				if (result == null) result = caseUiNamedElement(uiMobileNavigationRoot);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_MOBILE_NAVIGATION_ROOT_ASSIGMENT: {
+				UiMobileNavigationRootAssigment uiMobileNavigationRootAssigment = (UiMobileNavigationRootAssigment)theEObject;
+				T result = caseUiMobileNavigationRootAssigment(uiMobileNavigationRootAssigment);
+				if (result == null) result = caseUiLayoutAssignment(uiMobileNavigationRootAssigment);
+				if (result == null) result = caseUiNamedElement(uiMobileNavigationRootAssigment);
+				if (result == null) result = caseUiRawBindableProvider(uiMobileNavigationRootAssigment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_MOBILE_NAV_BAR_ACTION: {
+				UiMobileNavBarAction uiMobileNavBarAction = (UiMobileNavBarAction)theEObject;
+				T result = caseUiMobileNavBarAction(uiMobileNavBarAction);
+				if (result == null) result = caseUiMobileAction(uiMobileNavBarAction);
+				if (result == null) result = caseUiMobileEmbeddable(uiMobileNavBarAction);
+				if (result == null) result = caseUiAction(uiMobileNavBarAction);
+				if (result == null) result = caseUiEmbeddable(uiMobileNavBarAction);
+				if (result == null) result = caseUiVisibilityProcessable(uiMobileNavBarAction);
+				if (result == null) result = caseUiRawBindable(uiMobileNavBarAction);
+				if (result == null) result = caseUiI18nInfoable(uiMobileNavBarAction);
+				if (result == null) result = caseUiNamedElement(uiMobileNavBarAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_ADD_TO_TABLE_COMMAND: {
+				UiAddToTableCommand uiAddToTableCommand = (UiAddToTableCommand)theEObject;
+				T result = caseUiAddToTableCommand(uiAddToTableCommand);
+				if (result == null) result = caseUiCommand(uiAddToTableCommand);
+				if (result == null) result = caseUiNamedElement(uiAddToTableCommand);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_REMOVE_FROM_TABLE_COMMAND: {
+				UiRemoveFromTableCommand uiRemoveFromTableCommand = (UiRemoveFromTableCommand)theEObject;
+				T result = caseUiRemoveFromTableCommand(uiRemoveFromTableCommand);
+				if (result == null) result = caseUiCommand(uiRemoveFromTableCommand);
+				if (result == null) result = caseUiNamedElement(uiRemoveFromTableCommand);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -2796,6 +2865,96 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiBeanServiceConsumer(UiBeanServiceConsumer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile Search Panel</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Mobile Search Panel</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMobileSearchPanel(UiMobileSearchPanel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile Navigation Root</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Mobile Navigation Root</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMobileNavigationRoot(UiMobileNavigationRoot object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile Navigation Root Assigment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Mobile Navigation Root Assigment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMobileNavigationRootAssigment(UiMobileNavigationRootAssigment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Mobile Nav Bar Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Mobile Nav Bar Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiMobileNavBarAction(UiMobileNavBarAction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Add To Table Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Add To Table Command</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiAddToTableCommand(UiAddToTableCommand object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Remove From Table Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Remove From Table Command</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiRemoveFromTableCommand(UiRemoveFromTableCommand object) {
 		return null;
 	}
 

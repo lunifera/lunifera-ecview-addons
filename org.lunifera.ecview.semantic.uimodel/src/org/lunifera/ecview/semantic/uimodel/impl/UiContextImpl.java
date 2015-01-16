@@ -3,7 +3,6 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -17,7 +16,6 @@ import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiContext;
-import org.lunifera.ecview.semantic.uimodel.UiExposedAction;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 
 /**
@@ -32,7 +30,6 @@ import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiContextImpl#getBeanSlots <em>Bean Slots</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiContextImpl#getBindingEndpointAlias <em>Binding Endpoint Alias</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiContextImpl#getBindings <em>Bindings</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiContextImpl#getExposedActions <em>Exposed Actions</em>}</li>
  * </ul>
  * </p>
  *
@@ -108,16 +105,6 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 	 * @ordered
 	 */
 	protected EList<UiBinding> bindings;
-
-	/**
-	 * The cached value of the '{@link #getExposedActions() <em>Exposed Actions</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExposedActions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<UiExposedAction> exposedActions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -221,18 +208,6 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<UiExposedAction> getExposedActions() {
-		if (exposedActions == null) {
-			exposedActions = new EObjectContainmentEList.Resolving<UiExposedAction>(UiExposedAction.class, this, UiModelPackage.UI_CONTEXT__EXPOSED_ACTIONS);
-		}
-		return exposedActions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -242,8 +217,6 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 				return ((InternalEList<?>)getBindingEndpointAlias()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_CONTEXT__BINDINGS:
 				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
-			case UiModelPackage.UI_CONTEXT__EXPOSED_ACTIONS:
-				return ((InternalEList<?>)getExposedActions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -266,8 +239,6 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 				return getBindingEndpointAlias();
 			case UiModelPackage.UI_CONTEXT__BINDINGS:
 				return getBindings();
-			case UiModelPackage.UI_CONTEXT__EXPOSED_ACTIONS:
-				return getExposedActions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -299,10 +270,6 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 				getBindings().clear();
 				getBindings().addAll((Collection<? extends UiBinding>)newValue);
 				return;
-			case UiModelPackage.UI_CONTEXT__EXPOSED_ACTIONS:
-				getExposedActions().clear();
-				getExposedActions().addAll((Collection<? extends UiExposedAction>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -330,9 +297,6 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 			case UiModelPackage.UI_CONTEXT__BINDINGS:
 				getBindings().clear();
 				return;
-			case UiModelPackage.UI_CONTEXT__EXPOSED_ACTIONS:
-				getExposedActions().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -355,8 +319,6 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 				return bindingEndpointAlias != null && !bindingEndpointAlias.isEmpty();
 			case UiModelPackage.UI_CONTEXT__BINDINGS:
 				return bindings != null && !bindings.isEmpty();
-			case UiModelPackage.UI_CONTEXT__EXPOSED_ACTIONS:
-				return exposedActions != null && !exposedActions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

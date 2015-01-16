@@ -44,6 +44,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiIDEViewAccess().getAlternatives_4(), "rule__UiIDEView__Alternatives_4");
 					put(grammarAccess.getUiIDEViewAccess().getAlternatives_7(), "rule__UiIDEView__Alternatives_7");
 					put(grammarAccess.getUiExposedActionAccess().getAlternatives_3(), "rule__UiExposedAction__Alternatives_3");
+					put(grammarAccess.getUiMobileNavBarActionAccess().getAlternatives_3(), "rule__UiMobileNavBarAction__Alternatives_3");
 					put(grammarAccess.getUiMobileViewAccess().getAlternatives_4(), "rule__UiMobileView__Alternatives_4");
 					put(grammarAccess.getUiMobileViewAccess().getAlternatives_7(), "rule__UiMobileView__Alternatives_7");
 					put(grammarAccess.getUiTextFieldAccess().getAlternatives_4_1(), "rule__UiTextField__Alternatives_4_1");
@@ -137,6 +138,8 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiMobileNavigationCommandAccess().getGroup(), "rule__UiMobileNavigationCommand__Group__0");
 					put(grammarAccess.getUiOpenDialogCommandAccess().getGroup(), "rule__UiOpenDialogCommand__Group__0");
 					put(grammarAccess.getUiSearchWithDialogCommandAccess().getGroup(), "rule__UiSearchWithDialogCommand__Group__0");
+					put(grammarAccess.getUiAddToTableCommandAccess().getGroup(), "rule__UiAddToTableCommand__Group__0");
+					put(grammarAccess.getUiRemoveFromTableCommandAccess().getGroup(), "rule__UiRemoveFromTableCommand__Group__0");
 					put(grammarAccess.getUiIDEViewAccess().getGroup(), "rule__UiIDEView__Group__0");
 					put(grammarAccess.getUiIDEViewAccess().getGroup_3_0(), "rule__UiIDEView__Group_3_0__0");
 					put(grammarAccess.getUiIDEViewAccess().getGroup_3_1(), "rule__UiIDEView__Group_3_1__0");
@@ -144,8 +147,11 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiIDEViewAccess().getGroup_6(), "rule__UiIDEView__Group_6__0");
 					put(grammarAccess.getUiExposedActionAccess().getGroup(), "rule__UiExposedAction__Group__0");
 					put(grammarAccess.getUiExposedActionAccess().getGroup_1(), "rule__UiExposedAction__Group_1__0");
+					put(grammarAccess.getUiMobileNavBarActionAccess().getGroup(), "rule__UiMobileNavBarAction__Group__0");
+					put(grammarAccess.getUiMobileNavBarActionAccess().getGroup_1(), "rule__UiMobileNavBarAction__Group_1__0");
 					put(grammarAccess.getUiMobileViewAccess().getGroup(), "rule__UiMobileView__Group__0");
-					put(grammarAccess.getUiMobileViewAccess().getGroup_3(), "rule__UiMobileView__Group_3__0");
+					put(grammarAccess.getUiMobileViewAccess().getGroup_3_0(), "rule__UiMobileView__Group_3_0__0");
+					put(grammarAccess.getUiMobileViewAccess().getGroup_3_1(), "rule__UiMobileView__Group_3_1__0");
 					put(grammarAccess.getUiMobileViewAccess().getGroup_6(), "rule__UiMobileView__Group_6__0");
 					put(grammarAccess.getUiI18nInfoAccess().getGroup(), "rule__UiI18nInfo__Group__0");
 					put(grammarAccess.getUiGridLayoutAccess().getGroup(), "rule__UiGridLayout__Group__0");
@@ -171,6 +177,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiMobileVerticalLayoutAccess().getGroup_2_2(), "rule__UiMobileVerticalLayout__Group_2_2__0");
 					put(grammarAccess.getUiMobileVerticalLayoutAssigmentAccess().getGroup(), "rule__UiMobileVerticalLayoutAssigment__Group__0");
 					put(grammarAccess.getUiMobileVerticalLayoutAssigmentAccess().getGroup_1(), "rule__UiMobileVerticalLayoutAssigment__Group_1__0");
+					put(grammarAccess.getUiMobileNavigationRootAccess().getGroup(), "rule__UiMobileNavigationRoot__Group__0");
 					put(grammarAccess.getUiHorizontalLayoutAccess().getGroup(), "rule__UiHorizontalLayout__Group__0");
 					put(grammarAccess.getUiHorizontalLayoutAccess().getGroup_2_0(), "rule__UiHorizontalLayout__Group_2_0__0");
 					put(grammarAccess.getUiHorizontalLayoutAccess().getGroup_2_2(), "rule__UiHorizontalLayout__Group_2_2__0");
@@ -182,6 +189,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiMobileHorizontalLayoutAccess().getGroup_2_0(), "rule__UiMobileHorizontalLayout__Group_2_0__0");
 					put(grammarAccess.getUiMobileHorizontalLayoutAccess().getGroup_2_1(), "rule__UiMobileHorizontalLayout__Group_2_1__0");
 					put(grammarAccess.getUiMobileHorizontalLayoutAccess().getGroup_2_2(), "rule__UiMobileHorizontalLayout__Group_2_2__0");
+					put(grammarAccess.getUiMobileHorizontalLayoutAccess().getGroup_5(), "rule__UiMobileHorizontalLayout__Group_5__0");
 					put(grammarAccess.getUiMobileHorizontalLayoutAssigmentAccess().getGroup(), "rule__UiMobileHorizontalLayoutAssigment__Group__0");
 					put(grammarAccess.getUiMobileHorizontalLayoutAssigmentAccess().getGroup_1(), "rule__UiMobileHorizontalLayoutAssigment__Group_1__0");
 					put(grammarAccess.getUiMobileHorizontalButtonGroupAccess().getGroup(), "rule__UiMobileHorizontalButtonGroup__Group__0");
@@ -193,6 +201,9 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiSearchPanelAccess().getGroup(), "rule__UiSearchPanel__Group__0");
 					put(grammarAccess.getUiSearchPanelAccess().getGroup_2(), "rule__UiSearchPanel__Group_2__0");
 					put(grammarAccess.getUiSearchPanelAccess().getGroup_2_1_1(), "rule__UiSearchPanel__Group_2_1_1__0");
+					put(grammarAccess.getUiMobileSearchPanelAccess().getGroup(), "rule__UiMobileSearchPanel__Group__0");
+					put(grammarAccess.getUiMobileSearchPanelAccess().getGroup_2(), "rule__UiMobileSearchPanel__Group_2__0");
+					put(grammarAccess.getUiMobileSearchPanelAccess().getGroup_2_1_1(), "rule__UiMobileSearchPanel__Group_2_1_1__0");
 					put(grammarAccess.getUiMobileTabSheetAccess().getGroup(), "rule__UiMobileTabSheet__Group__0");
 					put(grammarAccess.getUiMobileTabSheetAccess().getGroup_2(), "rule__UiMobileTabSheet__Group_2__0");
 					put(grammarAccess.getUiMobileTabSheetAccess().getGroup_2_1_1(), "rule__UiMobileTabSheet__Group_2_1_1__0");
@@ -224,6 +235,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiMobileNavigationPageAccess().getGroup_2(), "rule__UiMobileNavigationPage__Group_2__0");
 					put(grammarAccess.getUiMobileNavigationPageAccess().getGroup_2_1_1(), "rule__UiMobileNavigationPage__Group_2_1_1__0");
 					put(grammarAccess.getUiMobileNavigationPageAccess().getGroup_5(), "rule__UiMobileNavigationPage__Group_5__0");
+					put(grammarAccess.getUiMobileNavigationPageAccess().getGroup_6(), "rule__UiMobileNavigationPage__Group_6__0");
 					put(grammarAccess.getUiPointAccess().getGroup(), "rule__UiPoint__Group__0");
 					put(grammarAccess.getUiTextFieldAccess().getGroup(), "rule__UiTextField__Group__0");
 					put(grammarAccess.getUiTextFieldAccess().getGroup_2(), "rule__UiTextField__Group_2__0");
@@ -561,6 +573,8 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiMobileNavigationCommandAccess().getTargetPageAssignment_2(), "rule__UiMobileNavigationCommand__TargetPageAssignment_2");
 					put(grammarAccess.getUiOpenDialogCommandAccess().getDialogAssignment_2(), "rule__UiOpenDialogCommand__DialogAssignment_2");
 					put(grammarAccess.getUiSearchWithDialogCommandAccess().getDialogAssignment_2(), "rule__UiSearchWithDialogCommand__DialogAssignment_2");
+					put(grammarAccess.getUiAddToTableCommandAccess().getTableAssignment_2(), "rule__UiAddToTableCommand__TableAssignment_2");
+					put(grammarAccess.getUiRemoveFromTableCommandAccess().getTableAssignment_2(), "rule__UiRemoveFromTableCommand__TableAssignment_2");
 					put(grammarAccess.getUiIDEViewAccess().getNameAssignment_1(), "rule__UiIDEView__NameAssignment_1");
 					put(grammarAccess.getUiIDEViewAccess().getViewSetAssignment_3_0_1(), "rule__UiIDEView__ViewSetAssignment_3_0_1");
 					put(grammarAccess.getUiIDEViewAccess().getJvmTypeAssignment_3_1_1(), "rule__UiIDEView__JvmTypeAssignment_3_1_1");
@@ -577,8 +591,13 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiExposedActionAccess().getIconNameAssignment_1_1(), "rule__UiExposedAction__IconNameAssignment_1_1");
 					put(grammarAccess.getUiExposedActionAccess().getActionReferenceAssignment_3_0(), "rule__UiExposedAction__ActionReferenceAssignment_3_0");
 					put(grammarAccess.getUiExposedActionAccess().getActionIDAssignment_3_1(), "rule__UiExposedAction__ActionIDAssignment_3_1");
+					put(grammarAccess.getUiMobileNavBarActionAccess().getNameAssignment_0(), "rule__UiMobileNavBarAction__NameAssignment_0");
+					put(grammarAccess.getUiMobileNavBarActionAccess().getIconNameAssignment_1_1(), "rule__UiMobileNavBarAction__IconNameAssignment_1_1");
+					put(grammarAccess.getUiMobileNavBarActionAccess().getActionReferenceAssignment_3_0(), "rule__UiMobileNavBarAction__ActionReferenceAssignment_3_0");
+					put(grammarAccess.getUiMobileNavBarActionAccess().getActionIDAssignment_3_1(), "rule__UiMobileNavBarAction__ActionIDAssignment_3_1");
 					put(grammarAccess.getUiMobileViewAccess().getNameAssignment_1(), "rule__UiMobileView__NameAssignment_1");
-					put(grammarAccess.getUiMobileViewAccess().getViewSetAssignment_3_1(), "rule__UiMobileView__ViewSetAssignment_3_1");
+					put(grammarAccess.getUiMobileViewAccess().getViewSetAssignment_3_0_1(), "rule__UiMobileView__ViewSetAssignment_3_0_1");
+					put(grammarAccess.getUiMobileViewAccess().getJvmTypeAssignment_3_1_1(), "rule__UiMobileView__JvmTypeAssignment_3_1_1");
 					put(grammarAccess.getUiMobileViewAccess().getBeanSlotsAssignment_4_0(), "rule__UiMobileView__BeanSlotsAssignment_4_0");
 					put(grammarAccess.getUiMobileViewAccess().getBindingEndpointAliasAssignment_4_1(), "rule__UiMobileView__BindingEndpointAliasAssignment_4_1");
 					put(grammarAccess.getUiMobileViewAccess().getContentAssignment_5(), "rule__UiMobileView__ContentAssignment_5");
@@ -625,6 +644,9 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiMobileVerticalLayoutAccess().getProcessorAssignmentsAssignment_7(), "rule__UiMobileVerticalLayout__ProcessorAssignmentsAssignment_7");
 					put(grammarAccess.getUiMobileVerticalLayoutAssigmentAccess().getElementAssignment_0(), "rule__UiMobileVerticalLayoutAssigment__ElementAssignment_0");
 					put(grammarAccess.getUiMobileVerticalLayoutAssigmentAccess().getAlignmentAssignment_1_1(), "rule__UiMobileVerticalLayoutAssigment__AlignmentAssignment_1_1");
+					put(grammarAccess.getUiMobileNavigationRootAccess().getNameAssignment_2(), "rule__UiMobileNavigationRoot__NameAssignment_2");
+					put(grammarAccess.getUiMobileNavigationRootAccess().getContentsAssignment_4(), "rule__UiMobileNavigationRoot__ContentsAssignment_4");
+					put(grammarAccess.getUiMobileNavigationRootAssigmentAccess().getElementAssignment(), "rule__UiMobileNavigationRootAssigment__ElementAssignment");
 					put(grammarAccess.getUiHorizontalLayoutAccess().getI18nInfoAssignment_2_0_1(), "rule__UiHorizontalLayout__I18nInfoAssignment_2_0_1");
 					put(grammarAccess.getUiHorizontalLayoutAccess().getReadonlyAssignment_2_1(), "rule__UiHorizontalLayout__ReadonlyAssignment_2_1");
 					put(grammarAccess.getUiHorizontalLayoutAccess().getStylesAssignment_2_2_0_1(), "rule__UiHorizontalLayout__StylesAssignment_2_2_0_1");
@@ -640,9 +662,11 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiMobileHorizontalLayoutAccess().getStylesAssignment_2_1_1(), "rule__UiMobileHorizontalLayout__StylesAssignment_2_1_1");
 					put(grammarAccess.getUiMobileHorizontalLayoutAccess().getReadonlyAssignment_2_2_0(), "rule__UiMobileHorizontalLayout__ReadonlyAssignment_2_2_0");
 					put(grammarAccess.getUiMobileHorizontalLayoutAccess().getNameAssignment_3(), "rule__UiMobileHorizontalLayout__NameAssignment_3");
-					put(grammarAccess.getUiMobileHorizontalLayoutAccess().getContentsAssignment_5(), "rule__UiMobileHorizontalLayout__ContentsAssignment_5");
-					put(grammarAccess.getUiMobileHorizontalLayoutAccess().getBindingsAssignment_6(), "rule__UiMobileHorizontalLayout__BindingsAssignment_6");
-					put(grammarAccess.getUiMobileHorizontalLayoutAccess().getProcessorAssignmentsAssignment_7(), "rule__UiMobileHorizontalLayout__ProcessorAssignmentsAssignment_7");
+					put(grammarAccess.getUiMobileHorizontalLayoutAccess().getAutowireAssignment_5_0(), "rule__UiMobileHorizontalLayout__AutowireAssignment_5_0");
+					put(grammarAccess.getUiMobileHorizontalLayoutAccess().getAutoWireSourceAssignment_5_2(), "rule__UiMobileHorizontalLayout__AutoWireSourceAssignment_5_2");
+					put(grammarAccess.getUiMobileHorizontalLayoutAccess().getContentsAssignment_6(), "rule__UiMobileHorizontalLayout__ContentsAssignment_6");
+					put(grammarAccess.getUiMobileHorizontalLayoutAccess().getBindingsAssignment_7(), "rule__UiMobileHorizontalLayout__BindingsAssignment_7");
+					put(grammarAccess.getUiMobileHorizontalLayoutAccess().getProcessorAssignmentsAssignment_8(), "rule__UiMobileHorizontalLayout__ProcessorAssignmentsAssignment_8");
 					put(grammarAccess.getUiMobileHorizontalLayoutAssigmentAccess().getElementAssignment_0(), "rule__UiMobileHorizontalLayoutAssigment__ElementAssignment_0");
 					put(grammarAccess.getUiMobileHorizontalLayoutAssigmentAccess().getAlignmentAssignment_1_1(), "rule__UiMobileHorizontalLayoutAssigment__AlignmentAssignment_1_1");
 					put(grammarAccess.getUiMobileHorizontalButtonGroupAccess().getI18nInfoAssignment_2_1_0(), "rule__UiMobileHorizontalButtonGroup__I18nInfoAssignment_2_1_0");
@@ -667,6 +691,13 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiSearchPanelAccess().getContentsAssignment_8(), "rule__UiSearchPanel__ContentsAssignment_8");
 					put(grammarAccess.getUiSearchPanelAccess().getBindingsAssignment_9(), "rule__UiSearchPanel__BindingsAssignment_9");
 					put(grammarAccess.getUiSearchPanelAccess().getProcessorAssignmentsAssignment_10(), "rule__UiSearchPanel__ProcessorAssignmentsAssignment_10");
+					put(grammarAccess.getUiMobileSearchPanelAccess().getI18nInfoAssignment_2_1_0(), "rule__UiMobileSearchPanel__I18nInfoAssignment_2_1_0");
+					put(grammarAccess.getUiMobileSearchPanelAccess().getStylesAssignment_2_1_1_1(), "rule__UiMobileSearchPanel__StylesAssignment_2_1_1_1");
+					put(grammarAccess.getUiMobileSearchPanelAccess().getNameAssignment_3(), "rule__UiMobileSearchPanel__NameAssignment_3");
+					put(grammarAccess.getUiMobileSearchPanelAccess().getJvmTypeAssignment_6(), "rule__UiMobileSearchPanel__JvmTypeAssignment_6");
+					put(grammarAccess.getUiMobileSearchPanelAccess().getContentsAssignment_8(), "rule__UiMobileSearchPanel__ContentsAssignment_8");
+					put(grammarAccess.getUiMobileSearchPanelAccess().getBindingsAssignment_9(), "rule__UiMobileSearchPanel__BindingsAssignment_9");
+					put(grammarAccess.getUiMobileSearchPanelAccess().getProcessorAssignmentsAssignment_10(), "rule__UiMobileSearchPanel__ProcessorAssignmentsAssignment_10");
 					put(grammarAccess.getUiMobileTabSheetAccess().getI18nInfoAssignment_2_1_0(), "rule__UiMobileTabSheet__I18nInfoAssignment_2_1_0");
 					put(grammarAccess.getUiMobileTabSheetAccess().getStylesAssignment_2_1_1_1(), "rule__UiMobileTabSheet__StylesAssignment_2_1_1_1");
 					put(grammarAccess.getUiMobileTabSheetAccess().getNameAssignment_3(), "rule__UiMobileTabSheet__NameAssignment_3");
@@ -719,9 +750,10 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiMobileNavigationPageAccess().getStylesAssignment_2_1_1_1(), "rule__UiMobileNavigationPage__StylesAssignment_2_1_1_1");
 					put(grammarAccess.getUiMobileNavigationPageAccess().getNameAssignment_3(), "rule__UiMobileNavigationPage__NameAssignment_3");
 					put(grammarAccess.getUiMobileNavigationPageAccess().getJvmTypeAssignment_5_1(), "rule__UiMobileNavigationPage__JvmTypeAssignment_5_1");
-					put(grammarAccess.getUiMobileNavigationPageAccess().getContentsAssignment_6(), "rule__UiMobileNavigationPage__ContentsAssignment_6");
-					put(grammarAccess.getUiMobileNavigationPageAccess().getBindingsAssignment_7(), "rule__UiMobileNavigationPage__BindingsAssignment_7");
-					put(grammarAccess.getUiMobileNavigationPageAccess().getProcessorAssignmentsAssignment_8(), "rule__UiMobileNavigationPage__ProcessorAssignmentsAssignment_8");
+					put(grammarAccess.getUiMobileNavigationPageAccess().getBarActionsAssignment_6_2(), "rule__UiMobileNavigationPage__BarActionsAssignment_6_2");
+					put(grammarAccess.getUiMobileNavigationPageAccess().getContentsAssignment_7(), "rule__UiMobileNavigationPage__ContentsAssignment_7");
+					put(grammarAccess.getUiMobileNavigationPageAccess().getBindingsAssignment_8(), "rule__UiMobileNavigationPage__BindingsAssignment_8");
+					put(grammarAccess.getUiMobileNavigationPageAccess().getProcessorAssignmentsAssignment_9(), "rule__UiMobileNavigationPage__ProcessorAssignmentsAssignment_9");
 					put(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getElementAssignment(), "rule__UiMobileNavigationPageAssignment__ElementAssignment");
 					put(grammarAccess.getUiPointAccess().getXAssignment_0(), "rule__UiPoint__XAssignment_0");
 					put(grammarAccess.getUiPointAccess().getYAssignment_2(), "rule__UiPoint__YAssignment_2");
@@ -1053,6 +1085,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getXImportDeclarationAccess().getImportedTypeAssignment_1_1(), "rule__XImportDeclaration__ImportedTypeAssignment_1_1");
 					put(grammarAccess.getXImportDeclarationAccess().getImportedNamespaceAssignment_1_2(), "rule__XImportDeclaration__ImportedNamespaceAssignment_1_2");
 					put(grammarAccess.getUiIDEViewAccess().getUnorderedGroup_3(), "rule__UiIDEView__UnorderedGroup_3");
+					put(grammarAccess.getUiMobileViewAccess().getUnorderedGroup_3(), "rule__UiMobileView__UnorderedGroup_3");
 					put(grammarAccess.getUiGridLayoutAccess().getUnorderedGroup_2_1(), "rule__UiGridLayout__UnorderedGroup_2_1");
 					put(grammarAccess.getUiFormLayoutAccess().getUnorderedGroup_2(), "rule__UiFormLayout__UnorderedGroup_2");
 					put(grammarAccess.getUiVerticalLayoutAccess().getUnorderedGroup_2(), "rule__UiVerticalLayout__UnorderedGroup_2");
@@ -1062,6 +1095,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiMobileHorizontalButtonGroupAccess().getUnorderedGroup_2_1(), "rule__UiMobileHorizontalButtonGroup__UnorderedGroup_2_1");
 					put(grammarAccess.getUiMobileVerticalComponentGroupAccess().getUnorderedGroup_2_1(), "rule__UiMobileVerticalComponentGroup__UnorderedGroup_2_1");
 					put(grammarAccess.getUiSearchPanelAccess().getUnorderedGroup_2_1(), "rule__UiSearchPanel__UnorderedGroup_2_1");
+					put(grammarAccess.getUiMobileSearchPanelAccess().getUnorderedGroup_2_1(), "rule__UiMobileSearchPanel__UnorderedGroup_2_1");
 					put(grammarAccess.getUiMobileTabSheetAccess().getUnorderedGroup_2_1(), "rule__UiMobileTabSheet__UnorderedGroup_2_1");
 					put(grammarAccess.getUiTabSheetAccess().getUnorderedGroup_2_1(), "rule__UiTabSheet__UnorderedGroup_2_1");
 					put(grammarAccess.getUiSplitpanelAccess().getUnorderedGroup_1(), "rule__UiSplitpanel__UnorderedGroup_1");

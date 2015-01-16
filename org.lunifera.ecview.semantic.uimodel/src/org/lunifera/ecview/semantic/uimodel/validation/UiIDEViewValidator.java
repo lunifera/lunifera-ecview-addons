@@ -4,6 +4,9 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
+import org.eclipse.emf.common.util.EList;
+import org.lunifera.ecview.semantic.uimodel.UiExposedAction;
+
 
 /**
  * A sample validator interface for {@link org.lunifera.ecview.semantic.uimodel.UiIDEView}.
@@ -13,5 +16,7 @@ package org.lunifera.ecview.semantic.uimodel.validation;
  */
 public interface UiIDEViewValidator {
 	boolean validate();
+
+	boolean validateExposedActions(EList<UiExposedAction> value);
 
 }

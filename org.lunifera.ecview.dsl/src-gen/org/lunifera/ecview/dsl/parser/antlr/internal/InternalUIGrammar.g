@@ -1373,6 +1373,26 @@ ruleUiCommand returns [EObject current=null]
         $current = $this_UiSearchWithDialogCommand_2.current; 
         afterParserOrEnumRuleCall();
     }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiCommandAccess().getUiAddToTableCommandParserRuleCall_3()); 
+    }
+    this_UiAddToTableCommand_3=ruleUiAddToTableCommand
+    { 
+        $current = $this_UiAddToTableCommand_3.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiCommandAccess().getUiRemoveFromTableCommandParserRuleCall_4()); 
+    }
+    this_UiRemoveFromTableCommand_4=ruleUiRemoveFromTableCommand
+    { 
+        $current = $this_UiRemoveFromTableCommand_4.current; 
+        afterParserOrEnumRuleCall();
+    }
 )
 ;
 
@@ -1518,6 +1538,94 @@ ruleUiSearchWithDialogCommand returns [EObject current=null]
         		"UiSearchDialog");
 	        afterParserOrEnumRuleCall();
 	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleUiAddToTableCommand
+entryRuleUiAddToTableCommand returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiAddToTableCommandRule()); }
+	 iv_ruleUiAddToTableCommand=ruleUiAddToTableCommand 
+	 { $current=$iv_ruleUiAddToTableCommand.current; } 
+	 EOF 
+;
+
+// Rule UiAddToTableCommand
+ruleUiAddToTableCommand returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUiAddToTableCommandAccess().getUiAddToTableCommandAction_0(),
+            $current);
+    }
+)	otherlv_1='addToTable' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiAddToTableCommandAccess().getAddToTableKeyword_1());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiAddToTableCommandRule());
+	        }
+        }
+	otherlv_2=RULE_ID
+	{
+		newLeafNode(otherlv_2, grammarAccess.getUiAddToTableCommandAccess().getTableUiTableCrossReference_2_0()); 
+	}
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleUiRemoveFromTableCommand
+entryRuleUiRemoveFromTableCommand returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiRemoveFromTableCommandRule()); }
+	 iv_ruleUiRemoveFromTableCommand=ruleUiRemoveFromTableCommand 
+	 { $current=$iv_ruleUiRemoveFromTableCommand.current; } 
+	 EOF 
+;
+
+// Rule UiRemoveFromTableCommand
+ruleUiRemoveFromTableCommand returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUiRemoveFromTableCommandAccess().getUiRemoveFromTableCommandAction_0(),
+            $current);
+    }
+)	otherlv_1='removeFromTable' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiRemoveFromTableCommandAccess().getRemoveFromTableKeyword_1());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiRemoveFromTableCommandRule());
+	        }
+        }
+	otherlv_2=RULE_ID
+	{
+		newLeafNode(otherlv_2, grammarAccess.getUiRemoveFromTableCommandAccess().getTableUiTableCrossReference_2_0()); 
+	}
 
 )
 ))
@@ -1996,6 +2104,113 @@ ruleUiExposedAction returns [EObject current=null]
 
 
 
+// Entry rule entryRuleUiMobileNavBarAction
+entryRuleUiMobileNavBarAction returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiMobileNavBarActionRule()); }
+	 iv_ruleUiMobileNavBarAction=ruleUiMobileNavBarAction 
+	 { $current=$iv_ruleUiMobileNavBarAction.current; } 
+	 EOF 
+;
+
+// Rule UiMobileNavBarAction
+ruleUiMobileNavBarAction returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		lv_name_0_0=RULE_ID
+		{
+			newLeafNode(lv_name_0_0, grammarAccess.getUiMobileNavBarActionAccess().getNameIDTerminalRuleCall_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiMobileNavBarActionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_0_0, 
+        		"ID");
+	    }
+
+)
+)(	otherlv_1='icon' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiMobileNavBarActionAccess().getIconKeyword_1_0());
+    }
+(
+(
+		lv_iconName_2_0=RULE_STRING
+		{
+			newLeafNode(lv_iconName_2_0, grammarAccess.getUiMobileNavBarActionAccess().getIconNameSTRINGTerminalRuleCall_1_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiMobileNavBarActionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"iconName",
+        		lv_iconName_2_0, 
+        		"STRING");
+	    }
+
+)
+))?	otherlv_3='id' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getUiMobileNavBarActionAccess().getIdKeyword_2());
+    }
+(((
+(
+		ruleQualifiedName
+)
+)=>
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiMobileNavBarActionRule());
+	        }
+        }
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileNavBarActionAccess().getActionReferenceUxActionCrossReference_3_0_0()); 
+	    }
+		ruleQualifiedName		{ 
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+    |(
+(
+		lv_actionID_5_0=RULE_STRING
+		{
+			newLeafNode(lv_actionID_5_0, grammarAccess.getUiMobileNavBarActionAccess().getActionIDSTRINGTerminalRuleCall_3_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiMobileNavBarActionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"actionID",
+        		lv_actionID_5_0, 
+        		"STRING");
+	    }
+
+)
+))(	otherlv_6=';' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getUiMobileNavBarActionAccess().getSemicolonKeyword_4());
+    }
+)?)
+;
+
+
+
+
+
 // Entry rule entryRuleUiMobileView
 entryRuleUiMobileView returns [EObject current=null] 
 	:
@@ -2036,9 +2251,23 @@ ruleUiMobileView returns [EObject current=null]
     {
     	newLeafNode(otherlv_2, grammarAccess.getUiMobileViewAccess().getLeftCurlyBracketKeyword_2());
     }
-(	otherlv_3='viewset' 
+(
+
+(
+	{ 
+	  getUnorderedGroupHelper().enter(grammarAccess.getUiMobileViewAccess().getUnorderedGroup_3());
+	}
+	(
+		(
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getUiMobileViewAccess().getUnorderedGroup_3(), 0)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getUiMobileViewAccess().getUnorderedGroup_3(), 0);
+	 				}
+					({true}?=>(	otherlv_4='viewset' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getUiMobileViewAccess().getViewsetKeyword_3_0());
+    	newLeafNode(otherlv_4, grammarAccess.getUiMobileViewAccess().getViewsetKeyword_3_0_0());
     }
 (
 (
@@ -2047,29 +2276,81 @@ ruleUiMobileView returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getUiMobileViewRule());
 	        }
         }
-	otherlv_4=RULE_ID
+	otherlv_5=RULE_ID
 	{
-		newLeafNode(otherlv_4, grammarAccess.getUiMobileViewAccess().getViewSetUiViewSetCrossReference_3_1_0()); 
+		newLeafNode(otherlv_5, grammarAccess.getUiMobileViewAccess().getViewSetUiViewSetCrossReference_3_0_1_0()); 
 	}
 
 )
-)(	otherlv_5=';' 
+)(	otherlv_6=';' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getUiMobileViewAccess().getSemicolonKeyword_3_2());
+    	newLeafNode(otherlv_6, grammarAccess.getUiMobileViewAccess().getSemicolonKeyword_3_0_2());
     }
-)?)?((
+)?))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getUiMobileViewAccess().getUnorderedGroup_3());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getUiMobileViewAccess().getUnorderedGroup_3(), 1)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getUiMobileViewAccess().getUnorderedGroup_3(), 1);
+	 				}
+					({true}?=>(	otherlv_7='rootType' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getUiMobileViewAccess().getRootTypeKeyword_3_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileViewAccess().getJvmTypeJvmTypeReferenceParserRuleCall_3_1_1_0()); 
+	    }
+		lv_jvmType_8_0=ruleJvmTypeReference		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileViewRule());
+	        }
+       		set(
+       			$current, 
+       			"jvmType",
+        		lv_jvmType_8_0, 
+        		"JvmTypeReference");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_9=';' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getUiMobileViewAccess().getSemicolonKeyword_3_1_2());
+    }
+)?))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getUiMobileViewAccess().getUnorderedGroup_3());
+	 				}
+ 				)
+			)  
+
+		)*	
+	)
+)
+	{ 
+	  getUnorderedGroupHelper().leave(grammarAccess.getUiMobileViewAccess().getUnorderedGroup_3());
+	}
+
+)((
 (
 		{ 
 	        newCompositeNode(grammarAccess.getUiMobileViewAccess().getBeanSlotsUiBeanSlotParserRuleCall_4_0_0()); 
 	    }
-		lv_beanSlots_6_0=ruleUiBeanSlot		{
+		lv_beanSlots_10_0=ruleUiBeanSlot		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileViewRule());
 	        }
        		add(
        			$current, 
        			"beanSlots",
-        		lv_beanSlots_6_0, 
+        		lv_beanSlots_10_0, 
         		"UiBeanSlot");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2080,64 +2361,6 @@ ruleUiMobileView returns [EObject current=null]
 (
 		{ 
 	        newCompositeNode(grammarAccess.getUiMobileViewAccess().getBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_4_1_0()); 
-	    }
-		lv_bindingEndpointAlias_7_0=ruleUiBindingEndpointAlias		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getUiMobileViewRule());
-	        }
-       		add(
-       			$current, 
-       			"bindingEndpointAlias",
-        		lv_bindingEndpointAlias_7_0, 
-        		"UiBindingEndpointAlias");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))*(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getUiMobileViewAccess().getContentUiMobileEmbeddableParserRuleCall_5_0()); 
-	    }
-		lv_content_8_0=ruleUiMobileEmbeddable		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getUiMobileViewRule());
-	        }
-       		set(
-       			$current, 
-       			"content",
-        		lv_content_8_0, 
-        		"UiMobileEmbeddable");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)(	otherlv_9='align' 
-    {
-    	newLeafNode(otherlv_9, grammarAccess.getUiMobileViewAccess().getAlignKeyword_6_0());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getUiMobileViewAccess().getContentAlignmentUiAlignmentEnumRuleCall_6_1_0()); 
-	    }
-		lv_contentAlignment_10_0=ruleUiAlignment		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getUiMobileViewRule());
-	        }
-       		set(
-       			$current, 
-       			"contentAlignment",
-        		lv_contentAlignment_10_0, 
-        		"UiAlignment");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))?((
-(
-		{ 
-	        newCompositeNode(grammarAccess.getUiMobileViewAccess().getBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_7_0_0()); 
 	    }
 		lv_bindingEndpointAlias_11_0=ruleUiBindingEndpointAlias		{
 	        if ($current==null) {
@@ -2152,20 +2375,78 @@ ruleUiMobileView returns [EObject current=null]
 	    }
 
 )
+))*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileViewAccess().getContentUiMobileEmbeddableParserRuleCall_5_0()); 
+	    }
+		lv_content_12_0=ruleUiMobileEmbeddable		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileViewRule());
+	        }
+       		set(
+       			$current, 
+       			"content",
+        		lv_content_12_0, 
+        		"UiMobileEmbeddable");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_13='align' 
+    {
+    	newLeafNode(otherlv_13, grammarAccess.getUiMobileViewAccess().getAlignKeyword_6_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileViewAccess().getContentAlignmentUiAlignmentEnumRuleCall_6_1_0()); 
+	    }
+		lv_contentAlignment_14_0=ruleUiAlignment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileViewRule());
+	        }
+       		set(
+       			$current, 
+       			"contentAlignment",
+        		lv_contentAlignment_14_0, 
+        		"UiAlignment");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileViewAccess().getBindingEndpointAliasUiBindingEndpointAliasParserRuleCall_7_0_0()); 
+	    }
+		lv_bindingEndpointAlias_15_0=ruleUiBindingEndpointAlias		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileViewRule());
+	        }
+       		add(
+       			$current, 
+       			"bindingEndpointAlias",
+        		lv_bindingEndpointAlias_15_0, 
+        		"UiBindingEndpointAlias");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
 )
     |(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getUiMobileViewAccess().getBindingsUiBindingParserRuleCall_7_1_0()); 
 	    }
-		lv_bindings_12_0=ruleUiBinding		{
+		lv_bindings_16_0=ruleUiBinding		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileViewRule());
 	        }
        		add(
        			$current, 
        			"bindings",
-        		lv_bindings_12_0, 
+        		lv_bindings_16_0, 
         		"UiBinding");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2177,14 +2458,14 @@ ruleUiMobileView returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getUiMobileViewAccess().getValidatorAssignmentsUiValidatorAssignmentParserRuleCall_7_2_0()); 
 	    }
-		lv_validatorAssignments_13_0=ruleUiValidatorAssignment		{
+		lv_validatorAssignments_17_0=ruleUiValidatorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileViewRule());
 	        }
        		add(
        			$current, 
        			"validatorAssignments",
-        		lv_validatorAssignments_13_0, 
+        		lv_validatorAssignments_17_0, 
         		"UiValidatorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2196,22 +2477,22 @@ ruleUiMobileView returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getUiMobileViewAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_7_3_0()); 
 	    }
-		lv_processorAssignments_14_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_18_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileViewRule());
 	        }
        		add(
        			$current, 
        			"processorAssignments",
-        		lv_processorAssignments_14_0, 
+        		lv_processorAssignments_18_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_15='}' 
+))*	otherlv_19='}' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getUiMobileViewAccess().getRightCurlyBracketKeyword_8());
+    	newLeafNode(otherlv_19, grammarAccess.getUiMobileViewAccess().getRightCurlyBracketKeyword_8());
     }
 )
 ;
@@ -3471,6 +3752,120 @@ ruleUiMobileVerticalLayoutAssigment returns [EObject current=null]
 
 
 
+// Entry rule entryRuleUiMobileNavigationRoot
+entryRuleUiMobileNavigationRoot returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiMobileNavigationRootRule()); }
+	 iv_ruleUiMobileNavigationRoot=ruleUiMobileNavigationRoot 
+	 { $current=$iv_ruleUiMobileNavigationRoot.current; } 
+	 EOF 
+;
+
+// Rule UiMobileNavigationRoot
+ruleUiMobileNavigationRoot returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUiMobileNavigationRootAccess().getUiMobileNavigationRootAction_0(),
+            $current);
+    }
+)	otherlv_1='navRoot' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiMobileNavigationRootAccess().getNavRootKeyword_1());
+    }
+(
+(
+		lv_name_2_0=RULE_ID
+		{
+			newLeafNode(lv_name_2_0, grammarAccess.getUiMobileNavigationRootAccess().getNameIDTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiMobileNavigationRootRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_2_0, 
+        		"ID");
+	    }
+
+)
+)?	otherlv_3='{' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getUiMobileNavigationRootAccess().getLeftCurlyBracketKeyword_3());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileNavigationRootAccess().getContentsUiMobileNavigationRootAssigmentParserRuleCall_4_0()); 
+	    }
+		lv_contents_4_0=ruleUiMobileNavigationRootAssigment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileNavigationRootRule());
+	        }
+       		add(
+       			$current, 
+       			"contents",
+        		lv_contents_4_0, 
+        		"UiMobileNavigationRootAssigment");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_5='}' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getUiMobileNavigationRootAccess().getRightCurlyBracketKeyword_5());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleUiMobileNavigationRootAssigment
+entryRuleUiMobileNavigationRootAssigment returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiMobileNavigationRootAssigmentRule()); }
+	 iv_ruleUiMobileNavigationRootAssigment=ruleUiMobileNavigationRootAssigment 
+	 { $current=$iv_ruleUiMobileNavigationRootAssigment.current; } 
+	 EOF 
+;
+
+// Rule UiMobileNavigationRootAssigment
+ruleUiMobileNavigationRootAssigment returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileNavigationRootAssigmentAccess().getElementUiMobileNavigationPageParserRuleCall_0()); 
+	    }
+		lv_element_0_0=ruleUiMobileNavigationPage		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileNavigationRootAssigmentRule());
+	        }
+       		set(
+       			$current, 
+       			"element",
+        		lv_element_0_0, 
+        		"UiMobileNavigationPage");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+;
+
+
+
+
+
 // Entry rule entryRuleUiHorizontalLayout
 entryRuleUiHorizontalLayout returns [EObject current=null] 
 	:
@@ -3958,19 +4353,56 @@ ruleUiMobileHorizontalLayout returns [EObject current=null]
     {
     	newLeafNode(otherlv_10, grammarAccess.getUiMobileHorizontalLayoutAccess().getLeftCurlyBracketKeyword_4());
     }
+((
+(
+		lv_autowire_11_0=	'autowire' 
+    {
+        newLeafNode(lv_autowire_11_0, grammarAccess.getUiMobileHorizontalLayoutAccess().getAutowireAutowireKeyword_5_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiMobileHorizontalLayoutRule());
+	        }
+       		setWithLastConsumed($current, "autowire", true, "autowire");
+	    }
+
+)
+)	otherlv_12='source' 
+    {
+    	newLeafNode(otherlv_12, grammarAccess.getUiMobileHorizontalLayoutAccess().getSourceKeyword_5_1());
+    }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiMobileHorizontalLayoutAccess().getContentsUiMobileHorizontalLayoutAssigmentParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getUiMobileHorizontalLayoutAccess().getAutoWireSourceUiBindingEndpointAssignmentParserRuleCall_5_2_0()); 
 	    }
-		lv_contents_11_0=ruleUiMobileHorizontalLayoutAssigment		{
+		lv_autoWireSource_13_0=ruleUiBindingEndpointAssignment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileHorizontalLayoutRule());
+	        }
+       		set(
+       			$current, 
+       			"autoWireSource",
+        		lv_autoWireSource_13_0, 
+        		"UiBindingEndpointAssignment");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileHorizontalLayoutAccess().getContentsUiMobileHorizontalLayoutAssigmentParserRuleCall_6_0()); 
+	    }
+		lv_contents_14_0=ruleUiMobileHorizontalLayoutAssigment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileHorizontalLayoutRule());
 	        }
        		add(
        			$current, 
        			"contents",
-        		lv_contents_11_0, 
+        		lv_contents_14_0, 
         		"UiMobileHorizontalLayoutAssigment");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3979,16 +4411,16 @@ ruleUiMobileHorizontalLayout returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiMobileHorizontalLayoutAccess().getBindingsUiBindingParserRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getUiMobileHorizontalLayoutAccess().getBindingsUiBindingParserRuleCall_7_0()); 
 	    }
-		lv_bindings_12_0=ruleUiBinding		{
+		lv_bindings_15_0=ruleUiBinding		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileHorizontalLayoutRule());
 	        }
        		add(
        			$current, 
        			"bindings",
-        		lv_bindings_12_0, 
+        		lv_bindings_15_0, 
         		"UiBinding");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3997,24 +4429,24 @@ ruleUiMobileHorizontalLayout returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiMobileHorizontalLayoutAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getUiMobileHorizontalLayoutAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_8_0()); 
 	    }
-		lv_processorAssignments_13_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_16_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileHorizontalLayoutRule());
 	        }
        		add(
        			$current, 
        			"processorAssignments",
-        		lv_processorAssignments_13_0, 
+        		lv_processorAssignments_16_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_14='}' 
+)*	otherlv_17='}' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getUiMobileHorizontalLayoutAccess().getRightCurlyBracketKeyword_8());
+    	newLeafNode(otherlv_17, grammarAccess.getUiMobileHorizontalLayoutAccess().getRightCurlyBracketKeyword_9());
     }
 )
 ;
@@ -4813,6 +5245,231 @@ ruleUiSearchPanel returns [EObject current=null]
 )*	otherlv_16='}' 
     {
     	newLeafNode(otherlv_16, grammarAccess.getUiSearchPanelAccess().getRightCurlyBracketKeyword_11());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleUiMobileSearchPanel
+entryRuleUiMobileSearchPanel returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiMobileSearchPanelRule()); }
+	 iv_ruleUiMobileSearchPanel=ruleUiMobileSearchPanel 
+	 { $current=$iv_ruleUiMobileSearchPanel.current; } 
+	 EOF 
+;
+
+// Rule UiMobileSearchPanel
+ruleUiMobileSearchPanel returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUiMobileSearchPanelAccess().getUiMobileSearchPanelAction_0(),
+            $current);
+    }
+)	otherlv_1='mobileSearchPanel' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiMobileSearchPanelAccess().getMobileSearchPanelKeyword_1());
+    }
+(	otherlv_2='(' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getUiMobileSearchPanelAccess().getLeftParenthesisKeyword_2_0());
+    }
+(
+
+(
+	{ 
+	  getUnorderedGroupHelper().enter(grammarAccess.getUiMobileSearchPanelAccess().getUnorderedGroup_2_1());
+	}
+	(
+		(
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getUiMobileSearchPanelAccess().getUnorderedGroup_2_1(), 0)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getUiMobileSearchPanelAccess().getUnorderedGroup_2_1(), 0);
+	 				}
+					({true}?=>(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileSearchPanelAccess().getI18nInfoUiI18nInfoParserRuleCall_2_1_0_0()); 
+	    }
+		lv_i18nInfo_4_0=ruleUiI18nInfo		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileSearchPanelRule());
+	        }
+       		set(
+       			$current, 
+       			"i18nInfo",
+        		lv_i18nInfo_4_0, 
+        		"UiI18nInfo");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getUiMobileSearchPanelAccess().getUnorderedGroup_2_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getUiMobileSearchPanelAccess().getUnorderedGroup_2_1(), 1)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getUiMobileSearchPanelAccess().getUnorderedGroup_2_1(), 1);
+	 				}
+					({true}?=>(	otherlv_5='styles' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getUiMobileSearchPanelAccess().getStylesKeyword_2_1_1_0());
+    }
+(
+(
+		lv_styles_6_0=RULE_STRING
+		{
+			newLeafNode(lv_styles_6_0, grammarAccess.getUiMobileSearchPanelAccess().getStylesSTRINGTerminalRuleCall_2_1_1_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiMobileSearchPanelRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"styles",
+        		lv_styles_6_0, 
+        		"STRING");
+	    }
+
+)
+)))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getUiMobileSearchPanelAccess().getUnorderedGroup_2_1());
+	 				}
+ 				)
+			)  
+
+		)*	
+	)
+)
+	{ 
+	  getUnorderedGroupHelper().leave(grammarAccess.getUiMobileSearchPanelAccess().getUnorderedGroup_2_1());
+	}
+
+)	otherlv_7=')' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getUiMobileSearchPanelAccess().getRightParenthesisKeyword_2_2());
+    }
+)?(
+(
+		lv_name_8_0=RULE_ID
+		{
+			newLeafNode(lv_name_8_0, grammarAccess.getUiMobileSearchPanelAccess().getNameIDTerminalRuleCall_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiMobileSearchPanelRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_8_0, 
+        		"ID");
+	    }
+
+)
+)?	otherlv_9='{' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getUiMobileSearchPanelAccess().getLeftCurlyBracketKeyword_4());
+    }
+	otherlv_10='type' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getUiMobileSearchPanelAccess().getTypeKeyword_5());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileSearchPanelAccess().getJvmTypeJvmTypeReferenceParserRuleCall_6_0()); 
+	    }
+		lv_jvmType_11_0=ruleJvmTypeReference		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileSearchPanelRule());
+	        }
+       		set(
+       			$current, 
+       			"jvmType",
+        		lv_jvmType_11_0, 
+        		"JvmTypeReference");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_12=';' 
+    {
+    	newLeafNode(otherlv_12, grammarAccess.getUiMobileSearchPanelAccess().getSemicolonKeyword_7());
+    }
+)?(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileSearchPanelAccess().getContentsUiSearchFieldParserRuleCall_8_0()); 
+	    }
+		lv_contents_13_0=ruleUiSearchField		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileSearchPanelRule());
+	        }
+       		add(
+       			$current, 
+       			"contents",
+        		lv_contents_13_0, 
+        		"UiSearchField");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileSearchPanelAccess().getBindingsUiBindingParserRuleCall_9_0()); 
+	    }
+		lv_bindings_14_0=ruleUiBinding		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileSearchPanelRule());
+	        }
+       		add(
+       			$current, 
+       			"bindings",
+        		lv_bindings_14_0, 
+        		"UiBinding");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileSearchPanelAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_10_0()); 
+	    }
+		lv_processorAssignments_15_0=ruleUiVisibilityProcessorAssignment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileSearchPanelRule());
+	        }
+       		add(
+       			$current, 
+       			"processorAssignments",
+        		lv_processorAssignments_15_0, 
+        		"UiVisibilityProcessorAssignment");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_16='}' 
+    {
+    	newLeafNode(otherlv_16, grammarAccess.getUiMobileSearchPanelAccess().getRightCurlyBracketKeyword_11());
     }
 )
 ;
@@ -6532,19 +7189,49 @@ ruleUiMobileNavigationPage returns [EObject current=null]
     {
     	newLeafNode(otherlv_12, grammarAccess.getUiMobileNavigationPageAccess().getSemicolonKeyword_5_2());
     }
-)?)?(
+)?)?(	otherlv_13='navbarActions' 
+    {
+    	newLeafNode(otherlv_13, grammarAccess.getUiMobileNavigationPageAccess().getNavbarActionsKeyword_6_0());
+    }
+	otherlv_14='{' 
+    {
+    	newLeafNode(otherlv_14, grammarAccess.getUiMobileNavigationPageAccess().getLeftCurlyBracketKeyword_6_1());
+    }
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiMobileNavigationPageAccess().getContentsUiMobileNavigationPageAssignmentParserRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getUiMobileNavigationPageAccess().getBarActionsUiMobileNavBarActionParserRuleCall_6_2_0()); 
 	    }
-		lv_contents_13_0=ruleUiMobileNavigationPageAssignment		{
+		lv_barActions_15_0=ruleUiMobileNavBarAction		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileNavigationPageRule());
+	        }
+       		add(
+       			$current, 
+       			"barActions",
+        		lv_barActions_15_0, 
+        		"UiMobileNavBarAction");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_16='}' 
+    {
+    	newLeafNode(otherlv_16, grammarAccess.getUiMobileNavigationPageAccess().getRightCurlyBracketKeyword_6_3());
+    }
+)?(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileNavigationPageAccess().getContentsUiMobileNavigationPageAssignmentParserRuleCall_7_0()); 
+	    }
+		lv_contents_17_0=ruleUiMobileNavigationPageAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileNavigationPageRule());
 	        }
        		add(
        			$current, 
        			"contents",
-        		lv_contents_13_0, 
+        		lv_contents_17_0, 
         		"UiMobileNavigationPageAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -6553,16 +7240,16 @@ ruleUiMobileNavigationPage returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiMobileNavigationPageAccess().getBindingsUiBindingParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getUiMobileNavigationPageAccess().getBindingsUiBindingParserRuleCall_8_0()); 
 	    }
-		lv_bindings_14_0=ruleUiBinding		{
+		lv_bindings_18_0=ruleUiBinding		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileNavigationPageRule());
 	        }
        		add(
        			$current, 
        			"bindings",
-        		lv_bindings_14_0, 
+        		lv_bindings_18_0, 
         		"UiBinding");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -6571,24 +7258,24 @@ ruleUiMobileNavigationPage returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiMobileNavigationPageAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_8_0()); 
+	        newCompositeNode(grammarAccess.getUiMobileNavigationPageAccess().getProcessorAssignmentsUiVisibilityProcessorAssignmentParserRuleCall_9_0()); 
 	    }
-		lv_processorAssignments_15_0=ruleUiVisibilityProcessorAssignment		{
+		lv_processorAssignments_19_0=ruleUiVisibilityProcessorAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiMobileNavigationPageRule());
 	        }
        		add(
        			$current, 
        			"processorAssignments",
-        		lv_processorAssignments_15_0, 
+        		lv_processorAssignments_19_0, 
         		"UiVisibilityProcessorAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_16='}' 
+)*	otherlv_20='}' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getUiMobileNavigationPageAccess().getRightCurlyBracketKeyword_9());
+    	newLeafNode(otherlv_20, grammarAccess.getUiMobileNavigationPageAccess().getRightCurlyBracketKeyword_10());
     }
 )
 ;
@@ -11751,6 +12438,26 @@ ruleUiMobileLayout returns [EObject current=null]
     this_UiMobileVerticalLayout_4=ruleUiMobileVerticalLayout
     { 
         $current = $this_UiMobileVerticalLayout_4.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileLayoutAccess().getUiMobileSearchPanelParserRuleCall_5()); 
+    }
+    this_UiMobileSearchPanel_5=ruleUiMobileSearchPanel
+    { 
+        $current = $this_UiMobileSearchPanel_5.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiMobileLayoutAccess().getUiMobileNavigationRootParserRuleCall_6()); 
+    }
+    this_UiMobileNavigationRoot_6=ruleUiMobileNavigationRoot
+    { 
+        $current = $this_UiMobileNavigationRoot_6.current; 
         afterParserOrEnumRuleCall();
     }
 )
