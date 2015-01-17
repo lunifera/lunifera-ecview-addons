@@ -4,8 +4,6 @@ import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -38,8 +36,6 @@ import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 import org.lunifera.ecview.semantic.uisemantics.UxBindingableOption;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxElementURI;
-import org.lunifera.ide.core.api.i18n.II18nRegistry;
-import org.lunifera.ide.core.ui.util.CoreUiUtil;
 
 @SuppressWarnings("all")
 public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentationProvider {
@@ -53,10 +49,10 @@ public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentation
   private BindableTypeProvider typeProvider;
   
   @Inject
-  private II18nRegistry i18nRegistry;
+  private /* II18nRegistry */Object i18nRegistry;
   
   @Inject
-  private CoreUiUtil util;
+  private /* CoreUiUtil */Object util;
   
   @Inject
   private IResourceDescriptions descriptions;
@@ -158,37 +154,22 @@ public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentation
   }
   
   protected String _getCustomDocumentation(final UiErrorCode object) {
-    final StringBuilder sb = new StringBuilder();
-    String _computeDocumentation = super.computeDocumentation(object);
-    sb.append(_computeDocumentation);
-    sb.append("<h3>I18n Info</h3>");
-    final String i18nKey = this._i18nKeyProvider.toI18nKey(object);
-    sb.append((("Key: " + i18nKey) + "<p>"));
-    String packageName = this.findPackage(object);
-    IProject javaProject = this.util.getProject(object);
-    IProject _project = javaProject.getProject();
-    Locale _locale = this.util.getLocale();
-    final List<II18nRegistry.Proposal> proposals = this.i18nRegistry.findStrictKeyMatchingProposals(_project, _locale, packageName, i18nKey);
-    CharSequence _i18nLocaleDocumentation = this.getI18nLocaleDocumentation(proposals);
-    String _string = _i18nLocaleDocumentation.toString();
-    sb.append(_string);
-    return sb.toString();
+    throw new Error("Unresolved compilation problems:"
+      + "\nProposal cannot be resolved to a type."
+      + "\ngetProject cannot be resolved"
+      + "\nfindStrictKeyMatchingProposals cannot be resolved"
+      + "\nlocale cannot be resolved");
   }
   
   /**
    * Returns the default i18n docu for an named element.
    */
   public String getI18nDefaultDocumentation(final UiNamedElement model) {
-    IProject javaProject = this.util.getProject(model);
-    final String i18nKey = this._i18nKeyProvider.toI18nKey(model);
-    String packageName = this.findPackage(model);
-    IProject _project = javaProject.getProject();
-    Locale _locale = this.util.getLocale();
-    final List<II18nRegistry.Proposal> proposals = this.i18nRegistry.findStrictKeyMatchingProposals(_project, _locale, packageName, i18nKey);
-    String result = (("Key: " + i18nKey) + "<p>");
-    CharSequence _i18nLocaleDocumentation = this.getI18nLocaleDocumentation(proposals);
-    String _string = _i18nLocaleDocumentation.toString();
-    return (result + _string);
+    throw new Error("Unresolved compilation problems:"
+      + "\nProposal cannot be resolved to a type."
+      + "\ngetProject cannot be resolved"
+      + "\nfindStrictKeyMatchingProposals cannot be resolved"
+      + "\nlocale cannot be resolved");
   }
   
   protected String _getCustomDocumentation(final UiBeanSlot object) {
@@ -280,22 +261,11 @@ public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentation
   }
   
   protected String _getCustomDocumentation(final UiI18nInfo model) {
-    IProject javaProject = this.util.getProject(model);
-    String _xifexpression = null;
-    String _key = model.getKey();
-    boolean _startsWith = _key.startsWith(".");
-    if (_startsWith) {
-      _xifexpression = this.findPackage(model);
-    } else {
-      _xifexpression = null;
-    }
-    String packageName = _xifexpression;
-    IProject _project = javaProject.getProject();
-    Locale _locale = this.util.getLocale();
-    String _key_1 = model.getKey();
-    final List<II18nRegistry.Proposal> proposals = this.i18nRegistry.findStrictKeyMatchingProposals(_project, _locale, packageName, _key_1);
-    CharSequence _i18nLocaleDocumentation = this.getI18nLocaleDocumentation(proposals);
-    return _i18nLocaleDocumentation.toString();
+    throw new Error("Unresolved compilation problems:"
+      + "\nProposal cannot be resolved to a type."
+      + "\ngetProject cannot be resolved"
+      + "\nfindStrictKeyMatchingProposals cannot be resolved"
+      + "\nlocale cannot be resolved");
   }
   
   /**
@@ -320,75 +290,12 @@ public class UiGrammarHoverDocumentationProvider extends XbaseHoverDocumentation
     return "";
   }
   
-  public CharSequence getI18nLocaleDocumentation(final List<II18nRegistry.Proposal> proposals) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<table width=\"100%\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<colgroup>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<col width=\"1*\">");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<col width=\"3*\">");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<col width=\"6*\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("</colgroup>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<tr>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<th align=\"left\">Locale</th>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<th align=\"left\">Value</th>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<th align=\"left\">I18n Key</th>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("</tr>");
-    _builder.newLine();
-    {
-      for(final II18nRegistry.Proposal proposal : proposals) {
-        _builder.append("\t");
-        _builder.append("<tr>");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append("\t");
-        _builder.append("<td>");
-        Locale _locale = proposal.getLocale();
-        String _languageTag = _locale.toLanguageTag();
-        _builder.append(_languageTag, "\t\t");
-        _builder.append("</td> ");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("\t");
-        _builder.append("<td>");
-        String _i18nValue = proposal.getI18nValue();
-        _builder.append(_i18nValue, "\t\t");
-        _builder.append("</td>");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("\t");
-        _builder.append("<td>");
-        String _i18nKey = proposal.getI18nKey();
-        _builder.append(_i18nKey, "\t\t");
-        _builder.append("</td>");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("</tr>");
-        _builder.newLine();
-      }
-    }
-    _builder.append("</table>");
-    _builder.newLine();
-    return _builder;
+  public CharSequence getI18nLocaleDocumentation(final /* List<Proposal> */Object proposals) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nlocale cannot be resolved"
+      + "\ntoLanguageTag cannot be resolved"
+      + "\ni18nValue cannot be resolved"
+      + "\ni18nKey cannot be resolved");
   }
   
   protected String _getCustomDocumentation(final UxBindingableOption object) {
