@@ -199,6 +199,10 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 			c.setNoSpace().before(kw);
 			c.setNoSpace().after(kw);
 		}
+		for (Keyword kw : ga.findKeywords("..")) {
+			c.setNoSpace().before(kw);
+			c.setNoSpace().after(kw);
+		}
 		for (Keyword kw : ga.findKeywords(":")) {
 			c.setNoSpace().before(kw);
 			c.setNoSpace().after(kw);
