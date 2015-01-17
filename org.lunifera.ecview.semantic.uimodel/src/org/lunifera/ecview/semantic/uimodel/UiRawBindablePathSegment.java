@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment#getRawBindable <em>Raw Bindable</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment#getPath <em>Path</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment#isToParent <em>To Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,6 +74,32 @@ public interface UiRawBindablePathSegment extends EObject {
 	 * @generated
 	 */
 	void setPath(UiRawBindablePathSegment value);
+
+	/**
+	 * Returns the value of the '<em><b>To Parent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>To Parent</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>To Parent</em>' attribute.
+	 * @see #setToParent(boolean)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiRawBindablePathSegment_ToParent()
+	 * @model
+	 * @generated
+	 */
+	boolean isToParent();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment#isToParent <em>To Parent</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>To Parent</em>' attribute.
+	 * @see #isToParent()
+	 * @generated
+	 */
+	void setToParent(boolean value);
 
 	/**
 	 * Returns the raw bindable for the last segment of the path.

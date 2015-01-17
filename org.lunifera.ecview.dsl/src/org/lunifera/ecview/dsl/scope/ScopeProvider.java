@@ -19,6 +19,7 @@ import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTable;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
+import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperty;
 import org.lunifera.ecview.semantic.uimodel.impl.UiPathSegmentImpl;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
@@ -96,7 +97,20 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 		} else if (reference == UiModelPackage.Literals.UI_OPTIONS_GROUP__ITEM_IMAGE_PROPERTY) {
 			return createJvmOperationScope(context);
 		}
-		return super.getScope(context, reference);
+		return super.getScope(getView(context), reference);
+	}
+
+	private UiView getView(EObject eObject) {
+		if (eObject == null) {
+			return null;
+		}
+
+		if (eObject instanceof UiView) {
+			return (UiView) eObject;
+		}
+
+		return getView(eObject.eContainer());
+
 	}
 
 	/**

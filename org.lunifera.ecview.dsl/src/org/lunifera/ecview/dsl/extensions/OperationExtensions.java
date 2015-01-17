@@ -37,7 +37,7 @@ public class OperationExtensions {
 		}
 		return tempName;
 	}
-	
+
 	public static boolean isGetter(String simpleName) {
 		if (simpleName == null) {
 			return false;
@@ -88,7 +88,17 @@ public class OperationExtensions {
 			}
 
 			String propertyName = toPropertyName(operation.getSimpleName());
+			if(propertyName == null){
+				continue;
+			}
+			
 			if (filterName != null && !filterName.equals(propertyName)) {
+				continue;
+			}
+			
+			// TODO Pirchner - Find a solution for it
+			if (propertyName.equals("disposed") || propertyName.equals("id")
+					|| propertyName.equals("uuid")) {
 				continue;
 			}
 
@@ -123,11 +133,11 @@ public class OperationExtensions {
 				info.readonly = true;
 			}
 		}
-		
+
 		for (JvmField field : type.getDeclaredFields()) {
 			String id = calcFieldId(field.getDeclaringType(),
 					field.getSimpleName());
-			if(infos.containsKey(id)){
+			if (infos.containsKey(id)) {
 				OperationInfo info = infos.get(id);
 				info.setField(field);
 			}
@@ -150,7 +160,7 @@ public class OperationExtensions {
 
 		return declaringType.getQualifiedName() + ":" + tempName;
 	}
-	
+
 	/**
 	 * Normalizes the name.
 	 * 
@@ -158,7 +168,8 @@ public class OperationExtensions {
 	 * @param simpleName
 	 * @return
 	 */
-	public static String calcFieldId(JvmDeclaredType declaringType, String simpleName) {
+	public static String calcFieldId(JvmDeclaredType declaringType,
+			String simpleName) {
 		return declaringType.getQualifiedName() + ":" + simpleName;
 	}
 

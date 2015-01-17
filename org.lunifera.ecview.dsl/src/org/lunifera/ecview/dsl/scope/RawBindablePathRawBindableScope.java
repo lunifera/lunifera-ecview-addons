@@ -32,6 +32,8 @@ public class RawBindablePathRawBindableScope extends AbstractScope {
 	@Override
 	protected Iterable<IEObjectDescription> getAllLocalElements() {
 		if (context instanceof UiRawBindablePathSegment) {
+			UiRawBindablePathSegment pathSegment = (UiRawBindablePathSegment) context;
+
 			EObject expected = null;
 			EObject parent = context.eContainer();
 			if (parent instanceof UiTypedBindableDef) {
@@ -42,13 +44,59 @@ public class RawBindablePathRawBindableScope extends AbstractScope {
 				expected = ((UiTypedBindableRawType) parent).getRawBindable();
 			}
 
-			List<IEObjectDescription> result = collectRawBindables(expected);
+			List<IEObjectDescription> result = null;
+			if (!pathSegment.isToParent()) {
+				result = collectRawBindables(expected);
+			} else {
+				result = new ArrayList<IEObjectDescription>(1);
+				IEObjectDescription bindableResult = findValidRawBindableInParent(expected.eContainer());
+				if (bindableResult != null) {
+					result.add(bindableResult);
+				}
+			}
 			return result;
 		}
 
 		return Collections.emptyList();
 	}
 
+	/**
+	 * Iterate the eContainers() up to root to find a raw bindable.
+	 * 
+	 * @param expected
+	 * @return
+	 */
+	private IEObjectDescription findValidRawBindableInParent(EObject expected) {
+
+		UiRawBindable result = findInParent(expected);
+		if (result != null) {
+			return EObjectDescription.create(
+					((UiRawBindable) result).getName(), result);
+		} else {
+			return null;
+		}
+
+	}
+
+	private UiRawBindable findInParent(EObject expected) {
+		if (expected == null) {
+			return null;
+		}
+
+		if (expected instanceof UiRawBindable
+				&& isValid(((UiRawBindable) expected).getName())) {
+			return (UiRawBindable) expected;
+		}
+
+		return findInParent(expected.eContainer());
+	}
+
+	/**
+	 * Iterate the structure down to find raw bindables.
+	 * 
+	 * @param container
+	 * @return
+	 */
 	protected List<IEObjectDescription> collectRawBindables(EObject container) {
 		List<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 		for (EObject object : container.eContents()) {

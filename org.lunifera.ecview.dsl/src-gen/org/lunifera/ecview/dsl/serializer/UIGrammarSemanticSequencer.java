@@ -2713,7 +2713,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (rawBindable=[UiRawBindable|ID] path=UiRawBindablePathSegment?)
+	 *     (toParent?='..'? rawBindable=[UiRawBindable|ID] path=UiRawBindablePathSegment?)
 	 */
 	protected void sequence_UiRawBindablePathSegment(EObject context, UiRawBindablePathSegment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -1627,6 +1627,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUiRawBindablePathSegment_ToParent() {
+		return (EAttribute)uiRawBindablePathSegmentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiTypedBindable() {
 		return uiTypedBindableEClass;
 	}
@@ -3878,6 +3887,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiRawBindablePathSegmentEClass = createEClass(UI_RAW_BINDABLE_PATH_SEGMENT);
 		createEReference(uiRawBindablePathSegmentEClass, UI_RAW_BINDABLE_PATH_SEGMENT__RAW_BINDABLE);
 		createEReference(uiRawBindablePathSegmentEClass, UI_RAW_BINDABLE_PATH_SEGMENT__PATH);
+		createEAttribute(uiRawBindablePathSegmentEClass, UI_RAW_BINDABLE_PATH_SEGMENT__TO_PARENT);
 
 		uiTypedBindableEClass = createEClass(UI_TYPED_BINDABLE);
 
@@ -4485,6 +4495,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiRawBindablePathSegmentEClass, UiRawBindablePathSegment.class, "UiRawBindablePathSegment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiRawBindablePathSegment_RawBindable(), this.getUiRawBindable(), null, "rawBindable", null, 0, 1, UiRawBindablePathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiRawBindablePathSegment_Path(), this.getUiRawBindablePathSegment(), null, "path", null, 0, 1, UiRawBindablePathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiRawBindablePathSegment_ToParent(), ecorePackage.getEBoolean(), "toParent", null, 0, 1, UiRawBindablePathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiTypedBindableEClass, UiTypedBindable.class, "UiTypedBindable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

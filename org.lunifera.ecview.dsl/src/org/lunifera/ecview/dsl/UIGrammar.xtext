@@ -70,7 +70,7 @@ UiTypedBindableRawTypeAlias:
 
 UiRawBindablePathSegment:
 	{UiRawBindablePathSegment}
-	'.' rawBindable=[UiRawBindable] (path=UiRawBindablePathSegment)?;
+	('.' | toParent?='..') rawBindable=[UiRawBindable] (path=UiRawBindablePathSegment)?;
 
 UiCommandBindableDef returns UiCommandBindableDef:
 	{UiCommandBindableDef}

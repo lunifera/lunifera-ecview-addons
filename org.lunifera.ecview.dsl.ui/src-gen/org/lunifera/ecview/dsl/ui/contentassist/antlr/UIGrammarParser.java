@@ -40,6 +40,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiRootElementsAccess().getAlternatives(), "rule__UiRootElements__Alternatives");
 					put(grammarAccess.getUiValidatorAssignmentAccess().getAlternatives_3(), "rule__UiValidatorAssignment__Alternatives_3");
 					put(grammarAccess.getUiBindingEndpointAssignmentAccess().getAlternatives(), "rule__UiBindingEndpointAssignment__Alternatives");
+					put(grammarAccess.getUiRawBindablePathSegmentAccess().getAlternatives_1(), "rule__UiRawBindablePathSegment__Alternatives_1");
 					put(grammarAccess.getUiCommandAccess().getAlternatives(), "rule__UiCommand__Alternatives");
 					put(grammarAccess.getUiIDEViewAccess().getAlternatives_4(), "rule__UiIDEView__Alternatives_4");
 					put(grammarAccess.getUiIDEViewAccess().getAlternatives_7(), "rule__UiIDEView__Alternatives_7");
@@ -567,6 +568,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiTypedBindableRawTypeAccess().getRawBindablePathAssignment_3(), "rule__UiTypedBindableRawType__RawBindablePathAssignment_3");
 					put(grammarAccess.getUiTypedBindableRawTypeAliasAccess().getTypeAssignment_1(), "rule__UiTypedBindableRawTypeAlias__TypeAssignment_1");
 					put(grammarAccess.getUiTypedBindableRawTypeAliasAccess().getAliasAssignment_3(), "rule__UiTypedBindableRawTypeAlias__AliasAssignment_3");
+					put(grammarAccess.getUiRawBindablePathSegmentAccess().getToParentAssignment_1_1(), "rule__UiRawBindablePathSegment__ToParentAssignment_1_1");
 					put(grammarAccess.getUiRawBindablePathSegmentAccess().getRawBindableAssignment_2(), "rule__UiRawBindablePathSegment__RawBindableAssignment_2");
 					put(grammarAccess.getUiRawBindablePathSegmentAccess().getPathAssignment_3(), "rule__UiRawBindablePathSegment__PathAssignment_3");
 					put(grammarAccess.getUiCommandBindableDefAccess().getCommandAssignment_1(), "rule__UiCommandBindableDef__CommandAssignment_1");

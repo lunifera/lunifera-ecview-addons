@@ -5203,6 +5203,30 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__UiRawBindablePathSegment__Alternatives_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUiRawBindablePathSegmentAccess().getFullStopKeyword_1_0()); }
+
+	'.' 
+
+{ after(grammarAccess.getUiRawBindablePathSegmentAccess().getFullStopKeyword_1_0()); }
+)
+
+    |(
+{ before(grammarAccess.getUiRawBindablePathSegmentAccess().getToParentAssignment_1_1()); }
+(rule__UiRawBindablePathSegment__ToParentAssignment_1_1)
+{ after(grammarAccess.getUiRawBindablePathSegmentAccess().getToParentAssignment_1_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__UiCommand__Alternatives
     @init {
 		int stackSize = keepStackSize();
@@ -10095,11 +10119,9 @@ rule__UiRawBindablePathSegment__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getUiRawBindablePathSegmentAccess().getFullStopKeyword_1()); }
-
-	'.' 
-
-{ after(grammarAccess.getUiRawBindablePathSegmentAccess().getFullStopKeyword_1()); }
+{ before(grammarAccess.getUiRawBindablePathSegmentAccess().getAlternatives_1()); }
+(rule__UiRawBindablePathSegment__Alternatives_1)
+{ after(grammarAccess.getUiRawBindablePathSegmentAccess().getAlternatives_1()); }
 )
 
 ;
@@ -54973,6 +54995,29 @@ rule__UiTypedBindableRawTypeAlias__AliasAssignment_3
 (
 { before(grammarAccess.getUiTypedBindableRawTypeAliasAccess().getAliasIDTerminalRuleCall_3_0()); }
 	RULE_ID{ after(grammarAccess.getUiTypedBindableRawTypeAliasAccess().getAliasIDTerminalRuleCall_3_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UiRawBindablePathSegment__ToParentAssignment_1_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUiRawBindablePathSegmentAccess().getToParentFullStopFullStopKeyword_1_1_0()); }
+(
+{ before(grammarAccess.getUiRawBindablePathSegmentAccess().getToParentFullStopFullStopKeyword_1_1_0()); }
+
+	'..' 
+
+{ after(grammarAccess.getUiRawBindablePathSegmentAccess().getToParentFullStopFullStopKeyword_1_1_0()); }
+)
+
+{ after(grammarAccess.getUiRawBindablePathSegmentAccess().getToParentFullStopFullStopKeyword_1_1_0()); }
 )
 
 ;

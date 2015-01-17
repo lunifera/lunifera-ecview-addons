@@ -11,8 +11,17 @@ element TextField {
 	uri view:UiTextField
 	
 	bindings {
+		/**
+		 * Value property of the UI element.
+		 */
 		endpoint value String
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
 	}
 	
@@ -25,8 +34,17 @@ element TextArea {
 	uri view:UiTextArea
 	
 	bindings {
+		/**
+		 * Value property of the UI element.
+		 */
 		endpoint value String
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
 	}
 	
@@ -39,8 +57,17 @@ element DateField {
 	uri view:UiDateField
 	
 	bindings {
+		/**
+		 * Value property of the UI element.
+		 */
 		endpoint value String
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
 	}
 	
@@ -55,8 +82,17 @@ element Label {
 	uri view:UiLabel
 	
 	bindings {
+		/**
+		 * Value property of the UI element.
+		 */
 		endpoint value String
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
 	}
 	 
@@ -69,8 +105,17 @@ element Image {
 	uri view:UiImage
 	
 	bindings {
+		/**
+		 * Value property of the UI element.
+		 */
 		endpoint value String
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
 	}
 
@@ -80,8 +125,17 @@ element CheckBox {
 	uri view:UiCheckBox
 	
 	bindings {
+		/**
+		 * Value property of the UI element.
+		 */
 		endpoint value Boolean
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
 	}
 	
@@ -94,8 +148,18 @@ element Button {
 	uri view:UiButton
 	 
 	bindings {
-		endpoint click Long target lastClickTime
+		/**
+		 * If the ui element is clicked, it will return
+		 * the clicktime in milliseconds.
+		 */
+		endpoint onClick Long target lastClickTime
+		/**
+		 * Enabled property of the UI element.
+		 */
 		endpoint enabled Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
 	}
 	
@@ -108,8 +172,18 @@ element MobileNavigationBarAction {
 	uri view:UiMobileNavBarAction
 	 
 	bindings {
-		endpoint click Long target lastClickTime
+		/**
+		 * If the ui element is clicked, it will return
+		 * the clicktime in milliseconds.
+		 */
+		endpoint onClick Long target lastClickTime
+		/**
+		 * Enabled property of the UI element.
+		 */
 		endpoint enabled Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
 	}
 	
@@ -122,9 +196,21 @@ element NumericField {
 	uri view:UiNumericField
 	
 	bindings {
+		/**
+		 * Value property of the UI element.
+		 */
 		endpoint value Integer
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Enabled property of the UI element.
+		 */
 		endpoint enabled Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
 	}
 	
@@ -137,9 +223,21 @@ element DecimalField {
 	uri view:UiDecimalField
 	
 	bindings {
+		/**
+		 * Value property of the UI element.
+		 */
 		endpoint value Double
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
+		/**
+		 * Locale property of the UI element.
+		 */
 		endpoint locale Locale
 	}
 	
@@ -152,10 +250,27 @@ element List {
 	uri view:UiList
 	
 	bindings {
+		/**
+		 * Returns the selected entry.
+		 * Only available in singleselection mode.
+		 */
 		final endpoint selection Object
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
+		/**
+		 * Returns the collection of list entries.
+		 */
 		list endpoint collection Object
+		/**
+		 * Returns the collection of multi selections.
+		 * Only available in multiselection mode.
+		 */
 		endpoint multiSelection Object
 	}
 
@@ -168,11 +283,39 @@ element Table {
 	uri view:UiTable
 	
 	bindings {
+		/**
+		 * Returns the selected entry.
+		 * Only available in singleselection mode.
+		 */
 		final endpoint selection Object
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
+		
+		/**
+		 * If any value is sent to this property, the table will become refreshed.
+		 */
+		endpoint refresh void
+		
+		/**
+		 * Returns the collection of list entries.
+		 */
 		list endpoint collection Object
+		/**
+		 * Returns the collection of multi selections.
+		 * Only available in multiselection mode.
+		 */
 		endpoint multiSelection Object
+		/**
+		 * The filter property for the table. 
+		 * Filters can be applied to tables. As an input you may use a 
+		 * binding to FilterPanel#filter 
+		 */
 		endpoint filter Object
 	}
 
@@ -185,10 +328,27 @@ element OptionsGroup {
 	uri view:UiOptionsGroup
 	
 	bindings {
+		/**
+		 * Returns the selected entry.
+		 * Only available in singleselection mode.
+		 */
 		final endpoint selection Object
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
+		/**
+		 * Returns the collection of list entries.
+		 */
 		list endpoint collection Object
+		/**
+		 * Returns the collection of multi selections.
+		 * Only available in multiselection mode.
+		 */
 		endpoint multiSelection Object
 	}
 
@@ -202,9 +362,21 @@ element ComboBox {
 	uri view:UiComboBox
 	 
 	bindings {
+		/**
+		 * Returns the selected entry.
+		 */
 		final endpoint selection Object
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
+		/**
+		 * Returns the collection of list entries.
+		 */
 		list endpoint collection Object
 	}
 
@@ -213,12 +385,32 @@ element ComboBox {
 	}
 }
 
-
+/**
+ * A mobile navigation page.
+ */
 element MobileNavigationPage {   
 	uri view:UiMobileNavigationPage
-	  
+
 	bindings {
-		final endpoint value Object
+		/**
+		 * Returns the input value of the navigation page
+		 */
+		final /**
+		 * Value property of the UI element.
+		 */
+		endpoint value Object
+		
+		/**
+		 * If any object is set to this property, the navigation page
+		 * will navigate back.
+		 */
+		final endpoint navigateBack void
+		
+		/**
+		 * If the navigation page is closed, it will return
+		 * the clicktime in milliseconds.
+		 */
+		endpoint onNavigateBack Long
 	}
 
 	validator {
@@ -230,8 +422,17 @@ element GridLayout {
 	uri view:UiGridLayout
 	
 	bindings {
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
+		/**
+		 * The number of columns in the GridLayout.
+		 */
 		endpoint columns Integer
 	}
 	
@@ -241,8 +442,18 @@ element Dialog {
 	uri view:UiDialog
 	
 	bindings {
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
+		/**
+		 * Input value property of the UI element.
+		 * Every dialog needs to become passed an input value.
+		 */
 		endpoint value Object
 	}
 	
@@ -252,7 +463,13 @@ element VerticalLayout {
 	uri view:UiVerticalLayout
 	
 	bindings {
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
 	}
 	
@@ -262,7 +479,13 @@ element VerticalGroup {
 	uri view:UiVerticalComponentGroup
 	
 	bindings {
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
 	}
 	
@@ -272,6 +495,9 @@ element SearchField {
 	uri view:UiSearchField
 	
 	bindings {
+		/**
+		 * Value property of the UI element.
+		 */
 		endpoint value String
 	}
 	
@@ -281,7 +507,13 @@ element Form {
 	uri view:UiFormLayout
 	
 	bindings {
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
 	}
 	
@@ -291,7 +523,13 @@ element VerticalGroup {
 	uri view:UiVerticalComponentGroup
 	
 	bindings {
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
 	}
 	
@@ -301,8 +539,17 @@ element Switch {
 	uri view:UiSwitch
 	
 	bindings {
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
+		/**
+		 * Value property of the UI element.
+		 */
 		endpoint value Boolean
 	}
 	
@@ -312,8 +559,17 @@ element ProgressBar {
 	uri view:UiProgressBar
 	
 	bindings {
+		/**
+		 * Value property of the UI element.
+		 */
 		endpoint value float
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
 	}
 }
@@ -386,8 +642,17 @@ element BeanReferenceField {
 	uri view:UiBeanReferenceField
 	
 	bindings {
+		/**
+		 * Value property of the UI element.
+		 */
 		endpoint value Object
+		/**
+		 * Editable property of the UI element.
+		 */
 		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
 		endpoint visible Boolean
 	}
 }

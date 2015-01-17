@@ -594,19 +594,25 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     };
     IterableExtensions.<Runnable>forEach(this.pendingMappings, _function_5);
     this.processBindings();
-    final Procedure1<Runnable> _function_6 = new Procedure1<Runnable>() {
+    final Procedure1<UiLayout> _function_6 = new Procedure1<UiLayout>() {
+      public void apply(final UiLayout it) {
+        UiModelDerivedStateComputerx.this.doAutowire(it);
+      }
+    };
+    IterableExtensions.<UiLayout>forEach(this.pendingAutowires, _function_6);
+    final Procedure1<Runnable> _function_7 = new Procedure1<Runnable>() {
       public void apply(final Runnable it) {
         it.run();
       }
     };
-    IterableExtensions.<Runnable>forEach(this.pendingMappings, _function_6);
+    IterableExtensions.<Runnable>forEach(this.pendingMappings, _function_7);
     EList<UiValidatorAssignment> _validatorAssignments = object.getValidatorAssignments();
-    final Procedure1<UiValidatorAssignment> _function_7 = new Procedure1<UiValidatorAssignment>() {
+    final Procedure1<UiValidatorAssignment> _function_8 = new Procedure1<UiValidatorAssignment>() {
       public void apply(final UiValidatorAssignment it) {
         UiModelDerivedStateComputerx.this.map(it);
       }
     };
-    IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_7);
+    IterableExtensions.<UiValidatorAssignment>forEach(_validatorAssignments, _function_8);
     this.<Object>pop();
     this.currentView = null;
   }

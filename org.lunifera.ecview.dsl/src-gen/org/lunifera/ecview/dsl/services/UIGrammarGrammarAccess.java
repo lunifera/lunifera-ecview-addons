@@ -741,7 +741,10 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiRawBindablePathSegment");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cUiRawBindablePathSegmentAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
+		private final Assignment cToParentAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final Keyword cToParentFullStopFullStopKeyword_1_1_0 = (Keyword)cToParentAssignment_1_1.eContents().get(0);
 		private final Assignment cRawBindableAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cRawBindableUiRawBindableCrossReference_2_0 = (CrossReference)cRawBindableAssignment_2.eContents().get(0);
 		private final RuleCall cRawBindableUiRawBindableIDTerminalRuleCall_2_0_1 = (RuleCall)cRawBindableUiRawBindableCrossReference_2_0.eContents().get(1);
@@ -749,17 +752,26 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPathUiRawBindablePathSegmentParserRuleCall_3_0 = (RuleCall)cPathAssignment_3.eContents().get(0);
 		
 		//UiRawBindablePathSegment:
-		//	{UiRawBindablePathSegment} "." rawBindable=[UiRawBindable] path=UiRawBindablePathSegment?;
+		//	{UiRawBindablePathSegment} ("." | toParent?="..") rawBindable=[UiRawBindable] path=UiRawBindablePathSegment?;
 		public ParserRule getRule() { return rule; }
 
-		//{UiRawBindablePathSegment} "." rawBindable=[UiRawBindable] path=UiRawBindablePathSegment?
+		//{UiRawBindablePathSegment} ("." | toParent?="..") rawBindable=[UiRawBindable] path=UiRawBindablePathSegment?
 		public Group getGroup() { return cGroup; }
 
 		//{UiRawBindablePathSegment}
 		public Action getUiRawBindablePathSegmentAction_0() { return cUiRawBindablePathSegmentAction_0; }
 
+		//"." | toParent?=".."
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+
 		//"."
-		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+
+		//toParent?=".."
+		public Assignment getToParentAssignment_1_1() { return cToParentAssignment_1_1; }
+
+		//".."
+		public Keyword getToParentFullStopFullStopKeyword_1_1_0() { return cToParentFullStopFullStopKeyword_1_1_0; }
 
 		//rawBindable=[UiRawBindable]
 		public Assignment getRawBindableAssignment_2() { return cRawBindableAssignment_2; }
@@ -8413,7 +8425,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiRawBindablePathSegment:
-	//	{UiRawBindablePathSegment} "." rawBindable=[UiRawBindable] path=UiRawBindablePathSegment?;
+	//	{UiRawBindablePathSegment} ("." | toParent?="..") rawBindable=[UiRawBindable] path=UiRawBindablePathSegment?;
 	public UiRawBindablePathSegmentElements getUiRawBindablePathSegmentAccess() {
 		return pUiRawBindablePathSegment;
 	}

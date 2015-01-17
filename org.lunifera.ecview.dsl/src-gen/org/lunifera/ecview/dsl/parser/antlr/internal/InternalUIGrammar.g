@@ -1243,20 +1243,36 @@ ruleUiRawBindablePathSegment returns [EObject current=null]
             grammarAccess.getUiRawBindablePathSegmentAccess().getUiRawBindablePathSegmentAction_0(),
             $current);
     }
-)	otherlv_1='.' 
+)(	otherlv_1='.' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getUiRawBindablePathSegmentAccess().getFullStopKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getUiRawBindablePathSegmentAccess().getFullStopKeyword_1_0());
     }
+
+    |(
 (
+		lv_toParent_2_0=	'..' 
+    {
+        newLeafNode(lv_toParent_2_0, grammarAccess.getUiRawBindablePathSegmentAccess().getToParentFullStopFullStopKeyword_1_1_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiRawBindablePathSegmentRule());
+	        }
+       		setWithLastConsumed($current, "toParent", true, "..");
+	    }
+
+)
+))(
 (
 		{
 			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getUiRawBindablePathSegmentRule());
 	        }
         }
-	otherlv_2=RULE_ID
+	otherlv_3=RULE_ID
 	{
-		newLeafNode(otherlv_2, grammarAccess.getUiRawBindablePathSegmentAccess().getRawBindableUiRawBindableCrossReference_2_0()); 
+		newLeafNode(otherlv_3, grammarAccess.getUiRawBindablePathSegmentAccess().getRawBindableUiRawBindableCrossReference_2_0()); 
 	}
 
 )
@@ -1265,14 +1281,14 @@ ruleUiRawBindablePathSegment returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getUiRawBindablePathSegmentAccess().getPathUiRawBindablePathSegmentParserRuleCall_3_0()); 
 	    }
-		lv_path_3_0=ruleUiRawBindablePathSegment		{
+		lv_path_4_0=ruleUiRawBindablePathSegment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiRawBindablePathSegmentRule());
 	        }
        		set(
        			$current, 
        			"path",
-        		lv_path_3_0, 
+        		lv_path_4_0, 
         		"UiRawBindablePathSegment");
 	        afterParserOrEnumRuleCall();
 	    }

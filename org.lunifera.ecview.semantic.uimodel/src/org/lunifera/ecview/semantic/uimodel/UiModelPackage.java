@@ -1722,13 +1722,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_RAW_BINDABLE_PATH_SEGMENT__PATH = 1;
 
 	/**
+	 * The feature id for the '<em><b>To Parent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_RAW_BINDABLE_PATH_SEGMENT__TO_PARENT = 2;
+
+	/**
 	 * The number of structural features of the '<em>Ui Raw Bindable Path Segment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_RAW_BINDABLE_PATH_SEGMENT_FEATURE_COUNT = 2;
+	int UI_RAW_BINDABLE_PATH_SEGMENT_FEATURE_COUNT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -10013,6 +10022,17 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiRawBindablePathSegment_Path();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment#isToParent <em>To Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>To Parent</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment#isToParent()
+	 * @see #getUiRawBindablePathSegment()
+	 * @generated
+	 */
+	EAttribute getUiRawBindablePathSegment_ToParent();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiEmbeddable <em>Ui Embeddable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13061,6 +13081,14 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_RAW_BINDABLE_PATH_SEGMENT__PATH = eINSTANCE.getUiRawBindablePathSegment_Path();
+
+		/**
+		 * The meta object literal for the '<em><b>To Parent</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_RAW_BINDABLE_PATH_SEGMENT__TO_PARENT = eINSTANCE.getUiRawBindablePathSegment_ToParent();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiEmbeddable <em>Ui Embeddable</em>}' class.

@@ -93,6 +93,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiRawBindablePathSegment
     Reference rawBindable : UiRawBindable
     Reference path : UiRawBindablePathSegment
+    Attribute toParent : EBoolean
 
   Class UiTypedBindable -> UiNamedElement
 

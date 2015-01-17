@@ -406,6 +406,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		// install all bindings
 		processBindings
 		
+		// and do autowire again -> Bindings may installed autowires
+		pendingAutowires.forEach [
+			it.doAutowire
+		]
+		
 		pendingMappings.forEach[
 			it.run
 		]
