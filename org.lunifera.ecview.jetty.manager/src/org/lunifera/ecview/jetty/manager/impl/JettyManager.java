@@ -40,7 +40,7 @@ public class JettyManager implements IJettyManager {
 
 	public static final java.lang.String HTTP_PORT = "http.port";
 	public static final java.lang.String OTHER_INFO = "other.info";
-	
+
 	public static final String CONTEXT_TEMPDIR = "javax.servlet.context.tempdir"; //$NON-NLS-1$
 	private static final String DIR_PREFIX = "application"; //$NON-NLS-1$
 	private static final String INTERNAL_CONTEXT_CLASSLOADER = "org.eclipse.equinox.http.jetty.internal.ContextClassLoader"; //$NON-NLS-1$
@@ -133,8 +133,7 @@ public class JettyManager implements IJettyManager {
 		holder.setInitParameter(Constants.SERVICE_DESCRIPTION,
 				"ECView" + contextPath); //$NON-NLS-1$
 		holder.setInitParameter(PROP_SERVICE_TYPE, serviceType);
-		holder.setInitParameter(HTTP_PORT,
-				Integer.toString(port));
+		holder.setInitParameter(HTTP_PORT, Integer.toString(port));
 		holder.setInitParameter(OTHER_INFO, contextPath);
 		ServletContextHandler httpContext = createHttpContext(contextPath);
 
