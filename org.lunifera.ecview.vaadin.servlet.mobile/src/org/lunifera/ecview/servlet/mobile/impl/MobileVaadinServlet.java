@@ -15,6 +15,9 @@ import javax.servlet.ServletException;
 import com.vaadin.addon.touchkit.server.TouchKitServlet;
 import com.vaadin.addon.touchkit.settings.TouchKitSettings;
 import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.server.DeploymentConfiguration;
+import com.vaadin.server.ServiceException;
+import com.vaadin.server.VaadinServletService;
 
 /**
  * An implementation of VaadinServlet that uses SimpleUI as its base UI.
@@ -30,6 +33,17 @@ public class MobileVaadinServlet extends TouchKitServlet {
 		TouchKitSettings s = getTouchKitSettings();
 		s.getWebAppSettings().setWebAppCapable(true);
 		s.getWebAppSettings().setStatusBarStyle("black");
+	}
+	
+	@Override
+	protected VaadinServletService createServletService(
+			DeploymentConfiguration deploymentConfiguration)
+			throws ServiceException {
+		// see http://dev.vaadin.com/ticket/15516
+		ServletService service = new ServletService(this,
+				deploymentConfiguration);
+		service.init();
+		return service;
 	}
 
 }

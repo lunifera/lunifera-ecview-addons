@@ -70,8 +70,9 @@ public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
 		List<URL> results = new ArrayList<URL>();
 		BundleWiring wiring = suspect.adapt(BundleWiring.class);
 		suspect.getState();
-		if(wiring == null){
-			System.out.println("---------------- wiring is null --------------------------");
+		if (wiring == null) {
+			System.out
+					.println("---------------- wiring is null --------------------------");
 		}
 		results.addAll(wiring.findEntries("/", "*.uimodel",
 				BundleWiring.LISTRESOURCES_RECURSE));
@@ -131,7 +132,12 @@ public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
 			UiView uiView = (UiView) metadataBuilderService.getMetadata(
 					modelName, UiModelPackage.Literals.UI_IDE_VIEW);
 			if (uiView == null) {
-				return null;
+				// also try mobile view
+				uiView = (UiView) metadataBuilderService.getMetadata(modelName,
+						UiModelPackage.Literals.UI_MOBILE_VIEW);
+				if (uiView == null) {
+					return null;
+				}
 			}
 
 			return (YView) EcoreUtil.copy(uiView.eResource().getContents()

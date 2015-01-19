@@ -14,9 +14,7 @@ Import-Package: javax.servlet;version="2.4.0",
  org.osgi.service.component.annotations;version="1.2.0",
  org.osgi.service.http;version="1.2.1",
  org.osgi.util.tracker;version="1.5.1"
-Service-Component: OSGI-INF/org.lunifera.ecview.xtext.builder.participant.impl.LuniferaDslsBuilderParticipant.xml
-Require-Bundle: org.eclipse.equinox.http.jetty,
- org.eclipse.jetty.server,
+Require-Bundle: org.eclipse.jetty.server,
  org.eclipse.jetty.servlet,
  org.eclipse.jetty.http;bundle-version="8.1.14",
  org.eclipse.jetty.io;bundle-version="8.1.14",
