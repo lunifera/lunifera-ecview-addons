@@ -6,6 +6,25 @@ actions {
 	org.lunifera.^actions.delete
 	org.lunifera.^actions.find
 }
+
+element Browser {
+	uri view:UiBrowser
+
+	bindings {
+		/**
+		 * Value property of the UI element.
+		 */
+		endpoint value Object
+		/**
+		 * Editable property of the UI element.
+		 */
+		endpoint editable Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
+		endpoint visible Boolean
+	}
+}  
  
 element TextField {  
 	uri view:UiTextField
@@ -162,9 +181,25 @@ element Button {
 		 */
 		endpoint visible Boolean
 	}
-	
-	validator {
-		property validators
+}
+
+element MobileNavigationButton {
+	uri view:UiMobileNavigationButton
+	 
+	bindings {
+		/**
+		 * If the ui element is clicked, it will return
+		 * the clicktime in milliseconds.
+		 */
+		endpoint onClick Long target lastClickTime
+		/**
+		 * Enabled property of the UI element.
+		 */
+		endpoint enabled Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
+		endpoint visible Boolean
 	}
 }
 

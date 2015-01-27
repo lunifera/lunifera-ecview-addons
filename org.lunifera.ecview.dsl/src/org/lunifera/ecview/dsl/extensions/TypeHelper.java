@@ -3,8 +3,6 @@ package org.lunifera.ecview.dsl.extensions;
 import java.util.Collection;
 import java.util.Date;
 
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.xtend.typesystem.emf.EcoreUtil2;
 import org.eclipse.xtext.common.types.JvmAnnotationReference;
 import org.eclipse.xtext.common.types.JvmDeclaredType;
 import org.eclipse.xtext.common.types.JvmEnumerationType;
