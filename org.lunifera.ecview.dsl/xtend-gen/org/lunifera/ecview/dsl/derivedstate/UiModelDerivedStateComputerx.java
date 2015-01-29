@@ -227,6 +227,7 @@ import org.lunifera.mobile.vaadin.ecview.model.VMNavigationButton;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationCommand;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationHandler;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationPage;
+import org.lunifera.mobile.vaadin.ecview.model.VMNavigationPageCellStyle;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationRoot;
 import org.lunifera.mobile.vaadin.ecview.model.VMSearchPanel;
 import org.lunifera.mobile.vaadin.ecview.model.VMSwitch;
@@ -1492,6 +1493,14 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final UiEmbeddable element = eObject.getElement();
     final YEmbeddable newField = this.create(element);
     layout.addElement(newField);
+    UiAlignment _alignment = eObject.getAlignment();
+    boolean _notEquals = (!Objects.equal(_alignment, UiAlignment.UNDEFINED));
+    if (_notEquals) {
+      final VMNavigationPageCellStyle style = layout.addCellStyle(newField);
+      UiAlignment _alignment_1 = eObject.getAlignment();
+      YAlignment _yAlignment = this.toYAlignment(_alignment_1);
+      style.setAlignment(_yAlignment);
+    }
     this.map(element);
     if ((element instanceof UiField)) {
       this.push(newField);

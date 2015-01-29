@@ -12,6 +12,7 @@ package org.lunifera.ecview.semantic.uimodel;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment#getElement <em>Element</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment#getAlignment <em>Alignment</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,5 +46,34 @@ public interface UiMobileNavigationPageAssignment extends UiLayoutAssignment {
 	 * @generated
 	 */
 	void setElement(UiEmbeddable value);
+
+	/**
+	 * Returns the value of the '<em><b>Alignment</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.lunifera.ecview.semantic.uimodel.UiAlignment}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Alignment</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Alignment</em>' attribute.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiAlignment
+	 * @see #setAlignment(UiAlignment)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiMobileNavigationPageAssignment_Alignment()
+	 * @model
+	 * @generated
+	 */
+	UiAlignment getAlignment();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment#getAlignment <em>Alignment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Alignment</em>' attribute.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiAlignment
+	 * @see #getAlignment()
+	 * @generated
+	 */
+	void setAlignment(UiAlignment value);
 
 } // UiMobileNavigationPageAssignment

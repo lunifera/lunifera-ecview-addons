@@ -7314,10 +7314,10 @@ ruleUiMobileNavigationPageAssignment returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getElementUiMobileEmbeddableParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getElementUiMobileEmbeddableParserRuleCall_0_0()); 
 	    }
 		lv_element_0_0=ruleUiMobileEmbeddable		{
 	        if ($current==null) {
@@ -7332,7 +7332,29 @@ ruleUiMobileNavigationPageAssignment returns [EObject current=null]
 	    }
 
 )
+)(	otherlv_1='align' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiMobileNavigationPageAssignmentAccess().getAlignKeyword_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getAlignmentUiAlignmentEnumRuleCall_1_1_0()); 
+	    }
+		lv_alignment_2_0=ruleUiAlignment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiMobileNavigationPageAssignmentRule());
+	        }
+       		set(
+       			$current, 
+       			"alignment",
+        		lv_alignment_2_0, 
+        		"UiAlignment");
+	        afterParserOrEnumRuleCall();
+	    }
+
 )
+))?)
 ;
 
 

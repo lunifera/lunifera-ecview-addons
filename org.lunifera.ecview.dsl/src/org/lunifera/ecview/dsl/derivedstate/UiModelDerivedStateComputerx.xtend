@@ -1113,6 +1113,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val element = eObject.element
 		val newField = element.create
 		layout.addElement(newField)
+		
+		if (eObject.alignment != UiAlignment.UNDEFINED) {
+			val style = layout.addCellStyle(newField)
+			style.alignment = eObject.alignment.toYAlignment
+		}
 
 		element.map
 
