@@ -4038,18 +4038,38 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class UiMobileNavigationPageAssignmentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiMobileNavigationPageAssignment");
-		private final Assignment cElementAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cElementUiMobileEmbeddableParserRuleCall_0 = (RuleCall)cElementAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cElementAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cElementUiMobileEmbeddableParserRuleCall_0_0 = (RuleCall)cElementAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cAlignKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cAlignmentAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cAlignmentUiAlignmentEnumRuleCall_1_1_0 = (RuleCall)cAlignmentAssignment_1_1.eContents().get(0);
 		
 		//UiMobileNavigationPageAssignment:
-		//	element=UiMobileEmbeddable;
+		//	element=UiMobileEmbeddable ("align" alignment=UiAlignment)?;
 		public ParserRule getRule() { return rule; }
 
+		//element=UiMobileEmbeddable ("align" alignment=UiAlignment)?
+		public Group getGroup() { return cGroup; }
+
 		//element=UiMobileEmbeddable
-		public Assignment getElementAssignment() { return cElementAssignment; }
+		public Assignment getElementAssignment_0() { return cElementAssignment_0; }
 
 		//UiMobileEmbeddable
-		public RuleCall getElementUiMobileEmbeddableParserRuleCall_0() { return cElementUiMobileEmbeddableParserRuleCall_0; }
+		public RuleCall getElementUiMobileEmbeddableParserRuleCall_0_0() { return cElementUiMobileEmbeddableParserRuleCall_0_0; }
+
+		//("align" alignment=UiAlignment)?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"align"
+		public Keyword getAlignKeyword_1_0() { return cAlignKeyword_1_0; }
+
+		//alignment=UiAlignment
+		public Assignment getAlignmentAssignment_1_1() { return cAlignmentAssignment_1_1; }
+
+		//UiAlignment
+		public RuleCall getAlignmentUiAlignmentEnumRuleCall_1_1_0() { return cAlignmentUiAlignmentEnumRuleCall_1_1_0; }
 	}
 
 	public class UiPointElements extends AbstractParserRuleElementFinder {
@@ -8935,7 +8955,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiMobileNavigationPageAssignment:
-	//	element=UiMobileEmbeddable;
+	//	element=UiMobileEmbeddable ("align" alignment=UiAlignment)?;
 	public UiMobileNavigationPageAssignmentElements getUiMobileNavigationPageAssignmentAccess() {
 		return pUiMobileNavigationPageAssignment;
 	}

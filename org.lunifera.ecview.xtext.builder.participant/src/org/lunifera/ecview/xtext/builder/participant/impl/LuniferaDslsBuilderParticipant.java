@@ -40,7 +40,7 @@ import com.google.inject.Inject;
 
 @Component(service = { IBuilderParticipant.class })
 public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
-
+ 
 	@Inject
 	private IMetadataBuilderService metadataBuilderService;
 

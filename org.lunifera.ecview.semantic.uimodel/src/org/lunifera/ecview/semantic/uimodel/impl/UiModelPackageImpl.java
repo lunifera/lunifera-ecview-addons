@@ -3130,6 +3130,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUiMobileNavigationPageAssignment_Alignment() {
+		return (EAttribute)uiMobileNavigationPageAssignmentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiMobileNavigationButton() {
 		return uiMobileNavigationButtonEClass;
 	}
@@ -4118,6 +4127,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiMobileNavigationPageAssignmentEClass = createEClass(UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT);
 		createEReference(uiMobileNavigationPageAssignmentEClass, UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT__ELEMENT);
+		createEAttribute(uiMobileNavigationPageAssignmentEClass, UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT__ALIGNMENT);
 
 		uiMobileNavigationButtonEClass = createEClass(UI_MOBILE_NAVIGATION_BUTTON);
 		createEReference(uiMobileNavigationButtonEClass, UI_MOBILE_NAVIGATION_BUTTON__TARGET_PAGE);
@@ -4726,6 +4736,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiMobileNavigationPageAssignmentEClass, UiMobileNavigationPageAssignment.class, "UiMobileNavigationPageAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiMobileNavigationPageAssignment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiMobileNavigationPageAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiMobileNavigationPageAssignment_Alignment(), this.getUiAlignment(), "alignment", null, 0, 1, UiMobileNavigationPageAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiMobileNavigationButtonEClass, UiMobileNavigationButton.class, "UiMobileNavigationButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiMobileNavigationButton_TargetPage(), this.getUiMobileNavigationPage(), null, "targetPage", null, 0, 1, UiMobileNavigationButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -6678,13 +6678,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT__ELEMENT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Alignment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT__ALIGNMENT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Ui Mobile Navigation Page Assignment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT_FEATURE_COUNT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 1;
+	int UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT_FEATURE_COUNT = UI_LAYOUT_ASSIGNMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationButtonImpl <em>Ui Mobile Navigation Button</em>}' class.
@@ -11518,6 +11527,17 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiMobileNavigationPageAssignment_Element();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment#getAlignment <em>Alignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alignment</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment#getAlignment()
+	 * @see #getUiMobileNavigationPageAssignment()
+	 * @generated
+	 */
+	EAttribute getUiMobileNavigationPageAssignment_Alignment();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton <em>Ui Mobile Navigation Button</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14319,6 +14339,14 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT__ELEMENT = eINSTANCE.getUiMobileNavigationPageAssignment_Element();
+
+		/**
+		 * The meta object literal for the '<em><b>Alignment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT__ALIGNMENT = eINSTANCE.getUiMobileNavigationPageAssignment_Alignment();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationButtonImpl <em>Ui Mobile Navigation Button</em>}' class.

@@ -324,6 +324,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiMobileNavigationPageAssignment -> UiLayoutAssignment
     Reference element : UiEmbeddable
+    Attribute alignment : UiAlignment
 
   Class UiMobileNavigationButton -> UiMobileAction
     Reference targetPage : UiMobileNavigationPage

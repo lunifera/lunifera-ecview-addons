@@ -17,7 +17,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.vaadin.annotations.PreserveOnRefresh;
-import com.vaadin.annotations.Push;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
 import com.vaadin.annotations.Widgetset;
@@ -34,7 +33,6 @@ import com.vaadin.ui.themes.Reindeer;
 @Widgetset("org.lunifera.mobile.vaadin.widgetset.LuniferaMobileWidget")
 @PreserveOnRefresh
 @Title("Vaadin Mobile Preview")
-@Push
 public class MobileUI extends UI implements UriFragmentChangedListener {
 
 	private static final Logger LOGGER = LoggerFactory

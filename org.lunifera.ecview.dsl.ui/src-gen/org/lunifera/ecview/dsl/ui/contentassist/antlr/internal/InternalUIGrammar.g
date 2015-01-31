@@ -1837,9 +1837,9 @@ ruleUiMobileNavigationPageAssignment
     }
 	:
 (
-{ before(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getElementAssignment()); }
-(rule__UiMobileNavigationPageAssignment__ElementAssignment)
-{ after(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getElementAssignment()); }
+{ before(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getGroup()); }
+(rule__UiMobileNavigationPageAssignment__Group__0)
+{ after(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getGroup()); }
 )
 
 ;
@@ -22619,6 +22619,130 @@ finally {
 
 
 
+
+
+
+
+
+
+rule__UiMobileNavigationPageAssignment__Group__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UiMobileNavigationPageAssignment__Group__0__Impl
+	rule__UiMobileNavigationPageAssignment__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UiMobileNavigationPageAssignment__Group__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getElementAssignment_0()); }
+(rule__UiMobileNavigationPageAssignment__ElementAssignment_0)
+{ after(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getElementAssignment_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__UiMobileNavigationPageAssignment__Group__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UiMobileNavigationPageAssignment__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UiMobileNavigationPageAssignment__Group__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getGroup_1()); }
+(rule__UiMobileNavigationPageAssignment__Group_1__0)?
+{ after(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getGroup_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
+rule__UiMobileNavigationPageAssignment__Group_1__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UiMobileNavigationPageAssignment__Group_1__0__Impl
+	rule__UiMobileNavigationPageAssignment__Group_1__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UiMobileNavigationPageAssignment__Group_1__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getAlignKeyword_1_0()); }
+
+	'align' 
+
+{ after(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getAlignKeyword_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__UiMobileNavigationPageAssignment__Group_1__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UiMobileNavigationPageAssignment__Group_1__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UiMobileNavigationPageAssignment__Group_1__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getAlignmentAssignment_1_1()); }
+(rule__UiMobileNavigationPageAssignment__AlignmentAssignment_1_1)
+{ after(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getAlignmentAssignment_1_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
 
 
 
@@ -57954,14 +58078,29 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__UiMobileNavigationPageAssignment__ElementAssignment
+rule__UiMobileNavigationPageAssignment__ElementAssignment_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getElementUiMobileEmbeddableParserRuleCall_0()); }
-	ruleUiMobileEmbeddable{ after(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getElementUiMobileEmbeddableParserRuleCall_0()); }
+{ before(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getElementUiMobileEmbeddableParserRuleCall_0_0()); }
+	ruleUiMobileEmbeddable{ after(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getElementUiMobileEmbeddableParserRuleCall_0_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UiMobileNavigationPageAssignment__AlignmentAssignment_1_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getAlignmentUiAlignmentEnumRuleCall_1_1_0()); }
+	ruleUiAlignment{ after(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getAlignmentUiAlignmentEnumRuleCall_1_1_0()); }
 )
 
 ;

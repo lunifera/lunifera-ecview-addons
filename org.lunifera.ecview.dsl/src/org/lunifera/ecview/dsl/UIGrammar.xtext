@@ -444,7 +444,7 @@ UiMobileNavigationPage:
 	'}';
 
 UiMobileNavigationPageAssignment:
-	element=UiMobileEmbeddable;
+	element=UiMobileEmbeddable ('align' alignment=UiAlignment)?;
 
 UiPoint returns UiPoint:
 	x=INT '/' y=INT;

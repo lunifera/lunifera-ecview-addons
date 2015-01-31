@@ -82,7 +82,7 @@ public class Activator implements BundleActivator, BundleListener,
 		String filter = String.format("(&(%s=%s)(%s=%s))",
 				org.osgi.framework.Constants.OBJECTCLASS,
 				HttpService.class.getName(), IJettyManager.PROP_SERVICE_TYPE,
-				IJettyManager.SERVICE_TYPE__APPLICATION);
+				IJettyManager.SERVICE_TYPE__MOBILE);
 		try {
 			return ctx.createFilter(filter);
 		} catch (InvalidSyntaxException e) {

@@ -237,6 +237,8 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiMobileNavigationPageAccess().getGroup_2_1_1(), "rule__UiMobileNavigationPage__Group_2_1_1__0");
 					put(grammarAccess.getUiMobileNavigationPageAccess().getGroup_5(), "rule__UiMobileNavigationPage__Group_5__0");
 					put(grammarAccess.getUiMobileNavigationPageAccess().getGroup_6(), "rule__UiMobileNavigationPage__Group_6__0");
+					put(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getGroup(), "rule__UiMobileNavigationPageAssignment__Group__0");
+					put(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getGroup_1(), "rule__UiMobileNavigationPageAssignment__Group_1__0");
 					put(grammarAccess.getUiPointAccess().getGroup(), "rule__UiPoint__Group__0");
 					put(grammarAccess.getUiTextFieldAccess().getGroup(), "rule__UiTextField__Group__0");
 					put(grammarAccess.getUiTextFieldAccess().getGroup_2(), "rule__UiTextField__Group_2__0");
@@ -756,7 +758,8 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiMobileNavigationPageAccess().getContentsAssignment_7(), "rule__UiMobileNavigationPage__ContentsAssignment_7");
 					put(grammarAccess.getUiMobileNavigationPageAccess().getBindingsAssignment_8(), "rule__UiMobileNavigationPage__BindingsAssignment_8");
 					put(grammarAccess.getUiMobileNavigationPageAccess().getProcessorAssignmentsAssignment_9(), "rule__UiMobileNavigationPage__ProcessorAssignmentsAssignment_9");
-					put(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getElementAssignment(), "rule__UiMobileNavigationPageAssignment__ElementAssignment");
+					put(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getElementAssignment_0(), "rule__UiMobileNavigationPageAssignment__ElementAssignment_0");
+					put(grammarAccess.getUiMobileNavigationPageAssignmentAccess().getAlignmentAssignment_1_1(), "rule__UiMobileNavigationPageAssignment__AlignmentAssignment_1_1");
 					put(grammarAccess.getUiPointAccess().getXAssignment_0(), "rule__UiPoint__XAssignment_0");
 					put(grammarAccess.getUiPointAccess().getYAssignment_2(), "rule__UiPoint__YAssignment_2");
 					put(grammarAccess.getUiTextFieldAccess().getMaxLengthAssignment_2_1_0_1(), "rule__UiTextField__MaxLengthAssignment_2_1_0_1");

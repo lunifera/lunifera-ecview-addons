@@ -2427,7 +2427,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     element=UiMobileEmbeddable
+	 *     (element=UiMobileEmbeddable alignment=UiAlignment?)
 	 */
 	protected void sequence_UiMobileNavigationPageAssignment(EObject context, UiMobileNavigationPageAssignment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

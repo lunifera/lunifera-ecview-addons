@@ -438,6 +438,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="UiMobileNavigationPageAssignment" eSuperTypes="#//UiLayoutAssignment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UiEmbeddable"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="#//UiAlignment"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiMobileNavigationButton" eSuperTypes="#//UiMobileAction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetPage" eType="#//UiMobileNavigationPage"
