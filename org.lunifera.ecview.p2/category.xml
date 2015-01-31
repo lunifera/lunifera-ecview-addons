@@ -18,7 +18,10 @@
    <feature id="org.lunifera.ecview.feature.runtimeonly.source" version="0.0.0">
       <category name="lunifera-ecview-addon"/>
    </feature>
-   <feature url="features/org.lunifera.ecview.feature.jetty_0.8.1.qualifier.jar" id="org.lunifera.ecview.feature.jetty" version="0.8.1.qualifier">
+   <feature id="org.lunifera.ecview.feature.jetty" version="0.0.0">
+      <category name="lunifera-ecview-addon"/>
+   </feature>
+   <feature id="org.lunifera.ecview.feature.jetty.source" version="0.0.0">
       <category name="lunifera-ecview-addon"/>
    </feature>
    <category-def name="lunifera-ecview-addon" label="Lunifera addons for ECView Ui renderer"/>
