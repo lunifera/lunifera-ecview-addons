@@ -13,6 +13,10 @@ package org.lunifera.ecview.servlet.mobile.impl;
 import org.lunifera.ecview.servlet.mobile.IMobileUiParticipant;
 import org.lunifera.ecview.servlet.mobile.IMobileUiParticipantHandle;
 import org.lunifera.runtime.web.vaadin.databinding.VaadinObservables;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.Filter;
+import org.osgi.framework.InvalidSyntaxException;
+import org.osgi.util.tracker.ServiceTracker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +28,6 @@ import com.vaadin.server.Page.UriFragmentChangedEvent;
 import com.vaadin.server.Page.UriFragmentChangedListener;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.CssLayout;
-import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.themes.Reindeer;
 
@@ -42,18 +45,11 @@ public class MobileUI extends UI implements UriFragmentChangedListener {
 
 	private IMobileUiParticipantHandle uiHandle;
 
+	private ServiceTracker<IMobileUiParticipant, IMobileUiParticipant> tracker;
+
 	@Override
 	protected void init(VaadinRequest request) {
 		setTheme("mobiletheme");
-		
-		IMobileUiParticipant participant = Activator.getDefault()
-				.getParticipant();
-		if (participant == null) {
-			LOGGER.error("IMobileUiParticipant service not available");
-			Notification.show("IMobileUiParticipant not available.",
-					Notification.Type.ERROR_MESSAGE);
-			return;
-		}
 
 		setStyleName(Reindeer.LAYOUT_BLUE);
 		VaadinObservables.getRealm(getUI());
@@ -62,21 +58,95 @@ public class MobileUI extends UI implements UriFragmentChangedListener {
 		layout.setSizeFull();
 		setContent(layout);
 
-		uiHandle = participant.createHandle(this);
-
 		// initialize the UI
 		getPage().addUriFragmentChangedListener(this);
 
 		// notify about the current uri fragment
-		uiHandle.handle(layout, getPage().getUriFragment());
-		
+		renewHandle(getPage().getUriFragment());
+		notifyHandle(getPage().getUriFragment());
+
 		setTheme("mobiletheme");
+	}
+
+	/**
+	 * Notifies the uiHandle about the new fragment.
+	 * 
+	 * @param fragment
+	 */
+	private void notifyHandle(String fragment) {
+		if (uiHandle != null) {
+			uiHandle.handle(layout, fragment);
+		}
 	}
 
 	@Override
 	public void uriFragmentChanged(UriFragmentChangedEvent event) {
 		layout.removeAllComponents();
-		uiHandle.handle(layout, event.getUriFragment());
+		renewHandle(event.getUriFragment());
+		notifyHandle(event.getUriFragment());
+	}
+
+	/**
+	 * Creates a new handle for the new uriFragment.
+	 */
+	private void renewHandle(String fragment) {
+		if (uiHandle != null) {
+			try {
+				uiHandle.dispose();
+			} finally {
+				uiHandle = null;
+			}
+		}
+
+		IMobileUiParticipant participant = findParticipant(this, fragment);
+		try {
+		} finally {
+			if (participant != null) {
+				uiHandle = participant.createHandle(this, fragment);
+			}
+			// close the tracker AFTER creating the handle
+			tracker.close();
+		}
+	}
+
+	/**
+	 * Tries to find a mobile praticipant that provides proper handles.
+	 * 
+	 * @param ui
+	 * @param fragment
+	 * @return
+	 */
+	public IMobileUiParticipant findParticipant(UI ui, String fragment) {
+		try {
+			tracker = new ServiceTracker<IMobileUiParticipant, IMobileUiParticipant>(
+					getContext(), createFilter(ui, fragment), null);
+			return tracker.getService();
+		} catch (InvalidSyntaxException e) {
+			LOGGER.error("{}", e);
+		}
+
+		return null;
+	}
+
+	private BundleContext getContext() {
+		return Activator.getContext();
+	}
+
+	/**
+	 * Create a filter to find the proper uiHandle.
+	 * 
+	 * @param ui
+	 * @param fragment
+	 * @return
+	 * @throws InvalidSyntaxException
+	 */
+	protected Filter createFilter(UI ui, String fragment)
+			throws InvalidSyntaxException {
+		return getContext()
+				.createFilter(
+						String.format(
+								"&((objectClass=org.lunifera.ecview.servlet.mobile.IMobileUiParticipant)(uriFragment=%s))",
+								fragment));
 	}
 
 	@Override

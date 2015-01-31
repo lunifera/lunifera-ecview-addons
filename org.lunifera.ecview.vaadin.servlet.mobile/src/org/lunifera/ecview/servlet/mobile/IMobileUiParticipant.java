@@ -14,9 +14,24 @@ import com.vaadin.ui.UI;
 
 /**
  * Implementations of the interface need to provide UI handles. A handle is
- * related with an instance of {@link UI} and has to visualize mobile UI
- * contents based on the given URL-fragment.<p>
- * Implementations need to registered as an OSGi-service.
+ * related with an instance of {@link UI} and an uiId (fragment), and has to
+ * visualize mobile UI contents (pages) based on the given URL-fragment.
+ * <p>
+ * Implementations need to become registered as an OSGi-service. The participant
+ * will be found by the OSGi-Property (uriFragment={fragmen}).
+ * <p>
+ * For instance:<br>
+ * 
+ * <pre>
+ * &#064;Component(property = { &quot;uriFragment=org.carstore.sample.CustomerView&quot; })
+ * public static class UiProvider implements IMobileUiParticipant {
+ * 
+ * 	&#064;Override
+ * 	public IMobileUiParticipantHandle createHandle(UI ui, String fragment) {
+ * 		return new CustomerView();
+ * 	}
+ * }
+ * </pre>
  */
 public interface IMobileUiParticipant {
 
@@ -24,8 +39,10 @@ public interface IMobileUiParticipant {
 	 * Creates a new UI handle.
 	 * 
 	 * @param ui
+	 * @param fragment
+	 *            - the ID of the UI
 	 * @return
 	 */
-	IMobileUiParticipantHandle createHandle(UI ui);
+	IMobileUiParticipantHandle createHandle(UI ui, String fragment);
 
 }

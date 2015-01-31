@@ -13,18 +13,20 @@ package org.lunifera.ecview.servlet.mobile;
 import com.vaadin.ui.ComponentContainer;
 
 /**
- * Implementations of the interface need to visualize mobile Vaadin
- * applications.<br>
- * Therefore the URL-fragment is passed with the main layout of the UI.
+ * Implementations of the interface need to visualize mobile Vaadin pages.<br>
+ * Therefore the URL-fragment is passed with the main layout of the UI.<br>
+ * {@link IMobileUiParticipantHandle} are provided by
+ * {@link IMobileUiParticipant} that are related with the fragment.
  */
 public interface IMobileUiParticipantHandle {
 
 	/**
 	 * Returns the theme name that should be used.
+	 * 
 	 * @return
 	 */
 	String getTheme();
-	
+
 	/**
 	 * Needs to visualize the site related to the given fragment.
 	 * 

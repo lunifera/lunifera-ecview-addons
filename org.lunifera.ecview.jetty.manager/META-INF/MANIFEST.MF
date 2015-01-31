@@ -7,17 +7,17 @@ Bundle-SymbolicName: org.lunifera.ecview.jetty.manager
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.lunifera.ecview.jetty.manager
 Import-Package: javax.servlet;version="2.4.0",
- org.eclipse.equinox.http.servlet;version="1.1.0",
  org.osgi.framework;version="1.7.0",
  org.osgi.framework.wiring;version="1.1.0",
  org.osgi.service.component;version="1.2.0",
  org.osgi.service.component.annotations;version="1.2.0",
  org.osgi.service.http;version="1.2.1",
  org.osgi.util.tracker;version="1.5.1"
-Require-Bundle: org.eclipse.jetty.server;bundle-version="[8.1.14,8.1.15)",
- org.eclipse.jetty.servlet;bundle-version="[8.1.14,8.1.15)",
- org.eclipse.jetty.http;bundle-version="[8.1.14,8.1.15)",
- org.eclipse.jetty.io;bundle-version="[8.1.14,8.1.15)",
- org.eclipse.jetty.security;bundle-version="[8.1.14,8.1.15)",
- org.eclipse.jetty.util;bundle-version="[8.1.14,8.1.15)"
+Require-Bundle: org.eclipse.jetty.server;bundle-version="8.1.14",
+ org.eclipse.jetty.servlet;bundle-version="8.1.14",
+ org.eclipse.jetty.http;bundle-version="8.1.14",
+ org.eclipse.jetty.io;bundle-version="8.1.14",
+ org.eclipse.jetty.security;bundle-version="8.1.14",
+ org.eclipse.jetty.util;bundle-version="8.1.14",
+ org.eclipse.equinox.http.servlet;bundle-version="1.1.500"
 Bundle-Activator: org.lunifera.ecview.jetty.manager.impl.Activator
