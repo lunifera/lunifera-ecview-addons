@@ -46,6 +46,7 @@ import org.lunifera.ecview.core.common.model.visibility.YVisibilityProcessor
 import org.lunifera.ecview.core.^extension.model.datatypes.YDateTimeFormat
 import org.lunifera.ecview.core.^extension.model.datatypes.YDateTimeResolution
 import org.lunifera.ecview.core.^extension.model.^extension.ExtensionModelFactory
+import org.lunifera.ecview.core.^extension.model.^extension.YAddToTableCommand
 import org.lunifera.ecview.core.^extension.model.^extension.YBeanReferenceField
 import org.lunifera.ecview.core.^extension.model.^extension.YBrowser
 import org.lunifera.ecview.core.^extension.model.^extension.YButton
@@ -67,6 +68,7 @@ import org.lunifera.ecview.core.^extension.model.^extension.YNumericField
 import org.lunifera.ecview.core.^extension.model.^extension.YOptionsGroup
 import org.lunifera.ecview.core.^extension.model.^extension.YPanel
 import org.lunifera.ecview.core.^extension.model.^extension.YProgressBar
+import org.lunifera.ecview.core.^extension.model.^extension.YRemoveFromTableCommand
 import org.lunifera.ecview.core.^extension.model.^extension.YSearchPanel
 import org.lunifera.ecview.core.^extension.model.^extension.YSelectionType
 import org.lunifera.ecview.core.^extension.model.^extension.YSplitPanel
@@ -82,6 +84,7 @@ import org.lunifera.ecview.dsl.extensions.BindableTypeProvider
 import org.lunifera.ecview.dsl.extensions.I18nKeyProvider
 import org.lunifera.ecview.dsl.extensions.OperationExtensions
 import org.lunifera.ecview.dsl.extensions.TypeHelper
+import org.lunifera.ecview.semantic.uimodel.UiAddToTableCommand
 import org.lunifera.ecview.semantic.uimodel.UiAlignment
 import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot
@@ -144,6 +147,7 @@ import org.lunifera.ecview.semantic.uimodel.UiPathSegment
 import org.lunifera.ecview.semantic.uimodel.UiPoint
 import org.lunifera.ecview.semantic.uimodel.UiProgressBar
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator
+import org.lunifera.ecview.semantic.uimodel.UiRemoveFromTableCommand
 import org.lunifera.ecview.semantic.uimodel.UiSearchDialog
 import org.lunifera.ecview.semantic.uimodel.UiSearchField
 import org.lunifera.ecview.semantic.uimodel.UiSearchPanel
@@ -185,11 +189,8 @@ import org.lunifera.xtext.builder.types.loader.api.ITypeLoader
 import org.lunifera.xtext.builder.types.loader.api.ITypeLoaderFactory
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import org.lunifera.ecview.semantic.uimodel.UiAddToTableCommand
-import org.lunifera.ecview.core.^extension.model.^extension.YAddToTableCommand
-import org.lunifera.ecview.semantic.uimodel.UiRemoveFromTableCommand
-import org.lunifera.ecview.core.^extension.model.^extension.YRemoveFromTableCommand
 
+@SuppressWarnings("restriction")
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(typeof(UiModelDerivedStateComputerx));

@@ -14,7 +14,7 @@ Import-Package: com.vaadin.addon.touchkit.server,
  org.osgi.service.http;version="1.2.1",
  org.osgi.util.tracker;version="1.5.1",
  org.slf4j
-Require-Bundle: org.lunifera.runtime.web.vaadin.databinding,
+Require-Bundle: org.lunifera.runtime.web.vaadin.databinding;bundle-version="0.8.1",
  org.json;bundle-version="0.0.1",
  com.vaadin.client;bundle-version="7.3.1",
  com.vaadin.server;bundle-version="7.3.1",
@@ -22,6 +22,6 @@ Require-Bundle: org.lunifera.runtime.web.vaadin.databinding,
  com.vaadin.external.atmosphere.runtime;bundle-version="2.1.2",
  com.vaadin.push;bundle-version="7.3.1",
  com.vaadin.themes;bundle-version="7.3.1",
- org.lunifera.ecview.jetty.manager
+ org.lunifera.ecview.jetty.manager;bundle-version="0.8.1"
 Bundle-Activator: org.lunifera.ecview.servlet.mobile.impl.Activator
 Bundle-ActivationPolicy: lazy
