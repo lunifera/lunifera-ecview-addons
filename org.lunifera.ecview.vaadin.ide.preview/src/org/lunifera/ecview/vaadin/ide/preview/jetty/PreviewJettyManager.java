@@ -23,7 +23,6 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import org.eclipse.equinox.http.jetty.JettyConstants;
 import org.eclipse.equinox.http.servlet.HttpServiceServlet;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Server;
@@ -38,6 +37,16 @@ import org.osgi.framework.Constants;
 
 public class PreviewJettyManager {
 
+	/**
+	 * name="http.port" type="Integer" (default: 0 -- first available port)
+	 */
+	public static final String PROP_HTTP_PORT = "http.port"; //$NON-NLS-1$
+	
+	/**
+	 * name="other.info" type="String"
+	 */
+	public static final String PROP_OTHER_INFO = "other.info"; //$NON-NLS-1$
+	
 	public static final String PROP_MOBILEPREVIEW = "mobilepreview";
 	public static final String PROP_IDEPREVIEW = "idepreview";
 	private static final int HTTP_PORT = 8099;
@@ -98,9 +107,9 @@ public class PreviewJettyManager {
 		holder.setInitParameter(Constants.SERVICE_VENDOR, "Lunifera.org"); //$NON-NLS-1$
 		holder.setInitParameter(Constants.SERVICE_DESCRIPTION,
 				"ECView" + contextPath); //$NON-NLS-1$
-		holder.setInitParameter(JettyConstants.HTTP_PORT,
+		holder.setInitParameter(PROP_HTTP_PORT,
 				Integer.toString(HTTP_PORT));
-		holder.setInitParameter(JettyConstants.OTHER_INFO, contextPath);
+		holder.setInitParameter(PROP_OTHER_INFO, contextPath);
 		ServletContextHandler httpContext = createHttpContext("/" + contextPath);
 
 		httpContext.addServlet(holder, "/*"); //$NON-NLS-1$
