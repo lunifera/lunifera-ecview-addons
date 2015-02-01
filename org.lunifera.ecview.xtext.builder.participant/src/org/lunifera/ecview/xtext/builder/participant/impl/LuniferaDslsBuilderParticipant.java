@@ -18,7 +18,9 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtext.resource.IEObjectDescription;
 import org.lunifera.ecview.core.common.model.core.CoreModelPackage;
 import org.lunifera.ecview.core.common.model.core.YView;
 import org.lunifera.ecview.core.common.model.core.YViewSet;
@@ -40,7 +42,7 @@ import com.google.inject.Inject;
 
 @Component(service = { IBuilderParticipant.class })
 public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
- 
+
 	@Inject
 	private IMetadataBuilderService metadataBuilderService;
 
@@ -97,7 +99,7 @@ public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
 		if (event.getState() == IBuilderParticipant.LifecycleEvent.INITIALIZE) {
 			initialize();
 		} else if (event.getState() == IBuilderParticipant.LifecycleEvent.ACTIVATED) {
-			DatatypesService datatypesService = new DatatypesService();
+			ViewService datatypesService = new ViewService();
 			datatypesServiceRegister = context.getBundleContext()
 					.registerService(IECViewAddonsMetadataService.class,
 							datatypesService, null);
@@ -125,7 +127,7 @@ public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
 	 * Provided as an OSGi service to return ui models for the given qualified
 	 * name.
 	 */
-	private class DatatypesService implements IECViewAddonsMetadataService {
+	private class ViewService implements IECViewAddonsMetadataService {
 
 		@Override
 		public YView getViewMetadata(String modelName) {
@@ -150,6 +152,29 @@ public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
 					CoreModelPackage.Literals.YVIEW_SET);
 		}
 
+		@Override
+		public List<String> getIDEViewPackages() {
+			List<String> packages = getAllPackages(UiModelPackage.Literals.UI_IDE_VIEW);
+			return packages;
+		}
+
+		@Override
+		public List<String> getMobileViewPackages() {
+			List<String> packages = getAllPackages(UiModelPackage.Literals.UI_MOBILE_VIEW);
+			return packages;
+		}
+
+		private List<String> getAllPackages(EClass type) {
+			List<String> packages = new ArrayList<String>(5);
+			for (IEObjectDescription desc : metadataBuilderService
+					.getAllDescriptions(type)) {
+				String pkg = desc.getQualifiedName().skipLast(1).toString();
+				if (!packages.contains(pkg)) {
+					packages.add(pkg);
+				}
+			}
+			return packages;
+		}
 	}
 
 }

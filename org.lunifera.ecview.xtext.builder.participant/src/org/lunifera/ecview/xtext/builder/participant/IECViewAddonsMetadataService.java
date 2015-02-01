@@ -10,6 +10,8 @@
  */
 package org.lunifera.ecview.xtext.builder.participant;
 
+import java.util.List;
+
 import org.lunifera.ecview.core.common.model.core.YView;
 import org.lunifera.ecview.core.common.model.core.YViewSet;
 
@@ -31,4 +33,16 @@ public interface IECViewAddonsMetadataService {
 	 */
 	YViewSet getViewSetMetadata(String modelName);
 
+	/**
+	 * Returns a list with all packages of all IDEViews.
+	 * @return
+	 */
+	List<String> getIDEViewPackages();
+	
+	/**
+	 * Returns a list with all packages of all MobileViews.
+	 * @return
+	 */
+	List<String> getMobileViewPackages();
+	
 }
