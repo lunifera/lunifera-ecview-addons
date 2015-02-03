@@ -153,28 +153,56 @@ public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
 		}
 
 		@Override
-		public List<String> getIDEViewPackages() {
-			List<String> packages = getAllPackages(UiModelPackage.Literals.UI_IDE_VIEW);
-			return packages;
+		public List<String> getIDEViewNames(String packageName,
+				boolean includeChildren) {
+			List<String> viewNames = getViewNames(
+					UiModelPackage.Literals.UI_IDE_VIEW, packageName,
+					includeChildren);
+			return viewNames;
 		}
 
 		@Override
-		public List<String> getMobileViewPackages() {
-			List<String> packages = getAllPackages(UiModelPackage.Literals.UI_MOBILE_VIEW);
-			return packages;
+		public List<String> getMobileViewNames(String packageName,
+				boolean includeChildren) {
+			List<String> viewNames = getViewNames(
+					UiModelPackage.Literals.UI_MOBILE_VIEW, packageName,
+					includeChildren);
+			return viewNames;
 		}
 
-		private List<String> getAllPackages(EClass type) {
-			List<String> packages = new ArrayList<String>(5);
+		private List<String> getViewNames(EClass type, String packageName,
+				boolean includeChildren) {
+			Set<String> processedPackages = new HashSet<String>();
+			List<String> viewNames = new ArrayList<String>(5);
 			for (IEObjectDescription desc : metadataBuilderService
 					.getAllDescriptions(type)) {
 				String pkg = desc.getQualifiedName().skipLast(1).toString();
-				if (!packages.contains(pkg)) {
-					packages.add(pkg);
+				boolean match = false;
+				if (packageName == null && includeChildren) {
+					match = true;
+				} else if (packageName == null && !includeChildren) {
+					match = !isSuccessorPackage(pkg, processedPackages);
+				} else if (includeChildren) {
+					match = pkg.startsWith(packageName);
+				} else {
+					match = pkg.equals(packageName);
+				}
+
+				if (match) {
+					viewNames.add(desc.getQualifiedName().toString());
 				}
 			}
-			return packages;
+			return viewNames;
+		}
+
+		private boolean isSuccessorPackage(String pkg,
+				Set<String> processedPackages) {
+			for (String processed : processedPackages) {
+				if (pkg.startsWith(processed)) {
+					return true;
+				}
+			}
+			return false;
 		}
 	}
-
 }
