@@ -111,7 +111,10 @@ public class MobileUI extends UI implements UriFragmentChangedListener {
 				}
 			}
 			// close the tracker AFTER creating the handle
-			tracker.close();
+			if (tracker != null) {
+				tracker.close();
+				tracker = null;
+			}
 		}
 	}
 
@@ -123,6 +126,9 @@ public class MobileUI extends UI implements UriFragmentChangedListener {
 	 * @return
 	 */
 	public IMobileUiParticipant findParticipant(UI ui, String fragment) {
+		if (fragment == null) {
+			return null;
+		}
 		try {
 			tracker = new ServiceTracker<IMobileUiParticipant, IMobileUiParticipant>(
 					getContext(), createFilter(ui, fragment), null);
