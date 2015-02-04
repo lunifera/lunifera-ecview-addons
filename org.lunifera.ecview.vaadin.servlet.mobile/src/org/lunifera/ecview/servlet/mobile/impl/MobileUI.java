@@ -103,6 +103,12 @@ public class MobileUI extends UI implements UriFragmentChangedListener {
 		} finally {
 			if (participant != null) {
 				uiHandle = participant.createHandle(this, fragment);
+			} else {
+				participant = findParticipant(this,
+						"org.lunifera.ui.mobile.ErrorView");
+				if (participant != null) {
+					uiHandle = participant.createHandle(this, fragment);
+				}
 			}
 			// close the tracker AFTER creating the handle
 			tracker.close();
