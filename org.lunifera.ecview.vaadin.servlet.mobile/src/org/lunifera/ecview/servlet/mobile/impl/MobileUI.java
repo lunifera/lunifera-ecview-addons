@@ -157,7 +157,7 @@ public class MobileUI extends UI implements UriFragmentChangedListener {
 		return getContext()
 				.createFilter(
 						String.format(
-								"&((objectClass=org.lunifera.ecview.servlet.mobile.IMobileUiParticipant)(uriFragment=%s))",
+								"(&(objectClass=org.lunifera.ecview.servlet.mobile.IMobileUiParticipant)(uriFragment=%s))",
 								fragment));
 	}
 
