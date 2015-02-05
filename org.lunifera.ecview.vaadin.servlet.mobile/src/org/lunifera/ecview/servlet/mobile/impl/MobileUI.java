@@ -132,6 +132,7 @@ public class MobileUI extends UI implements UriFragmentChangedListener {
 		try {
 			tracker = new ServiceTracker<IMobileUiParticipant, IMobileUiParticipant>(
 					getContext(), createFilter(ui, fragment), null);
+			tracker.open();
 			return tracker.getService();
 		} catch (InvalidSyntaxException e) {
 			LOGGER.error("{}", e);
