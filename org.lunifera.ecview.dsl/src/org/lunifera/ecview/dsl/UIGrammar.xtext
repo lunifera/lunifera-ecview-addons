@@ -38,7 +38,7 @@ UiBindingEndpointAlias returns UiBindingEndpointAlias:
 	'dataAlias' endpoint=UiBindingEndpointAssignment 'as' alias=ID (';')?;
 
 UiBeanSlot returns UiBeanSlot:
-	'datasource' name=ID ':' jvmType=JvmTypeReference (';')?;
+	'datasource' name=ID ':' jvmType=JvmTypeReference ('eventTopic' eventTopic=STRING)? (';')?;
 
 UiBinding returns UiBinding:
 	'bind' (listBinding?='list')? source=UiBindingEndpointAssignment ((targetToSource?='<')? '--'
@@ -77,7 +77,8 @@ UiCommandBindableDef returns UiCommandBindableDef:
 	command=UiCommand;
 
 UiCommand returns UiCommand:
-	UiMobileNavigationCommand | UiOpenDialogCommand | UiSearchWithDialogCommand | UiAddToTableCommand | UiRemoveFromTableCommand;
+	UiMobileNavigationCommand | UiOpenDialogCommand | UiSearchWithDialogCommand | UiAddToTableCommand |
+	UiRemoveFromTableCommand | UiSendEventCommand;
 
 UiMobileNavigationCommand:
 	{UiMobileNavigationCommand}
@@ -90,14 +91,18 @@ UiOpenDialogCommand:
 UiSearchWithDialogCommand:
 	{UiSearchWithDialogCommand}
 	'searchWith' dialog=UiSearchDialog;
-	
-UiAddToTableCommand: 
+
+UiAddToTableCommand:
 	{UiAddToTableCommand}
 	'addToTable' table=[UiTable];
-	
+
 UiRemoveFromTableCommand:
 	{UiRemoveFromTableCommand}
 	'removeFromTable' table=[UiTable];
+
+UiSendEventCommand:
+	{UiSendEventCommand}
+	'sendEvent' '(' (noAutoTrigger?='noAutoTrigger')? eventTopic=STRING ')';
 
 UiView returns UiView:
 	UiIDEView;
@@ -433,11 +438,9 @@ UiMobileNavigationPage:
 	{UiMobileNavigationPage}
 	'navPage' ('(' ((i18nInfo=UiI18nInfo)? & ('styles' styles=STRING)?) ')')? name=ID? '{'
 	('type' jvmType=JvmTypeReference (';')?)?
-	
 	('navbarActions' '{'
-		barActions+=UiMobileNavBarAction*
+	barActions+=UiMobileNavBarAction*
 	'}')?
-	
 	(contents+=UiMobileNavigationPageAssignment)*
 	(bindings+=UiBinding)*
 	(processorAssignments+=UiVisibilityProcessorAssignment)*

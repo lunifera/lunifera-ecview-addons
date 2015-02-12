@@ -652,9 +652,31 @@ ruleUiBeanSlot returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_4=';' 
+)(	otherlv_4='eventTopic' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getUiBeanSlotAccess().getSemicolonKeyword_4());
+    	newLeafNode(otherlv_4, grammarAccess.getUiBeanSlotAccess().getEventTopicKeyword_4_0());
+    }
+(
+(
+		lv_eventTopic_5_0=RULE_STRING
+		{
+			newLeafNode(lv_eventTopic_5_0, grammarAccess.getUiBeanSlotAccess().getEventTopicSTRINGTerminalRuleCall_4_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiBeanSlotRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"eventTopic",
+        		lv_eventTopic_5_0, 
+        		"STRING");
+	    }
+
+)
+))?(	otherlv_6=';' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getUiBeanSlotAccess().getSemicolonKeyword_5());
     }
 )?)
 ;
@@ -1409,6 +1431,16 @@ ruleUiCommand returns [EObject current=null]
         $current = $this_UiRemoveFromTableCommand_4.current; 
         afterParserOrEnumRuleCall();
     }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiCommandAccess().getUiSendEventCommandParserRuleCall_5()); 
+    }
+    this_UiSendEventCommand_5=ruleUiSendEventCommand
+    { 
+        $current = $this_UiSendEventCommand_5.current; 
+        afterParserOrEnumRuleCall();
+    }
 )
 ;
 
@@ -1645,6 +1677,78 @@ ruleUiRemoveFromTableCommand returns [EObject current=null]
 
 )
 ))
+;
+
+
+
+
+
+// Entry rule entryRuleUiSendEventCommand
+entryRuleUiSendEventCommand returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiSendEventCommandRule()); }
+	 iv_ruleUiSendEventCommand=ruleUiSendEventCommand 
+	 { $current=$iv_ruleUiSendEventCommand.current; } 
+	 EOF 
+;
+
+// Rule UiSendEventCommand
+ruleUiSendEventCommand returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUiSendEventCommandAccess().getUiSendEventCommandAction_0(),
+            $current);
+    }
+)	otherlv_1='sendEvent' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiSendEventCommandAccess().getSendEventKeyword_1());
+    }
+	otherlv_2='(' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getUiSendEventCommandAccess().getLeftParenthesisKeyword_2());
+    }
+(
+(
+		lv_noAutoTrigger_3_0=	'noAutoTrigger' 
+    {
+        newLeafNode(lv_noAutoTrigger_3_0, grammarAccess.getUiSendEventCommandAccess().getNoAutoTriggerNoAutoTriggerKeyword_3_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiSendEventCommandRule());
+	        }
+       		setWithLastConsumed($current, "noAutoTrigger", true, "noAutoTrigger");
+	    }
+
+)
+)?(
+(
+		lv_eventTopic_4_0=RULE_STRING
+		{
+			newLeafNode(lv_eventTopic_4_0, grammarAccess.getUiSendEventCommandAccess().getEventTopicSTRINGTerminalRuleCall_4_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiSendEventCommandRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"eventTopic",
+        		lv_eventTopic_4_0, 
+        		"STRING");
+	    }
+
+)
+)	otherlv_5=')' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getUiSendEventCommandAccess().getRightParenthesisKeyword_5());
+    }
+)
 ;
 
 

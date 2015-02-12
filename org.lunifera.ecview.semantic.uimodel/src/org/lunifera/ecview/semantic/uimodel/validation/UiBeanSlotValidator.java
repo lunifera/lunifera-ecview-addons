@@ -20,5 +20,7 @@ public interface UiBeanSlotValidator {
 	boolean validateJvmType(JvmTypeReference value);
 	boolean validateEClass(EClass value);
 
+	boolean validateEventTopic(String value);
+
 	boolean validateEclass(EClass value);
 }

@@ -868,6 +868,15 @@ public interface UiModelFactory extends EFactory {
 	UiRemoveFromTableCommand createUiRemoveFromTableCommand();
 
 	/**
+	 * Returns a new object of class '<em>Ui Send Event Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Send Event Command</em>'.
+	 * @generated
+	 */
+	UiSendEventCommand createUiSendEventCommand();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

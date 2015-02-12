@@ -124,6 +124,7 @@ import org.lunifera.ecview.semantic.uimodel.UiSearchDialog;
 import org.lunifera.ecview.semantic.uimodel.UiSearchField;
 import org.lunifera.ecview.semantic.uimodel.UiSearchPanel;
 import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
+import org.lunifera.ecview.semantic.uimodel.UiSendEventCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanel;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiSwitch;
@@ -703,6 +704,13 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 				if(context == grammarAccess.getUiCommandRule() ||
 				   context == grammarAccess.getUiSearchWithDialogCommandRule()) {
 					sequence_UiSearchWithDialogCommand(context, (UiSearchWithDialogCommand) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_SEND_EVENT_COMMAND:
+				if(context == grammarAccess.getUiCommandRule() ||
+				   context == grammarAccess.getUiSendEventCommandRule()) {
+					sequence_UiSendEventCommand(context, (UiSendEventCommand) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1949,7 +1957,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID jvmType=JvmTypeReference)
+	 *     (name=ID jvmType=JvmTypeReference eventTopic=STRING?)
 	 */
 	protected void sequence_UiBeanSlot(EObject context, UiBeanSlot semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2785,6 +2793,15 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *     dialog=UiSearchDialog
 	 */
 	protected void sequence_UiSearchWithDialogCommand(EObject context, UiSearchWithDialogCommand semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (noAutoTrigger?='noAutoTrigger'? eventTopic=STRING)
+	 */
+	protected void sequence_UiSendEventCommand(EObject context, UiSendEventCommand semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

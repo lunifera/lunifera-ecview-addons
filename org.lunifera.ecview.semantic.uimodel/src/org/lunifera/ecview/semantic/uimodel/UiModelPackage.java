@@ -1377,13 +1377,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_BEAN_SLOT__ECLASS = UI_TYPED_BINDABLE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Event Topic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BEAN_SLOT__EVENT_TOPIC = UI_TYPED_BINDABLE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Ui Bean Slot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BEAN_SLOT_FEATURE_COUNT = UI_TYPED_BINDABLE_FEATURE_COUNT + 2;
+	int UI_BEAN_SLOT_FEATURE_COUNT = UI_TYPED_BINDABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Ui Binding Expression</em>' class.
@@ -9019,6 +9028,61 @@ public interface UiModelPackage extends EPackage {
 	int UI_REMOVE_FROM_TABLE_COMMAND_FEATURE_COUNT = UI_COMMAND_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiSendEventCommandImpl <em>Ui Send Event Command</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiSendEventCommandImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSendEventCommand()
+	 * @generated
+	 */
+	int UI_SEND_EVENT_COMMAND = 115;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SEND_EVENT_COMMAND__ID = UI_COMMAND__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SEND_EVENT_COMMAND__NAME = UI_COMMAND__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Event Topic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SEND_EVENT_COMMAND__EVENT_TOPIC = UI_COMMAND_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>No Auto Trigger</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SEND_EVENT_COMMAND__NO_AUTO_TRIGGER = UI_COMMAND_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Ui Send Event Command</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SEND_EVENT_COMMAND_FEATURE_COUNT = UI_COMMAND_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9026,7 +9090,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiFlatAlignment()
 	 * @generated
 	 */
-	int UI_FLAT_ALIGNMENT = 115;
+	int UI_FLAT_ALIGNMENT = 116;
 
 
 	/**
@@ -9037,7 +9101,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiAlignment()
 	 * @generated
 	 */
-	int UI_ALIGNMENT = 116;
+	int UI_ALIGNMENT = 117;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiSelectionType <em>Ui Selection Type</em>}' enum.
@@ -9047,7 +9111,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSelectionType()
 	 * @generated
 	 */
-	int UI_SELECTION_TYPE = 117;
+	int UI_SELECTION_TYPE = 118;
 
 
 	/**
@@ -9058,7 +9122,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDateFormat()
 	 * @generated
 	 */
-	int UI_DATE_FORMAT = 118;
+	int UI_DATE_FORMAT = 119;
 
 
 	/**
@@ -9069,7 +9133,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDateTimeResolution()
 	 * @generated
 	 */
-	int UI_DATE_TIME_RESOLUTION = 119;
+	int UI_DATE_TIME_RESOLUTION = 120;
 
 
 	/**
@@ -9670,6 +9734,17 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUiBeanSlot_EClass();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiBeanSlot#getEventTopic <em>Event Topic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Event Topic</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiBeanSlot#getEventTopic()
+	 * @see #getUiBeanSlot()
+	 * @generated
+	 */
+	EAttribute getUiBeanSlot_EventTopic();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiViewSet <em>Ui View Set</em>}'.
@@ -12152,6 +12227,38 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiRemoveFromTableCommand_Table();
 
 	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiSendEventCommand <em>Ui Send Event Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Send Event Command</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSendEventCommand
+	 * @generated
+	 */
+	EClass getUiSendEventCommand();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiSendEventCommand#getEventTopic <em>Event Topic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Event Topic</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSendEventCommand#getEventTopic()
+	 * @see #getUiSendEventCommand()
+	 * @generated
+	 */
+	EAttribute getUiSendEventCommand_EventTopic();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiSendEventCommand#isNoAutoTrigger <em>No Auto Trigger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>No Auto Trigger</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSendEventCommand#isNoAutoTrigger()
+	 * @see #getUiSendEventCommand()
+	 * @generated
+	 */
+	EAttribute getUiSendEventCommand_NoAutoTrigger();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiSearchField <em>Ui Search Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12799,6 +12906,14 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_BEAN_SLOT__ECLASS = eINSTANCE.getUiBeanSlot_EClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Event Topic</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_BEAN_SLOT__EVENT_TOPIC = eINSTANCE.getUiBeanSlot_EventTopic();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewSetImpl <em>Ui View Set</em>}' class.
@@ -14939,6 +15054,32 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_REMOVE_FROM_TABLE_COMMAND__TABLE = eINSTANCE.getUiRemoveFromTableCommand_Table();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiSendEventCommandImpl <em>Ui Send Event Command</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiSendEventCommandImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSendEventCommand()
+		 * @generated
+		 */
+		EClass UI_SEND_EVENT_COMMAND = eINSTANCE.getUiSendEventCommand();
+
+		/**
+		 * The meta object literal for the '<em><b>Event Topic</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_SEND_EVENT_COMMAND__EVENT_TOPIC = eINSTANCE.getUiSendEventCommand_EventTopic();
+
+		/**
+		 * The meta object literal for the '<em><b>No Auto Trigger</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_SEND_EVENT_COMMAND__NO_AUTO_TRIGGER = eINSTANCE.getUiSendEventCommand_NoAutoTrigger();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.

@@ -62,6 +62,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eClass" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eventTopic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="UiFlatAlignment">
     <eLiterals name="LEFT" literal="LEFT"/>
@@ -569,5 +570,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiRemoveFromTableCommand" eSuperTypes="#//UiCommand">
     <eStructuralFeatures xsi:type="ecore:EReference" name="table" eType="#//UiTable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiSendEventCommand" eSuperTypes="#//UiCommand">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eventTopic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="noAutoTrigger" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
 </ecore:EPackage>

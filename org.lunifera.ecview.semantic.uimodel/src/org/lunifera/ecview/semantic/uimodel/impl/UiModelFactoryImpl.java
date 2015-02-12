@@ -228,6 +228,7 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_MOBILE_NAV_BAR_ACTION: return createUiMobileNavBarAction();
 			case UiModelPackage.UI_ADD_TO_TABLE_COMMAND: return createUiAddToTableCommand();
 			case UiModelPackage.UI_REMOVE_FROM_TABLE_COMMAND: return createUiRemoveFromTableCommand();
+			case UiModelPackage.UI_SEND_EVENT_COMMAND: return createUiSendEventCommand();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1217,6 +1218,16 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiRemoveFromTableCommand createUiRemoveFromTableCommand() {
 		UiRemoveFromTableCommandImpl uiRemoveFromTableCommand = new UiRemoveFromTableCommandImpl();
 		return uiRemoveFromTableCommand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiSendEventCommand createUiSendEventCommand() {
+		UiSendEventCommandImpl uiSendEventCommand = new UiSendEventCommandImpl();
+		return uiSendEventCommand;
 	}
 
 	/**

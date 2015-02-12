@@ -55,6 +55,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiBeanSlot -> UiTypedBindable
     Reference jvmType : JvmTypeReference
     Reference eClass : EClass
+    Attribute eventTopic : EString
 
   Class UiRootElements -> UiNamedElement
 
@@ -420,6 +421,10 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiRemoveFromTableCommand -> UiCommand
     Reference table : UiTable
+
+  Class UiSendEventCommand -> UiCommand
+    Attribute eventTopic : EString
+    Attribute noAutoTrigger : EBoolean
 
   Enum UiFlatAlignment
     Literal LEFT = 0

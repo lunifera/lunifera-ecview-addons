@@ -525,6 +525,10 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiRemoveFromTableCommandAdapter();
 			}
 			@Override
+			public Adapter caseUiSendEventCommand(UiSendEventCommand object) {
+				return createUiSendEventCommandAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -2151,6 +2155,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiRemoveFromTableCommandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiSendEventCommand <em>Ui Send Event Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSendEventCommand
+	 * @generated
+	 */
+	public Adapter createUiSendEventCommandAdapter() {
 		return null;
 	}
 

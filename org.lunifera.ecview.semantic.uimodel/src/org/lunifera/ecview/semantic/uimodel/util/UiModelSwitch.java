@@ -1229,6 +1229,14 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.UI_SEND_EVENT_COMMAND: {
+				UiSendEventCommand uiSendEventCommand = (UiSendEventCommand)theEObject;
+				T result = caseUiSendEventCommand(uiSendEventCommand);
+				if (result == null) result = caseUiCommand(uiSendEventCommand);
+				if (result == null) result = caseUiNamedElement(uiSendEventCommand);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -2955,6 +2963,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiRemoveFromTableCommand(UiRemoveFromTableCommand object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Send Event Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Send Event Command</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiSendEventCommand(UiSendEventCommand object) {
 		return null;
 	}
 

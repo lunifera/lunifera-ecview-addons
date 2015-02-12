@@ -334,13 +334,17 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cJvmTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_3_0 = (RuleCall)cJvmTypeAssignment_3.eContents().get(0);
-		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cEventTopicKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cEventTopicAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cEventTopicSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cEventTopicAssignment_4_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//UiBeanSlot:
-		//	"datasource" name=ID ":" jvmType=JvmTypeReference ";"?;
+		//	"datasource" name=ID ":" jvmType=JvmTypeReference ("eventTopic" eventTopic=STRING)? ";"?;
 		public ParserRule getRule() { return rule; }
 
-		//"datasource" name=ID ":" jvmType=JvmTypeReference ";"?
+		//"datasource" name=ID ":" jvmType=JvmTypeReference ("eventTopic" eventTopic=STRING)? ";"?
 		public Group getGroup() { return cGroup; }
 
 		//"datasource"
@@ -361,8 +365,20 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//JvmTypeReference
 		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_3_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_3_0; }
 
+		//("eventTopic" eventTopic=STRING)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"eventTopic"
+		public Keyword getEventTopicKeyword_4_0() { return cEventTopicKeyword_4_0; }
+
+		//eventTopic=STRING
+		public Assignment getEventTopicAssignment_4_1() { return cEventTopicAssignment_4_1; }
+
+		//STRING
+		public RuleCall getEventTopicSTRINGTerminalRuleCall_4_1_0() { return cEventTopicSTRINGTerminalRuleCall_4_1_0; }
+
 		//";"?
-		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 
 	public class UiBindingElements extends AbstractParserRuleElementFinder {
@@ -821,14 +837,15 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUiSearchWithDialogCommandParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cUiAddToTableCommandParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cUiRemoveFromTableCommandParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cUiSendEventCommandParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//UiCommand:
 		//	UiMobileNavigationCommand | UiOpenDialogCommand | UiSearchWithDialogCommand | UiAddToTableCommand |
-		//	UiRemoveFromTableCommand;
+		//	UiRemoveFromTableCommand | UiSendEventCommand;
 		public ParserRule getRule() { return rule; }
 
 		//UiMobileNavigationCommand | UiOpenDialogCommand | UiSearchWithDialogCommand | UiAddToTableCommand |
-		//UiRemoveFromTableCommand
+		//UiRemoveFromTableCommand | UiSendEventCommand
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//UiMobileNavigationCommand
@@ -845,6 +862,9 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 		//UiRemoveFromTableCommand
 		public RuleCall getUiRemoveFromTableCommandParserRuleCall_4() { return cUiRemoveFromTableCommandParserRuleCall_4; }
+
+		//UiSendEventCommand
+		public RuleCall getUiSendEventCommandParserRuleCall_5() { return cUiSendEventCommandParserRuleCall_5; }
 	}
 
 	public class UiMobileNavigationCommandElements extends AbstractParserRuleElementFinder {
@@ -993,6 +1013,50 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 		//ID
 		public RuleCall getTableUiTableIDTerminalRuleCall_2_0_1() { return cTableUiTableIDTerminalRuleCall_2_0_1; }
+	}
+
+	public class UiSendEventCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiSendEventCommand");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cUiSendEventCommandAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cSendEventKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNoAutoTriggerAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNoAutoTriggerNoAutoTriggerKeyword_3_0 = (Keyword)cNoAutoTriggerAssignment_3.eContents().get(0);
+		private final Assignment cEventTopicAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cEventTopicSTRINGTerminalRuleCall_4_0 = (RuleCall)cEventTopicAssignment_4.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//UiSendEventCommand:
+		//	{UiSendEventCommand} "sendEvent" "(" noAutoTrigger?="noAutoTrigger"? eventTopic=STRING ")";
+		public ParserRule getRule() { return rule; }
+
+		//{UiSendEventCommand} "sendEvent" "(" noAutoTrigger?="noAutoTrigger"? eventTopic=STRING ")"
+		public Group getGroup() { return cGroup; }
+
+		//{UiSendEventCommand}
+		public Action getUiSendEventCommandAction_0() { return cUiSendEventCommandAction_0; }
+
+		//"sendEvent"
+		public Keyword getSendEventKeyword_1() { return cSendEventKeyword_1; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+
+		//noAutoTrigger?="noAutoTrigger"?
+		public Assignment getNoAutoTriggerAssignment_3() { return cNoAutoTriggerAssignment_3; }
+
+		//"noAutoTrigger"
+		public Keyword getNoAutoTriggerNoAutoTriggerKeyword_3_0() { return cNoAutoTriggerNoAutoTriggerKeyword_3_0; }
+
+		//eventTopic=STRING
+		public Assignment getEventTopicAssignment_4() { return cEventTopicAssignment_4; }
+
+		//STRING
+		public RuleCall getEventTopicSTRINGTerminalRuleCall_4_0() { return cEventTopicSTRINGTerminalRuleCall_4_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
 	}
 
 	public class UiViewElements extends AbstractParserRuleElementFinder {
@@ -8050,6 +8114,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private final UiSearchWithDialogCommandElements pUiSearchWithDialogCommand;
 	private final UiAddToTableCommandElements pUiAddToTableCommand;
 	private final UiRemoveFromTableCommandElements pUiRemoveFromTableCommand;
+	private final UiSendEventCommandElements pUiSendEventCommand;
 	private final UiViewElements pUiView;
 	private final UiIDEViewElements pUiIDEView;
 	private final UiExposedActionElements pUiExposedAction;
@@ -8167,6 +8232,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		this.pUiSearchWithDialogCommand = new UiSearchWithDialogCommandElements();
 		this.pUiAddToTableCommand = new UiAddToTableCommandElements();
 		this.pUiRemoveFromTableCommand = new UiRemoveFromTableCommandElements();
+		this.pUiSendEventCommand = new UiSendEventCommandElements();
 		this.pUiView = new UiViewElements();
 		this.pUiIDEView = new UiIDEViewElements();
 		this.pUiExposedAction = new UiExposedActionElements();
@@ -8361,7 +8427,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiBeanSlot:
-	//	"datasource" name=ID ":" jvmType=JvmTypeReference ";"?;
+	//	"datasource" name=ID ":" jvmType=JvmTypeReference ("eventTopic" eventTopic=STRING)? ";"?;
 	public UiBeanSlotElements getUiBeanSlotAccess() {
 		return pUiBeanSlot;
 	}
@@ -8466,7 +8532,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 	//UiCommand:
 	//	UiMobileNavigationCommand | UiOpenDialogCommand | UiSearchWithDialogCommand | UiAddToTableCommand |
-	//	UiRemoveFromTableCommand;
+	//	UiRemoveFromTableCommand | UiSendEventCommand;
 	public UiCommandElements getUiCommandAccess() {
 		return pUiCommand;
 	}
@@ -8523,6 +8589,16 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getUiRemoveFromTableCommandRule() {
 		return getUiRemoveFromTableCommandAccess().getRule();
+	}
+
+	//UiSendEventCommand:
+	//	{UiSendEventCommand} "sendEvent" "(" noAutoTrigger?="noAutoTrigger"? eventTopic=STRING ")";
+	public UiSendEventCommandElements getUiSendEventCommandAccess() {
+		return pUiSendEventCommand;
+	}
+	
+	public ParserRule getUiSendEventCommandRule() {
+		return getUiSendEventCommandAccess().getRule();
 	}
 
 	//UiView:

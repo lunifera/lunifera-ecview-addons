@@ -100,6 +100,7 @@ import org.lunifera.ecview.semantic.uimodel.UiSearchField;
 import org.lunifera.ecview.semantic.uimodel.UiSearchPanel;
 import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
+import org.lunifera.ecview.semantic.uimodel.UiSendEventCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanel;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiSwitch;
@@ -951,6 +952,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass uiSendEventCommandEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum uiFlatAlignmentEEnum = null;
 
 	/**
@@ -1368,6 +1376,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiBeanSlot_EClass() {
 		return (EReference)uiBeanSlotEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiBeanSlot_EventTopic() {
+		return (EAttribute)uiBeanSlotEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3742,6 +3759,33 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiSendEventCommand() {
+		return uiSendEventCommandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiSendEventCommand_EventTopic() {
+		return (EAttribute)uiSendEventCommandEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiSendEventCommand_NoAutoTrigger() {
+		return (EAttribute)uiSendEventCommandEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getUiFlatAlignment() {
 		return uiFlatAlignmentEEnum;
 	}
@@ -3858,6 +3902,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiBeanSlotEClass = createEClass(UI_BEAN_SLOT);
 		createEReference(uiBeanSlotEClass, UI_BEAN_SLOT__JVM_TYPE);
 		createEReference(uiBeanSlotEClass, UI_BEAN_SLOT__ECLASS);
+		createEAttribute(uiBeanSlotEClass, UI_BEAN_SLOT__EVENT_TOPIC);
 
 		uiRootElementsEClass = createEClass(UI_ROOT_ELEMENTS);
 
@@ -4224,6 +4269,10 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiRemoveFromTableCommandEClass = createEClass(UI_REMOVE_FROM_TABLE_COMMAND);
 		createEReference(uiRemoveFromTableCommandEClass, UI_REMOVE_FROM_TABLE_COMMAND__TABLE);
 
+		uiSendEventCommandEClass = createEClass(UI_SEND_EVENT_COMMAND);
+		createEAttribute(uiSendEventCommandEClass, UI_SEND_EVENT_COMMAND__EVENT_TOPIC);
+		createEAttribute(uiSendEventCommandEClass, UI_SEND_EVENT_COMMAND__NO_AUTO_TRIGGER);
+
 		// Create enums
 		uiFlatAlignmentEEnum = createEEnum(UI_FLAT_ALIGNMENT);
 		uiAlignmentEEnum = createEEnum(UI_ALIGNMENT);
@@ -4417,6 +4466,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiMobileNavBarActionEClass.getESuperTypes().add(this.getUiMobileAction());
 		uiAddToTableCommandEClass.getESuperTypes().add(this.getUiCommand());
 		uiRemoveFromTableCommandEClass.getESuperTypes().add(this.getUiCommand());
+		uiSendEventCommandEClass.getESuperTypes().add(this.getUiCommand());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(uiNamedElementEClass, UiNamedElement.class, "UiNamedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4467,6 +4517,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiBeanSlotEClass, UiBeanSlot.class, "UiBeanSlot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiBeanSlot_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, UiBeanSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiBeanSlot_EClass(), ecorePackage.getEClass(), null, "eClass", null, 0, 1, UiBeanSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiBeanSlot_EventTopic(), ecorePackage.getEString(), "eventTopic", null, 0, 1, UiBeanSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiRootElementsEClass, UiRootElements.class, "UiRootElements", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4832,6 +4883,10 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiRemoveFromTableCommandEClass, UiRemoveFromTableCommand.class, "UiRemoveFromTableCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiRemoveFromTableCommand_Table(), this.getUiTable(), null, "table", null, 0, 1, UiRemoveFromTableCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiSendEventCommandEClass, UiSendEventCommand.class, "UiSendEventCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUiSendEventCommand_EventTopic(), ecorePackage.getEString(), "eventTopic", null, 0, 1, UiSendEventCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiSendEventCommand_NoAutoTrigger(), ecorePackage.getEBoolean(), "noAutoTrigger", "false", 0, 1, UiSendEventCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(uiFlatAlignmentEEnum, UiFlatAlignment.class, "UiFlatAlignment");

@@ -57,6 +57,7 @@ import org.lunifera.ecview.core.common.model.core.YField;
 import org.lunifera.ecview.core.common.model.core.YFlatAlignment;
 import org.lunifera.ecview.core.common.model.core.YLayout;
 import org.lunifera.ecview.core.common.model.core.YOpenDialogCommand;
+import org.lunifera.ecview.core.common.model.core.YSendEventCommand;
 import org.lunifera.ecview.core.common.model.core.YView;
 import org.lunifera.ecview.core.common.model.core.YViewSet;
 import org.lunifera.ecview.core.common.model.datatypes.YDatatype;
@@ -197,6 +198,7 @@ import org.lunifera.ecview.semantic.uimodel.UiSearchField;
 import org.lunifera.ecview.semantic.uimodel.UiSearchPanel;
 import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
+import org.lunifera.ecview.semantic.uimodel.UiSendEventCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanel;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiSwitch;
@@ -357,6 +359,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   public void installDerivedState(final DerivedStateAwareResource resource, final boolean preLinkingPhase) {
+    if ((1 == 1)) {
+      return;
+    }
     super.installDerivedState(resource, preLinkingPhase);
     this.resource = resource;
     ResourceSet _resourceSet = resource.getResourceSet();
@@ -3287,6 +3292,19 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       ep.setBeanSlot(yBeanSlot);
       String _string = info.path.toString();
       ep.setAttributePath(_string);
+      boolean _or = false;
+      String _attributePath = ep.getAttributePath();
+      boolean _equals_1 = Objects.equal(_attributePath, null);
+      if (_equals_1) {
+        _or = true;
+      } else {
+        String _attributePath_1 = ep.getAttributePath();
+        boolean _equals_2 = _attributePath_1.equals("");
+        _or = _equals_2;
+      }
+      if (_or) {
+        ep.setAttributePath("value");
+      }
       result = ep;
     } else {
       if ((info.bindingRoot instanceof UiEmbeddable)) {
@@ -3398,6 +3416,20 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
                   this.pendingMappings.add(_function_1);
                   YECViewModelValueBindingEndpoint _createTriggerEndpoint_1 = yCommand_4.createTriggerEndpoint();
                   result = _createTriggerEndpoint_1;
+                } else {
+                  if ((info.bindingRoot instanceof UiSendEventCommand)) {
+                    final UiSendEventCommand command_5 = ((UiSendEventCommand) info.bindingRoot);
+                    final YSendEventCommand yCommand_5 = CoreModelFactory.eINSTANCE.createYSendEventCommand();
+                    boolean _isNoAutoTrigger = command_5.isNoAutoTrigger();
+                    boolean _not = (!_isNoAutoTrigger);
+                    yCommand_5.setAutoTrigger(_not);
+                    String _eventTopic = command_5.getEventTopic();
+                    yCommand_5.setEventTopic(_eventTopic);
+                    YCommandSet _commandSet_5 = this.currentView.getCommandSet();
+                    _commandSet_5.addCommand(yCommand_5);
+                    YECViewModelValueBindingEndpoint _createMessageEndpoint = yCommand_5.createMessageEndpoint();
+                    result = _createMessageEndpoint;
+                  }
                 }
               }
             }
@@ -3615,6 +3647,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     String _valueTypeQualifiedName = yBeanSlot.getValueTypeQualifiedName();
     Class<?> _loadClass = this.loadClass(_resourceSet, _valueTypeQualifiedName);
     yBeanSlot.setValueType(_loadClass);
+    String _eventTopic = object.getEventTopic();
+    yBeanSlot.setEventTopic(_eventTopic);
     this.associateUi(object, yBeanSlot);
     final EObject lastElement = this.viewContext.peek();
     if ((lastElement instanceof YView)) {

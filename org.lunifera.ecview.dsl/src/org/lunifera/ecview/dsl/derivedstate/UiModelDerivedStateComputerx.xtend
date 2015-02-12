@@ -35,6 +35,7 @@ import org.lunifera.ecview.core.common.model.core.YField
 import org.lunifera.ecview.core.common.model.core.YFlatAlignment
 import org.lunifera.ecview.core.common.model.core.YLayout
 import org.lunifera.ecview.core.common.model.core.YOpenDialogCommand
+import org.lunifera.ecview.core.common.model.core.YSendEventCommand
 import org.lunifera.ecview.core.common.model.core.YView
 import org.lunifera.ecview.core.common.model.core.YViewSet
 import org.lunifera.ecview.core.common.model.validation.YClassDelegateValidator
@@ -153,6 +154,7 @@ import org.lunifera.ecview.semantic.uimodel.UiSearchField
 import org.lunifera.ecview.semantic.uimodel.UiSearchPanel
 import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType
+import org.lunifera.ecview.semantic.uimodel.UiSendEventCommand
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanel
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment
 import org.lunifera.ecview.semantic.uimodel.UiSwitch
@@ -242,6 +244,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	}
 
 	override void installDerivedState(DerivedStateAwareResource resource, boolean preLinkingPhase) {
+
+		if(1==1){
+			return
+		}
 
 		super.installDerivedState(resource, preLinkingPhase)
 		this.resource = resource;
@@ -340,20 +346,20 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		object.processorAssignments.forEach [
 			it.map
 		]
-		
+
 		// process the visibility processors
 		pendingVisibilityProcessors.forEach [
 			it.processor.map
 		]
-		
-		pendingMappings.forEach[
+
+		pendingMappings.forEach [
 			it.run
 		]
 
 		// install all bindings
 		processBindings
 
-		pendingMappings.forEach[
+		pendingMappings.forEach [
 			it.run
 		]
 
@@ -394,25 +400,25 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		object.processorAssignments.forEach [
 			it.map
 		]
-		
+
 		// process the visibility processors
 		pendingVisibilityProcessors.forEach [
 			it.processor.map
 		]
-		
-		pendingMappings.forEach[
+
+		pendingMappings.forEach [
 			it.run
 		]
 
 		// install all bindings
 		processBindings
-		
+
 		// and do autowire again -> Bindings may installed autowires
 		pendingAutowires.forEach [
 			it.doAutowire
 		]
-		
-		pendingMappings.forEach[
+
+		pendingMappings.forEach [
 			it.run
 		]
 
@@ -1114,7 +1120,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val element = eObject.element
 		val newField = element.create
 		layout.addElement(newField)
-		
+
 		if (eObject.alignment != UiAlignment.UNDEFINED) {
 			val style = layout.addCellStyle(newField)
 			style.alignment = eObject.alignment.toYAlignment
@@ -2333,6 +2339,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			val YBeanSlotValueBindingEndpoint ep = factory.createBeanSlotValueBindingEndpoint
 			ep.beanSlot = yBeanSlot
 			ep.attributePath = info.path.toString
+			if(ep.attributePath == null || ep.attributePath.equals("")){
+				// bind the value in the slot
+				ep.attributePath = "value"
+			}
 			result = ep
 		} else if (info.bindingRoot instanceof UiEmbeddable) {
 			val YElement yElement = info.bindingRoot.associatedUi
@@ -2422,6 +2432,17 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			]
 
 			result = yCommand.createTriggerEndpoint
+		} else if (info.bindingRoot instanceof UiSendEventCommand) {
+			val UiSendEventCommand command = info.bindingRoot as UiSendEventCommand
+
+			// Create the command and register it at the current view
+			val YSendEventCommand yCommand = CoreModelFactory.eINSTANCE.createYSendEventCommand
+			yCommand.autoTrigger = !command.noAutoTrigger
+			yCommand.eventTopic = command.eventTopic
+			
+			currentView.commandSet.addCommand(yCommand)
+
+			result = yCommand.createMessageEndpoint
 		}
 
 		return result
@@ -2553,7 +2574,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		yBeanSlot.name = object.name
 		yBeanSlot.valueTypeQualifiedName = object.jvmType?.qualifiedName
 		yBeanSlot.valueType = loadClass(object.eResource.resourceSet, yBeanSlot.valueTypeQualifiedName)
-
+		yBeanSlot.eventTopic = object.eventTopic
+		
 		object.associateUi(yBeanSlot)
 
 		val EObject lastElement = viewContext.peek

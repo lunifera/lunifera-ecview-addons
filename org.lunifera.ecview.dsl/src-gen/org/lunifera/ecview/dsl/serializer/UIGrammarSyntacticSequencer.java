@@ -26,7 +26,7 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_UiBeanReferenceField_SemicolonKeyword_4_1_4_2_q;
 	protected AbstractElementAlias match_UiBeanReferenceField___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_4__q;
 	protected AbstractElementAlias match_UiBeanReferenceField___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
-	protected AbstractElementAlias match_UiBeanSlot_SemicolonKeyword_4_q;
+	protected AbstractElementAlias match_UiBeanSlot_SemicolonKeyword_5_q;
 	protected AbstractElementAlias match_UiBindingEndpointAlias_SemicolonKeyword_4_q;
 	protected AbstractElementAlias match_UiBinding_SemicolonKeyword_5_q;
 	protected AbstractElementAlias match_UiBrowser___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q;
@@ -149,7 +149,7 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_UiBeanReferenceField_SemicolonKeyword_4_1_4_2_q = new TokenAlias(false, true, grammarAccess.getUiBeanReferenceFieldAccess().getSemicolonKeyword_4_1_4_2());
 		match_UiBeanReferenceField___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiBeanReferenceFieldAccess().getLeftCurlyBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getUiBeanReferenceFieldAccess().getRightCurlyBracketKeyword_4_4()));
 		match_UiBeanReferenceField___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiBeanReferenceFieldAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiBeanReferenceFieldAccess().getRightParenthesisKeyword_2_2()));
-		match_UiBeanSlot_SemicolonKeyword_4_q = new TokenAlias(false, true, grammarAccess.getUiBeanSlotAccess().getSemicolonKeyword_4());
+		match_UiBeanSlot_SemicolonKeyword_5_q = new TokenAlias(false, true, grammarAccess.getUiBeanSlotAccess().getSemicolonKeyword_5());
 		match_UiBindingEndpointAlias_SemicolonKeyword_4_q = new TokenAlias(false, true, grammarAccess.getUiBindingEndpointAliasAccess().getSemicolonKeyword_4());
 		match_UiBinding_SemicolonKeyword_5_q = new TokenAlias(false, true, grammarAccess.getUiBindingAccess().getSemicolonKeyword_5());
 		match_UiBrowser___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiBrowserAccess().getLeftCurlyBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getUiBrowserAccess().getRightCurlyBracketKeyword_4_3()));
@@ -314,8 +314,8 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_UiBeanReferenceField___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiBeanReferenceField___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q.equals(syntax))
 				emit_UiBeanReferenceField___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_UiBeanSlot_SemicolonKeyword_4_q.equals(syntax))
-				emit_UiBeanSlot_SemicolonKeyword_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UiBeanSlot_SemicolonKeyword_5_q.equals(syntax))
+				emit_UiBeanSlot_SemicolonKeyword_5_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiBindingEndpointAlias_SemicolonKeyword_4_q.equals(syntax))
 				emit_UiBindingEndpointAlias_SemicolonKeyword_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiBinding_SemicolonKeyword_5_q.equals(syntax))
@@ -602,7 +602,7 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Syntax:
 	 *     ';'?
 	 */
-	protected void emit_UiBeanSlot_SemicolonKeyword_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_UiBeanSlot_SemicolonKeyword_5_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
