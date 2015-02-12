@@ -29,13 +29,30 @@ Require-Bundle: org.eclipse.xtext;bundle-version="[2.7.3,2.8.0)";visibility:=ree
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib;bundle-version="[2.7.3,2.8.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.lunifera.ecview.uisemantics,
- org.lunifera.ecview.uisemantics.formatting,
- org.lunifera.ecview.uisemantics.jvmmodel,
- org.lunifera.ecview.uisemantics.naming,
- org.lunifera.ecview.uisemantics.parser.antlr,
- org.lunifera.ecview.uisemantics.parser.antlr.internal,
- org.lunifera.ecview.uisemantics.serializer,
- org.lunifera.ecview.uisemantics.services,
+Export-Package: org.lunifera.ecview.uisemantics;
+  uses:="org.eclipse.xtext,
+   org.eclipse.xtext.xtype,
+   org.eclipse.xtext.service,
+   org.eclipse.xtext.common.types,
+   com.google.inject",
+ org.lunifera.ecview.uisemantics.formatting;uses:="org.eclipse.xtext.formatting.impl",
+ org.lunifera.ecview.uisemantics.jvmmodel;uses:="org.lunifera.ecview.semantic.uisemantics,org.eclipse.emf.ecore,org.eclipse.xtext.xbase.jvmmodel",
+ org.lunifera.ecview.uisemantics.naming;uses:="org.eclipse.emf.ecore,org.eclipse.xtext.xbase.scoping,org.eclipse.xtext.naming",
+ org.lunifera.ecview.uisemantics.parser.antlr;uses:="org.lunifera.ecview.uisemantics.services,org.lunifera.ecview.uisemantics.parser.antlr.internal,org.eclipse.xtext.parser.antlr",
+ org.lunifera.ecview.uisemantics.parser.antlr.internal;
+  uses:="org.eclipse.emf.ecore,
+   org.lunifera.ecview.uisemantics.services,
+   org.antlr.runtime,
+   org.eclipse.xtext.parser.antlr",
+ org.lunifera.ecview.uisemantics.serializer;
+  uses:="org.eclipse.xtext,
+   org.lunifera.ecview.semantic.uisemantics,
+   org.eclipse.emf.ecore,
+   org.eclipse.xtext.serializer.sequencer,
+   org.lunifera.ecview.uisemantics.services,
+   org.eclipse.xtext.serializer.analysis,
+   org.eclipse.xtext.nodemodel,
+   org.eclipse.xtext.xbase.serializer",
+ org.lunifera.ecview.uisemantics.services;uses:="org.eclipse.xtext,org.eclipse.xtext.xbase.services,org.eclipse.xtext.service",
  org.lunifera.ecview.uisemantics.validation
 
