@@ -20,10 +20,11 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected UIGrammarGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_UiBeanReferenceField_SemicolonKeyword_4_1_0_2_q;
-	protected AbstractElementAlias match_UiBeanReferenceField_SemicolonKeyword_4_1_1_2_q;
+	protected AbstractElementAlias match_UiBeanReferenceField_SemicolonKeyword_4_1_1_4_q;
 	protected AbstractElementAlias match_UiBeanReferenceField_SemicolonKeyword_4_1_2_2_q;
 	protected AbstractElementAlias match_UiBeanReferenceField_SemicolonKeyword_4_1_3_2_q;
 	protected AbstractElementAlias match_UiBeanReferenceField_SemicolonKeyword_4_1_4_2_q;
+	protected AbstractElementAlias match_UiBeanReferenceField_SemicolonKeyword_4_1_5_2_q;
 	protected AbstractElementAlias match_UiBeanReferenceField___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_4__q;
 	protected AbstractElementAlias match_UiBeanReferenceField___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
 	protected AbstractElementAlias match_UiBeanSlot_SemicolonKeyword_5_q;
@@ -143,10 +144,11 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (UIGrammarGrammarAccess) access;
 		match_UiBeanReferenceField_SemicolonKeyword_4_1_0_2_q = new TokenAlias(false, true, grammarAccess.getUiBeanReferenceFieldAccess().getSemicolonKeyword_4_1_0_2());
-		match_UiBeanReferenceField_SemicolonKeyword_4_1_1_2_q = new TokenAlias(false, true, grammarAccess.getUiBeanReferenceFieldAccess().getSemicolonKeyword_4_1_1_2());
+		match_UiBeanReferenceField_SemicolonKeyword_4_1_1_4_q = new TokenAlias(false, true, grammarAccess.getUiBeanReferenceFieldAccess().getSemicolonKeyword_4_1_1_4());
 		match_UiBeanReferenceField_SemicolonKeyword_4_1_2_2_q = new TokenAlias(false, true, grammarAccess.getUiBeanReferenceFieldAccess().getSemicolonKeyword_4_1_2_2());
 		match_UiBeanReferenceField_SemicolonKeyword_4_1_3_2_q = new TokenAlias(false, true, grammarAccess.getUiBeanReferenceFieldAccess().getSemicolonKeyword_4_1_3_2());
 		match_UiBeanReferenceField_SemicolonKeyword_4_1_4_2_q = new TokenAlias(false, true, grammarAccess.getUiBeanReferenceFieldAccess().getSemicolonKeyword_4_1_4_2());
+		match_UiBeanReferenceField_SemicolonKeyword_4_1_5_2_q = new TokenAlias(false, true, grammarAccess.getUiBeanReferenceFieldAccess().getSemicolonKeyword_4_1_5_2());
 		match_UiBeanReferenceField___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiBeanReferenceFieldAccess().getLeftCurlyBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getUiBeanReferenceFieldAccess().getRightCurlyBracketKeyword_4_4()));
 		match_UiBeanReferenceField___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiBeanReferenceFieldAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiBeanReferenceFieldAccess().getRightParenthesisKeyword_2_2()));
 		match_UiBeanSlot_SemicolonKeyword_5_q = new TokenAlias(false, true, grammarAccess.getUiBeanSlotAccess().getSemicolonKeyword_5());
@@ -302,14 +304,16 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if(match_UiBeanReferenceField_SemicolonKeyword_4_1_0_2_q.equals(syntax))
 				emit_UiBeanReferenceField_SemicolonKeyword_4_1_0_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_UiBeanReferenceField_SemicolonKeyword_4_1_1_2_q.equals(syntax))
-				emit_UiBeanReferenceField_SemicolonKeyword_4_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UiBeanReferenceField_SemicolonKeyword_4_1_1_4_q.equals(syntax))
+				emit_UiBeanReferenceField_SemicolonKeyword_4_1_1_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiBeanReferenceField_SemicolonKeyword_4_1_2_2_q.equals(syntax))
 				emit_UiBeanReferenceField_SemicolonKeyword_4_1_2_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiBeanReferenceField_SemicolonKeyword_4_1_3_2_q.equals(syntax))
 				emit_UiBeanReferenceField_SemicolonKeyword_4_1_3_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiBeanReferenceField_SemicolonKeyword_4_1_4_2_q.equals(syntax))
 				emit_UiBeanReferenceField_SemicolonKeyword_4_1_4_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UiBeanReferenceField_SemicolonKeyword_4_1_5_2_q.equals(syntax))
+				emit_UiBeanReferenceField_SemicolonKeyword_4_1_5_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiBeanReferenceField___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_4__q.equals(syntax))
 				emit_UiBeanReferenceField___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiBeanReferenceField___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q.equals(syntax))
@@ -554,7 +558,7 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Syntax:
 	 *     ';'?
 	 */
-	protected void emit_UiBeanReferenceField_SemicolonKeyword_4_1_1_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_UiBeanReferenceField_SemicolonKeyword_4_1_1_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -579,6 +583,14 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ';'?
 	 */
 	protected void emit_UiBeanReferenceField_SemicolonKeyword_4_1_4_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     ';'?
+	 */
+	protected void emit_UiBeanReferenceField_SemicolonKeyword_4_1_5_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

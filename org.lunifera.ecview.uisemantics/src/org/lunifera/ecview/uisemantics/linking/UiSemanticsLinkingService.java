@@ -62,14 +62,16 @@ public class UiSemanticsLinkingService extends DefaultLinkingService {
 		// if (result != null)
 		// return result;
 		// }
-		QualifiedName packageNsURI = QualifiedName.create(nsUri);
-		EPackage pack = findPackageInScope(context, packageNsURI);
-		if (pack == null) {
-			pack = findPackageInAllDescriptions(context, packageNsURI);
-			if (pack == null) {
-				pack = loadEPackage(nsUri, context.eResource().getResourceSet());
-			}
-		}
+		// QualifiedName packageNsURI = QualifiedName.create(nsUri);
+		// EPackage pack = findPackageInScope(context, packageNsURI);
+		EPackage pack = loadEPackage(nsUri, context.eResource()
+				.getResourceSet());
+		// if (pack == null) {
+		// pack = findPackageInAllDescriptions(context, packageNsURI);
+		// if (pack == null) {
+		// pack = loadEPackage(nsUri, context.eResource().getResourceSet());
+		// }
+		// }
 		if (pack != null)
 			return Collections.<EObject> singletonList(pack);
 		return Collections.emptyList();

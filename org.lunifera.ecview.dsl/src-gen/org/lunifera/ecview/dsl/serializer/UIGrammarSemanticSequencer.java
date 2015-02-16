@@ -1941,6 +1941,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *         name=ID? 
 	 *         (
 	 *             jvmType=JvmTypeReference? 
+	 *             (referenceSourceJvmType=JvmTypeReference referenceSourceField=[JvmField|ID])? 
 	 *             captionProperty=UiNestedProperty? 
 	 *             descriptionProperty=UiNestedProperty? 
 	 *             imageProperty=UiNestedProperty? 

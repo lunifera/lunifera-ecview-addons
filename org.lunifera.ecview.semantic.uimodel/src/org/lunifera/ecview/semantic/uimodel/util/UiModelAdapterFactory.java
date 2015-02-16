@@ -141,6 +141,10 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createUiPathSegmentAdapter();
 			}
 			@Override
+			public Adapter caseUiNestedField(UiNestedField object) {
+				return createUiNestedFieldAdapter();
+			}
+			@Override
 			public Adapter caseUiNestedProperty(UiNestedProperty object) {
 				return createUiNestedPropertyAdapter();
 			}
@@ -811,6 +815,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUiPathSegmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uimodel.UiNestedField <em>Ui Nested Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiNestedField
+	 * @generated
+	 */
+	public Adapter createUiNestedFieldAdapter() {
 		return null;
 	}
 

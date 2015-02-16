@@ -5,6 +5,7 @@ actions {
 	org.lunifera.^actions.load
 	org.lunifera.^actions.delete
 	org.lunifera.^actions.find
+	org.lunifera.^actions.addNewRow
 }
 
 element Browser {
@@ -25,7 +26,7 @@ element Browser {
 		endpoint visible Boolean
 	}
 }  
- 
+
 element TextField {  
 	uri view:UiTextField
 	
@@ -203,6 +204,26 @@ element MobileNavigationButton {
 	}
 }
 
+element ExposedAction {
+	uri view:UiExposedAction
+	 
+	bindings {
+		/**
+		 * If the ui element is clicked, it will return
+		 * the clicktime in milliseconds.
+		 */
+		endpoint onClick Long target lastClickTime
+		/**
+		 * Enabled property of the UI element.
+		 */
+		endpoint enabled Boolean
+		/**
+		 * Visible property of the UI element.
+		 */
+		endpoint visible Boolean
+	}
+}
+
 element MobileNavigationBarAction {
 	uri view:UiMobileNavBarAction
 	 
@@ -220,10 +241,6 @@ element MobileNavigationBarAction {
 		 * Visible property of the UI element.
 		 */
 		endpoint visible Boolean
-	}
-	
-	validator {
-		property validators
 	}
 }
 

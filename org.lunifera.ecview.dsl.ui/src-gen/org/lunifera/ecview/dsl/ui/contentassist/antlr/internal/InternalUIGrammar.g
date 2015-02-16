@@ -24293,11 +24293,11 @@ rule__UiBeanReferenceField__Group_4_1_1__0__Impl
     }
 :
 (
-{ before(grammarAccess.getUiBeanReferenceFieldAccess().getCaptionFieldKeyword_4_1_1_0()); }
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getRefSourceKeyword_4_1_1_0()); }
 
-	'captionField' 
+	'refSource' 
 
-{ after(grammarAccess.getUiBeanReferenceFieldAccess().getCaptionFieldKeyword_4_1_1_0()); }
+{ after(grammarAccess.getUiBeanReferenceFieldAccess().getRefSourceKeyword_4_1_1_0()); }
 )
 
 ;
@@ -24324,9 +24324,9 @@ rule__UiBeanReferenceField__Group_4_1_1__1__Impl
     }
 :
 (
-{ before(grammarAccess.getUiBeanReferenceFieldAccess().getCaptionPropertyAssignment_4_1_1_1()); }
-(rule__UiBeanReferenceField__CaptionPropertyAssignment_4_1_1_1)
-{ after(grammarAccess.getUiBeanReferenceFieldAccess().getCaptionPropertyAssignment_4_1_1_1()); }
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getReferenceSourceJvmTypeAssignment_4_1_1_1()); }
+(rule__UiBeanReferenceField__ReferenceSourceJvmTypeAssignment_4_1_1_1)
+{ after(grammarAccess.getUiBeanReferenceFieldAccess().getReferenceSourceJvmTypeAssignment_4_1_1_1()); }
 )
 
 ;
@@ -24341,6 +24341,7 @@ rule__UiBeanReferenceField__Group_4_1_1__2
     }
 :
 	rule__UiBeanReferenceField__Group_4_1_1__2__Impl
+	rule__UiBeanReferenceField__Group_4_1_1__3
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -24352,17 +24353,80 @@ rule__UiBeanReferenceField__Group_4_1_1__2__Impl
     }
 :
 (
-{ before(grammarAccess.getUiBeanReferenceFieldAccess().getSemicolonKeyword_4_1_1_2()); }
-(
-	';' 
-)?
-{ after(grammarAccess.getUiBeanReferenceFieldAccess().getSemicolonKeyword_4_1_1_2()); }
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getColonKeyword_4_1_1_2()); }
+
+	':' 
+
+{ after(grammarAccess.getUiBeanReferenceFieldAccess().getColonKeyword_4_1_1_2()); }
 )
 
 ;
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__UiBeanReferenceField__Group_4_1_1__3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UiBeanReferenceField__Group_4_1_1__3__Impl
+	rule__UiBeanReferenceField__Group_4_1_1__4
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UiBeanReferenceField__Group_4_1_1__3__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getReferenceSourceFieldAssignment_4_1_1_3()); }
+(rule__UiBeanReferenceField__ReferenceSourceFieldAssignment_4_1_1_3)
+{ after(grammarAccess.getUiBeanReferenceFieldAccess().getReferenceSourceFieldAssignment_4_1_1_3()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__UiBeanReferenceField__Group_4_1_1__4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UiBeanReferenceField__Group_4_1_1__4__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UiBeanReferenceField__Group_4_1_1__4__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getSemicolonKeyword_4_1_1_4()); }
+(
+	';' 
+)?
+{ after(grammarAccess.getUiBeanReferenceFieldAccess().getSemicolonKeyword_4_1_1_4()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
 
 
 
@@ -24389,11 +24453,11 @@ rule__UiBeanReferenceField__Group_4_1_2__0__Impl
     }
 :
 (
-{ before(grammarAccess.getUiBeanReferenceFieldAccess().getDescriptionFieldKeyword_4_1_2_0()); }
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getCaptionFieldKeyword_4_1_2_0()); }
 
-	'descriptionField' 
+	'captionField' 
 
-{ after(grammarAccess.getUiBeanReferenceFieldAccess().getDescriptionFieldKeyword_4_1_2_0()); }
+{ after(grammarAccess.getUiBeanReferenceFieldAccess().getCaptionFieldKeyword_4_1_2_0()); }
 )
 
 ;
@@ -24420,9 +24484,9 @@ rule__UiBeanReferenceField__Group_4_1_2__1__Impl
     }
 :
 (
-{ before(grammarAccess.getUiBeanReferenceFieldAccess().getDescriptionPropertyAssignment_4_1_2_1()); }
-(rule__UiBeanReferenceField__DescriptionPropertyAssignment_4_1_2_1)
-{ after(grammarAccess.getUiBeanReferenceFieldAccess().getDescriptionPropertyAssignment_4_1_2_1()); }
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getCaptionPropertyAssignment_4_1_2_1()); }
+(rule__UiBeanReferenceField__CaptionPropertyAssignment_4_1_2_1)
+{ after(grammarAccess.getUiBeanReferenceFieldAccess().getCaptionPropertyAssignment_4_1_2_1()); }
 )
 
 ;
@@ -24485,11 +24549,11 @@ rule__UiBeanReferenceField__Group_4_1_3__0__Impl
     }
 :
 (
-{ before(grammarAccess.getUiBeanReferenceFieldAccess().getImageFieldKeyword_4_1_3_0()); }
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getDescriptionFieldKeyword_4_1_3_0()); }
 
-	'imageField' 
+	'descriptionField' 
 
-{ after(grammarAccess.getUiBeanReferenceFieldAccess().getImageFieldKeyword_4_1_3_0()); }
+{ after(grammarAccess.getUiBeanReferenceFieldAccess().getDescriptionFieldKeyword_4_1_3_0()); }
 )
 
 ;
@@ -24516,9 +24580,9 @@ rule__UiBeanReferenceField__Group_4_1_3__1__Impl
     }
 :
 (
-{ before(grammarAccess.getUiBeanReferenceFieldAccess().getImagePropertyAssignment_4_1_3_1()); }
-(rule__UiBeanReferenceField__ImagePropertyAssignment_4_1_3_1)
-{ after(grammarAccess.getUiBeanReferenceFieldAccess().getImagePropertyAssignment_4_1_3_1()); }
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getDescriptionPropertyAssignment_4_1_3_1()); }
+(rule__UiBeanReferenceField__DescriptionPropertyAssignment_4_1_3_1)
+{ after(grammarAccess.getUiBeanReferenceFieldAccess().getDescriptionPropertyAssignment_4_1_3_1()); }
 )
 
 ;
@@ -24581,11 +24645,11 @@ rule__UiBeanReferenceField__Group_4_1_4__0__Impl
     }
 :
 (
-{ before(grammarAccess.getUiBeanReferenceFieldAccess().getInMemoryServiceKeyword_4_1_4_0()); }
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getImageFieldKeyword_4_1_4_0()); }
 
-	'inMemoryService' 
+	'imageField' 
 
-{ after(grammarAccess.getUiBeanReferenceFieldAccess().getInMemoryServiceKeyword_4_1_4_0()); }
+{ after(grammarAccess.getUiBeanReferenceFieldAccess().getImageFieldKeyword_4_1_4_0()); }
 )
 
 ;
@@ -24612,9 +24676,9 @@ rule__UiBeanReferenceField__Group_4_1_4__1__Impl
     }
 :
 (
-{ before(grammarAccess.getUiBeanReferenceFieldAccess().getInMemoryBeanProviderAssignment_4_1_4_1()); }
-(rule__UiBeanReferenceField__InMemoryBeanProviderAssignment_4_1_4_1)
-{ after(grammarAccess.getUiBeanReferenceFieldAccess().getInMemoryBeanProviderAssignment_4_1_4_1()); }
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getImagePropertyAssignment_4_1_4_1()); }
+(rule__UiBeanReferenceField__ImagePropertyAssignment_4_1_4_1)
+{ after(grammarAccess.getUiBeanReferenceFieldAccess().getImagePropertyAssignment_4_1_4_1()); }
 )
 
 ;
@@ -24645,6 +24709,102 @@ rule__UiBeanReferenceField__Group_4_1_4__2__Impl
 	';' 
 )?
 { after(grammarAccess.getUiBeanReferenceFieldAccess().getSemicolonKeyword_4_1_4_2()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
+
+
+rule__UiBeanReferenceField__Group_4_1_5__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UiBeanReferenceField__Group_4_1_5__0__Impl
+	rule__UiBeanReferenceField__Group_4_1_5__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UiBeanReferenceField__Group_4_1_5__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getInMemoryServiceKeyword_4_1_5_0()); }
+
+	'inMemoryService' 
+
+{ after(grammarAccess.getUiBeanReferenceFieldAccess().getInMemoryServiceKeyword_4_1_5_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__UiBeanReferenceField__Group_4_1_5__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UiBeanReferenceField__Group_4_1_5__1__Impl
+	rule__UiBeanReferenceField__Group_4_1_5__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UiBeanReferenceField__Group_4_1_5__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getInMemoryBeanProviderAssignment_4_1_5_1()); }
+(rule__UiBeanReferenceField__InMemoryBeanProviderAssignment_4_1_5_1)
+{ after(grammarAccess.getUiBeanReferenceFieldAccess().getInMemoryBeanProviderAssignment_4_1_5_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__UiBeanReferenceField__Group_4_1_5__2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UiBeanReferenceField__Group_4_1_5__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UiBeanReferenceField__Group_4_1_5__2__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getSemicolonKeyword_4_1_5_2()); }
+(
+	';' 
+)?
+{ after(grammarAccess.getUiBeanReferenceFieldAccess().getSemicolonKeyword_4_1_5_2()); }
 )
 
 ;
@@ -51694,6 +51854,23 @@ rule__UiBeanReferenceField__UnorderedGroup_4_1__Impl
 						{ after(grammarAccess.getUiBeanReferenceFieldAccess().getGroup_4_1_4()); }
 					)
  				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getUiBeanReferenceFieldAccess().getUnorderedGroup_4_1(), 5)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getUiBeanReferenceFieldAccess().getUnorderedGroup_4_1(), 5);
+	 				}
+	 				{
+	 				  selected = true;
+	 				}
+					(
+					
+						{ before(grammarAccess.getUiBeanReferenceFieldAccess().getGroup_4_1_5()); }
+						(rule__UiBeanReferenceField__Group_4_1_5__0)
+						{ after(grammarAccess.getUiBeanReferenceFieldAccess().getGroup_4_1_5()); }
+					)
+ 				)
 			)  
 
 		)
@@ -51763,10 +51940,25 @@ rule__UiBeanReferenceField__UnorderedGroup_4_1__4
     }
 :
 	rule__UiBeanReferenceField__UnorderedGroup_4_1__Impl
+	rule__UiBeanReferenceField__UnorderedGroup_4_1__5?
 ;
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__UiBeanReferenceField__UnorderedGroup_4_1__5
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UiBeanReferenceField__UnorderedGroup_4_1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 
@@ -58702,14 +58894,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__UiBeanReferenceField__CaptionPropertyAssignment_4_1_1_1
+rule__UiBeanReferenceField__ReferenceSourceJvmTypeAssignment_4_1_1_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getUiBeanReferenceFieldAccess().getCaptionPropertyUiNestedPropertyParserRuleCall_4_1_1_1_0()); }
-	ruleUiNestedProperty{ after(grammarAccess.getUiBeanReferenceFieldAccess().getCaptionPropertyUiNestedPropertyParserRuleCall_4_1_1_1_0()); }
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getReferenceSourceJvmTypeJvmTypeReferenceParserRuleCall_4_1_1_1_0()); }
+	ruleJvmTypeReference{ after(grammarAccess.getUiBeanReferenceFieldAccess().getReferenceSourceJvmTypeJvmTypeReferenceParserRuleCall_4_1_1_1_0()); }
 )
 
 ;
@@ -58717,14 +58909,18 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__UiBeanReferenceField__DescriptionPropertyAssignment_4_1_2_1
+rule__UiBeanReferenceField__ReferenceSourceFieldAssignment_4_1_1_3
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getUiBeanReferenceFieldAccess().getDescriptionPropertyUiNestedPropertyParserRuleCall_4_1_2_1_0()); }
-	ruleUiNestedProperty{ after(grammarAccess.getUiBeanReferenceFieldAccess().getDescriptionPropertyUiNestedPropertyParserRuleCall_4_1_2_1_0()); }
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getReferenceSourceFieldJvmFieldCrossReference_4_1_1_3_0()); }
+(
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getReferenceSourceFieldJvmFieldIDTerminalRuleCall_4_1_1_3_0_1()); }
+	RULE_ID{ after(grammarAccess.getUiBeanReferenceFieldAccess().getReferenceSourceFieldJvmFieldIDTerminalRuleCall_4_1_1_3_0_1()); }
+)
+{ after(grammarAccess.getUiBeanReferenceFieldAccess().getReferenceSourceFieldJvmFieldCrossReference_4_1_1_3_0()); }
 )
 
 ;
@@ -58732,14 +58928,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__UiBeanReferenceField__ImagePropertyAssignment_4_1_3_1
+rule__UiBeanReferenceField__CaptionPropertyAssignment_4_1_2_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getUiBeanReferenceFieldAccess().getImagePropertyUiNestedPropertyParserRuleCall_4_1_3_1_0()); }
-	ruleUiNestedProperty{ after(grammarAccess.getUiBeanReferenceFieldAccess().getImagePropertyUiNestedPropertyParserRuleCall_4_1_3_1_0()); }
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getCaptionPropertyUiNestedPropertyParserRuleCall_4_1_2_1_0()); }
+	ruleUiNestedProperty{ after(grammarAccess.getUiBeanReferenceFieldAccess().getCaptionPropertyUiNestedPropertyParserRuleCall_4_1_2_1_0()); }
 )
 
 ;
@@ -58747,14 +58943,44 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__UiBeanReferenceField__InMemoryBeanProviderAssignment_4_1_4_1
+rule__UiBeanReferenceField__DescriptionPropertyAssignment_4_1_3_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getUiBeanReferenceFieldAccess().getInMemoryBeanProviderJvmTypeReferenceParserRuleCall_4_1_4_1_0()); }
-	ruleJvmTypeReference{ after(grammarAccess.getUiBeanReferenceFieldAccess().getInMemoryBeanProviderJvmTypeReferenceParserRuleCall_4_1_4_1_0()); }
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getDescriptionPropertyUiNestedPropertyParserRuleCall_4_1_3_1_0()); }
+	ruleUiNestedProperty{ after(grammarAccess.getUiBeanReferenceFieldAccess().getDescriptionPropertyUiNestedPropertyParserRuleCall_4_1_3_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UiBeanReferenceField__ImagePropertyAssignment_4_1_4_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getImagePropertyUiNestedPropertyParserRuleCall_4_1_4_1_0()); }
+	ruleUiNestedProperty{ after(grammarAccess.getUiBeanReferenceFieldAccess().getImagePropertyUiNestedPropertyParserRuleCall_4_1_4_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UiBeanReferenceField__InMemoryBeanProviderAssignment_4_1_5_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUiBeanReferenceFieldAccess().getInMemoryBeanProviderJvmTypeReferenceParserRuleCall_4_1_5_1_0()); }
+	ruleJvmTypeReference{ after(grammarAccess.getUiBeanReferenceFieldAccess().getInMemoryBeanProviderJvmTypeReferenceParserRuleCall_4_1_5_1_0()); }
 )
 
 ;

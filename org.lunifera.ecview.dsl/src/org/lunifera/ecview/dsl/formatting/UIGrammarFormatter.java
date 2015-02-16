@@ -528,9 +528,9 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 			UiBeanReferenceFieldElements ele) {
 		// Keywords
 		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_4_1_0_0());
-		c.setLinewrap(1, 1, 2).before(ele.getCaptionFieldKeyword_4_1_1_0());
-		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_4_1_3_0());
-		c.setLinewrap(1, 1, 2).before(ele.getInMemoryServiceKeyword_4_1_4_0());
+		c.setLinewrap(1, 1, 2).before(ele.getCaptionFieldKeyword_4_1_2_0());
+		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_4_1_4_0());
+		c.setLinewrap(1, 1, 2).before(ele.getInMemoryServiceKeyword_4_1_5_0());
 		// Brackets
 		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
 		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_5());

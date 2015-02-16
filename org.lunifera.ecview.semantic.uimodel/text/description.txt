@@ -24,7 +24,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference bindingEndpointAlias : UiBindingEndpointAlias<<0..*>>
     Reference bindings : UiBinding<<0..*>>
 
-  Class UiExposedAction -> UiNamedElement
+  Class UiExposedAction -> UiAction
     Reference actionReference : UxAction
     Attribute actionID : EString
     Attribute iconName : EString
@@ -82,6 +82,10 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiPathSegment
     Reference path : UiPathSegment
     Reference getter : JvmOperation
+
+  Class UiNestedField -> UiNamedElement
+    Reference path : UiPathSegment
+    Reference field : JvmField
 
   Class UiNestedProperty -> UiNamedElement
     Reference path : UiPathSegment
@@ -177,6 +181,8 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference imageProperty : UiNestedProperty
     Reference inMemoryBeanProvider : JvmTypeReference
     Reference descriptionProperty : UiNestedProperty
+    Reference referenceSourceJvmType : JvmTypeReference
+    Reference referenceSourceField : JvmField
 
   Class UiTextField -> UiField, UiMobileField
     Attribute maxLength : EInt

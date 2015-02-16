@@ -95,6 +95,11 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_EXPOSED_ACTION: {
 				UiExposedAction uiExposedAction = (UiExposedAction)theEObject;
 				T result = caseUiExposedAction(uiExposedAction);
+				if (result == null) result = caseUiAction(uiExposedAction);
+				if (result == null) result = caseUiEmbeddable(uiExposedAction);
+				if (result == null) result = caseUiVisibilityProcessable(uiExposedAction);
+				if (result == null) result = caseUiRawBindable(uiExposedAction);
+				if (result == null) result = caseUiI18nInfoable(uiExposedAction);
 				if (result == null) result = caseUiNamedElement(uiExposedAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -220,6 +225,13 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.UI_PATH_SEGMENT: {
 				UiPathSegment uiPathSegment = (UiPathSegment)theEObject;
 				T result = caseUiPathSegment(uiPathSegment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.UI_NESTED_FIELD: {
+				UiNestedField uiNestedField = (UiNestedField)theEObject;
+				T result = caseUiNestedField(uiNestedField);
+				if (result == null) result = caseUiNamedElement(uiNestedField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1523,6 +1535,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUiPathSegment(UiPathSegment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ui Nested Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ui Nested Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUiNestedField(UiNestedField object) {
 		return null;
 	}
 

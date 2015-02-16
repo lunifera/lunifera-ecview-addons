@@ -2,6 +2,7 @@
  */
 package org.lunifera.ecview.semantic.uimodel;
 
+import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 
 
@@ -17,6 +18,8 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField#getImageProperty <em>Image Property</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField#getInMemoryBeanProvider <em>In Memory Bean Provider</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField#getDescriptionProperty <em>Description Property</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField#getReferenceSourceJvmType <em>Reference Source Jvm Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField#getReferenceSourceField <em>Reference Source Field</em>}</li>
  * </ul>
  * </p>
  *
@@ -129,4 +132,56 @@ public interface UiBeanReferenceField extends UiField, UiMobileField, UiTypeProv
 	 * @generated
 	 */
 	void setDescriptionProperty(UiNestedProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Reference Source Jvm Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reference Source Jvm Type</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reference Source Jvm Type</em>' containment reference.
+	 * @see #setReferenceSourceJvmType(JvmTypeReference)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiBeanReferenceField_ReferenceSourceJvmType()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	JvmTypeReference getReferenceSourceJvmType();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField#getReferenceSourceJvmType <em>Reference Source Jvm Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reference Source Jvm Type</em>' containment reference.
+	 * @see #getReferenceSourceJvmType()
+	 * @generated
+	 */
+	void setReferenceSourceJvmType(JvmTypeReference value);
+
+	/**
+	 * Returns the value of the '<em><b>Reference Source Field</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reference Source Field</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reference Source Field</em>' reference.
+	 * @see #setReferenceSourceField(JvmField)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiBeanReferenceField_ReferenceSourceField()
+	 * @model
+	 * @generated
+	 */
+	JvmField getReferenceSourceField();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField#getReferenceSourceField <em>Reference Source Field</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reference Source Field</em>' reference.
+	 * @see #getReferenceSourceField()
+	 * @generated
+	 */
+	void setReferenceSourceField(JvmField value);
 } // UiBeanReferenceField

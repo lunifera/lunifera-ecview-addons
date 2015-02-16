@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtext.common.types.JvmEnumerationType;
+import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmGenericType;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
@@ -359,9 +360,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   public void installDerivedState(final DerivedStateAwareResource resource, final boolean preLinkingPhase) {
-    if ((1 == 1)) {
-      return;
-    }
     super.installDerivedState(resource, preLinkingPhase);
     this.resource = resource;
     ResourceSet _resourceSet = resource.getResourceSet();
@@ -2226,6 +2224,25 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       Class<?> _loadClass_1 = this.loadClass(_resourceSet_1, _qualifiedName_3);
       field.setInMemoryBeanProvider(_loadClass_1);
     }
+    JvmTypeReference _referenceSourceJvmType = object.getReferenceSourceJvmType();
+    boolean _notEquals_4 = (!Objects.equal(_referenceSourceJvmType, null));
+    if (_notEquals_4) {
+      JvmTypeReference _referenceSourceJvmType_1 = object.getReferenceSourceJvmType();
+      String _qualifiedName_4 = _referenceSourceJvmType_1.getQualifiedName();
+      field.setReferenceSourceTypeQualifiedName(_qualifiedName_4);
+      Resource _eResource_2 = object.eResource();
+      ResourceSet _resourceSet_2 = _eResource_2.getResourceSet();
+      JvmTypeReference _referenceSourceJvmType_2 = object.getReferenceSourceJvmType();
+      String _qualifiedName_5 = _referenceSourceJvmType_2.getQualifiedName();
+      Class<?> _loadClass_2 = this.loadClass(_resourceSet_2, _qualifiedName_5);
+      field.setReferenceSourceType(_loadClass_2);
+      JvmField _referenceSourceField = object.getReferenceSourceField();
+      String _simpleName = null;
+      if (_referenceSourceField!=null) {
+        _simpleName=_referenceSourceField.getSimpleName();
+      }
+      field.setReferenceSourceTypeProperty(_simpleName);
+    }
     this.associateUi(object, field);
     return field;
   }
@@ -3727,6 +3744,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     } else if (object instanceof UiColumn) {
       _map((UiColumn)object);
       return;
+    } else if (object instanceof UiExposedAction) {
+      _map((UiExposedAction)object);
+      return;
     } else if (object instanceof UiFormLayout) {
       _map((UiFormLayout)object);
       return;
@@ -3828,9 +3848,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return;
     } else if (object instanceof UiVerticalLayoutAssigment) {
       _map((UiVerticalLayoutAssigment)object);
-      return;
-    } else if (object instanceof UiExposedAction) {
-      _map((UiExposedAction)object);
       return;
     } else if (object instanceof UiModel) {
       _map((UiModel)object);

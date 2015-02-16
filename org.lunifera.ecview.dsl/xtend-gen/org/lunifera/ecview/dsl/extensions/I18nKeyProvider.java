@@ -214,14 +214,14 @@ public class I18nKeyProvider {
       return _toI18nKey((UiSearchField)embeddable);
     } else if (embeddable instanceof UiColumn) {
       return _toI18nKey((UiColumn)embeddable);
+    } else if (embeddable instanceof UiExposedAction) {
+      return _toI18nKey((UiExposedAction)embeddable);
     } else if (embeddable instanceof UiEmbeddable) {
       return _toI18nKey((UiEmbeddable)embeddable);
     } else if (embeddable instanceof UiTabAssignment) {
       return _toI18nKey((UiTabAssignment)embeddable);
     } else if (embeddable instanceof UiErrorCode) {
       return _toI18nKey((UiErrorCode)embeddable);
-    } else if (embeddable instanceof UiExposedAction) {
-      return _toI18nKey((UiExposedAction)embeddable);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(embeddable).toString());

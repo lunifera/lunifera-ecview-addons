@@ -481,6 +481,7 @@ UiBeanReferenceField returns UiBeanReferenceField:
 	name=ID?
 	('{'
 	(('type' jvmType=JvmTypeReference (';')?)?
+	& ('refSource' referenceSourceJvmType=JvmTypeReference ':' referenceSourceField=[JvmField] (';')?)?
 	& ('captionField' captionProperty=UiNestedProperty (';')?)?
 	& ('descriptionField' descriptionProperty=UiNestedProperty (';')?)?
 	& ('imageField' imageProperty=UiNestedProperty (';')?)?

@@ -81,6 +81,7 @@ import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiModelFactory;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
+import org.lunifera.ecview.semantic.uimodel.UiNestedField;
 import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
 import org.lunifera.ecview.semantic.uimodel.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
@@ -274,6 +275,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiPathSegmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiNestedFieldEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1572,6 +1580,33 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiNestedField() {
+		return uiNestedFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiNestedField_Path() {
+		return (EReference)uiNestedFieldEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiNestedField_Field() {
+		return (EReference)uiNestedFieldEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiNestedProperty() {
 		return uiNestedPropertyEClass;
 	}
@@ -2168,6 +2203,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiBeanReferenceField_DescriptionProperty() {
 		return (EReference)uiBeanReferenceFieldEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiBeanReferenceField_ReferenceSourceJvmType() {
+		return (EReference)uiBeanReferenceFieldEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiBeanReferenceField_ReferenceSourceField() {
+		return (EReference)uiBeanReferenceFieldEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3930,6 +3983,10 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiPathSegmentEClass, UI_PATH_SEGMENT__PATH);
 		createEReference(uiPathSegmentEClass, UI_PATH_SEGMENT__GETTER);
 
+		uiNestedFieldEClass = createEClass(UI_NESTED_FIELD);
+		createEReference(uiNestedFieldEClass, UI_NESTED_FIELD__PATH);
+		createEReference(uiNestedFieldEClass, UI_NESTED_FIELD__FIELD);
+
 		uiNestedPropertyEClass = createEClass(UI_NESTED_PROPERTY);
 		createEReference(uiNestedPropertyEClass, UI_NESTED_PROPERTY__PATH);
 		createEReference(uiNestedPropertyEClass, UI_NESTED_PROPERTY__GETTER);
@@ -4024,6 +4081,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiBeanReferenceFieldEClass, UI_BEAN_REFERENCE_FIELD__IMAGE_PROPERTY);
 		createEReference(uiBeanReferenceFieldEClass, UI_BEAN_REFERENCE_FIELD__IN_MEMORY_BEAN_PROVIDER);
 		createEReference(uiBeanReferenceFieldEClass, UI_BEAN_REFERENCE_FIELD__DESCRIPTION_PROPERTY);
+		createEReference(uiBeanReferenceFieldEClass, UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_JVM_TYPE);
+		createEReference(uiBeanReferenceFieldEClass, UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_FIELD);
 
 		uiTextFieldEClass = createEClass(UI_TEXT_FIELD);
 		createEAttribute(uiTextFieldEClass, UI_TEXT_FIELD__MAX_LENGTH);
@@ -4317,7 +4376,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiModelEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiImportsEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiContextEClass.getESuperTypes().add(this.getUiRootElements());
-		uiExposedActionEClass.getESuperTypes().add(this.getUiNamedElement());
+		uiExposedActionEClass.getESuperTypes().add(this.getUiAction());
 		uiViewSetEClass.getESuperTypes().add(this.getUiContext());
 		uiViewEClass.getESuperTypes().add(this.getUiContext());
 		uiViewEClass.getESuperTypes().add(this.getUiVisibilityProcessable());
@@ -4334,6 +4393,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiBindingEndpointAliasEClass.getESuperTypes().add(this.getUiTypedBindable());
 		uiBindingEndpointAssignmentEClass.getESuperTypes().add(this.getUiTypedBindable());
 		uiBindingEndpointAssignmentEClass.getESuperTypes().add(this.getUiBindingExpression());
+		uiNestedFieldEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiNestedPropertyEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiRawBindableEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiTypedBindableEClass.getESuperTypes().add(this.getUiNamedElement());
@@ -4545,6 +4605,10 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiPathSegment_Path(), this.getUiPathSegment(), null, "path", null, 0, 1, UiPathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiPathSegment_Getter(), theTypesPackage.getJvmOperation(), null, "getter", null, 0, 1, UiPathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(uiNestedFieldEClass, UiNestedField.class, "UiNestedField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiNestedField_Path(), this.getUiPathSegment(), null, "path", null, 0, 1, UiNestedField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiNestedField_Field(), theTypesPackage.getJvmField(), null, "field", null, 0, 1, UiNestedField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(uiNestedPropertyEClass, UiNestedProperty.class, "UiNestedProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiNestedProperty_Path(), this.getUiPathSegment(), null, "path", null, 0, 1, UiNestedProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiNestedProperty_Getter(), theTypesPackage.getJvmOperation(), null, "getter", null, 0, 1, UiNestedProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4639,6 +4703,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiBeanReferenceField_ImageProperty(), this.getUiNestedProperty(), null, "imageProperty", null, 0, 1, UiBeanReferenceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiBeanReferenceField_InMemoryBeanProvider(), theTypesPackage.getJvmTypeReference(), null, "inMemoryBeanProvider", null, 0, 1, UiBeanReferenceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiBeanReferenceField_DescriptionProperty(), this.getUiNestedProperty(), null, "descriptionProperty", null, 0, 1, UiBeanReferenceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiBeanReferenceField_ReferenceSourceJvmType(), theTypesPackage.getJvmTypeReference(), null, "referenceSourceJvmType", null, 0, 1, UiBeanReferenceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiBeanReferenceField_ReferenceSourceField(), theTypesPackage.getJvmField(), null, "referenceSourceField", null, 0, 1, UiBeanReferenceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiTextFieldEClass, UiTextField.class, "UiTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiTextField_MaxLength(), ecorePackage.getEInt(), "maxLength", "-1", 0, 1, UiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

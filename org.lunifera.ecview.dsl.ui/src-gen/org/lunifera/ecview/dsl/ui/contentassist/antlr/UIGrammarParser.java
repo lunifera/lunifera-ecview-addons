@@ -258,6 +258,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiBeanReferenceFieldAccess().getGroup_4_1_2(), "rule__UiBeanReferenceField__Group_4_1_2__0");
 					put(grammarAccess.getUiBeanReferenceFieldAccess().getGroup_4_1_3(), "rule__UiBeanReferenceField__Group_4_1_3__0");
 					put(grammarAccess.getUiBeanReferenceFieldAccess().getGroup_4_1_4(), "rule__UiBeanReferenceField__Group_4_1_4__0");
+					put(grammarAccess.getUiBeanReferenceFieldAccess().getGroup_4_1_5(), "rule__UiBeanReferenceField__Group_4_1_5__0");
 					put(grammarAccess.getUiSearchFieldAccess().getGroup(), "rule__UiSearchField__Group__0");
 					put(grammarAccess.getUiSearchFieldAccess().getGroup_2(), "rule__UiSearchField__Group_2__0");
 					put(grammarAccess.getUiSearchFieldAccess().getGroup_2_1_1(), "rule__UiSearchField__Group_2_1_1__0");
@@ -781,10 +782,12 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiBeanReferenceFieldAccess().getStylesAssignment_2_1_1_1(), "rule__UiBeanReferenceField__StylesAssignment_2_1_1_1");
 					put(grammarAccess.getUiBeanReferenceFieldAccess().getNameAssignment_3(), "rule__UiBeanReferenceField__NameAssignment_3");
 					put(grammarAccess.getUiBeanReferenceFieldAccess().getJvmTypeAssignment_4_1_0_1(), "rule__UiBeanReferenceField__JvmTypeAssignment_4_1_0_1");
-					put(grammarAccess.getUiBeanReferenceFieldAccess().getCaptionPropertyAssignment_4_1_1_1(), "rule__UiBeanReferenceField__CaptionPropertyAssignment_4_1_1_1");
-					put(grammarAccess.getUiBeanReferenceFieldAccess().getDescriptionPropertyAssignment_4_1_2_1(), "rule__UiBeanReferenceField__DescriptionPropertyAssignment_4_1_2_1");
-					put(grammarAccess.getUiBeanReferenceFieldAccess().getImagePropertyAssignment_4_1_3_1(), "rule__UiBeanReferenceField__ImagePropertyAssignment_4_1_3_1");
-					put(grammarAccess.getUiBeanReferenceFieldAccess().getInMemoryBeanProviderAssignment_4_1_4_1(), "rule__UiBeanReferenceField__InMemoryBeanProviderAssignment_4_1_4_1");
+					put(grammarAccess.getUiBeanReferenceFieldAccess().getReferenceSourceJvmTypeAssignment_4_1_1_1(), "rule__UiBeanReferenceField__ReferenceSourceJvmTypeAssignment_4_1_1_1");
+					put(grammarAccess.getUiBeanReferenceFieldAccess().getReferenceSourceFieldAssignment_4_1_1_3(), "rule__UiBeanReferenceField__ReferenceSourceFieldAssignment_4_1_1_3");
+					put(grammarAccess.getUiBeanReferenceFieldAccess().getCaptionPropertyAssignment_4_1_2_1(), "rule__UiBeanReferenceField__CaptionPropertyAssignment_4_1_2_1");
+					put(grammarAccess.getUiBeanReferenceFieldAccess().getDescriptionPropertyAssignment_4_1_3_1(), "rule__UiBeanReferenceField__DescriptionPropertyAssignment_4_1_3_1");
+					put(grammarAccess.getUiBeanReferenceFieldAccess().getImagePropertyAssignment_4_1_4_1(), "rule__UiBeanReferenceField__ImagePropertyAssignment_4_1_4_1");
+					put(grammarAccess.getUiBeanReferenceFieldAccess().getInMemoryBeanProviderAssignment_4_1_5_1(), "rule__UiBeanReferenceField__InMemoryBeanProviderAssignment_4_1_5_1");
 					put(grammarAccess.getUiBeanReferenceFieldAccess().getValidatorsAssignment_4_2_0(), "rule__UiBeanReferenceField__ValidatorsAssignment_4_2_0");
 					put(grammarAccess.getUiBeanReferenceFieldAccess().getBindingsAssignment_4_2_1(), "rule__UiBeanReferenceField__BindingsAssignment_4_2_1");
 					put(grammarAccess.getUiBeanReferenceFieldAccess().getProcessorAssignmentsAssignment_4_3(), "rule__UiBeanReferenceField__ProcessorAssignmentsAssignment_4_3");

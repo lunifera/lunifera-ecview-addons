@@ -26,7 +26,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
         eType="#//UiBinding" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UiExposedAction" eSuperTypes="#//UiNamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="UiExposedAction" eSuperTypes="#//UiAction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="actionReference" eType="ecore:EClass ../../org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore#//UxAction"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iconName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -119,6 +119,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//UiPathSegment"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="getter" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmOperation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiNestedField" eSuperTypes="#//UiNamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//UiPathSegment"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="field" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmField"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiNestedProperty" eSuperTypes="#//UiNamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//UiPathSegment"
@@ -240,6 +245,10 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="descriptionProperty" eType="#//UiNestedProperty"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referenceSourceJvmType"
+        eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referenceSourceField" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmField"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiTextField" eSuperTypes="#//UiField #//UiMobileField">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"

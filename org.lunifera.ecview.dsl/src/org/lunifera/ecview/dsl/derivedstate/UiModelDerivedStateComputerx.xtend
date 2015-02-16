@@ -245,10 +245,6 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 	override void installDerivedState(DerivedStateAwareResource resource, boolean preLinkingPhase) {
 
-		if(1==1){
-			return
-		}
-
 		super.installDerivedState(resource, preLinkingPhase)
 		this.resource = resource;
 		this.typeLoader = typeLoaderFactory.createTypeLoader(resource.resourceSet)
@@ -1623,6 +1619,12 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			field.inMemoryBeanProviderQualifiedName = object.inMemoryBeanProvider.qualifiedName
 			field.inMemoryBeanProvider = loadClass(object.eResource.resourceSet,
 				object.inMemoryBeanProvider.qualifiedName)
+		}
+
+		if (object.referenceSourceJvmType != null) {
+			field.referenceSourceTypeQualifiedName = object.referenceSourceJvmType.qualifiedName
+			field.referenceSourceType = loadClass(object.eResource.resourceSet, object.referenceSourceJvmType.qualifiedName)
+			field.referenceSourceTypeProperty=object.referenceSourceField?.simpleName
 		}
 
 		object.associateUi(field)

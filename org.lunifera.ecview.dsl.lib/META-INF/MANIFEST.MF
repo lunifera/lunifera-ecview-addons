@@ -7,10 +7,10 @@ Bundle-Version: 0.8.1.qualifier
 Bundle-ClassPath: .
 Bundle-SymbolicName: org.lunifera.ecview.dsl.lib;singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.lunifera.ecview.semantic.uimodel;bundle-version="[0.8.0,0.9.0)",
- org.lunifera.ecview.uisemantics;bundle-version="[0.8.0,0.9.0)",
- org.lunifera.dsl.datatype.lib;bundle-version="[0.8.0,0.9.0)",
+Require-Bundle: org.lunifera.dsl.datatype.lib;bundle-version="[0.8.0,0.9.0)",
  org.lunifera.ecview.core.common;bundle-version="[0.8.0,0.9.0)",
- org.lunifera.dsl.dto.lib;bundle-version="[0.8.0,0.9.0)"
+ org.lunifera.dsl.dto.lib;bundle-version="[0.8.0,0.9.0)",
+ org.lunifera.ecview.semantic.uimodel;bundle-version="0.8.1",
+ org.lunifera.ecview.semantic.uisemantics;bundle-version="0.8.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.lunifera.ecview.dsl.lib;uses:="org.lunifera.dsl.dto.lib,org.lunifera.ecview.core.common.visibility"

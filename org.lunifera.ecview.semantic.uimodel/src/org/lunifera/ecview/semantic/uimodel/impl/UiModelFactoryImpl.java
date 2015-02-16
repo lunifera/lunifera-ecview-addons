@@ -150,6 +150,7 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_BINDING_ENDPOINT_ASSIGNMENT: return createUiBindingEndpointAssignment();
 			case UiModelPackage.UI_BINDING: return createUiBinding();
 			case UiModelPackage.UI_PATH_SEGMENT: return createUiPathSegment();
+			case UiModelPackage.UI_NESTED_FIELD: return createUiNestedField();
 			case UiModelPackage.UI_NESTED_PROPERTY: return createUiNestedProperty();
 			case UiModelPackage.UI_RAW_BINDABLE_PATH_SEGMENT: return createUiRawBindablePathSegment();
 			case UiModelPackage.UI_TYPED_BINDABLE_DEF: return createUiTypedBindableDef();
@@ -438,6 +439,16 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiPathSegment createUiPathSegment() {
 		UiPathSegmentImpl uiPathSegment = new UiPathSegmentImpl();
 		return uiPathSegment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiNestedField createUiNestedField() {
+		UiNestedFieldImpl uiNestedField = new UiNestedFieldImpl();
+		return uiNestedField;
 	}
 
 	/**
