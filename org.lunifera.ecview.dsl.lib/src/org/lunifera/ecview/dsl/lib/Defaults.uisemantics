@@ -6,6 +6,7 @@ actions {
 	org.lunifera.^actions.delete
 	org.lunifera.^actions.find
 	org.lunifera.^actions.addNewRow
+	org.lunifera.^actions.applyFilter
 }
 
 element Browser {

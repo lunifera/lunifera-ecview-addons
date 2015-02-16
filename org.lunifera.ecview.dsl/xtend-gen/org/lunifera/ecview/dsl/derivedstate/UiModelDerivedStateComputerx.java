@@ -1946,6 +1946,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     String _iconName = object.getIconName();
     yAction.setIcon(_iconName);
     this.associateUi(object, yAction);
+    EList<UiBinding> _bindings = object.getBindings();
+    final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
+      public void apply(final UiBinding it) {
+        UiModelDerivedStateComputerx.this.map(it);
+      }
+    };
+    IterableExtensions.<UiBinding>forEach(_bindings, _function);
     EList<YExposedAction> _exposedActions = this.currentView.getExposedActions();
     _exposedActions.add(yAction);
   }

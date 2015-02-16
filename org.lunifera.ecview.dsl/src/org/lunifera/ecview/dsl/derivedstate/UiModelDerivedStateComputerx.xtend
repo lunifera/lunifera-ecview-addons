@@ -1446,6 +1446,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		yAction.icon = object.iconName
 
 		object.associateUi(yAction)
+		
+		object.bindings.forEach [
+			it.map
+		]
 
 		currentView.exposedActions += yAction
 	}
