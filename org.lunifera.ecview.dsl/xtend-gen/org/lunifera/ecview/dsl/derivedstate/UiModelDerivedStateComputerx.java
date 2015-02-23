@@ -458,6 +458,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected void _map(final UiIDEView object) {
     final YView yView = this.factory.createView();
+    String _sharedStateGroup = object.getSharedStateGroup();
+    yView.setSharedStateGroup(_sharedStateGroup);
     UiAlignment _contentAlignment = object.getContentAlignment();
     YAlignment _yAlignment = this.toYAlignment(_contentAlignment);
     yView.setContentAlignment(_yAlignment);
@@ -544,6 +546,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected void _map(final UiMobileView object) {
     final YView yView = this.factory.createView();
+    String _sharedStateGroup = object.getSharedStateGroup();
+    yView.setSharedStateGroup(_sharedStateGroup);
     yView.setDeviceType(YDeviceType.MOBILE);
     UiAlignment _contentAlignment = object.getContentAlignment();
     YAlignment _yAlignment = this.toYAlignment(_contentAlignment);

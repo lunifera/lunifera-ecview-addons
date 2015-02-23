@@ -296,13 +296,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_CONTEXT__BINDINGS = UI_ROOT_ELEMENTS_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Shared State Group</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_CONTEXT__SHARED_STATE_GROUP = UI_ROOT_ELEMENTS_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Ui Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_CONTEXT_FEATURE_COUNT = UI_ROOT_ELEMENTS_FEATURE_COUNT + 3;
+	int UI_CONTEXT_FEATURE_COUNT = UI_ROOT_ELEMENTS_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiExposedActionImpl <em>Ui Exposed Action</em>}' class.
@@ -1298,6 +1307,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_VIEW_SET__BINDINGS = UI_CONTEXT__BINDINGS;
 
 	/**
+	 * The feature id for the '<em><b>Shared State Group</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VIEW_SET__SHARED_STATE_GROUP = UI_CONTEXT__SHARED_STATE_GROUP;
+
+	/**
 	 * The number of structural features of the '<em>Ui View Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1350,6 +1368,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_VIEW__BINDINGS = UI_CONTEXT__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Shared State Group</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VIEW__SHARED_STATE_GROUP = UI_CONTEXT__SHARED_STATE_GROUP;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignments</b></em>' containment reference list.
@@ -1622,6 +1649,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_IDE_VIEW__BINDINGS = UI_VIEW__BINDINGS;
 
 	/**
+	 * The feature id for the '<em><b>Shared State Group</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_IDE_VIEW__SHARED_STATE_GROUP = UI_VIEW__SHARED_STATE_GROUP;
+
+	/**
 	 * The feature id for the '<em><b>Processor Assignments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1737,6 +1773,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_MOBILE_VIEW__BINDINGS = UI_VIEW__BINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Shared State Group</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_VIEW__SHARED_STATE_GROUP = UI_VIEW__SHARED_STATE_GROUP;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignments</b></em>' containment reference list.
@@ -9403,6 +9448,17 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiContext_Bindings();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiContext#getSharedStateGroup <em>Shared State Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Shared State Group</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiContext#getSharedStateGroup()
+	 * @see #getUiContext()
+	 * @generated
+	 */
+	EAttribute getUiContext_SharedStateGroup();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiExposedAction <em>Ui Exposed Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12717,6 +12773,14 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_CONTEXT__BINDINGS = eINSTANCE.getUiContext_Bindings();
+
+		/**
+		 * The meta object literal for the '<em><b>Shared State Group</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_CONTEXT__SHARED_STATE_GROUP = eINSTANCE.getUiContext_SharedStateGroup();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiExposedActionImpl <em>Ui Exposed Action</em>}' class.

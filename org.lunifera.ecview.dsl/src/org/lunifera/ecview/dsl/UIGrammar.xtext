@@ -110,7 +110,7 @@ UiView returns UiView:
 UiIDEView returns UiIDEView:
 	'ideview' name=ID
 	'{'
-	(('viewset' viewSet=[UiViewSet] (';')?)?
+	(('sharedStateGroup' sharedStateGroup=STRING (';')?)?
 	& ('rootType' jvmType=JvmTypeReference (';')?)?
 	& ('exposedActions' '{'
 	exposedActions+=UiExposedAction*
@@ -137,7 +137,7 @@ UiMobileNavBarAction:
 UiMobileView returns UiMobileView:
 	'mobile' name=ID
 	'{'
-	(('viewset' viewSet=[UiViewSet] (';')?)?
+	(('sharedStateGroup' sharedStateGroup=STRING (';')?)?
 	& ('rootType' jvmType=JvmTypeReference (';')?)?)
 	((beanSlots+=UiBeanSlot)
 	|

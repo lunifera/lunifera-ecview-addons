@@ -1839,21 +1839,26 @@ ruleUiIDEView returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getUiIDEViewAccess().getUnorderedGroup_3(), 0);
 	 				}
-					({true}?=>(	otherlv_4='viewset' 
+					({true}?=>(	otherlv_4='sharedStateGroup' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getUiIDEViewAccess().getViewsetKeyword_3_0_0());
+    	newLeafNode(otherlv_4, grammarAccess.getUiIDEViewAccess().getSharedStateGroupKeyword_3_0_0());
     }
 (
 (
+		lv_sharedStateGroup_5_0=RULE_STRING
 		{
-			if ($current==null) {
+			newLeafNode(lv_sharedStateGroup_5_0, grammarAccess.getUiIDEViewAccess().getSharedStateGroupSTRINGTerminalRuleCall_3_0_1_0()); 
+		}
+		{
+	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getUiIDEViewRule());
 	        }
-        }
-	otherlv_5=RULE_ID
-	{
-		newLeafNode(otherlv_5, grammarAccess.getUiIDEViewAccess().getViewSetUiViewSetCrossReference_3_0_1_0()); 
-	}
+       		setWithLastConsumed(
+       			$current, 
+       			"sharedStateGroup",
+        		lv_sharedStateGroup_5_0, 
+        		"STRING");
+	    }
 
 )
 )(	otherlv_6=';' 
@@ -2385,21 +2390,26 @@ ruleUiMobileView returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getUiMobileViewAccess().getUnorderedGroup_3(), 0);
 	 				}
-					({true}?=>(	otherlv_4='viewset' 
+					({true}?=>(	otherlv_4='sharedStateGroup' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getUiMobileViewAccess().getViewsetKeyword_3_0_0());
+    	newLeafNode(otherlv_4, grammarAccess.getUiMobileViewAccess().getSharedStateGroupKeyword_3_0_0());
     }
 (
 (
+		lv_sharedStateGroup_5_0=RULE_STRING
 		{
-			if ($current==null) {
+			newLeafNode(lv_sharedStateGroup_5_0, grammarAccess.getUiMobileViewAccess().getSharedStateGroupSTRINGTerminalRuleCall_3_0_1_0()); 
+		}
+		{
+	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getUiMobileViewRule());
 	        }
-        }
-	otherlv_5=RULE_ID
-	{
-		newLeafNode(otherlv_5, grammarAccess.getUiMobileViewAccess().getViewSetUiViewSetCrossReference_3_0_1_0()); 
-	}
+       		setWithLastConsumed(
+       			$current, 
+       			"sharedStateGroup",
+        		lv_sharedStateGroup_5_0, 
+        		"STRING");
+	    }
 
 )
 )(	otherlv_6=';' 

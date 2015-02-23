@@ -11361,11 +11361,11 @@ rule__UiIDEView__Group_3_0__0__Impl
     }
 :
 (
-{ before(grammarAccess.getUiIDEViewAccess().getViewsetKeyword_3_0_0()); }
+{ before(grammarAccess.getUiIDEViewAccess().getSharedStateGroupKeyword_3_0_0()); }
 
-	'viewset' 
+	'sharedStateGroup' 
 
-{ after(grammarAccess.getUiIDEViewAccess().getViewsetKeyword_3_0_0()); }
+{ after(grammarAccess.getUiIDEViewAccess().getSharedStateGroupKeyword_3_0_0()); }
 )
 
 ;
@@ -11392,9 +11392,9 @@ rule__UiIDEView__Group_3_0__1__Impl
     }
 :
 (
-{ before(grammarAccess.getUiIDEViewAccess().getViewSetAssignment_3_0_1()); }
-(rule__UiIDEView__ViewSetAssignment_3_0_1)
-{ after(grammarAccess.getUiIDEViewAccess().getViewSetAssignment_3_0_1()); }
+{ before(grammarAccess.getUiIDEViewAccess().getSharedStateGroupAssignment_3_0_1()); }
+(rule__UiIDEView__SharedStateGroupAssignment_3_0_1)
+{ after(grammarAccess.getUiIDEViewAccess().getSharedStateGroupAssignment_3_0_1()); }
 )
 
 ;
@@ -12471,11 +12471,11 @@ rule__UiMobileView__Group_3_0__0__Impl
     }
 :
 (
-{ before(grammarAccess.getUiMobileViewAccess().getViewsetKeyword_3_0_0()); }
+{ before(grammarAccess.getUiMobileViewAccess().getSharedStateGroupKeyword_3_0_0()); }
 
-	'viewset' 
+	'sharedStateGroup' 
 
-{ after(grammarAccess.getUiMobileViewAccess().getViewsetKeyword_3_0_0()); }
+{ after(grammarAccess.getUiMobileViewAccess().getSharedStateGroupKeyword_3_0_0()); }
 )
 
 ;
@@ -12502,9 +12502,9 @@ rule__UiMobileView__Group_3_0__1__Impl
     }
 :
 (
-{ before(grammarAccess.getUiMobileViewAccess().getViewSetAssignment_3_0_1()); }
-(rule__UiMobileView__ViewSetAssignment_3_0_1)
-{ after(grammarAccess.getUiMobileViewAccess().getViewSetAssignment_3_0_1()); }
+{ before(grammarAccess.getUiMobileViewAccess().getSharedStateGroupAssignment_3_0_1()); }
+(rule__UiMobileView__SharedStateGroupAssignment_3_0_1)
+{ after(grammarAccess.getUiMobileViewAccess().getSharedStateGroupAssignment_3_0_1()); }
 )
 
 ;
@@ -55862,18 +55862,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__UiIDEView__ViewSetAssignment_3_0_1
+rule__UiIDEView__SharedStateGroupAssignment_3_0_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getUiIDEViewAccess().getViewSetUiViewSetCrossReference_3_0_1_0()); }
-(
-{ before(grammarAccess.getUiIDEViewAccess().getViewSetUiViewSetIDTerminalRuleCall_3_0_1_0_1()); }
-	RULE_ID{ after(grammarAccess.getUiIDEViewAccess().getViewSetUiViewSetIDTerminalRuleCall_3_0_1_0_1()); }
-)
-{ after(grammarAccess.getUiIDEViewAccess().getViewSetUiViewSetCrossReference_3_0_1_0()); }
+{ before(grammarAccess.getUiIDEViewAccess().getSharedStateGroupSTRINGTerminalRuleCall_3_0_1_0()); }
+	RULE_STRING{ after(grammarAccess.getUiIDEViewAccess().getSharedStateGroupSTRINGTerminalRuleCall_3_0_1_0()); }
 )
 
 ;
@@ -56174,18 +56170,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__UiMobileView__ViewSetAssignment_3_0_1
+rule__UiMobileView__SharedStateGroupAssignment_3_0_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getUiMobileViewAccess().getViewSetUiViewSetCrossReference_3_0_1_0()); }
-(
-{ before(grammarAccess.getUiMobileViewAccess().getViewSetUiViewSetIDTerminalRuleCall_3_0_1_0_1()); }
-	RULE_ID{ after(grammarAccess.getUiMobileViewAccess().getViewSetUiViewSetIDTerminalRuleCall_3_0_1_0_1()); }
-)
-{ after(grammarAccess.getUiMobileViewAccess().getViewSetUiViewSetCrossReference_3_0_1_0()); }
+{ before(grammarAccess.getUiMobileViewAccess().getSharedStateGroupSTRINGTerminalRuleCall_3_0_1_0()); }
+	RULE_STRING{ after(grammarAccess.getUiMobileViewAccess().getSharedStateGroupSTRINGTerminalRuleCall_3_0_1_0()); }
 )
 
 ;

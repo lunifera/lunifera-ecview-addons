@@ -2268,7 +2268,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         viewSet=[UiViewSet|ID]? 
+	 *         sharedStateGroup=STRING? 
 	 *         jvmType=JvmTypeReference? 
 	 *         exposedActions+=UiExposedAction* 
 	 *         (beanSlots+=UiBeanSlot | bindingEndpointAlias+=UiBindingEndpointAlias)* 
@@ -2583,7 +2583,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         viewSet=[UiViewSet|ID]? 
+	 *         sharedStateGroup=STRING? 
 	 *         jvmType=JvmTypeReference? 
 	 *         (beanSlots+=UiBeanSlot | bindingEndpointAlias+=UiBindingEndpointAlias)* 
 	 *         content=UiMobileEmbeddable 

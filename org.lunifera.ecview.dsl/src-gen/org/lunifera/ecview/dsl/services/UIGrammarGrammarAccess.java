@@ -1080,10 +1080,9 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final UnorderedGroup cUnorderedGroup_3 = (UnorderedGroup)cGroup.eContents().get(3);
 		private final Group cGroup_3_0 = (Group)cUnorderedGroup_3.eContents().get(0);
-		private final Keyword cViewsetKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
-		private final Assignment cViewSetAssignment_3_0_1 = (Assignment)cGroup_3_0.eContents().get(1);
-		private final CrossReference cViewSetUiViewSetCrossReference_3_0_1_0 = (CrossReference)cViewSetAssignment_3_0_1.eContents().get(0);
-		private final RuleCall cViewSetUiViewSetIDTerminalRuleCall_3_0_1_0_1 = (RuleCall)cViewSetUiViewSetCrossReference_3_0_1_0.eContents().get(1);
+		private final Keyword cSharedStateGroupKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
+		private final Assignment cSharedStateGroupAssignment_3_0_1 = (Assignment)cGroup_3_0.eContents().get(1);
+		private final RuleCall cSharedStateGroupSTRINGTerminalRuleCall_3_0_1_0 = (RuleCall)cSharedStateGroupAssignment_3_0_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3_0_2 = (Keyword)cGroup_3_0.eContents().get(2);
 		private final Group cGroup_3_1 = (Group)cUnorderedGroup_3.eContents().get(1);
 		private final Keyword cRootTypeKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
@@ -1119,15 +1118,15 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//UiIDEView:
-		//	"ideview" name=ID "{" (("viewset" viewSet=[UiViewSet] ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)? &
-		//	("exposedActions" "{" exposedActions+=UiExposedAction* "}")?) (beanSlots+=UiBeanSlot |
+		//	"ideview" name=ID "{" (("sharedStateGroup" sharedStateGroup=STRING ";"?)? & ("rootType" jvmType=JvmTypeReference
+		//	";"?)? & ("exposedActions" "{" exposedActions+=UiExposedAction* "}")?) (beanSlots+=UiBeanSlot |
 		//	bindingEndpointAlias+=UiBindingEndpointAlias)* content=UiEmbeddable ("align" contentAlignment=UiAlignment)?
 		//	(bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding | validatorAssignments+=UiValidatorAssignment |
 		//	processorAssignments+=UiVisibilityProcessorAssignment)* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"ideview" name=ID "{" (("viewset" viewSet=[UiViewSet] ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)? &
-		//("exposedActions" "{" exposedActions+=UiExposedAction* "}")?) (beanSlots+=UiBeanSlot |
+		//"ideview" name=ID "{" (("sharedStateGroup" sharedStateGroup=STRING ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)?
+		//& ("exposedActions" "{" exposedActions+=UiExposedAction* "}")?) (beanSlots+=UiBeanSlot |
 		//bindingEndpointAlias+=UiBindingEndpointAlias)* content=UiEmbeddable ("align" contentAlignment=UiAlignment)?
 		//(bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding | validatorAssignments+=UiValidatorAssignment |
 		//processorAssignments+=UiVisibilityProcessorAssignment)* "}"
@@ -1145,24 +1144,21 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//("viewset" viewSet=[UiViewSet] ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)? & ("exposedActions" "{"
+		//("sharedStateGroup" sharedStateGroup=STRING ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)? & ("exposedActions" "{"
 		//exposedActions+=UiExposedAction* "}")?
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
-		//("viewset" viewSet=[UiViewSet] ";"?)?
+		//("sharedStateGroup" sharedStateGroup=STRING ";"?)?
 		public Group getGroup_3_0() { return cGroup_3_0; }
 
-		//"viewset"
-		public Keyword getViewsetKeyword_3_0_0() { return cViewsetKeyword_3_0_0; }
+		//"sharedStateGroup"
+		public Keyword getSharedStateGroupKeyword_3_0_0() { return cSharedStateGroupKeyword_3_0_0; }
 
-		//viewSet=[UiViewSet]
-		public Assignment getViewSetAssignment_3_0_1() { return cViewSetAssignment_3_0_1; }
+		//sharedStateGroup=STRING
+		public Assignment getSharedStateGroupAssignment_3_0_1() { return cSharedStateGroupAssignment_3_0_1; }
 
-		//[UiViewSet]
-		public CrossReference getViewSetUiViewSetCrossReference_3_0_1_0() { return cViewSetUiViewSetCrossReference_3_0_1_0; }
-
-		//ID
-		public RuleCall getViewSetUiViewSetIDTerminalRuleCall_3_0_1_0_1() { return cViewSetUiViewSetIDTerminalRuleCall_3_0_1_0_1; }
+		//STRING
+		public RuleCall getSharedStateGroupSTRINGTerminalRuleCall_3_0_1_0() { return cSharedStateGroupSTRINGTerminalRuleCall_3_0_1_0; }
 
 		//";"?
 		public Keyword getSemicolonKeyword_3_0_2() { return cSemicolonKeyword_3_0_2; }
@@ -1410,10 +1406,9 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final UnorderedGroup cUnorderedGroup_3 = (UnorderedGroup)cGroup.eContents().get(3);
 		private final Group cGroup_3_0 = (Group)cUnorderedGroup_3.eContents().get(0);
-		private final Keyword cViewsetKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
-		private final Assignment cViewSetAssignment_3_0_1 = (Assignment)cGroup_3_0.eContents().get(1);
-		private final CrossReference cViewSetUiViewSetCrossReference_3_0_1_0 = (CrossReference)cViewSetAssignment_3_0_1.eContents().get(0);
-		private final RuleCall cViewSetUiViewSetIDTerminalRuleCall_3_0_1_0_1 = (RuleCall)cViewSetUiViewSetCrossReference_3_0_1_0.eContents().get(1);
+		private final Keyword cSharedStateGroupKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
+		private final Assignment cSharedStateGroupAssignment_3_0_1 = (Assignment)cGroup_3_0.eContents().get(1);
+		private final RuleCall cSharedStateGroupSTRINGTerminalRuleCall_3_0_1_0 = (RuleCall)cSharedStateGroupAssignment_3_0_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3_0_2 = (Keyword)cGroup_3_0.eContents().get(2);
 		private final Group cGroup_3_1 = (Group)cUnorderedGroup_3.eContents().get(1);
 		private final Keyword cRootTypeKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
@@ -1443,13 +1438,13 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//UiMobileView:
-		//	"mobile" name=ID "{" (("viewset" viewSet=[UiViewSet] ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)?)
-		//	(beanSlots+=UiBeanSlot | bindingEndpointAlias+=UiBindingEndpointAlias)* content=UiMobileEmbeddable ("align"
+		//	"mobile" name=ID "{" (("sharedStateGroup" sharedStateGroup=STRING ";"?)? & ("rootType" jvmType=JvmTypeReference
+		//	";"?)?) (beanSlots+=UiBeanSlot | bindingEndpointAlias+=UiBindingEndpointAlias)* content=UiMobileEmbeddable ("align"
 		//	contentAlignment=UiAlignment)? (bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding |
 		//	validatorAssignments+=UiValidatorAssignment | processorAssignments+=UiVisibilityProcessorAssignment)* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"mobile" name=ID "{" (("viewset" viewSet=[UiViewSet] ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)?)
+		//"mobile" name=ID "{" (("sharedStateGroup" sharedStateGroup=STRING ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)?)
 		//(beanSlots+=UiBeanSlot | bindingEndpointAlias+=UiBindingEndpointAlias)* content=UiMobileEmbeddable ("align"
 		//contentAlignment=UiAlignment)? (bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding |
 		//validatorAssignments+=UiValidatorAssignment | processorAssignments+=UiVisibilityProcessorAssignment)* "}"
@@ -1467,23 +1462,20 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//("viewset" viewSet=[UiViewSet] ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)?
+		//("sharedStateGroup" sharedStateGroup=STRING ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)?
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
-		//("viewset" viewSet=[UiViewSet] ";"?)?
+		//("sharedStateGroup" sharedStateGroup=STRING ";"?)?
 		public Group getGroup_3_0() { return cGroup_3_0; }
 
-		//"viewset"
-		public Keyword getViewsetKeyword_3_0_0() { return cViewsetKeyword_3_0_0; }
+		//"sharedStateGroup"
+		public Keyword getSharedStateGroupKeyword_3_0_0() { return cSharedStateGroupKeyword_3_0_0; }
 
-		//viewSet=[UiViewSet]
-		public Assignment getViewSetAssignment_3_0_1() { return cViewSetAssignment_3_0_1; }
+		//sharedStateGroup=STRING
+		public Assignment getSharedStateGroupAssignment_3_0_1() { return cSharedStateGroupAssignment_3_0_1; }
 
-		//[UiViewSet]
-		public CrossReference getViewSetUiViewSetCrossReference_3_0_1_0() { return cViewSetUiViewSetCrossReference_3_0_1_0; }
-
-		//ID
-		public RuleCall getViewSetUiViewSetIDTerminalRuleCall_3_0_1_0_1() { return cViewSetUiViewSetIDTerminalRuleCall_3_0_1_0_1; }
+		//STRING
+		public RuleCall getSharedStateGroupSTRINGTerminalRuleCall_3_0_1_0() { return cSharedStateGroupSTRINGTerminalRuleCall_3_0_1_0; }
 
 		//";"?
 		public Keyword getSemicolonKeyword_3_0_2() { return cSemicolonKeyword_3_0_2; }
@@ -8652,8 +8644,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiIDEView:
-	//	"ideview" name=ID "{" (("viewset" viewSet=[UiViewSet] ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)? &
-	//	("exposedActions" "{" exposedActions+=UiExposedAction* "}")?) (beanSlots+=UiBeanSlot |
+	//	"ideview" name=ID "{" (("sharedStateGroup" sharedStateGroup=STRING ";"?)? & ("rootType" jvmType=JvmTypeReference
+	//	";"?)? & ("exposedActions" "{" exposedActions+=UiExposedAction* "}")?) (beanSlots+=UiBeanSlot |
 	//	bindingEndpointAlias+=UiBindingEndpointAlias)* content=UiEmbeddable ("align" contentAlignment=UiAlignment)?
 	//	(bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding | validatorAssignments+=UiValidatorAssignment |
 	//	processorAssignments+=UiVisibilityProcessorAssignment)* "}";
@@ -8686,8 +8678,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiMobileView:
-	//	"mobile" name=ID "{" (("viewset" viewSet=[UiViewSet] ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)?)
-	//	(beanSlots+=UiBeanSlot | bindingEndpointAlias+=UiBindingEndpointAlias)* content=UiMobileEmbeddable ("align"
+	//	"mobile" name=ID "{" (("sharedStateGroup" sharedStateGroup=STRING ";"?)? & ("rootType" jvmType=JvmTypeReference
+	//	";"?)?) (beanSlots+=UiBeanSlot | bindingEndpointAlias+=UiBindingEndpointAlias)* content=UiMobileEmbeddable ("align"
 	//	contentAlignment=UiAlignment)? (bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding |
 	//	validatorAssignments+=UiValidatorAssignment | processorAssignments+=UiVisibilityProcessorAssignment)* "}";
 	public UiMobileViewElements getUiMobileViewAccess() {

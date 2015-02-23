@@ -25,6 +25,7 @@
         eType="#//UiBindingEndpointAlias" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
         eType="#//UiBinding" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sharedStateGroup" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiExposedAction" eSuperTypes="#//UiAction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="actionReference" eType="ecore:EClass ../../org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore#//UxAction"/>

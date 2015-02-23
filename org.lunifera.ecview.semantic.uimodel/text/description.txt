@@ -23,6 +23,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference beanSlots : UiBeanSlot<<0..*>>
     Reference bindingEndpointAlias : UiBindingEndpointAlias<<0..*>>
     Reference bindings : UiBinding<<0..*>>
+    Attribute sharedStateGroup : EString
 
   Class UiExposedAction -> UiAction
     Reference actionReference : UxAction

@@ -586,7 +586,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiSendEventCommandAccess().getNoAutoTriggerAssignment_3(), "rule__UiSendEventCommand__NoAutoTriggerAssignment_3");
 					put(grammarAccess.getUiSendEventCommandAccess().getEventTopicAssignment_4(), "rule__UiSendEventCommand__EventTopicAssignment_4");
 					put(grammarAccess.getUiIDEViewAccess().getNameAssignment_1(), "rule__UiIDEView__NameAssignment_1");
-					put(grammarAccess.getUiIDEViewAccess().getViewSetAssignment_3_0_1(), "rule__UiIDEView__ViewSetAssignment_3_0_1");
+					put(grammarAccess.getUiIDEViewAccess().getSharedStateGroupAssignment_3_0_1(), "rule__UiIDEView__SharedStateGroupAssignment_3_0_1");
 					put(grammarAccess.getUiIDEViewAccess().getJvmTypeAssignment_3_1_1(), "rule__UiIDEView__JvmTypeAssignment_3_1_1");
 					put(grammarAccess.getUiIDEViewAccess().getExposedActionsAssignment_3_2_2(), "rule__UiIDEView__ExposedActionsAssignment_3_2_2");
 					put(grammarAccess.getUiIDEViewAccess().getBeanSlotsAssignment_4_0(), "rule__UiIDEView__BeanSlotsAssignment_4_0");
@@ -606,7 +606,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiMobileNavBarActionAccess().getActionReferenceAssignment_3_0(), "rule__UiMobileNavBarAction__ActionReferenceAssignment_3_0");
 					put(grammarAccess.getUiMobileNavBarActionAccess().getActionIDAssignment_3_1(), "rule__UiMobileNavBarAction__ActionIDAssignment_3_1");
 					put(grammarAccess.getUiMobileViewAccess().getNameAssignment_1(), "rule__UiMobileView__NameAssignment_1");
-					put(grammarAccess.getUiMobileViewAccess().getViewSetAssignment_3_0_1(), "rule__UiMobileView__ViewSetAssignment_3_0_1");
+					put(grammarAccess.getUiMobileViewAccess().getSharedStateGroupAssignment_3_0_1(), "rule__UiMobileView__SharedStateGroupAssignment_3_0_1");
 					put(grammarAccess.getUiMobileViewAccess().getJvmTypeAssignment_3_1_1(), "rule__UiMobileView__JvmTypeAssignment_3_1_1");
 					put(grammarAccess.getUiMobileViewAccess().getBeanSlotsAssignment_4_0(), "rule__UiMobileView__BeanSlotsAssignment_4_0");
 					put(grammarAccess.getUiMobileViewAccess().getBindingEndpointAliasAssignment_4_1(), "rule__UiMobileView__BindingEndpointAliasAssignment_4_1");

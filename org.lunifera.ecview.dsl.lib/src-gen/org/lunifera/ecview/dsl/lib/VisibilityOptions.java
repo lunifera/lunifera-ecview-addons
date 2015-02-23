@@ -3,7 +3,6 @@ package org.lunifera.ecview.dsl.lib;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
-import org.lunifera.dsl.dto.lib.Context;
 import org.lunifera.ecview.core.common.visibility.Color;
 
 @SuppressWarnings("all")
@@ -294,7 +293,7 @@ public class VisibilityOptions implements Serializable {
     return new VisibilityOptions();
   }
   
-  public VisibilityOptions copy(final Context context) {
+  public VisibilityOptions copy(final org.lunifera.dsl.dto.lib.Context context) {
     checkDisposed();
     
     if (context == null) {
@@ -331,7 +330,7 @@ public class VisibilityOptions implements Serializable {
     return newDto;
   }
   
-  public void copyContainments(final VisibilityOptions dto, final VisibilityOptions newDto, final Context context) {
+  public void copyContainments(final VisibilityOptions dto, final VisibilityOptions newDto, final org.lunifera.dsl.dto.lib.Context context) {
     checkDisposed();
     
     if (context == null) {

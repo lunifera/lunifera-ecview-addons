@@ -30,6 +30,7 @@ import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiContextImpl#getBeanSlots <em>Bean Slots</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiContextImpl#getBindingEndpointAlias <em>Binding Endpoint Alias</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiContextImpl#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiContextImpl#getSharedStateGroup <em>Shared State Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,6 +106,26 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 	 * @ordered
 	 */
 	protected EList<UiBinding> bindings;
+
+	/**
+	 * The default value of the '{@link #getSharedStateGroup() <em>Shared State Group</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSharedStateGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SHARED_STATE_GROUP_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSharedStateGroup() <em>Shared State Group</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSharedStateGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected String sharedStateGroup = SHARED_STATE_GROUP_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -208,6 +229,27 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getSharedStateGroup() {
+		return sharedStateGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSharedStateGroup(String newSharedStateGroup) {
+		String oldSharedStateGroup = sharedStateGroup;
+		sharedStateGroup = newSharedStateGroup;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_CONTEXT__SHARED_STATE_GROUP, oldSharedStateGroup, sharedStateGroup));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -239,6 +281,8 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 				return getBindingEndpointAlias();
 			case UiModelPackage.UI_CONTEXT__BINDINGS:
 				return getBindings();
+			case UiModelPackage.UI_CONTEXT__SHARED_STATE_GROUP:
+				return getSharedStateGroup();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -270,6 +314,9 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 				getBindings().clear();
 				getBindings().addAll((Collection<? extends UiBinding>)newValue);
 				return;
+			case UiModelPackage.UI_CONTEXT__SHARED_STATE_GROUP:
+				setSharedStateGroup((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -297,6 +344,9 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 			case UiModelPackage.UI_CONTEXT__BINDINGS:
 				getBindings().clear();
 				return;
+			case UiModelPackage.UI_CONTEXT__SHARED_STATE_GROUP:
+				setSharedStateGroup(SHARED_STATE_GROUP_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -319,6 +369,8 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 				return bindingEndpointAlias != null && !bindingEndpointAlias.isEmpty();
 			case UiModelPackage.UI_CONTEXT__BINDINGS:
 				return bindings != null && !bindings.isEmpty();
+			case UiModelPackage.UI_CONTEXT__SHARED_STATE_GROUP:
+				return SHARED_STATE_GROUP_EDEFAULT == null ? sharedStateGroup != null : !SHARED_STATE_GROUP_EDEFAULT.equals(sharedStateGroup);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -337,6 +389,8 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", sharedStateGroup: ");
+		result.append(sharedStateGroup);
 		result.append(')');
 		return result.toString();
 	}
