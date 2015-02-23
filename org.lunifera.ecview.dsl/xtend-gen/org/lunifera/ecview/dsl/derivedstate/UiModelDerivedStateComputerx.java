@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtext.common.types.JvmEnumerationType;
-import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmGenericType;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
@@ -38,7 +37,6 @@ import org.lunifera.ecview.core.common.model.binding.YBinding;
 import org.lunifera.ecview.core.common.model.binding.YBindingSet;
 import org.lunifera.ecview.core.common.model.binding.YBindingUpdateStrategy;
 import org.lunifera.ecview.core.common.model.binding.YECViewModelListBindingEndpoint;
-import org.lunifera.ecview.core.common.model.binding.YECViewModelValueBindingEndpoint;
 import org.lunifera.ecview.core.common.model.binding.YListBindingEndpoint;
 import org.lunifera.ecview.core.common.model.binding.YValueBinding;
 import org.lunifera.ecview.core.common.model.binding.YValueBindingEndpoint;
@@ -47,8 +45,6 @@ import org.lunifera.ecview.core.common.model.core.CoreModelFactory;
 import org.lunifera.ecview.core.common.model.core.YAlignment;
 import org.lunifera.ecview.core.common.model.core.YBeanSlot;
 import org.lunifera.ecview.core.common.model.core.YBeanSlotListBindingEndpoint;
-import org.lunifera.ecview.core.common.model.core.YBeanSlotValueBindingEndpoint;
-import org.lunifera.ecview.core.common.model.core.YCommandSet;
 import org.lunifera.ecview.core.common.model.core.YDeviceType;
 import org.lunifera.ecview.core.common.model.core.YDialog;
 import org.lunifera.ecview.core.common.model.core.YElement;
@@ -58,9 +54,7 @@ import org.lunifera.ecview.core.common.model.core.YField;
 import org.lunifera.ecview.core.common.model.core.YFlatAlignment;
 import org.lunifera.ecview.core.common.model.core.YLayout;
 import org.lunifera.ecview.core.common.model.core.YOpenDialogCommand;
-import org.lunifera.ecview.core.common.model.core.YSendEventCommand;
 import org.lunifera.ecview.core.common.model.core.YView;
-import org.lunifera.ecview.core.common.model.core.YViewSet;
 import org.lunifera.ecview.core.common.model.datatypes.YDatatype;
 import org.lunifera.ecview.core.common.model.validation.YClassDelegateValidator;
 import org.lunifera.ecview.core.common.model.validation.YMaxLengthValidator;
@@ -75,8 +69,6 @@ import org.lunifera.ecview.core.extension.model.datatypes.YDecimalDatatype;
 import org.lunifera.ecview.core.extension.model.datatypes.YNumericDatatype;
 import org.lunifera.ecview.core.extension.model.datatypes.YTextDatatype;
 import org.lunifera.ecview.core.extension.model.extension.ExtensionModelFactory;
-import org.lunifera.ecview.core.extension.model.extension.YAddToTableCommand;
-import org.lunifera.ecview.core.extension.model.extension.YBeanReferenceField;
 import org.lunifera.ecview.core.extension.model.extension.YBooleanSearchField;
 import org.lunifera.ecview.core.extension.model.extension.YBrowser;
 import org.lunifera.ecview.core.extension.model.extension.YButton;
@@ -102,7 +94,6 @@ import org.lunifera.ecview.core.extension.model.extension.YOptionsGroup;
 import org.lunifera.ecview.core.extension.model.extension.YPanel;
 import org.lunifera.ecview.core.extension.model.extension.YProgressBar;
 import org.lunifera.ecview.core.extension.model.extension.YReferenceSearchField;
-import org.lunifera.ecview.core.extension.model.extension.YRemoveFromTableCommand;
 import org.lunifera.ecview.core.extension.model.extension.YSearchPanel;
 import org.lunifera.ecview.core.extension.model.extension.YSelectionType;
 import org.lunifera.ecview.core.extension.model.extension.YSplitPanel;
@@ -123,7 +114,6 @@ import org.lunifera.ecview.dsl.extensions.BindableTypeProvider;
 import org.lunifera.ecview.dsl.extensions.I18nKeyProvider;
 import org.lunifera.ecview.dsl.extensions.OperationExtensions;
 import org.lunifera.ecview.dsl.extensions.TypeHelper;
-import org.lunifera.ecview.semantic.uimodel.UiAddToTableCommand;
 import org.lunifera.ecview.semantic.uimodel.UiAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
@@ -170,7 +160,6 @@ import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavBarAction;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton;
-import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationCommand;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationHandler;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment;
@@ -184,7 +173,6 @@ import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
 import org.lunifera.ecview.semantic.uimodel.UiNumericField;
-import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup;
 import org.lunifera.ecview.semantic.uimodel.UiPanel;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
@@ -192,14 +180,11 @@ import org.lunifera.ecview.semantic.uimodel.UiPoint;
 import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
-import org.lunifera.ecview.semantic.uimodel.UiRemoveFromTableCommand;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
 import org.lunifera.ecview.semantic.uimodel.UiSearchDialog;
 import org.lunifera.ecview.semantic.uimodel.UiSearchField;
 import org.lunifera.ecview.semantic.uimodel.UiSearchPanel;
-import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
-import org.lunifera.ecview.semantic.uimodel.UiSendEventCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanel;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiSwitch;
@@ -228,7 +213,6 @@ import org.lunifera.mobile.vaadin.ecview.model.VMHorizontalButtonGroup;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationBarButton;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationButton;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationCommand;
-import org.lunifera.mobile.vaadin.ecview.model.VMNavigationHandler;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationPage;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationPageCellStyle;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationRoot;
@@ -2178,80 +2162,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected YEmbeddable _create(final UiBeanReferenceField object) {
-    final YBeanReferenceField field = ExtensionModelFactory.eINSTANCE.createYBeanReferenceField();
-    String _pathId = UiModelGrammarUtil.getPathId(object);
-    field.setId(_pathId);
-    String _name = object.getName();
-    field.setName(_name);
-    String _name_1 = object.getName();
-    field.setLabel(_name_1);
-    boolean _isConsumeBeanService = object.isConsumeBeanService();
-    field.setUseBeanService(_isConsumeBeanService);
-    String _i18nKey = this.toI18nKey(object);
-    field.setLabelI18nKey(_i18nKey);
-    JvmTypeReference _jvmType = object.getJvmType();
-    boolean _notEquals = (!Objects.equal(_jvmType, null));
-    if (_notEquals) {
-      JvmTypeReference _jvmType_1 = object.getJvmType();
-      String _qualifiedName = _jvmType_1.getQualifiedName();
-      field.setTypeQualifiedName(_qualifiedName);
-      Resource _eResource = object.eResource();
-      ResourceSet _resourceSet = _eResource.getResourceSet();
-      JvmTypeReference _jvmType_2 = object.getJvmType();
-      String _qualifiedName_1 = _jvmType_2.getQualifiedName();
-      Class<?> _loadClass = this.loadClass(_resourceSet, _qualifiedName_1);
-      field.setType(_loadClass);
-    }
-    final UiNestedProperty captionProperty = object.getCaptionProperty();
-    boolean _notEquals_1 = (!Objects.equal(captionProperty, null));
-    if (_notEquals_1) {
-      String _pathString = captionProperty.toPathString();
-      field.setCaptionPropertyPath(_pathString);
-    } else {
-      Class<?> _type = field.getType();
-      String _findCaptionProperty = BeanHelper.findCaptionProperty(_type);
-      field.setCaptionPropertyPath(_findCaptionProperty);
-    }
-    final UiNestedProperty imageProperty = object.getImageProperty();
-    boolean _notEquals_2 = (!Objects.equal(imageProperty, null));
-    if (_notEquals_2) {
-      String _pathString_1 = imageProperty.toPathString();
-      field.setImagePropertyPath(_pathString_1);
-    }
-    JvmTypeReference _inMemoryBeanProvider = object.getInMemoryBeanProvider();
-    boolean _notEquals_3 = (!Objects.equal(_inMemoryBeanProvider, null));
-    if (_notEquals_3) {
-      JvmTypeReference _inMemoryBeanProvider_1 = object.getInMemoryBeanProvider();
-      String _qualifiedName_2 = _inMemoryBeanProvider_1.getQualifiedName();
-      field.setInMemoryBeanProviderQualifiedName(_qualifiedName_2);
-      Resource _eResource_1 = object.eResource();
-      ResourceSet _resourceSet_1 = _eResource_1.getResourceSet();
-      JvmTypeReference _inMemoryBeanProvider_2 = object.getInMemoryBeanProvider();
-      String _qualifiedName_3 = _inMemoryBeanProvider_2.getQualifiedName();
-      Class<?> _loadClass_1 = this.loadClass(_resourceSet_1, _qualifiedName_3);
-      field.setInMemoryBeanProvider(_loadClass_1);
-    }
-    JvmTypeReference _referenceSourceJvmType = object.getReferenceSourceJvmType();
-    boolean _notEquals_4 = (!Objects.equal(_referenceSourceJvmType, null));
-    if (_notEquals_4) {
-      JvmTypeReference _referenceSourceJvmType_1 = object.getReferenceSourceJvmType();
-      String _qualifiedName_4 = _referenceSourceJvmType_1.getQualifiedName();
-      field.setReferenceSourceTypeQualifiedName(_qualifiedName_4);
-      Resource _eResource_2 = object.eResource();
-      ResourceSet _resourceSet_2 = _eResource_2.getResourceSet();
-      JvmTypeReference _referenceSourceJvmType_2 = object.getReferenceSourceJvmType();
-      String _qualifiedName_5 = _referenceSourceJvmType_2.getQualifiedName();
-      Class<?> _loadClass_2 = this.loadClass(_resourceSet_2, _qualifiedName_5);
-      field.setReferenceSourceType(_loadClass_2);
-      JvmField _referenceSourceField = object.getReferenceSourceField();
-      String _simpleName = null;
-      if (_referenceSourceField!=null) {
-        _simpleName=_referenceSourceField.getSimpleName();
-      }
-      field.setReferenceSourceTypeProperty(_simpleName);
-    }
-    this.associateUi(object, field);
-    return field;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field referenceSourceTypeQualifiedName is undefined for the type UiModelDerivedStateComputerx"
+      + "\nThe method or field referenceSourceType is undefined for the type UiModelDerivedStateComputerx"
+      + "\nThe method or field referenceSourceTypeProperty is undefined for the type UiModelDerivedStateComputerx");
   }
   
   protected YEmbeddable _create(final UiLabel object) {
@@ -3302,166 +3216,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   public YValueBindingEndpoint createValueBindingEndpoint(final UiBindingEndpointAssignment epDef) {
-    boolean _equals = Objects.equal(epDef, null);
-    if (_equals) {
-      return null;
-    }
-    YValueBindingEndpoint result = null;
-    final UiModelDerivedStateComputerx.BindingInfo info = new UiModelDerivedStateComputerx.BindingInfo();
-    this.collectBindingInfo(epDef, info);
-    if ((info.bindingRoot instanceof UiBeanSlot)) {
-      final UiBeanSlot uiBeanSlot = ((UiBeanSlot) info.bindingRoot);
-      final YBeanSlot yBeanSlot = this.<YBeanSlot>associatedUi(uiBeanSlot);
-      final YBeanSlotValueBindingEndpoint ep = this.factory.createBeanSlotValueBindingEndpoint();
-      ep.setBeanSlot(yBeanSlot);
-      String _string = info.path.toString();
-      ep.setAttributePath(_string);
-      boolean _or = false;
-      String _attributePath = ep.getAttributePath();
-      boolean _equals_1 = Objects.equal(_attributePath, null);
-      if (_equals_1) {
-        _or = true;
-      } else {
-        String _attributePath_1 = ep.getAttributePath();
-        boolean _equals_2 = _attributePath_1.equals("");
-        _or = _equals_2;
-      }
-      if (_or) {
-        ep.setAttributePath("value");
-      }
-      result = ep;
-    } else {
-      if ((info.bindingRoot instanceof UiEmbeddable)) {
-        final YElement yElement = this.<YElement>associatedUi(info.bindingRoot);
-        final YECViewModelValueBindingEndpoint ep_1 = this.factory.createECViewModelValueBindingEndpoint();
-        ep_1.setElement(yElement);
-        String _string_1 = info.path.toString();
-        ep_1.setPropertyPath(_string_1);
-        boolean _notEquals = (!Objects.equal(info.typeForBinding, null));
-        if (_notEquals) {
-          String _qualifiedName = info.typeForBinding.getQualifiedName();
-          ep_1.setTypeQualifiedName(_qualifiedName);
-          Resource _eResource = epDef.eResource();
-          ResourceSet _resourceSet = _eResource.getResourceSet();
-          String _typeQualifiedName = ep_1.getTypeQualifiedName();
-          Class<?> _loadClass = this.loadClass(_resourceSet, _typeQualifiedName);
-          ep_1.setType(_loadClass);
-        }
-        boolean _and = false;
-        Class<?> _type = ep_1.getType();
-        boolean _notEquals_1 = (!Objects.equal(_type, null));
-        if (!_notEquals_1) {
-          _and = false;
-        } else {
-          Class<?> _type_1 = ep_1.getType();
-          boolean _isAssignableFrom = _type_1.isAssignableFrom(EObject.class);
-          _and = _isAssignableFrom;
-        }
-        if (_and) {
-          EClass _eClass = yElement.eClass();
-          EPackage _ePackage = _eClass.getEPackage();
-          String _nsURI = _ePackage.getNsURI();
-          ep_1.setEmfNsURI(_nsURI);
-        }
-        result = ep_1;
-      } else {
-        if ((info.bindingRoot instanceof UiMobileNavigationCommand)) {
-          final UiMobileNavigationCommand command = ((UiMobileNavigationCommand) info.bindingRoot);
-          final VMNavigationCommand yCommand = VaadinMobileFactory.eINSTANCE.createVMNavigationCommand();
-          YCommandSet _commandSet = this.currentView.getCommandSet();
-          _commandSet.addCommand(yCommand);
-          this.push(yCommand);
-          UiMobileNavigationPage _targetPage = command.getTargetPage();
-          this.create(_targetPage);
-          UiMobileNavigationPage _targetPage_1 = command.getTargetPage();
-          this.map(_targetPage_1);
-          UiMobileNavigationPage _targetPage_2 = command.getTargetPage();
-          VMNavigationPage _associatedUi = this.<VMNavigationPage>associatedUi(_targetPage_2);
-          yCommand.setTargetPage(_associatedUi);
-          final UiMobileNavigationHandler navHandler = this.findNavHandler(epDef);
-          VMNavigationHandler _associatedUi_1 = this.<VMNavigationHandler>associatedUi(((EObject) navHandler));
-          yCommand.setNavigationHandler(_associatedUi_1);
-          this.<Object>pop();
-          YECViewModelValueBindingEndpoint _createNavigationValueEndpoint = yCommand.createNavigationValueEndpoint();
-          result = _createNavigationValueEndpoint;
-        } else {
-          if ((info.bindingRoot instanceof UiOpenDialogCommand)) {
-            final UiOpenDialogCommand command_1 = ((UiOpenDialogCommand) info.bindingRoot);
-            final YOpenDialogCommand yCommand_1 = CoreModelFactory.eINSTANCE.createYOpenDialogCommand();
-            YCommandSet _commandSet_1 = this.currentView.getCommandSet();
-            _commandSet_1.addCommand(yCommand_1);
-            this.push(yCommand_1);
-            UiDialog _dialog = command_1.getDialog();
-            this.map(_dialog);
-            this.<Object>pop();
-            YECViewModelValueBindingEndpoint _createTriggerDialogEndpoint = yCommand_1.createTriggerDialogEndpoint();
-            result = _createTriggerDialogEndpoint;
-          } else {
-            if ((info.bindingRoot instanceof UiSearchWithDialogCommand)) {
-              final UiSearchWithDialogCommand command_2 = ((UiSearchWithDialogCommand) info.bindingRoot);
-              final YOpenDialogCommand yCommand_2 = CoreModelFactory.eINSTANCE.createYOpenDialogCommand();
-              YCommandSet _commandSet_2 = this.currentView.getCommandSet();
-              _commandSet_2.addCommand(yCommand_2);
-              this.push(yCommand_2);
-              UiSearchDialog _dialog_1 = command_2.getDialog();
-              this.map(_dialog_1);
-              this.<Object>pop();
-              YECViewModelValueBindingEndpoint _createTriggerDialogEndpoint_1 = yCommand_2.createTriggerDialogEndpoint();
-              result = _createTriggerDialogEndpoint_1;
-            } else {
-              if ((info.bindingRoot instanceof UiAddToTableCommand)) {
-                final UiAddToTableCommand command_3 = ((UiAddToTableCommand) info.bindingRoot);
-                final YAddToTableCommand yCommand_3 = ExtensionModelFactory.eINSTANCE.createYAddToTableCommand();
-                YCommandSet _commandSet_3 = this.currentView.getCommandSet();
-                _commandSet_3.addCommand(yCommand_3);
-                final Runnable _function = new Runnable() {
-                  public void run() {
-                    UiTable _table = command_3.getTable();
-                    YTable _associatedUi = UiModelDerivedStateComputerx.this.<YTable>associatedUi(_table);
-                    yCommand_3.setTable(_associatedUi);
-                  }
-                };
-                this.pendingMappings.add(_function);
-                YECViewModelValueBindingEndpoint _createTriggerEndpoint = yCommand_3.createTriggerEndpoint();
-                result = _createTriggerEndpoint;
-              } else {
-                if ((info.bindingRoot instanceof UiRemoveFromTableCommand)) {
-                  final UiRemoveFromTableCommand command_4 = ((UiRemoveFromTableCommand) info.bindingRoot);
-                  final YRemoveFromTableCommand yCommand_4 = ExtensionModelFactory.eINSTANCE.createYRemoveFromTableCommand();
-                  YCommandSet _commandSet_4 = this.currentView.getCommandSet();
-                  _commandSet_4.addCommand(yCommand_4);
-                  final Runnable _function_1 = new Runnable() {
-                    public void run() {
-                      UiTable _table = command_4.getTable();
-                      YTable _associatedUi = UiModelDerivedStateComputerx.this.<YTable>associatedUi(_table);
-                      yCommand_4.setTable(_associatedUi);
-                    }
-                  };
-                  this.pendingMappings.add(_function_1);
-                  YECViewModelValueBindingEndpoint _createTriggerEndpoint_1 = yCommand_4.createTriggerEndpoint();
-                  result = _createTriggerEndpoint_1;
-                } else {
-                  if ((info.bindingRoot instanceof UiSendEventCommand)) {
-                    final UiSendEventCommand command_5 = ((UiSendEventCommand) info.bindingRoot);
-                    final YSendEventCommand yCommand_5 = CoreModelFactory.eINSTANCE.createYSendEventCommand();
-                    boolean _isNoAutoTrigger = command_5.isNoAutoTrigger();
-                    boolean _not = (!_isNoAutoTrigger);
-                    yCommand_5.setAutoTrigger(_not);
-                    String _eventTopic = command_5.getEventTopic();
-                    yCommand_5.setEventTopic(_eventTopic);
-                    YCommandSet _commandSet_5 = this.currentView.getCommandSet();
-                    _commandSet_5.addCommand(yCommand_5);
-                    YECViewModelValueBindingEndpoint _createMessageEndpoint = yCommand_5.createMessageEndpoint();
-                    result = _createMessageEndpoint;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nYSendEventCommand cannot be resolved to a type."
+      + "\nThe method createYSendEventCommand is undefined for the type UiModelDerivedStateComputerx"
+      + "\nautoTrigger cannot be resolved"
+      + "\neventTopic cannot be resolved"
+      + "\ncreateMessageEndpoint cannot be resolved");
   }
   
   public UiMobileNavigationHandler findNavHandler(final UiBindingEndpointAssignment assignment) {
@@ -3657,33 +3417,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   }
   
   protected void _map(final UiBeanSlot object) {
-    final YBeanSlot yBeanSlot = this.factory.createBeanSlot();
-    String _name = object.getName();
-    yBeanSlot.setName(_name);
-    JvmTypeReference _jvmType = object.getJvmType();
-    String _qualifiedName = null;
-    if (_jvmType!=null) {
-      _qualifiedName=_jvmType.getQualifiedName();
-    }
-    yBeanSlot.setValueTypeQualifiedName(_qualifiedName);
-    Resource _eResource = object.eResource();
-    ResourceSet _resourceSet = _eResource.getResourceSet();
-    String _valueTypeQualifiedName = yBeanSlot.getValueTypeQualifiedName();
-    Class<?> _loadClass = this.loadClass(_resourceSet, _valueTypeQualifiedName);
-    yBeanSlot.setValueType(_loadClass);
-    String _eventTopic = object.getEventTopic();
-    yBeanSlot.setEventTopic(_eventTopic);
-    this.associateUi(object, yBeanSlot);
-    final EObject lastElement = this.viewContext.peek();
-    if ((lastElement instanceof YView)) {
-      EList<YBeanSlot> _beanSlots = ((YView) lastElement).getBeanSlots();
-      _beanSlots.add(yBeanSlot);
-    } else {
-      if ((lastElement instanceof YViewSet)) {
-        EList<YBeanSlot> _beanSlots_1 = ((YViewSet) lastElement).getBeanSlots();
-        _beanSlots_1.add(yBeanSlot);
-      }
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field eventTopic is undefined for the type UiModelDerivedStateComputerx");
   }
   
   protected void _map(final EObject object) {
