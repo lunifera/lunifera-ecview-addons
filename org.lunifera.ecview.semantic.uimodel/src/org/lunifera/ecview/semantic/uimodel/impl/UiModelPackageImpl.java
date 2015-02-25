@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.xtext.common.types.TypesPackage;
 import org.eclipse.xtext.xbase.XbasePackage;
 import org.lunifera.ecview.semantic.uimodel.UiAction;
+import org.lunifera.ecview.semantic.uimodel.UiAddToTableCommand;
 import org.lunifera.ecview.semantic.uimodel.UiAlignment;
 import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
 import org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer;
@@ -64,11 +65,15 @@ import org.lunifera.ecview.semantic.uimodel.UiMobileAction;
 import org.lunifera.ecview.semantic.uimodel.UiMobileEmbeddable;
 import org.lunifera.ecview.semantic.uimodel.UiMobileField;
 import org.lunifera.ecview.semantic.uimodel.UiMobileLayout;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavBarAction;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationCommand;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationHandler;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRoot;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRootAssigment;
+import org.lunifera.ecview.semantic.uimodel.UiMobileSearchPanel;
 import org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet;
 import org.lunifera.ecview.semantic.uimodel.UiMobileView;
@@ -76,6 +81,7 @@ import org.lunifera.ecview.semantic.uimodel.UiModel;
 import org.lunifera.ecview.semantic.uimodel.UiModelFactory;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
+import org.lunifera.ecview.semantic.uimodel.UiNestedField;
 import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
 import org.lunifera.ecview.semantic.uimodel.UiNumericField;
 import org.lunifera.ecview.semantic.uimodel.UiOpenDialogCommand;
@@ -88,12 +94,14 @@ import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindableProvider;
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
+import org.lunifera.ecview.semantic.uimodel.UiRemoveFromTableCommand;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
 import org.lunifera.ecview.semantic.uimodel.UiSearchDialog;
 import org.lunifera.ecview.semantic.uimodel.UiSearchField;
 import org.lunifera.ecview.semantic.uimodel.UiSearchPanel;
 import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
+import org.lunifera.ecview.semantic.uimodel.UiSendEventCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanel;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiSwitch;
@@ -126,7 +134,6 @@ import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperty;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityRule;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseVisibilityRule;
-import org.lunifera.ecview.semantic.uimodel.*;
 import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 
 /**
@@ -268,6 +275,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiPathSegmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiNestedFieldEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -904,6 +918,55 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass uiMobileSearchPanelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMobileNavigationRootEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMobileNavigationRootAssigmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiMobileNavBarActionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiAddToTableCommandEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiRemoveFromTableCommandEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiSendEventCommandEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum uiFlatAlignmentEEnum = null;
 
 	/**
@@ -1121,8 +1184,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUiContext_ExposedActions() {
-		return (EReference)uiContextEClass.getEStructuralFeatures().get(3);
+	public EAttribute getUiContext_SharedStateGroup() {
+		return (EAttribute)uiContextEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1265,6 +1328,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getUiIDEView_ExposedActions() {
+		return (EReference)uiIDEViewEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiMobileView() {
 		return uiMobileViewEClass;
 	}
@@ -1321,6 +1393,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiBeanSlot_EClass() {
 		return (EReference)uiBeanSlotEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiBeanSlot_EventTopic() {
+		return (EAttribute)uiBeanSlotEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1508,6 +1589,33 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiNestedField() {
+		return uiNestedFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiNestedField_Path() {
+		return (EReference)uiNestedFieldEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiNestedField_Field() {
+		return (EReference)uiNestedFieldEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiNestedProperty() {
 		return uiNestedPropertyEClass;
 	}
@@ -1573,6 +1681,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiRawBindablePathSegment_Path() {
 		return (EReference)uiRawBindablePathSegmentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiRawBindablePathSegment_ToParent() {
+		return (EAttribute)uiRawBindablePathSegmentEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2095,6 +2212,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiBeanReferenceField_DescriptionProperty() {
 		return (EReference)uiBeanReferenceFieldEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiBeanReferenceField_ReferenceSourceJvmType() {
+		return (EReference)uiBeanReferenceFieldEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiBeanReferenceField_ReferenceSourceField() {
+		return (EReference)uiBeanReferenceFieldEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3047,6 +3182,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getUiMobileNavigationPage_BarActions() {
+		return (EReference)uiMobileNavigationPageEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiMobileNavigationPageAssignment() {
 		return uiMobileNavigationPageAssignmentEClass;
 	}
@@ -3058,6 +3202,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getUiMobileNavigationPageAssignment_Element() {
 		return (EReference)uiMobileNavigationPageAssignmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiMobileNavigationPageAssignment_Alignment() {
+		return (EAttribute)uiMobileNavigationPageAssignmentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3542,6 +3695,159 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiMobileSearchPanel() {
+		return uiMobileSearchPanelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiMobileSearchPanel_Contents() {
+		return (EReference)uiMobileSearchPanelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMobileNavigationRoot() {
+		return uiMobileNavigationRootEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiMobileNavigationRoot_Contents() {
+		return (EReference)uiMobileNavigationRootEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMobileNavigationRootAssigment() {
+		return uiMobileNavigationRootAssigmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiMobileNavigationRootAssigment_Element() {
+		return (EReference)uiMobileNavigationRootAssigmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiMobileNavBarAction() {
+		return uiMobileNavBarActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiMobileNavBarAction_ActionReference() {
+		return (EReference)uiMobileNavBarActionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiMobileNavBarAction_ActionID() {
+		return (EAttribute)uiMobileNavBarActionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiMobileNavBarAction_IconName() {
+		return (EAttribute)uiMobileNavBarActionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiAddToTableCommand() {
+		return uiAddToTableCommandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiAddToTableCommand_Table() {
+		return (EReference)uiAddToTableCommandEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiRemoveFromTableCommand() {
+		return uiRemoveFromTableCommandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiRemoveFromTableCommand_Table() {
+		return (EReference)uiRemoveFromTableCommandEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUiSendEventCommand() {
+		return uiSendEventCommandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiSendEventCommand_EventTopic() {
+		return (EAttribute)uiSendEventCommandEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUiSendEventCommand_NoAutoTrigger() {
+		return (EAttribute)uiSendEventCommandEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getUiFlatAlignment() {
 		return uiFlatAlignmentEEnum;
 	}
@@ -3626,7 +3932,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiContextEClass, UI_CONTEXT__BEAN_SLOTS);
 		createEReference(uiContextEClass, UI_CONTEXT__BINDING_ENDPOINT_ALIAS);
 		createEReference(uiContextEClass, UI_CONTEXT__BINDINGS);
-		createEReference(uiContextEClass, UI_CONTEXT__EXPOSED_ACTIONS);
+		createEAttribute(uiContextEClass, UI_CONTEXT__SHARED_STATE_GROUP);
 
 		uiExposedActionEClass = createEClass(UI_EXPOSED_ACTION);
 		createEReference(uiExposedActionEClass, UI_EXPOSED_ACTION__ACTION_REFERENCE);
@@ -3648,6 +3954,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiDialogAssignmentEClass, UI_DIALOG_ASSIGNMENT__ELEMENT);
 
 		uiIDEViewEClass = createEClass(UI_IDE_VIEW);
+		createEReference(uiIDEViewEClass, UI_IDE_VIEW__EXPOSED_ACTIONS);
 
 		uiMobileViewEClass = createEClass(UI_MOBILE_VIEW);
 
@@ -3658,6 +3965,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiBeanSlotEClass = createEClass(UI_BEAN_SLOT);
 		createEReference(uiBeanSlotEClass, UI_BEAN_SLOT__JVM_TYPE);
 		createEReference(uiBeanSlotEClass, UI_BEAN_SLOT__ECLASS);
+		createEAttribute(uiBeanSlotEClass, UI_BEAN_SLOT__EVENT_TOPIC);
 
 		uiRootElementsEClass = createEClass(UI_ROOT_ELEMENTS);
 
@@ -3685,6 +3993,10 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiPathSegmentEClass, UI_PATH_SEGMENT__PATH);
 		createEReference(uiPathSegmentEClass, UI_PATH_SEGMENT__GETTER);
 
+		uiNestedFieldEClass = createEClass(UI_NESTED_FIELD);
+		createEReference(uiNestedFieldEClass, UI_NESTED_FIELD__PATH);
+		createEReference(uiNestedFieldEClass, UI_NESTED_FIELD__FIELD);
+
 		uiNestedPropertyEClass = createEClass(UI_NESTED_PROPERTY);
 		createEReference(uiNestedPropertyEClass, UI_NESTED_PROPERTY__PATH);
 		createEReference(uiNestedPropertyEClass, UI_NESTED_PROPERTY__GETTER);
@@ -3696,6 +4008,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiRawBindablePathSegmentEClass = createEClass(UI_RAW_BINDABLE_PATH_SEGMENT);
 		createEReference(uiRawBindablePathSegmentEClass, UI_RAW_BINDABLE_PATH_SEGMENT__RAW_BINDABLE);
 		createEReference(uiRawBindablePathSegmentEClass, UI_RAW_BINDABLE_PATH_SEGMENT__PATH);
+		createEAttribute(uiRawBindablePathSegmentEClass, UI_RAW_BINDABLE_PATH_SEGMENT__TO_PARENT);
 
 		uiTypedBindableEClass = createEClass(UI_TYPED_BINDABLE);
 
@@ -3778,6 +4091,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiBeanReferenceFieldEClass, UI_BEAN_REFERENCE_FIELD__IMAGE_PROPERTY);
 		createEReference(uiBeanReferenceFieldEClass, UI_BEAN_REFERENCE_FIELD__IN_MEMORY_BEAN_PROVIDER);
 		createEReference(uiBeanReferenceFieldEClass, UI_BEAN_REFERENCE_FIELD__DESCRIPTION_PROPERTY);
+		createEReference(uiBeanReferenceFieldEClass, UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_JVM_TYPE);
+		createEReference(uiBeanReferenceFieldEClass, UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_FIELD);
 
 		uiTextFieldEClass = createEClass(UI_TEXT_FIELD);
 		createEAttribute(uiTextFieldEClass, UI_TEXT_FIELD__MAX_LENGTH);
@@ -3922,9 +4237,11 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiMobileNavigationPageEClass = createEClass(UI_MOBILE_NAVIGATION_PAGE);
 		createEReference(uiMobileNavigationPageEClass, UI_MOBILE_NAVIGATION_PAGE__CONTENTS);
+		createEReference(uiMobileNavigationPageEClass, UI_MOBILE_NAVIGATION_PAGE__BAR_ACTIONS);
 
 		uiMobileNavigationPageAssignmentEClass = createEClass(UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT);
 		createEReference(uiMobileNavigationPageAssignmentEClass, UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT__ELEMENT);
+		createEAttribute(uiMobileNavigationPageAssignmentEClass, UI_MOBILE_NAVIGATION_PAGE_ASSIGNMENT__ALIGNMENT);
 
 		uiMobileNavigationButtonEClass = createEClass(UI_MOBILE_NAVIGATION_BUTTON);
 		createEReference(uiMobileNavigationButtonEClass, UI_MOBILE_NAVIGATION_BUTTON__TARGET_PAGE);
@@ -4001,6 +4318,30 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiBeanServiceConsumerEClass = createEClass(UI_BEAN_SERVICE_CONSUMER);
 		createEAttribute(uiBeanServiceConsumerEClass, UI_BEAN_SERVICE_CONSUMER__CONSUME_BEAN_SERVICE);
 
+		uiMobileSearchPanelEClass = createEClass(UI_MOBILE_SEARCH_PANEL);
+		createEReference(uiMobileSearchPanelEClass, UI_MOBILE_SEARCH_PANEL__CONTENTS);
+
+		uiMobileNavigationRootEClass = createEClass(UI_MOBILE_NAVIGATION_ROOT);
+		createEReference(uiMobileNavigationRootEClass, UI_MOBILE_NAVIGATION_ROOT__CONTENTS);
+
+		uiMobileNavigationRootAssigmentEClass = createEClass(UI_MOBILE_NAVIGATION_ROOT_ASSIGMENT);
+		createEReference(uiMobileNavigationRootAssigmentEClass, UI_MOBILE_NAVIGATION_ROOT_ASSIGMENT__ELEMENT);
+
+		uiMobileNavBarActionEClass = createEClass(UI_MOBILE_NAV_BAR_ACTION);
+		createEReference(uiMobileNavBarActionEClass, UI_MOBILE_NAV_BAR_ACTION__ACTION_REFERENCE);
+		createEAttribute(uiMobileNavBarActionEClass, UI_MOBILE_NAV_BAR_ACTION__ACTION_ID);
+		createEAttribute(uiMobileNavBarActionEClass, UI_MOBILE_NAV_BAR_ACTION__ICON_NAME);
+
+		uiAddToTableCommandEClass = createEClass(UI_ADD_TO_TABLE_COMMAND);
+		createEReference(uiAddToTableCommandEClass, UI_ADD_TO_TABLE_COMMAND__TABLE);
+
+		uiRemoveFromTableCommandEClass = createEClass(UI_REMOVE_FROM_TABLE_COMMAND);
+		createEReference(uiRemoveFromTableCommandEClass, UI_REMOVE_FROM_TABLE_COMMAND__TABLE);
+
+		uiSendEventCommandEClass = createEClass(UI_SEND_EVENT_COMMAND);
+		createEAttribute(uiSendEventCommandEClass, UI_SEND_EVENT_COMMAND__EVENT_TOPIC);
+		createEAttribute(uiSendEventCommandEClass, UI_SEND_EVENT_COMMAND__NO_AUTO_TRIGGER);
+
 		// Create enums
 		uiFlatAlignmentEEnum = createEEnum(UI_FLAT_ALIGNMENT);
 		uiAlignmentEEnum = createEEnum(UI_ALIGNMENT);
@@ -4045,7 +4386,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiModelEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiImportsEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiContextEClass.getESuperTypes().add(this.getUiRootElements());
-		uiExposedActionEClass.getESuperTypes().add(this.getUiNamedElement());
+		uiExposedActionEClass.getESuperTypes().add(this.getUiAction());
 		uiViewSetEClass.getESuperTypes().add(this.getUiContext());
 		uiViewEClass.getESuperTypes().add(this.getUiContext());
 		uiViewEClass.getESuperTypes().add(this.getUiVisibilityProcessable());
@@ -4062,6 +4403,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiBindingEndpointAliasEClass.getESuperTypes().add(this.getUiTypedBindable());
 		uiBindingEndpointAssignmentEClass.getESuperTypes().add(this.getUiTypedBindable());
 		uiBindingEndpointAssignmentEClass.getESuperTypes().add(this.getUiBindingExpression());
+		uiNestedFieldEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiNestedPropertyEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiRawBindableEClass.getESuperTypes().add(this.getUiNamedElement());
 		uiTypedBindableEClass.getESuperTypes().add(this.getUiNamedElement());
@@ -4186,6 +4528,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiSplitpanelEClass.getESuperTypes().add(this.getUiLayout());
 		uiPanelEClass.getESuperTypes().add(this.getUiLayout());
 		uiErrorCodeEClass.getESuperTypes().add(this.getUiNamedElement());
+		uiMobileSearchPanelEClass.getESuperTypes().add(this.getUiMobileLayout());
+		uiMobileSearchPanelEClass.getESuperTypes().add(this.getUiTypeProvider());
+		uiMobileNavigationRootEClass.getESuperTypes().add(this.getUiMobileLayout());
+		uiMobileNavigationRootEClass.getESuperTypes().add(this.getUiMobileNavigationHandler());
+		uiMobileNavigationRootAssigmentEClass.getESuperTypes().add(this.getUiLayoutAssignment());
+		uiMobileNavBarActionEClass.getESuperTypes().add(this.getUiMobileAction());
+		uiAddToTableCommandEClass.getESuperTypes().add(this.getUiCommand());
+		uiRemoveFromTableCommandEClass.getESuperTypes().add(this.getUiCommand());
+		uiSendEventCommandEClass.getESuperTypes().add(this.getUiCommand());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(uiNamedElementEClass, UiNamedElement.class, "UiNamedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4204,7 +4555,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiContext_BeanSlots(), this.getUiBeanSlot(), null, "beanSlots", null, 0, -1, UiContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiContext_BindingEndpointAlias(), this.getUiBindingEndpointAlias(), null, "bindingEndpointAlias", null, 0, -1, UiContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiContext_Bindings(), this.getUiBinding(), null, "bindings", null, 0, -1, UiContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUiContext_ExposedActions(), this.getUiExposedAction(), null, "exposedActions", null, 0, -1, UiContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiContext_SharedStateGroup(), ecorePackage.getEString(), "sharedStateGroup", null, 0, 1, UiContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiExposedActionEClass, UiExposedAction.class, "UiExposedAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiExposedAction_ActionReference(), theUiSemanticsPackage.getUxAction(), null, "actionReference", null, 0, 1, UiExposedAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4226,6 +4577,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiDialogAssignment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiDialogAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiIDEViewEClass, UiIDEView.class, "UiIDEView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiIDEView_ExposedActions(), this.getUiExposedAction(), null, "exposedActions", null, 0, -1, UiIDEView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiMobileViewEClass, UiMobileView.class, "UiMobileView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4236,6 +4588,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiBeanSlotEClass, UiBeanSlot.class, "UiBeanSlot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiBeanSlot_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, UiBeanSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiBeanSlot_EClass(), ecorePackage.getEClass(), null, "eClass", null, 0, 1, UiBeanSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiBeanSlot_EventTopic(), ecorePackage.getEString(), "eventTopic", null, 0, 1, UiBeanSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiRootElementsEClass, UiRootElements.class, "UiRootElements", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4263,6 +4616,10 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiPathSegment_Path(), this.getUiPathSegment(), null, "path", null, 0, 1, UiPathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiPathSegment_Getter(), theTypesPackage.getJvmOperation(), null, "getter", null, 0, 1, UiPathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(uiNestedFieldEClass, UiNestedField.class, "UiNestedField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiNestedField_Path(), this.getUiPathSegment(), null, "path", null, 0, 1, UiNestedField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiNestedField_Field(), theTypesPackage.getJvmField(), null, "field", null, 0, 1, UiNestedField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(uiNestedPropertyEClass, UiNestedProperty.class, "UiNestedProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiNestedProperty_Path(), this.getUiPathSegment(), null, "path", null, 0, 1, UiNestedProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiNestedProperty_Getter(), theTypesPackage.getJvmOperation(), null, "getter", null, 0, 1, UiNestedProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4274,6 +4631,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiRawBindablePathSegmentEClass, UiRawBindablePathSegment.class, "UiRawBindablePathSegment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiRawBindablePathSegment_RawBindable(), this.getUiRawBindable(), null, "rawBindable", null, 0, 1, UiRawBindablePathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiRawBindablePathSegment_Path(), this.getUiRawBindablePathSegment(), null, "path", null, 0, 1, UiRawBindablePathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiRawBindablePathSegment_ToParent(), ecorePackage.getEBoolean(), "toParent", null, 0, 1, UiRawBindablePathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiTypedBindableEClass, UiTypedBindable.class, "UiTypedBindable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4356,6 +4714,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiBeanReferenceField_ImageProperty(), this.getUiNestedProperty(), null, "imageProperty", null, 0, 1, UiBeanReferenceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiBeanReferenceField_InMemoryBeanProvider(), theTypesPackage.getJvmTypeReference(), null, "inMemoryBeanProvider", null, 0, 1, UiBeanReferenceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUiBeanReferenceField_DescriptionProperty(), this.getUiNestedProperty(), null, "descriptionProperty", null, 0, 1, UiBeanReferenceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiBeanReferenceField_ReferenceSourceJvmType(), theTypesPackage.getJvmTypeReference(), null, "referenceSourceJvmType", null, 0, 1, UiBeanReferenceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiBeanReferenceField_ReferenceSourceField(), theTypesPackage.getJvmField(), null, "referenceSourceField", null, 0, 1, UiBeanReferenceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiTextFieldEClass, UiTextField.class, "UiTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiTextField_MaxLength(), ecorePackage.getEInt(), "maxLength", "-1", 0, 1, UiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4500,9 +4860,11 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiMobileNavigationPageEClass, UiMobileNavigationPage.class, "UiMobileNavigationPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiMobileNavigationPage_Contents(), this.getUiMobileNavigationPageAssignment(), null, "contents", null, 0, -1, UiMobileNavigationPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiMobileNavigationPage_BarActions(), this.getUiMobileNavBarAction(), null, "barActions", null, 0, -1, UiMobileNavigationPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiMobileNavigationPageAssignmentEClass, UiMobileNavigationPageAssignment.class, "UiMobileNavigationPageAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiMobileNavigationPageAssignment_Element(), this.getUiEmbeddable(), null, "element", null, 0, 1, UiMobileNavigationPageAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiMobileNavigationPageAssignment_Alignment(), this.getUiAlignment(), "alignment", null, 0, 1, UiMobileNavigationPageAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiMobileNavigationButtonEClass, UiMobileNavigationButton.class, "UiMobileNavigationButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiMobileNavigationButton_TargetPage(), this.getUiMobileNavigationPage(), null, "targetPage", null, 0, 1, UiMobileNavigationButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4578,6 +4940,30 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiBeanServiceConsumerEClass, UiBeanServiceConsumer.class, "UiBeanServiceConsumer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiBeanServiceConsumer_ConsumeBeanService(), ecorePackage.getEBoolean(), "consumeBeanService", null, 0, 1, UiBeanServiceConsumer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiMobileSearchPanelEClass, UiMobileSearchPanel.class, "UiMobileSearchPanel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiMobileSearchPanel_Contents(), this.getUiSearchField(), null, "contents", null, 0, -1, UiMobileSearchPanel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiMobileNavigationRootEClass, UiMobileNavigationRoot.class, "UiMobileNavigationRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiMobileNavigationRoot_Contents(), this.getUiMobileNavigationRootAssigment(), null, "contents", null, 0, -1, UiMobileNavigationRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiMobileNavigationRootAssigmentEClass, UiMobileNavigationRootAssigment.class, "UiMobileNavigationRootAssigment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiMobileNavigationRootAssigment_Element(), this.getUiMobileEmbeddable(), null, "element", null, 0, 1, UiMobileNavigationRootAssigment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiMobileNavBarActionEClass, UiMobileNavBarAction.class, "UiMobileNavBarAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiMobileNavBarAction_ActionReference(), theUiSemanticsPackage.getUxAction(), null, "actionReference", null, 0, 1, UiMobileNavBarAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiMobileNavBarAction_ActionID(), ecorePackage.getEString(), "actionID", null, 0, 1, UiMobileNavBarAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiMobileNavBarAction_IconName(), ecorePackage.getEString(), "iconName", null, 0, 1, UiMobileNavBarAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiAddToTableCommandEClass, UiAddToTableCommand.class, "UiAddToTableCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiAddToTableCommand_Table(), this.getUiTable(), null, "table", null, 0, 1, UiAddToTableCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiRemoveFromTableCommandEClass, UiRemoveFromTableCommand.class, "UiRemoveFromTableCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiRemoveFromTableCommand_Table(), this.getUiTable(), null, "table", null, 0, 1, UiRemoveFromTableCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiSendEventCommandEClass, UiSendEventCommand.class, "UiSendEventCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUiSendEventCommand_EventTopic(), ecorePackage.getEString(), "eventTopic", null, 0, 1, UiSendEventCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiSendEventCommand_NoAutoTrigger(), ecorePackage.getEBoolean(), "noAutoTrigger", "false", 0, 1, UiSendEventCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(uiFlatAlignmentEEnum, UiFlatAlignment.class, "UiFlatAlignment");

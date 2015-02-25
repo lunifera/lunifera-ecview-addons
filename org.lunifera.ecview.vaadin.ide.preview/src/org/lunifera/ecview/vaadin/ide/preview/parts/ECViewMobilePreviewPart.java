@@ -103,7 +103,7 @@ public class ECViewMobilePreviewPart extends ViewPart implements
 	}
 
 	public void setFocus() {
-		viewer.setFocus();
+//		viewer.setFocus();
 	}
 
 	public boolean close() {

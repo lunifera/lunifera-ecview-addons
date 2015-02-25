@@ -3,16 +3,11 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.lunifera.ecview.semantic.uimodel.UiExposedAction;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
-
 import org.lunifera.ecview.semantic.uisemantics.UxAction;
 
 /**
@@ -22,8 +17,6 @@ import org.lunifera.ecview.semantic.uisemantics.UxAction;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiExposedActionImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiExposedActionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiExposedActionImpl#getActionReference <em>Action Reference</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiExposedActionImpl#getActionID <em>Action ID</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiExposedActionImpl#getIconName <em>Icon Name</em>}</li>
@@ -32,47 +25,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxAction;
  *
  * @generated
  */
-public class UiExposedActionImpl extends MinimalEObjectImpl.Container implements UiExposedAction {
-	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected String id = ID_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
+public class UiExposedActionImpl extends UiActionImpl implements UiExposedAction {
 	/**
 	 * The cached value of the '{@link #getActionReference() <em>Action Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -140,48 +93,6 @@ public class UiExposedActionImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	protected EClass eStaticClass() {
 		return UiModelPackage.Literals.UI_EXPOSED_ACTION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getId() {
-		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setId(String newId) {
-		String oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_EXPOSED_ACTION__ID, oldId, id));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_EXPOSED_ACTION__NAME, oldName, name));
 	}
 
 	/**
@@ -272,10 +183,6 @@ public class UiExposedActionImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UiModelPackage.UI_EXPOSED_ACTION__ID:
-				return getId();
-			case UiModelPackage.UI_EXPOSED_ACTION__NAME:
-				return getName();
 			case UiModelPackage.UI_EXPOSED_ACTION__ACTION_REFERENCE:
 				if (resolve) return getActionReference();
 				return basicGetActionReference();
@@ -295,12 +202,6 @@ public class UiExposedActionImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UiModelPackage.UI_EXPOSED_ACTION__ID:
-				setId((String)newValue);
-				return;
-			case UiModelPackage.UI_EXPOSED_ACTION__NAME:
-				setName((String)newValue);
-				return;
 			case UiModelPackage.UI_EXPOSED_ACTION__ACTION_REFERENCE:
 				setActionReference((UxAction)newValue);
 				return;
@@ -322,12 +223,6 @@ public class UiExposedActionImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UiModelPackage.UI_EXPOSED_ACTION__ID:
-				setId(ID_EDEFAULT);
-				return;
-			case UiModelPackage.UI_EXPOSED_ACTION__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case UiModelPackage.UI_EXPOSED_ACTION__ACTION_REFERENCE:
 				setActionReference((UxAction)null);
 				return;
@@ -349,10 +244,6 @@ public class UiExposedActionImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UiModelPackage.UI_EXPOSED_ACTION__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case UiModelPackage.UI_EXPOSED_ACTION__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case UiModelPackage.UI_EXPOSED_ACTION__ACTION_REFERENCE:
 				return actionReference != null;
 			case UiModelPackage.UI_EXPOSED_ACTION__ACTION_ID:
@@ -373,11 +264,7 @@ public class UiExposedActionImpl extends MinimalEObjectImpl.Container implements
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
-		result.append(id);
-		result.append(", name: ");
-		result.append(name);
-		result.append(", actionID: ");
+		result.append(" (actionID: ");
 		result.append(actionID);
 		result.append(", iconName: ");
 		result.append(iconName);

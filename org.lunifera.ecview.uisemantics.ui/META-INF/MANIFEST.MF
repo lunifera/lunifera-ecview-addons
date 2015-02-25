@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.lunifera.ecview.uisemantics.ui
 Bundle-Vendor: My Company
-Bundle-Version: 0.8.0
+Bundle-Version: 0.9.0
 Bundle-SymbolicName: org.lunifera.ecview.uisemantics.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.lunifera.ecview.uisemantics;bundle-version="[0.8.0,0.9.0)";visibility:=reexport,
+Require-Bundle: org.lunifera.ecview.uisemantics;bundle-version="[0.9.0,0.10.0)";visibility:=reexport,
  org.eclipse.xtext.ui;bundle-version="[2.7.3,2.8.0)",
  org.eclipse.ui.editors;bundle-version="3.5.0",
  org.eclipse.ui.ide;bundle-version="3.5.0",
@@ -17,14 +17,20 @@ Require-Bundle: org.lunifera.ecview.uisemantics;bundle-version="[0.8.0,0.9.0)";v
  org.eclipse.xtext.common.types.ui;bundle-version="[2.7.3,2.8.0)",
  org.eclipse.xtext.ui.codetemplates.ui;bundle-version="[2.7.3,2.8.0)",
  org.eclipse.compare,
- org.lunifera.ecview.semantic.uisemantics;bundle-version="[0.8.0,0.9.0)",
+ org.lunifera.ecview.semantic.uisemantics;bundle-version="[0.9.0,0.10.0)",
  org.eclipse.xtext.xbase.lib,
  org.eclipse.jdt.debug.ui
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib;bundle-version="[2.7.3,2.8.0)"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.lunifera.ecview.uisemantics.ui.quickfix,
- org.lunifera.ecview.uisemantics.ui.contentassist,
- org.lunifera.ecview.uisemantics.ui.contentassist.antlr,
- org.lunifera.ecview.uisemantics.ui.internal
+Export-Package: org.lunifera.ecview.uisemantics.ui.contentassist,
+ org.lunifera.ecview.uisemantics.ui.contentassist.antlr;
+  uses:="org.eclipse.xtext,
+   org.lunifera.ecview.uisemantics.services,
+   org.eclipse.xtext.ui.editor.contentassist.antlr.internal,
+   org.lunifera.ecview.uisemantics.ui.contentassist.antlr.internal,
+   org.eclipse.xtext.ui.codetemplates.ui.partialEditing,
+   org.eclipse.xtext.ui.editor.contentassist.antlr",
+ org.lunifera.ecview.uisemantics.ui.internal;uses:="org.eclipse.ui.plugin,org.osgi.framework,com.google.inject",
+ org.lunifera.ecview.uisemantics.ui.quickfix;uses:="org.eclipse.xtext.xbase.ui.quickfix"
 Bundle-Activator: org.lunifera.ecview.uisemantics.ui.internal.UISemanticsGrammarActivator

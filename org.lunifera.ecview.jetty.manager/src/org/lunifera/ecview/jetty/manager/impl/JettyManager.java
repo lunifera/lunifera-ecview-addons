@@ -23,7 +23,6 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import org.eclipse.equinox.http.jetty.JettyConstants;
 import org.eclipse.equinox.http.servlet.HttpServiceServlet;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Server;
@@ -38,6 +37,9 @@ import org.lunifera.ecview.jetty.manager.IJettyManager;
 import org.osgi.framework.Constants;
 
 public class JettyManager implements IJettyManager {
+
+	public static final java.lang.String HTTP_PORT = "http.port";
+	public static final java.lang.String OTHER_INFO = "other.info";
 
 	public static final String CONTEXT_TEMPDIR = "javax.servlet.context.tempdir"; //$NON-NLS-1$
 	private static final String DIR_PREFIX = "application"; //$NON-NLS-1$
@@ -109,7 +111,7 @@ public class JettyManager implements IJettyManager {
 		ServletContextHandler applicationContext = createServletContext(
 				getContextPath(), SERVICE_TYPE__APPLICATION);
 		ServletContextHandler mobileContext = createServletContext(
-				getContextPath(), SERVICE_TYPE__MOBILE);
+				getMobileContextPath(), SERVICE_TYPE__MOBILE);
 		handlers.addHandler(applicationContext);
 		handlers.addHandler(mobileContext);
 
@@ -131,10 +133,9 @@ public class JettyManager implements IJettyManager {
 		holder.setInitParameter(Constants.SERVICE_DESCRIPTION,
 				"ECView" + contextPath); //$NON-NLS-1$
 		holder.setInitParameter(PROP_SERVICE_TYPE, serviceType);
-		holder.setInitParameter(JettyConstants.HTTP_PORT,
-				Integer.toString(port));
-		holder.setInitParameter(JettyConstants.OTHER_INFO, contextPath);
-		ServletContextHandler httpContext = createHttpContext("/" + contextPath);
+		holder.setInitParameter(HTTP_PORT, Integer.toString(port));
+		holder.setInitParameter(OTHER_INFO, contextPath);
+		ServletContextHandler httpContext = createHttpContext(contextPath);
 
 		httpContext.addServlet(holder, "/*"); //$NON-NLS-1$
 		return httpContext;

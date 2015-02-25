@@ -10,21 +10,13 @@ import java.util.Properties;
 
 import javax.servlet.ServletException;
 
-import org.eclipse.core.resources.IContainer;
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IResourceChangeEvent;
-import org.eclipse.core.resources.IResourceChangeListener;
-import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.equinox.http.jetty.JettyConstants;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.shared.SharedStateModule;
 import org.eclipse.xtext.util.Modules2;
 import org.lunifera.ecview.vaadin.ide.preview.jetty.PreviewJettyManager;
-import org.lunifera.ecview.vaadin.ide.preview.parts.ECViewVaadinSynchronizer;
 import org.lunifera.ecview.vaadin.ide.preview.parts.IDEPreviewHandler;
 import org.lunifera.ecview.vaadin.ide.preview.parts.MobilePreviewHandler;
 import org.lunifera.ecview.vaadin.ide.preview.web.EcviewMobilePreviewVaadinServlet;
@@ -105,7 +97,8 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 
 		handleStartedBundles(context);
 
-		Module mergedModule = Modules2.mixin(new SharedStateModule(), new IdeUiModule());
+		Module mergedModule = Modules2.mixin(new SharedStateModule(),
+				new IdeUiModule());
 		injector = Guice.createInjector(mergedModule);
 		workspaceProvider = injector.getProvider(IWorkspace.class);
 
@@ -137,7 +130,8 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 			throws InvalidSyntaxException, InterruptedException {
 		// Start a HttpService-Tracker to get an instance of HttpService
 		String filter = String.format("(&(objectClass=%s)(%s=%s))",
-				HttpService.class.getName(), JettyConstants.OTHER_INFO,
+				HttpService.class.getName(),
+				PreviewJettyManager.PROP_OTHER_INFO,
 				PreviewJettyManager.PROP_IDEPREVIEW);
 		ideTracker = new ServiceTracker<HttpService, HttpService>(
 				bundleContext, bundleContext.createFilter(filter), null);
@@ -168,7 +162,8 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 			throws InvalidSyntaxException, InterruptedException {
 		// Start a HttpService-Tracker to get an instance of HttpService
 		String filter = String.format("(&(objectClass=%s)(%s=%s))",
-				HttpService.class.getName(), JettyConstants.OTHER_INFO,
+				HttpService.class.getName(),
+				PreviewJettyManager.PROP_OTHER_INFO,
 				PreviewJettyManager.PROP_MOBILEPREVIEW);
 		mobileTracker = new ServiceTracker<HttpService, HttpService>(
 				bundleContext, bundleContext.createFilter(filter), null);
@@ -220,8 +215,6 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 			jettyManager.stop();
 			jettyManager = null;
 		}
-
-		
 
 		Activator.context = null;
 		plugin = null;
@@ -314,11 +307,11 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 		}
 		return null;
 	}
-	
-//	public void setSynchronizer(
-//			ECViewVaadinSynchronizer ecViewVaadinSynchronizer) {
-//		idePreviewHandler.setSynchronizer(ecViewVaadinSynchronizer);
-//		mobilePreviewHandler.setSynchronizer(ecViewVaadinSynchronizer);
-//	}
+
+	// public void setSynchronizer(
+	// ECViewVaadinSynchronizer ecViewVaadinSynchronizer) {
+	// idePreviewHandler.setSynchronizer(ecViewVaadinSynchronizer);
+	// mobilePreviewHandler.setSynchronizer(ecViewVaadinSynchronizer);
+	// }
 
 }

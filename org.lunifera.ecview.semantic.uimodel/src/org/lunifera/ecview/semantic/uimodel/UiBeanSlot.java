@@ -15,6 +15,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBeanSlot#getJvmType <em>Jvm Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBeanSlot#getEClass <em>EClass</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiBeanSlot#getEventTopic <em>Event Topic</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,5 +75,31 @@ public interface UiBeanSlot extends UiTypedBindable {
 	 * @generated
 	 */
 	void setEClass(EClass value);
+
+	/**
+	 * Returns the value of the '<em><b>Event Topic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Event Topic</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Event Topic</em>' attribute.
+	 * @see #setEventTopic(String)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiBeanSlot_EventTopic()
+	 * @model
+	 * @generated
+	 */
+	String getEventTopic();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiBeanSlot#getEventTopic <em>Event Topic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Event Topic</em>' attribute.
+	 * @see #getEventTopic()
+	 * @generated
+	 */
+	void setEventTopic(String value);
 
 } // UiBeanSlot

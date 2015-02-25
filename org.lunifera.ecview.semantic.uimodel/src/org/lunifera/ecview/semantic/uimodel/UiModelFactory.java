@@ -148,6 +148,15 @@ public interface UiModelFactory extends EFactory {
 	UiPathSegment createUiPathSegment();
 
 	/**
+	 * Returns a new object of class '<em>Ui Nested Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Nested Field</em>'.
+	 * @generated
+	 */
+	UiNestedField createUiNestedField();
+
+	/**
 	 * Returns a new object of class '<em>Ui Nested Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -812,6 +821,69 @@ public interface UiModelFactory extends EFactory {
 	 * @generated
 	 */
 	UiErrorCode createUiErrorCode();
+
+	/**
+	 * Returns a new object of class '<em>Ui Mobile Search Panel</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Mobile Search Panel</em>'.
+	 * @generated
+	 */
+	UiMobileSearchPanel createUiMobileSearchPanel();
+
+	/**
+	 * Returns a new object of class '<em>Ui Mobile Navigation Root</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Mobile Navigation Root</em>'.
+	 * @generated
+	 */
+	UiMobileNavigationRoot createUiMobileNavigationRoot();
+
+	/**
+	 * Returns a new object of class '<em>Ui Mobile Navigation Root Assigment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Mobile Navigation Root Assigment</em>'.
+	 * @generated
+	 */
+	UiMobileNavigationRootAssigment createUiMobileNavigationRootAssigment();
+
+	/**
+	 * Returns a new object of class '<em>Ui Mobile Nav Bar Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Mobile Nav Bar Action</em>'.
+	 * @generated
+	 */
+	UiMobileNavBarAction createUiMobileNavBarAction();
+
+	/**
+	 * Returns a new object of class '<em>Ui Add To Table Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Add To Table Command</em>'.
+	 * @generated
+	 */
+	UiAddToTableCommand createUiAddToTableCommand();
+
+	/**
+	 * Returns a new object of class '<em>Ui Remove From Table Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Remove From Table Command</em>'.
+	 * @generated
+	 */
+	UiRemoveFromTableCommand createUiRemoveFromTableCommand();
+
+	/**
+	 * Returns a new object of class '<em>Ui Send Event Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Send Event Command</em>'.
+	 * @generated
+	 */
+	UiSendEventCommand createUiSendEventCommand();
 
 	/**
 	 * Returns the package supported by this factory.

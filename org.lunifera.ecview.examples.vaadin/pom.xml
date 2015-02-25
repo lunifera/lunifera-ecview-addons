@@ -14,7 +14,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.lunifera.ecview</groupId>
 	<artifactId>org.lunifera.ecview.examples.vaadin</artifactId>
-	<version>0.8.0</version>
+	<version>0.9.0</version>
 	<name>Vaadin ECView Examples</name>
 	<build>
 		<sourceDirectory>src</sourceDirectory>

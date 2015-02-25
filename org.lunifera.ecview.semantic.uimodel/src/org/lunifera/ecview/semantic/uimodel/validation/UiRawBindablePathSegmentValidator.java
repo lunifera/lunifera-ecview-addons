@@ -18,4 +18,6 @@ public interface UiRawBindablePathSegmentValidator {
 
 	boolean validateRawBindable(UiRawBindable value);
 	boolean validatePath(UiRawBindablePathSegment value);
+
+	boolean validateToParent(boolean value);
 }

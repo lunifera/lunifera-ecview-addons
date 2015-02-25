@@ -17,6 +17,7 @@ import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
 import org.lunifera.ecview.semantic.uimodel.UiI18nInfoable;
 import org.lunifera.ecview.semantic.uimodel.UiLayout;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavBarAction;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationHandler;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPageAssignment;
@@ -43,6 +44,7 @@ import org.lunifera.ecview.semantic.uimodel.UiTypeProvider;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageImpl#getAutoWireSource <em>Auto Wire Source</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageImpl#getJvmType <em>Jvm Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageImpl#getContents <em>Contents</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiMobileNavigationPageImpl#getBarActions <em>Bar Actions</em>}</li>
  * </ul>
  * </p>
  *
@@ -218,6 +220,16 @@ public class UiMobileNavigationPageImpl extends UiVisibilityProcessableImpl impl
 	 * @ordered
 	 */
 	protected EList<UiMobileNavigationPageAssignment> contents;
+
+	/**
+	 * The cached value of the '{@link #getBarActions() <em>Bar Actions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBarActions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UiMobileNavBarAction> barActions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -591,6 +603,18 @@ public class UiMobileNavigationPageImpl extends UiVisibilityProcessableImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<UiMobileNavBarAction> getBarActions() {
+		if (barActions == null) {
+			barActions = new EObjectContainmentEList.Resolving<UiMobileNavBarAction>(UiMobileNavBarAction.class, this, UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__BAR_ACTIONS);
+		}
+		return barActions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -604,6 +628,8 @@ public class UiMobileNavigationPageImpl extends UiVisibilityProcessableImpl impl
 				return basicSetJvmType(null, msgs);
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__CONTENTS:
 				return ((InternalEList<?>)getContents()).basicRemove(otherEnd, msgs);
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__BAR_ACTIONS:
+				return ((InternalEList<?>)getBarActions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -641,6 +667,8 @@ public class UiMobileNavigationPageImpl extends UiVisibilityProcessableImpl impl
 				return basicGetJvmType();
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__CONTENTS:
 				return getContents();
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__BAR_ACTIONS:
+				return getBarActions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -689,6 +717,10 @@ public class UiMobileNavigationPageImpl extends UiVisibilityProcessableImpl impl
 				getContents().clear();
 				getContents().addAll((Collection<? extends UiMobileNavigationPageAssignment>)newValue);
 				return;
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__BAR_ACTIONS:
+				getBarActions().clear();
+				getBarActions().addAll((Collection<? extends UiMobileNavBarAction>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -734,6 +766,9 @@ public class UiMobileNavigationPageImpl extends UiVisibilityProcessableImpl impl
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__CONTENTS:
 				getContents().clear();
 				return;
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__BAR_ACTIONS:
+				getBarActions().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -768,6 +803,8 @@ public class UiMobileNavigationPageImpl extends UiVisibilityProcessableImpl impl
 				return jvmType != null;
 			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__CONTENTS:
 				return contents != null && !contents.isEmpty();
+			case UiModelPackage.UI_MOBILE_NAVIGATION_PAGE__BAR_ACTIONS:
+				return barActions != null && !barActions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

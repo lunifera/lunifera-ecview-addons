@@ -18,6 +18,7 @@ import org.lunifera.ecview.semantic.uimodel.UiLayout
 import org.lunifera.mobile.vaadin.ecview.model.VaadinMobileFactory
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout
 import org.lunifera.ecview.core.^extension.model.^extension.YFormLayout
+import org.lunifera.mobile.vaadin.ecview.model.VMVerticalComponentGroup
 
 class AutowireHelper {
 
@@ -49,7 +50,7 @@ class AutowireHelper {
 
 		switch (uiLayout) {
 			UiHorizontalLayout: {
-				layouter = new AutowireHelper$HorizontalLayouter
+				layouter = if(!mobile) new HorizontalLayouter else new MobileLayouter
 				layouter.setup(uiLayout, yLayout)
 			}
 			default:
@@ -231,6 +232,23 @@ class AutowireHelper {
 		override add(YEmbeddable element) {
 			if(index % 2 == 0) left.elements += element else right.elements += element
 			index++
+		}
+
+	}
+	
+	
+	public static class MobileLayouter implements Layouter {
+
+		VMVerticalComponentGroup group
+
+		override setup(UiLayout uiRootLayout, YLayout yRootLayout) {
+			group = VaadinMobileFactory.eINSTANCE.createVMVerticalComponentGroup
+
+			yRootLayout.elements += group
+		}
+
+		override add(YEmbeddable element) {
+			group.addElement(element)
 		}
 
 	}

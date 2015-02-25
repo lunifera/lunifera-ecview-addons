@@ -83,7 +83,7 @@ public class EcviewMobilePreviewUI extends UI {
 	private boolean worksWithCopy;
 
 	protected boolean buildNotificationSent;
-	
+
 	@Override
 	protected void init(VaadinRequest request) {
 		setErrorHandler(new ErrorHandler() {
@@ -111,7 +111,7 @@ public class EcviewMobilePreviewUI extends UI {
 
 		modelChanged();
 	}
-	
+
 	protected void refresh(VaadinRequest request) {
 		modelChanged();
 	}
@@ -121,74 +121,79 @@ public class EcviewMobilePreviewUI extends UI {
 			@SuppressWarnings("restriction")
 			@Override
 			public void run() {
-				VaadinObservables.activateRealm(getUI());
-				try {
-					selectedComponent = null;
-					if (context != null) {
-						disposeContext();
-					}
-				} catch (Exception e) {
-					LOGGER.error("{}", e);
-				}
-
-				if (Activator.getMobilePreviewHandler().getActiveView() != null) {
-					if (Activator.getMobilePreviewHandler().isShowLayoutBounds()) {
-						layout.addStyleName("l-debug-show-layout-bounds");
-					} else {
-						layout.removeStyleName("l-debug-show-layout-bounds");
-					}
-
-					// ... and render
-					VaadinRenderer renderer = new VaadinRenderer();
+				synchronized (this) {
+					VaadinObservables.activateRealm(getUI());
 					try {
-						Map<String, Object> params = new HashMap<String, Object>();
-						Map<String, Object> services = new HashMap<String, Object>();
-						params.put(IViewContext.PARAM_SERVICES, services);
-						services.put(ITypeProviderService.class.getName(),
-								classLoadingHelper);
-						services.put(II18nService.class.getName(),
-								new I18nProvider());
-
-						YView view = Activator.getMobilePreviewHandler()
-								.getActiveView();
-						if (worksWithCopy) {
-							view = EcoreUtil.copy(view);
+						selectedComponent = null;
+						if (context != null) {
+							disposeContext();
 						}
-						context = renderer.render(layout, view, params);
-
-						registerBeans(view);
-						
-						// Notify the eclipse view, about the new rendered view.
-						// So the part can install the exposed actions.
-						Activator.getMobilePreviewHandler().notifyNewViewRendered(
-								context);
-
-						if (Activator.getMobilePreviewHandler()
-								.isLinkedWithEditor()) {
-							installSourceViewSelectionSupport();
-						}
-						
-						Workspace ws = (Workspace) Activator.getDefault()
-								.getWorkspace();
-						if (!buildNotificationSent
-								&& ws.getBuildManager()
-										.isAutobuildBuildPending()) {
-							buildNotificationSent = true;
-							context.exec(new Runnable() {
-								@Override
-								public void run() {
-									Notification
-											.show("Build is not finished yet. So labels and icons may not be initialized properly.",
-													Notification.Type.TRAY_NOTIFICATION);
-								}
-							});
-						}
-
 					} catch (Exception e) {
 						LOGGER.error("{}", e);
 					}
-				} else {
-					layout.addComponent(new Label("No viewmodel available yet!"));
+
+					if (Activator.getMobilePreviewHandler().getActiveView() != null) {
+						if (Activator.getMobilePreviewHandler()
+								.isShowLayoutBounds()) {
+							layout.addStyleName("l-debug-show-layout-bounds");
+						} else {
+							layout.removeStyleName("l-debug-show-layout-bounds");
+						}
+
+						// ... and render
+						VaadinRenderer renderer = new VaadinRenderer();
+						try {
+							Map<String, Object> params = new HashMap<String, Object>();
+							Map<String, Object> services = new HashMap<String, Object>();
+							params.put(IViewContext.PARAM_SERVICES, services);
+							services.put(ITypeProviderService.class.getName(),
+									classLoadingHelper);
+							services.put(II18nService.class.getName(),
+									new I18nProvider());
+
+							YView view = Activator.getMobilePreviewHandler()
+									.getActiveView();
+							if (worksWithCopy) {
+								view = EcoreUtil.copy(view);
+							}
+							context = renderer.render(layout, view, params);
+
+							registerBeans(view);
+
+							// Notify the eclipse view, about the new rendered
+							// view.
+							// So the part can install the exposed actions.
+							Activator.getMobilePreviewHandler()
+									.notifyNewViewRendered(context);
+
+							if (Activator.getMobilePreviewHandler()
+									.isLinkedWithEditor()) {
+								installSourceViewSelectionSupport();
+							}
+
+							Workspace ws = (Workspace) Activator.getDefault()
+									.getWorkspace();
+							if (!buildNotificationSent
+									&& ws.getBuildManager()
+											.isAutobuildBuildPending()) {
+								buildNotificationSent = true;
+								context.exec(new Runnable() {
+									@Override
+									public void run() {
+										Notification
+												.show("Build is not finished yet. So labels and icons may not be initialized properly.",
+														Notification.Type.TRAY_NOTIFICATION);
+									}
+								});
+							}
+
+						} catch (Exception e) {
+							LOGGER.error("{}", e);
+						}
+					} else {
+						layout.addComponent(new Label(
+								"No viewmodel available yet!"));
+					}
 				}
 			}
 
@@ -289,7 +294,7 @@ public class EcviewMobilePreviewUI extends UI {
 	public void error(String value) {
 		Notification.show(value, Notification.Type.ERROR_MESSAGE);
 	}
-	
+
 	public void warn(String value) {
 		Notification.show(value, Notification.Type.WARNING_MESSAGE);
 	}
@@ -302,9 +307,13 @@ public class EcviewMobilePreviewUI extends UI {
 			return;
 		}
 
-		context.dispose();
-		context = null;
-		layout.removeAllComponents();
+		try {
+			context.dispose();
+			context = null;
+			layout.removeAllComponents();
+		} catch (Exception e) {
+			LOGGER.warn("{}", e);
+		}
 	}
 
 	/**

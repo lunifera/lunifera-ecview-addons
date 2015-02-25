@@ -2,7 +2,7 @@
 <feature
       id="org.lunifera.ecview.feature.jetty"
       label="%featureName"
-      version="0.8.0"
+      version="0.9.0"
       provider-name="%providerName">
 
    <description>
@@ -24,11 +24,18 @@
 
    <requires>
       <import feature="org.eclipse.xtext.sdk" version="2.7.3" match="greaterOrEqual"/>
-      <import feature="org.lunifera.ecview.feature.runtime" version="0.8.0" match="greaterOrEqual"/>
+      <import feature="org.lunifera.ecview.feature.runtime" version="0.9.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
          id="org.lunifera.ecview.jetty.manager"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+         
+   <plugin
+         id="org.lunifera.ecview.vaadin.servlet.mobile"
          download-size="0"
          install-size="0"
          version="0.0.0"

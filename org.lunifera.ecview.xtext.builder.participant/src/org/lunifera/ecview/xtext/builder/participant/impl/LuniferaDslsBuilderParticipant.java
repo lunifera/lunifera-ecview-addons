@@ -18,7 +18,9 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtext.resource.IEObjectDescription;
 import org.lunifera.ecview.core.common.model.core.CoreModelPackage;
 import org.lunifera.ecview.core.common.model.core.YView;
 import org.lunifera.ecview.core.common.model.core.YViewSet;
@@ -70,8 +72,9 @@ public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
 		List<URL> results = new ArrayList<URL>();
 		BundleWiring wiring = suspect.adapt(BundleWiring.class);
 		suspect.getState();
-		if(wiring == null){
-			System.out.println("---------------- wiring is null --------------------------");
+		if (wiring == null) {
+			System.out
+					.println("---------------- wiring is null --------------------------");
 		}
 		results.addAll(wiring.findEntries("/", "*.uimodel",
 				BundleWiring.LISTRESOURCES_RECURSE));
@@ -96,7 +99,7 @@ public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
 		if (event.getState() == IBuilderParticipant.LifecycleEvent.INITIALIZE) {
 			initialize();
 		} else if (event.getState() == IBuilderParticipant.LifecycleEvent.ACTIVATED) {
-			DatatypesService datatypesService = new DatatypesService();
+			ViewService datatypesService = new ViewService();
 			datatypesServiceRegister = context.getBundleContext()
 					.registerService(IECViewAddonsMetadataService.class,
 							datatypesService, null);
@@ -124,14 +127,19 @@ public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
 	 * Provided as an OSGi service to return ui models for the given qualified
 	 * name.
 	 */
-	private class DatatypesService implements IECViewAddonsMetadataService {
+	private class ViewService implements IECViewAddonsMetadataService {
 
 		@Override
 		public YView getViewMetadata(String modelName) {
 			UiView uiView = (UiView) metadataBuilderService.getMetadata(
 					modelName, UiModelPackage.Literals.UI_IDE_VIEW);
 			if (uiView == null) {
-				return null;
+				// also try mobile view
+				uiView = (UiView) metadataBuilderService.getMetadata(modelName,
+						UiModelPackage.Literals.UI_MOBILE_VIEW);
+				if (uiView == null) {
+					return null;
+				}
 			}
 
 			return (YView) EcoreUtil.copy(uiView.eResource().getContents()
@@ -144,6 +152,57 @@ public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
 					CoreModelPackage.Literals.YVIEW_SET);
 		}
 
-	}
+		@Override
+		public List<String> getIDEViewNames(String packageName,
+				boolean includeChildren) {
+			List<String> viewNames = getViewNames(
+					UiModelPackage.Literals.UI_IDE_VIEW, packageName,
+					includeChildren);
+			return viewNames;
+		}
 
+		@Override
+		public List<String> getMobileViewNames(String packageName,
+				boolean includeChildren) {
+			List<String> viewNames = getViewNames(
+					UiModelPackage.Literals.UI_MOBILE_VIEW, packageName,
+					includeChildren);
+			return viewNames;
+		}
+
+		private List<String> getViewNames(EClass type, String packageName,
+				boolean includeChildren) {
+			Set<String> processedPackages = new HashSet<String>();
+			List<String> viewNames = new ArrayList<String>(5);
+			for (IEObjectDescription desc : metadataBuilderService
+					.getAllDescriptions(type)) {
+				String pkg = desc.getQualifiedName().skipLast(1).toString();
+				boolean match = false;
+				if (packageName == null && includeChildren) {
+					match = true;
+				} else if (packageName == null && !includeChildren) {
+					match = !isSuccessorPackage(pkg, processedPackages);
+				} else if (includeChildren) {
+					match = pkg.startsWith(packageName);
+				} else {
+					match = pkg.equals(packageName);
+				}
+
+				if (match) {
+					viewNames.add(desc.getQualifiedName().toString());
+				}
+			}
+			return viewNames;
+		}
+
+		private boolean isSuccessorPackage(String pkg,
+				Set<String> processedPackages) {
+			for (String processed : processedPackages) {
+				if (pkg.startsWith(processed)) {
+					return true;
+				}
+			}
+			return false;
+		}
+	}
 }

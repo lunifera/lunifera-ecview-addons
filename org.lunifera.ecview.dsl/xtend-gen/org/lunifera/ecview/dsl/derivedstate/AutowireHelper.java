@@ -46,6 +46,7 @@ import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout;
 import org.lunifera.ecview.semantic.uimodel.UiLayout;
 import org.lunifera.mobile.vaadin.ecview.model.VMSwitch;
+import org.lunifera.mobile.vaadin.ecview.model.VMVerticalComponentGroup;
 import org.lunifera.mobile.vaadin.ecview.model.VaadinMobileFactory;
 
 @SuppressWarnings("all")
@@ -83,6 +84,21 @@ public class AutowireHelper {
         _elements_1.add(element);
       }
       this.index++;
+    }
+  }
+  
+  public static class MobileLayouter implements AutowireHelper.Layouter {
+    private VMVerticalComponentGroup group;
+    
+    public void setup(final UiLayout uiRootLayout, final YLayout yRootLayout) {
+      VMVerticalComponentGroup _createVMVerticalComponentGroup = VaadinMobileFactory.eINSTANCE.createVMVerticalComponentGroup();
+      this.group = _createVMVerticalComponentGroup;
+      EList<YEmbeddable> _elements = yRootLayout.getElements();
+      _elements.add(this.group);
+    }
+    
+    public void add(final YEmbeddable element) {
+      this.group.addElement(element);
     }
   }
   
@@ -124,8 +140,13 @@ public class AutowireHelper {
     if (!_matched) {
       if (uiLayout instanceof UiHorizontalLayout) {
         _matched=true;
-        AutowireHelper.HorizontalLayouter _horizontalLayouter = new AutowireHelper.HorizontalLayouter();
-        this.layouter = _horizontalLayouter;
+        AutowireHelper.Layouter _xifexpression = null;
+        if ((!mobile)) {
+          _xifexpression = new AutowireHelper.HorizontalLayouter();
+        } else {
+          _xifexpression = new AutowireHelper.MobileLayouter();
+        }
+        this.layouter = _xifexpression;
         this.layouter.setup(uiLayout, this.yLayout);
       }
     }

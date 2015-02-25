@@ -23,9 +23,9 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference beanSlots : UiBeanSlot<<0..*>>
     Reference bindingEndpointAlias : UiBindingEndpointAlias<<0..*>>
     Reference bindings : UiBinding<<0..*>>
-    Reference exposedActions : UiExposedAction<<0..*>>
+    Attribute sharedStateGroup : EString
 
-  Class UiExposedAction -> UiNamedElement
+  Class UiExposedAction -> UiAction
     Reference actionReference : UxAction
     Attribute actionID : EString
     Attribute iconName : EString
@@ -45,6 +45,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference element : UiEmbeddable
 
   Class UiIDEView -> UiView
+    Reference exposedActions : UiExposedAction<<0..*>>
 
   Class UiMobileView -> UiView
 
@@ -55,6 +56,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiBeanSlot -> UiTypedBindable
     Reference jvmType : JvmTypeReference
     Reference eClass : EClass
+    Attribute eventTopic : EString
 
   Class UiRootElements -> UiNamedElement
 
@@ -82,6 +84,10 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference path : UiPathSegment
     Reference getter : JvmOperation
 
+  Class UiNestedField -> UiNamedElement
+    Reference path : UiPathSegment
+    Reference field : JvmField
+
   Class UiNestedProperty -> UiNamedElement
     Reference path : UiPathSegment
     Reference getter : JvmOperation
@@ -93,6 +99,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
   Class UiRawBindablePathSegment
     Reference rawBindable : UiRawBindable
     Reference path : UiRawBindablePathSegment
+    Attribute toParent : EBoolean
 
   Class UiTypedBindable -> UiNamedElement
 
@@ -175,6 +182,8 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference imageProperty : UiNestedProperty
     Reference inMemoryBeanProvider : JvmTypeReference
     Reference descriptionProperty : UiNestedProperty
+    Reference referenceSourceJvmType : JvmTypeReference
+    Reference referenceSourceField : JvmField
 
   Class UiTextField -> UiField, UiMobileField
     Attribute maxLength : EInt
@@ -319,9 +328,11 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiMobileNavigationPage -> UiMobileLayout, UiTypeProvider, UiMobileNavigationHandler
     Reference contents : UiMobileNavigationPageAssignment<<0..*>>
+    Reference barActions : UiMobileNavBarAction<<0..*>>
 
   Class UiMobileNavigationPageAssignment -> UiLayoutAssignment
     Reference element : UiEmbeddable
+    Attribute alignment : UiAlignment
 
   Class UiMobileNavigationButton -> UiMobileAction
     Reference targetPage : UiMobileNavigationPage
@@ -397,6 +408,30 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiBeanServiceConsumer
     Attribute consumeBeanService : EBoolean
+
+  Class UiMobileSearchPanel -> UiMobileLayout, UiTypeProvider
+    Reference contents : UiSearchField<<0..*>>
+
+  Class UiMobileNavigationRoot -> UiMobileLayout, UiMobileNavigationHandler
+    Reference contents : UiMobileNavigationRootAssigment<<0..*>>
+
+  Class UiMobileNavigationRootAssigment -> UiLayoutAssignment
+    Reference element : UiMobileEmbeddable
+
+  Class UiMobileNavBarAction -> UiMobileAction
+    Reference actionReference : UxAction
+    Attribute actionID : EString
+    Attribute iconName : EString
+
+  Class UiAddToTableCommand -> UiCommand
+    Reference table : UiTable
+
+  Class UiRemoveFromTableCommand -> UiCommand
+    Reference table : UiTable
+
+  Class UiSendEventCommand -> UiCommand
+    Attribute eventTopic : EString
+    Attribute noAutoTrigger : EBoolean
 
   Enum UiFlatAlignment
     Literal LEFT = 0

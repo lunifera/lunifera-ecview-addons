@@ -23,6 +23,7 @@ import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanSlotImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanSlotImpl#getJvmType <em>Jvm Type</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanSlotImpl#getEClass <em>EClass</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanSlotImpl#getEventTopic <em>Event Topic</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,6 +85,24 @@ public class UiBeanSlotImpl extends MinimalEObjectImpl.Container implements UiBe
 	 * @ordered
 	 */
 	protected EClass eClass;
+	/**
+	 * The default value of the '{@link #getEventTopic() <em>Event Topic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEventTopic()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EVENT_TOPIC_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getEventTopic() <em>Event Topic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEventTopic()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eventTopic = EVENT_TOPIC_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -282,6 +301,27 @@ public class UiBeanSlotImpl extends MinimalEObjectImpl.Container implements UiBe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getEventTopic() {
+		return eventTopic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEventTopic(String newEventTopic) {
+		String oldEventTopic = eventTopic;
+		eventTopic = newEventTopic;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BEAN_SLOT__EVENT_TOPIC, oldEventTopic, eventTopic));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -311,6 +351,8 @@ public class UiBeanSlotImpl extends MinimalEObjectImpl.Container implements UiBe
 			case UiModelPackage.UI_BEAN_SLOT__ECLASS:
 				if (resolve) return getEClass();
 				return basicGetEClass();
+			case UiModelPackage.UI_BEAN_SLOT__EVENT_TOPIC:
+				return getEventTopic();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -334,6 +376,9 @@ public class UiBeanSlotImpl extends MinimalEObjectImpl.Container implements UiBe
 				return;
 			case UiModelPackage.UI_BEAN_SLOT__ECLASS:
 				setEClass((EClass)newValue);
+				return;
+			case UiModelPackage.UI_BEAN_SLOT__EVENT_TOPIC:
+				setEventTopic((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -359,6 +404,9 @@ public class UiBeanSlotImpl extends MinimalEObjectImpl.Container implements UiBe
 			case UiModelPackage.UI_BEAN_SLOT__ECLASS:
 				setEClass((EClass)null);
 				return;
+			case UiModelPackage.UI_BEAN_SLOT__EVENT_TOPIC:
+				setEventTopic(EVENT_TOPIC_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -379,6 +427,8 @@ public class UiBeanSlotImpl extends MinimalEObjectImpl.Container implements UiBe
 				return jvmType != null;
 			case UiModelPackage.UI_BEAN_SLOT__ECLASS:
 				return eClass != null;
+			case UiModelPackage.UI_BEAN_SLOT__EVENT_TOPIC:
+				return EVENT_TOPIC_EDEFAULT == null ? eventTopic != null : !EVENT_TOPIC_EDEFAULT.equals(eventTopic);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -397,6 +447,8 @@ public class UiBeanSlotImpl extends MinimalEObjectImpl.Container implements UiBe
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", eventTopic: ");
+		result.append(eventTopic);
 		result.append(')');
 		return result.toString();
 	}

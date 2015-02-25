@@ -4,7 +4,9 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
+import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmTypeReference;
+import org.lunifera.ecview.semantic.uimodel.UiNestedField;
 import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
 
 
@@ -24,6 +26,12 @@ public interface UiBeanReferenceFieldValidator {
 	boolean validateInMemoryBeanProvider(JvmTypeReference value);
 
 	boolean validateDescriptionProperty(UiNestedProperty value);
+
+	boolean validateReferenceSourceJvmType(JvmTypeReference value);
+
+	boolean validateReferenceSourceField(JvmField value);
+
+	boolean validateReferenceSourceField(UiNestedField value);
 
 	boolean validateInMemoryService(JvmTypeReference value);
 

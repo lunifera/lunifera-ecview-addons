@@ -24,5 +24,7 @@ public interface UiContextValidator {
 	boolean validateBindingEndpointAlias(EList<UiBindingEndpointAlias> value);
 	boolean validateBindings(EList<UiBinding> value);
 
+	boolean validateSharedStateGroup(String value);
+
 	boolean validateExposedActions(EList<UiExposedAction> value);
 }

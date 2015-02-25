@@ -3,20 +3,15 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
+import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
 import org.lunifera.ecview.semantic.uimodel.UiBeanServiceConsumer;
@@ -53,6 +48,8 @@ import org.lunifera.ecview.semantic.uimodel.UiValidator;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanReferenceFieldImpl#getImageProperty <em>Image Property</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanReferenceFieldImpl#getInMemoryBeanProvider <em>In Memory Bean Provider</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanReferenceFieldImpl#getDescriptionProperty <em>Description Property</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanReferenceFieldImpl#getReferenceSourceJvmType <em>Reference Source Jvm Type</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiBeanReferenceFieldImpl#getReferenceSourceField <em>Reference Source Field</em>}</li>
  * </ul>
  * </p>
  *
@@ -258,6 +255,26 @@ public class UiBeanReferenceFieldImpl extends UiVisibilityProcessableImpl implem
 	 * @ordered
 	 */
 	protected UiNestedProperty descriptionProperty;
+
+	/**
+	 * The cached value of the '{@link #getReferenceSourceJvmType() <em>Reference Source Jvm Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceSourceJvmType()
+	 * @generated
+	 * @ordered
+	 */
+	protected JvmTypeReference referenceSourceJvmType;
+
+	/**
+	 * The cached value of the '{@link #getReferenceSourceField() <em>Reference Source Field</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceSourceField()
+	 * @generated
+	 * @ordered
+	 */
+	protected JvmField referenceSourceField;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -829,6 +846,110 @@ public class UiBeanReferenceFieldImpl extends UiVisibilityProcessableImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public JvmTypeReference getReferenceSourceJvmType() {
+		if (referenceSourceJvmType != null && referenceSourceJvmType.eIsProxy()) {
+			InternalEObject oldReferenceSourceJvmType = (InternalEObject)referenceSourceJvmType;
+			referenceSourceJvmType = (JvmTypeReference)eResolveProxy(oldReferenceSourceJvmType);
+			if (referenceSourceJvmType != oldReferenceSourceJvmType) {
+				InternalEObject newReferenceSourceJvmType = (InternalEObject)referenceSourceJvmType;
+				NotificationChain msgs = oldReferenceSourceJvmType.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_JVM_TYPE, null, null);
+				if (newReferenceSourceJvmType.eInternalContainer() == null) {
+					msgs = newReferenceSourceJvmType.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_JVM_TYPE, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_JVM_TYPE, oldReferenceSourceJvmType, referenceSourceJvmType));
+			}
+		}
+		return referenceSourceJvmType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JvmTypeReference basicGetReferenceSourceJvmType() {
+		return referenceSourceJvmType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetReferenceSourceJvmType(JvmTypeReference newReferenceSourceJvmType, NotificationChain msgs) {
+		JvmTypeReference oldReferenceSourceJvmType = referenceSourceJvmType;
+		referenceSourceJvmType = newReferenceSourceJvmType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_JVM_TYPE, oldReferenceSourceJvmType, newReferenceSourceJvmType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReferenceSourceJvmType(JvmTypeReference newReferenceSourceJvmType) {
+		if (newReferenceSourceJvmType != referenceSourceJvmType) {
+			NotificationChain msgs = null;
+			if (referenceSourceJvmType != null)
+				msgs = ((InternalEObject)referenceSourceJvmType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_JVM_TYPE, null, msgs);
+			if (newReferenceSourceJvmType != null)
+				msgs = ((InternalEObject)newReferenceSourceJvmType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_JVM_TYPE, null, msgs);
+			msgs = basicSetReferenceSourceJvmType(newReferenceSourceJvmType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_JVM_TYPE, newReferenceSourceJvmType, newReferenceSourceJvmType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JvmField getReferenceSourceField() {
+		if (referenceSourceField != null && referenceSourceField.eIsProxy()) {
+			InternalEObject oldReferenceSourceField = (InternalEObject)referenceSourceField;
+			referenceSourceField = (JvmField)eResolveProxy(oldReferenceSourceField);
+			if (referenceSourceField != oldReferenceSourceField) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_FIELD, oldReferenceSourceField, referenceSourceField));
+			}
+		}
+		return referenceSourceField;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JvmField basicGetReferenceSourceField() {
+		return referenceSourceField;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReferenceSourceField(JvmField newReferenceSourceField) {
+		JvmField oldReferenceSourceField = referenceSourceField;
+		referenceSourceField = newReferenceSourceField;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_FIELD, oldReferenceSourceField, referenceSourceField));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -848,6 +969,8 @@ public class UiBeanReferenceFieldImpl extends UiVisibilityProcessableImpl implem
 				return basicSetInMemoryBeanProvider(null, msgs);
 			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__DESCRIPTION_PROPERTY:
 				return basicSetDescriptionProperty(null, msgs);
+			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_JVM_TYPE:
+				return basicSetReferenceSourceJvmType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -894,6 +1017,12 @@ public class UiBeanReferenceFieldImpl extends UiVisibilityProcessableImpl implem
 			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__DESCRIPTION_PROPERTY:
 				if (resolve) return getDescriptionProperty();
 				return basicGetDescriptionProperty();
+			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_JVM_TYPE:
+				if (resolve) return getReferenceSourceJvmType();
+				return basicGetReferenceSourceJvmType();
+			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_FIELD:
+				if (resolve) return getReferenceSourceField();
+				return basicGetReferenceSourceField();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -951,6 +1080,12 @@ public class UiBeanReferenceFieldImpl extends UiVisibilityProcessableImpl implem
 			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__DESCRIPTION_PROPERTY:
 				setDescriptionProperty((UiNestedProperty)newValue);
 				return;
+			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_JVM_TYPE:
+				setReferenceSourceJvmType((JvmTypeReference)newValue);
+				return;
+			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_FIELD:
+				setReferenceSourceField((JvmField)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1005,6 +1140,12 @@ public class UiBeanReferenceFieldImpl extends UiVisibilityProcessableImpl implem
 			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__DESCRIPTION_PROPERTY:
 				setDescriptionProperty((UiNestedProperty)null);
 				return;
+			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_JVM_TYPE:
+				setReferenceSourceJvmType((JvmTypeReference)null);
+				return;
+			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_FIELD:
+				setReferenceSourceField((JvmField)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1045,6 +1186,10 @@ public class UiBeanReferenceFieldImpl extends UiVisibilityProcessableImpl implem
 				return inMemoryBeanProvider != null;
 			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__DESCRIPTION_PROPERTY:
 				return descriptionProperty != null;
+			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_JVM_TYPE:
+				return referenceSourceJvmType != null;
+			case UiModelPackage.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_FIELD:
+				return referenceSourceField != null;
 		}
 		return super.eIsSet(featureID);
 	}

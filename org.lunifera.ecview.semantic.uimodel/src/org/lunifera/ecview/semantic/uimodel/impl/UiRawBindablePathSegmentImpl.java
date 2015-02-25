@@ -20,6 +20,7 @@ import org.lunifera.ecview.semantic.uimodel.UiRawBindablePathSegment;
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiRawBindablePathSegmentImpl#getRawBindable <em>Raw Bindable</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiRawBindablePathSegmentImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiRawBindablePathSegmentImpl#isToParent <em>To Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,6 +45,26 @@ public class UiRawBindablePathSegmentImpl extends MinimalEObjectImpl.Container
 	 * @ordered
 	 */
 	protected UiRawBindablePathSegment path;
+
+	/**
+	 * The default value of the '{@link #isToParent() <em>To Parent</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isToParent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean TO_PARENT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isToParent() <em>To Parent</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isToParent()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean toParent = TO_PARENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -161,6 +182,27 @@ public class UiRawBindablePathSegmentImpl extends MinimalEObjectImpl.Container
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isToParent() {
+		return toParent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setToParent(boolean newToParent) {
+		boolean oldToParent = toParent;
+		toParent = newToParent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_RAW_BINDABLE_PATH_SEGMENT__TO_PARENT, oldToParent, toParent));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -187,6 +229,8 @@ public class UiRawBindablePathSegmentImpl extends MinimalEObjectImpl.Container
 			case UiModelPackage.UI_RAW_BINDABLE_PATH_SEGMENT__PATH:
 				if (resolve) return getPath();
 				return basicGetPath();
+			case UiModelPackage.UI_RAW_BINDABLE_PATH_SEGMENT__TO_PARENT:
+				return isToParent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -203,6 +247,9 @@ public class UiRawBindablePathSegmentImpl extends MinimalEObjectImpl.Container
 				return;
 			case UiModelPackage.UI_RAW_BINDABLE_PATH_SEGMENT__PATH:
 				setPath((UiRawBindablePathSegment)newValue);
+				return;
+			case UiModelPackage.UI_RAW_BINDABLE_PATH_SEGMENT__TO_PARENT:
+				setToParent((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -221,6 +268,9 @@ public class UiRawBindablePathSegmentImpl extends MinimalEObjectImpl.Container
 			case UiModelPackage.UI_RAW_BINDABLE_PATH_SEGMENT__PATH:
 				setPath((UiRawBindablePathSegment)null);
 				return;
+			case UiModelPackage.UI_RAW_BINDABLE_PATH_SEGMENT__TO_PARENT:
+				setToParent(TO_PARENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -236,8 +286,26 @@ public class UiRawBindablePathSegmentImpl extends MinimalEObjectImpl.Container
 				return rawBindable != null;
 			case UiModelPackage.UI_RAW_BINDABLE_PATH_SEGMENT__PATH:
 				return path != null;
+			case UiModelPackage.UI_RAW_BINDABLE_PATH_SEGMENT__TO_PARENT:
+				return toParent != TO_PARENT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (toParent: ");
+		result.append(toParent);
+		result.append(')');
+		return result.toString();
 	}
 
 	@Override

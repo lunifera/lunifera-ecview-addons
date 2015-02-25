@@ -22,7 +22,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxAction;
  * @model
  * @generated
  */
-public interface UiExposedAction extends UiNamedElement {
+public interface UiExposedAction extends UiAction {
 	/**
 	 * Returns the value of the '<em><b>Action Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->

@@ -5,7 +5,6 @@ import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter;
 import org.eclipse.xtext.formatting.impl.FormattingConfig;
 import org.eclipse.xtext.xbase.formatting.XbaseFormatter;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess;
-import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiActionElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiBeanReferenceFieldElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiBeanSlotElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiBindingElements;
@@ -196,6 +195,10 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		}
 
 		for (Keyword kw : ga.findKeywords(".")) {
+			c.setNoSpace().before(kw);
+			c.setNoSpace().after(kw);
+		}
+		for (Keyword kw : ga.findKeywords("..")) {
 			c.setNoSpace().before(kw);
 			c.setNoSpace().after(kw);
 		}
@@ -524,9 +527,9 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 			UiBeanReferenceFieldElements ele) {
 		// Keywords
 		c.setLinewrap(1, 1, 2).before(ele.getTypeKeyword_4_1_0_0());
-		c.setLinewrap(1, 1, 2).before(ele.getCaptionFieldKeyword_4_1_1_0());
-		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_4_1_3_0());
-		c.setLinewrap(1, 1, 2).before(ele.getInMemoryServiceKeyword_4_1_4_0());
+		c.setLinewrap(1, 1, 2).before(ele.getCaptionFieldKeyword_4_1_2_0());
+		c.setLinewrap(1, 1, 2).before(ele.getImageFieldKeyword_4_1_4_0());
+		c.setLinewrap(1, 1, 2).before(ele.getInMemoryServiceKeyword_4_1_5_0());
 		// Brackets
 		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_3_0());
 		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_3_5());
@@ -548,9 +551,10 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 	private void configureUiIdeView(FormattingConfig c, UiIDEViewElements ele) {
 		// Keyword
 		c.setLinewrap(1).before(ele.getIdeviewKeyword_0());
-		c.setLinewrap(1, 1, 2).before(ele.getViewsetKeyword_3_0_0());
 		c.setLinewrap(1, 1, 2).before(
 				ele.getProcessorAssignmentsAssignment_7_3());
+		c.setLinewrap(1).before(ele.getSharedStateGroupKeyword_3_0_0());
+
 		// Brackets
 		// c.setLinewrap(1, 1, 2).after(ele.getLeftCurlyBracketKeyword_2());
 		// c.setLinewrap(1).before(ele.getRightCurlyBracketKeyword_7());
@@ -563,7 +567,6 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 			UiMobileViewElements ele) {
 		// Keyword
 		c.setLinewrap(1, 1, 2).before(ele.getMobileKeyword_0());
-		c.setLinewrap(1, 1, 2).before(ele.getViewsetKeyword_3_0());
 		c.setLinewrap(1, 1, 2).before(
 				ele.getProcessorAssignmentsAssignment_7_3());
 		// Brackets

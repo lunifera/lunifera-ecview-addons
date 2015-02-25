@@ -12,6 +12,7 @@ import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider;
 import org.lunifera.ecview.core.common.model.core.YBeanSlot;
 import org.lunifera.ecview.dsl.extensions.BindableTypeProvider;
+import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
@@ -19,6 +20,7 @@ import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTable;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
+import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProperty;
 import org.lunifera.ecview.semantic.uimodel.impl.UiPathSegmentImpl;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
@@ -95,8 +97,24 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 			return createJvmOperationScope(context);
 		} else if (reference == UiModelPackage.Literals.UI_OPTIONS_GROUP__ITEM_IMAGE_PROPERTY) {
 			return createJvmOperationScope(context);
+		} else if (reference == UiModelPackage.Literals.UI_BEAN_REFERENCE_FIELD__REFERENCE_SOURCE_FIELD) {
+			UiBeanReferenceField field = (UiBeanReferenceField) context;
+			return createJvmFieldScope(field.getReferenceSourceJvmType());
 		}
-		return super.getScope(context, reference);
+		return super.getScope(getView(context), reference);
+	}
+
+	private UiView getView(EObject eObject) {
+		if (eObject == null) {
+			return null;
+		}
+
+		if (eObject instanceof UiView) {
+			return (UiView) eObject;
+		}
+
+		return getView(eObject.eContainer());
+
 	}
 
 	/**
@@ -140,7 +158,7 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 	}
 
 	/**
-	 * Creates a scope that returns the jvm fields available for the current
+	 * Creates a scope that returns the jvm operation available for the current
 	 * state.
 	 * 
 	 * @param context
@@ -158,7 +176,7 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 	}
 
 	/**
-	 * Creates a scope that returns the jvm fields available for the current
+	 * Creates a scope that returns the jvm operation available for the current
 	 * state.
 	 * 
 	 * @param context
@@ -173,9 +191,9 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 			return new BindingPathScope(expectedType.getType());
 		}
 	}
-
+	
 	/**
-	 * Creates a scope that returns the jvm fields available for the current
+	 * Creates a scope that returns the jvm operation available for the current
 	 * state.
 	 * 
 	 * @param context
@@ -188,6 +206,22 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 			return IScope.NULLSCOPE;
 		} else {
 			return new BindingPathScope(expectedType.getType());
+		}
+	}
+	
+	/**
+	 * Creates a scope that returns the jvm fields available for the current
+	 * state.
+	 * 
+	 * @param context
+	 * @return
+	 */
+	private IScope createJvmFieldScope(JvmTypeReference expectedType) {
+		if (expectedType == null
+				|| expectedType instanceof JvmUnknownTypeReference) {
+			return IScope.NULLSCOPE;
+		} else {
+			return new JvmFieldScope(expectedType.getType());
 		}
 	}
 

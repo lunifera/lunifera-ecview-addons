@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiContext#getBeanSlots <em>Bean Slots</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiContext#getBindingEndpointAlias <em>Binding Endpoint Alias</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiContext#getBindings <em>Bindings</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiContext#getExposedActions <em>Exposed Actions</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiContext#getSharedStateGroup <em>Shared State Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,19 +73,29 @@ public interface UiContext extends UiRootElements {
 	EList<UiBinding> getBindings();
 
 	/**
-	 * Returns the value of the '<em><b>Exposed Actions</b></em>' containment reference list.
-	 * The list contents are of type {@link org.lunifera.ecview.semantic.uimodel.UiExposedAction}.
+	 * Returns the value of the '<em><b>Shared State Group</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Exposed Actions</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Shared State Group</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Exposed Actions</em>' containment reference list.
-	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiContext_ExposedActions()
-	 * @model containment="true" resolveProxies="true"
+	 * @return the value of the '<em>Shared State Group</em>' attribute.
+	 * @see #setSharedStateGroup(String)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiContext_SharedStateGroup()
+	 * @model
 	 * @generated
 	 */
-	EList<UiExposedAction> getExposedActions();
+	String getSharedStateGroup();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiContext#getSharedStateGroup <em>Shared State Group</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Shared State Group</em>' attribute.
+	 * @see #getSharedStateGroup()
+	 * @generated
+	 */
+	void setSharedStateGroup(String value);
 
 } // UiContext

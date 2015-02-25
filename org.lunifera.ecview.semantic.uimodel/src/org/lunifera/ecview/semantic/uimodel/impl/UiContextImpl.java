@@ -3,7 +3,6 @@
 package org.lunifera.ecview.semantic.uimodel.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -17,7 +16,6 @@ import org.lunifera.ecview.semantic.uimodel.UiBeanSlot;
 import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiContext;
-import org.lunifera.ecview.semantic.uimodel.UiExposedAction;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 
 /**
@@ -32,7 +30,7 @@ import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiContextImpl#getBeanSlots <em>Bean Slots</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiContextImpl#getBindingEndpointAlias <em>Binding Endpoint Alias</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiContextImpl#getBindings <em>Bindings</em>}</li>
- *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiContextImpl#getExposedActions <em>Exposed Actions</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiContextImpl#getSharedStateGroup <em>Shared State Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -110,14 +108,24 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 	protected EList<UiBinding> bindings;
 
 	/**
-	 * The cached value of the '{@link #getExposedActions() <em>Exposed Actions</em>}' containment reference list.
+	 * The default value of the '{@link #getSharedStateGroup() <em>Shared State Group</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExposedActions()
+	 * @see #getSharedStateGroup()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<UiExposedAction> exposedActions;
+	protected static final String SHARED_STATE_GROUP_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSharedStateGroup() <em>Shared State Group</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSharedStateGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected String sharedStateGroup = SHARED_STATE_GROUP_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -221,11 +229,20 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<UiExposedAction> getExposedActions() {
-		if (exposedActions == null) {
-			exposedActions = new EObjectContainmentEList.Resolving<UiExposedAction>(UiExposedAction.class, this, UiModelPackage.UI_CONTEXT__EXPOSED_ACTIONS);
-		}
-		return exposedActions;
+	public String getSharedStateGroup() {
+		return sharedStateGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSharedStateGroup(String newSharedStateGroup) {
+		String oldSharedStateGroup = sharedStateGroup;
+		sharedStateGroup = newSharedStateGroup;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_CONTEXT__SHARED_STATE_GROUP, oldSharedStateGroup, sharedStateGroup));
 	}
 
 	/**
@@ -242,8 +259,6 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 				return ((InternalEList<?>)getBindingEndpointAlias()).basicRemove(otherEnd, msgs);
 			case UiModelPackage.UI_CONTEXT__BINDINGS:
 				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
-			case UiModelPackage.UI_CONTEXT__EXPOSED_ACTIONS:
-				return ((InternalEList<?>)getExposedActions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -266,8 +281,8 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 				return getBindingEndpointAlias();
 			case UiModelPackage.UI_CONTEXT__BINDINGS:
 				return getBindings();
-			case UiModelPackage.UI_CONTEXT__EXPOSED_ACTIONS:
-				return getExposedActions();
+			case UiModelPackage.UI_CONTEXT__SHARED_STATE_GROUP:
+				return getSharedStateGroup();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -299,9 +314,8 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 				getBindings().clear();
 				getBindings().addAll((Collection<? extends UiBinding>)newValue);
 				return;
-			case UiModelPackage.UI_CONTEXT__EXPOSED_ACTIONS:
-				getExposedActions().clear();
-				getExposedActions().addAll((Collection<? extends UiExposedAction>)newValue);
+			case UiModelPackage.UI_CONTEXT__SHARED_STATE_GROUP:
+				setSharedStateGroup((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -330,8 +344,8 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 			case UiModelPackage.UI_CONTEXT__BINDINGS:
 				getBindings().clear();
 				return;
-			case UiModelPackage.UI_CONTEXT__EXPOSED_ACTIONS:
-				getExposedActions().clear();
+			case UiModelPackage.UI_CONTEXT__SHARED_STATE_GROUP:
+				setSharedStateGroup(SHARED_STATE_GROUP_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -355,8 +369,8 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 				return bindingEndpointAlias != null && !bindingEndpointAlias.isEmpty();
 			case UiModelPackage.UI_CONTEXT__BINDINGS:
 				return bindings != null && !bindings.isEmpty();
-			case UiModelPackage.UI_CONTEXT__EXPOSED_ACTIONS:
-				return exposedActions != null && !exposedActions.isEmpty();
+			case UiModelPackage.UI_CONTEXT__SHARED_STATE_GROUP:
+				return SHARED_STATE_GROUP_EDEFAULT == null ? sharedStateGroup != null : !SHARED_STATE_GROUP_EDEFAULT.equals(sharedStateGroup);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -375,6 +389,8 @@ public class UiContextImpl extends MinimalEObjectImpl.Container implements UiCon
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", sharedStateGroup: ");
+		result.append(sharedStateGroup);
 		result.append(')');
 		return result.toString();
 	}
