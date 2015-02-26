@@ -20,7 +20,7 @@
 
 	<groupId>org.lunifera.ecview</groupId>
 	<artifactId>org.lunifera.ecview.aggregator</artifactId>
-	<version>0.8.1-SNAPSHOT</version>
+	<version>0.9.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<url>${distribution.site.url}</url>
