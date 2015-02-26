@@ -1805,6 +1805,21 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     yColumn.setVisible(_isVisible);
     String _i18nKey = this.toI18nKey(eObject);
     yColumn.setLabelI18nKey(_i18nKey);
+    boolean _or = false;
+    String _icon = yColumn.getIcon();
+    boolean _equals = Objects.equal(_icon, null);
+    if (_equals) {
+      _or = true;
+    } else {
+      String _icon_1 = yColumn.getIcon();
+      boolean _equals_1 = _icon_1.equals("");
+      _or = _equals_1;
+    }
+    if (_or) {
+      String _i18nKey_1 = this.toI18nKey(eObject);
+      String _plus = (_i18nKey_1 + ".image");
+      yColumn.setIcon(_plus);
+    }
     EList<YColumn> _columns = yField.getColumns();
     _columns.add(yColumn);
   }
@@ -1949,6 +1964,21 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     yAction.setLabelI18nKey(_i18nKey);
     String _iconName = object.getIconName();
     yAction.setIcon(_iconName);
+    boolean _or = false;
+    String _icon = yAction.getIcon();
+    boolean _equals = Objects.equal(_icon, null);
+    if (_equals) {
+      _or = true;
+    } else {
+      String _icon_1 = yAction.getIcon();
+      boolean _equals_1 = _icon_1.equals("");
+      _or = _equals_1;
+    }
+    if (_or) {
+      String _i18nKey_1 = this.toI18nKey(object);
+      String _plus = (_i18nKey_1 + ".image");
+      yAction.setIcon(_plus);
+    }
     this.associateUi(object, yAction);
     EList<UiBinding> _bindings = object.getBindings();
     final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {

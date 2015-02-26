@@ -1338,6 +1338,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		yColumn.orderable = eObject.orderable
 		yColumn.visible = eObject.visible
 		yColumn.labelI18nKey = eObject.toI18nKey
+		if(yColumn.icon==null || yColumn.icon.equals("")) {
+			yColumn.icon = eObject.toI18nKey + ".image"
+		} 
+		
 
 		yField.columns += yColumn
 	}
@@ -1446,6 +1450,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		yAction.label = object.name
 		yAction.labelI18nKey = object.toI18nKey
 		yAction.icon = object.iconName
+		if(yAction.icon == null || yAction.icon.equals("")) {
+			yAction.icon = object.toI18nKey + ".image"
+		}
 
 		object.associateUi(yAction)
 		

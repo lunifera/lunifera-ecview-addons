@@ -88,15 +88,16 @@ public class OperationExtensions {
 			}
 
 			String propertyName = toPropertyName(operation.getSimpleName());
-			if(propertyName == null){
+			if (propertyName == null) {
 				continue;
 			}
-			
+
 			if (filterName != null && !filterName.equals(propertyName)) {
 				continue;
 			}
-			
-			// TODO Pirchner - Find a solution for it
+
+			// TODO Pirchner - Find a solution for it -> Check by added
+			// annotations for @Dispose, @Dirty,...
 			if (propertyName.equals("disposed") || propertyName.equals("id")
 					|| propertyName.equals("uuid")) {
 				continue;
@@ -120,7 +121,10 @@ public class OperationExtensions {
 			if (isGetter(operation.getSimpleName())) {
 				info.getter = operation;
 			} else {
-				info.setter = operation;
+				// TODO fix this hack
+				if (!propertyName.equals("dirty")) {
+					info.setter = operation;
+				}
 			}
 		}
 
