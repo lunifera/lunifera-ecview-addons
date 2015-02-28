@@ -23,7 +23,7 @@ import java.util.Set;
 
 import org.eclipse.emf.common.util.URI;
 import org.lunifera.ecview.core.common.context.II18nService;
-import org.lunifera.ecview.core.common.disposal.AbstractDisposable;
+import org.lunifera.runtime.common.dispose.AbstractDisposable;
 import org.lunifera.xtext.builder.metadata.services.AbstractBuilderParticipant;
 import org.lunifera.xtext.builder.metadata.services.IBuilderParticipant;
 import org.lunifera.xtext.builder.metadata.services.IMetadataBuilderService;

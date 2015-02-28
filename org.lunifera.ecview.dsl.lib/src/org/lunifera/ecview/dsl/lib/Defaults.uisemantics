@@ -6,6 +6,7 @@ actions {
 	org.lunifera.^actions.delete
 	org.lunifera.^actions.find
 	org.lunifera.^actions.addNewRow
+	org.lunifera.^actions.addNew
 	org.lunifera.^actions.applyFilter
 }
 
@@ -218,10 +219,6 @@ element ExposedAction {
 		 * Enabled property of the UI element.
 		 */
 		endpoint enabled Boolean
-		/**
-		 * Visible property of the UI element.
-		 */
-		endpoint visible Boolean
 	}
 }
 

@@ -15,6 +15,7 @@ import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.lunifera.ecview.core.common.model.binding.BindingFactory;
@@ -37,8 +38,10 @@ import org.lunifera.ecview.core.extension.model.extension.YEnumOptionsGroup;
 import org.lunifera.ecview.core.extension.model.extension.YFormLayout;
 import org.lunifera.ecview.core.extension.model.extension.YNumericField;
 import org.lunifera.ecview.core.extension.model.extension.YTextField;
+import org.lunifera.ecview.dsl.autowire.IAutowireDelegate;
 import org.lunifera.ecview.dsl.derivedstate.UiModelDerivedStateComputerx;
 import org.lunifera.ecview.dsl.extensions.BindableTypeResolver;
+import org.lunifera.ecview.dsl.extensions.I18nKeyProvider;
 import org.lunifera.ecview.dsl.extensions.OperationExtensions;
 import org.lunifera.ecview.dsl.extensions.TypeHelper;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
@@ -48,9 +51,10 @@ import org.lunifera.ecview.semantic.uimodel.UiLayout;
 import org.lunifera.mobile.vaadin.ecview.model.VMSwitch;
 import org.lunifera.mobile.vaadin.ecview.model.VMVerticalComponentGroup;
 import org.lunifera.mobile.vaadin.ecview.model.VaadinMobileFactory;
+import org.lunifera.runtime.common.metric.TimeLogger;
 
 @SuppressWarnings("all")
-public class AutowireHelper {
+public class AutowireHelper implements IAutowireDelegate {
   public interface Layouter {
     public abstract void setup(final UiLayout uiRootLayout, final YLayout yRootLayout);
     
@@ -124,15 +128,16 @@ public class AutowireHelper {
   
   private JvmDeclaredType beanType;
   
-  public void autowire(final UiLayout uiLayout, final UiModelDerivedStateComputerx computer, final boolean mobile, final String i18nRootKey) {
+  public void autowire(final UiLayout uiLayout, final UiModelDerivedStateComputerx computer, final boolean mobile) {
     boolean _isAutowire = uiLayout.isAutowire();
     boolean _not = (!_isAutowire);
     if (_not) {
       return;
     }
+    final TimeLogger logger = TimeLogger.start(AutowireHelper.class);
     this.computer = computer;
     this.mobile = mobile;
-    this.i18nRootKey = i18nRootKey;
+    this.i18nRootKey = this.i18nRootKey;
     this.uiLayout = uiLayout;
     YLayout _associatedUi = computer.<YLayout>associatedUi(uiLayout);
     this.yLayout = _associatedUi;
@@ -191,6 +196,11 @@ public class AutowireHelper {
                   boolean _isEnum = AutowireHelper.this._typeHelper.isEnum(type);
                   if (_isEnum) {
                     AutowireHelper.this.createEnumOptionsGroup(type, it);
+                  } else {
+                    boolean _isDomainReference = AutowireHelper.this._typeHelper.isDomainReference(it);
+                    if (_isDomainReference) {
+                      AutowireHelper.this.createBeanReferenceField(type, it);
+                    }
                   }
                 }
               }
@@ -200,6 +210,9 @@ public class AutowireHelper {
       }
     };
     IterableExtensions.<OperationExtensions.OperationInfo>forEach(_values, _function);
+    logger.stop("Autowiring took: ");
+    final String x = logger.toString();
+    InputOutput.<String>println(x);
   }
   
   public void createTextField(final JvmType type, final OperationExtensions.OperationInfo info) {
@@ -208,10 +221,7 @@ public class AutowireHelper {
     boolean _not = (!_isReadonly);
     yField.setInitialEnabled(_not);
     String _name = info.getName();
-    String _plus = ((this.i18nRootKey + ".") + _name);
-    yField.setLabelI18nKey(_plus);
-    String _name_1 = info.getName();
-    yField.setLabel(_name_1);
+    yField.setLabel(_name);
     this.layouter.add(yField);
     this.createBinding(yField, info, type, "value");
   }
@@ -222,10 +232,7 @@ public class AutowireHelper {
     boolean _not = (!_isReadonly);
     yField.setInitialEnabled(_not);
     String _name = info.getName();
-    String _plus = ((this.i18nRootKey + ".") + _name);
-    yField.setLabelI18nKey(_plus);
-    String _name_1 = info.getName();
-    yField.setLabel(_name_1);
+    yField.setLabel(_name);
     this.layouter.add(yField);
     this.createBinding(yField, info, type, "value");
   }
@@ -236,10 +243,7 @@ public class AutowireHelper {
     boolean _not = (!_isReadonly);
     yField.setInitialEnabled(_not);
     String _name = info.getName();
-    String _plus = ((this.i18nRootKey + ".") + _name);
-    yField.setLabelI18nKey(_plus);
-    String _name_1 = info.getName();
-    yField.setLabel(_name_1);
+    yField.setLabel(_name);
     this.layouter.add(yField);
     this.createBinding(yField, info, type, "value");
   }
@@ -250,10 +254,7 @@ public class AutowireHelper {
     boolean _not = (!_isReadonly);
     yField.setInitialEnabled(_not);
     String _name = info.getName();
-    String _plus = ((this.i18nRootKey + ".") + _name);
-    yField.setLabelI18nKey(_plus);
-    String _name_1 = info.getName();
-    yField.setLabel(_name_1);
+    yField.setLabel(_name);
     this.layouter.add(yField);
     this.createBinding(yField, info, type, "value");
   }
@@ -264,10 +265,7 @@ public class AutowireHelper {
     boolean _not = (!_isReadonly);
     yField.setInitialEnabled(_not);
     String _name = info.getName();
-    String _plus = ((this.i18nRootKey + ".") + _name);
-    yField.setLabelI18nKey(_plus);
-    String _name_1 = info.getName();
-    yField.setLabel(_name_1);
+    yField.setLabel(_name);
     this.layouter.add(yField);
     this.createBinding(yField, info, type, "value");
   }
@@ -278,10 +276,7 @@ public class AutowireHelper {
     boolean _not = (!_isReadonly);
     yField.setInitialEnabled(_not);
     String _name = info.getName();
-    String _plus = ((this.i18nRootKey + ".") + _name);
-    yField.setLabelI18nKey(_plus);
-    String _name_1 = info.getName();
-    yField.setLabel(_name_1);
+    yField.setLabel(_name);
     Resource _eResource = this.uiLayout.eResource();
     ResourceSet _resourceSet = _eResource.getResourceSet();
     String _qualifiedName = type.getQualifiedName();
@@ -299,10 +294,7 @@ public class AutowireHelper {
     boolean _not = (!_isReadonly);
     yField.setInitialEnabled(_not);
     String _name = info.getName();
-    String _plus = ((this.i18nRootKey + ".") + _name);
-    yField.setLabelI18nKey(_plus);
-    String _name_1 = info.getName();
-    yField.setLabel(_name_1);
+    yField.setLabel(_name);
     Resource _eResource = this.uiLayout.eResource();
     ResourceSet _resourceSet = _eResource.getResourceSet();
     String _qualifiedName = type.getQualifiedName();
@@ -321,10 +313,7 @@ public class AutowireHelper {
     boolean _not = (!_isReadonly);
     yField.setInitialEnabled(_not);
     String _name = info.getName();
-    String _plus = ((this.i18nRootKey + ".") + _name);
-    yField.setLabelI18nKey(_plus);
-    String _name_1 = info.getName();
-    yField.setLabel(_name_1);
+    yField.setLabel(_name);
     this.layouter.add(yField);
     this.createBinding(yField, info, type, "value");
   }
@@ -332,63 +321,63 @@ public class AutowireHelper {
   /**
    * Create the bindings and install at the view
    */
-  public boolean createBinding(final YEmbeddable yField, final OperationExtensions.OperationInfo info, final JvmType type, final String fieldProperty) {
-    boolean _xblockexpression = false;
-    {
-      UiBindingExpression _autoWireSource = this.uiLayout.getAutoWireSource();
-      final UiBindingEndpointAssignment uiModelEndpoint = ((UiBindingEndpointAssignment) _autoWireSource);
-      final YValueBindingEndpoint yModelEndpoint = this.computer.createValueBindingEndpoint(uiModelEndpoint);
-      final YDetailValueBindingEndpoint detailValueEndpoint = yModelEndpoint.createDetailValueEndpoint();
-      String _name = info.getName();
-      detailValueEndpoint.setPropertyPath(_name);
-      Resource _eResource = this.uiLayout.eResource();
-      ResourceSet _resourceSet = _eResource.getResourceSet();
-      String _qualifiedName = this.beanType.getQualifiedName();
-      Class<?> _loadClass = this.computer.loadClass(_resourceSet, _qualifiedName);
-      detailValueEndpoint.setType(_loadClass);
-      final YECViewModelValueBindingEndpoint yFieldEndpoint = BindingFactory.eINSTANCE.createYECViewModelValueBindingEndpoint();
-      yFieldEndpoint.setElement(yField);
-      yFieldEndpoint.setPropertyPath(fieldProperty);
-      String _qualifiedName_1 = this.beanType.getQualifiedName();
-      yFieldEndpoint.setTypeQualifiedName(_qualifiedName_1);
-      Resource _eResource_1 = this.uiLayout.eResource();
-      ResourceSet _resourceSet_1 = _eResource_1.getResourceSet();
-      String _qualifiedName_2 = this.beanType.getQualifiedName();
-      Class<?> _loadClass_1 = this.computer.loadClass(_resourceSet_1, _qualifiedName_2);
-      yFieldEndpoint.setType(_loadClass_1);
-      boolean _and = false;
-      Class<?> _type = yFieldEndpoint.getType();
-      boolean _notEquals = (!Objects.equal(_type, null));
-      if (!_notEquals) {
-        _and = false;
-      } else {
-        Class<?> _type_1 = yFieldEndpoint.getType();
-        boolean _isAssignableFrom = _type_1.isAssignableFrom(EObject.class);
-        _and = _isAssignableFrom;
-      }
-      if (_and) {
-        EClass _eClass = yField.eClass();
-        EPackage _ePackage = _eClass.getEPackage();
-        String _nsURI = _ePackage.getNsURI();
-        yFieldEndpoint.setEmfNsURI(_nsURI);
-      }
-      final YValueBinding yBinding = BindingFactory.eINSTANCE.createYValueBinding();
-      yBinding.setTargetEndpoint(yFieldEndpoint);
-      yBinding.setModelEndpoint(detailValueEndpoint);
-      yBinding.setModelToTargetStrategy(YBindingUpdateStrategy.UPDATE);
-      YBindingUpdateStrategy _xifexpression = null;
-      boolean _isReadonly = info.isReadonly();
-      if (_isReadonly) {
-        _xifexpression = YBindingUpdateStrategy.NEVER;
-      } else {
-        _xifexpression = YBindingUpdateStrategy.UPDATE;
-      }
-      yBinding.setTargetToModelStrategy(_xifexpression);
-      YView _view = this.yLayout.getView();
-      YBindingSet _orCreateBindingSet = _view.getOrCreateBindingSet();
-      EList<YBinding> _bindings = _orCreateBindingSet.getBindings();
-      _xblockexpression = _bindings.add(yBinding);
+  public void createBinding(final YEmbeddable yField, final OperationExtensions.OperationInfo info, final JvmType type, final String fieldProperty) {
+    UiBindingExpression _autoWireSource = this.uiLayout.getAutoWireSource();
+    final UiBindingEndpointAssignment uiModelEndpoint = ((UiBindingEndpointAssignment) _autoWireSource);
+    final YValueBindingEndpoint yModelEndpoint = this.computer.createValueBindingEndpoint(uiModelEndpoint);
+    final YDetailValueBindingEndpoint detailValueEndpoint = yModelEndpoint.createDetailValueEndpoint();
+    String _name = info.getName();
+    detailValueEndpoint.setPropertyPath(_name);
+    Resource _eResource = this.uiLayout.eResource();
+    ResourceSet _resourceSet = _eResource.getResourceSet();
+    String _qualifiedName = this.beanType.getQualifiedName();
+    Class<?> _loadClass = this.computer.loadClass(_resourceSet, _qualifiedName);
+    detailValueEndpoint.setType(_loadClass);
+    final YECViewModelValueBindingEndpoint yFieldEndpoint = BindingFactory.eINSTANCE.createYECViewModelValueBindingEndpoint();
+    yFieldEndpoint.setElement(yField);
+    yFieldEndpoint.setPropertyPath(fieldProperty);
+    String _qualifiedName_1 = this.beanType.getQualifiedName();
+    yFieldEndpoint.setTypeQualifiedName(_qualifiedName_1);
+    Resource _eResource_1 = this.uiLayout.eResource();
+    ResourceSet _resourceSet_1 = _eResource_1.getResourceSet();
+    String _qualifiedName_2 = this.beanType.getQualifiedName();
+    Class<?> _loadClass_1 = this.computer.loadClass(_resourceSet_1, _qualifiedName_2);
+    yFieldEndpoint.setType(_loadClass_1);
+    boolean _and = false;
+    Class<?> _type = yFieldEndpoint.getType();
+    boolean _notEquals = (!Objects.equal(_type, null));
+    if (!_notEquals) {
+      _and = false;
+    } else {
+      Class<?> _type_1 = yFieldEndpoint.getType();
+      boolean _isAssignableFrom = _type_1.isAssignableFrom(EObject.class);
+      _and = _isAssignableFrom;
     }
-    return _xblockexpression;
+    if (_and) {
+      EClass _eClass = yField.eClass();
+      EPackage _ePackage = _eClass.getEPackage();
+      String _nsURI = _ePackage.getNsURI();
+      yFieldEndpoint.setEmfNsURI(_nsURI);
+    }
+    final YValueBinding yBinding = BindingFactory.eINSTANCE.createYValueBinding();
+    yBinding.setTargetEndpoint(yFieldEndpoint);
+    yBinding.setModelEndpoint(detailValueEndpoint);
+    yBinding.setModelToTargetStrategy(YBindingUpdateStrategy.UPDATE);
+    YBindingUpdateStrategy _xifexpression = null;
+    boolean _isReadonly = info.isReadonly();
+    if (_isReadonly) {
+      _xifexpression = YBindingUpdateStrategy.NEVER;
+    } else {
+      _xifexpression = YBindingUpdateStrategy.UPDATE;
+    }
+    yBinding.setTargetToModelStrategy(_xifexpression);
+    YView _view = this.yLayout.getView();
+    YBindingSet _orCreateBindingSet = _view.getOrCreateBindingSet();
+    EList<YBinding> _bindings = _orCreateBindingSet.getBindings();
+    _bindings.add(yBinding);
+    String _qualifiedName_3 = this.beanType.getQualifiedName();
+    String _propertyPath = detailValueEndpoint.getPropertyPath();
+    String _i18nKey = I18nKeyProvider.toI18nKey(_qualifiedName_3, _propertyPath);
+    yField.setLabelI18nKey(_i18nKey);
   }
 }

@@ -125,6 +125,7 @@ import org.lunifera.ecview.semantic.uimodel.UiSearchField;
 import org.lunifera.ecview.semantic.uimodel.UiSearchPanel;
 import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSendEventCommand;
+import org.lunifera.ecview.semantic.uimodel.UiSetNewInstanceCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanel;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiSwitch;
@@ -711,6 +712,13 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 				if(context == grammarAccess.getUiCommandRule() ||
 				   context == grammarAccess.getUiSendEventCommandRule()) {
 					sequence_UiSendEventCommand(context, (UiSendEventCommand) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND:
+				if(context == grammarAccess.getUiCommandRule() ||
+				   context == grammarAccess.getUiSetNewInstanceCommandRule()) {
+					sequence_UiSetNewInstanceCommand(context, (UiSetNewInstanceCommand) semanticObject); 
 					return; 
 				}
 				else break;
@@ -2803,6 +2811,15 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *     (noAutoTrigger?='noAutoTrigger'? eventTopic=STRING)
 	 */
 	protected void sequence_UiSendEventCommand(EObject context, UiSendEventCommand semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     target=UiBindingEndpointAssignment
+	 */
+	protected void sequence_UiSetNewInstanceCommand(EObject context, UiSetNewInstanceCommand semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

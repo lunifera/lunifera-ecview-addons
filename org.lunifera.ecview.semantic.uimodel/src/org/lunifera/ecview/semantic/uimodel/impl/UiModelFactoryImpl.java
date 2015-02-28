@@ -230,6 +230,7 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.UI_ADD_TO_TABLE_COMMAND: return createUiAddToTableCommand();
 			case UiModelPackage.UI_REMOVE_FROM_TABLE_COMMAND: return createUiRemoveFromTableCommand();
 			case UiModelPackage.UI_SEND_EVENT_COMMAND: return createUiSendEventCommand();
+			case UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND: return createUiSetNewInstanceCommand();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1239,6 +1240,16 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	public UiSendEventCommand createUiSendEventCommand() {
 		UiSendEventCommandImpl uiSendEventCommand = new UiSendEventCommandImpl();
 		return uiSendEventCommand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UiSetNewInstanceCommand createUiSetNewInstanceCommand() {
+		UiSetNewInstanceCommandImpl uiSetNewInstanceCommand = new UiSetNewInstanceCommandImpl();
+		return uiSetNewInstanceCommand;
 	}
 
 	/**

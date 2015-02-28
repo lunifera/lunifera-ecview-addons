@@ -26,7 +26,6 @@ import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.lunifera.ecview.core.common.context.II18nService;
-import org.lunifera.ecview.core.common.disposal.AbstractDisposable;
 import org.lunifera.ecview.core.common.validation.IStatus;
 import org.lunifera.ecview.core.common.validation.IValidator;
 import org.lunifera.ecview.core.common.visibility.IVisibilityHandler;
@@ -43,6 +42,7 @@ import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityRule;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseVisibilityRule;
+import org.lunifera.runtime.common.dispose.AbstractDisposable;
 
 /**
  * <p>Infers a JVM model from the source model.</p>

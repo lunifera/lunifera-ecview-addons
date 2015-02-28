@@ -838,14 +838,15 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUiAddToTableCommandParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cUiRemoveFromTableCommandParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cUiSendEventCommandParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cUiSetNewInstanceCommandParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//UiCommand:
 		//	UiMobileNavigationCommand | UiOpenDialogCommand | UiSearchWithDialogCommand | UiAddToTableCommand |
-		//	UiRemoveFromTableCommand | UiSendEventCommand;
+		//	UiRemoveFromTableCommand | UiSendEventCommand | UiSetNewInstanceCommand;
 		public ParserRule getRule() { return rule; }
 
 		//UiMobileNavigationCommand | UiOpenDialogCommand | UiSearchWithDialogCommand | UiAddToTableCommand |
-		//UiRemoveFromTableCommand | UiSendEventCommand
+		//UiRemoveFromTableCommand | UiSendEventCommand | UiSetNewInstanceCommand
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//UiMobileNavigationCommand
@@ -865,6 +866,9 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 		//UiSendEventCommand
 		public RuleCall getUiSendEventCommandParserRuleCall_5() { return cUiSendEventCommandParserRuleCall_5; }
+
+		//UiSetNewInstanceCommand
+		public RuleCall getUiSetNewInstanceCommandParserRuleCall_6() { return cUiSetNewInstanceCommandParserRuleCall_6; }
 	}
 
 	public class UiMobileNavigationCommandElements extends AbstractParserRuleElementFinder {
@@ -1013,6 +1017,34 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 		//ID
 		public RuleCall getTableUiTableIDTerminalRuleCall_2_0_1() { return cTableUiTableIDTerminalRuleCall_2_0_1; }
+	}
+
+	public class UiSetNewInstanceCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UiSetNewInstanceCommand");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cUiSetNewInstanceCommandAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cNewInstanceKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cTargetAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cTargetUiBindingEndpointAssignmentParserRuleCall_2_0 = (RuleCall)cTargetAssignment_2.eContents().get(0);
+		
+		//UiSetNewInstanceCommand:
+		//	{UiSetNewInstanceCommand} "newInstance" target=UiBindingEndpointAssignment;
+		public ParserRule getRule() { return rule; }
+
+		//{UiSetNewInstanceCommand} "newInstance" target=UiBindingEndpointAssignment
+		public Group getGroup() { return cGroup; }
+
+		//{UiSetNewInstanceCommand}
+		public Action getUiSetNewInstanceCommandAction_0() { return cUiSetNewInstanceCommandAction_0; }
+
+		//"newInstance"
+		public Keyword getNewInstanceKeyword_1() { return cNewInstanceKeyword_1; }
+
+		//target=UiBindingEndpointAssignment
+		public Assignment getTargetAssignment_2() { return cTargetAssignment_2; }
+
+		//UiBindingEndpointAssignment
+		public RuleCall getTargetUiBindingEndpointAssignmentParserRuleCall_2_0() { return cTargetUiBindingEndpointAssignmentParserRuleCall_2_0; }
 	}
 
 	public class UiSendEventCommandElements extends AbstractParserRuleElementFinder {
@@ -8146,6 +8178,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private final UiSearchWithDialogCommandElements pUiSearchWithDialogCommand;
 	private final UiAddToTableCommandElements pUiAddToTableCommand;
 	private final UiRemoveFromTableCommandElements pUiRemoveFromTableCommand;
+	private final UiSetNewInstanceCommandElements pUiSetNewInstanceCommand;
 	private final UiSendEventCommandElements pUiSendEventCommand;
 	private final UiViewElements pUiView;
 	private final UiIDEViewElements pUiIDEView;
@@ -8264,6 +8297,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		this.pUiSearchWithDialogCommand = new UiSearchWithDialogCommandElements();
 		this.pUiAddToTableCommand = new UiAddToTableCommandElements();
 		this.pUiRemoveFromTableCommand = new UiRemoveFromTableCommandElements();
+		this.pUiSetNewInstanceCommand = new UiSetNewInstanceCommandElements();
 		this.pUiSendEventCommand = new UiSendEventCommandElements();
 		this.pUiView = new UiViewElements();
 		this.pUiIDEView = new UiIDEViewElements();
@@ -8564,7 +8598,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 	//UiCommand:
 	//	UiMobileNavigationCommand | UiOpenDialogCommand | UiSearchWithDialogCommand | UiAddToTableCommand |
-	//	UiRemoveFromTableCommand | UiSendEventCommand;
+	//	UiRemoveFromTableCommand | UiSendEventCommand | UiSetNewInstanceCommand;
 	public UiCommandElements getUiCommandAccess() {
 		return pUiCommand;
 	}
@@ -8621,6 +8655,16 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getUiRemoveFromTableCommandRule() {
 		return getUiRemoveFromTableCommandAccess().getRule();
+	}
+
+	//UiSetNewInstanceCommand:
+	//	{UiSetNewInstanceCommand} "newInstance" target=UiBindingEndpointAssignment;
+	public UiSetNewInstanceCommandElements getUiSetNewInstanceCommandAccess() {
+		return pUiSetNewInstanceCommand;
+	}
+	
+	public ParserRule getUiSetNewInstanceCommandRule() {
+		return getUiSetNewInstanceCommandAccess().getRule();
 	}
 
 	//UiSendEventCommand:

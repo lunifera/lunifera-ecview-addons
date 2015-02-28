@@ -102,6 +102,7 @@ import org.lunifera.ecview.semantic.uimodel.UiSearchPanel;
 import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
 import org.lunifera.ecview.semantic.uimodel.UiSendEventCommand;
+import org.lunifera.ecview.semantic.uimodel.UiSetNewInstanceCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanel;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiSwitch;
@@ -961,6 +962,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass uiSendEventCommandEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uiSetNewInstanceCommandEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -3848,6 +3856,24 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUiSetNewInstanceCommand() {
+		return uiSetNewInstanceCommandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUiSetNewInstanceCommand_Target() {
+		return (EReference)uiSetNewInstanceCommandEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getUiFlatAlignment() {
 		return uiFlatAlignmentEEnum;
 	}
@@ -4342,6 +4368,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEAttribute(uiSendEventCommandEClass, UI_SEND_EVENT_COMMAND__EVENT_TOPIC);
 		createEAttribute(uiSendEventCommandEClass, UI_SEND_EVENT_COMMAND__NO_AUTO_TRIGGER);
 
+		uiSetNewInstanceCommandEClass = createEClass(UI_SET_NEW_INSTANCE_COMMAND);
+		createEReference(uiSetNewInstanceCommandEClass, UI_SET_NEW_INSTANCE_COMMAND__TARGET);
+
 		// Create enums
 		uiFlatAlignmentEEnum = createEEnum(UI_FLAT_ALIGNMENT);
 		uiAlignmentEEnum = createEEnum(UI_ALIGNMENT);
@@ -4537,6 +4566,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		uiAddToTableCommandEClass.getESuperTypes().add(this.getUiCommand());
 		uiRemoveFromTableCommandEClass.getESuperTypes().add(this.getUiCommand());
 		uiSendEventCommandEClass.getESuperTypes().add(this.getUiCommand());
+		uiSetNewInstanceCommandEClass.getESuperTypes().add(this.getUiCommand());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(uiNamedElementEClass, UiNamedElement.class, "UiNamedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4964,6 +4994,9 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(uiSendEventCommandEClass, UiSendEventCommand.class, "UiSendEventCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUiSendEventCommand_EventTopic(), ecorePackage.getEString(), "eventTopic", null, 0, 1, UiSendEventCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiSendEventCommand_NoAutoTrigger(), ecorePackage.getEBoolean(), "noAutoTrigger", "false", 0, 1, UiSendEventCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(uiSetNewInstanceCommandEClass, UiSetNewInstanceCommand.class, "UiSetNewInstanceCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUiSetNewInstanceCommand_Target(), this.getUiBindingExpression(), null, "target", null, 0, 1, UiSetNewInstanceCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(uiFlatAlignmentEEnum, UiFlatAlignment.class, "UiFlatAlignment");

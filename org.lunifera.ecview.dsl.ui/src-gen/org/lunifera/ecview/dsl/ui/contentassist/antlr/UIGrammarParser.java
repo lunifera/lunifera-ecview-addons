@@ -142,6 +142,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiSearchWithDialogCommandAccess().getGroup(), "rule__UiSearchWithDialogCommand__Group__0");
 					put(grammarAccess.getUiAddToTableCommandAccess().getGroup(), "rule__UiAddToTableCommand__Group__0");
 					put(grammarAccess.getUiRemoveFromTableCommandAccess().getGroup(), "rule__UiRemoveFromTableCommand__Group__0");
+					put(grammarAccess.getUiSetNewInstanceCommandAccess().getGroup(), "rule__UiSetNewInstanceCommand__Group__0");
 					put(grammarAccess.getUiSendEventCommandAccess().getGroup(), "rule__UiSendEventCommand__Group__0");
 					put(grammarAccess.getUiIDEViewAccess().getGroup(), "rule__UiIDEView__Group__0");
 					put(grammarAccess.getUiIDEViewAccess().getGroup_3_0(), "rule__UiIDEView__Group_3_0__0");
@@ -583,6 +584,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiSearchWithDialogCommandAccess().getDialogAssignment_2(), "rule__UiSearchWithDialogCommand__DialogAssignment_2");
 					put(grammarAccess.getUiAddToTableCommandAccess().getTableAssignment_2(), "rule__UiAddToTableCommand__TableAssignment_2");
 					put(grammarAccess.getUiRemoveFromTableCommandAccess().getTableAssignment_2(), "rule__UiRemoveFromTableCommand__TableAssignment_2");
+					put(grammarAccess.getUiSetNewInstanceCommandAccess().getTargetAssignment_2(), "rule__UiSetNewInstanceCommand__TargetAssignment_2");
 					put(grammarAccess.getUiSendEventCommandAccess().getNoAutoTriggerAssignment_3(), "rule__UiSendEventCommand__NoAutoTriggerAssignment_3");
 					put(grammarAccess.getUiSendEventCommandAccess().getEventTopicAssignment_4(), "rule__UiSendEventCommand__EventTopicAssignment_4");
 					put(grammarAccess.getUiIDEViewAccess().getNameAssignment_1(), "rule__UiIDEView__NameAssignment_1");

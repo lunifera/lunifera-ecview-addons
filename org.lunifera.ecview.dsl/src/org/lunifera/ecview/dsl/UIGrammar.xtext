@@ -78,7 +78,7 @@ UiCommandBindableDef returns UiCommandBindableDef:
 
 UiCommand returns UiCommand:
 	UiMobileNavigationCommand | UiOpenDialogCommand | UiSearchWithDialogCommand | UiAddToTableCommand |
-	UiRemoveFromTableCommand | UiSendEventCommand;
+	UiRemoveFromTableCommand | UiSendEventCommand | UiSetNewInstanceCommand;
 
 UiMobileNavigationCommand:
 	{UiMobileNavigationCommand}
@@ -99,6 +99,11 @@ UiAddToTableCommand:
 UiRemoveFromTableCommand:
 	{UiRemoveFromTableCommand}
 	'removeFromTable' table=[UiTable];
+
+UiSetNewInstanceCommand: 
+	{UiSetNewInstanceCommand}
+	'newInstance' target=UiBindingEndpointAssignment
+;
 
 UiSendEventCommand:
 	{UiSendEventCommand}

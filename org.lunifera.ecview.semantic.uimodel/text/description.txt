@@ -433,6 +433,9 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Attribute eventTopic : EString
     Attribute noAutoTrigger : EBoolean
 
+  Class UiSetNewInstanceCommand -> UiCommand
+    Reference target : UiBindingExpression
+
   Enum UiFlatAlignment
     Literal LEFT = 0
     Literal CENTER = 1

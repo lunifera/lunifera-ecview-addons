@@ -32,7 +32,6 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
-import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.lunifera.ecview.core.common.model.binding.BindingFactory;
 import org.lunifera.ecview.core.common.model.binding.YBinding;
 import org.lunifera.ecview.core.common.model.binding.YBindingSet;
@@ -105,6 +104,7 @@ import org.lunifera.ecview.core.extension.model.extension.YReferenceSearchField;
 import org.lunifera.ecview.core.extension.model.extension.YRemoveFromTableCommand;
 import org.lunifera.ecview.core.extension.model.extension.YSearchPanel;
 import org.lunifera.ecview.core.extension.model.extension.YSelectionType;
+import org.lunifera.ecview.core.extension.model.extension.YSetNewBeanInstanceCommand;
 import org.lunifera.ecview.core.extension.model.extension.YSplitPanel;
 import org.lunifera.ecview.core.extension.model.extension.YTab;
 import org.lunifera.ecview.core.extension.model.extension.YTabSheet;
@@ -115,11 +115,11 @@ import org.lunifera.ecview.core.extension.model.extension.YTextSearchField;
 import org.lunifera.ecview.core.extension.model.extension.YVerticalLayout;
 import org.lunifera.ecview.core.extension.model.extension.YVerticalLayoutCellStyle;
 import org.lunifera.ecview.core.extension.model.extension.util.SimpleExtensionModelFactory;
-import org.lunifera.ecview.dsl.derivedstate.AutowireHelper;
+import org.lunifera.ecview.dsl.autowire.hook.ExtensionsAutowireDelegate;
 import org.lunifera.ecview.dsl.derivedstate.UiGrammarElementAdapter;
 import org.lunifera.ecview.dsl.derivedstate.UiModelGrammarUtil;
 import org.lunifera.ecview.dsl.extensions.BeanHelper;
-import org.lunifera.ecview.dsl.extensions.BindableTypeProvider;
+import org.lunifera.ecview.dsl.extensions.BindingInfoHelper;
 import org.lunifera.ecview.dsl.extensions.I18nKeyProvider;
 import org.lunifera.ecview.dsl.extensions.OperationExtensions;
 import org.lunifera.ecview.dsl.extensions.TypeHelper;
@@ -138,8 +138,6 @@ import org.lunifera.ecview.semantic.uimodel.UiCheckBox;
 import org.lunifera.ecview.semantic.uimodel.UiColumn;
 import org.lunifera.ecview.semantic.uimodel.UiColumnsAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiComboBox;
-import org.lunifera.ecview.semantic.uimodel.UiCommand;
-import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef;
 import org.lunifera.ecview.semantic.uimodel.UiDateField;
 import org.lunifera.ecview.semantic.uimodel.UiDateFormat;
 import org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution;
@@ -190,7 +188,6 @@ import org.lunifera.ecview.semantic.uimodel.UiPanel;
 import org.lunifera.ecview.semantic.uimodel.UiPathSegment;
 import org.lunifera.ecview.semantic.uimodel.UiPoint;
 import org.lunifera.ecview.semantic.uimodel.UiProgressBar;
-import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiRegexpValidator;
 import org.lunifera.ecview.semantic.uimodel.UiRemoveFromTableCommand;
 import org.lunifera.ecview.semantic.uimodel.UiRootElements;
@@ -200,6 +197,7 @@ import org.lunifera.ecview.semantic.uimodel.UiSearchPanel;
 import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType;
 import org.lunifera.ecview.semantic.uimodel.UiSendEventCommand;
+import org.lunifera.ecview.semantic.uimodel.UiSetNewInstanceCommand;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanel;
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiSwitch;
@@ -209,7 +207,6 @@ import org.lunifera.ecview.semantic.uimodel.UiTable;
 import org.lunifera.ecview.semantic.uimodel.UiTextArea;
 import org.lunifera.ecview.semantic.uimodel.UiTextField;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindable;
-import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
 import org.lunifera.ecview.semantic.uimodel.UiValidator;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias;
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAssignment;
@@ -223,7 +220,6 @@ import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 import org.lunifera.ecview.semantic.uisemantics.UxAction;
-import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
 import org.lunifera.mobile.vaadin.ecview.model.VMHorizontalButtonGroup;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationBarButton;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationButton;
@@ -245,49 +241,6 @@ import org.slf4j.LoggerFactory;
 
 @SuppressWarnings("all")
 public class UiModelDerivedStateComputerx extends JvmModelAssociator {
-  public static class BindingInfo {
-    /**
-     * The type of the bound property. For nested bindings it is the last element available
-     */
-    private JvmType typeOfBoundProperty;
-    
-    /**
-     * The type of the binding. For nested bindings it is the element before the bound property
-     */
-    private JvmType typeForBinding;
-    
-    /**
-     * The deepest JvmOperation in the hierarchy. This field is used to bind.
-     */
-    private JvmOperation deepestJvmField;
-    
-    /**
-     * The nested path using dot notation.
-     */
-    private StringBuilder path = new StringBuilder();
-    
-    /**
-     * The element the binding should be installed on
-     */
-    private EObject bindingRoot;
-    
-    /**
-     * Append the segment to the path.
-     */
-    public void appendPath(final String segment) {
-      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(segment);
-      if (_isNullOrEmpty) {
-        return;
-      }
-      int _length = this.path.length();
-      boolean _greaterThan = (_length > 0);
-      if (_greaterThan) {
-        this.path.append(".");
-      }
-      this.path.append(segment);
-    }
-  }
-  
   private final static Logger LOGGER = LoggerFactory.getLogger(UiModelDerivedStateComputerx.class);
   
   @Inject
@@ -296,7 +249,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   private ITypeLoader typeLoader;
   
   @Inject
-  private BindableTypeProvider typeOfBoundPropertyProvider;
+  private BindingInfoHelper bindingInfoHelper;
   
   @Inject
   private TypeHelper typeHelper;
@@ -309,7 +262,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   private I18nKeyProvider i18nKeyProvider;
   
   @Inject
-  private AutowireHelper autowireHelper;
+  private ExtensionsAutowireDelegate autowireHelper;
   
   private final Stack<EObject> viewContext = new Stack<EObject>();
   
@@ -540,8 +493,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   public void doAutowire(final UiLayout embeddable) {
     YDeviceType _deviceType = this.currentView.getDeviceType();
     boolean _equals = Objects.equal(_deviceType, YDeviceType.MOBILE);
-    String _i18nKey = this.toI18nKey(embeddable);
-    this.autowireHelper.autowire(embeddable, this, _equals, _i18nKey);
+    this.autowireHelper.autowire(embeddable, this, _equals);
   }
   
   protected void _map(final UiMobileView object) {
@@ -3341,14 +3293,17 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return null;
     }
     YValueBindingEndpoint result = null;
-    final UiModelDerivedStateComputerx.BindingInfo info = new UiModelDerivedStateComputerx.BindingInfo();
-    this.collectBindingInfo(epDef, info);
-    if ((info.bindingRoot instanceof UiBeanSlot)) {
-      final UiBeanSlot uiBeanSlot = ((UiBeanSlot) info.bindingRoot);
+    final BindingInfoHelper.BindingInfo info = new BindingInfoHelper.BindingInfo();
+    this.bindingInfoHelper.collectBindingInfo(epDef, info);
+    EObject _bindingRoot = info.getBindingRoot();
+    if ((_bindingRoot instanceof UiBeanSlot)) {
+      EObject _bindingRoot_1 = info.getBindingRoot();
+      final UiBeanSlot uiBeanSlot = ((UiBeanSlot) _bindingRoot_1);
       final YBeanSlot yBeanSlot = this.<YBeanSlot>associatedUi(uiBeanSlot);
       final YBeanSlotValueBindingEndpoint ep = this.factory.createBeanSlotValueBindingEndpoint();
       ep.setBeanSlot(yBeanSlot);
-      String _string = info.path.toString();
+      StringBuilder _path = info.getPath();
+      String _string = _path.toString();
       ep.setAttributePath(_string);
       boolean _or = false;
       String _attributePath = ep.getAttributePath();
@@ -3365,15 +3320,20 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
       result = ep;
     } else {
-      if ((info.bindingRoot instanceof UiEmbeddable)) {
-        final YElement yElement = this.<YElement>associatedUi(info.bindingRoot);
+      EObject _bindingRoot_2 = info.getBindingRoot();
+      if ((_bindingRoot_2 instanceof UiEmbeddable)) {
+        EObject _bindingRoot_3 = info.getBindingRoot();
+        final YElement yElement = this.<YElement>associatedUi(_bindingRoot_3);
         final YECViewModelValueBindingEndpoint ep_1 = this.factory.createECViewModelValueBindingEndpoint();
         ep_1.setElement(yElement);
-        String _string_1 = info.path.toString();
+        StringBuilder _path_1 = info.getPath();
+        String _string_1 = _path_1.toString();
         ep_1.setPropertyPath(_string_1);
-        boolean _notEquals = (!Objects.equal(info.typeForBinding, null));
+        JvmType _typeForBinding = info.getTypeForBinding();
+        boolean _notEquals = (!Objects.equal(_typeForBinding, null));
         if (_notEquals) {
-          String _qualifiedName = info.typeForBinding.getQualifiedName();
+          JvmType _typeForBinding_1 = info.getTypeForBinding();
+          String _qualifiedName = _typeForBinding_1.getQualifiedName();
           ep_1.setTypeQualifiedName(_qualifiedName);
           Resource _eResource = epDef.eResource();
           ResourceSet _resourceSet = _eResource.getResourceSet();
@@ -3397,10 +3357,13 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
           String _nsURI = _ePackage.getNsURI();
           ep_1.setEmfNsURI(_nsURI);
         }
+        epDef.eContainer();
         result = ep_1;
       } else {
-        if ((info.bindingRoot instanceof UiMobileNavigationCommand)) {
-          final UiMobileNavigationCommand command = ((UiMobileNavigationCommand) info.bindingRoot);
+        EObject _bindingRoot_4 = info.getBindingRoot();
+        if ((_bindingRoot_4 instanceof UiMobileNavigationCommand)) {
+          EObject _bindingRoot_5 = info.getBindingRoot();
+          final UiMobileNavigationCommand command = ((UiMobileNavigationCommand) _bindingRoot_5);
           final VMNavigationCommand yCommand = VaadinMobileFactory.eINSTANCE.createVMNavigationCommand();
           YCommandSet _commandSet = this.currentView.getCommandSet();
           _commandSet.addCommand(yCommand);
@@ -3419,8 +3382,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
           YECViewModelValueBindingEndpoint _createNavigationValueEndpoint = yCommand.createNavigationValueEndpoint();
           result = _createNavigationValueEndpoint;
         } else {
-          if ((info.bindingRoot instanceof UiOpenDialogCommand)) {
-            final UiOpenDialogCommand command_1 = ((UiOpenDialogCommand) info.bindingRoot);
+          EObject _bindingRoot_6 = info.getBindingRoot();
+          if ((_bindingRoot_6 instanceof UiOpenDialogCommand)) {
+            EObject _bindingRoot_7 = info.getBindingRoot();
+            final UiOpenDialogCommand command_1 = ((UiOpenDialogCommand) _bindingRoot_7);
             final YOpenDialogCommand yCommand_1 = CoreModelFactory.eINSTANCE.createYOpenDialogCommand();
             YCommandSet _commandSet_1 = this.currentView.getCommandSet();
             _commandSet_1.addCommand(yCommand_1);
@@ -3431,8 +3396,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
             YECViewModelValueBindingEndpoint _createTriggerDialogEndpoint = yCommand_1.createTriggerDialogEndpoint();
             result = _createTriggerDialogEndpoint;
           } else {
-            if ((info.bindingRoot instanceof UiSearchWithDialogCommand)) {
-              final UiSearchWithDialogCommand command_2 = ((UiSearchWithDialogCommand) info.bindingRoot);
+            EObject _bindingRoot_8 = info.getBindingRoot();
+            if ((_bindingRoot_8 instanceof UiSearchWithDialogCommand)) {
+              EObject _bindingRoot_9 = info.getBindingRoot();
+              final UiSearchWithDialogCommand command_2 = ((UiSearchWithDialogCommand) _bindingRoot_9);
               final YOpenDialogCommand yCommand_2 = CoreModelFactory.eINSTANCE.createYOpenDialogCommand();
               YCommandSet _commandSet_2 = this.currentView.getCommandSet();
               _commandSet_2.addCommand(yCommand_2);
@@ -3443,8 +3410,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
               YECViewModelValueBindingEndpoint _createTriggerDialogEndpoint_1 = yCommand_2.createTriggerDialogEndpoint();
               result = _createTriggerDialogEndpoint_1;
             } else {
-              if ((info.bindingRoot instanceof UiAddToTableCommand)) {
-                final UiAddToTableCommand command_3 = ((UiAddToTableCommand) info.bindingRoot);
+              EObject _bindingRoot_10 = info.getBindingRoot();
+              if ((_bindingRoot_10 instanceof UiAddToTableCommand)) {
+                EObject _bindingRoot_11 = info.getBindingRoot();
+                final UiAddToTableCommand command_3 = ((UiAddToTableCommand) _bindingRoot_11);
                 final YAddToTableCommand yCommand_3 = ExtensionModelFactory.eINSTANCE.createYAddToTableCommand();
                 YCommandSet _commandSet_3 = this.currentView.getCommandSet();
                 _commandSet_3.addCommand(yCommand_3);
@@ -3459,8 +3428,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
                 YECViewModelValueBindingEndpoint _createTriggerEndpoint = yCommand_3.createTriggerEndpoint();
                 result = _createTriggerEndpoint;
               } else {
-                if ((info.bindingRoot instanceof UiRemoveFromTableCommand)) {
-                  final UiRemoveFromTableCommand command_4 = ((UiRemoveFromTableCommand) info.bindingRoot);
+                EObject _bindingRoot_12 = info.getBindingRoot();
+                if ((_bindingRoot_12 instanceof UiRemoveFromTableCommand)) {
+                  EObject _bindingRoot_13 = info.getBindingRoot();
+                  final UiRemoveFromTableCommand command_4 = ((UiRemoveFromTableCommand) _bindingRoot_13);
                   final YRemoveFromTableCommand yCommand_4 = ExtensionModelFactory.eINSTANCE.createYRemoveFromTableCommand();
                   YCommandSet _commandSet_4 = this.currentView.getCommandSet();
                   _commandSet_4.addCommand(yCommand_4);
@@ -3475,8 +3446,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
                   YECViewModelValueBindingEndpoint _createTriggerEndpoint_1 = yCommand_4.createTriggerEndpoint();
                   result = _createTriggerEndpoint_1;
                 } else {
-                  if ((info.bindingRoot instanceof UiSendEventCommand)) {
-                    final UiSendEventCommand command_5 = ((UiSendEventCommand) info.bindingRoot);
+                  EObject _bindingRoot_14 = info.getBindingRoot();
+                  if ((_bindingRoot_14 instanceof UiSendEventCommand)) {
+                    EObject _bindingRoot_15 = info.getBindingRoot();
+                    final UiSendEventCommand command_5 = ((UiSendEventCommand) _bindingRoot_15);
                     final YSendEventCommand yCommand_5 = CoreModelFactory.eINSTANCE.createYSendEventCommand();
                     boolean _isNoAutoTrigger = command_5.isNoAutoTrigger();
                     boolean _not = (!_isNoAutoTrigger);
@@ -3487,6 +3460,60 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
                     _commandSet_5.addCommand(yCommand_5);
                     YECViewModelValueBindingEndpoint _createMessageEndpoint = yCommand_5.createMessageEndpoint();
                     result = _createMessageEndpoint;
+                  } else {
+                    EObject _bindingRoot_16 = info.getBindingRoot();
+                    if ((_bindingRoot_16 instanceof UiSetNewInstanceCommand)) {
+                      EObject _bindingRoot_17 = info.getBindingRoot();
+                      final UiSetNewInstanceCommand command_6 = ((UiSetNewInstanceCommand) _bindingRoot_17);
+                      final YSetNewBeanInstanceCommand yCommand_6 = ExtensionModelFactory.eINSTANCE.createYSetNewBeanInstanceCommand();
+                      YCommandSet _commandSet_6 = this.currentView.getCommandSet();
+                      _commandSet_6.addCommand(yCommand_6);
+                      UiBindingExpression _target = command_6.getTarget();
+                      final UiBindingEndpointAssignment targetEP = ((UiBindingEndpointAssignment) _target);
+                      final BindingInfoHelper.BindingInfo targetInfo = new BindingInfoHelper.BindingInfo();
+                      this.bindingInfoHelper.collectBindingInfo(targetEP, targetInfo);
+                      YValueBindingEndpoint _createValueBindingEndpoint = this.createValueBindingEndpoint(targetEP);
+                      yCommand_6.setTarget(_createValueBindingEndpoint);
+                      JvmType _typeOfBoundProperty = targetInfo.getTypeOfBoundProperty();
+                      boolean _notEquals_2 = (!Objects.equal(_typeOfBoundProperty, null));
+                      if (_notEquals_2) {
+                        JvmType _typeOfBoundProperty_1 = targetInfo.getTypeOfBoundProperty();
+                        String _qualifiedName_1 = _typeOfBoundProperty_1.getQualifiedName();
+                        yCommand_6.setTypeQualifiedName(_qualifiedName_1);
+                        Resource _eResource_1 = epDef.eResource();
+                        ResourceSet _resourceSet_1 = _eResource_1.getResourceSet();
+                        String _typeQualifiedName_1 = yCommand_6.getTypeQualifiedName();
+                        Class<?> _loadClass_1 = this.loadClass(_resourceSet_1, _typeQualifiedName_1);
+                        yCommand_6.setType(_loadClass_1);
+                      } else {
+                        JvmType _typeForBinding_2 = targetInfo.getTypeForBinding();
+                        boolean _notEquals_3 = (!Objects.equal(_typeForBinding_2, null));
+                        if (_notEquals_3) {
+                          JvmType _typeForBinding_3 = targetInfo.getTypeForBinding();
+                          String _qualifiedName_2 = _typeForBinding_3.getQualifiedName();
+                          yCommand_6.setTypeQualifiedName(_qualifiedName_2);
+                          Resource _eResource_2 = epDef.eResource();
+                          ResourceSet _resourceSet_2 = _eResource_2.getResourceSet();
+                          String _typeQualifiedName_2 = yCommand_6.getTypeQualifiedName();
+                          Class<?> _loadClass_2 = this.loadClass(_resourceSet_2, _typeQualifiedName_2);
+                          yCommand_6.setType(_loadClass_2);
+                        }
+                      }
+                      boolean _and_1 = false;
+                      Class<?> _type_2 = yCommand_6.getType();
+                      boolean _notEquals_4 = (!Objects.equal(_type_2, null));
+                      if (!_notEquals_4) {
+                        _and_1 = false;
+                      } else {
+                        Class<?> _type_3 = yCommand_6.getType();
+                        boolean _isAssignableFrom_1 = _type_3.isAssignableFrom(EObject.class);
+                        _and_1 = _isAssignableFrom_1;
+                      }
+                      if (_and_1) {
+                      }
+                      YECViewModelValueBindingEndpoint _createTriggerEndpoint_2 = yCommand_6.createTriggerEndpoint();
+                      result = _createTriggerEndpoint_2;
+                    }
                   }
                 }
               }
@@ -3518,26 +3545,34 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       return null;
     }
     YListBindingEndpoint result = null;
-    final UiModelDerivedStateComputerx.BindingInfo info = new UiModelDerivedStateComputerx.BindingInfo();
-    this.collectBindingInfo(epDef, info);
-    if ((info.bindingRoot instanceof UiBeanSlot)) {
-      final UiBeanSlot uiBeanSlot = ((UiBeanSlot) info.bindingRoot);
+    final BindingInfoHelper.BindingInfo info = new BindingInfoHelper.BindingInfo();
+    this.bindingInfoHelper.collectBindingInfo(epDef, info);
+    EObject _bindingRoot = info.getBindingRoot();
+    if ((_bindingRoot instanceof UiBeanSlot)) {
+      EObject _bindingRoot_1 = info.getBindingRoot();
+      final UiBeanSlot uiBeanSlot = ((UiBeanSlot) _bindingRoot_1);
       final YBeanSlot yBeanSlot = this.<YBeanSlot>associatedUi(uiBeanSlot);
       final YBeanSlotListBindingEndpoint ep = this.factory.createBeanSlotListBindingEndpoint();
       ep.setBeanSlot(yBeanSlot);
-      String _string = info.path.toString();
+      StringBuilder _path = info.getPath();
+      String _string = _path.toString();
       ep.setAttributePath(_string);
       result = ep;
     } else {
-      if ((info.bindingRoot instanceof UiEmbeddable)) {
-        final YEmbeddable yElement = this.<YEmbeddable>associatedUi(info.bindingRoot);
+      EObject _bindingRoot_2 = info.getBindingRoot();
+      if ((_bindingRoot_2 instanceof UiEmbeddable)) {
+        EObject _bindingRoot_3 = info.getBindingRoot();
+        final YEmbeddable yElement = this.<YEmbeddable>associatedUi(_bindingRoot_3);
         final YECViewModelListBindingEndpoint ep_1 = this.factory.createECViewModelListBindingEndpoint();
         ep_1.setElement(yElement);
-        String _string_1 = info.path.toString();
+        StringBuilder _path_1 = info.getPath();
+        String _string_1 = _path_1.toString();
         ep_1.setPropertyPath(_string_1);
-        boolean _notEquals = (!Objects.equal(info.typeForBinding, null));
+        JvmType _typeForBinding = info.getTypeForBinding();
+        boolean _notEquals = (!Objects.equal(_typeForBinding, null));
         if (_notEquals) {
-          String _qualifiedName = info.typeForBinding.getQualifiedName();
+          JvmType _typeForBinding_1 = info.getTypeForBinding();
+          String _qualifiedName = _typeForBinding_1.getQualifiedName();
           ep_1.setTypeQualifiedName(_qualifiedName);
           Resource _eResource = epDef.eResource();
           ResourceSet _resourceSet = _eResource.getResourceSet();
@@ -3556,99 +3591,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       }
     }
     return result;
-  }
-  
-  protected void _collectBindingInfo(final UiBindingEndpointAssignment assignment, final UiModelDerivedStateComputerx.BindingInfo info) {
-    UiModelDerivedStateComputerx.BindingInfo _xifexpression = null;
-    boolean _notEquals = (!Objects.equal(info, null));
-    if (_notEquals) {
-      _xifexpression = info;
-    } else {
-      _xifexpression = new UiModelDerivedStateComputerx.BindingInfo();
-    }
-    UiModelDerivedStateComputerx.BindingInfo result = _xifexpression;
-    UiTypedBindable _typedBindableAlias = assignment.getTypedBindableAlias();
-    boolean _notEquals_1 = (!Objects.equal(_typedBindableAlias, null));
-    if (_notEquals_1) {
-      UiTypedBindable _typedBindableAlias_1 = assignment.getTypedBindableAlias();
-      this.collectBindingInfo(_typedBindableAlias_1, result);
-    } else {
-      UiBindingExpression _typedBindableDef = assignment.getTypedBindableDef();
-      this.collectBindingInfo(_typedBindableDef, result);
-    }
-    UiPathSegment _path = assignment.getPath();
-    boolean _notEquals_2 = (!Objects.equal(_path, null));
-    if (_notEquals_2) {
-      UiPathSegment _path_1 = assignment.getPath();
-      String _pathString = _path_1.toPathString();
-      info.appendPath(_pathString);
-      UiPathSegment _path_2 = assignment.getPath();
-      JvmType _typeofLastSegment = _path_2.getTypeofLastSegment();
-      info.typeOfBoundProperty = _typeofLastSegment;
-      UiPathSegment _path_3 = assignment.getPath();
-      JvmOperation _operationofLastSegment = _path_3.getOperationofLastSegment();
-      info.deepestJvmField = _operationofLastSegment;
-      UiPathSegment _path_4 = assignment.getPath();
-      final JvmType pathType = _path_4.getTypeofSecondLastSegment();
-      boolean _and = false;
-      boolean _equals = Objects.equal(info.typeForBinding, null);
-      if (!_equals) {
-        _and = false;
-      } else {
-        boolean _notEquals_3 = (!Objects.equal(pathType, null));
-        _and = _notEquals_3;
-      }
-      if (_and) {
-        info.typeForBinding = pathType;
-      }
-    }
-  }
-  
-  protected void _collectBindingInfo(final UiBeanSlot slot, final UiModelDerivedStateComputerx.BindingInfo info) {
-    info.bindingRoot = slot;
-    JvmTypeReference _jvmType = slot.getJvmType();
-    JvmType _type = null;
-    if (_jvmType!=null) {
-      _type=_jvmType.getType();
-    }
-    info.typeForBinding = _type;
-  }
-  
-  protected void _collectBindingInfo(final UiBindingEndpointAlias alias, final UiModelDerivedStateComputerx.BindingInfo info) {
-    UiBindingExpression _endpoint = alias.getEndpoint();
-    this.collectBindingInfo(_endpoint, info);
-  }
-  
-  protected void _collectBindingInfo(final UiTypedBindableDef definition, final UiModelDerivedStateComputerx.BindingInfo info) {
-    JvmType _type = this.typeOfBoundPropertyProvider.getType(definition);
-    info.typeForBinding = _type;
-    UiRawBindable _rawBindableOfLastSegment = definition.getRawBindableOfLastSegment();
-    info.bindingRoot = _rawBindableOfLastSegment;
-    final UxEndpointDef bindingMethod = definition.getMethod();
-    boolean _notEquals = (!Objects.equal(bindingMethod, null));
-    if (_notEquals) {
-      String _targetName = bindingMethod.getTargetName();
-      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_targetName);
-      boolean _not = (!_isNullOrEmpty);
-      if (_not) {
-        String _targetName_1 = bindingMethod.getTargetName();
-        info.appendPath(_targetName_1);
-      } else {
-        String _name = bindingMethod.getName();
-        info.appendPath(_name);
-      }
-    }
-  }
-  
-  protected void _collectBindingInfo(final UiCommandBindableDef definition, final UiModelDerivedStateComputerx.BindingInfo info) {
-    JvmType _type = this.typeOfBoundPropertyProvider.getType(definition);
-    info.typeForBinding = _type;
-    UiCommand _command = definition.getCommand();
-    info.bindingRoot = _command;
-  }
-  
-  protected void _collectBindingInfo(final UiBindingExpression definition, final UiModelDerivedStateComputerx.BindingInfo info) {
-    throw new UnsupportedOperationException();
   }
   
   public Object resolve(final UiBindingEndpointAlias alias) {
@@ -4002,31 +3944,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(object).toString());
-    }
-  }
-  
-  public void collectBindingInfo(final EObject slot, final UiModelDerivedStateComputerx.BindingInfo info) {
-    if (slot instanceof UiBeanSlot) {
-      _collectBindingInfo((UiBeanSlot)slot, info);
-      return;
-    } else if (slot instanceof UiBindingEndpointAlias) {
-      _collectBindingInfo((UiBindingEndpointAlias)slot, info);
-      return;
-    } else if (slot instanceof UiBindingEndpointAssignment) {
-      _collectBindingInfo((UiBindingEndpointAssignment)slot, info);
-      return;
-    } else if (slot instanceof UiCommandBindableDef) {
-      _collectBindingInfo((UiCommandBindableDef)slot, info);
-      return;
-    } else if (slot instanceof UiTypedBindableDef) {
-      _collectBindingInfo((UiTypedBindableDef)slot, info);
-      return;
-    } else if (slot instanceof UiBindingExpression) {
-      _collectBindingInfo((UiBindingExpression)slot, info);
-      return;
-    } else {
-      throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(slot, info).toString());
     }
   }
 }

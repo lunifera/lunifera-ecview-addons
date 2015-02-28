@@ -886,6 +886,15 @@ public interface UiModelFactory extends EFactory {
 	UiSendEventCommand createUiSendEventCommand();
 
 	/**
+	 * Returns a new object of class '<em>Ui Set New Instance Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ui Set New Instance Command</em>'.
+	 * @generated
+	 */
+	UiSetNewInstanceCommand createUiSetNewInstanceCommand();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

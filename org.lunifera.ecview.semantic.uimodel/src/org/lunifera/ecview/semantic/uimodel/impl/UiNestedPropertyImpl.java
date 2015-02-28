@@ -394,11 +394,10 @@ public class UiNestedPropertyImpl extends MinimalEObjectImpl.Container
 		return getGetter() != null && getGetter().getReturnType() != null ? getGetter()
 				.getReturnType().getType() : null;
 	}
-	 
+
 	@Override
 	public JvmTypeReference getTypeReferenceofGetter() {
-		return getGetter() != null ? getGetter()
-				.getReturnType() : null;
+		return getGetter() != null ? getGetter().getReturnType() : null;
 	}
 
 	@Override
@@ -442,6 +441,17 @@ public class UiNestedPropertyImpl extends MinimalEObjectImpl.Container
 
 	public String toString() {
 		return toPathString();
+	}
+
+	@Override
+	public String getSimpleGetterNameOfLastSegment() {
+		String result = toPathString();
+		if (result.contains(".")) {
+			String[] tokens = result.split("\\.");
+			return tokens[tokens.length - 1];
+		} else {
+			return result;
+		}
 	}
 
 } // UiNestedPropertyImpl

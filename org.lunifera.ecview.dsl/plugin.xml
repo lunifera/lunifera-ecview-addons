@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+     <extension-point id="autowireDelegate" name="Autowire Delegate" schema="schema/autowireDelegate.exsd"/>
+     <extension
+           point="org.lunifera.ecview.dsl.autowireDelegate">
+        <autowireDelegate
+              autowireDelegateClass="org.lunifera.ecview.dsl.derivedstate.AutowireHelper"
+              id="org.lunifera.ecview.dsl.autowireDelegate">
+        </autowireDelegate>
+     </extension>
+</plugin>

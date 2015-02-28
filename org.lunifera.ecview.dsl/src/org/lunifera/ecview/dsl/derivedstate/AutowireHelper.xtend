@@ -9,18 +9,21 @@ import org.lunifera.ecview.core.common.model.binding.YBindingUpdateStrategy
 import org.lunifera.ecview.core.common.model.core.YEmbeddable
 import org.lunifera.ecview.core.common.model.core.YLayout
 import org.lunifera.ecview.core.^extension.model.^extension.ExtensionModelFactory
+import org.lunifera.ecview.core.^extension.model.^extension.YFormLayout
+import org.lunifera.ecview.dsl.autowire.IAutowireDelegate
 import org.lunifera.ecview.dsl.extensions.BindableTypeResolver
+import org.lunifera.ecview.dsl.extensions.I18nKeyProvider
 import org.lunifera.ecview.dsl.extensions.OperationExtensions
 import org.lunifera.ecview.dsl.extensions.OperationExtensions.OperationInfo
 import org.lunifera.ecview.dsl.extensions.TypeHelper
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment
-import org.lunifera.ecview.semantic.uimodel.UiLayout
-import org.lunifera.mobile.vaadin.ecview.model.VaadinMobileFactory
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout
-import org.lunifera.ecview.core.^extension.model.^extension.YFormLayout
+import org.lunifera.ecview.semantic.uimodel.UiLayout
 import org.lunifera.mobile.vaadin.ecview.model.VMVerticalComponentGroup
+import org.lunifera.mobile.vaadin.ecview.model.VaadinMobileFactory
+import org.lunifera.runtime.common.metric.TimeLogger
 
-class AutowireHelper {
+class AutowireHelper implements IAutowireDelegate {
 
 	@Inject extension TypeHelper
 	private ExtensionModelFactory yFactory = ExtensionModelFactory.eINSTANCE
@@ -34,13 +37,16 @@ class AutowireHelper {
 	String i18nRootKey
 
 	Layouter layouter
-	
+
 	JvmDeclaredType beanType
 
-	def autowire(UiLayout uiLayout, UiModelDerivedStateComputerx computer, boolean mobile, String i18nRootKey) {
+	override autowire(UiLayout uiLayout, UiModelDerivedStateComputerx computer, boolean mobile) {
 		if (!uiLayout.autowire) {
 			return
 		}
+
+		val logger = TimeLogger.start(typeof(AutowireHelper))
+
 		this.computer = computer;
 		this.mobile = mobile;
 		this.i18nRootKey = i18nRootKey;
@@ -76,16 +82,21 @@ class AutowireHelper {
 				type.createDateField(it)
 			} else if (type.enum) {
 				type.createEnumOptionsGroup(it)
-//			} else if (it.domainReference) {
-//				type.createBeanReferenceField(it)
+			} else if (it.domainReference) {
+				type.createBeanReferenceField(it)
 			}
 		]
+
+		logger.stop("Autowiring took: ")
+		val x = logger.toString
+		println(x)
 	}
 
 	def void createTextField(JvmType type, OperationInfo info) {
 		val yField = yFactory.createYTextField
 		yField.initialEnabled = !info.readonly
-		yField.labelI18nKey = i18nRootKey + "." + info.name
+
+		//		yField.labelI18nKey = i18nRootKey + "." + info.name
 		yField.label = info.name
 
 		layouter.add(yField)
@@ -96,7 +107,8 @@ class AutowireHelper {
 	def void createDecimalField(JvmType type, OperationInfo info) {
 		val yField = yFactory.createYDecimalField
 		yField.initialEnabled = !info.readonly
-		yField.labelI18nKey = i18nRootKey + "." + info.name
+
+		//		yField.labelI18nKey = i18nRootKey + "." + info.name
 		yField.label = info.name
 
 		layouter.add(yField)
@@ -107,7 +119,8 @@ class AutowireHelper {
 	def void createNumberField(JvmType type, OperationInfo info) {
 		val yField = yFactory.createYNumericField
 		yField.initialEnabled = !info.readonly
-		yField.labelI18nKey = i18nRootKey + "." + info.name
+
+		//		yField.labelI18nKey = i18nRootKey + "." + info.name
 		yField.label = info.name
 
 		layouter.add(yField)
@@ -118,29 +131,32 @@ class AutowireHelper {
 	def void createCheckbox(JvmType type, OperationInfo info) {
 		val yField = yFactory.createYCheckBox
 		yField.initialEnabled = !info.readonly
-		yField.labelI18nKey = i18nRootKey + "." + info.name
+
+		//		yField.labelI18nKey = i18nRootKey + "." + info.name
 		yField.label = info.name
 
 		layouter.add(yField)
 
 		yField.createBinding(info, type, "value");
 	}
-	
+
 	def void createDateField(JvmType type, OperationInfo info) {
 		val yField = yFactory.createYDateTime
 		yField.initialEnabled = !info.readonly
-		yField.labelI18nKey = i18nRootKey + "." + info.name
+
+		//		yField.labelI18nKey = i18nRootKey + "." + info.name
 		yField.label = info.name
 
 		layouter.add(yField)
 
 		yField.createBinding(info, type, "value");
 	}
-	
+
 	def void createEnumOptionsGroup(JvmType type, OperationInfo info) {
 		val yField = yFactory.createYEnumOptionsGroup
 		yField.initialEnabled = !info.readonly
-		yField.labelI18nKey = i18nRootKey + "." + info.name
+
+		//		yField.labelI18nKey = i18nRootKey + "." + info.name
 		yField.label = info.name
 		yField.type = computer.loadClass(uiLayout.eResource.resourceSet, type.qualifiedName)
 		yField.typeQualifiedName = type.qualifiedName
@@ -149,16 +165,17 @@ class AutowireHelper {
 
 		yField.createBinding(info, type, "selection");
 	}
-	
+
 	def void createBeanReferenceField(JvmType type, OperationInfo info) {
 		val yField = yFactory.createYBeanReferenceField
 		yField.initialEnabled = !info.readonly
-		yField.labelI18nKey = i18nRootKey + "." + info.name
+
+		//		yField.labelI18nKey = i18nRootKey + "." + info.name
 		yField.label = info.name
 		yField.type = computer.loadClass(uiLayout.eResource.resourceSet, type.qualifiedName)
 		yField.typeQualifiedName = type.qualifiedName
 		yField.useBeanService = true
-		
+
 		layouter.add(yField)
 
 		yField.createBinding(info, type, "selection");
@@ -167,7 +184,8 @@ class AutowireHelper {
 	def void createMobileSwitch(JvmType type, OperationInfo info) {
 		val yField = vFactory.createVMSwitch
 		yField.initialEnabled = !info.readonly
-		yField.labelI18nKey = i18nRootKey + "." + info.name
+
+		//		yField.labelI18nKey = i18nRootKey + "." + info.name
 		yField.label = info.name
 
 		layouter.add(yField)
@@ -207,6 +225,9 @@ class AutowireHelper {
 
 		// register the binding at the current view
 		yLayout.view.orCreateBindingSet.bindings += yBinding
+
+		// set the i18n key based on the binding
+		yField.labelI18nKey = I18nKeyProvider.toI18nKey(beanType.qualifiedName, detailValueEndpoint.propertyPath)
 	}
 
 	public interface Layouter {
@@ -235,8 +256,7 @@ class AutowireHelper {
 		}
 
 	}
-	
-	
+
 	public static class MobileLayouter implements Layouter {
 
 		VMVerticalComponentGroup group

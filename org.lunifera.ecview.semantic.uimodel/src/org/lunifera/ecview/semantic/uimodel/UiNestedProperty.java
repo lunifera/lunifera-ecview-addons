@@ -6,11 +6,9 @@ import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 
-
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Ui Nested Property</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>Ui Nested Property</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -43,8 +41,8 @@ public interface UiNestedProperty extends UiNamedElement {
 
 	/**
 	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiNestedProperty#getPath <em>Path</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @param value the new value of the '<em>Path</em>' containment reference.
 	 * @see #getPath()
 	 * @generated
@@ -52,13 +50,14 @@ public interface UiNestedProperty extends UiNamedElement {
 	void setPath(UiPathSegment value);
 
 	/**
-	 * Returns the value of the '<em><b>Getter</b></em>' reference.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Getter</b></em>' reference. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Getter</em>' reference isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Getter</em>' reference isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Getter</em>' reference.
 	 * @see #setGetter(JvmOperation)
 	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiNestedProperty_Getter()
@@ -68,65 +67,79 @@ public interface UiNestedProperty extends UiNamedElement {
 	JvmOperation getGetter();
 
 	/**
-	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiNestedProperty#getGetter <em>Getter</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Getter</em>' reference.
+	 * Sets the value of the '
+	 * {@link org.lunifera.ecview.semantic.uimodel.UiNestedProperty#getGetter
+	 * <em>Getter</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Getter</em>' reference.
 	 * @see #getGetter()
 	 * @generated
 	 */
 	void setGetter(JvmOperation value);
-	
-	
+
 	/**
 	 * Returns the path in dot notation from this segment to the last child.
 	 * 
 	 * @return
 	 */
 	public String toPathString();
-	
-	
+
 	/**
 	 * Returns the type of the last segment.
 	 * 
 	 * @return
 	 */
 	public JvmType getTypeofLastSegment();
-	
-	
+
 	/**
 	 * Returns the type reference of the last segment.
 	 * 
 	 * @return
 	 */
 	public JvmTypeReference getTypeReferenceOfLastSegment();
-	
+
 	/**
 	 * Returns the type of the getter.
 	 * 
 	 * @return
 	 */
 	public JvmType getTypeofGetter();
-	
+
 	/**
 	 * Returns the typereference of the getter.
 	 * 
 	 * @return
 	 */
 	public JvmTypeReference getTypeReferenceofGetter();
-	
+
 	/**
 	 * Returns the type of the second last segment.
 	 * 
 	 * @return
 	 */
 	public JvmType getTypeofSecondLastSegment();
-	
+
 	/**
 	 * Returns the operation of the last segment.
 	 * 
 	 * @return
 	 */
 	public JvmOperation getOperationofLastSegment();
-	
+
+	/**
+	 * Returns the getter name replacing "get" and "is" by empty-string.
+	 * 
+	 * @return
+	 */
+	public String getSimpleGetterName();
+
+	/**
+	 * Returns the property name of the last segment.
+	 * 
+	 * @return
+	 */
+	public String getSimpleGetterNameOfLastSegment();
+
 } // UiNestedProperty

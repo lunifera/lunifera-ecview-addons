@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.xtext.common.types.JvmEnumerationType
 import org.eclipse.xtext.common.types.JvmGenericType
-import org.eclipse.xtext.common.types.JvmOperation
 import org.eclipse.xtext.common.types.JvmType
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.resource.DerivedStateAwareResource
@@ -82,6 +81,7 @@ import org.lunifera.ecview.core.^extension.model.^extension.YVerticalLayout
 import org.lunifera.ecview.core.^extension.model.^extension.util.SimpleExtensionModelFactory
 import org.lunifera.ecview.dsl.extensions.BeanHelper
 import org.lunifera.ecview.dsl.extensions.BindableTypeProvider
+import org.lunifera.ecview.dsl.extensions.BindingInfoHelper
 import org.lunifera.ecview.dsl.extensions.I18nKeyProvider
 import org.lunifera.ecview.dsl.extensions.OperationExtensions
 import org.lunifera.ecview.dsl.extensions.TypeHelper
@@ -92,13 +92,11 @@ import org.lunifera.ecview.semantic.uimodel.UiBeanSlot
 import org.lunifera.ecview.semantic.uimodel.UiBinding
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment
-import org.lunifera.ecview.semantic.uimodel.UiBindingExpression
 import org.lunifera.ecview.semantic.uimodel.UiBrowser
 import org.lunifera.ecview.semantic.uimodel.UiButton
 import org.lunifera.ecview.semantic.uimodel.UiCheckBox
 import org.lunifera.ecview.semantic.uimodel.UiColumn
 import org.lunifera.ecview.semantic.uimodel.UiComboBox
-import org.lunifera.ecview.semantic.uimodel.UiCommandBindableDef
 import org.lunifera.ecview.semantic.uimodel.UiDateField
 import org.lunifera.ecview.semantic.uimodel.UiDateFormat
 import org.lunifera.ecview.semantic.uimodel.UiDateTimeResolution
@@ -163,7 +161,6 @@ import org.lunifera.ecview.semantic.uimodel.UiTabSheet
 import org.lunifera.ecview.semantic.uimodel.UiTable
 import org.lunifera.ecview.semantic.uimodel.UiTextArea
 import org.lunifera.ecview.semantic.uimodel.UiTextField
-import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAlias
 import org.lunifera.ecview.semantic.uimodel.UiValidatorAssignment
 import org.lunifera.ecview.semantic.uimodel.UiValidatorDef
@@ -191,6 +188,10 @@ import org.lunifera.xtext.builder.types.loader.api.ITypeLoader
 import org.lunifera.xtext.builder.types.loader.api.ITypeLoaderFactory
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import org.lunifera.runtime.common.metric.TimeLogger
+import org.lunifera.ecview.dsl.autowire.hook.ExtensionsAutowireDelegate
+import org.lunifera.ecview.semantic.uimodel.UiSetNewInstanceCommand
+import org.lunifera.ecview.core.^extension.model.^extension.YSetNewBeanInstanceCommand
 
 @SuppressWarnings("restriction")
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
@@ -201,11 +202,11 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 	ITypeLoaderFactory typeLoaderFactory;
 	ITypeLoader typeLoader
 
-	@Inject BindableTypeProvider typeOfBoundPropertyProvider;
+	@Inject BindingInfoHelper bindingInfoHelper;
 	@Inject TypeHelper typeHelper;
 	@Inject extension IQualifiedNameProvider;
 	@Inject I18nKeyProvider i18nKeyProvider
-	@Inject AutowireHelper autowireHelper
+	@Inject ExtensionsAutowireDelegate autowireHelper
 
 	final Stack<EObject> viewContext = new Stack
 	final List<YView> views = newArrayList()
@@ -362,13 +363,14 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		object.validatorAssignments.forEach[it.map]
 
+		// install the I18nKeys based on bindings
 		pop
 		currentView = null
 
 	}
 
 	def doAutowire(UiLayout embeddable) {
-		autowireHelper.autowire(embeddable, this, currentView.deviceType == YDeviceType.MOBILE, embeddable.toI18nKey)
+		autowireHelper.autowire(embeddable, this, currentView.deviceType == YDeviceType.MOBILE)
 	}
 
 	def dispatch void map(UiMobileView object) {
@@ -1338,10 +1340,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		yColumn.orderable = eObject.orderable
 		yColumn.visible = eObject.visible
 		yColumn.labelI18nKey = eObject.toI18nKey
-		if(yColumn.icon==null || yColumn.icon.equals("")) {
+		if (yColumn.icon == null || yColumn.icon.equals("")) {
 			yColumn.icon = eObject.toI18nKey + ".image"
-		} 
-		
+		}
 
 		yField.columns += yColumn
 	}
@@ -1450,12 +1451,12 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		yAction.label = object.name
 		yAction.labelI18nKey = object.toI18nKey
 		yAction.icon = object.iconName
-		if(yAction.icon == null || yAction.icon.equals("")) {
+		if (yAction.icon == null || yAction.icon.equals("")) {
 			yAction.icon = object.toI18nKey + ".image"
 		}
 
 		object.associateUi(yAction)
-		
+
 		object.bindings.forEach [
 			it.map
 		]
@@ -1636,8 +1637,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		if (object.referenceSourceJvmType != null) {
 			field.referenceSourceTypeQualifiedName = object.referenceSourceJvmType.qualifiedName
-			field.referenceSourceType = loadClass(object.eResource.resourceSet, object.referenceSourceJvmType.qualifiedName)
-			field.referenceSourceTypeProperty=object.referenceSourceField?.simpleName
+			field.referenceSourceType = loadClass(object.eResource.resourceSet,
+				object.referenceSourceJvmType.qualifiedName)
+			field.referenceSourceTypeProperty = object.referenceSourceField?.simpleName
 		}
 
 		object.associateUi(field)
@@ -2344,8 +2346,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			return null
 		}
 		var YValueBindingEndpoint result = null;
-		val UiModelDerivedStateComputerx.BindingInfo info = new UiModelDerivedStateComputerx.BindingInfo
-		collectBindingInfo(epDef, info);
+		val BindingInfoHelper.BindingInfo info = new BindingInfoHelper.BindingInfo
+		bindingInfoHelper.collectBindingInfo(epDef, info);
 
 		if (info.bindingRoot instanceof UiBeanSlot) {
 			val uiBeanSlot = info.bindingRoot as UiBeanSlot
@@ -2354,7 +2356,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			val YBeanSlotValueBindingEndpoint ep = factory.createBeanSlotValueBindingEndpoint
 			ep.beanSlot = yBeanSlot
 			ep.attributePath = info.path.toString
-			if(ep.attributePath == null || ep.attributePath.equals("")){
+			if (ep.attributePath == null || ep.attributePath.equals("")) {
+
 				// bind the value in the slot
 				ep.attributePath = "value"
 			}
@@ -2371,6 +2374,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			if (ep.type != null && ep.type.isAssignableFrom(typeof(EObject))) {
 				ep.emfNsURI = yElement.eClass.EPackage.nsURI
 			}
+
+			// calculate default I18nKey
+			epDef.eContainer
+
 			result = ep
 		} else if (info.bindingRoot instanceof UiMobileNavigationCommand) {
 			val UiMobileNavigationCommand command = info.bindingRoot as UiMobileNavigationCommand
@@ -2454,10 +2461,36 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			val YSendEventCommand yCommand = CoreModelFactory.eINSTANCE.createYSendEventCommand
 			yCommand.autoTrigger = !command.noAutoTrigger
 			yCommand.eventTopic = command.eventTopic
-			
+
 			currentView.commandSet.addCommand(yCommand)
 
 			result = yCommand.createMessageEndpoint
+		} else if (info.bindingRoot instanceof UiSetNewInstanceCommand) {
+			val UiSetNewInstanceCommand command = info.bindingRoot as UiSetNewInstanceCommand
+
+			// Create the command and register it at the current view
+			val YSetNewBeanInstanceCommand yCommand = ExtensionModelFactory.eINSTANCE.createYSetNewBeanInstanceCommand
+			currentView.commandSet.addCommand(yCommand)
+			
+			val targetEP = command.target as UiBindingEndpointAssignment
+			val BindingInfoHelper.BindingInfo targetInfo = new BindingInfoHelper.BindingInfo
+			bindingInfoHelper.collectBindingInfo(targetEP, targetInfo);
+			
+			yCommand.target = targetEP.createValueBindingEndpoint
+			if (targetInfo.typeOfBoundProperty != null) {
+				// if there is a property path
+				yCommand.typeQualifiedName = targetInfo.typeOfBoundProperty.qualifiedName
+				yCommand.type = loadClass(epDef.eResource.resourceSet, yCommand.typeQualifiedName)
+			}else if (targetInfo.typeForBinding != null) {
+				// use the root object
+				yCommand.typeQualifiedName = targetInfo.typeForBinding.qualifiedName
+				yCommand.type = loadClass(epDef.eResource.resourceSet, yCommand.typeQualifiedName)
+			}
+			if (yCommand.type != null && yCommand.type.isAssignableFrom(typeof(EObject))) {
+				// TODO later for EObjects
+			}
+			
+			result = yCommand.createTriggerEndpoint
 		}
 
 		return result
@@ -2478,9 +2511,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		if (epDef == null) {
 			return null
 		}
+
 		var YListBindingEndpoint result = null;
-		val UiModelDerivedStateComputerx.BindingInfo info = new UiModelDerivedStateComputerx.BindingInfo
-		collectBindingInfo(epDef, info);
+		val BindingInfoHelper.BindingInfo info = new BindingInfoHelper.BindingInfo()
+		bindingInfoHelper.collectBindingInfo(epDef, info);
 
 		if (info.bindingRoot instanceof UiBeanSlot) {
 			val uiBeanSlot = info.bindingRoot as UiBeanSlot
@@ -2508,65 +2542,6 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		return result
 	}
 
-	def dispatch void collectBindingInfo(
-		UiBindingEndpointAssignment assignment,
-		UiModelDerivedStateComputerx.BindingInfo info
-	) {
-		var result = if(info != null) info else new UiModelDerivedStateComputerx.BindingInfo
-		if (assignment.typedBindableAlias != null) {
-			assignment.typedBindableAlias.collectBindingInfo(result)
-		} else {
-			assignment.typedBindableDef.collectBindingInfo(result)
-		}
-
-		// on the way back up the structure, collect( the path
-		if (assignment.path != null) {
-			info.appendPath(assignment.path.toPathString)
-			info.typeOfBoundProperty = assignment.path.typeofLastSegment
-			info.deepestJvmField = assignment.path.operationofLastSegment
-
-			val pathType = assignment.path.typeofSecondLastSegment
-			if (info.typeForBinding == null && pathType != null) {
-				info.typeForBinding = pathType
-			}
-		}
-	}
-
-	def dispatch void collectBindingInfo(UiBeanSlot slot, UiModelDerivedStateComputerx.BindingInfo info) {
-		info.bindingRoot = slot
-		info.typeForBinding = slot.jvmType?.type
-	}
-
-	def dispatch void collectBindingInfo(UiBindingEndpointAlias alias, UiModelDerivedStateComputerx.BindingInfo info) {
-		alias.endpoint.collectBindingInfo(info)
-	}
-
-	def dispatch void collectBindingInfo(UiTypedBindableDef definition, UiModelDerivedStateComputerx.BindingInfo info) {
-
-		// must be the last element
-		info.typeForBinding = typeOfBoundPropertyProvider.getType(definition)
-		info.bindingRoot = definition.rawBindableOfLastSegment
-		val bindingMethod = definition.method
-		if (bindingMethod != null) {
-			if (!bindingMethod.targetName.nullOrEmpty) {
-				info.appendPath(bindingMethod.targetName)
-			} else {
-				info.appendPath(bindingMethod.name)
-			}
-		}
-	}
-
-	def dispatch void collectBindingInfo(UiCommandBindableDef definition, UiModelDerivedStateComputerx.BindingInfo info) {
-
-		// must be the last element
-		info.typeForBinding = typeOfBoundPropertyProvider.getType(definition)
-		info.bindingRoot = definition.command
-	}
-
-	def dispatch void collectBindingInfo(UiBindingExpression definition, UiModelDerivedStateComputerx.BindingInfo info) {
-		throw new UnsupportedOperationException
-	}
-
 	def resolve(UiBindingEndpointAlias alias) {
 		val temp = alias.endpoint;
 		if (temp instanceof UiBindingEndpointAssignment) {
@@ -2590,7 +2565,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		yBeanSlot.valueTypeQualifiedName = object.jvmType?.qualifiedName
 		yBeanSlot.valueType = loadClass(object.eResource.resourceSet, yBeanSlot.valueTypeQualifiedName)
 		yBeanSlot.eventTopic = object.eventTopic
-		
+
 		object.associateUi(yBeanSlot)
 
 		val EObject lastElement = viewContext.peek
@@ -2613,48 +2588,5 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 				resource.contents.remove(1)
 			}
 		}
-	}
-
-	static class BindingInfo {
-
-		/**
-		 * The type of the bound property. For nested bindings it is the last element available
-		 */
-		private JvmType typeOfBoundProperty
-
-		/**
-		 * The type of the binding. For nested bindings it is the element before the bound property
-		 */
-		private JvmType typeForBinding
-
-		/**
-		 * The deepest JvmOperation in the hierarchy. This field is used to bind.
-		 */
-		private JvmOperation deepestJvmField
-
-		/**
-		 * The nested path using dot notation.
-		 */
-		private StringBuilder path = new StringBuilder
-
-		/**
-		 * The element the binding should be installed on
-		 */
-		private EObject bindingRoot
-
-		/**
-		 * Append the segment to the path.
-		 */
-		def appendPath(String segment) {
-			if (segment.nullOrEmpty) {
-				return
-			}
-
-			if (path.length > 0) {
-				path.append(".")
-			}
-			path.append(segment)
-		}
-
 	}
 }

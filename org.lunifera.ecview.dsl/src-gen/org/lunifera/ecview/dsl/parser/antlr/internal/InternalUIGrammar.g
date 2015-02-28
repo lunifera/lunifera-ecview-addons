@@ -1441,6 +1441,16 @@ ruleUiCommand returns [EObject current=null]
         $current = $this_UiSendEventCommand_5.current; 
         afterParserOrEnumRuleCall();
     }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getUiCommandAccess().getUiSetNewInstanceCommandParserRuleCall_6()); 
+    }
+    this_UiSetNewInstanceCommand_6=ruleUiSetNewInstanceCommand
+    { 
+        $current = $this_UiSetNewInstanceCommand_6.current; 
+        afterParserOrEnumRuleCall();
+    }
 )
 ;
 
@@ -1674,6 +1684,55 @@ ruleUiRemoveFromTableCommand returns [EObject current=null]
 	{
 		newLeafNode(otherlv_2, grammarAccess.getUiRemoveFromTableCommandAccess().getTableUiTableCrossReference_2_0()); 
 	}
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleUiSetNewInstanceCommand
+entryRuleUiSetNewInstanceCommand returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUiSetNewInstanceCommandRule()); }
+	 iv_ruleUiSetNewInstanceCommand=ruleUiSetNewInstanceCommand 
+	 { $current=$iv_ruleUiSetNewInstanceCommand.current; } 
+	 EOF 
+;
+
+// Rule UiSetNewInstanceCommand
+ruleUiSetNewInstanceCommand returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUiSetNewInstanceCommandAccess().getUiSetNewInstanceCommandAction_0(),
+            $current);
+    }
+)	otherlv_1='newInstance' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUiSetNewInstanceCommandAccess().getNewInstanceKeyword_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiSetNewInstanceCommandAccess().getTargetUiBindingEndpointAssignmentParserRuleCall_2_0()); 
+	    }
+		lv_target_2_0=ruleUiBindingEndpointAssignment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiSetNewInstanceCommandRule());
+	        }
+       		set(
+       			$current, 
+       			"target",
+        		lv_target_2_0, 
+        		"UiBindingEndpointAssignment");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 ))

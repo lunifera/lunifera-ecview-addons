@@ -9255,6 +9255,52 @@ public interface UiModelPackage extends EPackage {
 	int UI_SEND_EVENT_COMMAND_FEATURE_COUNT = UI_COMMAND_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiSetNewInstanceCommandImpl <em>Ui Set New Instance Command</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiSetNewInstanceCommandImpl
+	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSetNewInstanceCommand()
+	 * @generated
+	 */
+	int UI_SET_NEW_INSTANCE_COMMAND = 117;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SET_NEW_INSTANCE_COMMAND__ID = UI_COMMAND__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SET_NEW_INSTANCE_COMMAND__NAME = UI_COMMAND__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SET_NEW_INSTANCE_COMMAND__TARGET = UI_COMMAND_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ui Set New Instance Command</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SET_NEW_INSTANCE_COMMAND_FEATURE_COUNT = UI_COMMAND_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9262,7 +9308,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiFlatAlignment()
 	 * @generated
 	 */
-	int UI_FLAT_ALIGNMENT = 117;
+	int UI_FLAT_ALIGNMENT = 118;
 
 
 	/**
@@ -9273,7 +9319,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiAlignment()
 	 * @generated
 	 */
-	int UI_ALIGNMENT = 118;
+	int UI_ALIGNMENT = 119;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiSelectionType <em>Ui Selection Type</em>}' enum.
@@ -9283,7 +9329,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSelectionType()
 	 * @generated
 	 */
-	int UI_SELECTION_TYPE = 119;
+	int UI_SELECTION_TYPE = 120;
 
 
 	/**
@@ -9294,7 +9340,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDateFormat()
 	 * @generated
 	 */
-	int UI_DATE_FORMAT = 120;
+	int UI_DATE_FORMAT = 121;
 
 
 	/**
@@ -9305,7 +9351,7 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiDateTimeResolution()
 	 * @generated
 	 */
-	int UI_DATE_TIME_RESOLUTION = 121;
+	int UI_DATE_TIME_RESOLUTION = 122;
 
 
 	/**
@@ -12496,6 +12542,27 @@ public interface UiModelPackage extends EPackage {
 	EAttribute getUiSendEventCommand_NoAutoTrigger();
 
 	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiSetNewInstanceCommand <em>Ui Set New Instance Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ui Set New Instance Command</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSetNewInstanceCommand
+	 * @generated
+	 */
+	EClass getUiSetNewInstanceCommand();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiSetNewInstanceCommand#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Target</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSetNewInstanceCommand#getTarget()
+	 * @see #getUiSetNewInstanceCommand()
+	 * @generated
+	 */
+	EReference getUiSetNewInstanceCommand_Target();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiSearchField <em>Ui Search Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -15367,6 +15434,24 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UI_SEND_EVENT_COMMAND__NO_AUTO_TRIGGER = eINSTANCE.getUiSendEventCommand_NoAutoTrigger();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiSetNewInstanceCommandImpl <em>Ui Set New Instance Command</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiSetNewInstanceCommandImpl
+		 * @see org.lunifera.ecview.semantic.uimodel.impl.UiModelPackageImpl#getUiSetNewInstanceCommand()
+		 * @generated
+		 */
+		EClass UI_SET_NEW_INSTANCE_COMMAND = eINSTANCE.getUiSetNewInstanceCommand();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_SET_NEW_INSTANCE_COMMAND__TARGET = eINSTANCE.getUiSetNewInstanceCommand_Target();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.
