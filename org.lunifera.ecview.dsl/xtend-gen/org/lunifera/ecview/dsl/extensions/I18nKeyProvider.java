@@ -11,6 +11,7 @@ import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.lunifera.ecview.dsl.extensions.BindingInfoHelper;
@@ -402,20 +403,26 @@ public class I18nKeyProvider {
         boolean _notEquals_3 = (!Objects.equal(property, null));
         if (_notEquals_3) {
           final String path = property.toPathString();
-          boolean _contains = path.contains(".");
-          if (_contains) {
-            final JvmType type = property.getTypeofSecondLastSegment();
-            String _qualifiedName = type.getQualifiedName();
-            String _plus = (_qualifiedName + ".");
-            String _simpleGetterNameOfLastSegment = property.getSimpleGetterNameOfLastSegment();
-            return (_plus + _simpleGetterNameOfLastSegment);
+          boolean _equals = Objects.equal(path, null);
+          if (_equals) {
+            JvmTypeReference _jvmType_1 = table.getJvmType();
+            return _jvmType_1.getQualifiedName();
           } else {
-            JvmOperation _getter = property.getGetter();
-            final JvmDeclaredType type_1 = _getter.getDeclaringType();
-            String _qualifiedName_1 = type_1.getQualifiedName();
-            String _plus_1 = (_qualifiedName_1 + ".");
-            String _simpleGetterName = property.getSimpleGetterName();
-            return (_plus_1 + _simpleGetterName);
+            boolean _contains = path.contains(".");
+            if (_contains) {
+              final JvmType type = property.getTypeofSecondLastSegment();
+              String _qualifiedName = type.getQualifiedName();
+              String _plus = (_qualifiedName + ".");
+              String _simpleGetterNameOfLastSegment = property.getSimpleGetterNameOfLastSegment();
+              return (_plus + _simpleGetterNameOfLastSegment);
+            } else {
+              JvmOperation _getter = property.getGetter();
+              final JvmDeclaredType type_1 = _getter.getDeclaringType();
+              String _qualifiedName_1 = type_1.getQualifiedName();
+              String _plus_1 = (_qualifiedName_1 + ".");
+              String _simpleGetterName = property.getSimpleGetterName();
+              return (_plus_1 + _simpleGetterName);
+            }
           }
         }
       } else {
@@ -529,13 +536,22 @@ public class I18nKeyProvider {
       boolean _isEmpty = ops.isEmpty();
       boolean _not = (!_isEmpty);
       if (_not) {
-        JvmOperation _get = ops.get(0);
-        final JvmType type = _get.getDeclaringType();
-        String _qualifiedName = type.getQualifiedName();
-        JvmOperation _get_1 = ops.get(0);
-        String _simpleName = _get_1.getSimpleName();
-        String _toPropertyName = I18nKeyProvider.getToPropertyName(_simpleName);
-        return I18nKeyProvider.toI18nKey(_qualifiedName, _toPropertyName);
+        final JvmOperation op = ops.get(0);
+        final JvmType type = op.getDeclaringType();
+        try {
+          String _qualifiedName = type.getQualifiedName();
+          JvmOperation _get = ops.get(0);
+          String _simpleName = _get.getSimpleName();
+          String _toPropertyName = I18nKeyProvider.getToPropertyName(_simpleName);
+          return I18nKeyProvider.toI18nKey(_qualifiedName, _toPropertyName);
+        } catch (final Throwable _t) {
+          if (_t instanceof RuntimeException) {
+            final RuntimeException ex = (RuntimeException)_t;
+            throw ex;
+          } else {
+            throw Exceptions.sneakyThrow(_t);
+          }
+        }
       }
     }
     return null;

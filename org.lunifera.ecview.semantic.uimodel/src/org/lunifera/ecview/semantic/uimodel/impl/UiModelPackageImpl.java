@@ -1246,6 +1246,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUiExposedAction_ExternalCommandId() {
+		return (EAttribute)uiExposedActionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiViewSet() {
 		return uiViewSetEClass;
 	}
@@ -3983,6 +3992,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEAttribute(uiExposedActionEClass, UI_EXPOSED_ACTION__ACTION_ID);
 		createEAttribute(uiExposedActionEClass, UI_EXPOSED_ACTION__ICON_NAME);
 		createEAttribute(uiExposedActionEClass, UI_EXPOSED_ACTION__CHECK_DIRTY);
+		createEAttribute(uiExposedActionEClass, UI_EXPOSED_ACTION__EXTERNAL_COMMAND_ID);
 
 		uiViewSetEClass = createEClass(UI_VIEW_SET);
 
@@ -4612,6 +4622,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEAttribute(getUiExposedAction_ActionID(), ecorePackage.getEString(), "actionID", null, 0, 1, UiExposedAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiExposedAction_IconName(), ecorePackage.getEString(), "iconName", null, 0, 1, UiExposedAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiExposedAction_CheckDirty(), ecorePackage.getEBoolean(), "checkDirty", null, 0, 1, UiExposedAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiExposedAction_ExternalCommandId(), ecorePackage.getEString(), "externalCommandId", null, 0, 1, UiExposedAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiViewSetEClass, UiViewSet.class, "UiViewSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

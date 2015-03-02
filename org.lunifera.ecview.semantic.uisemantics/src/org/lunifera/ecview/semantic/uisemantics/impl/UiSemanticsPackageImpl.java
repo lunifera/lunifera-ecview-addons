@@ -517,6 +517,24 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUxAction_ExternalCommandId() {
+		return (EAttribute)uxActionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUxAction_InitialDisabled() {
+		return (EAttribute)uxActionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUxImportSectionDeclaration() {
 		return uxImportSectionDeclarationEClass;
 	}
@@ -608,6 +626,8 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 
 		uxActionEClass = createEClass(UX_ACTION);
 		createEAttribute(uxActionEClass, UX_ACTION__NAME);
+		createEAttribute(uxActionEClass, UX_ACTION__EXTERNAL_COMMAND_ID);
+		createEAttribute(uxActionEClass, UX_ACTION__INITIAL_DISABLED);
 	}
 
 	/**
@@ -698,6 +718,8 @@ public class UiSemanticsPackageImpl extends EPackageImpl implements UiSemanticsP
 
 		initEClass(uxActionEClass, UxAction.class, "UxAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUxAction_Name(), ecorePackage.getEString(), "name", null, 0, 1, UxAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUxAction_ExternalCommandId(), ecorePackage.getEString(), "externalCommandId", null, 0, 1, UxAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUxAction_InitialDisabled(), ecorePackage.getEBoolean(), "initialDisabled", null, 0, 1, UxAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

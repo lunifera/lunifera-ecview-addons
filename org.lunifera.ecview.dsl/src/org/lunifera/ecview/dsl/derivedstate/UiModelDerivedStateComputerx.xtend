@@ -1444,6 +1444,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val YExposedAction yAction = CoreModelFactory.eINSTANCE.createYExposedAction
 		if (object.actionReference != null) {
 			yAction.id = object.actionReference.name
+			yAction.externalCommandId = object.actionReference.externalCommandId
 		} else {
 			yAction.id = object.actionID
 		}
@@ -1455,6 +1456,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			yAction.icon = object.toI18nKey + ".image"
 		}
 		yAction.checkDirty = object.checkDirty
+		if(object.externalCommandId != null) {
+			yAction.externalCommandId = object.externalCommandId
+		}
 
 		object.associateUi(yAction)
 

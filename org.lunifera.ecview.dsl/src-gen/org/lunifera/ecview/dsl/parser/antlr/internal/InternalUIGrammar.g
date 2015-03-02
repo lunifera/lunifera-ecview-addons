@@ -2318,9 +2318,31 @@ ruleUiExposedAction returns [EObject current=null]
 	    }
 
 )
-)?(	otherlv_7=';' 
+)?(	otherlv_7='externalCommand' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getUiExposedActionAccess().getSemicolonKeyword_5());
+    	newLeafNode(otherlv_7, grammarAccess.getUiExposedActionAccess().getExternalCommandKeyword_5_0());
+    }
+(
+(
+		lv_externalCommandId_8_0=RULE_STRING
+		{
+			newLeafNode(lv_externalCommandId_8_0, grammarAccess.getUiExposedActionAccess().getExternalCommandIdSTRINGTerminalRuleCall_5_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiExposedActionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"externalCommandId",
+        		lv_externalCommandId_8_0, 
+        		"STRING");
+	    }
+
+)
+))?(	otherlv_9=';' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getUiExposedActionAccess().getSemicolonKeyword_6());
     }
 )?)
 ;

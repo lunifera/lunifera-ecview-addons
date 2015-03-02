@@ -1262,13 +1262,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_EXPOSED_ACTION__CHECK_DIRTY = UI_ACTION_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>External Command Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_EXPOSED_ACTION__EXTERNAL_COMMAND_ID = UI_ACTION_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Ui Exposed Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_EXPOSED_ACTION_FEATURE_COUNT = UI_ACTION_FEATURE_COUNT + 4;
+	int UI_EXPOSED_ACTION_FEATURE_COUNT = UI_ACTION_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9577,6 +9586,17 @@ public interface UiModelPackage extends EPackage {
 	EAttribute getUiExposedAction_CheckDirty();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiExposedAction#getExternalCommandId <em>External Command Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>External Command Id</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiExposedAction#getExternalCommandId()
+	 * @see #getUiExposedAction()
+	 * @generated
+	 */
+	EAttribute getUiExposedAction_ExternalCommandId();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiView <em>Ui View</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12930,6 +12950,14 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UI_EXPOSED_ACTION__CHECK_DIRTY = eINSTANCE.getUiExposedAction_CheckDirty();
+
+		/**
+		 * The meta object literal for the '<em><b>External Command Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_EXPOSED_ACTION__EXTERNAL_COMMAND_ID = eINSTANCE.getUiExposedAction_ExternalCommandId();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl <em>Ui View</em>}' class.

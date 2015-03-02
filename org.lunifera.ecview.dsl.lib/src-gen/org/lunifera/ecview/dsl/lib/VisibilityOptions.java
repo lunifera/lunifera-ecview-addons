@@ -107,7 +107,6 @@ public class VisibilityOptions implements Serializable, PropertyChangeListener {
    * Returns the foregroundColor property or <code>null</code> if not present.
    */
   public Color getForegroundColor() {
-    checkDisposed();
     return this.foregroundColor;
   }
   
@@ -126,7 +125,6 @@ public class VisibilityOptions implements Serializable, PropertyChangeListener {
    * Returns the backgroundColor property or <code>null</code> if not present.
    */
   public Color getBackgroundColor() {
-    checkDisposed();
     return this.backgroundColor;
   }
   
@@ -145,7 +143,6 @@ public class VisibilityOptions implements Serializable, PropertyChangeListener {
    * Returns the editable property or <code>null</code> if not present.
    */
   public boolean getEditable() {
-    checkDisposed();
     return this.editable;
   }
   
@@ -164,7 +161,6 @@ public class VisibilityOptions implements Serializable, PropertyChangeListener {
    * Returns the enabled property or <code>null</code> if not present.
    */
   public boolean getEnabled() {
-    checkDisposed();
     return this.enabled;
   }
   
@@ -183,7 +179,6 @@ public class VisibilityOptions implements Serializable, PropertyChangeListener {
    * Returns the visible property or <code>null</code> if not present.
    */
   public boolean getVisible() {
-    checkDisposed();
     return this.visible;
   }
   
@@ -202,7 +197,6 @@ public class VisibilityOptions implements Serializable, PropertyChangeListener {
    * Returns the bold property or <code>null</code> if not present.
    */
   public boolean getBold() {
-    checkDisposed();
     return this.bold;
   }
   
@@ -221,7 +215,6 @@ public class VisibilityOptions implements Serializable, PropertyChangeListener {
    * Returns the border property or <code>null</code> if not present.
    */
   public boolean getBorder() {
-    checkDisposed();
     return this.border;
   }
   
@@ -240,7 +233,6 @@ public class VisibilityOptions implements Serializable, PropertyChangeListener {
    * Returns the italic property or <code>null</code> if not present.
    */
   public boolean getItalic() {
-    checkDisposed();
     return this.italic;
   }
   
@@ -259,7 +251,6 @@ public class VisibilityOptions implements Serializable, PropertyChangeListener {
    * Returns the strikethrough property or <code>null</code> if not present.
    */
   public boolean getStrikethrough() {
-    checkDisposed();
     return this.strikethrough;
   }
   
@@ -278,7 +269,6 @@ public class VisibilityOptions implements Serializable, PropertyChangeListener {
    * Returns the underline property or <code>null</code> if not present.
    */
   public boolean getUnderline() {
-    checkDisposed();
     return this.underline;
   }
   

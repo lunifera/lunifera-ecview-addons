@@ -101,9 +101,9 @@ ruleUxAction
     }
 	:
 (
-{ before(grammarAccess.getUxActionAccess().getNameAssignment()); }
-(rule__UxAction__NameAssignment)
-{ after(grammarAccess.getUxActionAccess().getNameAssignment()); }
+{ before(grammarAccess.getUxActionAccess().getGroup()); }
+(rule__UxAction__Group__0)
+{ after(grammarAccess.getUxActionAccess().getGroup()); }
 )
 
 ;
@@ -3996,6 +3996,161 @@ finally {
 
 
 
+
+
+
+
+
+
+rule__UxAction__Group__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UxAction__Group__0__Impl
+	rule__UxAction__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UxAction__Group__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUxActionAccess().getNameAssignment_0()); }
+(rule__UxAction__NameAssignment_0)
+{ after(grammarAccess.getUxActionAccess().getNameAssignment_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__UxAction__Group__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UxAction__Group__1__Impl
+	rule__UxAction__Group__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UxAction__Group__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUxActionAccess().getGroup_1()); }
+(rule__UxAction__Group_1__0)?
+{ after(grammarAccess.getUxActionAccess().getGroup_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__UxAction__Group__2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UxAction__Group__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UxAction__Group__2__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUxActionAccess().getInitialDisabledAssignment_2()); }
+(rule__UxAction__InitialDisabledAssignment_2)?
+{ after(grammarAccess.getUxActionAccess().getInitialDisabledAssignment_2()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
+
+
+rule__UxAction__Group_1__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UxAction__Group_1__0__Impl
+	rule__UxAction__Group_1__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UxAction__Group_1__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUxActionAccess().getExternalCommandKeyword_1_0()); }
+
+	'externalCommand' 
+
+{ after(grammarAccess.getUxActionAccess().getExternalCommandKeyword_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__UxAction__Group_1__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UxAction__Group_1__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UxAction__Group_1__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUxActionAccess().getExternalCommandIdAssignment_1_1()); }
+(rule__UxAction__ExternalCommandIdAssignment_1_1)
+{ after(grammarAccess.getUxActionAccess().getExternalCommandIdAssignment_1_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
 
 
 
@@ -19194,14 +19349,52 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__UxAction__NameAssignment
+rule__UxAction__NameAssignment_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getUxActionAccess().getNameQualifiedNameParserRuleCall_0()); }
-	ruleQualifiedName{ after(grammarAccess.getUxActionAccess().getNameQualifiedNameParserRuleCall_0()); }
+{ before(grammarAccess.getUxActionAccess().getNameQualifiedNameParserRuleCall_0_0()); }
+	ruleQualifiedName{ after(grammarAccess.getUxActionAccess().getNameQualifiedNameParserRuleCall_0_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UxAction__ExternalCommandIdAssignment_1_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUxActionAccess().getExternalCommandIdSTRINGTerminalRuleCall_1_1_0()); }
+	RULE_STRING{ after(grammarAccess.getUxActionAccess().getExternalCommandIdSTRINGTerminalRuleCall_1_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UxAction__InitialDisabledAssignment_2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUxActionAccess().getInitialDisabledDisabledKeyword_2_0()); }
+(
+{ before(grammarAccess.getUxActionAccess().getInitialDisabledDisabledKeyword_2_0()); }
+
+	'disabled' 
+
+{ after(grammarAccess.getUxActionAccess().getInitialDisabledDisabledKeyword_2_0()); }
+)
+
+{ after(grammarAccess.getUxActionAccess().getInitialDisabledDisabledKeyword_2_0()); }
 )
 
 ;

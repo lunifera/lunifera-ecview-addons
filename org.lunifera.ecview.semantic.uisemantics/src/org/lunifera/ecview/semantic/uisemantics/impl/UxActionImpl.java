@@ -20,6 +20,8 @@ import org.lunifera.ecview.semantic.uisemantics.UxAction;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxActionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxActionImpl#getExternalCommandId <em>External Command Id</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxActionImpl#isInitialDisabled <em>Initial Disabled</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,6 +47,46 @@ public class UxActionImpl extends MinimalEObjectImpl.Container implements UxActi
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getExternalCommandId() <em>External Command Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExternalCommandId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EXTERNAL_COMMAND_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getExternalCommandId() <em>External Command Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExternalCommandId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String externalCommandId = EXTERNAL_COMMAND_ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isInitialDisabled() <em>Initial Disabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInitialDisabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INITIAL_DISABLED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isInitialDisabled() <em>Initial Disabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInitialDisabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean initialDisabled = INITIAL_DISABLED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,11 +133,57 @@ public class UxActionImpl extends MinimalEObjectImpl.Container implements UxActi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getExternalCommandId() {
+		return externalCommandId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExternalCommandId(String newExternalCommandId) {
+		String oldExternalCommandId = externalCommandId;
+		externalCommandId = newExternalCommandId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiSemanticsPackage.UX_ACTION__EXTERNAL_COMMAND_ID, oldExternalCommandId, externalCommandId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isInitialDisabled() {
+		return initialDisabled;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitialDisabled(boolean newInitialDisabled) {
+		boolean oldInitialDisabled = initialDisabled;
+		initialDisabled = newInitialDisabled;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiSemanticsPackage.UX_ACTION__INITIAL_DISABLED, oldInitialDisabled, initialDisabled));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UiSemanticsPackage.UX_ACTION__NAME:
 				return getName();
+			case UiSemanticsPackage.UX_ACTION__EXTERNAL_COMMAND_ID:
+				return getExternalCommandId();
+			case UiSemanticsPackage.UX_ACTION__INITIAL_DISABLED:
+				return isInitialDisabled();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,6 +198,12 @@ public class UxActionImpl extends MinimalEObjectImpl.Container implements UxActi
 		switch (featureID) {
 			case UiSemanticsPackage.UX_ACTION__NAME:
 				setName((String)newValue);
+				return;
+			case UiSemanticsPackage.UX_ACTION__EXTERNAL_COMMAND_ID:
+				setExternalCommandId((String)newValue);
+				return;
+			case UiSemanticsPackage.UX_ACTION__INITIAL_DISABLED:
+				setInitialDisabled((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -126,6 +220,12 @@ public class UxActionImpl extends MinimalEObjectImpl.Container implements UxActi
 			case UiSemanticsPackage.UX_ACTION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case UiSemanticsPackage.UX_ACTION__EXTERNAL_COMMAND_ID:
+				setExternalCommandId(EXTERNAL_COMMAND_ID_EDEFAULT);
+				return;
+			case UiSemanticsPackage.UX_ACTION__INITIAL_DISABLED:
+				setInitialDisabled(INITIAL_DISABLED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -140,6 +240,10 @@ public class UxActionImpl extends MinimalEObjectImpl.Container implements UxActi
 		switch (featureID) {
 			case UiSemanticsPackage.UX_ACTION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiSemanticsPackage.UX_ACTION__EXTERNAL_COMMAND_ID:
+				return EXTERNAL_COMMAND_ID_EDEFAULT == null ? externalCommandId != null : !EXTERNAL_COMMAND_ID_EDEFAULT.equals(externalCommandId);
+			case UiSemanticsPackage.UX_ACTION__INITIAL_DISABLED:
+				return initialDisabled != INITIAL_DISABLED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -156,6 +260,10 @@ public class UxActionImpl extends MinimalEObjectImpl.Container implements UxActi
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", externalCommandId: ");
+		result.append(externalCommandId);
+		result.append(", initialDisabled: ");
+		result.append(initialDisabled);
 		result.append(')');
 		return result.toString();
 	}

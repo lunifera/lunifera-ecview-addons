@@ -1904,6 +1904,9 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       UxAction _actionReference_1 = object.getActionReference();
       String _name = _actionReference_1.getName();
       yAction.setId(_name);
+      UxAction _actionReference_2 = object.getActionReference();
+      String _externalCommandId = _actionReference_2.getExternalCommandId();
+      yAction.setExternalCommandId(_externalCommandId);
     } else {
       String _actionID = object.getActionID();
       yAction.setId(_actionID);
@@ -1933,6 +1936,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     }
     boolean _isCheckDirty = object.isCheckDirty();
     yAction.setCheckDirty(_isCheckDirty);
+    String _externalCommandId_1 = object.getExternalCommandId();
+    boolean _notEquals_1 = (!Objects.equal(_externalCommandId_1, null));
+    if (_notEquals_1) {
+      String _externalCommandId_2 = object.getExternalCommandId();
+      yAction.setExternalCommandId(_externalCommandId_2);
+    }
     this.associateUi(object, yAction);
     EList<UiBinding> _bindings = object.getBindings();
     final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {

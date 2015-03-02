@@ -51,7 +51,7 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_UiDialog_SemicolonKeyword_5_2_q;
 	protected AbstractElementAlias match_UiDialog_SemicolonKeyword_6_1_q;
 	protected AbstractElementAlias match_UiDialog___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q;
-	protected AbstractElementAlias match_UiExposedAction_SemicolonKeyword_5_q;
+	protected AbstractElementAlias match_UiExposedAction_SemicolonKeyword_6_q;
 	protected AbstractElementAlias match_UiFormLayout___LeftParenthesisKeyword_2_0_0_or_RightParenthesisKeyword_2_2_1__a;
 	protected AbstractElementAlias match_UiFormLayout___RightParenthesisKeyword_2_2_1_LeftParenthesisKeyword_2_0_0_a__p;
 	protected AbstractElementAlias match_UiFormLayout___RightParenthesisKeyword_2_2_1_a_LeftParenthesisKeyword_2_0_0__p;
@@ -175,7 +175,7 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_UiDialog_SemicolonKeyword_5_2_q = new TokenAlias(false, true, grammarAccess.getUiDialogAccess().getSemicolonKeyword_5_2());
 		match_UiDialog_SemicolonKeyword_6_1_q = new TokenAlias(false, true, grammarAccess.getUiDialogAccess().getSemicolonKeyword_6_1());
 		match_UiDialog___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUiDialogAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getUiDialogAccess().getRightParenthesisKeyword_2_2()));
-		match_UiExposedAction_SemicolonKeyword_5_q = new TokenAlias(false, true, grammarAccess.getUiExposedActionAccess().getSemicolonKeyword_5());
+		match_UiExposedAction_SemicolonKeyword_6_q = new TokenAlias(false, true, grammarAccess.getUiExposedActionAccess().getSemicolonKeyword_6());
 		match_UiFormLayout___LeftParenthesisKeyword_2_0_0_or_RightParenthesisKeyword_2_2_1__a = new AlternativeAlias(true, true, new TokenAlias(false, false, grammarAccess.getUiFormLayoutAccess().getLeftParenthesisKeyword_2_0_0()), new TokenAlias(false, false, grammarAccess.getUiFormLayoutAccess().getRightParenthesisKeyword_2_2_1()));
 		match_UiFormLayout___RightParenthesisKeyword_2_2_1_LeftParenthesisKeyword_2_0_0_a__p = new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getUiFormLayoutAccess().getRightParenthesisKeyword_2_2_1()), new TokenAlias(true, true, grammarAccess.getUiFormLayoutAccess().getLeftParenthesisKeyword_2_0_0()));
 		match_UiFormLayout___RightParenthesisKeyword_2_2_1_a_LeftParenthesisKeyword_2_0_0__p = new GroupAlias(true, false, new TokenAlias(true, true, grammarAccess.getUiFormLayoutAccess().getRightParenthesisKeyword_2_2_1()), new TokenAlias(false, false, grammarAccess.getUiFormLayoutAccess().getLeftParenthesisKeyword_2_0_0()));
@@ -366,8 +366,8 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_UiDialog_SemicolonKeyword_6_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiDialog___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q.equals(syntax))
 				emit_UiDialog___LeftParenthesisKeyword_2_0_RightParenthesisKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_UiExposedAction_SemicolonKeyword_5_q.equals(syntax))
-				emit_UiExposedAction_SemicolonKeyword_5_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UiExposedAction_SemicolonKeyword_6_q.equals(syntax))
+				emit_UiExposedAction_SemicolonKeyword_6_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiFormLayout___LeftParenthesisKeyword_2_0_0_or_RightParenthesisKeyword_2_2_1__a.equals(syntax))
 				emit_UiFormLayout___LeftParenthesisKeyword_2_0_0_or_RightParenthesisKeyword_2_2_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UiFormLayout___RightParenthesisKeyword_2_2_1_LeftParenthesisKeyword_2_0_0_a__p.equals(syntax))
@@ -806,7 +806,7 @@ public class UIGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Syntax:
 	 *     ';'?
 	 */
-	protected void emit_UiExposedAction_SemicolonKeyword_5_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_UiExposedAction_SemicolonKeyword_6_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

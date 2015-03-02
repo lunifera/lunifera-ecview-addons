@@ -2,6 +2,7 @@ package org.lunifera.ecview.dsl.extensions
 
 import com.google.inject.Inject
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.common.types.JvmOperation
 import org.eclipse.xtext.common.types.JvmType
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField
@@ -20,6 +21,7 @@ import org.lunifera.ecview.semantic.uimodel.UiSearchPanel
 import org.lunifera.ecview.semantic.uimodel.UiTabAssignment
 import org.lunifera.ecview.semantic.uimodel.UiTable
 import org.lunifera.runtime.common.metric.TimeLogger
+import org.eclipse.emf.ecore.util.EcoreUtil
 
 class I18nKeyProvider {
 
@@ -166,7 +168,9 @@ class I18nKeyProvider {
 			val UiNestedProperty property = column.property
 			if (property != null) {
 				val path = property.toPathString
-				if (path.contains(".")) {
+				if (path == null) {
+					return table.jvmType.qualifiedName
+				} else if (path.contains(".")) {
 					val type = property.typeofSecondLastSegment
 					return type.qualifiedName + "." + property.simpleGetterNameOfLastSegment
 				} else {
@@ -239,8 +243,13 @@ class I18nKeyProvider {
 			logger.stop("Calculating bound opposite operations took: ")
 
 			if (!ops.empty) {
-				val JvmType type = ops.get(0).declaringType
-				return toI18nKey(type.qualifiedName, ops.get(0).simpleName.toPropertyName)
+				val JvmOperation op = ops.get(0)
+				val JvmType type = op.declaringType
+				try {
+					return toI18nKey(type.qualifiedName, ops.get(0).simpleName.toPropertyName)
+				} catch (RuntimeException ex) {
+					throw ex
+				}
 			}
 		}
 	}
@@ -252,8 +261,8 @@ class I18nKeyProvider {
 			return string.replaceFirst("is", "").toFirstLower
 		}
 	}
-	
-	def static String toI18nKey(String beanFQN, String property){
+
+	def static String toI18nKey(String beanFQN, String property) {
 		beanFQN + "." + property
 	}
 

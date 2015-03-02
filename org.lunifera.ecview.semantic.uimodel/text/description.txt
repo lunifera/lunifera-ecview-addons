@@ -30,6 +30,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Attribute actionID : EString
     Attribute iconName : EString
     Attribute checkDirty : EBoolean
+    Attribute externalCommandId : EString
 
   Class UiViewSet -> UiContext
 

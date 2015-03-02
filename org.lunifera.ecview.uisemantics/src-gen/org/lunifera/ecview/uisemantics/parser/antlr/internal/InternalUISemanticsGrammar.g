@@ -170,10 +170,10 @@ ruleUxAction returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUxActionAccess().getNameQualifiedNameParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getUxActionAccess().getNameQualifiedNameParserRuleCall_0_0()); 
 	    }
 		lv_name_0_0=ruleQualifiedName		{
 	        if ($current==null) {
@@ -188,7 +188,44 @@ ruleUxAction returns [EObject current=null]
 	    }
 
 )
+)(	otherlv_1='externalCommand' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getUxActionAccess().getExternalCommandKeyword_1_0());
+    }
+(
+(
+		lv_externalCommandId_2_0=RULE_STRING
+		{
+			newLeafNode(lv_externalCommandId_2_0, grammarAccess.getUxActionAccess().getExternalCommandIdSTRINGTerminalRuleCall_1_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUxActionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"externalCommandId",
+        		lv_externalCommandId_2_0, 
+        		"STRING");
+	    }
+
 )
+))?(
+(
+		lv_initialDisabled_3_0=	'disabled' 
+    {
+        newLeafNode(lv_initialDisabled_3_0, grammarAccess.getUxActionAccess().getInitialDisabledDisabledKeyword_2_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUxActionRule());
+	        }
+       		setWithLastConsumed($current, "initialDisabled", true, "disabled");
+	    }
+
+)
+)?)
 ;
 
 

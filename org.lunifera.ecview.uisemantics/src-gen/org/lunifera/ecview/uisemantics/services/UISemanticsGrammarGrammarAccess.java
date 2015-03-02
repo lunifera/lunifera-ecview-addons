@@ -79,18 +79,46 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 
 	public class UxActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UxAction");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameQualifiedNameParserRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameQualifiedNameParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cExternalCommandKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cExternalCommandIdAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cExternalCommandIdSTRINGTerminalRuleCall_1_1_0 = (RuleCall)cExternalCommandIdAssignment_1_1.eContents().get(0);
+		private final Assignment cInitialDisabledAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Keyword cInitialDisabledDisabledKeyword_2_0 = (Keyword)cInitialDisabledAssignment_2.eContents().get(0);
 		
 		//UxAction returns semantic::UxAction:
-		//	name=QualifiedName;
+		//	name=QualifiedName ("externalCommand" externalCommandId=STRING)? initialDisabled?="disabled"?;
 		public ParserRule getRule() { return rule; }
 
+		//name=QualifiedName ("externalCommand" externalCommandId=STRING)? initialDisabled?="disabled"?
+		public Group getGroup() { return cGroup; }
+
 		//name=QualifiedName
-		public Assignment getNameAssignment() { return cNameAssignment; }
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 
 		//QualifiedName
-		public RuleCall getNameQualifiedNameParserRuleCall_0() { return cNameQualifiedNameParserRuleCall_0; }
+		public RuleCall getNameQualifiedNameParserRuleCall_0_0() { return cNameQualifiedNameParserRuleCall_0_0; }
+
+		//("externalCommand" externalCommandId=STRING)?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"externalCommand"
+		public Keyword getExternalCommandKeyword_1_0() { return cExternalCommandKeyword_1_0; }
+
+		//externalCommandId=STRING
+		public Assignment getExternalCommandIdAssignment_1_1() { return cExternalCommandIdAssignment_1_1; }
+
+		//STRING
+		public RuleCall getExternalCommandIdSTRINGTerminalRuleCall_1_1_0() { return cExternalCommandIdSTRINGTerminalRuleCall_1_1_0; }
+
+		//initialDisabled?="disabled"?
+		public Assignment getInitialDisabledAssignment_2() { return cInitialDisabledAssignment_2; }
+
+		//"disabled"
+		public Keyword getInitialDisabledDisabledKeyword_2_0() { return cInitialDisabledDisabledKeyword_2_0; }
 	}
 
 	public class XImportDeclarationElements extends AbstractParserRuleElementFinder {
@@ -697,7 +725,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	}
 
 	//UxAction returns semantic::UxAction:
-	//	name=QualifiedName;
+	//	name=QualifiedName ("externalCommand" externalCommandId=STRING)? initialDisabled?="disabled"?;
 	public UxActionElements getUxActionAccess() {
 		return pUxAction;
 	}

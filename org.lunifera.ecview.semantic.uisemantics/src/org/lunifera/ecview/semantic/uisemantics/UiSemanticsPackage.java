@@ -712,13 +712,31 @@ public interface UiSemanticsPackage extends EPackage {
 	int UX_ACTION__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>External Command Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_ACTION__EXTERNAL_COMMAND_ID = 1;
+
+	/**
+	 * The feature id for the '<em><b>Initial Disabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_ACTION__INITIAL_DISABLED = 2;
+
+	/**
 	 * The number of structural features of the '<em>Ux Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UX_ACTION_FEATURE_COUNT = 1;
+	int UX_ACTION_FEATURE_COUNT = 3;
 
 
 	/**
@@ -1094,6 +1112,28 @@ public interface UiSemanticsPackage extends EPackage {
 	EAttribute getUxAction_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uisemantics.UxAction#getExternalCommandId <em>External Command Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>External Command Id</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxAction#getExternalCommandId()
+	 * @see #getUxAction()
+	 * @generated
+	 */
+	EAttribute getUxAction_ExternalCommandId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uisemantics.UxAction#isInitialDisabled <em>Initial Disabled</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Initial Disabled</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxAction#isInitialDisabled()
+	 * @see #getUxAction()
+	 * @generated
+	 */
+	EAttribute getUxAction_InitialDisabled();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxImportSectionDeclaration <em>Ux Import Section Declaration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1441,6 +1481,22 @@ public interface UiSemanticsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UX_ACTION__NAME = eINSTANCE.getUxAction_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>External Command Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UX_ACTION__EXTERNAL_COMMAND_ID = eINSTANCE.getUxAction_ExternalCommandId();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial Disabled</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UX_ACTION__INITIAL_DISABLED = eINSTANCE.getUxAction_InitialDisabled();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxImportSectionDeclarationImpl <em>Ux Import Section Declaration</em>}' class.

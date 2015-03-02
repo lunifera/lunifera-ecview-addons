@@ -1335,15 +1335,19 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cActionIDSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cActionIDAssignment_3_1.eContents().get(0);
 		private final Assignment cCheckDirtyAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final Keyword cCheckDirtyCheckDirtyKeyword_4_0 = (Keyword)cCheckDirtyAssignment_4.eContents().get(0);
-		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cExternalCommandKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cExternalCommandIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cExternalCommandIdSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cExternalCommandIdAssignment_5_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//UiExposedAction:
 		//	name=ID ("icon" iconName=STRING)? "id" (=> actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING)
-		//	checkDirty?="checkDirty"? ";"?;
+		//	checkDirty?="checkDirty"? ("externalCommand" externalCommandId=STRING)? ";"?;
 		public ParserRule getRule() { return rule; }
 
 		//name=ID ("icon" iconName=STRING)? "id" (=> actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING)
-		//checkDirty?="checkDirty"? ";"?
+		//checkDirty?="checkDirty"? ("externalCommand" externalCommandId=STRING)? ";"?
 		public Group getGroup() { return cGroup; }
 
 		//name=ID
@@ -1391,8 +1395,20 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"checkDirty"
 		public Keyword getCheckDirtyCheckDirtyKeyword_4_0() { return cCheckDirtyCheckDirtyKeyword_4_0; }
 
+		//("externalCommand" externalCommandId=STRING)?
+		public Group getGroup_5() { return cGroup_5; }
+
+		//"externalCommand"
+		public Keyword getExternalCommandKeyword_5_0() { return cExternalCommandKeyword_5_0; }
+
+		//externalCommandId=STRING
+		public Assignment getExternalCommandIdAssignment_5_1() { return cExternalCommandIdAssignment_5_1; }
+
+		//STRING
+		public RuleCall getExternalCommandIdSTRINGTerminalRuleCall_5_1_0() { return cExternalCommandIdSTRINGTerminalRuleCall_5_1_0; }
+
 		//";"?
-		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
+		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
 	}
 
 	public class UiMobileNavBarActionElements extends AbstractParserRuleElementFinder {
@@ -8737,7 +8753,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 	//UiExposedAction:
 	//	name=ID ("icon" iconName=STRING)? "id" (=> actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING)
-	//	checkDirty?="checkDirty"? ";"?;
+	//	checkDirty?="checkDirty"? ("externalCommand" externalCommandId=STRING)? ";"?;
 	public UiExposedActionElements getUiExposedActionAccess() {
 		return pUiExposedAction;
 	}

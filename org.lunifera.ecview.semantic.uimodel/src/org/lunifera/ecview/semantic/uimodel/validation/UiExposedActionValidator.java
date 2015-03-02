@@ -22,5 +22,7 @@ public interface UiExposedActionValidator {
 
 	boolean validateCheckDirty(boolean value);
 
+	boolean validateExternalCommandId(String value);
+
 	boolean validateImagePath(String value);
 }

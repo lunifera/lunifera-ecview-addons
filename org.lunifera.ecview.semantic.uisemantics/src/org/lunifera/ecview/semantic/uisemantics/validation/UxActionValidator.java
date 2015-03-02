@@ -15,4 +15,10 @@ public interface UxActionValidator {
 	boolean validate();
 
 	boolean validateName(String value);
+
+	boolean validateExternalCommandId(String value);
+
+	boolean validateInitialDisabled(boolean value);
+
+	boolean validateInitialEnabled(boolean value);
 }

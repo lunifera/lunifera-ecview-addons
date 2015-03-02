@@ -57,3 +57,5 @@ Package uisemantics <http://www.lunifera.org/ecview/dsl/uimodel/semantics>
 
   Class UxAction
     Attribute name : EString
+    Attribute externalCommandId : EString
+    Attribute initialDisabled : EBoolean

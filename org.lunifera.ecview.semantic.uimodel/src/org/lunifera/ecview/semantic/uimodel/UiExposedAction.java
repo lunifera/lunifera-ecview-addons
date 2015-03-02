@@ -16,6 +16,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxAction;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiExposedAction#getActionID <em>Action ID</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiExposedAction#getIconName <em>Icon Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiExposedAction#isCheckDirty <em>Check Dirty</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiExposedAction#getExternalCommandId <em>External Command Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -127,5 +128,31 @@ public interface UiExposedAction extends UiAction {
 	 * @generated
 	 */
 	void setCheckDirty(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>External Command Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>External Command Id</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>External Command Id</em>' attribute.
+	 * @see #setExternalCommandId(String)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiExposedAction_ExternalCommandId()
+	 * @model
+	 * @generated
+	 */
+	String getExternalCommandId();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiExposedAction#getExternalCommandId <em>External Command Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>External Command Id</em>' attribute.
+	 * @see #getExternalCommandId()
+	 * @generated
+	 */
+	void setExternalCommandId(String value);
 
 } // UiExposedAction

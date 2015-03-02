@@ -153,6 +153,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiIDEViewAccess().getGroup_6(), "rule__UiIDEView__Group_6__0");
 					put(grammarAccess.getUiExposedActionAccess().getGroup(), "rule__UiExposedAction__Group__0");
 					put(grammarAccess.getUiExposedActionAccess().getGroup_1(), "rule__UiExposedAction__Group_1__0");
+					put(grammarAccess.getUiExposedActionAccess().getGroup_5(), "rule__UiExposedAction__Group_5__0");
 					put(grammarAccess.getUiMobileNavBarActionAccess().getGroup(), "rule__UiMobileNavBarAction__Group__0");
 					put(grammarAccess.getUiMobileNavBarActionAccess().getGroup_1(), "rule__UiMobileNavBarAction__Group_1__0");
 					put(grammarAccess.getUiMobileViewAccess().getGroup(), "rule__UiMobileView__Group__0");
@@ -607,6 +608,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiExposedActionAccess().getActionReferenceAssignment_3_0(), "rule__UiExposedAction__ActionReferenceAssignment_3_0");
 					put(grammarAccess.getUiExposedActionAccess().getActionIDAssignment_3_1(), "rule__UiExposedAction__ActionIDAssignment_3_1");
 					put(grammarAccess.getUiExposedActionAccess().getCheckDirtyAssignment_4(), "rule__UiExposedAction__CheckDirtyAssignment_4");
+					put(grammarAccess.getUiExposedActionAccess().getExternalCommandIdAssignment_5_1(), "rule__UiExposedAction__ExternalCommandIdAssignment_5_1");
 					put(grammarAccess.getUiMobileNavBarActionAccess().getNameAssignment_0(), "rule__UiMobileNavBarAction__NameAssignment_0");
 					put(grammarAccess.getUiMobileNavBarActionAccess().getIconNameAssignment_1_1(), "rule__UiMobileNavBarAction__IconNameAssignment_1_1");
 					put(grammarAccess.getUiMobileNavBarActionAccess().getActionReferenceAssignment_3_0(), "rule__UiMobileNavBarAction__ActionReferenceAssignment_3_0");

@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxAction#getName <em>Name</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxAction#getExternalCommandId <em>External Command Id</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxAction#isInitialDisabled <em>Initial Disabled</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,5 +48,57 @@ public interface UxAction extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>External Command Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>External Command Id</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>External Command Id</em>' attribute.
+	 * @see #setExternalCommandId(String)
+	 * @see org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage#getUxAction_ExternalCommandId()
+	 * @model
+	 * @generated
+	 */
+	String getExternalCommandId();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uisemantics.UxAction#getExternalCommandId <em>External Command Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>External Command Id</em>' attribute.
+	 * @see #getExternalCommandId()
+	 * @generated
+	 */
+	void setExternalCommandId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Initial Disabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Initial Disabled</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Initial Disabled</em>' attribute.
+	 * @see #setInitialDisabled(boolean)
+	 * @see org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage#getUxAction_InitialDisabled()
+	 * @model
+	 * @generated
+	 */
+	boolean isInitialDisabled();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uisemantics.UxAction#isInitialDisabled <em>Initial Disabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Initial Disabled</em>' attribute.
+	 * @see #isInitialDisabled()
+	 * @generated
+	 */
+	void setInitialDisabled(boolean value);
 
 } // UxAction

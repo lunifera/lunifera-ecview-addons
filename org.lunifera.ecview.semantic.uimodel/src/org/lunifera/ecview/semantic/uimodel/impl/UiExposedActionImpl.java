@@ -21,6 +21,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxAction;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiExposedActionImpl#getActionID <em>Action ID</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiExposedActionImpl#getIconName <em>Icon Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiExposedActionImpl#isCheckDirty <em>Check Dirty</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiExposedActionImpl#getExternalCommandId <em>External Command Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -96,6 +97,26 @@ public class UiExposedActionImpl extends UiActionImpl implements UiExposedAction
 	 * @ordered
 	 */
 	protected boolean checkDirty = CHECK_DIRTY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getExternalCommandId() <em>External Command Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExternalCommandId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EXTERNAL_COMMAND_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getExternalCommandId() <em>External Command Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExternalCommandId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String externalCommandId = EXTERNAL_COMMAND_ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -222,6 +243,27 @@ public class UiExposedActionImpl extends UiActionImpl implements UiExposedAction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getExternalCommandId() {
+		return externalCommandId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExternalCommandId(String newExternalCommandId) {
+		String oldExternalCommandId = externalCommandId;
+		externalCommandId = newExternalCommandId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_EXPOSED_ACTION__EXTERNAL_COMMAND_ID, oldExternalCommandId, externalCommandId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -234,6 +276,8 @@ public class UiExposedActionImpl extends UiActionImpl implements UiExposedAction
 				return getIconName();
 			case UiModelPackage.UI_EXPOSED_ACTION__CHECK_DIRTY:
 				return isCheckDirty();
+			case UiModelPackage.UI_EXPOSED_ACTION__EXTERNAL_COMMAND_ID:
+				return getExternalCommandId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -257,6 +301,9 @@ public class UiExposedActionImpl extends UiActionImpl implements UiExposedAction
 				return;
 			case UiModelPackage.UI_EXPOSED_ACTION__CHECK_DIRTY:
 				setCheckDirty((Boolean)newValue);
+				return;
+			case UiModelPackage.UI_EXPOSED_ACTION__EXTERNAL_COMMAND_ID:
+				setExternalCommandId((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -282,6 +329,9 @@ public class UiExposedActionImpl extends UiActionImpl implements UiExposedAction
 			case UiModelPackage.UI_EXPOSED_ACTION__CHECK_DIRTY:
 				setCheckDirty(CHECK_DIRTY_EDEFAULT);
 				return;
+			case UiModelPackage.UI_EXPOSED_ACTION__EXTERNAL_COMMAND_ID:
+				setExternalCommandId(EXTERNAL_COMMAND_ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -302,6 +352,8 @@ public class UiExposedActionImpl extends UiActionImpl implements UiExposedAction
 				return ICON_NAME_EDEFAULT == null ? iconName != null : !ICON_NAME_EDEFAULT.equals(iconName);
 			case UiModelPackage.UI_EXPOSED_ACTION__CHECK_DIRTY:
 				return checkDirty != CHECK_DIRTY_EDEFAULT;
+			case UiModelPackage.UI_EXPOSED_ACTION__EXTERNAL_COMMAND_ID:
+				return EXTERNAL_COMMAND_ID_EDEFAULT == null ? externalCommandId != null : !EXTERNAL_COMMAND_ID_EDEFAULT.equals(externalCommandId);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -322,6 +374,8 @@ public class UiExposedActionImpl extends UiActionImpl implements UiExposedAction
 		result.append(iconName);
 		result.append(", checkDirty: ");
 		result.append(checkDirty);
+		result.append(", externalCommandId: ");
+		result.append(externalCommandId);
 		result.append(')');
 		return result.toString();
 	}

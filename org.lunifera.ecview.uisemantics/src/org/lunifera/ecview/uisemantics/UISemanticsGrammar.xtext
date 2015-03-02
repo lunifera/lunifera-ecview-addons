@@ -14,7 +14,7 @@ UxModel returns semantic::UxModel:
 	elementDefinitions+=UxElementDefinition*;
 
 UxAction returns semantic::UxAction:
-	name=QualifiedName;
+	name=QualifiedName ('externalCommand' externalCommandId=STRING)? (initialDisabled?="disabled")?;
 
 XImportDeclaration returns semantic::UxImportSectionDeclaration:
 	{semantic::UxImportSectionDeclaration}
