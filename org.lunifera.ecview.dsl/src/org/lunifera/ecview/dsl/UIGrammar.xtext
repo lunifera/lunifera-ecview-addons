@@ -100,10 +100,9 @@ UiRemoveFromTableCommand:
 	{UiRemoveFromTableCommand}
 	'removeFromTable' table=[UiTable];
 
-UiSetNewInstanceCommand: 
+UiSetNewInstanceCommand:
 	{UiSetNewInstanceCommand}
-	'newInstance' target=UiBindingEndpointAssignment
-;
+	'newInstance' ('for' jvmType=JvmTypeReference)? ('at' target=UiBindingEndpointAssignment);
 
 UiSendEventCommand:
 	{UiSendEventCommand}
@@ -134,7 +133,8 @@ UiIDEView returns UiIDEView:
 	'}';
 
 UiExposedAction:
-	name=ID ('icon' iconName=STRING)? 'id' (=> actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING) (';')?;
+	name=ID ('icon' iconName=STRING)? 'id' (=> actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING)
+	(checkDirty?='checkDirty')? (';')?;
 
 UiMobileNavBarAction:
 	name=ID ('icon' iconName=STRING)? 'id' (=> actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING) (';')?;

@@ -27,9 +27,9 @@ element Browser {
 		 */
 		endpoint visible Boolean
 	}
-}  
+}
 
-element TextField {  
+element TextField {
 	uri view:UiTextField
 	
 	bindings {
@@ -210,11 +210,32 @@ element ExposedAction {
 	uri view:UiExposedAction
 	 
 	bindings {
+		
 		/**
-		 * If the ui element is clicked, it will return
-		 * the clicktime in milliseconds.
+		 * This method simulates and internal click that is
+		 * forwarded to the "external" handler. To ensure 
+		 * proper handling the "external" framework will call
+		 * "onExecuted" or "onCanceled".
 		 */
-		endpoint onClick Long target lastClickTime
+		endpoint click Long target internalClickTime
+		
+		/**
+		 * Exposed actions are visualized outside the ECView core. 
+		 * If these "external" actions are fired, then the click is
+		 * forwarded to this method.
+		 */
+		endpoint onExternalClick Long target externalClickTime
+		
+		/**
+		 * Becomes invoked if the action was executed properly.
+		 */
+		endpoint onExecuted Long target executedNotificationTime
+		
+		/**
+		 * Becomes invoked if the action was canceled. For instance by a dialog.
+		 */
+		endpoint onCanceled Long target canceledNotificationTime
+		
 		/**
 		 * Enabled property of the UI element.
 		 */

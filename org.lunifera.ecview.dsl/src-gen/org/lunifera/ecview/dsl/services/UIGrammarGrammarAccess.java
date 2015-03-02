@@ -1024,14 +1024,20 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cUiSetNewInstanceCommandAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cNewInstanceKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTargetAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTargetUiBindingEndpointAssignmentParserRuleCall_2_0 = (RuleCall)cTargetAssignment_2.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cForKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cJvmTypeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_2_1_0 = (RuleCall)cJvmTypeAssignment_2_1.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cAtKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cTargetAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cTargetUiBindingEndpointAssignmentParserRuleCall_3_1_0 = (RuleCall)cTargetAssignment_3_1.eContents().get(0);
 		
 		//UiSetNewInstanceCommand:
-		//	{UiSetNewInstanceCommand} "newInstance" target=UiBindingEndpointAssignment;
+		//	{UiSetNewInstanceCommand} "newInstance" ("for" jvmType=JvmTypeReference)? ("at" target=UiBindingEndpointAssignment);
 		public ParserRule getRule() { return rule; }
 
-		//{UiSetNewInstanceCommand} "newInstance" target=UiBindingEndpointAssignment
+		//{UiSetNewInstanceCommand} "newInstance" ("for" jvmType=JvmTypeReference)? ("at" target=UiBindingEndpointAssignment)
 		public Group getGroup() { return cGroup; }
 
 		//{UiSetNewInstanceCommand}
@@ -1040,11 +1046,29 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"newInstance"
 		public Keyword getNewInstanceKeyword_1() { return cNewInstanceKeyword_1; }
 
+		//("for" jvmType=JvmTypeReference)?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"for"
+		public Keyword getForKeyword_2_0() { return cForKeyword_2_0; }
+
+		//jvmType=JvmTypeReference
+		public Assignment getJvmTypeAssignment_2_1() { return cJvmTypeAssignment_2_1; }
+
+		//JvmTypeReference
+		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_2_1_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_2_1_0; }
+
+		//"at" target=UiBindingEndpointAssignment
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"at"
+		public Keyword getAtKeyword_3_0() { return cAtKeyword_3_0; }
+
 		//target=UiBindingEndpointAssignment
-		public Assignment getTargetAssignment_2() { return cTargetAssignment_2; }
+		public Assignment getTargetAssignment_3_1() { return cTargetAssignment_3_1; }
 
 		//UiBindingEndpointAssignment
-		public RuleCall getTargetUiBindingEndpointAssignmentParserRuleCall_2_0() { return cTargetUiBindingEndpointAssignmentParserRuleCall_2_0; }
+		public RuleCall getTargetUiBindingEndpointAssignmentParserRuleCall_3_1_0() { return cTargetUiBindingEndpointAssignmentParserRuleCall_3_1_0; }
 	}
 
 	public class UiSendEventCommandElements extends AbstractParserRuleElementFinder {
@@ -1309,13 +1333,17 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cActionReferenceUxActionQualifiedNameParserRuleCall_3_0_0_1 = (RuleCall)cActionReferenceUxActionCrossReference_3_0_0.eContents().get(1);
 		private final Assignment cActionIDAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
 		private final RuleCall cActionIDSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cActionIDAssignment_3_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cCheckDirtyAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final Keyword cCheckDirtyCheckDirtyKeyword_4_0 = (Keyword)cCheckDirtyAssignment_4.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//UiExposedAction:
-		//	name=ID ("icon" iconName=STRING)? "id" (=> actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING) ";"?;
+		//	name=ID ("icon" iconName=STRING)? "id" (=> actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING)
+		//	checkDirty?="checkDirty"? ";"?;
 		public ParserRule getRule() { return rule; }
 
-		//name=ID ("icon" iconName=STRING)? "id" (=> actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING) ";"?
+		//name=ID ("icon" iconName=STRING)? "id" (=> actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING)
+		//checkDirty?="checkDirty"? ";"?
 		public Group getGroup() { return cGroup; }
 
 		//name=ID
@@ -1357,8 +1385,14 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getActionIDSTRINGTerminalRuleCall_3_1_0() { return cActionIDSTRINGTerminalRuleCall_3_1_0; }
 
+		//checkDirty?="checkDirty"?
+		public Assignment getCheckDirtyAssignment_4() { return cCheckDirtyAssignment_4; }
+
+		//"checkDirty"
+		public Keyword getCheckDirtyCheckDirtyKeyword_4_0() { return cCheckDirtyCheckDirtyKeyword_4_0; }
+
 		//";"?
-		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 
 	public class UiMobileNavBarActionElements extends AbstractParserRuleElementFinder {
@@ -8658,7 +8692,7 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiSetNewInstanceCommand:
-	//	{UiSetNewInstanceCommand} "newInstance" target=UiBindingEndpointAssignment;
+	//	{UiSetNewInstanceCommand} "newInstance" ("for" jvmType=JvmTypeReference)? ("at" target=UiBindingEndpointAssignment);
 	public UiSetNewInstanceCommandElements getUiSetNewInstanceCommandAccess() {
 		return pUiSetNewInstanceCommand;
 	}
@@ -8702,7 +8736,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiExposedAction:
-	//	name=ID ("icon" iconName=STRING)? "id" (=> actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING) ";"?;
+	//	name=ID ("icon" iconName=STRING)? "id" (=> actionReference=[cfg::UxAction|QualifiedName] | actionID=STRING)
+	//	checkDirty?="checkDirty"? ";"?;
 	public UiExposedActionElements getUiExposedActionAccess() {
 		return pUiExposedAction;
 	}

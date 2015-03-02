@@ -4,6 +4,7 @@
  */
 package org.lunifera.ecview.semantic.uimodel.validation;
 
+import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
 
 /**
@@ -16,4 +17,8 @@ public interface UiSetNewInstanceCommandValidator {
 	boolean validate();
 
 	boolean validateTarget(UiBindingExpression value);
+
+	boolean validateJvmType(JvmTypeReference value);
+
+	boolean validateType(JvmTypeReference value);
 }

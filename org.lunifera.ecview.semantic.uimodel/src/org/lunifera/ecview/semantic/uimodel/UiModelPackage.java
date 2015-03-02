@@ -1253,13 +1253,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_EXPOSED_ACTION__ICON_NAME = UI_ACTION_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Check Dirty</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_EXPOSED_ACTION__CHECK_DIRTY = UI_ACTION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Ui Exposed Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_EXPOSED_ACTION_FEATURE_COUNT = UI_ACTION_FEATURE_COUNT + 3;
+	int UI_EXPOSED_ACTION_FEATURE_COUNT = UI_ACTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9292,13 +9301,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_SET_NEW_INSTANCE_COMMAND__TARGET = UI_COMMAND_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Jvm Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_SET_NEW_INSTANCE_COMMAND__JVM_TYPE = UI_COMMAND_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Ui Set New Instance Command</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_SET_NEW_INSTANCE_COMMAND_FEATURE_COUNT = UI_COMMAND_FEATURE_COUNT + 1;
+	int UI_SET_NEW_INSTANCE_COMMAND_FEATURE_COUNT = UI_COMMAND_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.
@@ -9546,6 +9564,17 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getUiExposedAction_IconName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uimodel.UiExposedAction#isCheckDirty <em>Check Dirty</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Check Dirty</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiExposedAction#isCheckDirty()
+	 * @see #getUiExposedAction()
+	 * @generated
+	 */
+	EAttribute getUiExposedAction_CheckDirty();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiView <em>Ui View</em>}'.
@@ -12563,6 +12592,17 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiSetNewInstanceCommand_Target();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.lunifera.ecview.semantic.uimodel.UiSetNewInstanceCommand#getJvmType <em>Jvm Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Jvm Type</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiSetNewInstanceCommand#getJvmType()
+	 * @see #getUiSetNewInstanceCommand()
+	 * @generated
+	 */
+	EReference getUiSetNewInstanceCommand_JvmType();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiSearchField <em>Ui Search Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12882,6 +12922,14 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UI_EXPOSED_ACTION__ICON_NAME = eINSTANCE.getUiExposedAction_IconName();
+
+		/**
+		 * The meta object literal for the '<em><b>Check Dirty</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UI_EXPOSED_ACTION__CHECK_DIRTY = eINSTANCE.getUiExposedAction_CheckDirty();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl <em>Ui View</em>}' class.
@@ -15452,6 +15500,14 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_SET_NEW_INSTANCE_COMMAND__TARGET = eINSTANCE.getUiSetNewInstanceCommand_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Jvm Type</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_SET_NEW_INSTANCE_COMMAND__JVM_TYPE = eINSTANCE.getUiSetNewInstanceCommand_JvmType();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.UiFlatAlignment <em>Ui Flat Alignment</em>}' enum.

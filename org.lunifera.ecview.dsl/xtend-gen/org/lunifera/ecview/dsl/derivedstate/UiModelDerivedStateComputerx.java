@@ -1931,6 +1931,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       String _plus = (_i18nKey_1 + ".image");
       yAction.setIcon(_plus);
     }
+    boolean _isCheckDirty = object.isCheckDirty();
+    yAction.setCheckDirty(_isCheckDirty);
     this.associateUi(object, yAction);
     EList<UiBinding> _bindings = object.getBindings();
     final Procedure1<UiBinding> _function = new Procedure1<UiBinding>() {
@@ -3470,46 +3472,60 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
                       _commandSet_6.addCommand(yCommand_6);
                       UiBindingExpression _target = command_6.getTarget();
                       final UiBindingEndpointAssignment targetEP = ((UiBindingEndpointAssignment) _target);
-                      final BindingInfoHelper.BindingInfo targetInfo = new BindingInfoHelper.BindingInfo();
-                      this.bindingInfoHelper.collectBindingInfo(targetEP, targetInfo);
-                      YValueBindingEndpoint _createValueBindingEndpoint = this.createValueBindingEndpoint(targetEP);
-                      yCommand_6.setTarget(_createValueBindingEndpoint);
-                      JvmType _typeOfBoundProperty = targetInfo.getTypeOfBoundProperty();
-                      boolean _notEquals_2 = (!Objects.equal(_typeOfBoundProperty, null));
+                      JvmTypeReference _jvmType = command_6.getJvmType();
+                      boolean _notEquals_2 = (!Objects.equal(_jvmType, null));
                       if (_notEquals_2) {
-                        JvmType _typeOfBoundProperty_1 = targetInfo.getTypeOfBoundProperty();
-                        String _qualifiedName_1 = _typeOfBoundProperty_1.getQualifiedName();
+                        JvmTypeReference _jvmType_1 = command_6.getJvmType();
+                        String _qualifiedName_1 = _jvmType_1.getQualifiedName();
                         yCommand_6.setTypeQualifiedName(_qualifiedName_1);
-                        Resource _eResource_1 = epDef.eResource();
+                        Resource _eResource_1 = command_6.eResource();
                         ResourceSet _resourceSet_1 = _eResource_1.getResourceSet();
-                        String _typeQualifiedName_1 = yCommand_6.getTypeQualifiedName();
-                        Class<?> _loadClass_1 = this.loadClass(_resourceSet_1, _typeQualifiedName_1);
+                        JvmTypeReference _jvmType_2 = command_6.getJvmType();
+                        String _qualifiedName_2 = _jvmType_2.getQualifiedName();
+                        Class<?> _loadClass_1 = this.loadClass(_resourceSet_1, _qualifiedName_2);
                         yCommand_6.setType(_loadClass_1);
                       } else {
-                        JvmType _typeForBinding_2 = targetInfo.getTypeForBinding();
-                        boolean _notEquals_3 = (!Objects.equal(_typeForBinding_2, null));
+                        final BindingInfoHelper.BindingInfo targetInfo = new BindingInfoHelper.BindingInfo();
+                        this.bindingInfoHelper.collectBindingInfo(targetEP, targetInfo);
+                        YValueBindingEndpoint _createValueBindingEndpoint = this.createValueBindingEndpoint(targetEP);
+                        yCommand_6.setTarget(_createValueBindingEndpoint);
+                        JvmType _typeOfBoundProperty = targetInfo.getTypeOfBoundProperty();
+                        boolean _notEquals_3 = (!Objects.equal(_typeOfBoundProperty, null));
                         if (_notEquals_3) {
-                          JvmType _typeForBinding_3 = targetInfo.getTypeForBinding();
-                          String _qualifiedName_2 = _typeForBinding_3.getQualifiedName();
-                          yCommand_6.setTypeQualifiedName(_qualifiedName_2);
+                          JvmType _typeOfBoundProperty_1 = targetInfo.getTypeOfBoundProperty();
+                          String _qualifiedName_3 = _typeOfBoundProperty_1.getQualifiedName();
+                          yCommand_6.setTypeQualifiedName(_qualifiedName_3);
                           Resource _eResource_2 = epDef.eResource();
                           ResourceSet _resourceSet_2 = _eResource_2.getResourceSet();
-                          String _typeQualifiedName_2 = yCommand_6.getTypeQualifiedName();
-                          Class<?> _loadClass_2 = this.loadClass(_resourceSet_2, _typeQualifiedName_2);
+                          String _typeQualifiedName_1 = yCommand_6.getTypeQualifiedName();
+                          Class<?> _loadClass_2 = this.loadClass(_resourceSet_2, _typeQualifiedName_1);
                           yCommand_6.setType(_loadClass_2);
+                        } else {
+                          JvmType _typeForBinding_2 = targetInfo.getTypeForBinding();
+                          boolean _notEquals_4 = (!Objects.equal(_typeForBinding_2, null));
+                          if (_notEquals_4) {
+                            JvmType _typeForBinding_3 = targetInfo.getTypeForBinding();
+                            String _qualifiedName_4 = _typeForBinding_3.getQualifiedName();
+                            yCommand_6.setTypeQualifiedName(_qualifiedName_4);
+                            Resource _eResource_3 = epDef.eResource();
+                            ResourceSet _resourceSet_3 = _eResource_3.getResourceSet();
+                            String _typeQualifiedName_2 = yCommand_6.getTypeQualifiedName();
+                            Class<?> _loadClass_3 = this.loadClass(_resourceSet_3, _typeQualifiedName_2);
+                            yCommand_6.setType(_loadClass_3);
+                          }
                         }
-                      }
-                      boolean _and_1 = false;
-                      Class<?> _type_2 = yCommand_6.getType();
-                      boolean _notEquals_4 = (!Objects.equal(_type_2, null));
-                      if (!_notEquals_4) {
-                        _and_1 = false;
-                      } else {
-                        Class<?> _type_3 = yCommand_6.getType();
-                        boolean _isAssignableFrom_1 = _type_3.isAssignableFrom(EObject.class);
-                        _and_1 = _isAssignableFrom_1;
-                      }
-                      if (_and_1) {
+                        boolean _and_1 = false;
+                        Class<?> _type_2 = yCommand_6.getType();
+                        boolean _notEquals_5 = (!Objects.equal(_type_2, null));
+                        if (!_notEquals_5) {
+                          _and_1 = false;
+                        } else {
+                          Class<?> _type_3 = yCommand_6.getType();
+                          boolean _isAssignableFrom_1 = _type_3.isAssignableFrom(EObject.class);
+                          _and_1 = _isAssignableFrom_1;
+                        }
+                        if (_and_1) {
+                        }
                       }
                       YECViewModelValueBindingEndpoint _createTriggerEndpoint_2 = yCommand_6.createTriggerEndpoint();
                       result = _createTriggerEndpoint_2;

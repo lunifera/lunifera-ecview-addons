@@ -31,6 +31,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="actionReference" eType="ecore:EClass ../../org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore#//UxAction"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iconName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkDirty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiViewSet" eSuperTypes="#//UiContext"/>
   <eClassifiers xsi:type="ecore:EClass" name="UiView" eSuperTypes="#//UiContext #//UiVisibilityProcessable #//UiRawBindable #//UiTypeProvider">
@@ -588,6 +589,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiSetNewInstanceCommand" eSuperTypes="#//UiCommand">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//UiBindingExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jvmType" eType="ecore:EClass ../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

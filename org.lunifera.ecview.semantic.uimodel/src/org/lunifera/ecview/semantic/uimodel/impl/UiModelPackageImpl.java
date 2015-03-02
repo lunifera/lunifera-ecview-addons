@@ -1237,6 +1237,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUiExposedAction_CheckDirty() {
+		return (EAttribute)uiExposedActionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUiViewSet() {
 		return uiViewSetEClass;
 	}
@@ -3874,6 +3883,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getUiSetNewInstanceCommand_JvmType() {
+		return (EReference)uiSetNewInstanceCommandEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getUiFlatAlignment() {
 		return uiFlatAlignmentEEnum;
 	}
@@ -3964,6 +3982,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(uiExposedActionEClass, UI_EXPOSED_ACTION__ACTION_REFERENCE);
 		createEAttribute(uiExposedActionEClass, UI_EXPOSED_ACTION__ACTION_ID);
 		createEAttribute(uiExposedActionEClass, UI_EXPOSED_ACTION__ICON_NAME);
+		createEAttribute(uiExposedActionEClass, UI_EXPOSED_ACTION__CHECK_DIRTY);
 
 		uiViewSetEClass = createEClass(UI_VIEW_SET);
 
@@ -4370,6 +4389,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		uiSetNewInstanceCommandEClass = createEClass(UI_SET_NEW_INSTANCE_COMMAND);
 		createEReference(uiSetNewInstanceCommandEClass, UI_SET_NEW_INSTANCE_COMMAND__TARGET);
+		createEReference(uiSetNewInstanceCommandEClass, UI_SET_NEW_INSTANCE_COMMAND__JVM_TYPE);
 
 		// Create enums
 		uiFlatAlignmentEEnum = createEEnum(UI_FLAT_ALIGNMENT);
@@ -4591,6 +4611,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getUiExposedAction_ActionReference(), theUiSemanticsPackage.getUxAction(), null, "actionReference", null, 0, 1, UiExposedAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiExposedAction_ActionID(), ecorePackage.getEString(), "actionID", null, 0, 1, UiExposedAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUiExposedAction_IconName(), ecorePackage.getEString(), "iconName", null, 0, 1, UiExposedAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUiExposedAction_CheckDirty(), ecorePackage.getEBoolean(), "checkDirty", null, 0, 1, UiExposedAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uiViewSetEClass, UiViewSet.class, "UiViewSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4997,6 +5018,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(uiSetNewInstanceCommandEClass, UiSetNewInstanceCommand.class, "UiSetNewInstanceCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUiSetNewInstanceCommand_Target(), this.getUiBindingExpression(), null, "target", null, 0, 1, UiSetNewInstanceCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUiSetNewInstanceCommand_JvmType(), theTypesPackage.getJvmTypeReference(), null, "jvmType", null, 0, 1, UiSetNewInstanceCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(uiFlatAlignmentEEnum, UiFlatAlignment.class, "UiFlatAlignment");

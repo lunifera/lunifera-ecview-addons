@@ -29,6 +29,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
     Reference actionReference : UxAction
     Attribute actionID : EString
     Attribute iconName : EString
+    Attribute checkDirty : EBoolean
 
   Class UiViewSet -> UiContext
 
@@ -435,6 +436,7 @@ Package uimodel <http://www.lunifera.org/ecview/dsl/uimodel/core>
 
   Class UiSetNewInstanceCommand -> UiCommand
     Reference target : UiBindingExpression
+    Reference jvmType : JvmTypeReference
 
   Enum UiFlatAlignment
     Literal LEFT = 0

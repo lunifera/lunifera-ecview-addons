@@ -20,5 +20,7 @@ public interface UiExposedActionValidator {
 
 	boolean validateIconName(String value);
 
+	boolean validateCheckDirty(boolean value);
+
 	boolean validateImagePath(String value);
 }

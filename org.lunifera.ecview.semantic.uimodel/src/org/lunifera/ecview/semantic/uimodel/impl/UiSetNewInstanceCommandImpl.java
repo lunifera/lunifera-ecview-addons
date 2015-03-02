@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.lunifera.ecview.semantic.uimodel.UiBindingExpression;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiSetNewInstanceCommand;
@@ -25,6 +26,7 @@ import org.lunifera.ecview.semantic.uimodel.UiSetNewInstanceCommand;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSetNewInstanceCommandImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSetNewInstanceCommandImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSetNewInstanceCommandImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiSetNewInstanceCommandImpl#getJvmType <em>Jvm Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,6 +82,16 @@ public class UiSetNewInstanceCommandImpl extends MinimalEObjectImpl.Container im
 	 * @ordered
 	 */
 	protected UiBindingExpression target;
+
+	/**
+	 * The cached value of the '{@link #getJvmType() <em>Jvm Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJvmType()
+	 * @generated
+	 * @ordered
+	 */
+	protected JvmTypeReference jvmType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -213,11 +225,79 @@ public class UiSetNewInstanceCommandImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public JvmTypeReference getJvmType() {
+		if (jvmType != null && jvmType.eIsProxy()) {
+			InternalEObject oldJvmType = (InternalEObject)jvmType;
+			jvmType = (JvmTypeReference)eResolveProxy(oldJvmType);
+			if (jvmType != oldJvmType) {
+				InternalEObject newJvmType = (InternalEObject)jvmType;
+				NotificationChain msgs = oldJvmType.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND__JVM_TYPE, null, null);
+				if (newJvmType.eInternalContainer() == null) {
+					msgs = newJvmType.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND__JVM_TYPE, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND__JVM_TYPE, oldJvmType, jvmType));
+			}
+		}
+		return jvmType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JvmTypeReference basicGetJvmType() {
+		return jvmType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetJvmType(JvmTypeReference newJvmType, NotificationChain msgs) {
+		JvmTypeReference oldJvmType = jvmType;
+		jvmType = newJvmType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND__JVM_TYPE, oldJvmType, newJvmType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJvmType(JvmTypeReference newJvmType) {
+		if (newJvmType != jvmType) {
+			NotificationChain msgs = null;
+			if (jvmType != null)
+				msgs = ((InternalEObject)jvmType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND__JVM_TYPE, null, msgs);
+			if (newJvmType != null)
+				msgs = ((InternalEObject)newJvmType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND__JVM_TYPE, null, msgs);
+			msgs = basicSetJvmType(newJvmType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND__JVM_TYPE, newJvmType, newJvmType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND__TARGET:
 				return basicSetTarget(null, msgs);
+			case UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND__JVM_TYPE:
+				return basicSetJvmType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -237,6 +317,9 @@ public class UiSetNewInstanceCommandImpl extends MinimalEObjectImpl.Container im
 			case UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
+			case UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND__JVM_TYPE:
+				if (resolve) return getJvmType();
+				return basicGetJvmType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -257,6 +340,9 @@ public class UiSetNewInstanceCommandImpl extends MinimalEObjectImpl.Container im
 				return;
 			case UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND__TARGET:
 				setTarget((UiBindingExpression)newValue);
+				return;
+			case UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND__JVM_TYPE:
+				setJvmType((JvmTypeReference)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -279,6 +365,9 @@ public class UiSetNewInstanceCommandImpl extends MinimalEObjectImpl.Container im
 			case UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND__TARGET:
 				setTarget((UiBindingExpression)null);
 				return;
+			case UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND__JVM_TYPE:
+				setJvmType((JvmTypeReference)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -297,6 +386,8 @@ public class UiSetNewInstanceCommandImpl extends MinimalEObjectImpl.Container im
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND__TARGET:
 				return target != null;
+			case UiModelPackage.UI_SET_NEW_INSTANCE_COMMAND__JVM_TYPE:
+				return jvmType != null;
 		}
 		return super.eIsSet(featureID);
 	}

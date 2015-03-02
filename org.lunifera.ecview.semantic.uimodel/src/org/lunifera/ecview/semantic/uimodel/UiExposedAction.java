@@ -15,6 +15,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxAction;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiExposedAction#getActionReference <em>Action Reference</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiExposedAction#getActionID <em>Action ID</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiExposedAction#getIconName <em>Icon Name</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiExposedAction#isCheckDirty <em>Check Dirty</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,5 +101,31 @@ public interface UiExposedAction extends UiAction {
 	 * @generated
 	 */
 	void setIconName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Check Dirty</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Check Dirty</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Check Dirty</em>' attribute.
+	 * @see #setCheckDirty(boolean)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiExposedAction_CheckDirty()
+	 * @model
+	 * @generated
+	 */
+	boolean isCheckDirty();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiExposedAction#isCheckDirty <em>Check Dirty</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Check Dirty</em>' attribute.
+	 * @see #isCheckDirty()
+	 * @generated
+	 */
+	void setCheckDirty(boolean value);
 
 } // UiExposedAction

@@ -20,6 +20,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxAction;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiExposedActionImpl#getActionReference <em>Action Reference</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiExposedActionImpl#getActionID <em>Action ID</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiExposedActionImpl#getIconName <em>Icon Name</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiExposedActionImpl#isCheckDirty <em>Check Dirty</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,6 +76,26 @@ public class UiExposedActionImpl extends UiActionImpl implements UiExposedAction
 	 * @ordered
 	 */
 	protected String iconName = ICON_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isCheckDirty() <em>Check Dirty</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCheckDirty()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CHECK_DIRTY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isCheckDirty() <em>Check Dirty</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCheckDirty()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean checkDirty = CHECK_DIRTY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -180,6 +201,27 @@ public class UiExposedActionImpl extends UiActionImpl implements UiExposedAction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isCheckDirty() {
+		return checkDirty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCheckDirty(boolean newCheckDirty) {
+		boolean oldCheckDirty = checkDirty;
+		checkDirty = newCheckDirty;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_EXPOSED_ACTION__CHECK_DIRTY, oldCheckDirty, checkDirty));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -190,6 +232,8 @@ public class UiExposedActionImpl extends UiActionImpl implements UiExposedAction
 				return getActionID();
 			case UiModelPackage.UI_EXPOSED_ACTION__ICON_NAME:
 				return getIconName();
+			case UiModelPackage.UI_EXPOSED_ACTION__CHECK_DIRTY:
+				return isCheckDirty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -210,6 +254,9 @@ public class UiExposedActionImpl extends UiActionImpl implements UiExposedAction
 				return;
 			case UiModelPackage.UI_EXPOSED_ACTION__ICON_NAME:
 				setIconName((String)newValue);
+				return;
+			case UiModelPackage.UI_EXPOSED_ACTION__CHECK_DIRTY:
+				setCheckDirty((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -232,6 +279,9 @@ public class UiExposedActionImpl extends UiActionImpl implements UiExposedAction
 			case UiModelPackage.UI_EXPOSED_ACTION__ICON_NAME:
 				setIconName(ICON_NAME_EDEFAULT);
 				return;
+			case UiModelPackage.UI_EXPOSED_ACTION__CHECK_DIRTY:
+				setCheckDirty(CHECK_DIRTY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -250,6 +300,8 @@ public class UiExposedActionImpl extends UiActionImpl implements UiExposedAction
 				return ACTION_ID_EDEFAULT == null ? actionID != null : !ACTION_ID_EDEFAULT.equals(actionID);
 			case UiModelPackage.UI_EXPOSED_ACTION__ICON_NAME:
 				return ICON_NAME_EDEFAULT == null ? iconName != null : !ICON_NAME_EDEFAULT.equals(iconName);
+			case UiModelPackage.UI_EXPOSED_ACTION__CHECK_DIRTY:
+				return checkDirty != CHECK_DIRTY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -268,6 +320,8 @@ public class UiExposedActionImpl extends UiActionImpl implements UiExposedAction
 		result.append(actionID);
 		result.append(", iconName: ");
 		result.append(iconName);
+		result.append(", checkDirty: ");
+		result.append(checkDirty);
 		result.append(')');
 		return result.toString();
 	}

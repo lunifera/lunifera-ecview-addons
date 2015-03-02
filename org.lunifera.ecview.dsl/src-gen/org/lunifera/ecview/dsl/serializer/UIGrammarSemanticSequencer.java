@@ -2176,7 +2176,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID iconName=STRING? (actionReference=[UxAction|QualifiedName] | actionID=STRING))
+	 *     (name=ID iconName=STRING? (actionReference=[UxAction|QualifiedName] | actionID=STRING) checkDirty?='checkDirty'?)
 	 */
 	protected void sequence_UiExposedAction(EObject context, UiExposedAction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2817,7 +2817,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     target=UiBindingEndpointAssignment
+	 *     (jvmType=JvmTypeReference? target=UiBindingEndpointAssignment)
 	 */
 	protected void sequence_UiSetNewInstanceCommand(EObject context, UiSetNewInstanceCommand semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

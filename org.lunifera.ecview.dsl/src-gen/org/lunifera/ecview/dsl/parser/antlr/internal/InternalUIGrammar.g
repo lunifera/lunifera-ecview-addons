@@ -1717,25 +1717,51 @@ ruleUiSetNewInstanceCommand returns [EObject current=null]
     {
     	newLeafNode(otherlv_1, grammarAccess.getUiSetNewInstanceCommandAccess().getNewInstanceKeyword_1());
     }
+(	otherlv_2='for' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getUiSetNewInstanceCommandAccess().getForKeyword_2_0());
+    }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUiSetNewInstanceCommandAccess().getTargetUiBindingEndpointAssignmentParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getUiSetNewInstanceCommandAccess().getJvmTypeJvmTypeReferenceParserRuleCall_2_1_0()); 
 	    }
-		lv_target_2_0=ruleUiBindingEndpointAssignment		{
+		lv_jvmType_3_0=ruleJvmTypeReference		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUiSetNewInstanceCommandRule());
+	        }
+       		set(
+       			$current, 
+       			"jvmType",
+        		lv_jvmType_3_0, 
+        		"JvmTypeReference");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?(	otherlv_4='at' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getUiSetNewInstanceCommandAccess().getAtKeyword_3_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUiSetNewInstanceCommandAccess().getTargetUiBindingEndpointAssignmentParserRuleCall_3_1_0()); 
+	    }
+		lv_target_5_0=ruleUiBindingEndpointAssignment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUiSetNewInstanceCommandRule());
 	        }
        		set(
        			$current, 
        			"target",
-        		lv_target_2_0, 
+        		lv_target_5_0, 
         		"UiBindingEndpointAssignment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))
+)))
 ;
 
 
@@ -2277,9 +2303,24 @@ ruleUiExposedAction returns [EObject current=null]
 	    }
 
 )
-))(	otherlv_6=';' 
+))(
+(
+		lv_checkDirty_6_0=	'checkDirty' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getUiExposedActionAccess().getSemicolonKeyword_4());
+        newLeafNode(lv_checkDirty_6_0, grammarAccess.getUiExposedActionAccess().getCheckDirtyCheckDirtyKeyword_4_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUiExposedActionRule());
+	        }
+       		setWithLastConsumed($current, "checkDirty", true, "checkDirty");
+	    }
+
+)
+)?(	otherlv_7=';' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getUiExposedActionAccess().getSemicolonKeyword_5());
     }
 )?)
 ;
