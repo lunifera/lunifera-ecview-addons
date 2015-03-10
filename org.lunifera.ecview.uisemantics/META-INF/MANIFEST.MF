@@ -22,10 +22,10 @@ Require-Bundle: org.eclipse.xtext;bundle-version="[2.7.3,2.8.0)";visibility:=ree
  org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
  org.eclipse.xtext.xbase.lib;bundle-version="[2.7.3,2.8.0)",
  org.lunifera.ecview.semantic.uisemantics;bundle-version="[0.9.0,0.10.0)",
- org.lunifera.xtext.builder.xbase.setups;resolution:=optional,
- org.lunifera.xtext.builder.types.bundles;resolution:=optional,
- org.lunifera.xtext.builder.types.loader.runtime;resolution:=optional,
- org.lunifera.xtext.builder.types.loader.api
+ org.lunifera.xtext.builder.xbase.setups;bundle-version="[0.9.1,0.10.0)";resolution:=optional,
+ org.lunifera.xtext.builder.types.bundles;bundle-version="[0.9.1,0.10.0)";resolution:=optional,
+ org.lunifera.xtext.builder.types.loader.runtime;bundle-version="[0.9.1,0.10.0)";resolution:=optional,
+ org.lunifera.xtext.builder.types.loader.api;bundle-version="[0.9.1,0.10.0)"
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib;bundle-version="[2.7.3,2.8.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

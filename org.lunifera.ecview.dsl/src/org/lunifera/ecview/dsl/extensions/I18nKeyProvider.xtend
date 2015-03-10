@@ -21,7 +21,6 @@ import org.lunifera.ecview.semantic.uimodel.UiSearchPanel
 import org.lunifera.ecview.semantic.uimodel.UiTabAssignment
 import org.lunifera.ecview.semantic.uimodel.UiTable
 import org.lunifera.runtime.common.metric.TimeLogger
-import org.eclipse.emf.ecore.util.EcoreUtil
 
 class I18nKeyProvider {
 
@@ -245,11 +244,10 @@ class I18nKeyProvider {
 			if (!ops.empty) {
 				val JvmOperation op = ops.get(0)
 				val JvmType type = op.declaringType
-				try {
-					return toI18nKey(type.qualifiedName, ops.get(0).simpleName.toPropertyName)
-				} catch (RuntimeException ex) {
-					throw ex
+				if (type == null) {
+					return null
 				}
+				return toI18nKey(type.qualifiedName, ops.get(0).simpleName.toPropertyName)
 			}
 		}
 	}
