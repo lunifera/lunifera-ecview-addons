@@ -11,7 +11,6 @@ import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
-import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.lunifera.ecview.dsl.extensions.BindingInfoHelper;
@@ -538,20 +537,15 @@ public class I18nKeyProvider {
       if (_not) {
         final JvmOperation op = ops.get(0);
         final JvmType type = op.getDeclaringType();
-        try {
-          String _qualifiedName = type.getQualifiedName();
-          JvmOperation _get = ops.get(0);
-          String _simpleName = _get.getSimpleName();
-          String _toPropertyName = I18nKeyProvider.getToPropertyName(_simpleName);
-          return I18nKeyProvider.toI18nKey(_qualifiedName, _toPropertyName);
-        } catch (final Throwable _t) {
-          if (_t instanceof RuntimeException) {
-            final RuntimeException ex = (RuntimeException)_t;
-            throw ex;
-          } else {
-            throw Exceptions.sneakyThrow(_t);
-          }
+        boolean _equals = Objects.equal(type, null);
+        if (_equals) {
+          return null;
         }
+        String _qualifiedName = type.getQualifiedName();
+        JvmOperation _get = ops.get(0);
+        String _simpleName = _get.getSimpleName();
+        String _toPropertyName = I18nKeyProvider.getToPropertyName(_simpleName);
+        return I18nKeyProvider.toI18nKey(_qualifiedName, _toPropertyName);
       }
     }
     return null;
