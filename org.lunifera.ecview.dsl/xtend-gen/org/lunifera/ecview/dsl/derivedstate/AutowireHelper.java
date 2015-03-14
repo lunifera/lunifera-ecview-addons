@@ -14,6 +14,7 @@ import org.eclipse.xtext.common.types.JvmDeclaredType;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeReference;
+import org.eclipse.xtext.common.types.JvmVoid;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -160,8 +161,11 @@ public class AutowireHelper implements IAutowireDelegate {
     }
     final BindableTypeResolver resolver = new BindableTypeResolver();
     UiBindingExpression _autoWireSource = uiLayout.getAutoWireSource();
-    JvmType _resolveType = resolver.resolveType(_autoWireSource);
-    this.beanType = ((JvmDeclaredType) _resolveType);
+    JvmType temp = resolver.resolveType(_autoWireSource);
+    if ((temp instanceof JvmVoid)) {
+      return;
+    }
+    this.beanType = ((JvmDeclaredType) temp);
     final Map<String, OperationExtensions.OperationInfo> opInfo = OperationExtensions.getOperationInfos(this.beanType);
     Collection<OperationExtensions.OperationInfo> _values = opInfo.values();
     final Procedure1<OperationExtensions.OperationInfo> _function = new Procedure1<OperationExtensions.OperationInfo>() {

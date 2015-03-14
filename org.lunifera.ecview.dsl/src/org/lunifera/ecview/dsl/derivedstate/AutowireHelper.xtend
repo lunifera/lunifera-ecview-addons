@@ -22,6 +22,7 @@ import org.lunifera.ecview.semantic.uimodel.UiLayout
 import org.lunifera.mobile.vaadin.ecview.model.VMVerticalComponentGroup
 import org.lunifera.mobile.vaadin.ecview.model.VaadinMobileFactory
 import org.lunifera.runtime.common.metric.TimeLogger
+import org.eclipse.xtext.common.types.JvmVoid
 
 class AutowireHelper implements IAutowireDelegate {
 
@@ -64,7 +65,11 @@ class AutowireHelper implements IAutowireDelegate {
 		}
 
 		val BindableTypeResolver resolver = new BindableTypeResolver
-		beanType = resolver.resolveType(uiLayout.autoWireSource) as JvmDeclaredType
+		var temp = resolver.resolveType(uiLayout.autoWireSource)
+		if(temp instanceof JvmVoid){
+			return
+		}
+		beanType = temp as JvmDeclaredType
 
 		val opInfo = OperationExtensions.getOperationInfos(beanType)
 

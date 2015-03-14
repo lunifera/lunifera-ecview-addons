@@ -483,6 +483,19 @@ public class I18nKeyProvider {
       final UiNestedProperty property = embeddable.getProperty();
       boolean _notEquals_2 = (!Objects.equal(property, null));
       if (_notEquals_2) {
+        final String i18nKey = this.toI18nKeyByBindings(property);
+        boolean _and_1 = false;
+        boolean _notEquals_3 = (!Objects.equal(i18nKey, null));
+        if (!_notEquals_3) {
+          _and_1 = false;
+        } else {
+          boolean _equals = i18nKey.equals("");
+          boolean _not = (!_equals);
+          _and_1 = _not;
+        }
+        if (_and_1) {
+          return i18nKey;
+        }
         String _pathString = property.toPathString();
         return ((currentPackage + ".search.") + _pathString);
       }
@@ -544,6 +557,26 @@ public class I18nKeyProvider {
         String _qualifiedName = type.getQualifiedName();
         JvmOperation _get = ops.get(0);
         String _simpleName = _get.getSimpleName();
+        String _toPropertyName = I18nKeyProvider.getToPropertyName(_simpleName);
+        return I18nKeyProvider.toI18nKey(_qualifiedName, _toPropertyName);
+      }
+    }
+    return null;
+  }
+  
+  public String toI18nKeyByBindings(final UiNestedProperty property) {
+    boolean _notEquals = (!Objects.equal(property, null));
+    if (_notEquals) {
+      final JvmOperation op = property.getOperationofLastSegment();
+      boolean _notEquals_1 = (!Objects.equal(op, null));
+      if (_notEquals_1) {
+        final JvmType type = op.getDeclaringType();
+        boolean _equals = Objects.equal(type, null);
+        if (_equals) {
+          return null;
+        }
+        String _qualifiedName = type.getQualifiedName();
+        String _simpleName = op.getSimpleName();
         String _toPropertyName = I18nKeyProvider.getToPropertyName(_simpleName);
         return I18nKeyProvider.toI18nKey(_qualifiedName, _toPropertyName);
       }

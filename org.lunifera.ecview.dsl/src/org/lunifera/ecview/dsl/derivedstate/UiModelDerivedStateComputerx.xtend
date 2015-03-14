@@ -1880,6 +1880,9 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val UiNestedProperty property = eObject.property
 		if (property != null) {
 			val JvmType type = property.typeofLastSegment
+			if(type == null){
+				return null
+			}
 
 			var YField newField = null
 			if (typeHelper.isString(type)) {

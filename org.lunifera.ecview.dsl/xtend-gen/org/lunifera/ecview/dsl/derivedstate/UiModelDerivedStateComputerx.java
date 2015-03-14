@@ -2638,6 +2638,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     boolean _notEquals = (!Objects.equal(property, null));
     if (_notEquals) {
       final JvmType type = property.getTypeofLastSegment();
+      boolean _equals = Objects.equal(type, null);
+      if (_equals) {
+        return null;
+      }
       YField newField = null;
       boolean _isString = this.typeHelper.isString(type);
       if (_isString) {

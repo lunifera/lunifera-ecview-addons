@@ -209,6 +209,10 @@ class I18nKeyProvider {
 		} else {
 			val UiNestedProperty property = embeddable.property
 			if (property != null) {
+				val String i18nKey = toI18nKeyByBindings(property)
+				if (i18nKey != null && !i18nKey.equals("")) {
+					return i18nKey;
+				}
 				return currentPackage + ".search." + property.toPathString
 			}
 		}
@@ -248,6 +252,19 @@ class I18nKeyProvider {
 					return null
 				}
 				return toI18nKey(type.qualifiedName, ops.get(0).simpleName.toPropertyName)
+			}
+		}
+	}
+
+	def String toI18nKeyByBindings(UiNestedProperty property) {
+		if (property != null) {
+			val JvmOperation op = property.operationofLastSegment
+			if (op != null) {
+				val JvmType type = op.declaringType
+				if (type == null) {
+					return null
+				}
+				return toI18nKey(type.qualifiedName, op.simpleName.toPropertyName)
 			}
 		}
 	}
