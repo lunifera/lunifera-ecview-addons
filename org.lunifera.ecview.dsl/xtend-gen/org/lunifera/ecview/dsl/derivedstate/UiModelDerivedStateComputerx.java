@@ -3485,6 +3485,8 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
                       _commandSet_6.addCommand(yCommand_6);
                       UiBindingExpression _target = command_6.getTarget();
                       final UiBindingEndpointAssignment targetEP = ((UiBindingEndpointAssignment) _target);
+                      YValueBindingEndpoint _createValueBindingEndpoint = this.createValueBindingEndpoint(targetEP);
+                      yCommand_6.setTarget(_createValueBindingEndpoint);
                       JvmTypeReference _jvmType = command_6.getJvmType();
                       boolean _notEquals_2 = (!Objects.equal(_jvmType, null));
                       if (_notEquals_2) {
@@ -3500,8 +3502,6 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
                       } else {
                         final BindingInfoHelper.BindingInfo targetInfo = new BindingInfoHelper.BindingInfo();
                         this.bindingInfoHelper.collectBindingInfo(targetEP, targetInfo);
-                        YValueBindingEndpoint _createValueBindingEndpoint = this.createValueBindingEndpoint(targetEP);
-                        yCommand_6.setTarget(_createValueBindingEndpoint);
                         JvmType _typeOfBoundProperty = targetInfo.getTypeOfBoundProperty();
                         boolean _notEquals_3 = (!Objects.equal(_typeOfBoundProperty, null));
                         if (_notEquals_3) {

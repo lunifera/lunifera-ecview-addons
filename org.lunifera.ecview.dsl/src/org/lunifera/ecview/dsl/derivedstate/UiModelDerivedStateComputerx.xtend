@@ -2482,14 +2482,15 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 			val targetEP = command.target as UiBindingEndpointAssignment
 
+			yCommand.target = targetEP.createValueBindingEndpoint
 			if (command.jvmType != null) {
+				
 				yCommand.typeQualifiedName = command.jvmType.qualifiedName
 				yCommand.type = loadClass(command.eResource.resourceSet, command.jvmType.qualifiedName)
 			} else {
 				val BindingInfoHelper.BindingInfo targetInfo = new BindingInfoHelper.BindingInfo
 				bindingInfoHelper.collectBindingInfo(targetEP, targetInfo);
 
-				yCommand.target = targetEP.createValueBindingEndpoint
 				if (targetInfo.typeOfBoundProperty != null) {
 
 					// if there is a property path
