@@ -143,7 +143,7 @@ public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
 			}
 
 			return (YView) EcoreUtil.copy(uiView.eResource().getContents()
-					.get(1));
+					.get(uiView.eResource().getContents().size() - 1));
 		}
 
 		@Override

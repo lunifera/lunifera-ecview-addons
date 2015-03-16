@@ -1907,6 +1907,10 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       UxAction _actionReference_2 = object.getActionReference();
       String _externalCommandId = _actionReference_2.getExternalCommandId();
       yAction.setExternalCommandId(_externalCommandId);
+      UxAction _actionReference_3 = object.getActionReference();
+      boolean _isInitialDisabled = _actionReference_3.isInitialDisabled();
+      boolean _not = (!_isInitialDisabled);
+      yAction.setInitialEnabled(_not);
     } else {
       String _actionID = object.getActionID();
       yAction.setId(_actionID);

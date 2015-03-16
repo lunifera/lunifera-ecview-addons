@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
+import org.lunifera.ecview.semantic.uimodel.UiExposedAction;
 import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
 import org.lunifera.ecview.semantic.uimodel.UiView;
 
@@ -23,26 +24,44 @@ public class UiModelUtil {
 			return null;
 		}
 
-		List<EObject> elements = new LinkedList<EObject>();
-		EObject current = embeddable;
-		while (current != null) {
-			elements.add(current);
-			current = current.eContainer();
-		}
+		if (embeddable instanceof UiExposedAction) {
+			return getPathId((UiExposedAction) embeddable);
+		} else {
+			List<EObject> elements = new LinkedList<EObject>();
+			EObject current = embeddable;
+			while (current != null) {
+				elements.add(current);
+				current = current.eContainer();
+			}
 
-		StringBuilder builder = new StringBuilder();
-		for (int i = elements.size() - 1; i >= 0; i--) {
-			EObject element = elements.get(i);
-			if (element instanceof UiEmbeddable || element instanceof UiView) {
-				UiNamedElement temp = (UiNamedElement) element;
-				if (temp.getName() != null && !temp.getName().equals("")) {
-					if (builder.length() > 0) {
-						builder.append(".");
+			StringBuilder builder = new StringBuilder();
+			for (int i = elements.size() - 1; i >= 0; i--) {
+				EObject element = elements.get(i);
+				if (element instanceof UiEmbeddable
+						|| element instanceof UiView) {
+					UiNamedElement temp = (UiNamedElement) element;
+					if (temp.getName() != null && !temp.getName().equals("")) {
+						if (builder.length() > 0) {
+							builder.append(".");
+						}
+						builder.append(temp.getName());
 					}
-					builder.append(temp.getName());
 				}
 			}
+			return builder.toString();
 		}
-		return builder.toString();
+	}
+
+	/**
+	 * UiExposedActions use their unique id.
+	 * 
+	 * @return
+	 */
+	public static String getPathId(UiExposedAction action) {
+		if (action.getActionReference() != null) {
+			return action.getActionReference().getName();
+		} else {
+			return action.getActionID();
+		}
 	}
 }

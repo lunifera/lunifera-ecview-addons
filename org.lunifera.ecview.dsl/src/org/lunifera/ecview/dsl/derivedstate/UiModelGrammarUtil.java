@@ -47,14 +47,14 @@ public class UiModelGrammarUtil {
 		return (CompositeNodeWithSemanticElement) NodeModelUtils
 				.getNode(uiGrammarElement);
 	}
-	
+
 	/**
 	 * Returns the path for the current element up to the view will be concated
-	 * by "." Elements with no name are skipped.
+	 * by "." Elements with no name are skipped. For some elements their unique
+	 * id may be returned.
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("restriction")
 	public static String getPathId(UiEmbeddable embeddable) {
 		return UiModelUtil.getPathId(embeddable);
 	}

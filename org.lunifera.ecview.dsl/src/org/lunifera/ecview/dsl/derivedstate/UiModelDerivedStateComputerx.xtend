@@ -1445,6 +1445,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		if (object.actionReference != null) {
 			yAction.id = object.actionReference.name
 			yAction.externalCommandId = object.actionReference.externalCommandId
+			yAction.initialEnabled = !object.actionReference.initialDisabled
 		} else {
 			yAction.id = object.actionID
 		}
@@ -1459,7 +1460,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		if(object.externalCommandId != null) {
 			yAction.externalCommandId = object.externalCommandId
 		}
-
+		
 		object.associateUi(yAction)
 
 		object.bindings.forEach [
