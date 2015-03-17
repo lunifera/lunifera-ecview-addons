@@ -11,10 +11,16 @@ UxModel returns semantic::UxModel:
 	('actions' '{'
 	viewActions+=UxAction*
 	'}')?
+	('categories' '{'
+	categories+=UxViewCategory*
+	'}')?
 	elementDefinitions+=UxElementDefinition*;
 
 UxAction returns semantic::UxAction:
 	name=QualifiedName ('externalCommand' externalCommandId=STRING)? (initialDisabled?="disabled")?;
+
+UxViewCategory returns semantic::UxViewCategory:
+	name=QualifiedName;
 
 XImportDeclaration returns semantic::UxImportSectionDeclaration:
 	{semantic::UxImportSectionDeclaration}

@@ -35,8 +35,6 @@ class AutowireHelper implements IAutowireDelegate {
 
 	YLayout yLayout
 	UiLayout uiLayout
-	String i18nRootKey
-
 	Layouter layouter
 
 	JvmDeclaredType beanType
@@ -50,7 +48,6 @@ class AutowireHelper implements IAutowireDelegate {
 
 		this.computer = computer;
 		this.mobile = mobile;
-		this.i18nRootKey = i18nRootKey;
 
 		this.uiLayout = uiLayout;
 		this.yLayout = computer.associatedUi(uiLayout)

@@ -123,8 +123,6 @@ public class AutowireHelper implements IAutowireDelegate {
   
   private UiLayout uiLayout;
   
-  private String i18nRootKey;
-  
   private AutowireHelper.Layouter layouter;
   
   private JvmDeclaredType beanType;
@@ -138,7 +136,6 @@ public class AutowireHelper implements IAutowireDelegate {
     final TimeLogger logger = TimeLogger.start(AutowireHelper.class);
     this.computer = computer;
     this.mobile = mobile;
-    this.i18nRootKey = this.i18nRootKey;
     this.uiLayout = uiLayout;
     YLayout _associatedUi = computer.<YLayout>associatedUi(uiLayout);
     this.yLayout = _associatedUi;

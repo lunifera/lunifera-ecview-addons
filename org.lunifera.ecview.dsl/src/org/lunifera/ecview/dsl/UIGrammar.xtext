@@ -115,6 +115,7 @@ UiIDEView returns UiIDEView:
 	'ideview' name=ID
 	'{'
 	(('sharedStateGroup' sharedStateGroup=STRING (';')?)?
+	& ('category' viewCategory=[cfg::UxViewCategory|QualifiedName] (';')?)?
 	& ('rootType' jvmType=JvmTypeReference (';')?)?
 	& ('exposedActions' '{'
 	exposedActions+=UiExposedAction*

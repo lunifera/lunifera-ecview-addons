@@ -10,6 +10,14 @@ actions {
 	org.lunifera.^actions.applyFilter
 }
 
+categories {
+	org.lunifera.vaaclipse.addons.application.partstack.left
+	org.lunifera.vaaclipse.addons.application.partstack.right
+	org.lunifera.vaaclipse.addons.application.partstack.main
+	org.lunifera.vaaclipse.addons.application.partstack.bottom
+	org.lunifera.vaaclipse.addons.application.partstack.materdetail.master
+}
+
 element Browser {
 	uri view:UiBrowser
 

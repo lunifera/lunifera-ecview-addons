@@ -94,13 +94,22 @@ public interface UiSemanticsPackage extends EPackage {
 	int UX_MODEL__VIEW_ACTIONS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Categories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_MODEL__CATEGORIES = 3;
+
+	/**
 	 * The number of structural features of the '<em>Ux Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UX_MODEL_FEATURE_COUNT = 3;
+	int UX_MODEL_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxEPackageImportImpl <em>Ux EPackage Import</em>}' class.
@@ -740,6 +749,35 @@ public interface UiSemanticsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxViewCategoryImpl <em>Ux View Category</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxViewCategoryImpl
+	 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxViewCategory()
+	 * @generated
+	 */
+	int UX_VIEW_CATEGORY = 14;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_VIEW_CATEGORY__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Ux View Category</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UX_VIEW_CATEGORY_FEATURE_COUNT = 1;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxModel <em>Ux Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -781,6 +819,17 @@ public interface UiSemanticsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUxModel_ViewActions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.lunifera.ecview.semantic.uisemantics.UxModel#getCategories <em>Categories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Categories</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxModel#getCategories()
+	 * @see #getUxModel()
+	 * @generated
+	 */
+	EReference getUxModel_Categories();
 
 	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxEPackageImport <em>Ux EPackage Import</em>}'.
@@ -1134,6 +1183,27 @@ public interface UiSemanticsPackage extends EPackage {
 	EAttribute getUxAction_InitialDisabled();
 
 	/**
+	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxViewCategory <em>Ux View Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ux View Category</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxViewCategory
+	 * @generated
+	 */
+	EClass getUxViewCategory();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.lunifera.ecview.semantic.uisemantics.UxViewCategory#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxViewCategory#getName()
+	 * @see #getUxViewCategory()
+	 * @generated
+	 */
+	EAttribute getUxViewCategory_Name();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uisemantics.UxImportSectionDeclaration <em>Ux Import Section Declaration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1209,6 +1279,14 @@ public interface UiSemanticsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UX_MODEL__VIEW_ACTIONS = eINSTANCE.getUxModel_ViewActions();
+
+		/**
+		 * The meta object literal for the '<em><b>Categories</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UX_MODEL__CATEGORIES = eINSTANCE.getUxModel_Categories();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxEPackageImportImpl <em>Ux EPackage Import</em>}' class.
@@ -1497,6 +1575,24 @@ public interface UiSemanticsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UX_ACTION__INITIAL_DISABLED = eINSTANCE.getUxAction_InitialDisabled();
+
+		/**
+		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxViewCategoryImpl <em>Ux View Category</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UxViewCategoryImpl
+		 * @see org.lunifera.ecview.semantic.uisemantics.impl.UiSemanticsPackageImpl#getUxViewCategory()
+		 * @generated
+		 */
+		EClass UX_VIEW_CATEGORY = eINSTANCE.getUxViewCategory();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UX_VIEW_CATEGORY__NAME = eINSTANCE.getUxViewCategory_Name();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uisemantics.impl.UxImportSectionDeclarationImpl <em>Ux Import Section Declaration</em>}' class.

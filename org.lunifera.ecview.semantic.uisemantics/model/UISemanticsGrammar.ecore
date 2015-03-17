@@ -9,6 +9,8 @@
         eType="#//UxElementDefinition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewActions" upperBound="-1"
         eType="#//UxAction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="categories" upperBound="-1"
+        eType="#//UxViewCategory" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UxImportSectionDeclaration" eSuperTypes="../../org.eclipse.xtext.xbase/model/Xtype.ecore#//XImportDeclaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="importedEPackage" eType="#//UxEPackageImport"
@@ -64,5 +66,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="externalCommandId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialDisabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UxViewCategory">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -69,6 +69,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxElementURI;
 import org.lunifera.ecview.semantic.uisemantics.UxImportSectionDeclaration;
 import org.lunifera.ecview.semantic.uisemantics.UxModel;
 import org.lunifera.ecview.semantic.uisemantics.UxValidatorProperty;
+import org.lunifera.ecview.semantic.uisemantics.UxViewCategory;
 import org.lunifera.ecview.semantic.uisemantics.UxVisibleableOption;
 import org.lunifera.ecview.uisemantics.services.UISemanticsGrammarGrammarAccess;
 
@@ -216,6 +217,12 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 			case UiSemanticsPackage.UX_VALIDATOR_PROPERTY:
 				if(context == grammarAccess.getUxValidatorPropertyRule()) {
 					sequence_UxValidatorProperty(context, (UxValidatorProperty) semanticObject); 
+					return; 
+				}
+				else break;
+			case UiSemanticsPackage.UX_VIEW_CATEGORY:
+				if(context == grammarAccess.getUxViewCategoryRule()) {
+					sequence_UxViewCategory(context, (UxViewCategory) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1357,7 +1364,7 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (importSection=XImportSection? viewActions+=UxAction* elementDefinitions+=UxElementDefinition*)
+	 *     (importSection=XImportSection? viewActions+=UxAction* categories+=UxViewCategory* elementDefinitions+=UxElementDefinition*)
 	 */
 	protected void sequence_UxModel(EObject context, UxModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1376,6 +1383,22 @@ public class UISemanticsGrammarSemanticSequencer extends XbaseSemanticSequencer 
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getUxValidatorPropertyAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     name=QualifiedName
+	 */
+	protected void sequence_UxViewCategory(EObject context, UxViewCategory semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, UiSemanticsPackage.Literals.UX_VIEW_CATEGORY__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiSemanticsPackage.Literals.UX_VIEW_CATEGORY__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUxViewCategoryAccess().getNameQualifiedNameParserRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

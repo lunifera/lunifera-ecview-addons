@@ -150,6 +150,7 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiIDEViewAccess().getGroup_3_0(), "rule__UiIDEView__Group_3_0__0");
 					put(grammarAccess.getUiIDEViewAccess().getGroup_3_1(), "rule__UiIDEView__Group_3_1__0");
 					put(grammarAccess.getUiIDEViewAccess().getGroup_3_2(), "rule__UiIDEView__Group_3_2__0");
+					put(grammarAccess.getUiIDEViewAccess().getGroup_3_3(), "rule__UiIDEView__Group_3_3__0");
 					put(grammarAccess.getUiIDEViewAccess().getGroup_6(), "rule__UiIDEView__Group_6__0");
 					put(grammarAccess.getUiExposedActionAccess().getGroup(), "rule__UiExposedAction__Group__0");
 					put(grammarAccess.getUiExposedActionAccess().getGroup_1(), "rule__UiExposedAction__Group_1__0");
@@ -593,8 +594,9 @@ public class UIGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUiSendEventCommandAccess().getEventTopicAssignment_4(), "rule__UiSendEventCommand__EventTopicAssignment_4");
 					put(grammarAccess.getUiIDEViewAccess().getNameAssignment_1(), "rule__UiIDEView__NameAssignment_1");
 					put(grammarAccess.getUiIDEViewAccess().getSharedStateGroupAssignment_3_0_1(), "rule__UiIDEView__SharedStateGroupAssignment_3_0_1");
-					put(grammarAccess.getUiIDEViewAccess().getJvmTypeAssignment_3_1_1(), "rule__UiIDEView__JvmTypeAssignment_3_1_1");
-					put(grammarAccess.getUiIDEViewAccess().getExposedActionsAssignment_3_2_2(), "rule__UiIDEView__ExposedActionsAssignment_3_2_2");
+					put(grammarAccess.getUiIDEViewAccess().getViewCategoryAssignment_3_1_1(), "rule__UiIDEView__ViewCategoryAssignment_3_1_1");
+					put(grammarAccess.getUiIDEViewAccess().getJvmTypeAssignment_3_2_1(), "rule__UiIDEView__JvmTypeAssignment_3_2_1");
+					put(grammarAccess.getUiIDEViewAccess().getExposedActionsAssignment_3_3_2(), "rule__UiIDEView__ExposedActionsAssignment_3_3_2");
 					put(grammarAccess.getUiIDEViewAccess().getBeanSlotsAssignment_4_0(), "rule__UiIDEView__BeanSlotsAssignment_4_0");
 					put(grammarAccess.getUiIDEViewAccess().getBindingEndpointAliasAssignment_4_1(), "rule__UiIDEView__BindingEndpointAliasAssignment_4_1");
 					put(grammarAccess.getUiIDEViewAccess().getContentAssignment_5(), "rule__UiIDEView__ContentAssignment_5");

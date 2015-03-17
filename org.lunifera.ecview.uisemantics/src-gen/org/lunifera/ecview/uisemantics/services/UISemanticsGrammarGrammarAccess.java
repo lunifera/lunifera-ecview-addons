@@ -31,16 +31,22 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cViewActionsAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
 		private final RuleCall cViewActionsUxActionParserRuleCall_2_2_0 = (RuleCall)cViewActionsAssignment_2_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
-		private final Assignment cElementDefinitionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cElementDefinitionsUxElementDefinitionParserRuleCall_3_0 = (RuleCall)cElementDefinitionsAssignment_3.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cCategoriesKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cCategoriesAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cCategoriesUxViewCategoryParserRuleCall_3_2_0 = (RuleCall)cCategoriesAssignment_3_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
+		private final Assignment cElementDefinitionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cElementDefinitionsUxElementDefinitionParserRuleCall_4_0 = (RuleCall)cElementDefinitionsAssignment_4.eContents().get(0);
 		
 		//UxModel returns semantic::UxModel:
-		//	{semantic::UxModel} importSection=XImportSection? ("actions" "{" viewActions+=UxAction* "}")?
-		//	elementDefinitions+=UxElementDefinition*;
+		//	{semantic::UxModel} importSection=XImportSection? ("actions" "{" viewActions+=UxAction* "}")? ("categories" "{"
+		//	categories+=UxViewCategory* "}")? elementDefinitions+=UxElementDefinition*;
 		public ParserRule getRule() { return rule; }
 
-		//{semantic::UxModel} importSection=XImportSection? ("actions" "{" viewActions+=UxAction* "}")?
-		//elementDefinitions+=UxElementDefinition*
+		//{semantic::UxModel} importSection=XImportSection? ("actions" "{" viewActions+=UxAction* "}")? ("categories" "{"
+		//categories+=UxViewCategory* "}")? elementDefinitions+=UxElementDefinition*
 		public Group getGroup() { return cGroup; }
 
 		//{semantic::UxModel}
@@ -70,11 +76,29 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_2_3() { return cRightCurlyBracketKeyword_2_3; }
 
+		//("categories" "{" categories+=UxViewCategory* "}")?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"categories"
+		public Keyword getCategoriesKeyword_3_0() { return cCategoriesKeyword_3_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
+
+		//categories+=UxViewCategory*
+		public Assignment getCategoriesAssignment_3_2() { return cCategoriesAssignment_3_2; }
+
+		//UxViewCategory
+		public RuleCall getCategoriesUxViewCategoryParserRuleCall_3_2_0() { return cCategoriesUxViewCategoryParserRuleCall_3_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3_3() { return cRightCurlyBracketKeyword_3_3; }
+
 		//elementDefinitions+=UxElementDefinition*
-		public Assignment getElementDefinitionsAssignment_3() { return cElementDefinitionsAssignment_3; }
+		public Assignment getElementDefinitionsAssignment_4() { return cElementDefinitionsAssignment_4; }
 
 		//UxElementDefinition
-		public RuleCall getElementDefinitionsUxElementDefinitionParserRuleCall_3_0() { return cElementDefinitionsUxElementDefinitionParserRuleCall_3_0; }
+		public RuleCall getElementDefinitionsUxElementDefinitionParserRuleCall_4_0() { return cElementDefinitionsUxElementDefinitionParserRuleCall_4_0; }
 	}
 
 	public class UxActionElements extends AbstractParserRuleElementFinder {
@@ -119,6 +143,22 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 
 		//"disabled"
 		public Keyword getInitialDisabledDisabledKeyword_2_0() { return cInitialDisabledDisabledKeyword_2_0; }
+	}
+
+	public class UxViewCategoryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UxViewCategory");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameQualifiedNameParserRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//UxViewCategory returns semantic::UxViewCategory:
+		//	name=QualifiedName;
+		public ParserRule getRule() { return rule; }
+
+		//name=QualifiedName
+		public Assignment getNameAssignment() { return cNameAssignment; }
+
+		//QualifiedName
+		public RuleCall getNameQualifiedNameParserRuleCall_0() { return cNameQualifiedNameParserRuleCall_0; }
 	}
 
 	public class XImportDeclarationElements extends AbstractParserRuleElementFinder {
@@ -652,6 +692,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	
 	private final UxModelElements pUxModel;
 	private final UxActionElements pUxAction;
+	private final UxViewCategoryElements pUxViewCategory;
 	private final XImportDeclarationElements pXImportDeclaration;
 	private final UxEPackageImportElements pUxEPackageImport;
 	private final UxElementDefinitionElements pUxElementDefinition;
@@ -674,6 +715,7 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 		this.gaXbase = gaXbase;
 		this.pUxModel = new UxModelElements();
 		this.pUxAction = new UxActionElements();
+		this.pUxViewCategory = new UxViewCategoryElements();
 		this.pXImportDeclaration = new XImportDeclarationElements();
 		this.pUxEPackageImport = new UxEPackageImportElements();
 		this.pUxElementDefinition = new UxElementDefinitionElements();
@@ -714,8 +756,8 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 
 	
 	//UxModel returns semantic::UxModel:
-	//	{semantic::UxModel} importSection=XImportSection? ("actions" "{" viewActions+=UxAction* "}")?
-	//	elementDefinitions+=UxElementDefinition*;
+	//	{semantic::UxModel} importSection=XImportSection? ("actions" "{" viewActions+=UxAction* "}")? ("categories" "{"
+	//	categories+=UxViewCategory* "}")? elementDefinitions+=UxElementDefinition*;
 	public UxModelElements getUxModelAccess() {
 		return pUxModel;
 	}
@@ -732,6 +774,16 @@ public class UISemanticsGrammarGrammarAccess extends AbstractGrammarElementFinde
 	
 	public ParserRule getUxActionRule() {
 		return getUxActionAccess().getRule();
+	}
+
+	//UxViewCategory returns semantic::UxViewCategory:
+	//	name=QualifiedName;
+	public UxViewCategoryElements getUxViewCategoryAccess() {
+		return pUxViewCategory;
+	}
+	
+	public ParserRule getUxViewCategoryRule() {
+		return getUxViewCategoryAccess().getRule();
 	}
 
 	//XImportDeclaration returns semantic::UxImportSectionDeclaration:

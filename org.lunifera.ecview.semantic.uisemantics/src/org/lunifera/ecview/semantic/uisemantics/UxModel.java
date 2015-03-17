@@ -19,6 +19,7 @@ import org.eclipse.xtext.xtype.XImportSection;
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxModel#getImportSection <em>Import Section</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxModel#getElementDefinitions <em>Element Definitions</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxModel#getViewActions <em>View Actions</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uisemantics.UxModel#getCategories <em>Categories</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,5 +85,21 @@ public interface UxModel extends EObject {
 	 * @generated
 	 */
 	EList<UxAction> getViewActions();
+
+	/**
+	 * Returns the value of the '<em><b>Categories</b></em>' containment reference list.
+	 * The list contents are of type {@link org.lunifera.ecview.semantic.uisemantics.UxViewCategory}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Categories</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Categories</em>' containment reference list.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage#getUxModel_Categories()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<UxViewCategory> getCategories();
 
 } // UxModel

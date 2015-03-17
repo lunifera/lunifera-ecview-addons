@@ -23,6 +23,7 @@ import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.semantic.uimodel.UiViewSet;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessable;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
+import org.lunifera.ecview.semantic.uisemantics.UxViewCategory;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +38,7 @@ import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getContentAlignment <em>Content Alignment</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getValidatorAssignments <em>Validator Assignments</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.impl.UiViewImpl#getViewCategory <em>View Category</em>}</li>
  * </ul>
  * </p>
  *
@@ -106,6 +108,15 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	 * @ordered
 	 */
 	protected EList<UiValidatorAssignment> validatorAssignments;
+	/**
+	 * The cached value of the '{@link #getViewCategory() <em>View Category</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getViewCategory()
+	 * @generated
+	 * @ordered
+	 */
+	protected UxViewCategory viewCategory;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -345,6 +356,44 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UxViewCategory getViewCategory() {
+		if (viewCategory != null && viewCategory.eIsProxy()) {
+			InternalEObject oldViewCategory = (InternalEObject)viewCategory;
+			viewCategory = (UxViewCategory)eResolveProxy(oldViewCategory);
+			if (viewCategory != oldViewCategory) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiModelPackage.UI_VIEW__VIEW_CATEGORY, oldViewCategory, viewCategory));
+			}
+		}
+		return viewCategory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UxViewCategory basicGetViewCategory() {
+		return viewCategory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setViewCategory(UxViewCategory newViewCategory) {
+		UxViewCategory oldViewCategory = viewCategory;
+		viewCategory = newViewCategory;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.UI_VIEW__VIEW_CATEGORY, oldViewCategory, viewCategory));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -383,6 +432,9 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 				return getContentAlignment();
 			case UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS:
 				return getValidatorAssignments();
+			case UiModelPackage.UI_VIEW__VIEW_CATEGORY:
+				if (resolve) return getViewCategory();
+				return basicGetViewCategory();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -416,6 +468,9 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 				getValidatorAssignments().clear();
 				getValidatorAssignments().addAll((Collection<? extends UiValidatorAssignment>)newValue);
 				return;
+			case UiModelPackage.UI_VIEW__VIEW_CATEGORY:
+				setViewCategory((UxViewCategory)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -446,6 +501,9 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 			case UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS:
 				getValidatorAssignments().clear();
 				return;
+			case UiModelPackage.UI_VIEW__VIEW_CATEGORY:
+				setViewCategory((UxViewCategory)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -470,6 +528,8 @@ public class UiViewImpl extends UiContextImpl implements UiView {
 				return contentAlignment != CONTENT_ALIGNMENT_EDEFAULT;
 			case UiModelPackage.UI_VIEW__VALIDATOR_ASSIGNMENTS:
 				return validatorAssignments != null && !validatorAssignments.isEmpty();
+			case UiModelPackage.UI_VIEW__VIEW_CATEGORY:
+				return viewCategory != null;
 		}
 		return super.eIsSet(featureID);
 	}

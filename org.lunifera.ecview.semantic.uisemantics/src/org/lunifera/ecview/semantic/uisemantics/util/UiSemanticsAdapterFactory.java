@@ -122,6 +122,10 @@ public class UiSemanticsAdapterFactory extends AdapterFactoryImpl {
 				return createUxActionAdapter();
 			}
 			@Override
+			public Adapter caseUxViewCategory(UxViewCategory object) {
+				return createUxViewCategoryAdapter();
+			}
+			@Override
 			public Adapter caseXImportDeclaration(XImportDeclaration object) {
 				return createXImportDeclarationAdapter();
 			}
@@ -324,6 +328,20 @@ public class UiSemanticsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUxActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.lunifera.ecview.semantic.uisemantics.UxViewCategory <em>Ux View Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.lunifera.ecview.semantic.uisemantics.UxViewCategory
+	 * @generated
+	 */
+	public Adapter createUxViewCategoryAdapter() {
 		return null;
 	}
 

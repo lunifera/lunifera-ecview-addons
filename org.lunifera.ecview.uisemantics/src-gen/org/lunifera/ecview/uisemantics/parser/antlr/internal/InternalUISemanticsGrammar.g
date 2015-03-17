@@ -131,19 +131,49 @@ ruleUxModel returns [EObject current=null]
     {
     	newLeafNode(otherlv_5, grammarAccess.getUxModelAccess().getRightCurlyBracketKeyword_2_3());
     }
+)?(	otherlv_6='categories' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getUxModelAccess().getCategoriesKeyword_3_0());
+    }
+	otherlv_7='{' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getUxModelAccess().getLeftCurlyBracketKeyword_3_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUxModelAccess().getCategoriesUxViewCategoryParserRuleCall_3_2_0()); 
+	    }
+		lv_categories_8_0=ruleUxViewCategory		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUxModelRule());
+	        }
+       		add(
+       			$current, 
+       			"categories",
+        		lv_categories_8_0, 
+        		"UxViewCategory");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_9='}' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getUxModelAccess().getRightCurlyBracketKeyword_3_3());
+    }
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUxModelAccess().getElementDefinitionsUxElementDefinitionParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getUxModelAccess().getElementDefinitionsUxElementDefinitionParserRuleCall_4_0()); 
 	    }
-		lv_elementDefinitions_6_0=ruleUxElementDefinition		{
+		lv_elementDefinitions_10_0=ruleUxElementDefinition		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUxModelRule());
 	        }
        		add(
        			$current, 
        			"elementDefinitions",
-        		lv_elementDefinitions_6_0, 
+        		lv_elementDefinitions_10_0, 
         		"UxElementDefinition");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -226,6 +256,45 @@ ruleUxAction returns [EObject current=null]
 
 )
 )?)
+;
+
+
+
+
+
+// Entry rule entryRuleUxViewCategory
+entryRuleUxViewCategory returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUxViewCategoryRule()); }
+	 iv_ruleUxViewCategory=ruleUxViewCategory 
+	 { $current=$iv_ruleUxViewCategory.current; } 
+	 EOF 
+;
+
+// Rule UxViewCategory
+ruleUxViewCategory returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUxViewCategoryAccess().getNameQualifiedNameParserRuleCall_0()); 
+	    }
+		lv_name_0_0=ruleQualifiedName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUxViewCategoryRule());
+	        }
+       		set(
+       			$current, 
+       			"name",
+        		lv_name_0_0, 
+        		"QualifiedName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
 ;
 
 

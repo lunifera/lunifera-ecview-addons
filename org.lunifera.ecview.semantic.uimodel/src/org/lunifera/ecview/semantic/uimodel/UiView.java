@@ -3,6 +3,7 @@
 package org.lunifera.ecview.semantic.uimodel;
 
 import org.eclipse.emf.common.util.EList;
+import org.lunifera.ecview.semantic.uisemantics.UxViewCategory;
 
 
 
@@ -18,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiView#getContent <em>Content</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiView#getContentAlignment <em>Content Alignment</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiView#getValidatorAssignments <em>Validator Assignments</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uimodel.UiView#getViewCategory <em>View Category</em>}</li>
  * </ul>
  * </p>
  *
@@ -123,4 +125,30 @@ public interface UiView extends UiContext, UiVisibilityProcessable, UiRawBindabl
 	 * @generated
 	 */
 	EList<UiValidatorAssignment> getValidatorAssignments();
+
+	/**
+	 * Returns the value of the '<em><b>View Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>View Category</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>View Category</em>' reference.
+	 * @see #setViewCategory(UxViewCategory)
+	 * @see org.lunifera.ecview.semantic.uimodel.UiModelPackage#getUiView_ViewCategory()
+	 * @model
+	 * @generated
+	 */
+	UxViewCategory getViewCategory();
+
+	/**
+	 * Sets the value of the '{@link org.lunifera.ecview.semantic.uimodel.UiView#getViewCategory <em>View Category</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>View Category</em>' reference.
+	 * @see #getViewCategory()
+	 * @generated
+	 */
+	void setViewCategory(UxViewCategory value);
 } // UiView

@@ -42,6 +42,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contentAlignment" eType="#//UiAlignment"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="validatorAssignments" upperBound="-1"
         eType="#//UiValidatorAssignment" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewCategory" eType="ecore:EClass ../../org.lunifera.ecview.semantic.uisemantics/model/UISemanticsGrammar.ecore#//UxViewCategory"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UiDialog" eSuperTypes="#//UiEmbeddable #//UiTypeProvider #//UiI18nInfoable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//UiDialogAssignment"

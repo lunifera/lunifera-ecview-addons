@@ -17,6 +17,7 @@ import org.lunifera.ecview.semantic.uisemantics.UiSemanticsPackage;
 import org.lunifera.ecview.semantic.uisemantics.UxAction;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxModel;
+import org.lunifera.ecview.semantic.uisemantics.UxViewCategory;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +29,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxModel;
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxModelImpl#getImportSection <em>Import Section</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxModelImpl#getElementDefinitions <em>Element Definitions</em>}</li>
  *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxModelImpl#getViewActions <em>View Actions</em>}</li>
+ *   <li>{@link org.lunifera.ecview.semantic.uisemantics.impl.UxModelImpl#getCategories <em>Categories</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,6 +65,16 @@ public class UxModelImpl extends MinimalEObjectImpl.Container implements UxModel
 	 * @ordered
 	 */
 	protected EList<UxAction> viewActions;
+
+	/**
+	 * The cached value of the '{@link #getCategories() <em>Categories</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCategories()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UxViewCategory> categories;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,6 +167,18 @@ public class UxModelImpl extends MinimalEObjectImpl.Container implements UxModel
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<UxViewCategory> getCategories() {
+		if (categories == null) {
+			categories = new EObjectContainmentEList<UxViewCategory>(UxViewCategory.class, this, UiSemanticsPackage.UX_MODEL__CATEGORIES);
+		}
+		return categories;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -164,6 +188,8 @@ public class UxModelImpl extends MinimalEObjectImpl.Container implements UxModel
 				return ((InternalEList<?>)getElementDefinitions()).basicRemove(otherEnd, msgs);
 			case UiSemanticsPackage.UX_MODEL__VIEW_ACTIONS:
 				return ((InternalEList<?>)getViewActions()).basicRemove(otherEnd, msgs);
+			case UiSemanticsPackage.UX_MODEL__CATEGORIES:
+				return ((InternalEList<?>)getCategories()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -182,6 +208,8 @@ public class UxModelImpl extends MinimalEObjectImpl.Container implements UxModel
 				return getElementDefinitions();
 			case UiSemanticsPackage.UX_MODEL__VIEW_ACTIONS:
 				return getViewActions();
+			case UiSemanticsPackage.UX_MODEL__CATEGORIES:
+				return getCategories();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -206,6 +234,10 @@ public class UxModelImpl extends MinimalEObjectImpl.Container implements UxModel
 				getViewActions().clear();
 				getViewActions().addAll((Collection<? extends UxAction>)newValue);
 				return;
+			case UiSemanticsPackage.UX_MODEL__CATEGORIES:
+				getCategories().clear();
+				getCategories().addAll((Collection<? extends UxViewCategory>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -227,6 +259,9 @@ public class UxModelImpl extends MinimalEObjectImpl.Container implements UxModel
 			case UiSemanticsPackage.UX_MODEL__VIEW_ACTIONS:
 				getViewActions().clear();
 				return;
+			case UiSemanticsPackage.UX_MODEL__CATEGORIES:
+				getCategories().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -245,6 +280,8 @@ public class UxModelImpl extends MinimalEObjectImpl.Container implements UxModel
 				return elementDefinitions != null && !elementDefinitions.isEmpty();
 			case UiSemanticsPackage.UX_MODEL__VIEW_ACTIONS:
 				return viewActions != null && !viewActions.isEmpty();
+			case UiSemanticsPackage.UX_MODEL__CATEGORIES:
+				return categories != null && !categories.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

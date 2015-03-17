@@ -130,6 +130,15 @@ public interface UiSemanticsFactory extends EFactory {
 	UxAction createUxAction();
 
 	/**
+	 * Returns a new object of class '<em>Ux View Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ux View Category</em>'.
+	 * @generated
+	 */
+	UxViewCategory createUxViewCategory();
+
+	/**
 	 * Returns a new object of class '<em>Ux Import Section Declaration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

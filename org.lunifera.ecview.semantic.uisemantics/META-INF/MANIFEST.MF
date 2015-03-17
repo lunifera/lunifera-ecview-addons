@@ -12,6 +12,10 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.xtext.common.types;bundle-version="[2.7.3,2.8.0)";visibility:=reexport,
  org.eclipse.xtext.xbase;bundle-version="[2.7.3,2.8.0)";visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Export-Package: org.lunifera.ecview.semantic.uisemantics;uses:="org.eclipse.xtext.xtype,  org.eclipse.emf.ecore,  org.eclipse.emf.common.util,  org.eclipse.xtext.common.types",
+Export-Package: org.lunifera.ecview.semantic.uisemantics;
+  uses:="org.eclipse.xtext.xtype,
+   org.eclipse.emf.ecore,
+   org.eclipse.emf.common.util,
+   org.eclipse.xtext.common.types",
  org.lunifera.ecview.semantic.uisemantics.impl;x-internal:=true,
  org.lunifera.ecview.semantic.uisemantics.util;x-internal:=true

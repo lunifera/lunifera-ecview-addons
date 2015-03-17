@@ -321,6 +321,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		// create a view instance
 		val YView yView = factory.createView
 		yView.sharedStateGroup = object.sharedStateGroup
+		yView.category = if(object.viewCategory != null) object.viewCategory.name else null 
 		yView.contentAlignment = object.contentAlignment.toYAlignment
 		object.associateUi(yView)
 		views += yView

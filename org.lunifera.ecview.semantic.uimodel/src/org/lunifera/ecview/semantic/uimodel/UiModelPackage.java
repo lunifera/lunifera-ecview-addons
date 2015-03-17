@@ -1451,13 +1451,22 @@ public interface UiModelPackage extends EPackage {
 	int UI_VIEW__VALIDATOR_ASSIGNMENTS = UI_CONTEXT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>View Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_VIEW__VIEW_CATEGORY = UI_CONTEXT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Ui View</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UI_VIEW_FEATURE_COUNT = UI_CONTEXT_FEATURE_COUNT + 6;
+	int UI_VIEW_FEATURE_COUNT = UI_CONTEXT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Processor Assignments</b></em>' containment reference list.
@@ -1730,6 +1739,15 @@ public interface UiModelPackage extends EPackage {
 	int UI_IDE_VIEW__VALIDATOR_ASSIGNMENTS = UI_VIEW__VALIDATOR_ASSIGNMENTS;
 
 	/**
+	 * The feature id for the '<em><b>View Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_IDE_VIEW__VIEW_CATEGORY = UI_VIEW__VIEW_CATEGORY;
+
+	/**
 	 * The feature id for the '<em><b>Exposed Actions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1854,6 +1872,15 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_MOBILE_VIEW__VALIDATOR_ASSIGNMENTS = UI_VIEW__VALIDATOR_ASSIGNMENTS;
+
+	/**
+	 * The feature id for the '<em><b>View Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MOBILE_VIEW__VIEW_CATEGORY = UI_VIEW__VIEW_CATEGORY;
 
 	/**
 	 * The number of structural features of the '<em>Ui Mobile View</em>' class.
@@ -9651,6 +9678,17 @@ public interface UiModelPackage extends EPackage {
 	EReference getUiView_ValidatorAssignments();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.lunifera.ecview.semantic.uimodel.UiView#getViewCategory <em>View Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>View Category</em>'.
+	 * @see org.lunifera.ecview.semantic.uimodel.UiView#getViewCategory()
+	 * @see #getUiView()
+	 * @generated
+	 */
+	EReference getUiView_ViewCategory();
+
+	/**
 	 * Returns the meta object for class '{@link org.lunifera.ecview.semantic.uimodel.UiDialog <em>Ui Dialog</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13000,6 +13038,14 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UI_VIEW__VALIDATOR_ASSIGNMENTS = eINSTANCE.getUiView_ValidatorAssignments();
+
+		/**
+		 * The meta object literal for the '<em><b>View Category</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UI_VIEW__VIEW_CATEGORY = eINSTANCE.getUiView_ViewCategory();
 
 		/**
 		 * The meta object literal for the '{@link org.lunifera.ecview.semantic.uimodel.impl.UiDialogImpl <em>Ui Dialog</em>}' class.

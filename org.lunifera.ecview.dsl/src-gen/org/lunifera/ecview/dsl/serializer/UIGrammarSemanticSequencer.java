@@ -2277,6 +2277,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *     (
 	 *         name=ID 
 	 *         sharedStateGroup=STRING? 
+	 *         viewCategory=[UxViewCategory|QualifiedName]? 
 	 *         jvmType=JvmTypeReference? 
 	 *         exposedActions+=UiExposedAction* 
 	 *         (beanSlots+=UiBeanSlot | bindingEndpointAlias+=UiBindingEndpointAlias)* 

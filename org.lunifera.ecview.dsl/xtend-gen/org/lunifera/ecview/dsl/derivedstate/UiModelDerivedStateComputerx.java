@@ -220,6 +220,7 @@ import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 import org.lunifera.ecview.semantic.uisemantics.UxAction;
+import org.lunifera.ecview.semantic.uisemantics.UxViewCategory;
 import org.lunifera.mobile.vaadin.ecview.model.VMHorizontalButtonGroup;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationBarButton;
 import org.lunifera.mobile.vaadin.ecview.model.VMNavigationButton;
@@ -413,6 +414,16 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
     final YView yView = this.factory.createView();
     String _sharedStateGroup = object.getSharedStateGroup();
     yView.setSharedStateGroup(_sharedStateGroup);
+    String _xifexpression = null;
+    UxViewCategory _viewCategory = object.getViewCategory();
+    boolean _notEquals = (!Objects.equal(_viewCategory, null));
+    if (_notEquals) {
+      UxViewCategory _viewCategory_1 = object.getViewCategory();
+      _xifexpression = _viewCategory_1.getName();
+    } else {
+      _xifexpression = null;
+    }
+    yView.setCategory(_xifexpression);
     UiAlignment _contentAlignment = object.getContentAlignment();
     YAlignment _yAlignment = this.toYAlignment(_contentAlignment);
     yView.setContentAlignment(_yAlignment);

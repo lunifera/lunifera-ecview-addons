@@ -1141,16 +1141,22 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSharedStateGroupSTRINGTerminalRuleCall_3_0_1_0 = (RuleCall)cSharedStateGroupAssignment_3_0_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3_0_2 = (Keyword)cGroup_3_0.eContents().get(2);
 		private final Group cGroup_3_1 = (Group)cUnorderedGroup_3.eContents().get(1);
-		private final Keyword cRootTypeKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
-		private final Assignment cJvmTypeAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_3_1_1_0 = (RuleCall)cJvmTypeAssignment_3_1_1.eContents().get(0);
+		private final Keyword cCategoryKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cViewCategoryAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final CrossReference cViewCategoryUxViewCategoryCrossReference_3_1_1_0 = (CrossReference)cViewCategoryAssignment_3_1_1.eContents().get(0);
+		private final RuleCall cViewCategoryUxViewCategoryQualifiedNameParserRuleCall_3_1_1_0_1 = (RuleCall)cViewCategoryUxViewCategoryCrossReference_3_1_1_0.eContents().get(1);
 		private final Keyword cSemicolonKeyword_3_1_2 = (Keyword)cGroup_3_1.eContents().get(2);
 		private final Group cGroup_3_2 = (Group)cUnorderedGroup_3.eContents().get(2);
-		private final Keyword cExposedActionsKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3_2_1 = (Keyword)cGroup_3_2.eContents().get(1);
-		private final Assignment cExposedActionsAssignment_3_2_2 = (Assignment)cGroup_3_2.eContents().get(2);
-		private final RuleCall cExposedActionsUiExposedActionParserRuleCall_3_2_2_0 = (RuleCall)cExposedActionsAssignment_3_2_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3_2_3 = (Keyword)cGroup_3_2.eContents().get(3);
+		private final Keyword cRootTypeKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
+		private final Assignment cJvmTypeAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
+		private final RuleCall cJvmTypeJvmTypeReferenceParserRuleCall_3_2_1_0 = (RuleCall)cJvmTypeAssignment_3_2_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3_2_2 = (Keyword)cGroup_3_2.eContents().get(2);
+		private final Group cGroup_3_3 = (Group)cUnorderedGroup_3.eContents().get(3);
+		private final Keyword cExposedActionsKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_3_1 = (Keyword)cGroup_3_3.eContents().get(1);
+		private final Assignment cExposedActionsAssignment_3_3_2 = (Assignment)cGroup_3_3.eContents().get(2);
+		private final RuleCall cExposedActionsUiExposedActionParserRuleCall_3_3_2_0 = (RuleCall)cExposedActionsAssignment_3_3_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_3_3 = (Keyword)cGroup_3_3.eContents().get(3);
 		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
 		private final Assignment cBeanSlotsAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
 		private final RuleCall cBeanSlotsUiBeanSlotParserRuleCall_4_0_0 = (RuleCall)cBeanSlotsAssignment_4_0.eContents().get(0);
@@ -1174,15 +1180,17 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//UiIDEView:
-		//	"ideview" name=ID "{" (("sharedStateGroup" sharedStateGroup=STRING ";"?)? & ("rootType" jvmType=JvmTypeReference
-		//	";"?)? & ("exposedActions" "{" exposedActions+=UiExposedAction* "}")?) (beanSlots+=UiBeanSlot |
+		//	"ideview" name=ID "{" (("sharedStateGroup" sharedStateGroup=STRING ";"?)? & ("category"
+		//	viewCategory=[cfg::UxViewCategory|QualifiedName] ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)? &
+		//	("exposedActions" "{" exposedActions+=UiExposedAction* "}")?) (beanSlots+=UiBeanSlot |
 		//	bindingEndpointAlias+=UiBindingEndpointAlias)* content=UiEmbeddable ("align" contentAlignment=UiAlignment)?
 		//	(bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding | validatorAssignments+=UiValidatorAssignment |
 		//	processorAssignments+=UiVisibilityProcessorAssignment)* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"ideview" name=ID "{" (("sharedStateGroup" sharedStateGroup=STRING ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)?
-		//& ("exposedActions" "{" exposedActions+=UiExposedAction* "}")?) (beanSlots+=UiBeanSlot |
+		//"ideview" name=ID "{" (("sharedStateGroup" sharedStateGroup=STRING ";"?)? & ("category"
+		//viewCategory=[cfg::UxViewCategory|QualifiedName] ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)? &
+		//("exposedActions" "{" exposedActions+=UiExposedAction* "}")?) (beanSlots+=UiBeanSlot |
 		//bindingEndpointAlias+=UiBindingEndpointAlias)* content=UiEmbeddable ("align" contentAlignment=UiAlignment)?
 		//(bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding | validatorAssignments+=UiValidatorAssignment |
 		//processorAssignments+=UiVisibilityProcessorAssignment)* "}"
@@ -1200,8 +1208,8 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//("sharedStateGroup" sharedStateGroup=STRING ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)? & ("exposedActions" "{"
-		//exposedActions+=UiExposedAction* "}")?
+		//("sharedStateGroup" sharedStateGroup=STRING ";"?)? & ("category" viewCategory=[cfg::UxViewCategory|QualifiedName] ";"?)?
+		//& ("rootType" jvmType=JvmTypeReference ";"?)? & ("exposedActions" "{" exposedActions+=UiExposedAction* "}")?
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
 		//("sharedStateGroup" sharedStateGroup=STRING ";"?)?
@@ -1219,38 +1227,56 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//";"?
 		public Keyword getSemicolonKeyword_3_0_2() { return cSemicolonKeyword_3_0_2; }
 
-		//("rootType" jvmType=JvmTypeReference ";"?)?
+		//("category" viewCategory=[cfg::UxViewCategory|QualifiedName] ";"?)?
 		public Group getGroup_3_1() { return cGroup_3_1; }
 
-		//"rootType"
-		public Keyword getRootTypeKeyword_3_1_0() { return cRootTypeKeyword_3_1_0; }
+		//"category"
+		public Keyword getCategoryKeyword_3_1_0() { return cCategoryKeyword_3_1_0; }
 
-		//jvmType=JvmTypeReference
-		public Assignment getJvmTypeAssignment_3_1_1() { return cJvmTypeAssignment_3_1_1; }
+		//viewCategory=[cfg::UxViewCategory|QualifiedName]
+		public Assignment getViewCategoryAssignment_3_1_1() { return cViewCategoryAssignment_3_1_1; }
 
-		//JvmTypeReference
-		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_3_1_1_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_3_1_1_0; }
+		//[cfg::UxViewCategory|QualifiedName]
+		public CrossReference getViewCategoryUxViewCategoryCrossReference_3_1_1_0() { return cViewCategoryUxViewCategoryCrossReference_3_1_1_0; }
+
+		//QualifiedName
+		public RuleCall getViewCategoryUxViewCategoryQualifiedNameParserRuleCall_3_1_1_0_1() { return cViewCategoryUxViewCategoryQualifiedNameParserRuleCall_3_1_1_0_1; }
 
 		//";"?
 		public Keyword getSemicolonKeyword_3_1_2() { return cSemicolonKeyword_3_1_2; }
 
-		//("exposedActions" "{" exposedActions+=UiExposedAction* "}")?
+		//("rootType" jvmType=JvmTypeReference ";"?)?
 		public Group getGroup_3_2() { return cGroup_3_2; }
 
+		//"rootType"
+		public Keyword getRootTypeKeyword_3_2_0() { return cRootTypeKeyword_3_2_0; }
+
+		//jvmType=JvmTypeReference
+		public Assignment getJvmTypeAssignment_3_2_1() { return cJvmTypeAssignment_3_2_1; }
+
+		//JvmTypeReference
+		public RuleCall getJvmTypeJvmTypeReferenceParserRuleCall_3_2_1_0() { return cJvmTypeJvmTypeReferenceParserRuleCall_3_2_1_0; }
+
+		//";"?
+		public Keyword getSemicolonKeyword_3_2_2() { return cSemicolonKeyword_3_2_2; }
+
+		//("exposedActions" "{" exposedActions+=UiExposedAction* "}")?
+		public Group getGroup_3_3() { return cGroup_3_3; }
+
 		//"exposedActions"
-		public Keyword getExposedActionsKeyword_3_2_0() { return cExposedActionsKeyword_3_2_0; }
+		public Keyword getExposedActionsKeyword_3_3_0() { return cExposedActionsKeyword_3_3_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_3_2_1() { return cLeftCurlyBracketKeyword_3_2_1; }
+		public Keyword getLeftCurlyBracketKeyword_3_3_1() { return cLeftCurlyBracketKeyword_3_3_1; }
 
 		//exposedActions+=UiExposedAction*
-		public Assignment getExposedActionsAssignment_3_2_2() { return cExposedActionsAssignment_3_2_2; }
+		public Assignment getExposedActionsAssignment_3_3_2() { return cExposedActionsAssignment_3_3_2; }
 
 		//UiExposedAction
-		public RuleCall getExposedActionsUiExposedActionParserRuleCall_3_2_2_0() { return cExposedActionsUiExposedActionParserRuleCall_3_2_2_0; }
+		public RuleCall getExposedActionsUiExposedActionParserRuleCall_3_3_2_0() { return cExposedActionsUiExposedActionParserRuleCall_3_3_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_3_2_3() { return cRightCurlyBracketKeyword_3_2_3; }
+		public Keyword getRightCurlyBracketKeyword_3_3_3() { return cRightCurlyBracketKeyword_3_3_3; }
 
 		//(beanSlots+=UiBeanSlot | bindingEndpointAlias+=UiBindingEndpointAlias)*
 		public Alternatives getAlternatives_4() { return cAlternatives_4; }
@@ -8738,8 +8764,9 @@ public class UIGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UiIDEView:
-	//	"ideview" name=ID "{" (("sharedStateGroup" sharedStateGroup=STRING ";"?)? & ("rootType" jvmType=JvmTypeReference
-	//	";"?)? & ("exposedActions" "{" exposedActions+=UiExposedAction* "}")?) (beanSlots+=UiBeanSlot |
+	//	"ideview" name=ID "{" (("sharedStateGroup" sharedStateGroup=STRING ";"?)? & ("category"
+	//	viewCategory=[cfg::UxViewCategory|QualifiedName] ";"?)? & ("rootType" jvmType=JvmTypeReference ";"?)? &
+	//	("exposedActions" "{" exposedActions+=UiExposedAction* "}")?) (beanSlots+=UiBeanSlot |
 	//	bindingEndpointAlias+=UiBindingEndpointAlias)* content=UiEmbeddable ("align" contentAlignment=UiAlignment)?
 	//	(bindingEndpointAlias+=UiBindingEndpointAlias | bindings+=UiBinding | validatorAssignments+=UiValidatorAssignment |
 	//	processorAssignments+=UiVisibilityProcessorAssignment)* "}";
