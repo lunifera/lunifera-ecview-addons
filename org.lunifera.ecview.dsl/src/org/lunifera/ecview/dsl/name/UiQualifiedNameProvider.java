@@ -56,8 +56,9 @@ public class UiQualifiedNameProvider extends XbaseQualifiedNameProvider {
 			if (uiBindingEndpoint.getRawBindable() == null) {
 				return QualifiedName.create("notDefined");
 			} else {
-				return converter.toQualifiedName(uiBindingEndpoint
-						.toPathString());
+				String pathString = uiBindingEndpoint.toPathString();
+				return pathString != null ? converter
+						.toQualifiedName(pathString) : QualifiedName.create("");
 			}
 		} else if (obj instanceof UiValidatorAlias) {
 			UiValidatorAlias validatorAlias = (UiValidatorAlias) obj;

@@ -15,7 +15,7 @@ import org.lunifera.runtime.common.annotations.DomainReference;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-@SuppressWarnings({"restriction", "deprecation"})
+@SuppressWarnings({ "restriction", "deprecation" })
 @Singleton
 public class TypeHelper {
 
@@ -188,7 +188,7 @@ public class TypeHelper {
 			return false;
 		}
 
-		if(isCollection(field)){
+		if (isCollection(field)) {
 			return false;
 		}
 
@@ -202,9 +202,20 @@ public class TypeHelper {
 	}
 
 	protected boolean isCollection(JvmField field) {
-		if (superTypeCollector.isSuperType((JvmDeclaredType) field.getType()
-				.getType(), (JvmDeclaredType) typeReferences.findDeclaredType(
-				Collection.class, field))) {
+		JvmType fieldType = field.getType().getType();
+		if (!(fieldType instanceof JvmDeclaredType)) {
+			// in case of proxy
+			return false;
+		}
+		JvmType collectionType = typeReferences.findDeclaredType(
+				Collection.class, field);
+		if (!(collectionType instanceof JvmDeclaredType)) {
+			// in case of proxy
+			return false;
+		}
+
+		if (superTypeCollector.isSuperType((JvmDeclaredType) fieldType,
+				(JvmDeclaredType) collectionType)) {
 			return true;
 		}
 		return false;
