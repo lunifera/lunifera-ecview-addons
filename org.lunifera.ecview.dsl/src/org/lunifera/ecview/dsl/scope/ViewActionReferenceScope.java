@@ -35,8 +35,10 @@ public class ViewActionReferenceScope extends AbstractScope {
 				.getExportedObjectsByType(UiSemanticsPackage.Literals.UX_ACTION)) {
 			UxAction action = (UxAction) des.getEObjectOrProxy();
 			action = (UxAction) EcoreUtil.resolve(action, context);
-			result.add(EObjectDescription.create(
-					converter.toQualifiedName(action.getName()), action));
+			if (!action.eIsProxy()) {
+				result.add(EObjectDescription.create(
+						converter.toQualifiedName(action.getName()), action));
+			}
 		}
 		return result;
 	}
