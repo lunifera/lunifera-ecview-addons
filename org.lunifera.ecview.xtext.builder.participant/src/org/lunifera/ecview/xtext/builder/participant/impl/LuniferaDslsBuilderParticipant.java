@@ -35,12 +35,17 @@ import org.osgi.framework.ServiceRegistration;
 import org.osgi.framework.wiring.BundleWiring;
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
 
 import com.google.inject.Inject;
 
-@Component(service = { IBuilderParticipant.class })
+/**
+ * Lunifera uses ECView files directly and does not derive them from the
+ * UiDSL-Model. If you have interest using this feature, just provide that class
+ * as an OSGi service.
+ */
+// @Component(service = { IBuilderParticipant.class })
+@Deprecated
 public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
 
 	@Inject

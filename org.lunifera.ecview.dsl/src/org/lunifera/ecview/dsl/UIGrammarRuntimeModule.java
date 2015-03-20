@@ -3,9 +3,11 @@
  */
 package org.lunifera.ecview.dsl;
 
+import org.eclipse.xtext.generator.IOutputConfigurationProvider;
 import org.eclipse.xtext.scoping.IScopeProvider;
 import org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider;
 import org.lunifera.ecview.dsl.derivedstate.UiModelDerivedStateComputerx;
+import org.lunifera.ecview.dsl.generator.OutputConfigurationProvider;
 import org.lunifera.ecview.dsl.name.UiQualifiedNameProvider;
 import org.lunifera.ecview.dsl.scope.ScopeProvider;
 import org.lunifera.ecview.dsl.scope.UiImportedNamespaceAwareLocalScopeProvider;
@@ -49,5 +51,13 @@ public class UIGrammarRuntimeModule extends
 	// contributed by org.eclipse.xtext.generator.formatting.FormatterFragment
 	public Class<? extends org.eclipse.xtext.formatting.IFormatter> bindIFormatter() {
 		return org.lunifera.ecview.dsl.formatting.UIGrammarFormatter.class;
+	}
+	
+	public Class<? extends org.eclipse.xtext.generator.IGenerator> bindIGenerator() {
+		return org.lunifera.ecview.dsl.generator.Generator.class;
+	}
+	
+	public Class<? extends IOutputConfigurationProvider> bindIOutputConfigurationProvider() {
+		return OutputConfigurationProvider.class;
 	}
 }
