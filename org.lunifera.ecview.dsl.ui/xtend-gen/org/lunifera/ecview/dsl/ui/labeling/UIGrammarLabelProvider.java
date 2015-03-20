@@ -58,6 +58,8 @@ import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup;
 import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout;
 import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.semantic.uimodel.UiViewSet;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor;
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 
 /**
@@ -246,6 +248,30 @@ public class UIGrammarLabelProvider extends XbaseLabelProvider {
       _xifexpression = "Tabsheet";
     }
     return _xifexpression;
+  }
+  
+  public String text(final UiVisibilityProcessorAssignment ele) {
+    String _xblockexpression = null;
+    {
+      UiVisibilityProcessor _processor = ele.getProcessor();
+      boolean _equals = Objects.equal(_processor, null);
+      if (_equals) {
+        return "VisibilityProcessor";
+      }
+      String _xifexpression = null;
+      UiVisibilityProcessor _processor_1 = ele.getProcessor();
+      String _name = _processor_1.getName();
+      boolean _notEquals = (!Objects.equal(_name, null));
+      if (_notEquals) {
+        UiVisibilityProcessor _processor_2 = ele.getProcessor();
+        String _name_1 = _processor_2.getName();
+        _xifexpression = (_name_1 + "VisibilityProcessor");
+      } else {
+        _xifexpression = "VisibilityProcessor";
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
   }
   
   public String text(final UiMobileTabSheet ele) {
@@ -490,6 +516,10 @@ public class UIGrammarLabelProvider extends XbaseLabelProvider {
   
   public String image(final UiMobileView ele) {
     return "UiView.gif";
+  }
+  
+  public String image(final UiVisibilityProcessorAssignment ele) {
+    return "UiVisibilityProcessor.gif";
   }
   
   public String image(final UiValidator ele) {

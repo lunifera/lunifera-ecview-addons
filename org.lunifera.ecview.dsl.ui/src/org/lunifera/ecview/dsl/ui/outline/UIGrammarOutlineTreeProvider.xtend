@@ -5,6 +5,7 @@ package org.lunifera.ecview.dsl.ui.outline
 
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
+import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot
 import org.lunifera.ecview.semantic.uimodel.UiBinding
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
@@ -22,7 +23,7 @@ import org.lunifera.ecview.semantic.uimodel.UiTabSheet
 import org.lunifera.ecview.semantic.uimodel.UiTable
 import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup
 import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout
-import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment
 
 /**
  * Customization of the default outline structure.
@@ -44,6 +45,10 @@ class UIGrammarOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	}
 	
 	def _isLeaf(UiBeanReferenceField object) {
+		return true;
+	}
+	
+	def _isLeaf(UiVisibilityProcessorAssignment object) {
 		return true;
 	}
 

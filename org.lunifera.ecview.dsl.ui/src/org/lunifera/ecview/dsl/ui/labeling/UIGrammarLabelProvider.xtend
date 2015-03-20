@@ -6,6 +6,7 @@ package org.lunifera.ecview.dsl.ui.labeling
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider
+import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField
 import org.lunifera.ecview.semantic.uimodel.UiBeanSlot
 import org.lunifera.ecview.semantic.uimodel.UiBinding
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias
@@ -19,10 +20,12 @@ import org.lunifera.ecview.semantic.uimodel.UiCommand
 import org.lunifera.ecview.semantic.uimodel.UiDateField
 import org.lunifera.ecview.semantic.uimodel.UiDecimalField
 import org.lunifera.ecview.semantic.uimodel.UiDialog
+import org.lunifera.ecview.semantic.uimodel.UiExposedAction
 import org.lunifera.ecview.semantic.uimodel.UiFormLayout
 import org.lunifera.ecview.semantic.uimodel.UiGridLayout
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout
+import org.lunifera.ecview.semantic.uimodel.UiI18nInfo
 import org.lunifera.ecview.semantic.uimodel.UiIDEView
 import org.lunifera.ecview.semantic.uimodel.UiImage
 import org.lunifera.ecview.semantic.uimodel.UiImports
@@ -54,10 +57,9 @@ import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup
 import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout
 import org.lunifera.ecview.semantic.uimodel.UiView
 import org.lunifera.ecview.semantic.uimodel.UiViewSet
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor
 import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator
-import org.lunifera.ecview.semantic.uimodel.UiI18nInfo
-import org.lunifera.ecview.semantic.uimodel.UiBeanReferenceField
-import org.lunifera.ecview.semantic.uimodel.UiExposedAction
+import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment
 
 /**
  * Provides labels for a EObjects.
@@ -78,7 +80,7 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 	def text(UiImports ele) {
 		if(ele.name != null) ele.name else "Import"
 	}
-	
+
 	def text(UiIDEView ele) {
 		if(ele.name != null) ele.name else "IDE View"
 	}
@@ -110,7 +112,7 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 	def text(UiFormLayout ele) {
 		if(ele.name != null) ele.name else "Form"
 	}
-	
+
 	def text(UiExposedAction ele) {
 		if(ele.name != null) ele.name else "Action"
 	}
@@ -133,6 +135,13 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 
 	def text(UiTabSheet ele) {
 		if(ele.name != null) ele.name else "Tabsheet"
+	}
+
+	def text(UiVisibilityProcessorAssignment ele) {
+		if(ele.processor == null){
+			return "VisibilityProcessor"
+		}
+		if(ele.processor.name != null) ele.processor.name + "VisibilityProcessor" else "VisibilityProcessor"
 	}
 
 	def text(UiMobileTabSheet ele) {
@@ -162,7 +171,7 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 	def text(UiComboBox ele) {
 		if(ele.name != null) ele.name else "Checkbox"
 	}
-	
+
 	def text(UiBeanReferenceField ele) {
 		if(ele.name != null) ele.name else "Reference Field"
 	}
@@ -234,6 +243,10 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 	def image(UiMobileView ele) {
 		'UiView.gif'
 	}
+	
+	def image(UiVisibilityProcessorAssignment ele) {
+		'UiVisibilityProcessor.gif'
+	}
 
 	def image(UiValidator ele) {
 		'UiValidator.gif'
@@ -282,7 +295,7 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 	def image(UiVerticalLayout ele) {
 		'UiVerticalLayout.gif'
 	}
-	
+
 	def image(UiI18nInfo ele) {
 		'UiI18nInfo.gif'
 	}
@@ -330,7 +343,7 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 	def image(UiTextField ele) {
 		'UiTextField.gif'
 	}
-	
+
 	def image(UiTextArea ele) {
 		'UiTextArea.gif'
 	}
@@ -342,11 +355,11 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 	def image(UiComboBox ele) {
 		'UiCombobox.gif'
 	}
-	
+
 	def image(UiBeanReferenceField ele) {
 		'UiBeanReferenceField.gif'
 	}
-	
+
 	def image(UiExposedAction ele) {
 		'UiExposedAction.png'
 	}
