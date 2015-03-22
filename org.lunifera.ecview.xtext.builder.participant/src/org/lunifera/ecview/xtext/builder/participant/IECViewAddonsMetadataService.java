@@ -18,20 +18,12 @@ import org.lunifera.ecview.core.common.model.core.YViewSet;
 public interface IECViewAddonsMetadataService {
 
 	/**
-	 * Returns the YView for the given model name.
+	 * Returns the YView for the given viewId.
 	 * 
-	 * @param modelName
+	 * @param viewId
 	 * @return
 	 */
-	YView getViewMetadata(String modelName);
-
-	/**
-	 * Returns the YViewSet for the given model name.
-	 * 
-	 * @param modelName
-	 * @return
-	 */
-	YViewSet getViewSetMetadata(String modelName);
+	YView getViewMetadata(String viewId);
 
 	/**
 	 * Returns a filtered list with all names of IDEViews.

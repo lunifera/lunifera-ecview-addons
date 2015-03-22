@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.lunifera.ecview.core.common.model.core.CoreModelPackage;
 import org.lunifera.ecview.core.common.model.core.YDeviceType;
 import org.lunifera.ecview.core.common.model.core.YView;
@@ -82,7 +83,7 @@ public class ECViewBuilderParticipant extends AbstractBuilderParticipant
 		viewIdMappings = new HashMap<String, URI>();
 		ideViewIdMappings = new HashMap<String, URI>();
 		mobileViewIdMappings = new HashMap<String, URI>();
-		
+
 		resourceSet = new ResourceSetImpl();
 	}
 
@@ -94,7 +95,7 @@ public class ECViewBuilderParticipant extends AbstractBuilderParticipant
 		viewIdMappings.clear();
 		mobileViewIdMappings.clear();
 		ideViewIdMappings.clear();
-		
+
 		for (Resource resource : new ArrayList<Resource>(
 				resourceSet.getResources())) {
 			resource.unload();
@@ -144,6 +145,7 @@ public class ECViewBuilderParticipant extends AbstractBuilderParticipant
 		List<URL> results = internalFindURLs(bundle);
 
 		for (URL url : results) {
+			// Load the fxml-File
 			Resource resource = resourceSet.getResource(
 					URI.createURI(url.toString()), true);
 			try {
@@ -158,7 +160,6 @@ public class ECViewBuilderParticipant extends AbstractBuilderParticipant
 					ideViewIdMappings.put(yView.getViewName(),
 							resource.getURI());
 				}
-
 				resource.unload();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -184,7 +185,7 @@ public class ECViewBuilderParticipant extends AbstractBuilderParticipant
 				viewIdMappings.remove(yView.getViewName());
 				mobileViewIdMappings.remove(yView.getViewName());
 				ideViewIdMappings.remove(yView.getViewName());
-				
+
 				// unload resource and remove
 				resource.unload();
 				resourceSet.getResources().remove(resource);
@@ -274,14 +275,7 @@ public class ECViewBuilderParticipant extends AbstractBuilderParticipant
 			}
 
 			Resource rs = resourceSet.getResource(uri, true);
-			return (YView) rs.getContents().get(0);
-		}
-
-		@Override
-		public YViewSet getViewSetMetadata(String modelName) {
-			// TODO remove me before 1.0.0
-			throw new UnsupportedOperationException(
-					"Will be removed before 1.0.0");
+			return (YView) EcoreUtil.copy(rs.getContents().get(0));
 		}
 
 		@Override

@@ -17,12 +17,14 @@ import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.emf.ecore.xmi.XMLResource
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl
 import org.eclipse.xtext.generator.IFileSystemAccess
-import org.eclipse.xtext.generator.IGenerator
+import org.lunifera.dsl.xtext.lazyresolver.generator.DelegatingGenerator
 import org.lunifera.ecview.core.common.model.core.YView
 
-class Generator implements IGenerator {
+class Generator extends DelegatingGenerator {
 
 	override doGenerate(Resource input, IFileSystemAccess fsa) {
+
+		super.doGenerate(input, fsa)
 
 		val XMLResource outputRes = new XMLResourceImpl
 		val YView yView = input.contents.get(input.contents.size - 1) as YView

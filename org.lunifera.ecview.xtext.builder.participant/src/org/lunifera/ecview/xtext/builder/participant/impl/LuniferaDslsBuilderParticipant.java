@@ -152,12 +152,6 @@ public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
 		}
 
 		@Override
-		public YViewSet getViewSetMetadata(String modelName) {
-			return (YViewSet) metadataBuilderService.getMetadata(modelName,
-					CoreModelPackage.Literals.YVIEW_SET);
-		}
-
-		@Override
 		public List<String> getIDEViewNames(String packageName,
 				boolean includeChildren) {
 			List<String> viewNames = getViewNames(
