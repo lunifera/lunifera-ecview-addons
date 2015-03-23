@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.lunifera.ecview.core.common.model.core.CoreModelPackage;
 import org.lunifera.ecview.core.common.model.core.YDeviceType;
 import org.lunifera.ecview.core.common.model.core.YView;
-import org.lunifera.ecview.core.common.model.core.YViewSet;
 import org.lunifera.ecview.core.extension.model.extension.ExtensionModelPackage;
 import org.lunifera.ecview.xtext.builder.participant.IECViewAddonsMetadataService;
 import org.lunifera.xtext.builder.metadata.services.AbstractBuilderParticipant;
