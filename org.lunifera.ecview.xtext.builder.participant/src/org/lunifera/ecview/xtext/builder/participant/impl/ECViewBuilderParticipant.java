@@ -235,7 +235,7 @@ public class ECViewBuilderParticipant extends AbstractBuilderParticipant
 					IECViewAddonsMetadataService.class, viewService, null);
 			context.getBundleContext().addBundleListener(this);
 
-		} else {
+		} else if (event.getState() == IBuilderParticipant.LifecycleEvent.DEACTIVATED) {
 			// do not remove the bundle listener! Otherwise the changes will not
 			// be tracked
 			if (viewServiceRegister != null) {

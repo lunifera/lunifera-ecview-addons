@@ -171,7 +171,7 @@ public class I18nBuilderParticipant extends AbstractBuilderParticipant
 
 			context.getBundleContext().addBundleListener(this);
 
-		} else {
+		}  else if (event.getState() == IBuilderParticipant.LifecycleEvent.DEACTIVATED) {
 			// do not remove the bundle listener! Otherwise the changes will not
 			// be tracked
 			

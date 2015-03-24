@@ -21,9 +21,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.resource.IEObjectDescription;
-import org.lunifera.ecview.core.common.model.core.CoreModelPackage;
 import org.lunifera.ecview.core.common.model.core.YView;
-import org.lunifera.ecview.core.common.model.core.YViewSet;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
 import org.lunifera.ecview.semantic.uimodel.UiView;
 import org.lunifera.ecview.xtext.builder.participant.IECViewAddonsMetadataService;
@@ -109,7 +107,7 @@ public class LuniferaDslsBuilderParticipant extends AbstractBuilderParticipant {
 					.registerService(IECViewAddonsMetadataService.class,
 							datatypesService, null);
 
-		} else {
+		} else if (event.getState() == IBuilderParticipant.LifecycleEvent.DEACTIVATED) {
 			if (datatypesServiceRegister != null) {
 				datatypesServiceRegister.unregister();
 				datatypesServiceRegister = null;
