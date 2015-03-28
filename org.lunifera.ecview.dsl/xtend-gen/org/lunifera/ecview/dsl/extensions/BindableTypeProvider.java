@@ -72,11 +72,7 @@ public class BindableTypeProvider {
     boolean _notEquals = (!Objects.equal(expression, null));
     if (_notEquals) {
       JvmTypeReference _typeReference = this.getTypeReference(expression);
-      JvmType _type = null;
-      if (_typeReference!=null) {
-        _type=_typeReference.getType();
-      }
-      _xifexpression = _type;
+      _xifexpression = _typeReference.getType();
     }
     return _xifexpression;
   }

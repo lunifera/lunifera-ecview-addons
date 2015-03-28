@@ -71,6 +71,9 @@ class AutowireHelper implements IAutowireDelegate {
 		val opInfo = OperationExtensions.getOperationInfos(beanType)
 
 		opInfo.values.forEach [
+			if(getter.returnType == null) {
+				return
+			}
 			val type = getter.returnType.type
 			if (type.boolean) {
 				if(mobile) type.createMobileSwitch(it) else type.createCheckbox(it)

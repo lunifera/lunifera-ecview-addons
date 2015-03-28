@@ -55,15 +55,15 @@ class BindableTypeResolver {
 
 	def dispatch JvmTypeReference doResolveTypeReference(UiBindingEndpointAlias alias) {
 		val UiBindingEndpointAssignment aliasEP = alias.getEndpoint() as UiBindingEndpointAssignment;
-		if(aliasEP.getPath() != null){
+		if (aliasEP.getPath() != null) {
 			return aliasEP.getPath().typeReferenceOfLastSegment;
-		} else{
+		} else {
 			return aliasEP.doResolveTypeReference
 		}
 	}
 
 	def dispatch JvmTypeReference doResolveTypeReference(UiBindingEndpointAssignment epDef) {
-		if(epDef.path != null){
+		if (epDef.path != null) {
 			return epDef.path.doResolveTypeReference
 		}
 		if (epDef.typedBindableAlias != null) {
