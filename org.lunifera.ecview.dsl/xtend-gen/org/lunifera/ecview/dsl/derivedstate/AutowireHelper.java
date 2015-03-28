@@ -169,7 +169,13 @@ public class AutowireHelper implements IAutowireDelegate {
       public void apply(final OperationExtensions.OperationInfo it) {
         JvmOperation _getter = it.getGetter();
         JvmTypeReference _returnType = _getter.getReturnType();
-        final JvmType type = _returnType.getType();
+        boolean _equals = Objects.equal(_returnType, null);
+        if (_equals) {
+          return;
+        }
+        JvmOperation _getter_1 = it.getGetter();
+        JvmTypeReference _returnType_1 = _getter_1.getReturnType();
+        final JvmType type = _returnType_1.getType();
         boolean _isBoolean = AutowireHelper.this._typeHelper.isBoolean(type);
         if (_isBoolean) {
           if (mobile) {

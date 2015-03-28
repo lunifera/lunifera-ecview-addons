@@ -46,7 +46,7 @@ class BindableTypeProvider {
 	}
 
 	def JvmType getType(EObject expression) {
-		return if(expression != null) expression.getTypeReference?.type
+		return if(expression != null) expression.getTypeReference.type
 	}
 
 	def dispatch JvmTypeReference doGetTypeReference(UiBeanSlot beanSlot) {

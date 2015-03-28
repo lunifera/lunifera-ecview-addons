@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.resource.EObjectDescription;
 import org.eclipse.xtext.resource.IEObjectDescription;
@@ -40,9 +41,12 @@ public class BindingEndpointDefBindMethodScope extends AbstractScope {
 			UxEndpointDef binding = (UxEndpointDef) des.getEObjectOrProxy();
 			binding = (UxEndpointDef) EcoreUtil.resolve(binding,
 					bindingEndpointDef);
-			UxElementDefinition elementDef = (UxElementDefinition) binding
-					.eContainer().eContainer();
-
+			EObject parent = binding.eContainer();
+			if (parent == null) {
+				continue;
+			}
+			UxElementDefinition elementDef = (UxElementDefinition) parent
+					.eContainer();
 			if (elementDef.getUri().getEClass().isSuperTypeOf(yEmb.eClass())) {
 				result.add(EObjectDescription.create(binding.getName(), binding));
 			}
