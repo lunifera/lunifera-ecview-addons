@@ -2152,7 +2152,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         i18nInfo=UiI18nInfo? 
+	 *         (i18nInfo=UiI18nInfo? styles=STRING?)? 
 	 *         name=ID? 
 	 *         jvmType=JvmTypeReference? 
 	 *         content=UiDialogAssignment? 
@@ -2379,6 +2379,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	 *         (i18nInfo=UiI18nInfo? styles=STRING? readonly?='readonly'?)? 
 	 *         name=ID? 
 	 *         contents+=UiMobileHorizontalButtonGroupAssigment* 
+	 *         bindings+=UiBinding* 
 	 *         processorAssignments+=UiVisibilityProcessorAssignment*
 	 *     )
 	 */
@@ -2759,7 +2760,7 @@ public class UIGrammarSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         i18nInfo=UiI18nInfo? 
+	 *         (i18nInfo=UiI18nInfo? styles=STRING?)? 
 	 *         name=ID? 
 	 *         jvmType=JvmTypeReference? 
 	 *         searchFields+=UiDialogSearchFieldAssignment* 

@@ -4572,10 +4572,10 @@ public class InternalUIGrammarLexer extends Lexer {
         try {
             int _type = RULE_HEX;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20756:10: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )? )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20756:12: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20898:10: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20898:12: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20756:12: ( '0x' | '0X' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20898:12: ( '0x' | '0X' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -4603,7 +4603,7 @@ public class InternalUIGrammarLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20756:13: '0x'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20898:13: '0x'
                     {
                     match("0x"); 
 
@@ -4611,7 +4611,7 @@ public class InternalUIGrammarLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20756:18: '0X'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20898:18: '0X'
                     {
                     match("0X"); 
 
@@ -4621,7 +4621,7 @@ public class InternalUIGrammarLexer extends Lexer {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20756:24: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20898:24: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
             int cnt2=0;
             loop2:
             do {
@@ -4659,7 +4659,7 @@ public class InternalUIGrammarLexer extends Lexer {
                 cnt2++;
             } while (true);
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20756:58: ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20898:58: ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -4668,10 +4668,10 @@ public class InternalUIGrammarLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20756:59: '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20898:59: '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
                     {
                     match('#'); 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20756:63: ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20898:63: ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
                     int alt3=2;
                     int LA3_0 = input.LA(1);
 
@@ -4689,7 +4689,7 @@ public class InternalUIGrammarLexer extends Lexer {
                     }
                     switch (alt3) {
                         case 1 :
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20756:64: ( 'b' | 'B' ) ( 'i' | 'I' )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20898:64: ( 'b' | 'B' ) ( 'i' | 'I' )
                             {
                             if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
                                 input.consume();
@@ -4713,7 +4713,7 @@ public class InternalUIGrammarLexer extends Lexer {
                             }
                             break;
                         case 2 :
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20756:84: ( 'l' | 'L' )
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20898:84: ( 'l' | 'L' )
                             {
                             if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
                                 input.consume();
@@ -4752,11 +4752,11 @@ public class InternalUIGrammarLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20758:10: ( '0' .. '9' ( '0' .. '9' | '_' )* )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20758:12: '0' .. '9' ( '0' .. '9' | '_' )*
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20900:10: ( '0' .. '9' ( '0' .. '9' | '_' )* )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20900:12: '0' .. '9' ( '0' .. '9' | '_' )*
             {
             matchRange('0','9'); 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20758:21: ( '0' .. '9' | '_' )*
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20900:21: ( '0' .. '9' | '_' )*
             loop5:
             do {
                 int alt5=2;
@@ -4805,11 +4805,11 @@ public class InternalUIGrammarLexer extends Lexer {
         try {
             int _type = RULE_DECIMAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20760:14: ( RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )? )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20760:16: RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20902:14: ( RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20902:16: RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
             {
             mRULE_INT(); 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20760:25: ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20902:25: ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -4818,7 +4818,7 @@ public class InternalUIGrammarLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20760:26: ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20902:26: ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT
                     {
                     if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                         input.consume();
@@ -4829,7 +4829,7 @@ public class InternalUIGrammarLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20760:36: ( '+' | '-' )?
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20902:36: ( '+' | '-' )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -4862,7 +4862,7 @@ public class InternalUIGrammarLexer extends Lexer {
 
             }
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20760:58: ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20902:58: ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
             int alt8=3;
             int LA8_0 = input.LA(1);
 
@@ -4874,7 +4874,7 @@ public class InternalUIGrammarLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20760:59: ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20902:59: ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' )
                     {
                     if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
                         input.consume();
@@ -4898,7 +4898,7 @@ public class InternalUIGrammarLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20760:87: ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' )
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20902:87: ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' )
                     {
                     if ( input.LA(1)=='D'||input.LA(1)=='F'||input.LA(1)=='L'||input.LA(1)=='d'||input.LA(1)=='f'||input.LA(1)=='l' ) {
                         input.consume();
@@ -4931,10 +4931,10 @@ public class InternalUIGrammarLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20762:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )* )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20762:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20904:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )* )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20904:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20762:11: ( '^' )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20904:11: ( '^' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -4943,7 +4943,7 @@ public class InternalUIGrammarLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20762:11: '^'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20904:11: '^'
                     {
                     match('^'); 
 
@@ -4961,7 +4961,7 @@ public class InternalUIGrammarLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20762:44: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20904:44: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
             loop10:
             do {
                 int alt10=2;
@@ -5010,10 +5010,10 @@ public class InternalUIGrammarLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20764:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? ) )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20764:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20906:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? ) )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20906:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? )
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20764:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20906:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? )
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -5031,10 +5031,10 @@ public class InternalUIGrammarLexer extends Lexer {
             }
             switch (alt15) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20764:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )?
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20906:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )?
                     {
                     match('\"'); 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20764:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20906:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop11:
                     do {
                         int alt11=3;
@@ -5050,7 +5050,7 @@ public class InternalUIGrammarLexer extends Lexer {
 
                         switch (alt11) {
                     	case 1 :
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20764:21: '\\\\' .
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20906:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -5058,7 +5058,7 @@ public class InternalUIGrammarLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20764:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20906:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -5078,7 +5078,7 @@ public class InternalUIGrammarLexer extends Lexer {
                         }
                     } while (true);
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20764:44: ( '\"' )?
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20906:44: ( '\"' )?
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
@@ -5087,7 +5087,7 @@ public class InternalUIGrammarLexer extends Lexer {
                     }
                     switch (alt12) {
                         case 1 :
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20764:44: '\"'
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20906:44: '\"'
                             {
                             match('\"'); 
 
@@ -5100,10 +5100,10 @@ public class InternalUIGrammarLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20764:49: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )?
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20906:49: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )?
                     {
                     match('\''); 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20764:54: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20906:54: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop13:
                     do {
                         int alt13=3;
@@ -5119,7 +5119,7 @@ public class InternalUIGrammarLexer extends Lexer {
 
                         switch (alt13) {
                     	case 1 :
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20764:55: '\\\\' .
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20906:55: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -5127,7 +5127,7 @@ public class InternalUIGrammarLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20764:62: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20906:62: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -5147,7 +5147,7 @@ public class InternalUIGrammarLexer extends Lexer {
                         }
                     } while (true);
 
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20764:79: ( '\\'' )?
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20906:79: ( '\\'' )?
                     int alt14=2;
                     int LA14_0 = input.LA(1);
 
@@ -5156,7 +5156,7 @@ public class InternalUIGrammarLexer extends Lexer {
                     }
                     switch (alt14) {
                         case 1 :
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20764:79: '\\''
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20906:79: '\\''
                             {
                             match('\''); 
 
@@ -5187,12 +5187,12 @@ public class InternalUIGrammarLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20766:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20766:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20908:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20908:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20766:24: ( options {greedy=false; } : . )*
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20908:24: ( options {greedy=false; } : . )*
             loop16:
             do {
                 int alt16=2;
@@ -5217,7 +5217,7 @@ public class InternalUIGrammarLexer extends Lexer {
 
                 switch (alt16) {
             	case 1 :
-            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20766:52: .
+            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20908:52: .
             	    {
             	    matchAny(); 
 
@@ -5247,12 +5247,12 @@ public class InternalUIGrammarLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20768:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20768:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20910:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20910:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20768:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20910:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop17:
             do {
                 int alt17=2;
@@ -5265,7 +5265,7 @@ public class InternalUIGrammarLexer extends Lexer {
 
                 switch (alt17) {
             	case 1 :
-            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20768:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20910:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -5285,7 +5285,7 @@ public class InternalUIGrammarLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20768:40: ( ( '\\r' )? '\\n' )?
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20910:40: ( ( '\\r' )? '\\n' )?
             int alt19=2;
             int LA19_0 = input.LA(1);
 
@@ -5294,9 +5294,9 @@ public class InternalUIGrammarLexer extends Lexer {
             }
             switch (alt19) {
                 case 1 :
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20768:41: ( '\\r' )? '\\n'
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20910:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20768:41: ( '\\r' )?
+                    // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20910:41: ( '\\r' )?
                     int alt18=2;
                     int LA18_0 = input.LA(1);
 
@@ -5305,7 +5305,7 @@ public class InternalUIGrammarLexer extends Lexer {
                     }
                     switch (alt18) {
                         case 1 :
-                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20768:41: '\\r'
+                            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20910:41: '\\r'
                             {
                             match('\r'); 
 
@@ -5337,10 +5337,10 @@ public class InternalUIGrammarLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20770:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20770:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20912:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20912:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20770:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20912:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt20=0;
             loop20:
             do {
@@ -5394,8 +5394,8 @@ public class InternalUIGrammarLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20772:16: ( . )
-            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20772:18: .
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20914:16: ( . )
+            // ../org.lunifera.ecview.dsl/src-gen/org/lunifera/ecview/dsl/parser/antlr/internal/InternalUIGrammar.g:20914:18: .
             {
             matchAny(); 
 

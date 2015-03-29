@@ -297,6 +297,7 @@ UiMobileHorizontalButtonGroup returns UiHorizontalButtonGroup:
 	name=ID?
 	'{'
 	(contents+=UiMobileHorizontalButtonGroupAssigment)*
+	(bindings+=UiBinding)*
 	(processorAssignments+=UiVisibilityProcessorAssignment)*
 	'}';
 
@@ -413,7 +414,7 @@ UiPanel:
 
 UiDialog:
 	{UiDialog}
-	'dialog' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID? '{'
+	'dialog' ('(' ((i18nInfo=UiI18nInfo)? & ('styles' styles=STRING)?) ')')? name=ID? '{'
 	('type' jvmType=JvmTypeReference (';')?)?
 	(content=UiDialogAssignment (';')?)?
 	(bindings+=UiBinding)*
@@ -425,7 +426,7 @@ UiDialogAssignment:
 
 UiSearchDialog:
 	{UiSearchDialog}
-	'searchdialog' ('(' (i18nInfo=UiI18nInfo)? ')')? name=ID? '{'
+	'searchdialog' ('(' ((i18nInfo=UiI18nInfo)? & ('styles' styles=STRING)?) ')')? name=ID? '{'
 	('type' jvmType=JvmTypeReference)?
 	('search' '{'
 	searchFields+=UiDialogSearchFieldAssignment*
