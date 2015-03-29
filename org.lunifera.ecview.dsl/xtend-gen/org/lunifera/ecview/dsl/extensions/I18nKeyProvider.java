@@ -549,9 +549,13 @@ public class I18nKeyProvider {
       boolean _not = (!_isEmpty);
       if (_not) {
         final JvmOperation op = ops.get(0);
-        final JvmType type = op.getDeclaringType();
-        boolean _equals = Objects.equal(type, null);
+        boolean _equals = Objects.equal(op, null);
         if (_equals) {
+          return null;
+        }
+        final JvmType type = op.getDeclaringType();
+        boolean _equals_1 = Objects.equal(type, null);
+        if (_equals_1) {
           return null;
         }
         String _qualifiedName = type.getQualifiedName();

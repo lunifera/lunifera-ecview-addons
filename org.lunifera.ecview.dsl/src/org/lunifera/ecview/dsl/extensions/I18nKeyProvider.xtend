@@ -247,6 +247,9 @@ class I18nKeyProvider {
 
 			if (!ops.empty) {
 				val JvmOperation op = ops.get(0)
+				if(op == null){
+					return null
+				}
 				val JvmType type = op.declaringType
 				if (type == null) {
 					return null
