@@ -42,6 +42,7 @@ import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroupAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout;
 import org.lunifera.ecview.semantic.uimodel.UiVerticalLayoutAssigment;
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment;
+import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator;
 
 /**
  * Customization of the default outline structure.
@@ -67,6 +68,10 @@ public class UIGrammarOutlineTreeProvider extends DefaultOutlineTreeProvider {
   }
   
   public boolean _isLeaf(final UiVisibilityProcessorAssignment object) {
+    return true;
+  }
+  
+  public boolean _isLeaf(final UiXbaseValidator object) {
     return true;
   }
   

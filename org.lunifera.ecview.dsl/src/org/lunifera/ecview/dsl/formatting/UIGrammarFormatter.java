@@ -29,6 +29,7 @@ import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiImageElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiLabelElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiListElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiMobileHorizontalButtonGroupElements;
+import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiMobileNavBarActionElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiMobileNavigationButtonElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiMobileNavigationCommandElements;
 import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiMobileNavigationPageElements;
@@ -76,7 +77,7 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap(0, 1, 2).before(f.getSL_COMMENTRule());
 		c.setLinewrap(0, 1, 2).after(f.getSL_COMMENTRule());
 		c.setLinewrap(0, 1, 2).before(f.getML_COMMENTRule());
-		c.setLinewrap(1, 1, 1).after(f.getML_COMMENTRule());
+		c.setLinewrap(0, 1, 2).after(f.getML_COMMENTRule());
 
 		// Modell
 		configureUiModel(c, f.getUiModelAccess());
@@ -142,6 +143,14 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		configureUiValidatorAlias(c, f.getUiValidatorAliasAccess());
 		// FieldValidation
 		configureUiFieldValidation(c, f.getUiValidatorAssignmentAccess());
+
+		c.setLinewrap(1, 1, 2).around(
+				f.getUiMaxLengthValidatorAccess().getRule());
+		c.setLinewrap(1, 1, 2).around(
+				f.getUiMinLengthValidatorAccess().getRule());
+		c.setLinewrap(1, 1, 2).around(f.getUiRegexpValidatorAccess().getRule());
+		c.setLinewrap(1, 1, 2).around(f.getUiXbaseValidatorAccess().getRule());
+
 		// GridLayout
 		configureUiGridLayout(c, f.getUiGridLayoutAccess());
 		// VerticalLayout
@@ -160,6 +169,9 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		// MobileNavigationButton
 		configureUiMobileNavigationButton(c,
 				f.getUiMobileNavigationButtonAccess());
+		// MobileNavBarAction
+		configureUiMobileNavigationButton(c, f.getUiMobileNavBarActionAccess());
+
 		// MobileNavigationPage
 		configureUiMobileNavigationPage(c, f.getUiMobileNavigationPageAccess());
 		// NavigateTo
@@ -337,7 +349,7 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 	private void configureUiFieldValidation(FormattingConfig c,
 			UiValidatorAssignmentElements ele) {
 		// Keywords
-		c.setLinewrap(1, 1, 2).before(ele.getFieldValidationKeyword_0());
+		c.setLinewrap(1, 1, 2).around(ele.getRule());
 	}
 
 	private void configureUiValidatorAlias(FormattingConfig c,
@@ -692,6 +704,12 @@ public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 		// Keywords
 		c.setLinewrap(1, 1, 2)
 				.before(ele.getUiMobileNavigationButtonAction_0());
+	}
+
+	private void configureUiMobileNavigationButton(FormattingConfig c,
+			UiMobileNavBarActionElements ele) {
+		// Keywords
+		c.setLinewrap(1, 1, 2).around(ele.getRule());
 	}
 
 	private void configureUiComboBoxAccess(FormattingConfig c,
