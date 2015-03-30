@@ -16,9 +16,12 @@ import org.lunifera.ecview.semantic.uimodel.UiHorizontalButtonGroup
 import org.lunifera.ecview.semantic.uimodel.UiHorizontalLayout
 import org.lunifera.ecview.semantic.uimodel.UiList
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRoot
+import org.lunifera.ecview.semantic.uimodel.UiMobileSearchPanel
 import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet
 import org.lunifera.ecview.semantic.uimodel.UiModel
 import org.lunifera.ecview.semantic.uimodel.UiOptionsGroup
+import org.lunifera.ecview.semantic.uimodel.UiSearchPanel
 import org.lunifera.ecview.semantic.uimodel.UiTabSheet
 import org.lunifera.ecview.semantic.uimodel.UiTable
 import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup
@@ -39,15 +42,15 @@ class UIGrammarOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	def _isLeaf(UiBeanSlot object) {
 		return true;
 	}
-	
+
 	def _isLeaf(UiBindingEndpointAlias object) {
 		return true;
 	}
-	
+
 	def _isLeaf(UiBeanReferenceField object) {
 		return true;
 	}
-	
+
 	def _isLeaf(UiVisibilityProcessorAssignment object) {
 		return true;
 	}
@@ -68,6 +71,15 @@ class UIGrammarOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	}
 
 	def void _createChildren(IOutlineNode parentNode, UiHorizontalLayout modelElement) {
+		for (childElement : modelElement.contents) {
+			createNode(parentNode, childElement.element);
+		}
+		for (binding : modelElement.bindings) {
+			createNode(parentNode, binding);
+		}
+	}
+
+	def void _createChildren(IOutlineNode parentNode, UiMobileNavigationRoot modelElement) {
 		for (childElement : modelElement.contents) {
 			createNode(parentNode, childElement.element);
 		}
@@ -115,6 +127,24 @@ class UIGrammarOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	def void _createChildren(IOutlineNode parentNode, UiMobileNavigationPage modelElement) {
 		for (childElement : modelElement.contents) {
 			createNode(parentNode, childElement.element);
+		}
+		for (binding : modelElement.bindings) {
+			createNode(parentNode, binding);
+		}
+	}
+
+	def void _createChildren(IOutlineNode parentNode, UiMobileSearchPanel modelElement) {
+		for (childElement : modelElement.contents) {
+			createNode(parentNode, childElement);
+		}
+		for (binding : modelElement.bindings) {
+			createNode(parentNode, binding);
+		}
+	}
+
+	def void _createChildren(IOutlineNode parentNode, UiSearchPanel modelElement) {
+		for (childElement : modelElement.contents) {
+			createNode(parentNode, childElement);
 		}
 		for (binding : modelElement.bindings) {
 			createNode(parentNode, binding);

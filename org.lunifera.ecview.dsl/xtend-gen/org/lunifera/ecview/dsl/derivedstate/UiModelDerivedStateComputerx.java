@@ -515,6 +515,12 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
   
   protected void _map(final UiMobileView object) {
     final YView yView = this.factory.createView();
+    QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(object);
+    String _string = _fullyQualifiedName.toString();
+    yView.setName(_string);
+    QualifiedName _fullyQualifiedName_1 = this._iQualifiedNameProvider.getFullyQualifiedName(object);
+    String _string_1 = _fullyQualifiedName_1.toString();
+    yView.setViewName(_string_1);
     String _sharedStateGroup = object.getSharedStateGroup();
     yView.setSharedStateGroup(_sharedStateGroup);
     yView.setDeviceType(YDeviceType.MOBILE);

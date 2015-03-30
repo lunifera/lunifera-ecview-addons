@@ -36,6 +36,7 @@ import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton;
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage;
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRoot;
 import org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet;
 import org.lunifera.ecview.semantic.uimodel.UiMobileView;
@@ -322,6 +323,18 @@ public class UIGrammarLabelProvider extends XbaseLabelProvider {
     return _xifexpression;
   }
   
+  public String text(final UiMobileNavigationRoot ele) {
+    String _xifexpression = null;
+    String _name = ele.getName();
+    boolean _notEquals = (!Objects.equal(_name, null));
+    if (_notEquals) {
+      _xifexpression = ele.getName();
+    } else {
+      _xifexpression = "Navigation Root";
+    }
+    return _xifexpression;
+  }
+  
   public String text(final UiTextField ele) {
     String _xifexpression = null;
     String _name = ele.getName();
@@ -342,6 +355,18 @@ public class UIGrammarLabelProvider extends XbaseLabelProvider {
       _xifexpression = ele.getName();
     } else {
       _xifexpression = "Table";
+    }
+    return _xifexpression;
+  }
+  
+  public String text(final UiSearchField ele) {
+    String _xifexpression = null;
+    String _name = ele.getName();
+    boolean _notEquals = (!Objects.equal(_name, null));
+    if (_notEquals) {
+      _xifexpression = ele.getName();
+    } else {
+      _xifexpression = "SearchField";
     }
     return _xifexpression;
   }
@@ -608,6 +633,10 @@ public class UIGrammarLabelProvider extends XbaseLabelProvider {
   
   public String image(final UiDialog ele) {
     return "UiDialog.png";
+  }
+  
+  public String image(final UiMobileNavigationRoot ele) {
+    return "UiMobileNavigationRoot.gif";
   }
   
   public String image(final UiMobileNavigationPage ele) {

@@ -380,6 +380,8 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 		// create a view instance
 		val YView yView = factory.createView
+		yView.name = object.fullyQualifiedName.toString
+		yView.viewName = object.fullyQualifiedName.toString
 		yView.sharedStateGroup = object.sharedStateGroup
 		yView.deviceType = YDeviceType.MOBILE
 		yView.contentAlignment = object.contentAlignment.toYAlignment

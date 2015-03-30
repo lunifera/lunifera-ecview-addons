@@ -35,6 +35,7 @@ import org.lunifera.ecview.semantic.uimodel.UiMaxLengthValidator
 import org.lunifera.ecview.semantic.uimodel.UiMinLengthValidator
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationButton
 import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationPage
+import org.lunifera.ecview.semantic.uimodel.UiMobileNavigationRoot
 import org.lunifera.ecview.semantic.uimodel.UiMobileTabAssignment
 import org.lunifera.ecview.semantic.uimodel.UiMobileTabSheet
 import org.lunifera.ecview.semantic.uimodel.UiMobileView
@@ -57,9 +58,8 @@ import org.lunifera.ecview.semantic.uimodel.UiVerticalComponentGroup
 import org.lunifera.ecview.semantic.uimodel.UiVerticalLayout
 import org.lunifera.ecview.semantic.uimodel.UiView
 import org.lunifera.ecview.semantic.uimodel.UiViewSet
-import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessor
-import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator
 import org.lunifera.ecview.semantic.uimodel.UiVisibilityProcessorAssignment
+import org.lunifera.ecview.semantic.uimodel.UiXbaseValidator
 
 /**
  * Provides labels for a EObjects.
@@ -138,7 +138,7 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 	}
 
 	def text(UiVisibilityProcessorAssignment ele) {
-		if(ele.processor == null){
+		if (ele.processor == null) {
 			return "VisibilityProcessor"
 		}
 		if(ele.processor.name != null) ele.processor.name + "VisibilityProcessor" else "VisibilityProcessor"
@@ -160,12 +160,20 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 		if(ele.name != null) ele.name else "Navigation Page"
 	}
 
+	def text(UiMobileNavigationRoot ele) {
+		if(ele.name != null) ele.name else "Navigation Root"
+	}
+
 	def text(UiTextField ele) {
 		if(ele.name != null) ele.name else "Textfield"
 	}
 
 	def text(UiTable ele) {
 		if(ele.name != null) ele.name else "Table"
+	}
+
+	def text(UiSearchField ele) {
+		if(ele.name != null) ele.name else "SearchField"
 	}
 
 	def text(UiComboBox ele) {
@@ -243,7 +251,7 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 	def image(UiMobileView ele) {
 		'UiView.gif'
 	}
-	
+
 	def image(UiVisibilityProcessorAssignment ele) {
 		'UiVisibilityProcessor.gif'
 	}
@@ -334,6 +342,10 @@ class UIGrammarLabelProvider extends XbaseLabelProvider {
 
 	def image(UiDialog ele) {
 		'UiDialog.png'
+	}
+
+	def image(UiMobileNavigationRoot ele) {
+		'UiMobileNavigationRoot.gif'
 	}
 
 	def image(UiMobileNavigationPage ele) {
