@@ -1,31 +1,26 @@
+/**
+ * Copyright (c) 2011 - 2015, Lunifera GmbH (Gross Enzersdorf), Loetz KG (Heidelberg)
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *         Florian Pirchner - Initial implementation
+ */
 package org.lunifera.ecview.dsl.extensions;
 
-import com.google.common.base.Objects;
-import org.eclipse.emf.common.util.TreeIterator;
+import java.util.Arrays;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.xtext.xbase.lib.IteratorExtensions;
-import org.lunifera.ecview.semantic.uimodel.UiBinding;
-import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
-import org.lunifera.ecview.semantic.uimodel.UiModel;
-import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
-import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
 
 @SuppressWarnings("all")
 public class BindingHelper {
-  protected UiBinding _findBinding(final UiEmbeddable embeddable) {
-    final UiModel uiModel = this.getUiModel(embeddable);
-    TreeIterator<EObject> _allContents = EcoreUtil.<EObject>getAllContents(uiModel, true);
-    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
-    for (final EObject object : _iterable) {
-      if ((object instanceof UiTypedBindableDef)) {
-        UiRawBindable _rawBindable = ((UiTypedBindableDef)object).getRawBindable();
-        boolean _equals = Objects.equal(_rawBindable, embeddable);
-        if (_equals) {
-        }
-      }
-    }
-    return null;
+  protected /* UiBinding */Object _findBinding(final /* UiEmbeddable */Object embeddable) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nUiTypedBindableDef cannot be resolved to a type."
+      + "\nThe method rawBindable is undefined for the type BindingHelper"
+      + "\nuiModel cannot be resolved"
+      + "\n== cannot be resolved");
   }
   
   /**
@@ -35,32 +30,24 @@ public class BindingHelper {
    * @return
    */
   public String getPackage(final EObject eObject) {
-    boolean _equals = Objects.equal(eObject, null);
-    if (_equals) {
-      return "";
-    }
-    if ((eObject instanceof UiModel)) {
-      return ((UiModel) eObject).getPackageName();
-    } else {
-      EObject _eContainer = eObject.eContainer();
-      return this.getPackage(_eContainer);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nUiModel cannot be resolved to a type."
+      + "\nUiModel cannot be resolved to a type."
+      + "\ngetPackageName cannot be resolved");
   }
   
-  public UiModel getUiModel(final EObject eObject) {
-    boolean _equals = Objects.equal(eObject, null);
-    if (_equals) {
-      return null;
-    }
-    if ((eObject instanceof UiModel)) {
-      return ((UiModel) eObject);
-    } else {
-      EObject _eContainer = eObject.eContainer();
-      return this.getUiModel(_eContainer);
-    }
+  public /* UiModel */Object getUiModel(final EObject eObject) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nUiModel cannot be resolved to a type."
+      + "\nUiModel cannot be resolved to a type.");
   }
   
   public UiBinding findBinding(final UiEmbeddable embeddable) {
-    return _findBinding(embeddable);
+    if (embeddable != null) {
+      return _findBinding(embeddable); else {
+        throw new IllegalArgumentException("Unhandled parameter types: " +
+          Arrays.<Object>asList(embeddable).toString());
+      }
+    }
   }
-}
+  

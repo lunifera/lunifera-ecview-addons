@@ -1,23 +1,20 @@
+/**
+ * Copyright (c) 2011 - 2015, Lunifera GmbH (Gross Enzersdorf), Loetz KG (Heidelberg)
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *         Florian Pirchner - Initial implementation
+ */
 package org.lunifera.ecview.dsl.extensions;
 
-import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import java.util.Arrays;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
-import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.lunifera.ecview.semantic.uimodel.UiColumn;
-import org.lunifera.ecview.semantic.uimodel.UiEmbeddable;
-import org.lunifera.ecview.semantic.uimodel.UiErrorCode;
-import org.lunifera.ecview.semantic.uimodel.UiExposedAction;
-import org.lunifera.ecview.semantic.uimodel.UiI18nInfo;
-import org.lunifera.ecview.semantic.uimodel.UiModel;
-import org.lunifera.ecview.semantic.uimodel.UiNamedElement;
-import org.lunifera.ecview.semantic.uimodel.UiNestedProperty;
-import org.lunifera.ecview.semantic.uimodel.UiSearchField;
-import org.lunifera.ecview.semantic.uimodel.UiTabAssignment;
-import org.lunifera.ecview.semantic.uisemantics.UxAction;
 
 @SuppressWarnings("all")
 public class I18nKeyProvider {
@@ -25,169 +22,128 @@ public class I18nKeyProvider {
   @Extension
   private IQualifiedNameProvider _iQualifiedNameProvider;
   
-  protected String _toI18nKey(final UiEmbeddable embeddable) {
-    final String currentPackage = this.getPackage(embeddable);
-    boolean _and = false;
-    UiI18nInfo _i18nInfo = embeddable.getI18nInfo();
-    boolean _notEquals = (!Objects.equal(_i18nInfo, null));
-    if (!_notEquals) {
-      _and = false;
-    } else {
-      UiI18nInfo _i18nInfo_1 = embeddable.getI18nInfo();
-      String _key = _i18nInfo_1.getKey();
-      boolean _notEquals_1 = (!Objects.equal(_key, null));
-      _and = _notEquals_1;
-    }
-    if (_and) {
-      UiI18nInfo _i18nInfo_2 = embeddable.getI18nInfo();
-      String _key_1 = _i18nInfo_2.getKey();
-      boolean _startsWith = _key_1.startsWith(".");
-      if (_startsWith) {
-        UiI18nInfo _i18nInfo_3 = embeddable.getI18nInfo();
-        String _key_2 = _i18nInfo_3.getKey();
-        return (currentPackage + _key_2);
-      } else {
-        UiI18nInfo _i18nInfo_4 = embeddable.getI18nInfo();
-        return _i18nInfo_4.getKey();
-      }
-    }
-    String _xifexpression = null;
-    String _name = embeddable.getName();
-    boolean _notEquals_2 = (!Objects.equal(_name, null));
-    if (_notEquals_2) {
-      String _name_1 = embeddable.getName();
-      _xifexpression = ("." + _name_1);
-    } else {
-      _xifexpression = "";
-    }
-    return (currentPackage + _xifexpression);
+  protected String _toI18nKey(final /* UiEmbeddable */Object embeddable) {
+    throw new Error("Unresolved compilation problems:"
+      + "\ngetPackage cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\n&& cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\nkey cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\nkey cannot be resolved"
+      + "\nstartsWith cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\nkey cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\nkey cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\nname cannot be resolved");
   }
   
-  protected String _toI18nKey(final UiColumn column) {
-    final String currentPackage = this.getPackage(column);
-    boolean _and = false;
-    UiI18nInfo _i18nInfo = column.getI18nInfo();
-    boolean _notEquals = (!Objects.equal(_i18nInfo, null));
-    if (!_notEquals) {
-      _and = false;
-    } else {
-      UiI18nInfo _i18nInfo_1 = column.getI18nInfo();
-      String _key = _i18nInfo_1.getKey();
-      boolean _notEquals_1 = (!Objects.equal(_key, null));
-      _and = _notEquals_1;
-    }
-    if (_and) {
-      UiI18nInfo _i18nInfo_2 = column.getI18nInfo();
-      String _key_1 = _i18nInfo_2.getKey();
-      boolean _startsWith = _key_1.startsWith(".");
-      if (_startsWith) {
-        UiI18nInfo _i18nInfo_3 = column.getI18nInfo();
-        String _key_2 = _i18nInfo_3.getKey();
-        return (currentPackage + _key_2);
-      } else {
-        UiI18nInfo _i18nInfo_4 = column.getI18nInfo();
-        return _i18nInfo_4.getKey();
-      }
-    } else {
-      final UiNestedProperty property = column.getProperty();
-      boolean _notEquals_2 = (!Objects.equal(property, null));
-      if (_notEquals_2) {
-        EObject _eContainer = column.eContainer();
-        EObject _eContainer_1 = _eContainer.eContainer();
-        final UiEmbeddable parent = ((UiEmbeddable) _eContainer_1);
-        String _name = parent.getName();
-        String _plus = ((currentPackage + ".") + _name);
-        String _plus_1 = (_plus + ".");
-        String _pathString = property.toPathString();
-        return (_plus_1 + _pathString);
-      }
-    }
-    String _name_1 = column.getName();
-    return ((currentPackage + ".") + _name_1);
+  protected String _toI18nKey(final /* UiColumn */Object column) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nUiNestedProperty cannot be resolved to a type."
+      + "\nUiEmbeddable cannot be resolved to a type."
+      + "\ngetPackage cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\n&& cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\nkey cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\nkey cannot be resolved"
+      + "\nstartsWith cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\nkey cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\nkey cannot be resolved"
+      + "\nproperty cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\neContainer cannot be resolved"
+      + "\neContainer cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\ntoPathString cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\nname cannot be resolved");
   }
   
-  protected String _toI18nKey(final UiExposedAction action) {
-    UxAction _actionReference = action.getActionReference();
-    boolean _notEquals = (!Objects.equal(_actionReference, null));
-    if (_notEquals) {
-      UxAction _actionReference_1 = action.getActionReference();
-      return _actionReference_1.getName();
-    } else {
-      return action.getActionID();
-    }
+  protected String _toI18nKey(final /* UiExposedAction */Object action) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nactionReference cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\nactionReference cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nactionID cannot be resolved");
   }
   
-  protected String _toI18nKey(final UiSearchField embeddable) {
-    final String currentPackage = this.getPackage(embeddable);
-    boolean _and = false;
-    UiI18nInfo _i18nInfo = embeddable.getI18nInfo();
-    boolean _notEquals = (!Objects.equal(_i18nInfo, null));
-    if (!_notEquals) {
-      _and = false;
-    } else {
-      UiI18nInfo _i18nInfo_1 = embeddable.getI18nInfo();
-      String _key = _i18nInfo_1.getKey();
-      boolean _notEquals_1 = (!Objects.equal(_key, null));
-      _and = _notEquals_1;
-    }
-    if (_and) {
-      UiI18nInfo _i18nInfo_2 = embeddable.getI18nInfo();
-      String _key_1 = _i18nInfo_2.getKey();
-      boolean _startsWith = _key_1.startsWith(".");
-      if (_startsWith) {
-        UiI18nInfo _i18nInfo_3 = embeddable.getI18nInfo();
-        String _key_2 = _i18nInfo_3.getKey();
-        return (currentPackage + _key_2);
-      } else {
-        UiI18nInfo _i18nInfo_4 = embeddable.getI18nInfo();
-        return _i18nInfo_4.getKey();
-      }
-    } else {
-      final UiNestedProperty property = embeddable.getProperty();
-      boolean _notEquals_2 = (!Objects.equal(property, null));
-      if (_notEquals_2) {
-        String _pathString = property.toPathString();
-        return ((currentPackage + ".search.") + _pathString);
-      }
-    }
-    String _name = embeddable.getName();
-    return ((currentPackage + ".") + _name);
+  protected String _toI18nKey(final /* UiSearchField */Object embeddable) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nUiNestedProperty cannot be resolved to a type."
+      + "\ngetPackage cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\n&& cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\nkey cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\nkey cannot be resolved"
+      + "\nstartsWith cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\nkey cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\nkey cannot be resolved"
+      + "\nproperty cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\ntoPathString cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\nname cannot be resolved");
   }
   
-  protected String _toI18nKey(final UiTabAssignment embeddable) {
-    final String currentPackage = this.getPackage(embeddable);
-    boolean _and = false;
-    UiI18nInfo _i18nInfo = embeddable.getI18nInfo();
-    boolean _notEquals = (!Objects.equal(_i18nInfo, null));
-    if (!_notEquals) {
-      _and = false;
-    } else {
-      UiI18nInfo _i18nInfo_1 = embeddable.getI18nInfo();
-      String _key = _i18nInfo_1.getKey();
-      boolean _notEquals_1 = (!Objects.equal(_key, null));
-      _and = _notEquals_1;
-    }
-    if (_and) {
-      UiI18nInfo _i18nInfo_2 = embeddable.getI18nInfo();
-      String _key_1 = _i18nInfo_2.getKey();
-      boolean _startsWith = _key_1.startsWith(".");
-      if (_startsWith) {
-        UiI18nInfo _i18nInfo_3 = embeddable.getI18nInfo();
-        String _key_2 = _i18nInfo_3.getKey();
-        return ((currentPackage + ".") + _key_2);
-      } else {
-        UiI18nInfo _i18nInfo_4 = embeddable.getI18nInfo();
-        return _i18nInfo_4.getKey();
-      }
-    }
-    String _name = embeddable.getName();
-    return ((currentPackage + ".") + _name);
+  protected String _toI18nKey(final /* UiTabAssignment */Object embeddable) {
+    throw new Error("Unresolved compilation problems:"
+      + "\ngetPackage cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\n&& cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\nkey cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\nkey cannot be resolved"
+      + "\nstartsWith cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\nkey cannot be resolved"
+      + "\ni18nInfo cannot be resolved"
+      + "\nkey cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\nname cannot be resolved");
   }
   
-  protected String _toI18nKey(final UiErrorCode code) {
-    final QualifiedName fqn = this._iQualifiedNameProvider.getFullyQualifiedName(code);
-    QualifiedName _skipLast = fqn.skipLast(1);
-    return _skipLast.toString();
+  protected String _toI18nKey(final /* UiErrorCode */Object code) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nfullyQualifiedName cannot be resolved"
+      + "\nskipLast cannot be resolved"
+      + "\ntoString cannot be resolved");
   }
   
   /**
@@ -197,34 +153,18 @@ public class I18nKeyProvider {
    * @return
    */
   public String getPackage(final EObject eObject) {
-    boolean _equals = Objects.equal(eObject, null);
-    if (_equals) {
-      return "";
-    }
-    if ((eObject instanceof UiModel)) {
-      return ((UiModel) eObject).getPackageName();
-    } else {
-      EObject _eContainer = eObject.eContainer();
-      return this.getPackage(_eContainer);
+    throw new Error("Unresolved compilation problems:"
+      + "\nUiModel cannot be resolved to a type."
+      + "\nUiModel cannot be resolved to a type."
+      + "\ngetPackageName cannot be resolved");
+  }
+  
+  public String toI18nKey(final UiEmbeddable embeddable) {
+    if (embeddable != null) {
+      return _toI18nKey(embeddable); else {
+        throw new IllegalArgumentException("Unhandled parameter types: " +
+          Arrays.<Object>asList(embeddable).toString());
+      }
     }
   }
   
-  public String toI18nKey(final UiNamedElement embeddable) {
-    if (embeddable instanceof UiSearchField) {
-      return _toI18nKey((UiSearchField)embeddable);
-    } else if (embeddable instanceof UiColumn) {
-      return _toI18nKey((UiColumn)embeddable);
-    } else if (embeddable instanceof UiExposedAction) {
-      return _toI18nKey((UiExposedAction)embeddable);
-    } else if (embeddable instanceof UiEmbeddable) {
-      return _toI18nKey((UiEmbeddable)embeddable);
-    } else if (embeddable instanceof UiTabAssignment) {
-      return _toI18nKey((UiTabAssignment)embeddable);
-    } else if (embeddable instanceof UiErrorCode) {
-      return _toI18nKey((UiErrorCode)embeddable);
-    } else {
-      throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(embeddable).toString());
-    }
-  }
-}
