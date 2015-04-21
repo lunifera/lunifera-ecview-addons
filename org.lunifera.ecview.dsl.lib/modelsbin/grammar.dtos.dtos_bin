@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dto:LDtoModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dto="http://www.lunifera.org/dsl/dto/v1" xmlns:types="http://www.lunifera.org/dsl/common/types/v1" xmlns:types_1="http://www.eclipse.org/xtext/common/JavaVMTypes">
+  <packages name="org.lunifera.ecview.dsl.lib">
+    <types xsi:type="types:LDataType" name="ECViewColor">
+      <jvmTypeReference xsi:type="types_1:JvmParameterizedTypeReference">
+        <type xsi:type="types_1:JvmEnumerationType" href="java:/Objects/org.lunifera.ecview.core.common.visibility.Color#org.lunifera.ecview.core.common.visibility.Color"/>
+      </jvmTypeReference>
+    </types>
+    <types xsi:type="dto:LDto" name="VisibilityOptions">
+      <annotationInfo xsi:type="dto:LDto"/>
+      <features xsi:type="dto:LDtoAttribute" name="foregroundColor" type="//@packages.0/@types.0">
+        <annotationInfo xsi:type="dto:LDtoFeature"/>
+      </features>
+      <features xsi:type="dto:LDtoAttribute" name="backgroundColor" type="//@packages.0/@types.0">
+        <annotationInfo xsi:type="dto:LDtoFeature"/>
+      </features>
+      <features xsi:type="dto:LDtoAttribute" name="editable">
+        <annotationInfo xsi:type="dto:LDtoFeature"/>
+        <type href="platform:/resource/org.lunifera.dsl.datatype.lib/src/org/lunifera/dsl/common/datatypes/baseElements.datatypes#/0/@packages.0/@types.0"/>
+      </features>
+      <features xsi:type="dto:LDtoAttribute" name="enabled">
+        <annotationInfo xsi:type="dto:LDtoFeature"/>
+        <type href="platform:/resource/org.lunifera.dsl.datatype.lib/src/org/lunifera/dsl/common/datatypes/baseElements.datatypes#/0/@packages.0/@types.0"/>
+      </features>
+      <features xsi:type="dto:LDtoAttribute" name="visible">
+        <annotationInfo xsi:type="dto:LDtoFeature"/>
+        <type href="platform:/resource/org.lunifera.dsl.datatype.lib/src/org/lunifera/dsl/common/datatypes/baseElements.datatypes#/0/@packages.0/@types.0"/>
+      </features>
+      <features xsi:type="dto:LDtoAttribute" name="bold">
+        <annotationInfo xsi:type="dto:LDtoFeature"/>
+        <type href="platform:/resource/org.lunifera.dsl.datatype.lib/src/org/lunifera/dsl/common/datatypes/baseElements.datatypes#/0/@packages.0/@types.0"/>
+      </features>
+      <features xsi:type="dto:LDtoAttribute" name="border">
+        <annotationInfo xsi:type="dto:LDtoFeature"/>
+        <type href="platform:/resource/org.lunifera.dsl.datatype.lib/src/org/lunifera/dsl/common/datatypes/baseElements.datatypes#/0/@packages.0/@types.0"/>
+      </features>
+      <features xsi:type="dto:LDtoAttribute" name="italic">
+        <annotationInfo xsi:type="dto:LDtoFeature"/>
+        <type href="platform:/resource/org.lunifera.dsl.datatype.lib/src/org/lunifera/dsl/common/datatypes/baseElements.datatypes#/0/@packages.0/@types.0"/>
+      </features>
+      <features xsi:type="dto:LDtoAttribute" name="strikethrough">
+        <annotationInfo xsi:type="dto:LDtoFeature"/>
+        <type href="platform:/resource/org.lunifera.dsl.datatype.lib/src/org/lunifera/dsl/common/datatypes/baseElements.datatypes#/0/@packages.0/@types.0"/>
+      </features>
+      <features xsi:type="dto:LDtoAttribute" name="underline">
+        <annotationInfo xsi:type="dto:LDtoFeature"/>
+        <type href="platform:/resource/org.lunifera.dsl.datatype.lib/src/org/lunifera/dsl/common/datatypes/baseElements.datatypes#/0/@packages.0/@types.0"/>
+      </features>
+    </types>
+  </packages>
+</dto:LDtoModel>
