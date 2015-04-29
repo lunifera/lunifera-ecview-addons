@@ -15,4 +15,3 @@ package org.lunifera.ecview.dsl.lib {
 		var boolean underline;
 	}
 }
- 

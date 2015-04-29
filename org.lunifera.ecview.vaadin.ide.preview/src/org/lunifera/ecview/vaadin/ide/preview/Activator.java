@@ -4,9 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
 
 import javax.servlet.ServletException;
 
@@ -75,9 +72,6 @@ public class Activator extends AbstractUIPlugin implements BundleListener {
 	// data exchange handler
 	private IDEPreviewHandler idePreviewHandler;
 	private MobilePreviewHandler mobilePreviewHandler;
-
-	// I18n properties
-	private Map<String, Properties> i18nProperties = new HashMap<String, Properties>();
 
 	public void start(BundleContext bundleContext) throws Exception {
 		super.start(bundleContext);

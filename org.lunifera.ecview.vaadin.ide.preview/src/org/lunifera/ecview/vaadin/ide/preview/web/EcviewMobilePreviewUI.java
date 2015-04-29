@@ -63,7 +63,7 @@ import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.themes.Reindeer;
 
-@SuppressWarnings("serial")
+@SuppressWarnings({ "serial", "restriction" })
 @Theme("mobiletheme")
 @Widgetset("org.lunifera.mobile.vaadin.widgetset.LuniferaMobileWidget")
 @PreserveOnRefresh
@@ -118,7 +118,6 @@ public class EcviewMobilePreviewUI extends UI {
 
 	public void modelChanged() {
 		access(new Runnable() {
-			@SuppressWarnings("restriction")
 			@Override
 			public void run() {
 				synchronized (this) {
@@ -274,6 +273,7 @@ public class EcviewMobilePreviewUI extends UI {
 		}
 
 		context.exec(new Runnable() {
+			@SuppressWarnings("unchecked")
 			@Override
 			public void run() {
 				if (selectedComponent != null) {
@@ -281,6 +281,7 @@ public class EcviewMobilePreviewUI extends UI {
 					selectedComponent = null;
 				}
 
+				@SuppressWarnings("rawtypes")
 				IWidgetAssocationsService service = context
 						.getService(IWidgetAssocationsService.ID);
 				selectedComponent = (Component) service.getWidget(element);

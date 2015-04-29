@@ -13,7 +13,6 @@ import org.lunifera.ecview.semantic.uimodel.UiBinding;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAlias;
 import org.lunifera.ecview.semantic.uimodel.UiBindingEndpointAssignment;
 import org.lunifera.ecview.semantic.uimodel.UiModelPackage;
-import org.lunifera.ecview.semantic.uimodel.UiRawBindable;
 import org.lunifera.ecview.semantic.uimodel.UiTypedBindableDef;
 import org.lunifera.ecview.semantic.uisemantics.UxElementDefinition;
 import org.lunifera.ecview.semantic.uisemantics.UxEndpointDef;
@@ -40,8 +39,8 @@ public class BindingAliasScope extends AbstractScope {
 					.getSource();
 			UxEndpointDef uxSourceEndpointDef = (UxEndpointDef) sourceTypedBindableDef
 					.getMethod();
-			UiRawBindable bindable = sourceTypedBindableDef
-					.getRawBindablePath().getRawBindableOfLastSegment();
+//			UiRawBindable bindable = sourceTypedBindableDef
+//					.getRawBindablePath().getRawBindableOfLastSegment();
 			if (uxSourceEndpointDef == null) {
 				return parent.getAllElements();
 			}

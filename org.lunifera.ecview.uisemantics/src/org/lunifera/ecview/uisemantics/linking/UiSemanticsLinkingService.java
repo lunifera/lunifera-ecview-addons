@@ -108,6 +108,7 @@ public class UiSemanticsLinkingService extends DefaultLinkingService {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private EPackage findPackageInAllDescriptions(EObject context,
 			QualifiedName packageNsURI) {
 		IResourceDescriptions descriptions = descriptionsProvider
@@ -138,6 +139,7 @@ public class UiSemanticsLinkingService extends DefaultLinkingService {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private EPackage findPackageInScope(EObject context,
 			QualifiedName packageNsURI) {
 		IScope scopedPackages = scopeProvider.getScope(context.eResource(),

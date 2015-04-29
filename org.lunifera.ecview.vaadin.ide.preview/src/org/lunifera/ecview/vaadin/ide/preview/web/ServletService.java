@@ -20,6 +20,7 @@ import com.vaadin.server.ServiceException;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.server.VaadinServletService;
 
+@SuppressWarnings("serial")
 public class ServletService extends VaadinServletService {
 
 	public ServletService(VaadinServlet servlet,

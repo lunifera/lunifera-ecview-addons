@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.annotation.PreDestroy;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.IconifyAction;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IPath;

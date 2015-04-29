@@ -36,6 +36,7 @@ import com.google.inject.Singleton;
 
 /**
  */
+@SuppressWarnings("restriction")
 @Singleton
 public class ECViewVaadinSynchronizer implements IPartListener,
 		IXtextModelListener, ISelectionChangedListener {
@@ -61,7 +62,6 @@ public class ECViewVaadinSynchronizer implements IPartListener,
 	}
 
 	public void selectInXtextEditor(EObject element) {
-		@SuppressWarnings("restriction")
 		EObject grammarElement = UiModelGrammarUtil
 				.getUiGrammarElement(element);
 		if (grammarElement != null) {

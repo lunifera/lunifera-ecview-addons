@@ -53,7 +53,7 @@ import com.google.inject.Inject;
  * Lunifera uses ECView files directly and does not derive them from the
  * UiDSL-Model. If you have interest using this feature, just provide that class
  * as an OSGi service.
- */
+ */ 
 @Component(service = { IBuilderParticipant.class })
 public class ECViewBuilderParticipant extends AbstractBuilderParticipant
 		implements BundleListener {

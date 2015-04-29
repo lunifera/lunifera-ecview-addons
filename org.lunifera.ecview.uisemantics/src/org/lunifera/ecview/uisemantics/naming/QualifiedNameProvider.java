@@ -10,6 +10,7 @@ import org.lunifera.ecview.semantic.uisemantics.UxEPackageImport;
 
 import com.google.inject.Inject;
 
+@SuppressWarnings("restriction")
 public class QualifiedNameProvider extends XbaseQualifiedNameProvider {
 
 	@Inject

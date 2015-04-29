@@ -164,6 +164,7 @@ public class ScopeProvider extends XbaseBatchScopeProvider {
 	 * @param context
 	 * @return
 	 */
+	@SuppressWarnings("unused")
 	private IScope createUiColumnJvmOperationScope(EObject context) {
 		UiTable table = (UiTable) context.eContainer().eContainer();
 		JvmTypeReference expectedType = typeProvider.getTypeReference(table,

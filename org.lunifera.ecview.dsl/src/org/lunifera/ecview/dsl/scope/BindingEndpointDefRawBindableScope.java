@@ -17,6 +17,7 @@ import org.lunifera.ecview.semantic.uimodel.UiView;
 public class BindingEndpointDefRawBindableScope extends AbstractScope {
 
 	private EObject context;
+	@SuppressWarnings("unused")
 	private IQualifiedNameProvider nameProvider;
 
 	protected BindingEndpointDefRawBindableScope(EObject context,

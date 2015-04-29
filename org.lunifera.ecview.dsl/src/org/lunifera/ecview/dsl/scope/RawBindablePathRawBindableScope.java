@@ -20,6 +20,7 @@ import org.lunifera.ecview.semantic.uimodel.UiView;
 public class RawBindablePathRawBindableScope extends AbstractScope {
 
 	private EObject context;
+	@SuppressWarnings("unused")
 	private IQualifiedNameProvider nameProvider;
 
 	protected RawBindablePathRawBindableScope(EObject context,
@@ -128,18 +129,6 @@ public class RawBindablePathRawBindableScope extends AbstractScope {
 
 	private boolean isValid(String value) {
 		return value != null && !value.equals("");
-	}
-
-	/**
-	 * Collects the fully qualified name for the element from the current up to
-	 * the view.
-	 * 
-	 * @param element
-	 * @return
-	 */
-	private String collectFQN(EObject element) {
-
-		return null;
 	}
 
 	private UiRawBindable findRawBindableParent(EObject eObject) {

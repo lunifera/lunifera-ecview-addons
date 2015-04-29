@@ -59,6 +59,7 @@ import org.lunifera.ecview.dsl.services.UIGrammarGrammarAccess.UiXbaseVisibility
 
 import com.google.inject.Inject;
 
+@SuppressWarnings({"restriction", "deprecation", "unused"})
 public class UIGrammarFormatter extends AbstractDeclarativeFormatter {
 
 	@Inject
