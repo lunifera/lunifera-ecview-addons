@@ -71,6 +71,7 @@ import org.lunifera.ecview.core.^extension.model.^extension.YProgressBar
 import org.lunifera.ecview.core.^extension.model.^extension.YRemoveFromTableCommand
 import org.lunifera.ecview.core.^extension.model.^extension.YSearchPanel
 import org.lunifera.ecview.core.^extension.model.^extension.YSelectionType
+import org.lunifera.ecview.core.^extension.model.^extension.YSetNewBeanInstanceCommand
 import org.lunifera.ecview.core.^extension.model.^extension.YSplitPanel
 import org.lunifera.ecview.core.^extension.model.^extension.YTab
 import org.lunifera.ecview.core.^extension.model.^extension.YTabSheet
@@ -79,8 +80,8 @@ import org.lunifera.ecview.core.^extension.model.^extension.YTextArea
 import org.lunifera.ecview.core.^extension.model.^extension.YTextField
 import org.lunifera.ecview.core.^extension.model.^extension.YVerticalLayout
 import org.lunifera.ecview.core.^extension.model.^extension.util.SimpleExtensionModelFactory
+import org.lunifera.ecview.dsl.autowire.hook.ExtensionsAutowireDelegate
 import org.lunifera.ecview.dsl.extensions.BeanHelper
-import org.lunifera.ecview.dsl.extensions.BindableTypeProvider
 import org.lunifera.ecview.dsl.extensions.BindingInfoHelper
 import org.lunifera.ecview.dsl.extensions.I18nKeyProvider
 import org.lunifera.ecview.dsl.extensions.OperationExtensions
@@ -153,6 +154,7 @@ import org.lunifera.ecview.semantic.uimodel.UiSearchPanel
 import org.lunifera.ecview.semantic.uimodel.UiSearchWithDialogCommand
 import org.lunifera.ecview.semantic.uimodel.UiSelectionType
 import org.lunifera.ecview.semantic.uimodel.UiSendEventCommand
+import org.lunifera.ecview.semantic.uimodel.UiSetNewInstanceCommand
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanel
 import org.lunifera.ecview.semantic.uimodel.UiSplitpanelAssigment
 import org.lunifera.ecview.semantic.uimodel.UiSwitch
@@ -188,10 +190,6 @@ import org.lunifera.xtext.builder.types.loader.api.ITypeLoader
 import org.lunifera.xtext.builder.types.loader.api.ITypeLoaderFactory
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import org.lunifera.runtime.common.metric.TimeLogger
-import org.lunifera.ecview.dsl.autowire.hook.ExtensionsAutowireDelegate
-import org.lunifera.ecview.semantic.uimodel.UiSetNewInstanceCommand
-import org.lunifera.ecview.core.^extension.model.^extension.YSetNewBeanInstanceCommand
 
 @SuppressWarnings("restriction")
 class UiModelDerivedStateComputerx extends JvmModelAssociator {
@@ -323,7 +321,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		yView.name = object.fullyQualifiedName.toString
 		yView.viewName = object.fullyQualifiedName.toString
 		yView.sharedStateGroup = object.sharedStateGroup
-		yView.category = if(object.viewCategory != null) object.viewCategory.name else null 
+		yView.category = if(object.viewCategory != null) object.viewCategory.name else null
 		yView.contentAlignment = object.contentAlignment.toYAlignment
 		object.associateUi(yView)
 		views += yView
@@ -1462,10 +1460,10 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			yAction.icon = object.toI18nKey + ".image"
 		}
 		yAction.checkDirty = object.checkDirty
-		if(object.externalCommandId != null) {
+		if (object.externalCommandId != null) {
 			yAction.externalCommandId = object.externalCommandId
 		}
-		
+
 		object.associateUi(yAction)
 
 		object.bindings.forEach [
@@ -1886,7 +1884,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		val UiNestedProperty property = eObject.property
 		if (property != null) {
 			val JvmType type = property.typeofLastSegment
-			if(type == null){
+			if (type == null) {
 				return null
 			}
 
@@ -2490,7 +2488,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 
 			yCommand.target = targetEP.createValueBindingEndpoint
 			if (command.jvmType != null) {
-				
+
 				yCommand.typeQualifiedName = command.jvmType.qualifiedName
 				yCommand.type = loadClass(command.eResource.resourceSet, command.jvmType.qualifiedName)
 			} else {
@@ -2575,7 +2573,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 		}
 	}
 
-	def loadClass(ResourceSet resourceSet, String qualifiedName) {
+	def Class<?> loadClass(ResourceSet resourceSet, String qualifiedName) {
 		return typeLoader.findTypeByName(qualifiedName)
 	}
 
