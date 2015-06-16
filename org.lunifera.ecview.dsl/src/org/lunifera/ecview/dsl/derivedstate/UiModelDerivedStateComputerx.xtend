@@ -272,7 +272,7 @@ class UiModelDerivedStateComputerx extends JvmModelAssociator {
 			}
 
 			if (views.size > 0) {
-				resource.contents += views.get(0)
+				resource.contents.addAll(views)
 			}
 			views.clear
 			viewContext.clear

@@ -353,8 +353,7 @@ public class UiModelDerivedStateComputerx extends JvmModelAssociator {
       boolean _greaterThan = (_size > 0);
       if (_greaterThan) {
         EList<EObject> _contents_2 = resource.getContents();
-        YView _get_1 = this.views.get(0);
-        _contents_2.add(_get_1);
+        _contents_2.addAll(this.views);
       }
       this.views.clear();
       this.viewContext.clear();

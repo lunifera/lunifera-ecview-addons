@@ -47,7 +47,7 @@ public class I18nBuilderParticipant extends AbstractBuilderParticipant
 	@Inject
 	private IMetadataBuilderService metadataBuilderService;
 	@Inject
-	private I18nRegistry i18nRegistry;
+	private InjectableI18nRegistry i18nRegistry;
 
 	private ComponentContext context;
 	private ServiceRegistration<II18nService> i18nServiceRegister;
@@ -154,9 +154,9 @@ public class I18nBuilderParticipant extends AbstractBuilderParticipant
 
 	@Override
 	public void bundleChanged(BundleEvent event) {
-		if (event.getType() == BundleEvent.UNINSTALLED) {
+		if (event.getType() == BundleEvent.RESOLVED) {
 			registerTranslations(event.getBundle());
-		} else if (event.getType() == BundleEvent.RESOLVED) {
+		} else if (event.getType() == BundleEvent.UNINSTALLED) {
 			unregisterTranslations(event.getBundle());
 		}
 	}
