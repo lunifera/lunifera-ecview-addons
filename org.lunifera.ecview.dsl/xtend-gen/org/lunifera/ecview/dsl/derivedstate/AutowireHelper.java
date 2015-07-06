@@ -1,9 +1,20 @@
+/**
+ * Copyright (c) 2011 - 2015, Lunifera GmbH (Gross Enzersdorf), Loetz KG (Heidelberg)
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *         Florian Pirchner - Initial implementation
+ */
 package org.lunifera.ecview.dsl.derivedstate;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import java.util.Collection;
 import java.util.Map;
+import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -17,8 +28,6 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.common.types.JvmVoid;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.InputOutput;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.lunifera.ecview.core.common.model.binding.BindingFactory;
 import org.lunifera.ecview.core.common.model.binding.YBinding;
 import org.lunifera.ecview.core.common.model.binding.YBindingSet;
@@ -165,8 +174,8 @@ public class AutowireHelper implements IAutowireDelegate {
     this.beanType = ((JvmDeclaredType) temp);
     final Map<String, OperationExtensions.OperationInfo> opInfo = OperationExtensions.getOperationInfos(this.beanType);
     Collection<OperationExtensions.OperationInfo> _values = opInfo.values();
-    final Procedure1<OperationExtensions.OperationInfo> _function = new Procedure1<OperationExtensions.OperationInfo>() {
-      public void apply(final OperationExtensions.OperationInfo it) {
+    final Consumer<OperationExtensions.OperationInfo> _function = new Consumer<OperationExtensions.OperationInfo>() {
+      public void accept(final OperationExtensions.OperationInfo it) {
         JvmOperation _getter = it.getGetter();
         JvmTypeReference _returnType = _getter.getReturnType();
         boolean _equals = Objects.equal(_returnType, null);
@@ -216,7 +225,7 @@ public class AutowireHelper implements IAutowireDelegate {
         }
       }
     };
-    IterableExtensions.<OperationExtensions.OperationInfo>forEach(_values, _function);
+    _values.forEach(_function);
     logger.stop("Autowiring took: ");
     final String x = logger.toString();
     InputOutput.<String>println(x);
