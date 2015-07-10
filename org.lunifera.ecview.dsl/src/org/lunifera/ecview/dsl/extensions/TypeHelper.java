@@ -201,7 +201,7 @@ public class TypeHelper {
 		return false;
 	}
 
-	protected boolean isCollection(JvmField field) {
+	public boolean isCollection(JvmField field) {
 		JvmType fieldType = field.getType().getType();
 		if (!(fieldType instanceof JvmDeclaredType)) {
 			// in case of proxy
