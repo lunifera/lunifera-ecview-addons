@@ -3,12 +3,13 @@ package org.lunifera.ecview.dsl.lib;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
+import org.lunifera.dsl.common.datatypes.IDto;
 import org.lunifera.dsl.dto.lib.MappingContext;
 import org.lunifera.ecview.core.common.visibility.Color;
 import org.lunifera.runtime.common.annotations.Dispose;
 
 @SuppressWarnings("all")
-public class VisibilityOptions implements Serializable, PropertyChangeListener {
+public class VisibilityOptions implements IDto, Serializable, PropertyChangeListener {
   private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
   
   @Dispose
