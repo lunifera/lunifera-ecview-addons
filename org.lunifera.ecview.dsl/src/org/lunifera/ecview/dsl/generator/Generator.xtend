@@ -26,14 +26,14 @@ class Generator extends DelegatingGenerator {
 
 		super.doGenerate(input, fsa)
 
-		val XMLResource outputRes = new XMLResourceImpl
-		val YView yView = input.contents.get(input.contents.size - 1) as YView
-		outputRes.contents += EcoreUtil.copy(yView)
+		for (YView yView : input.contents.filter(typeof(YView))) {
+			val XMLResource outputRes = new XMLResourceImpl
+			outputRes.contents += EcoreUtil.copy(yView)
 
-		val Writer writer = new StringWriter
-		outputRes.save(writer, null)
+			val Writer writer = new StringWriter
+			outputRes.save(writer, null)
 
-		fsa.generateFile(yView.viewName + ".ecview", "ECViews", writer.toString)
+			fsa.generateFile(yView.viewName + ".ecview", "ECViews", writer.toString)
+		}
 	}
-
 }
