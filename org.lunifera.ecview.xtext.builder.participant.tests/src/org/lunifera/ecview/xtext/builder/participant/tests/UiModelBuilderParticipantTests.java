@@ -10,15 +10,17 @@
  */
 package org.lunifera.ecview.xtext.builder.participant.tests;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.knowhowlab.osgi.testing.assertions.OSGiAssert.setDefaultBundleContext;
 import static org.knowhowlab.osgi.testing.utils.ServiceUtils.getService;
 
-import org.lunifera.ecview.core.common.model.core.YViewSet;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.knowhowlab.osgi.testing.utils.BundleUtils;
+import org.lunifera.ecview.core.common.model.core.YView;
 import org.lunifera.ecview.xtext.builder.participant.IECViewAddonsMetadataService;
 import org.lunifera.xtext.builder.metadata.services.IMetadataBuilderService;
 import org.osgi.framework.BundleException;
@@ -34,6 +36,9 @@ public class UiModelBuilderParticipantTests {
 		setDefaultBundleContext(Activator.context);
 
 		BundleUtils.startBundleAsync(Activator.context,
+				"org.lunifera.ecview.xtext.builder.participant");
+		
+		BundleUtils.startBundleAsync(Activator.context,
 				"org.lunifera.xtext.builder.metadata.services");
 		IMetadataBuilderService service = getService(Activator.context,
 				IMetadataBuilderService.class, TIME_15000);
@@ -47,10 +52,12 @@ public class UiModelBuilderParticipantTests {
 				IECViewAddonsMetadataService.class, TIME_1000);
 		assertNotNull(service);
 
-		YViewSet viewSet = service.getViewSetMetadata(VIEWSET_FQN);
-		assertEquals("myViewSet", viewSet.getName());
-		assertEquals("my.types.MyDto", viewSet.getBeanSlots().get(0).getValueTypeQualifiedName());
-		
+		YView view = service.getViewMetadata("org.my.test.haha");
+		assertNotNull(view);
+
+		List<String> names = service.getIDEViewNames("org.my.test", true);
+		assertTrue(names.contains("org.my.test.haha"));
+		assertTrue(names.contains("org.my.test.child.huhu"));
 
 	}
 

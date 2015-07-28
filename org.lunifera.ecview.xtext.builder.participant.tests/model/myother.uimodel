@@ -1,6 +1,6 @@
-package org.my.test
+package org.my.test.child
 
-ideview haha {
+ideview huhu {
 	gridlayout iii {
 		textfield name {
 		}

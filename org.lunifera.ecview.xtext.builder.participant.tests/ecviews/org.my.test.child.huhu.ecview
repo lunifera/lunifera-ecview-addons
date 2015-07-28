@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<core:YView xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://lunifera.org/ecview/v1/core/view" xmlns:datatypes="http://lunifera.org/ecview/v1/extension/datatypes" xmlns:extension="http://lunifera.org/ecview/v1/extension/view" name="org.my.test.child.huhu" viewName="org.my.test.child.huhu" contentAlignment="UNDEFINED">
+  <content xsi:type="extension:YGridLayout" id="huhu.iii" name="iii">
+    <elements xsi:type="extension:YTextField" id="huhu.iii.name" name="name" datatype="//@content/@elements.0/@orphanDatatypes.0" datadescription="//@content/@elements.0/@orphanDatadescriptions.0">
+      <orphanDatatypes xsi:type="datatypes:YTextDatatype" maxLength="-1" minLength="-1"/>
+      <orphanDatadescriptions label="name" labelI18nKey="org.my.test.child.name"/>
+    </elements>
+  </content>
+</core:YView>

@@ -21,9 +21,15 @@ Require-Bundle: com.google.guava;bundle-version="[10.0.0,19.0.0)",
  org.lunifera.ecview.core.common.model;bundle-version="[0.9.0,0.10.0)",
  org.lunifera.ecview.core.extension.model;bundle-version="[0.9.0,0.10.0)",
  org.lunifera.ecview.dsl;bundle-version="[0.9.0,0.10.0)",
- org.lunifera.ecview.xtext.builder.participant;bundle-version="[0.9.0,0.10.0)"
+ org.lunifera.ecview.xtext.builder.participant;bundle-version="[0.9.0,0.10.0)",
+ org.lunifera.ecview.core.common;bundle-version="0.9.1",
+ org.lunifera.runtime.common;bundle-version="0.9.1",
+ org.lunifera.dsl.dto.lib;bundle-version="0.9.1",
+ org.lunifera.dsl.datatype.lib;bundle-version="0.9.1",
+ org.lunifera.ecview.dsl.lib;bundle-version="0.9.1"
 Import-Package: org.osgi.framework;version="1.7.0",
  org.osgi.service.component;version="1.2.0",
  org.osgi.service.component.annotations;version="1.2.0",
  org.slf4j;version="1.7.2"
 Bundle-Activator: org.lunifera.ecview.xtext.builder.participant.tests.Activator
+Lun-ECView-I18nProvider: 
