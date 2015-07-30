@@ -20,7 +20,7 @@ import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociator
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import org.lunifera.ecview.core.common.context.II18nService
-import org.lunifera.ecview.core.common.validation.IStatus
+import org.lunifera.runtime.common.validation.IStatus
 import org.lunifera.ecview.core.common.validation.IValidator
 import org.lunifera.ecview.core.common.visibility.IVisibilityHandler
 import org.lunifera.ecview.core.common.visibility.IVisibilityManager
