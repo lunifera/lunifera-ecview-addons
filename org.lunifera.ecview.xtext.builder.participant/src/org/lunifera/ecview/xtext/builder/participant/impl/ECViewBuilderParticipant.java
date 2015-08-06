@@ -229,7 +229,7 @@ public class ECViewBuilderParticipant extends AbstractBuilderParticipant
 	public void notifyLifecyle(LifecycleEvent event) {
 		if (event.getState() == IBuilderParticipant.LifecycleEvent.INITIALIZE) {
 			initializeMetaModels();
-		} else if (event.getState() == IBuilderParticipant.LifecycleEvent.BUNDLES_SCANNED) {
+		} else if (event.getState() == IBuilderParticipant.LifecycleEvent.ACTIVATED) {
 			viewService = new ViewService();
 			viewServiceRegister = context.getBundleContext().registerService(
 					IECViewAddonsMetadataService.class, viewService, null);
